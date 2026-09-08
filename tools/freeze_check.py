@@ -55,6 +55,19 @@ FROZEN_NUMBERS = (
 )
 
 
+def _newest_freeze_tag():
+    """The most recent ``preregister-tier0-*`` tag reachable from HEAD."""
+    import subprocess
+
+    described = subprocess.run(
+        ["git", "describe", "--tags", "--abbrev=0", "--match", "preregister-tier0-*"],
+        cwd=REPO_ROOT, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+    )
+    if described.returncode == 0 and described.stdout.strip():
+        return described.stdout.decode("utf-8").strip()
+    return "preregister-tier0-v2.2"
+
+
 def _load_result(directory, name):
     path = os.path.join(directory, name)
     if not os.path.exists(path):
@@ -155,7 +168,10 @@ def check(results_dir):
     print("\n4. Frozen-file and ancestry verification")
     from experiments import verify_freeze as vf
 
-    tag = os.environ.get("GCIR_FREEZE_TAG", "preregister-tier0-v2")
+    # Resolve the governing freeze tag rather than hardcoding one: a hardcoded
+    # default goes stale the moment a freeze is incremented, and this file is
+    # itself frozen, so it must not need editing when that happens.
+    tag = os.environ.get("GCIR_FREEZE_TAG") or _newest_freeze_tag()
     freeze_commit = vf.git("rev-list", "-n", "1", tag)
     if freeze_commit is None:
         record("freeze tag %r exists" % tag, False,
