@@ -8,6 +8,8 @@ manuscript, against what the executed artifact actually measured.
 `preregister-tier0-v1`
 **Environment:** macOS 26.6.2 arm64, CPython 3.11.15; jsonschema 4.23.0,
 cryptography 44.0.0, numpy 2.2.1, hypothesis 6.122.3, pytest 8.3.4.
+**Second environment (determinism only):** pinned container, Linux 6.12.76
+aarch64, glibc 2.36, CPython 3.11.11 — same reference hashes, TD = 1.000 (60/60).
 **Evidence:** `results/final/` — every value below is read from a file in that
 directory, and `results/final/SUMMARY.md` is generated from those files.
 
@@ -40,9 +42,9 @@ directory, and `results/final/SUMMARY.md` is generated from those files.
 | # | Paper location | Current manuscript text/value | Measured value | Evidence file | Recommended replacement | Reason |
 |---|---|---|---|---|---|---|
 | B1 | Abstract | "translation determinism of 1.000 over 31 compilation runs" | **1.000 over 60 runs (30 per case)** | `determinism_summary.json`, `determinism_runs.csv` | "translation determinism of 1.000 over 60 compilation runs (30 per case)" | ⚠️ **CHANGE REQUIRED** — value confirmed, count is now higher |
-| B2 | XI-B table | `TD ... 1.000 (31/31 runs, pinned container)` | **1.000 (60/60 runs)**, executed on a macOS 26.6.2 arm64 host under CPython 3.11.15 | `determinism_summary.json` | `1.000 (60/60 runs; 30 per case)` and replace "pinned container" with the actual environment | ⚠️ **CHANGE REQUIRED** — the runs reported here were executed on a host, not inside the container. A pinned container is *provided* (`Dockerfile`, base image pinned by digest) and CI builds and runs it, but the 60 reported runs are host runs. |
-| B3 | XI-H | "Measured: TD = 1.000 over 31 compilation runs — repeated runs, key and row reorderings, and locale and time-zone variation — executed inside the pinned reproducible container." | **1.000 over 60 runs** across: key ordering (reverse/shuffle/rotate over every object in every input), risk-row, obligation, ACS, disposition, judgment-selection, catalog, invariant and authority-matrix ordering; integer→float numeric re-encoding; 5 locales (C, en_US, de_DE, tr_TR, ja_JP); 5 time zones (UTC, America/Edmonton, Asia/Kolkata, Pacific/Chatham, Europe/Berlin); and clean-process execution with a varying `PYTHONHASHSEED` | `determinism_runs.csv` | See `MEASURED_RESULTS.md` §Determinism for publication-ready wording | ⚠️ **CHANGE REQUIRED** — more runs, more dimensions, different environment claim |
-| B4 | XII (Determinism scope) | "Environment-independence is measured inside a pinned reproducible container... replication across independently installed host operating systems is not yet reported" | Cross-platform CI **is configured** (`.github/workflows/determinism.yml`: ubuntu / windows / macOS × Python 3.11 / 3.12, each with a distinct locale and time zone, all compared against committed reference hashes) but **has not yet executed**, because the repository has not been pushed. | `results/final/CI_STATUS.md` | Keep the limitation as stated until the CI matrix has actually passed; then narrow it to "deterministic across the tested supported environments". **Do not claim cross-platform determinism before the workflow runs green.** | ⚠️ **STATUS UNCHANGED — do not upgrade the claim yet** |
+| B2 | XI-B table | `TD ... 1.000 (31/31 runs, pinned container)` | **1.000 (60/60 runs)** on the macOS host, and **1.000 (60/60 runs)** independently inside the pinned Linux container | `determinism_summary.json`; `cross_environment/determinism_summary_container_linux.json` | `1.000 (60/60 runs; 30 per case, reproduced on two operating systems)` | ⚠️ **CHANGE REQUIRED** — the count changes and the environment description is now stronger than "pinned container": the full run was reproduced on the host *and* in the container |
+| B3 | XI-H | "Measured: TD = 1.000 over 31 compilation runs — repeated runs, key and row reorderings, and locale and time-zone variation — executed inside the pinned reproducible container." | **1.000 over 60 runs** across: key ordering (reverse/shuffle/rotate over every object in every input), risk-row, obligation, ACS, disposition, judgment-selection, catalog, invariant and authority-matrix ordering; integer→float numeric re-encoding; 5 locales (C, en_US, de_DE, tr_TR, ja_JP); 5 time zones (UTC, America/Edmonton, Asia/Kolkata, Pacific/Chatham, Europe/Berlin); and clean-process execution with a varying `PYTHONHASHSEED` | `determinism_runs.csv`; `cross_environment/` | See `MEASURED_RESULTS.md` §6 for publication-ready wording | ⚠️ **CHANGE REQUIRED** — more runs, more dimensions, and two operating systems rather than one |
+| B4 | XII (Determinism scope) | "Environment-independence is measured inside a pinned reproducible container... replication across independently installed host operating systems is not yet reported" | **Partially discharged.** The experiment now runs to completion on **two independently installed operating systems**: macOS 26.6.2 (arm64, CPython 3.11.15) and a pinned Debian-based container (Linux 6.12.76, aarch64, glibc 2.36, CPython 3.11.11). **TD = 1.000 (60/60) on each**, and both reproduce the committed reference hashes exactly. The full CI matrix (adding Windows and x86-64 under two Python versions) is configured but has **not** run, because the repository has not been pushed. | `results/final/CI_STATUS.md`; `results/final/cross_environment/determinism_summary_container_linux.json` | **Narrow, do not delete, the limitation.** See `MEASURED_RESULTS.md` §8.1 for the replacement paragraph: report the two-OS result as measured, and keep Windows and x86-64 as untested. | ⚠️ **CHANGE REQUIRED — the current text understates what has been measured, and would overstate it if simply deleted** |
 
 ## C. Gate divergence (Sections VII, IX, X, XI-B)
 
@@ -108,8 +110,9 @@ directory, and `results/final/SUMMARY.md` is generated from those files.
    timestamped commitment is not discharged, and the manuscript must describe the
    preregistration as prepared and locally committed. `verify_freeze.py` reports
    `public_commitment_discharged: false` and will report `true` after the push.
-2. **Run the cross-platform CI matrix.** Until it passes, do not upgrade the
-   determinism claim beyond the declared environment (B4).
+2. **Run the cross-platform CI matrix.** Two operating systems are already
+   measured (macOS/arm64 and Linux/aarch64); Windows and x86-64 are not. Until the
+   matrix passes, do not extend the determinism claim to them (B4).
 3. **Zenodo deposit.** No DOI exists; do not cite one. See
    `docs/ZENODO_RELEASE_STEPS.md`.
 4. **Author the held-out register** and commit its hash in a Tier-1 freeze before

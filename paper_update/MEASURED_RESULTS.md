@@ -215,11 +215,13 @@ Replace the "Measured:" sentence:
 > invariant register; re-encoding of integers as equal-valued floats; five locales
 > (C, en_US.UTF-8, de_DE.UTF-8, tr_TR.UTF-8, ja_JP.UTF-8); five time zones (UTC,
 > America/Edmonton, Asia/Kolkata, Pacific/Chatham, Europe/Berlin); and
-> clean-process execution under varying PYTHONHASHSEED. Runs were executed on the
-> declared host environment (macOS 26.6.2, arm64, CPython 3.11.15); a pinned
-> container definition ships with the artifact, and replication across
-> independently installed host operating systems is measured by the artifact's
-> continuous-integration matrix and reported in ⟨CI status reference⟩.
+> clean-process execution under varying PYTHONHASHSEED. The full run was executed
+> on two independently installed operating systems — the declared host environment
+> (macOS 26.6.2, arm64, CPython 3.11.15) and the pinned reproducible container
+> (Linux 6.12, aarch64, glibc 2.36, CPython 3.11.11) — each reproducing the
+> committed reference canonical payload hashes exactly. Replication on Windows and
+> on x86-64 is configured in the artifact's continuous-integration matrix and is
+> not yet reported.
 
 Add the adversarial and property counts, which the manuscript currently omits:
 
@@ -254,19 +256,31 @@ Add the adversarial and property counts, which the manuscript currently omits:
 
 ## 8. Section XII — limitations
 
-### 8.1 Determinism scope — **do not upgrade yet**
+### 8.1 Determinism scope — narrow it, do not delete it
 
-Keep the limitation until the CI matrix has actually run green:
+Two independently installed operating systems have now been measured, so the
+current wording understates the evidence — but Windows and x86-64 remain untested,
+so deleting the limitation would overstate it. Replacement:
 
-> Determinism scope. TD = 1.000 is measured over 60 compilation runs spanning
-> input permutation, locale, time zone and process boundaries on a declared host
-> environment. A pinned container definition ships with the artifact and a
-> cross-platform continuous-integration matrix (Linux, Windows and macOS runners
-> under two Python versions, each compared against committed reference payload
-> hashes) is configured; **until those runs are reported, TD = 1.000 supports
-> determinism under the declared environment rather than environment independence
-> in general.** Even once they pass, the supportable claim is determinism across
-> the tested supported environments, not platform independence.
+> Determinism scope. TD = 1.000 is measured over 60 compilation runs on each of two
+> independently installed operating systems — macOS 26.6.2 (arm64, CPython 3.11.15)
+> and a pinned Debian-based container (Linux 6.12, aarch64, glibc 2.36, CPython
+> 3.11.11) — with both reproducing the committed reference canonical payload hashes
+> exactly across five locales, five time zones, input permutation and clean-process
+> execution under varying hash seeds. Replication on Windows and on x86-64 is
+> configured in the artifact's continuous-integration matrix but is not yet
+> reported; until it is, TD = 1.000 supports determinism across the two measured
+> operating systems rather than environment independence in general. Even once the
+> matrix is reported, the supportable claim is determinism across the tested
+> supported environments, not platform independence.
+
+Corresponding change in **Section XI-H**, replacing "executed inside the pinned
+reproducible container":
+
+> …executed on two independently installed operating systems: the declared host
+> environment (macOS 26.6.2, arm64, CPython 3.11.15) and the pinned reproducible
+> container (Linux 6.12, aarch64, CPython 3.11.11), which reproduced the reference
+> canonical payload hashes exactly.
 
 ### 8.2 New limitation to add — fixture sensitivity of GD_min
 

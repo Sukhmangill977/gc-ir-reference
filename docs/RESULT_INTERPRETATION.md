@@ -83,10 +83,19 @@ ordering, numeric re-encoding, five locales, five time zones, and clean-process
 execution with varying `PYTHONHASHSEED` — every compilation produced that case's
 reference canonical payload hash.
 
+**Also measured on a second operating system.** The same 60-run experiment was
+executed inside the pinned container — Linux 6.12.76, aarch64, glibc 2.36, CPython
+3.11.11 — and produced **TD = 1.000 (60/60)** with byte-identical reference
+hashes. Two independently installed operating systems and two CPython patch
+versions agree exactly.
+(`results/final/cross_environment/`, `results/final/CI_STATUS.md`.)
+
 **Does not mean.**
-* **Not** platform independence. This ran on one host operating system. The
-  cross-platform question is answered by the CI matrix, separately, and the
-  supportable wording is "deterministic across the tested supported environments".
+* **Not** platform independence. Two operating systems on one machine
+  architecture is not the set of all environments. **Windows is untested and
+  x86-64 is untested**; the CI matrix that would cover them is configured but has
+  not run. The supportable wording remains scoped to the environments actually
+  measured.
 * **Not** that signature bytes are reproducible. `TD` is a property of the canonical
   payload hash; the envelope carries signing time and key identity and is expected
   to differ (Section VI-C).

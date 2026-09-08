@@ -1,5 +1,5 @@
 {
-  "file_count": 219,
+  "file_count": 221,
   "files": [
     {
       "bytes": 452,
@@ -32,10 +32,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 44585,
+      "bytes": 45442,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "4c4ace3d4e51a7c1bf5d5badf11dcd3026dac6bcb4507ec608b0460147a3c895"
+      "sha256": "31e5f2839e73867386c132c13ff6bc171d32bd2ca7e49eabe751c0eec8c02e47"
     },
     {
       "bytes": 2029,
@@ -44,10 +44,10 @@
       "sha256": "b188e1325d8435a894580e3c84c1274e2e4d949be665a3e4b79a672cf1842d11"
     },
     {
-      "bytes": 15938,
+      "bytes": 16080,
       "path": "README.md",
       "role": "repository_root",
-      "sha256": "2fc0fa555c32206465fc9fe99e14eafaeb7a401f5d414369004faed08674ec5f"
+      "sha256": "084e071a0f2042a2ab12e9953db473e14eaf1a6cf1d627551694be2f201ee5e4"
     },
     {
       "bytes": 2889,
@@ -302,10 +302,10 @@
       "sha256": "238f177801caf2a59ee0bb1223b884c681a1220342873a02ad2283c25058368b"
     },
     {
-      "bytes": 11385,
+      "bytes": 11881,
       "path": "docs/RESULT_INTERPRETATION.md",
       "role": "documentation",
-      "sha256": "f8f5ffc6775893897bb1b730e5635c2fe3331616075ca5aad4596c2086802175"
+      "sha256": "7ea96ad9d83191da516b4d068a626bce5bfc89842c0a8d5464ddb1565d7e3a94"
     },
     {
       "bytes": 3053,
@@ -500,16 +500,16 @@
       "sha256": "1b8b0a0726a27d3d89329dfb429d2893eeafda488105c537e1afe71d74dd58b8"
     },
     {
-      "bytes": 18689,
+      "bytes": 19534,
       "path": "paper_update/MEASURED_RESULTS.md",
       "role": "manuscript_reconciliation",
-      "sha256": "5db34852fc6c8255b69be24044443c0df8163bffbc4a965515a721f6bd33fb00"
+      "sha256": "a06511f99e2c8e7d466e0f392056d98aec288a25e12a78ecd12e2ee09724147e"
     },
     {
-      "bytes": 17516,
+      "bytes": 18104,
       "path": "paper_update/PLACEHOLDER_REPLACEMENT_TABLE.md",
       "role": "manuscript_reconciliation",
-      "sha256": "ac9b373832d0d0cec29f6b5488a73ac3170915fc07b2a39bc2b65425b1631f5c"
+      "sha256": "45977502840c534fd0185cbec47b2e170f1a78c5959793fdfd365f6596fdad2b"
     },
     {
       "bytes": 25277,
@@ -794,10 +794,10 @@
       "sha256": "93c958993fd720b29d3b8b26b1d7fed69249a9e26f87d563d160b15e0c1391f4"
     },
     {
-      "bytes": 2607,
+      "bytes": 4133,
       "path": "results/final/CI_STATUS.md",
       "role": "measured_result",
-      "sha256": "dd7e7d83ad07ed6cdbf60212fc2751e19bab7a0c31cffb3941fed9782e2a866f"
+      "sha256": "8288ff3c76f343edc15f53748d7699656ca2a16e70d9d6fa6f040fa447c8b9d1"
     },
     {
       "bytes": 14455,
@@ -924,6 +924,18 @@
       "path": "results/final/case_b/payload_purity.json",
       "role": "compiled_bundle_b",
       "sha256": "674359ea9b84a36310688d2e13f2619940184434575cb9003bd7dff33a0ea196"
+    },
+    {
+      "bytes": 18693,
+      "path": "results/final/cross_environment/determinism_runs_container_linux.csv",
+      "role": "measured_result",
+      "sha256": "95b8a3d2afd8c29788d97bac8bea5b820ff72a96ed1047985b85f7dc68ffcf48"
+    },
+    {
+      "bytes": 3491,
+      "path": "results/final/cross_environment/determinism_summary_container_linux.json",
+      "role": "measured_result",
+      "sha256": "d503ca6f15dde4a636cbc49ba5e28a67fef34f2da2d3303068a72091fe26a8c1"
     },
     {
       "bytes": 18693,
@@ -1316,7 +1328,7 @@
       "sha256": "030944eb6ce267dd2e1aab2405bc1fc8b1776da2f16cdfd489e4e5b460d1c995"
     }
   ],
-  "manifest_sha256": "d49e3634a80b31a771950d312d2ef9d84a9eb5be31490b4f71508d42bf889512",
+  "manifest_sha256": "954616977cc2e0dc817706ecd37837743318ceafae24f77d88bc7bc427a1d15e",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1347,5 +1359,5 @@
     "schema",
     "test_suite"
   ],
-  "total_bytes": 2550127
+  "total_bytes": 2576765
 }

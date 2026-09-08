@@ -92,9 +92,11 @@ unknown handling on mandatory gates; orphan-control impossibility **within
   and **deferred**. No adjudication panel has been convened, no practitioner has
   been recruited, and no participant data exists. `SNR` and `DF` are reported as
   `DEFERRED`, never as numbers.
-* **Universal platform independence.** The local determinism experiment runs on one
-  host OS; the CI matrix covers three runner images. The supportable wording is
-  “deterministic across the tested supported environments”.
+* **Universal platform independence.** Determinism is measured on two
+  independently installed operating systems — macOS/arm64 and Linux/aarch64 in the
+  pinned container — with identical reference hashes and `TD = 1.000` on each.
+  **Windows and x86-64 are untested**; the CI matrix covering them is configured
+  but has not run. See `results/final/CI_STATUS.md`.
 * **Detection capability, production impact, false-denial rates.** Out of scope.
 * **Semantic correctness.** Compilation warrants that predicates faithfully encode
   the approved specifications — not that the specifications are complete over the
