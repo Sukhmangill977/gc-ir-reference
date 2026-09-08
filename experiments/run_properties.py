@@ -21,7 +21,8 @@ import subprocess
 import sys
 import xml.etree.ElementTree as ET
 
-from experiments.common import REPO_ROOT, add_common_args, results_dir, write_result
+from experiments.common import (REPO_ROOT, add_common_args, phase_of,
+                                results_dir, write_result)
 
 SUITES = {
     "unit": "tests/unit",

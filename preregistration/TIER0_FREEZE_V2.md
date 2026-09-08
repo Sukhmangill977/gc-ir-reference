@@ -173,3 +173,49 @@ If a defect is found in frozen code **after** the v2 campaign has run:
 5. Record the amendment in `CHANGELOG.md` and the reconciliation table.
 
 **A frozen number is never edited in place.**
+
+---
+
+## Supersession: `preregister-tier0-v2` → `preregister-tier0-v2.1`
+
+**This is the amendment procedure above, executed.**
+
+`preregister-tier0-v2` was created, committed and **pushed publicly** at
+2026-09-08T17:52:54Z, pointing at commit `33a610c850b2847b88d3667e0706a457a3e37307`.
+It remains on the public repository and is not deleted or moved.
+
+**Before any campaign ran against it**, a defect was found in a frozen file:
+
+> `experiments/verify_freeze.py` compared the remote tag's **tag-object** SHA
+> against the freeze **commit** SHA. For an annotated tag those are different
+> objects, so the remote-verification check could never pass — it would have
+> reported the public commitment as undischarged even when it was correctly
+> discharged. `git ls-remote --tags <name>` with an exact tag name returns only
+> the tag object; the dereferenced `refs/tags/<tag>^{}` line must be requested
+> explicitly.
+
+Two further defects were found in the same window by a full dry run:
+`experiments/run_properties.py` used `phase_of` without importing it, and the
+results-directory default did not follow the freeze tag.
+
+Per the amendment procedure, these were **not patched in place under the v2 tag**.
+The freeze was incremented:
+
+| | |
+|---|---|
+| Superseded tag | `preregister-tier0-v2` (public, retained, no campaign ran against it) |
+| Governing tag | **`preregister-tier0-v2.1`** |
+| Reason | defect in frozen verification tooling, found before execution |
+| Campaign | `results/final_v2/` — the second reportable campaign, governed by v2.1 |
+
+Everything else in this document — the hypotheses, the 31-per-case determinism
+matrix, the thresholds, the seeds, the Monte Carlo specification and its declared
+attribution deviation, the exclusion rules — is unchanged between v2 and v2.1.
+`FREEZE_MANIFEST_V2.sha256` is regenerated over the corrected state and covers
+the two analysis scripts added with it (`make_provenance.py`,
+`compare_campaigns.py`).
+
+**The naming.** The results directory is `results/final_v2` because it is the
+*second campaign*; the freeze governing it is `v2.1` because it is the *corrected
+second freeze*. `results/final_v2/PROVENANCE.json` records both explicitly so the
+pairing is never ambiguous.

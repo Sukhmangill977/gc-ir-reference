@@ -137,6 +137,8 @@ FROZEN_ITEMS = {
         "experiments/make_manifest.py",
         "experiments/verify_hashes.py",
         "experiments/check_ci_agreement.py",
+        "experiments/make_provenance.py",
+        "experiments/compare_campaigns.py",
         "queries/traceability.sql",
     ],
     "test_suite": [

@@ -93,10 +93,21 @@ def blob_hash_at(commit, path):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--tag", default=FREEZE_TAG)
-    parser.add_argument("--results", default=os.path.join(REPO_ROOT, "results", "final"))
+    parser.add_argument(
+        "--results", default=None,
+        help="results directory to verify (default: the one belonging to the tag)")
     parser.add_argument("--write", default=None,
                         help="write the verification result here as JSON")
     args = parser.parse_args(argv)
+
+    if args.results is None:
+        # Each freeze version verifies its own campaign's results.
+        default_results = {
+            "preregister-tier0-v1": os.path.join(REPO_ROOT, "results", "final"),
+            "preregister-tier0-v2": os.path.join(REPO_ROOT, "results", "final_v2"),
+        }
+        args.results = default_results.get(
+            args.tag, os.path.join(REPO_ROOT, "results", "final_v2"))
 
     findings = []
     report = {"freeze_tag": args.tag}
@@ -205,17 +216,22 @@ def main(argv=None):
     if remotes:
         remote_name = remotes.splitlines()[0]
         remote_url = git("remote", "get-url", remote_name)
-        listing = git("ls-remote", "--tags", remote_name, args.tag)
+        # An ANNOTATED tag has two remote refs: the tag object itself, and the
+        # dereferenced commit at `refs/tags/<tag>^{}`. `ls-remote --tags <name>`
+        # with an exact name returns only the first, so both refs are requested
+        # explicitly -- otherwise the tag object SHA gets compared against a
+        # commit SHA and never matches.
+        listing = git("ls-remote", remote_name,
+                      "refs/tags/%s" % args.tag,
+                      "refs/tags/%s^{}" % args.tag)
         pushed = bool(listing)
         if listing:
-            # An annotated tag lists both the tag object and its dereferenced
-            # commit (^{}); the dereferenced line is the commit the tag names.
             for line in listing.splitlines():
                 sha, ref = line.split("\t", 1)
                 if ref.endswith("^{}"):
-                    remote_tag_sha = sha
-            if remote_tag_sha is None:
-                remote_tag_sha = listing.splitlines()[0].split("\t", 1)[0]
+                    remote_tag_sha = sha          # the commit the tag names
+                elif remote_tag_sha is None:
+                    remote_tag_sha = sha          # lightweight tag: already a commit
             remote_points_at_freeze_commit = (remote_tag_sha == freeze_commit)
             if not remote_points_at_freeze_commit:
                 findings.append(

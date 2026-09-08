@@ -1,16 +1,18 @@
-# Measured results -- DEVELOPMENT campaign
+# Measured results -- FINAL campaign
 
-> **These are DEVELOPMENT results and are not reportable numbers.**
-> The reportable campaign runs after the public preregistration freeze
-> and writes to `results/final/`.
+> **FINAL reportable campaign.** Produced after the Tier-0 preregistration
+> freeze (`preregistration/TIER0_FREEZE.md`, tag `preregister-tier0-v1`).
+>
+> Freeze verification has not been run; run `python -m experiments.verify_freeze`.
 
 ## Environment and provenance
 
 | Field | Value |
 |---|---|
-| git commit | `fed211aece4064cba1479138a9edca0b2a27e209` |
-| git describe | `fed211a-dirty` |
-| git tag (exact) | `none at this commit` |
+| **git commit the campaign ran at** | `33a610c850b2847b88d3667e0706a457a3e37307` |
+| git commit when this summary was rendered | `33a610c850b2847b88d3667e0706a457a3e37307` |
+| git describe | `preregister-tier0-v2-dirty` |
+| git tag (exact) | `preregister-tier0-v2` |
 | working tree clean | False |
 | Python | 3.11.15 (CPython) |
 | platform | macOS-26.6.2-arm64-arm-64bit |
@@ -50,7 +52,7 @@
 | **CV** | 1.0000 (6/6) | 1.0000 (4/4) | |{r_i : C*(c_i)=1 and each hazardous action path mandatorily gated}| / |{r_i : C*(c_i)=1}| |
 | **GD(T_H)** | 3 at T_H=15 | 4 at T_H=15 | GD(T_H) = sum_i 1[g_i != 1[s_i >= T_H]] |
 | **GD_min** | 3 | 0 | min over t of sum_i 1[g_i != 1[s_i >= t]] |
-| **TD** | 1.0000 (30/30) | 1.0000 (30/30) | sum_k 1[H_k = H_ref] / N |
+| **TD** | 1.0000 (31/31) | 1.0000 (31/31) | sum_k 1[H_k = H_ref] / N |
 | **SNR** | DEFERRED | DEFERRED | RQ5 -- no adjudication panel convened |
 | **DF** | DEFERRED | DEFERRED | RQ5 -- no adjudication panel convened |
 
@@ -60,13 +62,13 @@ Gate-source breakdown -- Case A: {"advisory/SOFT": 2, "mandatory/C_STAR": 7, "ma
 
 ## Translation determinism (RQ2)
 
-**TD = 1.0000 (60/60 runs).**
+**TD = 1.0000 (62/62 runs).**
 
 | | value |
 |---|---|
-| total runs | 60 |
-| runs per case | 30 |
-| matching the reference hash | 60 |
+| total runs | 62 |
+| runs per case | 31 |
+| matching the reference hash | 62 |
 | Case A reference hash | `f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536` |
 | Case B reference hash | `2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce` |
 | locales exercised | C, de_DE.UTF-8, en_US.UTF-8, ja_JP.UTF-8, tr_TR.UTF-8 |
@@ -151,14 +153,14 @@ Secondary sensitivity (boundary mass renormalised instead of reassigned): max FP
 
 | | count |
 |---|---|
-| corpus cases | 59 |
-| -- negative (must be rejected) | 52 |
-| -- positive controls (must compile) | 7 |
-| PASS | 59 |
+| corpus cases | 62 |
+| -- negative (must be rejected) | 54 |
+| -- positive controls (must compile) | 8 |
+| PASS | 62 |
 | FAIL | 0 |
 | CODE_MISMATCH | 0 |
 | ERROR | 0 |
-| structural checks passed | 24/24 |
+| structural checks passed | 26/26 |
 | seeded validation rows passed | 3/3 |
 
 Seeded validation rows (Section IX): VS-01 exercises RC-05 (PASS), VS-02 exercises WC-01 (PASS), VS-03 exercises RC-02 (PASS)
@@ -171,9 +173,9 @@ Seeded validation rows (Section IX): VS-01 exercises RC-05 (PASS), VS-02 exercis
 |---|---|---|---|---|
 | unit | 100 | 100 | 0 | 0 |
 | properties | 16 | 16 | 0 | 0 |
-| adversarial | 134 | 134 | 0 | 0 |
+| adversarial | 139 | 139 | 0 | 0 |
 | integration | 25 | 25 | 0 | 0 |
-| **total** | **275** | **275** | **0** | **0** |
+| **total** | **280** | **280** | **0** | **0** |
 
 Property-based testing: **16 properties**, `max_examples = 100`, **1427 generated examples in total**.
 
@@ -241,10 +243,10 @@ Negative controls -- each query must fire on a deliberately corrupted fixture:
 
 * **RQ5 (comparative expert study)** is preregistered and DEFERRED. No adjudication panel has been convened, no participant data exists, and no comparative-superiority claim is made. SNR and DF are therefore reported as DEFERRED, not as numbers. See `preregistration/RQ5_DEFERRED_PROTOCOL.md`.
 * **The Monte Carlo rating distributions are author-specified**, not panel-adjudicated. See `docs/FIXTURE_PROVENANCE.md` FP-020.
-* **Cross-platform determinism** is measured by the GitHub Actions matrix (ubuntu / windows / macOS), not by this run. See `results/final/CI_STATUS.md`.
+* **Cross-environment determinism.** The full determinism experiment has been run to completion on two independently installed operating systems -- the host recorded above and the pinned Linux container -- with identical reference hashes and TD = 1.000 on each. **Windows and x86-64 remain untested**; the CI matrix covering them is configured but has not run. See `results/final/CI_STATUS.md`. The supportable wording is scoped to the environments actually measured, never 'platform independent'.
 * **Detection performance, production impact and false-denial rates** are out of scope; they require the shadow-mode deployment identified as future work.
 * The 284,807-event golden-trace conformance run of [15] is **not** reproduced here and is not claimed as evidence for this paper.
 
 ---
 
-Generated by `python -m experiments.make_summary`.
+Generated by `python -m experiments.make_summary --final`.

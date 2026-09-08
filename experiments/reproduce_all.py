@@ -110,6 +110,7 @@ def main(argv=None):
 
     from experiments import (
         make_manifest,
+        make_provenance,
         make_summary,
         run_adversarial,
         run_case,
@@ -161,6 +162,15 @@ def main(argv=None):
     steps.append(_step("10. Hash manifest", make_manifest.main, []))
     steps.append(_step("11. SUMMARY.md",
                        make_summary.main, phase_args))
+    if phase != "development":
+        from experiments import verify_freeze
+        steps.append(_step(
+            "12. Freeze verification (public tag, ancestry, frozen-file integrity)",
+            verify_freeze.main,
+            ["--results", results_dir(phase),
+             "--write", os.path.join(results_dir(phase), "freeze_verification.json")]))
+        steps.append(_step("13. PROVENANCE.json",
+                           make_provenance.main, phase_args))
 
     banner("REPRODUCTION SUMMARY")
     width = max(len(step["step"]) for step in steps)
