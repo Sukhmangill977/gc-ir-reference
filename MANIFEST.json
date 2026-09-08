@@ -38,10 +38,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 61904,
+      "bytes": 61905,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "e23dc21006f3db9ba22dae14e877d7ddf231658b70363d165a95ea08fb2d7596"
+      "sha256": "ae071a7635b6d0ede6e059db7939acbc39ebc713df63082c22dcd7d402f7c70c"
     },
     {
       "bytes": 2029,
@@ -1274,10 +1274,10 @@
       "sha256": "674359ea9b84a36310688d2e13f2619940184434575cb9003bd7dff33a0ea196"
     },
     {
-      "bytes": 18374,
+      "bytes": 18311,
       "path": "results/final_v2/cross_environment/ci/determinism-macos-latest-py3.11/determinism_runs.csv",
       "role": "measured_result",
-      "sha256": "d0a2cf816e6090ca06c33db0625e571d5e9e458ad8cee9a02d29c60ba6c24bf2"
+      "sha256": "db6c92d6331fba5469c6da7f7a87cd949e83a8ede9801bc97e820cf90fbf3e95"
     },
     {
       "bytes": 3829,
@@ -1286,10 +1286,10 @@
       "sha256": "cfe6c9b3b8a44b90826efb6ac598bbea5c8966b96b5e9eb84f94b77793e8be83"
     },
     {
-      "bytes": 18374,
+      "bytes": 18311,
       "path": "results/final_v2/cross_environment/ci/determinism-macos-latest-py3.12/determinism_runs.csv",
       "role": "measured_result",
-      "sha256": "5119737b6645eeb19a8ce2bf6fe27fee83b6dbd8b0b8b609a0894188adfd2966"
+      "sha256": "f0c3005ceef80735ad114a7676180ca9ad6eabdc50e222f9d0fb18ce94f0cd24"
     },
     {
       "bytes": 3830,
@@ -1298,10 +1298,10 @@
       "sha256": "96e2baab29dfcb92a9dc9fff52643153afcf4002ffc49f573f949ebec7e683f2"
     },
     {
-      "bytes": 21920,
+      "bytes": 21857,
       "path": "results/final_v2/cross_environment/ci/determinism-ubuntu-latest-py3.11/determinism_runs.csv",
       "role": "measured_result",
-      "sha256": "c609f6e5edf52c543586260dc36666590f9597d8fcca2b78b68909e31a7bf794"
+      "sha256": "bde3e43703fe015971b8861d5b55534e931d8fb43dee25ea18ec9bcfecb09a64"
     },
     {
       "bytes": 4495,
@@ -1310,10 +1310,10 @@
       "sha256": "e2a7e594d95d0782c572b993cca7b8007e38f44f2a47dc1aecab4a3b1b34c909"
     },
     {
-      "bytes": 21920,
+      "bytes": 21857,
       "path": "results/final_v2/cross_environment/ci/determinism-ubuntu-latest-py3.12/determinism_runs.csv",
       "role": "measured_result",
-      "sha256": "654f72239fdc6b00f3bd02d3ad3de76056b5f7fa83f4ec201976509189e4e617"
+      "sha256": "761942f4ba35cfc245d4e730f72a10d648e955b49cf035d95531798c908ae5e0"
     },
     {
       "bytes": 4495,
@@ -1322,10 +1322,10 @@
       "sha256": "a87c2001ba51732ff17af81b04b6695f263a7d98c324aa2543d9c953e10da57d"
     },
     {
-      "bytes": 18374,
+      "bytes": 18311,
       "path": "results/final_v2/cross_environment/ci/determinism-windows-latest-py3.11/determinism_runs.csv",
       "role": "measured_result",
-      "sha256": "b9397a77af135b0d416b7c228b5304f61a6e7d277aad9fbaeb6604baa2e47352"
+      "sha256": "995c1d801ff934edc3731379447bb439a9ae37169f7e3f0c87aba6ed1da875d8"
     },
     {
       "bytes": 3827,
@@ -1334,10 +1334,10 @@
       "sha256": "efb3e1ac5f68f9bcb3049d483b3dc87fb9ee21629dff45d9a2086a5bb2d08291"
     },
     {
-      "bytes": 18374,
+      "bytes": 18311,
       "path": "results/final_v2/cross_environment/ci/determinism-windows-latest-py3.12/determinism_runs.csv",
       "role": "measured_result",
-      "sha256": "e1220f15284db1cb526419bc863203dbedbd8cd08980caf5a0c8480b9d89c6e0"
+      "sha256": "b2999a50d7ab779da2834a13090d2a7048a2a92d498a9525a67bf54acef710b2"
     },
     {
       "bytes": 3836,
@@ -1346,10 +1346,10 @@
       "sha256": "a4e612dfb66e5bfd3cfd8c9dc2055a4c97fc54ae200961f36af9476c6a3f5f92"
     },
     {
-      "bytes": 18374,
+      "bytes": 18311,
       "path": "results/final_v2/cross_environment/determinism_runs_container_linux.csv",
       "role": "measured_result",
-      "sha256": "0bbc2768ef868e122396830a933741c2bdc6a167b440359cf4e38525a74ad7cd"
+      "sha256": "114c4ce850d6eb83e47ee935c9792a2cf9a77a384ed979621ae5c179606d2dbe"
     },
     {
       "bytes": 3883,
@@ -1784,7 +1784,7 @@
       "sha256": "64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44"
     }
   ],
-  "manifest_sha256": "c1d0fa151f0befbfcfa2abbc6ecdadf8e4e4345edde5b5e165c3e81c94421a49",
+  "manifest_sha256": "276afea8bd127432eddfd0c664548c0568b2ae449c6a9ab9f97c6e258c14a334",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1817,5 +1817,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 3687905
+  "total_bytes": 3687465
 }
