@@ -1,15 +1,25 @@
 # Measured results -- FINAL campaign
 
-> **FINAL reportable campaign.** Produced after the public
-> preregistration freeze (`preregistration/TIER0_FREEZE.md`).
+> **FINAL reportable campaign.** Produced after the Tier-0 preregistration
+> freeze (`preregistration/TIER0_FREEZE.md`, tag `preregister-tier0-v1`).
+>
+> Freeze verification: **PASSED**. 117 frozen files checked; results were produced at commit `196820b23a63`; frozen files changed since the freeze: **0**.
+>
+> **The freeze tag has not been pushed to a public remote, so the
+> Section XI-I *public* timestamped commitment is NOT yet discharged.**
+> What is established is the content-and-ancestry relationship above,
+> which a timestamp cannot fake; what is not yet established is
+> third-party-verifiable ordering in time. Until the push, describe the
+> preregistration as prepared and committed, not as published.
 
 ## Environment and provenance
 
 | Field | Value |
 |---|---|
-| git commit | `196820b23a632d56c4575dba3def71247b343f6a` |
-| git describe | `preregister-tier0-v1-dirty` |
-| git tag (exact) | `preregister-tier0-v1` |
+| **git commit the campaign ran at** | `196820b23a632d56c4575dba3def71247b343f6a` |
+| git commit when this summary was rendered | `0651b7a3c566563ac60c2bf7de4dda1019cbb53c` |
+| git describe | `preregister-tier0-v1-1-g0651b7a-dirty` |
+| git tag (exact) | `none at this commit` |
 | working tree clean | False |
 | Python | 3.11.15 (CPython) |
 | platform | macOS-26.6.2-arm64-arm-64bit |

@@ -75,8 +75,35 @@ def build(final):
         add("> The reportable campaign runs after the public preregistration freeze")
         add("> and writes to `results/final/`.")
     else:
-        add("> **FINAL reportable campaign.** Produced after the public")
-        add("> preregistration freeze (`preregistration/TIER0_FREEZE.md`).")
+        # verify_freeze writes a flat document, not the {result: ...} envelope.
+        freeze_path = os.path.join(directory, "freeze_verification.json")
+        freeze = read_json(freeze_path) if os.path.exists(freeze_path) else None
+        add("> **FINAL reportable campaign.** Produced after the Tier-0 preregistration")
+        add("> freeze (`preregistration/TIER0_FREEZE.md`, tag `preregister-tier0-v1`).")
+        if freeze is None:
+            add(">")
+            add("> Freeze verification has not been run; run "
+                "`python -m experiments.verify_freeze`.")
+        else:
+            add(">")
+            add("> Freeze verification: **%s**. %d frozen files checked; results were "
+                "produced at commit `%s`; frozen files changed since the freeze: **%d**."
+                % ("PASSED" if freeze.get("verified") else "FAILED",
+                   freeze.get("frozen_file_count", 0),
+                   ", ".join(c[:12] for c in freeze.get("results_commits", [])) or "unknown",
+                   len(freeze.get("frozen_files_changed_since_freeze", {}))))
+            if freeze.get("public_commitment_discharged"):
+                add(">")
+                add("> The freeze tag is present on the public remote, so the Section XI-I")
+                add("> public timestamped commitment **is discharged**.")
+            else:
+                add(">")
+                add("> **The freeze tag has not been pushed to a public remote, so the")
+                add("> Section XI-I *public* timestamped commitment is NOT yet discharged.**")
+                add("> What is established is the content-and-ancestry relationship above,")
+                add("> which a timestamp cannot fake; what is not yet established is")
+                add("> third-party-verifiable ordering in time. Until the push, describe the")
+                add("> preregistration as prepared and committed, not as published.")
     add("")
     if missing:
         add("**Missing result files: %s**" % ", ".join(missing))
@@ -87,7 +114,14 @@ def build(final):
     add("")
     add("| Field | Value |")
     add("|---|---|")
-    add("| git commit | `%s` |" % env["git_commit"])
+    campaign_commit = None
+    campaign_blob_path = os.path.join(directory, "reproduce_all.json")
+    if os.path.exists(campaign_blob_path):
+        campaign_commit = (read_json(campaign_blob_path)
+                           .get("environment", {}).get("git_commit"))
+    if campaign_commit:
+        add("| **git commit the campaign ran at** | `%s` |" % campaign_commit)
+    add("| git commit when this summary was rendered | `%s` |" % env["git_commit"])
     add("| git describe | `%s` |" % env["git_describe"])
     add("| git tag (exact) | `%s` |" % (env["git_tag_exact"] or "none at this commit"))
     add("| working tree clean | %s |" % env["git_status_clean"])

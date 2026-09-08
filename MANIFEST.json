@@ -1,5 +1,5 @@
 {
-  "file_count": 209,
+  "file_count": 219,
   "files": [
     {
       "bytes": 452,
@@ -32,10 +32,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 35601,
+      "bytes": 44585,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "47a6953c95995f955df510b1d53b803a908b541ce45b08f29e27d4ef612c5d2f"
+      "sha256": "4c4ace3d4e51a7c1bf5d5badf11dcd3026dac6bcb4507ec608b0460147a3c895"
     },
     {
       "bytes": 2029,
@@ -290,6 +290,12 @@
       "sha256": "031669ed51501941a6679319f9ad59c6bc2f91363ad39da1ecf897b452e3e65c"
     },
     {
+      "bytes": 3942,
+      "path": "docs/RELEASE_NOTES_v1.0.0.md",
+      "role": "documentation",
+      "sha256": "93862c41b9bdc3f76a128d666674a47b0f44f4a48a5cdaa02f10cfebc4ebfa60"
+    },
+    {
       "bytes": 7078,
       "path": "docs/REPRODUCIBILITY.md",
       "role": "documentation",
@@ -344,10 +350,10 @@
       "sha256": "97e379cedf0828b1c601ec4a7afeee70ea4aac9ed883496f472694956990dc18"
     },
     {
-      "bytes": 20012,
+      "bytes": 22194,
       "path": "experiments/make_summary.py",
       "role": "experiment_code",
-      "sha256": "f03937a89d1a05efc7e24260a7b440f77628db5036b1324d089123ff4dd1f4cd"
+      "sha256": "cce58b75656d2ba0df1f33920ef4c7c4ad9e653c2bf973a3344c0c0c0863e455"
     },
     {
       "bytes": 7248,
@@ -486,6 +492,24 @@
       "path": "keys/public_keys.json",
       "role": "research_key_TEST_ONLY",
       "sha256": "542d175075ae09b98e0192aa26952eda3c872e6d051168e466ee95959598ee52"
+    },
+    {
+      "bytes": 5632,
+      "path": "paper_update/DOCX_CHANGE_LOG.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "1b8b0a0726a27d3d89329dfb429d2893eeafda488105c537e1afe71d74dd58b8"
+    },
+    {
+      "bytes": 18689,
+      "path": "paper_update/MEASURED_RESULTS.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "5db34852fc6c8255b69be24044443c0df8163bffbc4a965515a721f6bd33fb00"
+    },
+    {
+      "bytes": 17516,
+      "path": "paper_update/PLACEHOLDER_REPLACEMENT_TABLE.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "ac9b373832d0d0cec29f6b5488a73ac3170915fc07b2a39bc2b65425b1631f5c"
     },
     {
       "bytes": 25277,
@@ -770,6 +794,18 @@
       "sha256": "93c958993fd720b29d3b8b26b1d7fed69249a9e26f87d563d160b15e0c1391f4"
     },
     {
+      "bytes": 2607,
+      "path": "results/final/CI_STATUS.md",
+      "role": "measured_result",
+      "sha256": "dd7e7d83ad07ed6cdbf60212fc2751e19bab7a0c31cffb3941fed9782e2a866f"
+    },
+    {
+      "bytes": 14455,
+      "path": "results/final/SUMMARY.md",
+      "role": "measured_result",
+      "sha256": "d98ea36bb910b8ebbded053fb21a4934f42a5cf3c1a1372546cad89588680935"
+    },
+    {
       "bytes": 48116,
       "path": "results/final/adversarial.json",
       "role": "measured_result",
@@ -902,6 +938,12 @@
       "sha256": "f23d484f7289c501372c1d564a8465af3082a410bf12f1febb1e97c59a3e0a29"
     },
     {
+      "bytes": 465,
+      "path": "results/final/freeze_verification.json",
+      "role": "measured_result",
+      "sha256": "daee161e4d7397689b233aa8b60b4dee27cb88fbfafc31fcc038d3a326fb4d7c"
+    },
+    {
       "bytes": 18301,
       "path": "results/final/gate_divergence.json",
       "role": "measured_result",
@@ -942,6 +984,12 @@
       "path": "results/final/property_tests.json",
       "role": "measured_result",
       "sha256": "c8f44f1aa94a4099819ceb009491a146a41c1a5527c81438a2dde7ac6e161561"
+    },
+    {
+      "bytes": 2610,
+      "path": "results/final/reproduce_all.json",
+      "role": "measured_result",
+      "sha256": "8df8c9abdc93d4c23553c8ed4ae9cf19e3b84d631b735a03b8fa4dc5afea1b0c"
     },
     {
       "bytes": 16521,
@@ -1254,9 +1302,21 @@
       "path": "tools/invariants_data.py",
       "role": "fixture_generator",
       "sha256": "2339f549395bf295ed9d19bee5627466c502feb80c6b4ae2dc75cc244a85473a"
+    },
+    {
+      "bytes": 13302,
+      "path": "tools/make_measured_docx.py",
+      "role": "fixture_generator",
+      "sha256": "e88efdb78cb2efd93ff3499ea17d43252ce3e9a180999a79012525a8a73ad522"
+    },
+    {
+      "bytes": 3706,
+      "path": "tools/publish.sh",
+      "role": "fixture_generator",
+      "sha256": "030944eb6ce267dd2e1aab2405bc1fc8b1776da2f16cdfd489e4e5b460d1c995"
     }
   ],
-  "manifest_sha256": "598d6007cfd7c18aab3e07c11643f4ff166dbc193b89a09bec87bbbd54207571",
+  "manifest_sha256": "d49e3634a80b31a771950d312d2ef9d84a9eb5be31490b4f71508d42bf889512",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1276,6 +1336,7 @@
     "judgment_record_a",
     "judgment_record_b",
     "lifecycle_registry",
+    "manuscript_reconciliation",
     "measured_result",
     "phi_impl",
     "prereg_commitment",
@@ -1286,5 +1347,5 @@
     "schema",
     "test_suite"
   ],
-  "total_bytes": 2456037
+  "total_bytes": 2550127
 }
