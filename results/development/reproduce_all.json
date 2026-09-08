@@ -1,0 +1,103 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "fed211aece4064cba1479138a9edca0b2a27e209",
+    "git_commit_short": "fed211a",
+    "git_describe": "fed211a-dirty",
+    "git_status_clean": false,
+    "git_tag_exact": null,
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-08T04:41:54Z",
+    "system": "Darwin"
+  },
+  "phase": "development",
+  "phase_note": "DEVELOPMENT result. Not a reportable number.",
+  "result": {
+    "all_ok": true,
+    "arguments": {
+      "draws": null,
+      "final": false,
+      "runs_per_case": 30,
+      "skip_monte_carlo": false
+    },
+    "failed_steps": [],
+    "steps": [
+      {
+        "detail": "",
+        "seconds": 0.2,
+        "status": "ok",
+        "step": "1. Regenerate case artifacts and verify the committed tree"
+      },
+      {
+        "detail": "",
+        "seconds": 0.43,
+        "status": "ok",
+        "step": "2. Compile Case A and Case B"
+      },
+      {
+        "detail": "",
+        "seconds": 8.95,
+        "status": "ok",
+        "step": "3. Test suites (unit, property-based, adversarial, integration)"
+      },
+      {
+        "detail": "",
+        "seconds": 4.58,
+        "status": "ok",
+        "step": "4. Adversarial corpus, structural checks, validation seeds"
+      },
+      {
+        "detail": "",
+        "seconds": 0.55,
+        "status": "ok",
+        "step": "5. Traceability audit queries and negative controls"
+      },
+      {
+        "detail": "",
+        "seconds": 0.18,
+        "status": "ok",
+        "step": "6. Primary metrics"
+      },
+      {
+        "detail": "",
+        "seconds": 0.67,
+        "status": "ok",
+        "step": "7. Gate divergence and Proposition 1/2 premises"
+      },
+      {
+        "detail": "",
+        "seconds": 5.79,
+        "status": "ok",
+        "step": "8. Determinism experiment (30 runs per case)"
+      },
+      {
+        "detail": "",
+        "seconds": 22.23,
+        "status": "ok",
+        "step": "9. Monte Carlo rating robustness"
+      },
+      {
+        "detail": "",
+        "seconds": 0.01,
+        "status": "ok",
+        "step": "10. Hash manifest"
+      },
+      {
+        "detail": "",
+        "seconds": 0.1,
+        "status": "ok",
+        "step": "11. SUMMARY.md"
+      }
+    ]
+  },
+  "result_name": "reproduce_all"
+}

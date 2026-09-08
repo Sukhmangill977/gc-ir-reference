@@ -4,7 +4,7 @@
     "case_id": "CASE-A-INVESTMENT-RESEARCH-AGENT",
     "catalog_ref": {
       "catalog_id": "K-CASE-A",
-      "content_hash": "193858b2477c3a2bcf253f39ca55212e3fff039c3fc2883a5be376bbd9456f71",
+      "content_hash": "3ca14c8a4578dcd0ca14690fbb914f8f4d5ad805a12a6efb274934ad3d2a4ae9",
       "version": "1.0"
     },
     "coverage_matrix": {
@@ -552,7 +552,7 @@
       ]
     },
     "cstar_profile_ref": {
-      "content_hash": "31cb7c0220dba184ce86d3edcaf03e8e20b5185b7a6340ac78754ac29706679e",
+      "content_hash": "9776756dbb40d3a3e887a2b72d0bf55b00853a52f911f0443a92ccaa09a4a3e6",
       "member_kinds": [
         "irreversible_external_effect_above_approved_bound",
         "material_information_barrier_breach",
@@ -2315,13 +2315,13 @@
       "prompt_version": "research-brief-prompt-v7"
     }
   },
-  "payload_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+  "payload_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
   "signature_envelope": {
     "algorithm": "Ed25519",
     "domain": "bundle",
     "key_id": "key.governance_forum_a",
-    "payload_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
-    "signature_b64": "gDkEWlorzB/iNzhUEUo/PfJsXaWvWTmigGbimlRYFNHB5FXqQgRK1puBQ1kY4DwmzJ5wK96JbIQDKz7Dtj2MDQ==",
+    "payload_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+    "signature_b64": "V6WUrNfvsrGzRpbsPYwSVbzLDvyxrmQKgnyHZsrFLJJn2vDM3VJFyPqzRO6Gnz1SYm6RD4lqlE8vEt+2iRkDDQ==",
     "signing_time": "2026-02-02T09:05:00Z"
   }
 }

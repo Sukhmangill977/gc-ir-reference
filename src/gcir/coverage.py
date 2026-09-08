@@ -66,6 +66,21 @@ class CStarProfile:
     def document(self):
         return self._doc
 
+    def canonical_document(self):
+        """The profile as it enters the bundle hash.
+
+        ``member_kinds`` is a set expressed as a list; its order carries no
+        meaning, so it is sorted before hashing (Section VI-C).  Object keys are
+        already ordered by RFC 8785 itself.
+        """
+        document = {
+            key: value
+            for key, value in self._doc.items()
+            if key not in ("signature", "member_kinds")
+        }
+        document["member_kinds"] = sorted(self._doc["member_kinds"])
+        return document
+
     def is_base_profile_v1(self):
         return tuple(sorted(self._members)) == tuple(sorted(CSTAR_BASE_PROFILE_V1))
 

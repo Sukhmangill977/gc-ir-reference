@@ -570,3 +570,69 @@ def test_verification_detects_a_flipped_payload_bit(case_a):
     mutated["bundle_id"] = mutated["bundle_id"] + "x"
     with pytest.raises(SignatureError):
         case.keyring.verify(mutated, envelope, domain="bundle")
+
+
+# ---------------------------------------------------------------------------
+# Determinism regressions (Section VI-C)
+# ---------------------------------------------------------------------------
+
+
+def test_catalog_entry_order_does_not_reach_the_bundle_hash(any_case):
+    """Regression: the determinism experiment found that hashing the catalog as
+    authored leaked its entry ordering into the bundle hash.
+
+    Section VI-C requires 'deterministic array ordering where order is not
+    semantically meaningful'. Catalog entries are addressed by
+    (event_type, template_id), never by position.
+    """
+    from gcir.catalog import ControlDerivationCatalog
+
+    case, inputs, result = any_case
+    document = copy.deepcopy(inputs.catalog.document)
+    document["entries"].reverse()
+    reversed_catalog = ControlDerivationCatalog(document)
+
+    assert (reversed_catalog.canonical_document()
+            == inputs.catalog.canonical_document())
+    assert (hash_payload(reversed_catalog.canonical_document())
+            == result.bundle.payload["catalog_ref"]["content_hash"])
+
+
+def test_cstar_member_kind_order_does_not_reach_the_bundle_hash(any_case):
+    from gcir.coverage import CStarProfile
+
+    case, inputs, result = any_case
+    document = copy.deepcopy(inputs.cstar_profile.document)
+    document["member_kinds"].reverse()
+    reversed_profile = CStarProfile(document)
+
+    assert (hash_payload(reversed_profile.canonical_document())
+            == result.bundle.payload["cstar_profile_ref"]["content_hash"])
+
+
+def test_signature_envelope_is_excluded_from_the_catalog_content_hash(any_case):
+    """The envelope carries signing time and key identity; including it would
+    make two signings of the same catalog produce two bundle hashes."""
+    case, inputs, result = any_case
+    assert "signature" not in inputs.catalog.canonical_document()
+    assert "signature" not in inputs.cstar_profile.canonical_document()
+
+
+def test_input_array_order_does_not_change_the_payload_hash(any_case):
+    """The end-to-end form of the same property, over the real compiler."""
+    from experiments.run_adversarial import resign_all
+    from experiments.run_determinism import apply_permutation
+    from gcir.caseio import build_compiler_inputs
+    from gcir.compiler import compile_bundle
+
+    case, _, result = any_case
+    spec = {
+        "key_order": "reverse", "risk_order": True, "obligation_order": True,
+        "acs_order": True, "catalog_order": True, "authority_order": True,
+        "numeric_form": True,
+    }
+    documents = apply_permutation(case.documents, spec, seed=4242)
+    resign_all(documents, case.keyring,
+               documents["compile_parameters"]["signing_authorities"])
+    permuted = compile_bundle(build_compiler_inputs(documents, case.keyring))
+    assert permuted.bundle.payload_hash == result.bundle.payload_hash

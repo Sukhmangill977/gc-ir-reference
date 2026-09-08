@@ -203,12 +203,34 @@ print(compile_permuted(spec["case_id"], spec["spec"], spec["permutation_seed"]))
 
 
 def compile_permuted(case_id, spec, permutation_seed):
-    """Load, permute, compile, and return the canonical payload hash."""
+    """Load, permute, re-sign, compile, and return the canonical payload hash.
+
+    **Why the permuted inputs are re-signed.**  A signature binds an exact
+    document.  Re-ordering an *object's keys* does not change the document under
+    RFC 8785, so those signatures still verify untouched.  Re-ordering an
+    *array* -- the register rows, the specification records, the catalog entries
+    -- does change the document, and the signature correctly stops verifying.
+
+    That is the right behaviour for a signature, but it is not the question this
+    experiment asks.  The permutation models an equally valid authoring order
+    that the same governance authority would have signed: the register rows carry
+    the same content in a different sequence.  So the permuted documents are
+    re-signed by the *same* authority key named in ``compile_parameters``, and
+    Phi then verifies them as it verifies any signed input.  Nothing about the
+    signature check is bypassed; the experiment supplies a validly signed
+    equivalent input rather than a tampered one.
+
+    ``tests/adversarial`` covers the other side of this: a document edited after
+    signing, and a document signed by an unauthorized key, are both rejected.
+    """
     from gcir.caseio import build_compiler_inputs, load_case
     from gcir.compiler import compile_bundle
+    from experiments.run_adversarial import resign_all
 
     case = load_case(case_id, validate=False)
     documents = apply_permutation(case.documents, spec, permutation_seed)
+    resign_all(documents, case.keyring,
+               documents["compile_parameters"]["signing_authorities"])
     inputs = build_compiler_inputs(documents, case.keyring)
     result = compile_bundle(inputs)
     return result.bundle.payload_hash

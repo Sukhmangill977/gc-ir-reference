@@ -66,6 +66,28 @@ class ControlDerivationCatalog:
     def event_types(self):
         return sorted({event for event, _ in self._entries})
 
+    def canonical_document(self):
+        """The catalog as it enters the bundle hash.
+
+        Section VI-C requires "deterministic array ordering where order is not
+        semantically meaningful".  A catalog's entry sequence carries no meaning:
+        entries are addressed by the (event_type, template_id) pair, never by
+        position.  Hashing the document as authored would therefore leak the
+        author's ordering into the bundle hash and break determinism under an
+        equivalent input permutation -- which is exactly what the determinism
+        experiment detected before this projection existed.
+
+        The signature envelope is stripped for the same reason it lives outside
+        the payload: it carries signing time and key identity.
+        """
+        document = {
+            key: value
+            for key, value in self._doc.items()
+            if key not in ("signature", "entries")
+        }
+        document["entries"] = [self._entries[key] for key in sorted(self._entries)]
+        return document
+
     # -- resolution ---------------------------------------------------------
 
     def exact_lookup(self, event_type, template_id):

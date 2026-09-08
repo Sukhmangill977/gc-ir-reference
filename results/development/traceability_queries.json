@@ -7,16 +7,16 @@
       "numpy": "2.2.1",
       "pytest": "8.3.4"
     },
-    "git_commit": "d9b59ecebbf035d882e5db159061a77ebf4229f4",
-    "git_commit_short": "d9b59ec",
-    "git_describe": "d9b59ec-dirty",
+    "git_commit": "fed211aece4064cba1479138a9edca0b2a27e209",
+    "git_commit_short": "fed211a",
+    "git_describe": "fed211a-dirty",
     "git_status_clean": false,
     "git_tag_exact": null,
     "machine": "arm64",
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "python_implementation": "CPython",
     "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-08T04:28:22Z",
+    "run_completed_utc": "2026-09-08T04:41:25Z",
     "system": "Darwin"
   },
   "phase": "development",
@@ -192,7 +192,7 @@
           "row_count": 1,
           "rows": [
             {
-              "bundle_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+              "bundle_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
               "decision_time": "2026-07-01T09:00:00Z",
               "receipt_id": "RCPT-CASE-A-NEG-Q4A",
               "valid_at_reasons": "bundle retired by retire effective 2026-06-01T00:00:00Z"
@@ -211,7 +211,7 @@
               "bundle_hash": "0000000000000000000000000000000000000000000000000000000000000000",
               "decision_time": "2026-03-04T10:15:00Z",
               "receipt_id": "RCPT-CASE-A-NEG-Q4B",
-              "valid_at_reasons": "receipt bundle_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match H(b.payload) ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9"
+              "valid_at_reasons": "receipt bundle_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match H(b.payload) f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536"
             }
           ]
         },
@@ -256,7 +256,7 @@
             {
               "action": "revoke",
               "authority": "impersonated.head_of_operations",
-              "bundle_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+              "bundle_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
               "entry_id": "REG-CASE-A-NEG-Q6",
               "signing_key_id": "key.unauthorized_party"
             }
@@ -330,7 +330,7 @@
           "row_count": 1,
           "rows": [
             {
-              "bundle_hash": "ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
+              "bundle_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
               "decision_time": "2026-07-01T09:00:00Z",
               "receipt_id": "RCPT-CASE-B-NEG-Q4A",
               "valid_at_reasons": "bundle retired by retire effective 2026-06-01T00:00:00Z"
@@ -349,7 +349,7 @@
               "bundle_hash": "0000000000000000000000000000000000000000000000000000000000000000",
               "decision_time": "2026-03-04T10:15:00Z",
               "receipt_id": "RCPT-CASE-B-NEG-Q4B",
-              "valid_at_reasons": "receipt bundle_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match H(b.payload) ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8"
+              "valid_at_reasons": "receipt bundle_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match H(b.payload) 2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce"
             }
           ]
         },
@@ -394,7 +394,7 @@
             {
               "action": "revoke",
               "authority": "impersonated.head_of_operations",
-              "bundle_hash": "ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
+              "bundle_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
               "entry_id": "REG-CASE-B-NEG-Q6",
               "signing_key_id": "key.unauthorized_party"
             }

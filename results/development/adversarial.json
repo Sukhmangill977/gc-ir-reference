@@ -7,16 +7,16 @@
       "numpy": "2.2.1",
       "pytest": "8.3.4"
     },
-    "git_commit": "d9b59ecebbf035d882e5db159061a77ebf4229f4",
-    "git_commit_short": "d9b59ec",
-    "git_describe": "d9b59ec-dirty",
+    "git_commit": "fed211aece4064cba1479138a9edca0b2a27e209",
+    "git_commit_short": "fed211a",
+    "git_describe": "fed211a-dirty",
     "git_status_clean": false,
     "git_tag_exact": null,
     "machine": "arm64",
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "python_implementation": "CPython",
     "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-08T04:27:34Z",
+    "run_completed_utc": "2026-09-08T04:41:25Z",
     "system": "Darwin"
   },
   "phase": "development",
@@ -33,7 +33,7 @@
         {
           "actual_code": "WC-01",
           "compiler_code": "",
-          "detail": "compiled; hash=2436ef363d0d3e23; warnings=['WC-01']",
+          "detail": "compiled; hash=2cc9732bebce850b; warnings=['WC-01']",
           "expected_code": "WC-01",
           "expects": "compile",
           "id": "ADV-001",
@@ -631,7 +631,7 @@
         {
           "actual_code": "none",
           "compiler_code": "",
-          "detail": "compiled; hash=ec76b81d89b43128; warnings=none",
+          "detail": "compiled; hash=f5cbc3a8016159d2; warnings=none",
           "expected_code": "",
           "expects": "compile",
           "id": "ADV-047",
@@ -735,7 +735,7 @@
         {
           "actual_code": "none",
           "compiler_code": "",
-          "detail": "compiled; hash=ec76b81d89b43128; warnings=none",
+          "detail": "compiled; hash=f5cbc3a8016159d2; warnings=none",
           "expected_code": "",
           "expects": "compile",
           "id": "POS-001",
@@ -748,7 +748,7 @@
         {
           "actual_code": "none",
           "compiler_code": "",
-          "detail": "compiled; hash=ec76b81d89b43128; warnings=none",
+          "detail": "compiled; hash=f5cbc3a8016159d2; warnings=none",
           "expected_code": "",
           "expects": "compile",
           "id": "POS-002",
@@ -761,7 +761,7 @@
         {
           "actual_code": "none",
           "compiler_code": "",
-          "detail": "compiled; hash=e3864848d7cda6fd; warnings=none",
+          "detail": "compiled; hash=042c885947913587; warnings=none",
           "expected_code": "",
           "expects": "compile",
           "id": "POS-003",
@@ -774,7 +774,7 @@
         {
           "actual_code": "none",
           "compiler_code": "",
-          "detail": "compiled; hash=e0b7bb64c1f80b99; warnings=none",
+          "detail": "compiled; hash=1eab205ee4a5e184; warnings=none",
           "expected_code": "",
           "expects": "compile",
           "id": "POS-004",
@@ -787,7 +787,7 @@
         {
           "actual_code": "none",
           "compiler_code": "",
-          "detail": "compiled; hash=ec76b81d89b43128; warnings=none",
+          "detail": "compiled; hash=f5cbc3a8016159d2; warnings=none",
           "expected_code": "",
           "expects": "compile",
           "id": "POS-005",
@@ -806,7 +806,7 @@
         {
           "case": "case_a",
           "check": "in_place_payload_mutation_breaks_hash",
-          "detail": "mutated hash f79861c1c3dc56f4 vs original ec76b81d89b43128",
+          "detail": "mutated hash 65e514e778714959 vs original f5cbc3a8016159d2",
           "manuscript_ref": "Section VI-F; Appendix A constraint 13",
           "passed": true
         },
@@ -841,15 +841,36 @@
         {
           "case": "case_a",
           "check": "wrong_bundle_hash_receipt_is_invalid",
-          "detail": "receipt bundle_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match H(b.payload) ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+          "detail": "receipt bundle_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match H(b.payload) f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
           "manuscript_ref": "Section VIII",
           "passed": true
         },
         {
           "case": "case_a",
           "check": "unauthorized_registry_record_does_not_retire",
-          "detail": "[{\"bundle_hash\": \"ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9\", \"action\": \"revoke\", \"effective_time\": \"2026-03-01T00:00:00Z\", \"authority\": \"impersonated.head_of_operations\", \"key_id\": \"key.unauthorized_party\"}]",
+          "detail": "[{\"bundle_hash\": \"f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536\", \"action\": \"revoke\", \"effective_time\": \"2026-03-01T00:00:00Z\", \"authority\": \"impersonated.head_of_operations\", \"key_id\": \"key.unauthorized_party\"}]",
           "manuscript_ref": "Section VI-F; Section VIII query 6",
+          "passed": true
+        },
+        {
+          "case": "case_a",
+          "check": "conflicting_mandatory_policies_are_indeterminate",
+          "detail": "mandatory policies in conflict_group 'CG-DISPUTED' disagree and the approved policy metadata supplies no unique precedence relation over ['GCIR-0001', 'GCIR-0002']",
+          "manuscript_ref": "Section VI-D",
+          "passed": true
+        },
+        {
+          "case": "case_a",
+          "check": "unique_precedence_relation_resolves_the_conflict",
+          "detail": "mandatory gate(s) GCIR-0001 failed",
+          "manuscript_ref": "Section VI-D",
+          "passed": true
+        },
+        {
+          "case": "case_a",
+          "check": "soft_failure_never_overrides_mandatory_pass",
+          "detail": "3 weighted/advisory failures; decision=PERMIT",
+          "manuscript_ref": "Section VI-D",
           "passed": true
         },
         {
@@ -869,7 +890,7 @@
         {
           "case": "case_b",
           "check": "in_place_payload_mutation_breaks_hash",
-          "detail": "mutated hash 00c860217dd21065 vs original ff01015b3c4165f7",
+          "detail": "mutated hash 558f3be02f693be1 vs original 2850155a2ee7d4c0",
           "manuscript_ref": "Section VI-F; Appendix A constraint 13",
           "passed": true
         },
@@ -904,15 +925,36 @@
         {
           "case": "case_b",
           "check": "wrong_bundle_hash_receipt_is_invalid",
-          "detail": "receipt bundle_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match H(b.payload) ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
+          "detail": "receipt bundle_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match H(b.payload) 2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
           "manuscript_ref": "Section VIII",
           "passed": true
         },
         {
           "case": "case_b",
           "check": "unauthorized_registry_record_does_not_retire",
-          "detail": "[{\"bundle_hash\": \"ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8\", \"action\": \"revoke\", \"effective_time\": \"2026-03-01T00:00:00Z\", \"authority\": \"impersonated.head_of_operations\", \"key_id\": \"key.unauthorized_party\"}]",
+          "detail": "[{\"bundle_hash\": \"2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce\", \"action\": \"revoke\", \"effective_time\": \"2026-03-01T00:00:00Z\", \"authority\": \"impersonated.head_of_operations\", \"key_id\": \"key.unauthorized_party\"}]",
           "manuscript_ref": "Section VI-F; Section VIII query 6",
+          "passed": true
+        },
+        {
+          "case": "case_b",
+          "check": "conflicting_mandatory_policies_are_indeterminate",
+          "detail": "mandatory policies in conflict_group 'CG-DISPUTED' disagree and the approved policy metadata supplies no unique precedence relation over ['GCIR-B0001', 'GCIR-B0002']",
+          "manuscript_ref": "Section VI-D",
+          "passed": true
+        },
+        {
+          "case": "case_b",
+          "check": "unique_precedence_relation_resolves_the_conflict",
+          "detail": "mandatory gate(s) GCIR-B0001 failed",
+          "manuscript_ref": "Section VI-D",
+          "passed": true
+        },
+        {
+          "case": "case_b",
+          "check": "soft_failure_never_overrides_mandatory_pass",
+          "detail": "0 weighted/advisory failures; decision=PERMIT",
+          "manuscript_ref": "Section VI-D",
           "passed": true
         },
         {
@@ -931,15 +973,15 @@
         }
       ],
       "failed": 0,
-      "passed": 18,
-      "total": 18
+      "passed": 24,
+      "total": 24
     },
     "validation_seeds": {
       "passed": 3,
       "seeds": [
         {
           "code_exercised": "RC-05",
-          "detail": "hash=3316e4a5de3a778e; RC-05 record present=True",
+          "detail": "hash=59bd0a4ad9272720; RC-05 record present=True",
           "expected": "compiles with the row routed to a non-runtime disposition carrying RC-05",
           "manuscript_ref": "Section V; Section IX",
           "outcome": "PASS",
@@ -955,7 +997,7 @@
         },
         {
           "code_exercised": "RC-02",
-          "detail": "hash=15b32a1d1613f5c0",
+          "detail": "hash=30bf5da0d01f28ef",
           "expected": "compiles with the row routed to a non-runtime disposition carrying RC-02",
           "manuscript_ref": "Section V",
           "outcome": "PASS",

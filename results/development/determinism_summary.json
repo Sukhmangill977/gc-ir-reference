@@ -7,16 +7,16 @@
       "numpy": "2.2.1",
       "pytest": "8.3.4"
     },
-    "git_commit": null,
-    "git_commit_short": null,
-    "git_describe": null,
+    "git_commit": "fed211aece4064cba1479138a9edca0b2a27e209",
+    "git_commit_short": "fed211a",
+    "git_describe": "fed211a-dirty",
     "git_status_clean": false,
     "git_tag_exact": null,
     "machine": "arm64",
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "python_implementation": "CPython",
     "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-08T04:19:10Z",
+    "run_completed_utc": "2026-09-08T04:41:32Z",
     "system": "Darwin"
   },
   "phase": "development",
@@ -24,9 +24,9 @@
   "result": {
     "TD": {
       "definition": "sum_k 1[H_k = H_reference] / N over permutations, locales, time zones and clean-process executions",
-      "denominator": 8,
+      "denominator": 60,
       "note": "TD is a property of the canonical payload hash. The signature envelope is not required to be byte-identical across signing events.",
-      "numerator": 8,
+      "numerator": 60,
       "value": 1.0
     },
     "environment_scope_note": "This experiment measures determinism across the permutations, locales, time zones and process boundaries listed above, on ONE host operating system. Cross-platform replication is measured separately by the GitHub Actions matrix (ubuntu / windows / macOS). No claim of universal platform independence is supported by this run alone.",
@@ -35,35 +35,36 @@
       "C",
       "de_DE.UTF-8",
       "en_US.UTF-8",
+      "ja_JP.UTF-8",
       "tr_TR.UTF-8"
     ],
-    "matches": 8,
+    "matches": 60,
     "per_case": {
       "case_a": {
         "TD": {
           "definition": "sum_k 1[H_k = H_reference] / N over environments and permutations",
-          "denominator": 4,
+          "denominator": 30,
           "note": "TD applies to the canonical payload hash. The signature envelope is not required to be byte-identical across signing events.",
-          "numerator": 4,
-          "reference_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+          "numerator": 30,
+          "reference_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
           "value": 1.0
         },
-        "matches": 4,
-        "reference_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
-        "runs": 4
+        "matches": 30,
+        "reference_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+        "runs": 30
       },
       "case_b": {
         "TD": {
           "definition": "sum_k 1[H_k = H_reference] / N over environments and permutations",
-          "denominator": 4,
+          "denominator": 30,
           "note": "TD applies to the canonical payload hash. The signature envelope is not required to be byte-identical across signing events.",
-          "numerator": 4,
-          "reference_hash": "ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
+          "numerator": 30,
+          "reference_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
           "value": 1.0
         },
-        "matches": 4,
-        "reference_hash": "ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
-        "runs": 4
+        "matches": 30,
+        "reference_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+        "runs": 30
       }
     },
     "permutation_dimensions": [
@@ -78,14 +79,15 @@
       "timezone",
       "clean_process (fresh interpreter, new PYTHONHASHSEED)"
     ],
-    "runs_per_case": 4,
+    "runs_per_case": 30,
     "timezones_used": [
       "America/Edmonton",
+      "Asia/Kolkata",
       "Europe/Berlin",
       "Pacific/Chatham",
       "UTC"
     ],
-    "total_runs": 8
+    "total_runs": 60
   },
   "result_name": "determinism_summary"
 }

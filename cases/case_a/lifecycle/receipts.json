@@ -9,7 +9,7 @@
       },
       "actuation_time": "2026-03-04T10:15:02Z",
       "authorization_time": "2026-03-04T10:15:00Z",
-      "bundle_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+      "bundle_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
       "decision": "PERMIT",
       "decision_time": "2026-03-04T10:15:00Z",
       "evaluated_predicates": [
@@ -191,8 +191,8 @@
         "algorithm": "Ed25519",
         "domain": "receipt",
         "key_id": "key.runtime_authority_a",
-        "payload_hash": "8144a1b1105f9193f95507b4f878f0d26637f674dd740cf890a93adce43be583",
-        "signature_b64": "R/LnE0FT6fraQdZ8lauHRccx0ttECVQRKdu5cRR45FzTWuo0JJGehcZTU2Tje1uTBmAUV4l3dg/JerChg2gFCw==",
+        "payload_hash": "e3a1425b3276b165e1c6535d0ebec68232f1dce4796bc965eacda0e87b257f9a",
+        "signature_b64": "Wu7Q+JVpnqoEcH2hbp7tPdQKc+xiM9hCODWTbFrapB+rzeu9xDNdo4hE/nGnvh3gjW3qpYNeNB4rZuS7p26+BA==",
         "signing_time": "2026-03-04T10:15:01Z"
       }
     },
@@ -205,7 +205,7 @@
       },
       "actuation_time": "2026-05-30T08:00:02Z",
       "authorization_time": "2026-05-30T08:00:00Z",
-      "bundle_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+      "bundle_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
       "decision": "PERMIT",
       "decision_time": "2026-05-30T08:00:00Z",
       "evaluated_predicates": [
@@ -387,8 +387,8 @@
         "algorithm": "Ed25519",
         "domain": "receipt",
         "key_id": "key.runtime_authority_a",
-        "payload_hash": "aa23434d2718532f8a95b0a3f513340a03637fa63492ad6c596bffaeed22aea2",
-        "signature_b64": "bcR84F49vTb8xpqtlT/+dZPnH47D0+hLc5NaTmECQWRIeEg7+EQt5edidctNvSrqhVvA3Az6txPQexTV+C6JAQ==",
+        "payload_hash": "f9faadee59434ccee384a7a08ae558a41a8238ef507e8987f7d41e3d1d3c28c2",
+        "signature_b64": "fJOwby60eeUHfq05xMzbS7xMUwgUiyeR0zaK8yoOwCOAXYhMPxqTa9oyH9aEwfDoJfH0/FPwx9l0/VOPl9VZCg==",
         "signing_time": "2026-05-30T08:00:01Z"
       }
     }

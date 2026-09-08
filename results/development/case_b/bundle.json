@@ -4,7 +4,7 @@
     "case_id": "CASE-B-TRANSACTION-AUTHORIZATION-AGENT",
     "catalog_ref": {
       "catalog_id": "K-CASE-B",
-      "content_hash": "44afd7fee1778df177c42e45ed426ca575acf0d53e754b049c3cdeb9c0c3d5ae",
+      "content_hash": "c4ad4b3701ab4847ab2d5f909574ca5c87892972f1902f0650c8fef7fd8b18c1",
       "version": "1.0"
     },
     "coverage_matrix": {
@@ -275,7 +275,7 @@
       ]
     },
     "cstar_profile_ref": {
-      "content_hash": "080b07dc65f2e5eb8d4ea7825c451b47273e204fcdcc6e200fd796010174b0b3",
+      "content_hash": "8599ec979c8aea8d87a6d3f22777b47d3990d813db36279f307cfb82d6bbe9ec",
       "member_kinds": [
         "irreversible_external_effect_above_approved_bound",
         "material_information_barrier_breach",
@@ -1129,13 +1129,13 @@
       "prompt_version": "not-applicable-non-generative"
     }
   },
-  "payload_hash": "ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
+  "payload_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
   "signature_envelope": {
     "algorithm": "Ed25519",
     "domain": "bundle",
     "key_id": "key.governance_forum_b",
-    "payload_hash": "ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
-    "signature_b64": "gezDZAoO5PIz8lDWtEUgj3dMB39TySFokn2MLXcUtz3f4wA+XXTy/ChogLY9sctrgpW4wTr5Jst7UwkJkzMKAA==",
+    "payload_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+    "signature_b64": "ik97xwP9urLDQdK65BjniWBOt/K9cG1xErr5lCZYbxivnJw6PXnTFnEhXsd2Z4Z4OLHIghvIEkHFzhpN0gEJCw==",
     "signing_time": "2026-02-02T09:05:00Z"
   }
 }

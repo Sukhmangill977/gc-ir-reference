@@ -6,7 +6,7 @@
     {
       "action": "retire",
       "authority": "exec.head_of_research",
-      "bundle_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+      "bundle_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
       "effective_time": "2026-06-01T00:00:00Z",
       "entry_id": "REG-CASE-A-001",
       "reason": "Scheduled retirement on the annual review cycle. Recorded as a signed registry record; the bundle payload is not touched.",
@@ -14,8 +14,8 @@
         "algorithm": "Ed25519",
         "domain": "lifecycle",
         "key_id": "key.lifecycle_authority_a",
-        "payload_hash": "79d71ca027880f634c1ebb9bbb60f272e6f91e4318425bd2d13e8fe4cdf80201",
-        "signature_b64": "DuIDXG4DA1mECxrwb7B1f7s9sz7RoFw6HYqb2sBhttxf4JeyiWb8OgkG3q+l/oFJ/vby9P0WuqVY9a92LosnDg==",
+        "payload_hash": "040f2c3dac063fce8e609cf4ab880f04b4b68867ff74072f489d91fb97677b0b",
+        "signature_b64": "3dfwL9T3woY/cVMMekAZsCXzmcEGeCoKMQNe0i3bBXMq274OVk/aAQynW33NY8OQxqJ1yWlio+eSkhk5jJeIDg==",
         "signing_time": "2026-05-25T12:00:00Z"
       },
       "trigger": "model_version_change"

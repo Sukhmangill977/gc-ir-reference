@@ -7,16 +7,16 @@
       "numpy": "2.2.1",
       "pytest": "8.3.4"
     },
-    "git_commit": null,
-    "git_commit_short": null,
-    "git_describe": null,
+    "git_commit": "fed211aece4064cba1479138a9edca0b2a27e209",
+    "git_commit_short": "fed211a",
+    "git_describe": "fed211a-dirty",
     "git_status_clean": false,
     "git_tag_exact": null,
     "machine": "arm64",
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "python_implementation": "CPython",
     "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-08T04:19:09Z",
+    "run_completed_utc": "2026-09-08T04:41:11Z",
     "system": "Darwin"
   },
   "phase": "development",
@@ -27,7 +27,7 @@
     "compile_time_declared": "2026-02-02T09:00:00Z",
     "declared_heatmap_threshold": 15,
     "output_dir": "results/development/case_a",
-    "payload_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+    "payload_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
     "schema_validation": {
       "bundle": "pass",
       "gcir_records": "pass",
@@ -37,8 +37,8 @@
       "algorithm": "Ed25519",
       "domain": "bundle",
       "key_id": "key.governance_forum_a",
-      "payload_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
-      "signature_b64": "gDkEWlorzB/iNzhUEUo/PfJsXaWvWTmigGbimlRYFNHB5FXqQgRK1puBQ1kY4DwmzJ5wK96JbIQDKz7Dtj2MDQ==",
+      "payload_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+      "signature_b64": "V6WUrNfvsrGzRpbsPYwSVbzLDvyxrmQKgnyHZsrFLJJn2vDM3VJFyPqzRO6Gnz1SYm6RD4lqlE8vEt+2iRkDDQ==",
       "signing_time": "2026-02-02T09:05:00Z"
     },
     "statistics": {

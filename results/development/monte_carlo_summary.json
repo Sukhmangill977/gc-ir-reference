@@ -7,16 +7,16 @@
       "numpy": "2.2.1",
       "pytest": "8.3.4"
     },
-    "git_commit": "d9b59ecebbf035d882e5db159061a77ebf4229f4",
-    "git_commit_short": "d9b59ec",
-    "git_describe": "d9b59ec",
+    "git_commit": "fed211aece4064cba1479138a9edca0b2a27e209",
+    "git_commit_short": "fed211a",
+    "git_describe": "fed211a-dirty",
     "git_status_clean": false,
     "git_tag_exact": null,
     "machine": "arm64",
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "python_implementation": "CPython",
     "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-08T04:22:01Z",
+    "run_completed_utc": "2026-09-08T04:41:54Z",
     "system": "Darwin"
   },
   "phase": "development",
@@ -26,31 +26,32 @@
       "case_a": {
         "GD_approved": 3,
         "GD_distribution": {
-          "0": 1,
-          "1": 77,
-          "10": 127,
-          "11": 35,
-          "12": 2,
-          "2": 480,
-          "3": 1708,
-          "4": 3527,
-          "5": 4907,
-          "6": 4387,
-          "7": 2866,
-          "8": 1398,
-          "9": 485
+          "0": 57,
+          "1": 854,
+          "10": 1534,
+          "11": 267,
+          "12": 29,
+          "13": 2,
+          "2": 5744,
+          "3": 20524,
+          "4": 44115,
+          "5": 59724,
+          "6": 56250,
+          "7": 36918,
+          "8": 17759,
+          "9": 6223
         },
-        "GD_mean": 5.4208,
+        "GD_mean": 5.4466,
         "GD_min_distribution": {
-          "0": 88,
-          "1": 919,
-          "2": 3555,
-          "3": 7290,
-          "4": 6423,
-          "5": 1725
+          "0": 1065,
+          "1": 10814,
+          "2": 43730,
+          "3": 90850,
+          "4": 81940,
+          "5": 21601
         },
-        "GD_min_mean": 3.2108,
-        "MCSE_upper_bound_at_K": 0.0035355339059327377,
+        "GD_min_mean": 3.226356,
+        "MCSE_upper_bound_at_K": 0.001,
         "case_id": "case_a",
         "cstar_membership_changes_observed": 0,
         "cstar_probe_draws": 1000,
@@ -346,22 +347,22 @@
             }
           }
         },
-        "draws_K": 20000,
+        "draws_K": 250000,
         "expected_gate_changes_per_register_cstar": 0.0,
-        "expected_gate_changes_per_register_heatmap": 3.6206,
+        "expected_gate_changes_per_register_heatmap": 3.642176,
         "max_FP_cstar": 0.0,
         "max_FP_heat": {
           "approved_score": 15,
-          "mcse": 0.0033041760697638373,
+          "mcse": 0.000933926918288578,
           "risk_id": "R-06",
-          "value": 0.3221
+          "value": 0.321268
         },
-        "mean_FP_heat": 0.2262875,
+        "mean_FP_heat": 0.227636,
         "per_risk": [
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.03805,
-            "FP_heat_mcse": 0.001352815536205879,
+            "FP_heat": 0.039436,
+            "FP_heat_mcse": 0.0003892598201921179,
             "approved_I": 5,
             "approved_L": 4,
             "approved_gate": 1,
@@ -373,8 +374,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.27515,
-            "FP_heat_mcse": 0.003157866981840749,
+            "FP_heat": 0.27992,
+            "FP_heat_mcse": 0.0008979193585172334,
             "approved_I": 4,
             "approved_L": 4,
             "approved_gate": 1,
@@ -386,8 +387,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.28125,
-            "FP_heat_mcse": 0.0031792171795899694,
+            "FP_heat": 0.279792,
+            "FP_heat_mcse": 0.0008977938220682964,
             "approved_I": 4,
             "approved_L": 4,
             "approved_gate": 1,
@@ -399,8 +400,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.2804,
-            "FP_heat_mcse": 0.003176285881340028,
+            "FP_heat": 0.281192,
+            "FP_heat_mcse": 0.000899161963465982,
             "approved_I": 4,
             "approved_L": 3,
             "approved_gate": 0,
@@ -412,8 +413,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.31445,
-            "FP_heat_mcse": 0.003283071713350167,
+            "FP_heat": 0.320984,
+            "FP_heat_mcse": 0.0009337093161021797,
             "approved_I": 5,
             "approved_L": 3,
             "approved_gate": 1,
@@ -425,8 +426,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.3221,
-            "FP_heat_mcse": 0.0033041760697638373,
+            "FP_heat": 0.321268,
+            "FP_heat_mcse": 0.000933926918288578,
             "approved_I": 5,
             "approved_L": 3,
             "approved_gate": 1,
@@ -438,8 +439,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.31945,
-            "FP_heat_mcse": 0.0032969811760154167,
+            "FP_heat": 0.319444,
+            "FP_heat_mcse": 0.0009325224519849374,
             "approved_I": 5,
             "approved_L": 3,
             "approved_gate": 1,
@@ -451,8 +452,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.31445,
-            "FP_heat_mcse": 0.003283071713350167,
+            "FP_heat": 0.321148,
+            "FP_heat_mcse": 0.0009338350220376187,
             "approved_I": 5,
             "approved_L": 3,
             "approved_gate": 1,
@@ -464,8 +465,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.27745,
-            "FP_heat_mcse": 0.0031660029808893105,
+            "FP_heat": 0.279068,
+            "FP_heat_mcse": 0.0008970820505973798,
             "approved_I": 4,
             "approved_L": 3,
             "approved_gate": 1,
@@ -477,8 +478,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.1603,
-            "FP_heat_mcse": 0.0025942620337968945,
+            "FP_heat": 0.159128,
+            "FP_heat_mcse": 0.0007315908135453862,
             "approved_I": 5,
             "approved_L": 2,
             "approved_gate": 1,
@@ -490,8 +491,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.2742,
-            "FP_heat_mcse": 0.0031544758677155863,
+            "FP_heat": 0.2802,
+            "FP_heat_mcse": 0.0008981936539521976,
             "approved_I": 4,
             "approved_L": 4,
             "approved_gate": 1,
@@ -503,8 +504,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.28295,
-            "FP_heat_mcse": 0.00318503765676326,
+            "FP_heat": 0.2814,
+            "FP_heat_mcse": 0.0008993643088315213,
             "approved_I": 4,
             "approved_L": 3,
             "approved_gate": 0,
@@ -516,8 +517,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.16215,
-            "FP_heat_mcse": 0.002606313272613252,
+            "FP_heat": 0.159592,
+            "FP_heat_mcse": 0.000732454486056301,
             "approved_I": 5,
             "approved_L": 2,
             "approved_gate": 1,
@@ -529,8 +530,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.27865,
-            "FP_heat_mcse": 0.0031702064404388556,
+            "FP_heat": 0.279188,
+            "FP_heat_mcse": 0.000897200224378037,
             "approved_I": 4,
             "approved_L": 3,
             "approved_gate": 0,
@@ -555,8 +556,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.0396,
-            "FP_heat_mcse": 0.0013789822333880883,
+            "FP_heat": 0.040416,
+            "FP_heat_mcse": 0.000393865697638167,
             "approved_I": 4,
             "approved_L": 2,
             "approved_gate": 0,
@@ -573,19 +574,19 @@
       "case_b": {
         "GD_approved": 4,
         "GD_distribution": {
-          "1": 85,
-          "2": 960,
-          "3": 4659,
-          "4": 8406,
-          "5": 5048,
-          "6": 842
+          "1": 851,
+          "2": 12161,
+          "3": 57882,
+          "4": 105524,
+          "5": 62025,
+          "6": 11557
         },
-        "GD_mean": 3.9949,
+        "GD_mean": 4.001528,
         "GD_min_distribution": {
-          "0": 20000
+          "0": 250000
         },
         "GD_min_mean": 0.0,
-        "MCSE_upper_bound_at_K": 0.0035355339059327377,
+        "MCSE_upper_bound_at_K": 0.001,
         "case_id": "case_b",
         "cstar_membership_changes_observed": 0,
         "cstar_probe_draws": 1000,
@@ -701,22 +702,22 @@
             }
           }
         },
-        "draws_K": 20000,
+        "draws_K": 250000,
         "expected_gate_changes_per_register_cstar": 0.0,
-        "expected_gate_changes_per_register_heatmap": 1.1985,
+        "expected_gate_changes_per_register_heatmap": 1.194272,
         "max_FP_cstar": 0.0,
         "max_FP_heat": {
           "approved_score": 15,
-          "mcse": 0.0033026928217743776,
+          "mcse": 0.000931383314430745,
           "risk_id": "B-01",
-          "value": 0.32155
+          "value": 0.31798
         },
-        "mean_FP_heat": 0.19974999999999998,
+        "mean_FP_heat": 0.19904533333333332,
         "per_risk": [
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.32155,
-            "FP_heat_mcse": 0.0033026928217743776,
+            "FP_heat": 0.31798,
+            "FP_heat_mcse": 0.000931383314430745,
             "approved_I": 5,
             "approved_L": 3,
             "approved_gate": 1,
@@ -728,8 +729,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.27515,
-            "FP_heat_mcse": 0.003157866981840749,
+            "FP_heat": 0.27992,
+            "FP_heat_mcse": 0.0008979193585172334,
             "approved_I": 4,
             "approved_L": 4,
             "approved_gate": 1,
@@ -741,8 +742,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.2866,
-            "FP_heat_mcse": 0.0031973460869915223,
+            "FP_heat": 0.278316,
+            "FP_heat_mcse": 0.000896339677006435,
             "approved_I": 4,
             "approved_L": 3,
             "approved_gate": 1,
@@ -767,8 +768,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.16075,
-            "FP_heat_mcse": 0.002597204627094292,
+            "FP_heat": 0.159252,
+            "FP_heat_mcse": 0.0007318218375971027,
             "approved_I": 5,
             "approved_L": 2,
             "approved_gate": 1,
@@ -780,8 +781,8 @@
           },
           {
             "FP_cstar": 0.0,
-            "FP_heat": 0.15445,
-            "FP_heat_mcse": 0.0025553394833172363,
+            "FP_heat": 0.158804,
+            "FP_heat_mcse": 0.0007309864282844107,
             "approved_I": 5,
             "approved_L": 2,
             "approved_gate": 1,
@@ -799,27 +800,27 @@
     "provenance_warning": "Manuscript Section XI-G attributes the rating distributions to the independent adjudication panel of Section XI-C. NO SUCH PANEL HAS BEEN CONVENED. The distributions used here are author-specified synthetic sensitivity distributions constructed from a single a-priori rule (below). They are NOT independently adjudicated and must not be described as such. See docs/FIXTURE_PROVENANCE.md FP-020 and paper_update/MEASURED_RESULTS.md for the exact manuscript wording this requires.",
     "sensitivity_variant": {
       "case_a": {
-        "expected_gate_changes_per_register_heatmap": 3.7819,
+        "expected_gate_changes_per_register_heatmap": 3.758092,
         "max_FP_cstar": 0.0,
         "max_FP_heat": {
           "approved_score": 15,
-          "mcse": 0.003385628431325564,
-          "risk_id": "R-07",
-          "value": 0.35595
+          "mcse": 0.0009552449393448782,
+          "risk_id": "R-06",
+          "value": 0.352092
         },
-        "mean_FP_heat": 0.23636875000000002,
+        "mean_FP_heat": 0.23488075,
         "rule": "symmetric_pm1_ordinal_with_renormalisation"
       },
       "case_b": {
-        "expected_gate_changes_per_register_heatmap": 1.2241,
+        "expected_gate_changes_per_register_heatmap": 1.212272,
         "max_FP_cstar": 0.0,
         "max_FP_heat": {
           "approved_score": 15,
-          "mcse": 0.0033833858041908255,
+          "mcse": 0.0009544208928475948,
           "risk_id": "B-01",
-          "value": 0.3549
+          "value": 0.350768
         },
-        "mean_FP_heat": 0.20401666666666665,
+        "mean_FP_heat": 0.20204533333333333,
         "rule": "symmetric_pm1_ordinal_with_renormalisation"
       }
     },

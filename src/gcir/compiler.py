@@ -730,13 +730,13 @@ def build_payload(inputs, closure, predicates, gate_map, escalation_map, coverag
         "catalog_ref": {
             "catalog_id": inputs.catalog.catalog_id,
             "version": inputs.catalog.version,
-            "content_hash": hash_payload(strip_envelope(inputs.catalog.document)),
+            "content_hash": hash_payload(inputs.catalog.canonical_document()),
         },
         "cstar_profile_ref": {
             "profile_id": inputs.cstar_profile.profile_id,
             "version": inputs.cstar_profile.version,
             "member_kinds": sorted(inputs.cstar_profile.members),
-            "content_hash": hash_payload(strip_envelope(inputs.cstar_profile.document)),
+            "content_hash": hash_payload(inputs.cstar_profile.canonical_document()),
         },
         "judgment_record_ref": {
             "judgment_id": inputs.judgment.judgment_id,

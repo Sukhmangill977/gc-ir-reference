@@ -242,17 +242,22 @@ def test_recompiling_gives_the_same_hash(any_case):
 
 
 def test_catalog_and_cstar_profile_are_inside_the_bundle_hash(any_case):
-    """Section IV-B: the catalog is 'included in the compiled-bundle hash'."""
+    """Section IV-B: the catalog is 'included in the compiled-bundle hash'.
+
+    The hash is over the catalog's *canonical projection* -- entries sorted by
+    (event_type, template_id), signature envelope stripped -- so that an
+    equivalent authoring order cannot change the bundle hash (Section VI-C).
+    """
     from gcir.canonicalization import hash_payload
-    from gcir.signatures import strip_envelope
 
     case, inputs, result = any_case
     payload = result.bundle.payload
     assert payload["catalog_ref"]["content_hash"] == hash_payload(
-        strip_envelope(inputs.catalog.document))
+        inputs.catalog.canonical_document())
     assert payload["cstar_profile_ref"]["content_hash"] == hash_payload(
-        strip_envelope(inputs.cstar_profile.document))
+        inputs.cstar_profile.canonical_document())
     assert payload["catalog_ref"]["version"] == inputs.catalog.version
+    assert payload["catalog_ref"]["catalog_id"] == inputs.catalog.catalog_id
 
 
 def test_bundle_inherits_the_assessment_version_binding(any_case):

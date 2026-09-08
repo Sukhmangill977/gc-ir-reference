@@ -8,7 +8,7 @@
     },
     "actuation_time": "2026-07-01T09:00:02Z",
     "authorization_time": "2026-07-01T09:00:00Z",
-    "bundle_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+    "bundle_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
     "decision": "PERMIT",
     "decision_time": "2026-07-01T09:00:00Z",
     "evaluated_predicates": [
@@ -190,8 +190,8 @@
       "algorithm": "Ed25519",
       "domain": "receipt",
       "key_id": "key.runtime_authority_a",
-      "payload_hash": "081e44cc0a3ae3df5c339cd66a065fd3664757da85cc98e4b3104c22c5ae78db",
-      "signature_b64": "/TJ/3OtSWtBBhcu17ohgyUdtnXevEctC7MsFA7kghO6eBK1UFHMdW1OMxNHSlA9aCTYqUuFPRFUPrgoa2XgEBw==",
+      "payload_hash": "60436d61706ce63db24432a9bd1eb1bbc631a111d4fab866a2995e00c0420fbe",
+      "signature_b64": "Y9Hi5M9prLE+7leOkFVJF7hE9KEox9hVdExILMzV3vHX+CN3TEn/Awzs7x5zgu7OO9EmZLhhbCT4BO3HH72lAg==",
       "signing_time": "2026-07-01T09:00:01Z"
     }
   },
@@ -406,7 +406,7 @@
     },
     "actuation_time": "2026-03-04T10:15:03Z",
     "authorization_time": "2026-03-04T10:15:00Z",
-    "bundle_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+    "bundle_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
     "decision": "PERMIT",
     "decision_time": "2026-03-04T10:15:00Z",
     "evaluated_predicates": [
@@ -588,8 +588,8 @@
       "algorithm": "Ed25519",
       "domain": "receipt",
       "key_id": "key.runtime_authority_a",
-      "payload_hash": "2fc57163909b90b9c762d8ca8522cd4aab7cc3f0680106c02b0952358f878848",
-      "signature_b64": "32qp0VWSOcz3zat+WxBIA/SKD2iGfmKAy+ljXLV2ed4zN4LDtiw/xGr3ci3luXLd6cZsdB/xQ7JQQBGcIZymBg==",
+      "payload_hash": "a5d857da88be4fb08e6a615df308378063959c141a11fd739f11f02d30d29137",
+      "signature_b64": "dLsm2iPqe2dq7OdbFib8C6cqtDaGfER0/D6nHyyG9BKauAh5F2Ul2r2eIJKzp6L10x6nDPpGKUSbf1get6srDQ==",
       "signing_time": "2026-03-04T10:15:05Z"
     }
   },
@@ -602,7 +602,7 @@
   "q6_unauthorized_registry_entry": {
     "action": "revoke",
     "authority": "impersonated.head_of_operations",
-    "bundle_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+    "bundle_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
     "effective_time": "2026-03-01T00:00:00Z",
     "entry_id": "REG-CASE-A-NEG-Q6",
     "reason": "Purported emergency revocation signed by a key that is not in the registry's authorized_signing_keys.",
@@ -610,8 +610,8 @@
       "algorithm": "Ed25519",
       "domain": "lifecycle",
       "key_id": "key.unauthorized_party",
-      "payload_hash": "a92184a663a13dcdcbba211fd40333e7c47f6afcbbb0e063857ea0a34fd2776d",
-      "signature_b64": "e5oF5XpmzBPpxQmL4RivqNCRMyB601vPE2GLKwvTDCjrL8Hc5f6pkbPQj37BDYEvF4oNZlIeHrOzYqfJpdRkAw==",
+      "payload_hash": "da06410fbf3deea3c0630f34b3abaae198b4ec7a591227e149181a9514032716",
+      "signature_b64": "vulmPF+GmuI7SVT9cdjWRAa3HINCmFJ5GJodOLfwFHH9OwlrtMMCjvFpa/O10cjiBzFa9KMG/PoyKNL99pkNCg==",
       "signing_time": "2026-03-01T00:00:00Z"
     },
     "trigger": null
