@@ -41,7 +41,7 @@
       "bytes": 61905,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "ae071a7635b6d0ede6e059db7939acbc39ebc713df63082c22dcd7d402f7c70c"
+      "sha256": "ffe1195c5bc0d25cb5de0438c4ea4b3782e175a90158f6fcb8c61c58a51692b1"
     },
     {
       "bytes": 2029,
@@ -50,10 +50,10 @@
       "sha256": "b188e1325d8435a894580e3c84c1274e2e4d949be665a3e4b79a672cf1842d11"
     },
     {
-      "bytes": 16080,
+      "bytes": 16639,
       "path": "README.md",
       "role": "repository_root",
-      "sha256": "084e071a0f2042a2ab12e9953db473e14eaf1a6cf1d627551694be2f201ee5e4"
+      "sha256": "c78bda57e1a856ed4db98aea78276d45463a40104240b38b4ae8c90280459ca1"
     },
     {
       "bytes": 2889,
@@ -278,10 +278,10 @@
       "sha256": "90d6882ee1fd40533419e779e4553bd93dada4a9055ad202447d12d6d1a8bc34"
     },
     {
-      "bytes": 15134,
+      "bytes": 15786,
       "path": "docs/ARTIFACT_RUNS_COMPLIANCE.md",
       "role": "documentation",
-      "sha256": "65e563ba98de0431930661ce8e78480db79a064642020cb3fcac303ebf08f601"
+      "sha256": "18b4938a9c65e94c3f5ce17f0748c906c9eb8fbd00c37f83229bb561e33317e8"
     },
     {
       "bytes": 7670,
@@ -1784,7 +1784,7 @@
       "sha256": "64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44"
     }
   ],
-  "manifest_sha256": "276afea8bd127432eddfd0c664548c0568b2ae449c6a9ab9f97c6e258c14a334",
+  "manifest_sha256": "dc11cbe2552fafbb40c5318ebb3e50197d0d5e9784d71efe05feb98e9eca5579",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1817,5 +1817,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 3687465
+  "total_bytes": 3688676
 }

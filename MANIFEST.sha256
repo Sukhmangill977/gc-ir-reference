@@ -19,9 +19,9 @@ b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_roo
 1fc00762fe18d601c5cb8e676293a36ff6ed4a7686e2c77fccfda54f1636a7d0  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-ae071a7635b6d0ede6e059db7939acbc39ebc713df63082c22dcd7d402f7c70c  repository_root            MANIFEST.json
+ffe1195c5bc0d25cb5de0438c4ea4b3782e175a90158f6fcb8c61c58a51692b1  repository_root            MANIFEST.json
 b188e1325d8435a894580e3c84c1274e2e4d949be665a3e4b79a672cf1842d11  repository_root            Makefile
-084e071a0f2042a2ab12e9953db473e14eaf1a6cf1d627551694be2f201ee5e4  repository_root            README.md
+c78bda57e1a856ed4db98aea78276d45463a40104240b38b4ae8c90280459ca1  repository_root            README.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
 5b95bbef0ffae8f0f727cff131f22c57c3331a7dd33c64121b98d2ff799b6bc4  acs_a                      cases/case_a/acs/approved_control_specifications.json
 174147daa039c69c2fc30cbdcae1c6d487503965cd78bcbe9ce2863f1de089fb  dispositions_a             cases/case_a/dispositions/dispositions.json
@@ -59,7 +59,7 @@ b32822042543f8e38a952fe33c5e9b8f3dc3bcf3053856fb0c8f70bc8e844b0a  lifecycle_regi
 adfbde89384b5bec0b5d8eba5bc93881b0f4d2abfbd2abaf3007e7e0676bf907  lifecycle_registry         cases/case_b/lifecycle/receipts.json
 5420093d0d77d00e5be65e191fa756c1f5232b8bccff944751767257a58d4e29  catalog                    catalog/control_derivation_catalog_b_v1.json
 90d6882ee1fd40533419e779e4553bd93dada4a9055ad202447d12d6d1a8bc34  catalog                    catalog/control_derivation_catalog_v1.json
-65e563ba98de0431930661ce8e78480db79a064642020cb3fcac303ebf08f601  documentation              docs/ARTIFACT_RUNS_COMPLIANCE.md
+18b4938a9c65e94c3f5ce17f0748c906c9eb8fbd00c37f83229bb561e33317e8  documentation              docs/ARTIFACT_RUNS_COMPLIANCE.md
 f0e537bd1388d9287bfef368af8a7d3a5c7af512bb46001288b22c5291605ae4  documentation              docs/CASE_B_LDREA_TRACEABILITY.md
 4ddac753c23fefc3c598c9bcd3bb0b8044959a859fc5cf73e5932d28ff76e5f6  documentation              docs/CLAIM_TO_ARTIFACT_MATRIX.md
 d22a8644737297519dd124592981debffadc9eca59ccb25f2c633d214d502ded  documentation              docs/EXPERIMENT_PROTOCOL.md

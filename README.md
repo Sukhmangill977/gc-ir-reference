@@ -6,9 +6,16 @@ Controls”**
 
 Abhinandan Gill-Lakhowal, Member, IEEE — Gillian Holdings Incorporated, Calgary, AB, Canada
 
-[![tests](https://github.com/AGLakhowal/gc-ir-reference/actions/workflows/tests.yml/badge.svg)](../../actions/workflows/tests.yml)
-[![cross-platform determinism](https://github.com/AGLakhowal/gc-ir-reference/actions/workflows/determinism.yml/badge.svg)](../../actions/workflows/determinism.yml)
-[![reproducibility](https://github.com/AGLakhowal/gc-ir-reference/actions/workflows/reproducibility.yml/badge.svg)](../../actions/workflows/reproducibility.yml)
+[![tests](https://github.com/Sukhmangill977/gc-ir-reference/actions/workflows/tests.yml/badge.svg)](../../actions/workflows/tests.yml)
+[![cross-platform determinism](https://github.com/Sukhmangill977/gc-ir-reference/actions/workflows/determinism.yml/badge.svg)](../../actions/workflows/determinism.yml)
+[![reproducibility](https://github.com/Sukhmangill977/gc-ir-reference/actions/workflows/reproducibility.yml/badge.svg)](../../actions/workflows/reproducibility.yml)
+
+> **Reportable results: `results/final_v2/`.** Executed after the public
+> preregistration freeze `preregister-tier0-v2.2`, which was pushed to this
+> repository *before* the campaign ran and verified from the remote.
+> `results/final/` holds the superseded v1 campaign, whose freeze was never
+> public at execution time; it is retained unedited and compared in
+> `results/V1_V2_COMPARISON.md`.
 
 ---
 
@@ -17,12 +24,13 @@ Abhinandan Gill-Lakhowal, Member, IEEE — Gillian Holdings Incorporated, Calgar
 The shortest path from a fresh clone to the artifact's central claims.
 
 ```bash
-git clone https://github.com/AGLakhowal/gc-ir-reference.git
+git clone https://github.com/Sukhmangill977/gc-ir-reference.git
 cd gc-ir-reference
 
-make install        # .venv + the pinned dependency set (~30 s)
-make test           # 275 tests across four suites          (~10 s)
-make verify-hashes  # recompile both cases, check the committed hashes (~2 s)
+make install                  # .venv + the pinned dependency set (~30 s)
+make test                     # 280 tests across four suites          (~10 s)
+make verify-hashes            # recompile both cases, check the hashes (~2 s)
+python tools/freeze_check.py --final-v2   # the 13 frozen numbers, recomputed
 ```
 
 `make verify-hashes` recompiles Case A and Case B from the committed governance
@@ -34,8 +42,8 @@ environment and the one that produced the reference.
 Want the whole thing?
 
 ```bash
-make reproduce      # all 11 experiment steps end to end   (~45 s)
-cat results/development/SUMMARY.md
+python run_all.py --final-v2   # all 13 steps end to end (~60 s)
+cat results/final_v2/SUMMARY.md
 ```
 
 Everything in that summary is read from a result file a script produced. No number
@@ -92,11 +100,12 @@ unknown handling on mandatory gates; orphan-control impossibility **within
   and **deferred**. No adjudication panel has been convened, no practitioner has
   been recruited, and no participant data exists. `SNR` and `DF` are reported as
   `DEFERRED`, never as numbers.
-* **Universal platform independence.** Determinism is measured on two
-  independently installed operating systems — macOS/arm64 and Linux/aarch64 in the
-  pinned container — with identical reference hashes and `TD = 1.000` on each.
-  **Windows and x86-64 are untested**; the CI matrix covering them is configured
-  but has not run. See `results/final/CI_STATUS.md`.
+* **Universal platform independence.** Determinism is measured on **three
+  operating systems and two architectures** — macOS/arm64, Ubuntu/x86_64,
+  Windows/AMD64 and a Debian/aarch64 container — across six CPython versions, all
+  with identical reference hashes and `TD = 1.000 (62/62)`. That is a wide tested
+  set, but a finite matrix is still not the set of all environments. See
+  `results/final_v2/CI_STATUS.md`.
 * **Detection capability, production impact, false-denial rates.** Out of scope.
 * **Semantic correctness.** Compilation warrants that predicates faithfully encode
   the approved specifications — not that the specifications are complete over the

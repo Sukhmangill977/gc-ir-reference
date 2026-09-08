@@ -50,7 +50,7 @@ implemented.
 | A18 | Case B traceability: "P1–P13 → artifact-identifier mapping in MANIFEST.sha256" | Row 6 | **Built**, but **there is no P1–P13 family** in the published artifact | **PASS (deviation declared)** | `cases/case_b/ldrea_traceability.json`; `docs/CASE_B_LDREA_TRACEABILITY.md` | none — see §B |
 | A19 | "a compiled Case B bundle whose predicate ids resolve to `realdatatestcode/`" | Row 6 | Nine mapping rows, each machine-verified against the compiled bundle and the external artifact | **PASS** | `python -m tools.build_ldrea_traceability` → 0 verification failures | none |
 | A20 | Manifest mapping under role `case_b_input` | Examiner map, line 32 | Both L-DREA files carry role `case_b_input` in `MANIFEST.sha256` | **PASS** | `grep ldrea MANIFEST.sha256` | none |
-| A21 | Cross-environment run via `td_crossenv.py`; flips `\crossenvtrue` | Row 7 | Measured on macOS/arm64 and Linux/aarch64 container; **added** `tools/td_crossenv.py` wrapper; CI matrix adds Windows and x86-64 | **PASS (added)** | `results/final_v2/CI_STATUS.md`; `tools/td_crossenv.py` | run the CI matrix after publication |
+| A21 | Cross-environment run via `td_crossenv.py`; flips `\crossenvtrue` | Row 7 | **Executed.** TD = 1.000 over 62 runs on **eight** environments: macOS/arm64, Ubuntu/x86_64, Windows/AMD64 (each under Python 3.11 and 3.12), the local host and the pinned Debian/aarch64 container. All reproduce identical reference hashes. | **PASS** | `results/final_v2/CI_STATUS.md`, generated from [run 34261657261](https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/34261657261) | none |
 | A22 | "before a reviewer runs `run_all.py`" | Impact §, line 20 | **Added** `run_all.py` at the repository root over `experiments/reproduce_all.py` | **PASS (added)** | `python run_all.py --help` | none |
 
 ## B. `P1–P13` — SOURCE INCONSISTENCY, resolved constructively
@@ -183,11 +183,22 @@ Manuscript wording: `paper_update/MEASURED_RESULTS.md` §5.
 
 | Status | Count |
 |---|---|
-| PASS | 11 |
-| PASS (added) | 9 |
+| PASS | 12 |
+| PASS (added) | 8 |
 | PASS (deviation declared) | 2 |
 | SOURCE INCONSISTENCY (documented, not implemented) | 2 |
 | DEFERRED | 1 |
+
+### Cross-platform status at completion
+
+All three CI workflows are green on the release commit, and the cross-platform
+determinism matrix passed on every leg:
+
+| Leg | OS | Arch | Python | TD |
+|---|---|---|---|---|
+| `ubuntu-latest` × 2 | Linux 6.17, glibc 2.39 | x86_64 | 3.11.16, 3.12.14 | **1.000 (62/62)** |
+| `windows-latest` × 2 | Windows 10.0.26100 | AMD64 | 3.11.9, 3.12.10 | **1.000 (62/62)** |
+| `macos-latest` × 2 | macOS 26.6.2 | arm64 | 3.11.9, 3.12.10 | **1.000 (62/62)** |
 
 **Nothing in the memo is left unaddressed.** The two source inconsistencies —
 "P1–P13" and "nineteen Case C scenarios", plus the v1.1 schema reference — are
