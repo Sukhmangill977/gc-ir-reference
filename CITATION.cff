@@ -1,0 +1,52 @@
+cff-version: 1.2.0
+title: >-
+  GC-IR Reference Implementation — reproducibility artifact for
+  "From Risk Register to Runtime Predicate"
+message: >-
+  If you use this artifact, please cite both the software and the paper it
+  supports.
+type: software
+authors:
+  - given-names: Abhinandan
+    family-names: Gill-Lakhowal
+    email: sovran@lakhowal.com
+    affiliation: Gillian Holdings Incorporated, Calgary, AB, Canada
+    orcid: 'https://orcid.org/0009-0004-2089-7262'
+version: 1.0.0
+license: MIT
+repository-code: 'https://github.com/AGLakhowal/gc-ir-reference'
+abstract: >-
+  Reference implementation and empirical artifact for a deterministic method that
+  compiles approved AI governance assessments into enforceable runtime predicates.
+  Implements the governed semantic refinement relation Psi_K closed by a signed
+  judgment record, the GC-IR record family with total risk disposition, the
+  deterministic compiler Phi with RFC 8785 canonicalization and SHA-256 bundle
+  hashing, authority closure against an approved action matrix, the consequence-class
+  gate coverage rule, a separately signed lifecycle registry, and a temporally valid
+  traceability model with six audit queries. Ships two hash-pinned worked cases, an
+  adversarial corpus, property-based tests, and a preregistered evaluation campaign.
+keywords:
+  - AI governance
+  - risk register
+  - policy compilation
+  - semantic refinement
+  - runtime enforcement
+  - agentic AI
+  - model risk management
+  - non-compensatory aggregation
+  - traceability
+  - RFC 8785
+  - JSON canonicalization
+  - reproducibility
+references:
+  - type: article
+    title: >-
+      From Risk Register to Runtime Predicate: A Deterministic Method for
+      Compiling AI Governance Assessments into Enforceable Controls
+    authors:
+      - given-names: Abhinandan
+        family-names: Gill-Lakhowal
+        orcid: 'https://orcid.org/0009-0004-2089-7262'
+    year: 2026
+    notes: >-
+      The paper this artifact supports. DOI to be added once assigned.

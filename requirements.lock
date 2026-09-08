@@ -1,0 +1,20 @@
+# Pinned dependency set for the reference implementation.
+# Generated with: python -m pip freeze --exclude-editable
+# Python 3.11+. Install with: python -m pip install -r requirements.lock
+attrs==26.1.0
+cffi==2.1.1
+coverage==7.16.0
+cryptography==44.0.0
+hypothesis==6.122.3
+iniconfig==2.3.0
+jsonschema-specifications==2025.9.1
+jsonschema==4.23.0
+numpy==2.2.1
+packaging==26.3
+pluggy==1.6.0
+pycparser==3.0
+pytest-cov==6.0.0
+pytest==8.3.4
+referencing==0.37.0
+rpds-py==2026.6.3
+sortedcontainers==2.4.0

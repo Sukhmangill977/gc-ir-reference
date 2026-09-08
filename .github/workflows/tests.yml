@@ -1,0 +1,61 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*', 'preregister-*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: tests (${{ matrix.os }}, python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.lock
+
+      - name: Schema validation and unit tests
+        run: python -m pytest tests/unit -q
+
+      - name: Property-based tests
+        run: python -m pytest tests/properties -q --hypothesis-show-statistics
+
+      - name: Adversarial tests
+        run: python -m pytest tests/adversarial -q
+
+      - name: Integration tests (Case A and Case B compilation)
+        run: python -m pytest tests/integration -q
+
+      - name: Compile both cases
+        run: python -m experiments.run_case
+
+      - name: Traceability audit queries and negative controls
+        run: python -m experiments.run_traceability
+
+      - name: Adversarial corpus and structural checks
+        run: python -m experiments.run_adversarial
+
+      - name: Upload development results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: results-${{ matrix.os }}-py${{ matrix.python-version }}
+          path: results/development/
+          if-no-files-found: ignore

@@ -1,0 +1,12 @@
+{
+  "bundle_id": "BUNDLE-CASE-A-1.0",
+  "canonical_payload_sha256": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+  "case_class": "synthetic",
+  "case_id": "case_a",
+  "catalog_content_sha256": "3ca14c8a4578dcd0ca14690fbb914f8f4d5ad805a12a6efb274934ad3d2a4ae9",
+  "cstar_profile_content_sha256": "9776756dbb40d3a3e887a2b72d0bf55b00853a52f911f0443a92ccaa09a4a3e6",
+  "disposition_count": 16,
+  "note": "SHA-256 over the RFC 8785 canonical serialization of the immutable bundle payload. The signature envelope is NOT part of this hash and is not required to be byte-identical across signing events (manuscript Section VI-C).",
+  "predicate_count": 19,
+  "version_binding_id": "VB-CASE-A-1.0"
+}

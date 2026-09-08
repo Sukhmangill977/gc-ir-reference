@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gcir-reference"
+version = "1.0.0"
+description = "GC-IR Reference Implementation - reproducibility artifact for 'From Risk Register to Runtime Predicate'"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+authors = [{ name = "Abhinandan Gill-Lakhowal", email = "sovran@lakhowal.com" }]
+keywords = [
+    "AI governance", "risk register", "policy compilation", "semantic refinement",
+    "runtime enforcement", "agentic AI", "model risk management",
+    "non-compensatory aggregation", "traceability", "RFC 8785",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Security",
+]
+dependencies = [
+    "jsonschema==4.23.0",
+    "referencing==0.37.0",
+    "cryptography==44.0.0",
+    "numpy==2.2.1",
+]
+
+[project.optional-dependencies]
+test = ["pytest==8.3.4", "hypothesis==6.122.3", "pytest-cov==6.0.0"]
+
+[project.urls]
+Repository = "https://github.com/AGLakhowal/gc-ir-reference"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+filterwarnings = ["error"]

@@ -1,0 +1,139 @@
+# FREEZE_MANIFEST.sha256 -- Tier-0 preregistration commitment
+#
+# Manuscript Section XI-I requires the following to be publicly
+# hash-committed BEFORE the reportable campaign is executed:
+#
+#   hypotheses and primary outcomes; case artifacts and held-out-register
+#   hash; derivation catalog; adjudication instrument; thresholds and the
+#   C* definition; compiler commit and container digest; randomization
+#   seed; Bayesian priors; Monte Carlo distributions and seed; exclusion
+#   and missing-data rules; and analysis code.
+#
+# Every hash below is computed from the file on disk by
+# `python -m experiments.make_freeze_manifest`. None is typed by hand.
+#
+#   frozen at commit: 51878ecdcb823baa641eadeb1d70d2f708089a9d
+#   frozen at tag:    (tag applied after this file is committed)
+#
+# "The internal selection of frozen elements is not a freeze -- the public
+#  timestamped commitment is."  (Section XI-I)
+#
+# Format:  <sha256>  <category>  <path>
+
+0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935  adjudication_instrument             preregistration/RQ5_DEFERRED_PROTOCOL.md
+e5956cc525c6e51422610f3e65374c9ca50369d7d9316a4d1124c88c8e08d972  analysis_code                       experiments/adversarial_cases.py
+d7d43b56d0243fa7431e6980d46d369931495dd393b443c7f6c3249c89ee8194  analysis_code                       experiments/check_ci_agreement.py
+9779ca390eb96bdfcabbd7390d70d4b33fa01a64a5ada916a96cfd52019aa406  analysis_code                       experiments/common.py
+97e379cedf0828b1c601ec4a7afeee70ea4aac9ed883496f472694956990dc18  analysis_code                       experiments/make_manifest.py
+f03937a89d1a05efc7e24260a7b440f77628db5036b1324d089123ff4dd1f4cd  analysis_code                       experiments/make_summary.py
+c758522006f49f2ca9848b34d520851bb2c1ed491d73d67d27bd40e0b272c9e2  analysis_code                       experiments/reproduce_all.py
+3e56c5147f801d7752f52f2ff51637a052abcb9707f14a8d25d63859891f131b  analysis_code                       experiments/run_adversarial.py
+22684aac7bcf0d80f77ed33d44eb8bd8798a213c579306b1c4bf308407fec7e3  analysis_code                       experiments/run_case.py
+46c57056d4d317b267f50e0ec6558167707a1321b8636221c8b552eb6f68a137  analysis_code                       experiments/run_determinism.py
+fcf0aec22a2c0ede637f6efdffbbf3669c2fdb05e5497334d52027f007399d04  analysis_code                       experiments/run_gate_divergence.py
+d0ff9f9a7683a3f78399c6cb513648313c486b599873c0e112153cc34f585c01  analysis_code                       experiments/run_metrics.py
+0b953c39b0187d20fb5e12ecc26702fb6f90ed81515fb6438235c69e798222b8  analysis_code                       experiments/run_monte_carlo.py
+b2f3274dbcdb762e2ce9fb9f2f327418f54b352509e9dc3e04ac10b9dbc44763  analysis_code                       experiments/run_properties.py
+cf709bc7a67a9f1df2780e2810e3137873e4ecf9ea7472ceb084ad08dbc28afc  analysis_code                       experiments/run_traceability.py
+45c380cd8bb465de6affa15ea67597b5efdea31b0b1f4b8b07ee39bb9a9673f3  analysis_code                       experiments/verify_hashes.py
+ee03bc1270115d536d01c65f79a7761e37750477611d49305ba6f05b947f511f  analysis_code                       queries/traceability.sql
+0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935  bayesian_priors                     preregistration/RQ5_DEFERRED_PROTOCOL.md
+5b95bbef0ffae8f0f727cff131f22c57c3331a7dd33c64121b98d2ff799b6bc4  case_artifacts                      cases/case_a/acs/approved_control_specifications.json
+174147daa039c69c2fc30cbdcae1c6d487503965cd78bcbe9ce2863f1de089fb  case_artifacts                      cases/case_a/dispositions/dispositions.json
+8b26824fc6585ee830d8c0ef7756fdd92e9b0564dfca558797b50bf2884fc16d  case_artifacts                      cases/case_a/expected/reference_hashes.json
+dcd80177c9e2c0b92ad6429d4fb21805575195f126c308591a26cc549d1390a2  case_artifacts                      cases/case_a/inputs/assessment.json
+dc63fb0580b939e03699316cddddef7399c9a63321a1e3c0cab74ff4556f975d  case_artifacts                      cases/case_a/inputs/compile_parameters.json
+0b13c6f31b87bc3c6b33a0c2ba2f537b88eaa15bf8fffc9dc534042eb5db071b  case_artifacts                      cases/case_a/inputs/cstar_profile.json
+6d74b85d58b1daefb688bf40406a619b074fef1f97d6a5046d50d5b34051941e  case_artifacts                      cases/case_a/inputs/invariant_register.json
+76607c7b68a8b3199c4c7893ba55c56fb3b279f100010fc0c65ae1986673e867  case_artifacts                      cases/case_a/inputs/policy_metadata.json
+a179a3beaf572ba5045850b3432048fa9992583bc7bf993c2c27646e5e15d365  case_artifacts                      cases/case_a/inputs/threshold_contracts.json
+c7defef681ea0df6af4505345fc1309f2846d0aa0bfc43d031febdb6c207645d  case_artifacts                      cases/case_a/judgment/judgment_record.json
+015178ca19bf7090ec01b88a47171bc31d2272e1f7a244936a2f6d49d66c84bd  case_artifacts                      cases/case_a/lifecycle/actuations.json
+e655d70707b4e79fca2fd1a830ee82e00986082d8cb59d6064e76e56a6585ef6  case_artifacts                      cases/case_a/lifecycle/lifecycle_registry.json
+365847bc28489a68813d94622014121929fea24ee97cb9bf2cd6094034aae6f9  case_artifacts                      cases/case_a/lifecycle/negative/fixtures.json
+d6fb34cf28ae1c8f1fe12a2df0ea720898cb760cfb24998b8276fb52067a39f0  case_artifacts                      cases/case_a/lifecycle/receipts.json
+a99b8282ea09e4d21cb7bbaa96f98b6a179ed898552f94f8e5ba2688ea84b3be  case_artifacts                      cases/case_b/acs/approved_control_specifications.json
+4bb03b9f67366839f7cce010e98c3839fdfed6553dc1edb95d7b94566266a7ee  case_artifacts                      cases/case_b/dispositions/dispositions.json
+3e858c248c3b2af500777d6801e62106bd2fa4ed0924d4ce4d3d6a096bbec220  case_artifacts                      cases/case_b/expected/reference_hashes.json
+f9eb999eb974022b9d684a9b998e8a0eb80d8a58ca64eb46e0380b2335ffcbe6  case_artifacts                      cases/case_b/inputs/assessment.json
+9200a687440e96ceff32edc2772ed7f30dd2b01aa45a8025f79577f3e4cf964b  case_artifacts                      cases/case_b/inputs/compile_parameters.json
+95e44fd0629702a9937b72b9af51026f264c9a7e38b6ea6e52126b33b677eedd  case_artifacts                      cases/case_b/inputs/cstar_profile.json
+992a887e13eeec64da8859f3b6fd52399c40de9e00f6f5415ecb9045cc1fc9a7  case_artifacts                      cases/case_b/inputs/invariant_register.json
+acd6d0ec90133e75c53956a2b545c43bf3bc7e159e46ae2ce30c9380a9e07129  case_artifacts                      cases/case_b/inputs/policy_metadata.json
+ce336a886d2b8927637eb108ef967ce87609afba0c2c0d0a5d1123af59bc0059  case_artifacts                      cases/case_b/inputs/threshold_contracts.json
+384099fc6a9431648235086465458ba8f3afc5d0777aa32fb1ae7d40aa2324c8  case_artifacts                      cases/case_b/judgment/judgment_record.json
+cf06aad5e29c7e323be1f5ba5e51b732b3533e496c5a080c946b0fd47c5df7b4  case_artifacts                      cases/case_b/lifecycle/actuations.json
+69429e1815bbd4f0b7ecb424479209e808a032831fc1d36a8d6900e656f04c4a  case_artifacts                      cases/case_b/lifecycle/lifecycle_registry.json
+b32822042543f8e38a952fe33c5e9b8f3dc3bcf3053856fb0c8f70bc8e844b0a  case_artifacts                      cases/case_b/lifecycle/negative/fixtures.json
+adfbde89384b5bec0b5d8eba5bc93881b0f4d2abfbd2abaf3007e7e0676bf907  case_artifacts                      cases/case_b/lifecycle/receipts.json
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  compiler_implementation             src/gcir/__init__.py
+0b86afeea10a0dae969ade0942d96fa3dae0e1dc88efb15b9865aeade3a6dc3d  compiler_implementation             src/gcir/authority.py
+b6b4867ed2652158ff103846ec8759762807a833d12e6e4d698c29e91c00e995  compiler_implementation             src/gcir/canonicalization.py
+e87b9d136ca88fa64d867dd7319bbe8097a1e74c471ff4159e77177cf2e15b65  compiler_implementation             src/gcir/caseio.py
+4f5e513b4cc7b9f5a40c4b9341d64023d134b727c8914863701ced24864a29a4  compiler_implementation             src/gcir/catalog.py
+7491524ce02a736928383cea0974a801beb75eccaeca79af0831753cef84ebd9  compiler_implementation             src/gcir/compiler.py
+5dd16ceee940e07f041b8cc97757e8e36319ac6496a6aaef38b83f911093ac41  compiler_implementation             src/gcir/coverage.py
+20eb6b693163c65075fe563ada5f2e99985f711f7ee2ffb2f52c9926665659b6  compiler_implementation             src/gcir/lifecycle.py
+4a5bbe70c1e45a43b4eee19eec623234d040c726f623e6a39f202e05326a86b5  compiler_implementation             src/gcir/metrics.py
+fce58642b4331984c3fcf954bb19fda6d5f21410088b6e344f9f3d6afdbfc37c  compiler_implementation             src/gcir/models.py
+6cdd0fca9730b05eb919309163a3be2288243478b66182c9ef21bbc36699dbd2  compiler_implementation             src/gcir/precedence.py
+e816523d7795e535726615c80d469dc412196ea84ed288cd593a60c2b8f18284  compiler_implementation             src/gcir/refinement.py
+d3b934f3b4de76fed85bcf2e862b766ccd9a9f28c5c1b76768a217ef4915abcb  compiler_implementation             src/gcir/signatures.py
+9d70fe3150adb0e40f08379dafc9a6b58c621c6032b71ff38a53a09e7dcbc109  compiler_implementation             src/gcir/temporal.py
+9243f56cd3e915752109a2118c9d574f434395ece04c7244600fcb76518ef43a  compiler_implementation             src/gcir/traceability.py
+9b4c7a35b100262834dc3333024bf4a9a0f554b24f2a9fd522ccb013855764ab  compiler_implementation             src/gcir/validation.py
+f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  dependency_lock_and_container       Dockerfile
+b188e1325d8435a894580e3c84c1274e2e4d949be665a3e4b79a672cf1842d11  dependency_lock_and_container       Makefile
+a45ff25f8d1f037a3dd560a4b9764881ed87a56abae96f4db3d8ae263d0e4898  dependency_lock_and_container       pyproject.toml
+e134ac5741cd39d3caaa304f38918d364d451a540bbef1d2dc829997fc5ec3e4  dependency_lock_and_container       requirements.lock
+90d6882ee1fd40533419e779e4553bd93dada4a9055ad202447d12d6d1a8bc34  derivation_catalog                  cases/case_a/inputs/control_derivation_catalog.json
+5420093d0d77d00e5be65e191fa756c1f5232b8bccff944751767257a58d4e29  derivation_catalog                  cases/case_b/inputs/control_derivation_catalog.json
+5420093d0d77d00e5be65e191fa756c1f5232b8bccff944751767257a58d4e29  derivation_catalog                  catalog/control_derivation_catalog_b_v1.json
+90d6882ee1fd40533419e779e4553bd93dada4a9055ad202447d12d6d1a8bc34  derivation_catalog                  catalog/control_derivation_catalog_v1.json
+46c57056d4d317b267f50e0ec6558167707a1321b8636221c8b552eb6f68a137  determinism_matrix                  experiments/run_determinism.py
+0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935  exclusion_and_missing_data_rules    preregistration/RQ5_DEFERRED_PROTOCOL.md
+8593587323af92666c9ebe7ec0712455569dcf2394956c9895679fe29dc1238d  exclusion_and_missing_data_rules    preregistration/monte_carlo_distributions_v1.json
+ff96abd318cf16ed230cb725eea7b9989435320a95d56b6683297081f2587610  fixture_generators                  tools/build_cases.py
+fbb76840a65204592d5e8689d684d0ce65ed0938d5c7e54f877c2f40fc357391  fixture_generators                  tools/build_lifecycle.py
+46f016ae52803acdbb3ad13dd74a6312528c43e9769fb6664ad7c8bb2ca87486  fixture_generators                  tools/case_a_control.py
+c38584acd06e825233fbea120b85dee085bc93ba2846c126c8a3c673a739d315  fixture_generators                  tools/case_a_data.py
+4f6726b6b96f53b014bcb45f20879db8be9ff0c2be48c6d39ab5a463ab9dfc7b  fixture_generators                  tools/case_b_control.py
+56297a2967e6cbb7fa97bab4d833784148c6f6c8e28c39ebc4b7f323f8f45024  fixture_generators                  tools/case_b_data.py
+2339f549395bf295ed9d19bee5627466c502feb80c6b4ae2dc75cc244a85473a  fixture_generators                  tools/invariants_data.py
+f7a0b4a6f9c8a29848ef54f62797f6cdb1f25e6f4ca3498d0b37f9030d80c8d6  held_out_register_hash              preregistration/HELD_OUT_REGISTER.md
+d22a8644737297519dd124592981debffadc9eca59ccb25f2c633d214d502ded  hypotheses_and_primary_outcomes     docs/EXPERIMENT_PROTOCOL.md
+0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935  hypotheses_and_primary_outcomes     preregistration/RQ5_DEFERRED_PROTOCOL.md
+7165736b3292a7d6a895439e3d0eef22177ceaff7255f5a779c8e9c001957df6  hypotheses_and_primary_outcomes     preregistration/TIER0_FREEZE.md
+8593587323af92666c9ebe7ec0712455569dcf2394956c9895679fe29dc1238d  monte_carlo_distributions_and_seed  preregistration/monte_carlo_distributions_v1.json
+4ddac753c23fefc3c598c9bcd3bb0b8044959a859fc5cf73e5932d28ff76e5f6  provenance_and_interpretation       docs/CLAIM_TO_ARTIFACT_MATRIX.md
+b3deff423eb921328e40d36bd80d9983975a53a3716179e35e92ba9dd774b70e  provenance_and_interpretation       docs/FIXTURE_PROVENANCE.md
+031669ed51501941a6679319f9ad59c6bc2f91363ad39da1ecf897b452e3e65c  provenance_and_interpretation       docs/PAPER_REQUIREMENTS.md
+f8f5ffc6775893897bb1b730e5635c2fe3331616075ca5aad4596c2086802175  provenance_and_interpretation       docs/RESULT_INTERPRETATION.md
+7165736b3292a7d6a895439e3d0eef22177ceaff7255f5a779c8e9c001957df6  randomization_seed                  preregistration/TIER0_FREEZE.md
+542d175075ae09b98e0192aa26952eda3c872e6d051168e466ee95959598ee52  research_signing_keys               keys/public_keys.json
+1301b55884a280738b8d98e8027092ba941508a0a2fdc216790c942fd3bff8fb  schemas                             schemas/acs.schema.json
+75841231fad4c4c72b1dd3c03f0d556bf19cd585e7aa89d461da568b061d8d6a  schemas                             schemas/assessment.schema.json
+7fb9401c1d899b2e16340599a4c15254461b13dcb526e793a0895b00cd8bc38d  schemas                             schemas/bundle.schema.json
+9ce6e475724c674f4e2a7e1b82d689a2688be6ab3686da6ebfa1013c185d72dd  schemas                             schemas/common.schema.json
+5144dbd06d46752b9cf77f5f199e4c7af037cd4e13a38882d1fb54d35f3fdbda  schemas                             schemas/control_derivation_catalog.schema.json
+3e236549cb02a81baabf59ab73db4e353b91b08c49df4d23c3710bd14b792416  schemas                             schemas/cstar_profile.schema.json
+414c294f42a6d3dfea9dbb2a4abb31b70e7edbf63bfd8a041d6aacf639dff5fe  schemas                             schemas/dispositions.schema.json
+862d84d457e73ffd59ca469cb28a44de834441f69a34aa9316b51e91f287708a  schemas                             schemas/gcir.schema.json
+9beba1e118bc72d8efecfeb571e30617d39886cde16119ba3d9ac4993474f427  schemas                             schemas/invariant_register.schema.json
+bcecefc3edf289993521ccf5383e6899b2f4ed9ee58f7524c0fb93c0edccb3d6  schemas                             schemas/judgment_record.schema.json
+1b7ae0d8470a5abee1a4390d7fbf5c75b682a209a1617491cd6a52108300bb59  schemas                             schemas/lifecycle_registry.schema.json
+06a513af1ae2474517d9658f20f95d16b0575cdd9bc5fae92a07db91fab37fe2  schemas                             schemas/receipt.schema.json
+7e5ce8e97d9f37b67b451ab8348f2300fe8e6e0892f6ccca7b7bd082561a1e7f  schemas                             schemas/threshold_contract.schema.json
+5cd0f15f30b6d32440fce110ec3fdf5b74dc5dce91d9639a1fa80219fc471155  test_suite                          tests/adversarial/test_corpus.py
+a8e3cc4122fbc1679665dce6ac0bc2b575bb52d9f52a15ec4c786e618dbbdae9  test_suite                          tests/adversarial/test_no_inference.py
+cf272be81986b2446d6fdc5da450a540da28e7c17028ad0a1982ae4eaf71397a  test_suite                          tests/conftest.py
+397c5e8510f9ec0a46000320a737a7ac66799946ec099f84d5b1d9da75b4197d  test_suite                          tests/integration/test_cases.py
+1d5a1ac254e1c831cf14c85d27ac163fdb7f97468bb4d82c619760d7cda8beae  test_suite                          tests/properties/test_invariants.py
+1e9e81cbe819680fc5e8ab611d3981d678a9c9a6738b2834009738b924462dc7  test_suite                          tests/unit/test_core.py
+05d30eb17bee151e52057d3d250076616d40241f3668c06759c5327fd1d0f2ed  test_suite                          tests/unit/test_rfc8785.py
+0b13c6f31b87bc3c6b33a0c2ba2f537b88eaa15bf8fffc9dc534042eb5db071b  thresholds_and_cstar_definition     cases/case_a/inputs/cstar_profile.json
+a179a3beaf572ba5045850b3432048fa9992583bc7bf993c2c27646e5e15d365  thresholds_and_cstar_definition     cases/case_a/inputs/threshold_contracts.json
+95e44fd0629702a9937b72b9af51026f264c9a7e38b6ea6e52126b33b677eedd  thresholds_and_cstar_definition     cases/case_b/inputs/cstar_profile.json
+ce336a886d2b8927637eb108ef967ce87609afba0c2c0d0a5d1123af59bc0059  thresholds_and_cstar_definition     cases/case_b/inputs/threshold_contracts.json
+992a887e13eeec64da8859f3b6fd52399c40de9e00f6f5415ecb9045cc1fc9a7  thresholds_and_cstar_definition     invariants/invariant_register_b_v1.json
+6d74b85d58b1daefb688bf40406a619b074fef1f97d6a5046d50d5b34051941e  thresholds_and_cstar_definition     invariants/invariant_register_v1.json

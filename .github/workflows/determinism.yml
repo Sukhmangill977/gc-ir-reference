@@ -1,0 +1,109 @@
+name: cross-platform determinism
+
+# Measures the claim the local determinism experiment deliberately does NOT make:
+# that the compiled canonical payload hash is identical across independently
+# installed host operating systems.
+#
+# Every runner compiles Case A and Case B and compares against the reference
+# hashes committed in cases/*/expected/reference_hashes.json. A mismatch on any
+# platform fails the workflow.
+#
+# Section XII lists cross-host replication as an outstanding threat to the
+# environment-independence claim. THIS WORKFLOW IS THAT REPLICATION. Until it has
+# actually passed, the supportable wording remains "deterministic under the
+# declared environment" -- and even once it passes, the supportable wording is
+# "deterministic across the tested supported environments", never "platform
+# independent".
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*', 'preregister-*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reference-hashes:
+    name: reference hashes (${{ matrix.os }}, py${{ matrix.python-version }}, ${{ matrix.locale }}, ${{ matrix.tz }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.11', '3.12']
+        include:
+          - os: ubuntu-latest
+            locale: C.UTF-8
+            tz: UTC
+          - os: windows-latest
+            locale: C
+            tz: Asia/Kolkata
+          - os: macos-latest
+            locale: en_US.UTF-8
+            tz: Pacific/Chatham
+    env:
+      LANG: ${{ matrix.locale }}
+      LC_ALL: ${{ matrix.locale }}
+      TZ: ${{ matrix.tz }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.lock
+
+      - name: RFC 8785 canonicalization conformance
+        run: python -m pytest tests/unit/test_rfc8785.py -q
+
+      - name: Verify committed reference canonical payload hashes
+        run: python -m experiments.verify_hashes
+
+      - name: Determinism experiment (permutations, locales, time zones, clean processes)
+        run: python -m experiments.run_determinism --runs-per-case 30
+
+      - name: Upload determinism run log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: determinism-${{ matrix.os }}-py${{ matrix.python-version }}
+          path: |
+            results/development/determinism_runs.csv
+            results/development/determinism_summary.json
+          if-no-files-found: error
+
+  cross-platform-agreement:
+    name: all platforms agree on the reference hashes
+    needs: reference-hashes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: downloaded
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.lock
+
+      - name: Compare every platform's reference hash
+        run: python -m experiments.check_ci_agreement downloaded --out CI_STATUS.md
+
+      - name: Publish the cross-platform status table
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-status
+          path: CI_STATUS.md
+          if-no-files-found: ignore

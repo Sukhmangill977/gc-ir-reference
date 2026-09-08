@@ -1,0 +1,12 @@
+{
+  "bundle_id": "BUNDLE-CASE-B-1.0",
+  "canonical_payload_sha256": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+  "case_class": "forensic_reconstruction",
+  "case_id": "case_b",
+  "catalog_content_sha256": "c4ad4b3701ab4847ab2d5f909574ca5c87892972f1902f0650c8fef7fd8b18c1",
+  "cstar_profile_content_sha256": "8599ec979c8aea8d87a6d3f22777b47d3990d813db36279f307cfb82d6bbe9ec",
+  "disposition_count": 6,
+  "note": "SHA-256 over the RFC 8785 canonical serialization of the immutable bundle payload. The signature envelope is NOT part of this hash and is not required to be byte-identical across signing events (manuscript Section VI-C).",
+  "predicate_count": 9,
+  "version_binding_id": "VB-CASE-B-1.0"
+}

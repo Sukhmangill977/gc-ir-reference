@@ -1,0 +1,74 @@
+name: reproducibility
+
+# The full one-command reproduction, exactly as a reviewer would run it, plus the
+# container build. Monte Carlo runs at the frozen K = 250,000.
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*', 'preregister-*']
+  workflow_dispatch:
+  schedule:
+    # Weekly, so bit-rot in the pinned environment surfaces on its own rather
+    # than at submission time.
+    - cron: '17 4 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    name: make reproduce (ubuntu-latest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # experiments record git describe / tag
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.lock
+
+      - name: Generate the locales the determinism experiment exercises
+        run: |
+          sudo sed -i '/en_US.UTF-8/s/^# //; /de_DE.UTF-8/s/^# //; /tr_TR.UTF-8/s/^# //; /ja_JP.UTF-8/s/^# //' /etc/locale.gen
+          sudo locale-gen
+
+      - name: Full reproduction
+        run: python -m experiments.reproduce_all
+
+      - name: Verify the committed case tree is unchanged by regeneration
+        run: git diff --exit-code -- cases/ catalog/ invariants/ keys/
+
+      - name: Verify MANIFEST.sha256 is current
+        run: |
+          python -m experiments.make_manifest
+          git diff --exit-code -- MANIFEST.sha256 MANIFEST.json
+
+      - name: Show the generated summary
+        run: cat results/development/SUMMARY.md
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reproduction-results
+          path: results/
+          if-no-files-found: error
+
+  container:
+    name: docker build and reproduce
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the pinned image
+        run: docker build -t gcir .
+      - name: Reproduce inside the container
+        run: docker run --rm gcir make reproduce
+      - name: Record the image digest
+        run: docker image inspect gcir --format '{{ index .RepoDigests 0 }}{{ println }}{{ .Id }}' || docker image inspect gcir --format '{{ .Id }}'
