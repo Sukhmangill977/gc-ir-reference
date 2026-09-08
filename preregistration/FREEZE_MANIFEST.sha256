@@ -12,7 +12,7 @@
 # Every hash below is computed from the file on disk by
 # `python -m experiments.make_freeze_manifest`. None is typed by hand.
 #
-#   frozen at commit: 51878ecdcb823baa641eadeb1d70d2f708089a9d
+#   frozen at commit: 381ed9c773e3b2c4247a4be9a2913bee131e7f39
 #   frozen at tag:    (tag applied after this file is committed)
 #
 # "The internal selection of frozen elements is not a freeze -- the public
@@ -103,13 +103,13 @@ c38584acd06e825233fbea120b85dee085bc93ba2846c126c8a3c673a739d315  fixture_genera
 f7a0b4a6f9c8a29848ef54f62797f6cdb1f25e6f4ca3498d0b37f9030d80c8d6  held_out_register_hash              preregistration/HELD_OUT_REGISTER.md
 d22a8644737297519dd124592981debffadc9eca59ccb25f2c633d214d502ded  hypotheses_and_primary_outcomes     docs/EXPERIMENT_PROTOCOL.md
 0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935  hypotheses_and_primary_outcomes     preregistration/RQ5_DEFERRED_PROTOCOL.md
-7165736b3292a7d6a895439e3d0eef22177ceaff7255f5a779c8e9c001957df6  hypotheses_and_primary_outcomes     preregistration/TIER0_FREEZE.md
+219f326cf1a45a07cc118aa461e575ebefb31040a23a0bec83e1ccc033f2b997  hypotheses_and_primary_outcomes     preregistration/TIER0_FREEZE.md
 8593587323af92666c9ebe7ec0712455569dcf2394956c9895679fe29dc1238d  monte_carlo_distributions_and_seed  preregistration/monte_carlo_distributions_v1.json
 4ddac753c23fefc3c598c9bcd3bb0b8044959a859fc5cf73e5932d28ff76e5f6  provenance_and_interpretation       docs/CLAIM_TO_ARTIFACT_MATRIX.md
 b3deff423eb921328e40d36bd80d9983975a53a3716179e35e92ba9dd774b70e  provenance_and_interpretation       docs/FIXTURE_PROVENANCE.md
 031669ed51501941a6679319f9ad59c6bc2f91363ad39da1ecf897b452e3e65c  provenance_and_interpretation       docs/PAPER_REQUIREMENTS.md
 f8f5ffc6775893897bb1b730e5635c2fe3331616075ca5aad4596c2086802175  provenance_and_interpretation       docs/RESULT_INTERPRETATION.md
-7165736b3292a7d6a895439e3d0eef22177ceaff7255f5a779c8e9c001957df6  randomization_seed                  preregistration/TIER0_FREEZE.md
+219f326cf1a45a07cc118aa461e575ebefb31040a23a0bec83e1ccc033f2b997  randomization_seed                  preregistration/TIER0_FREEZE.md
 542d175075ae09b98e0192aa26952eda3c872e6d051168e466ee95959598ee52  research_signing_keys               keys/public_keys.json
 1301b55884a280738b8d98e8027092ba941508a0a2fdc216790c942fd3bff8fb  schemas                             schemas/acs.schema.json
 75841231fad4c4c72b1dd3c03f0d556bf19cd585e7aa89d461da568b061d8d6a  schemas                             schemas/assessment.schema.json

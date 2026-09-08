@@ -20,7 +20,7 @@
     "test_suite",
     "thresholds_and_cstar_definition"
   ],
-  "commit_at_generation": "51878ecdcb823baa641eadeb1d70d2f708089a9d",
+  "commit_at_generation": "381ed9c773e3b2c4247a4be9a2913bee131e7f39",
   "file_count": 117,
   "files": [
     {
@@ -426,16 +426,16 @@
       "sha256": "0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935"
     },
     {
-      "bytes": 9104,
+      "bytes": 10789,
       "category": "hypotheses_and_primary_outcomes",
       "path": "preregistration/TIER0_FREEZE.md",
-      "sha256": "7165736b3292a7d6a895439e3d0eef22177ceaff7255f5a779c8e9c001957df6"
+      "sha256": "219f326cf1a45a07cc118aa461e575ebefb31040a23a0bec83e1ccc033f2b997"
     },
     {
-      "bytes": 9104,
+      "bytes": 10789,
       "category": "randomization_seed",
       "path": "preregistration/TIER0_FREEZE.md",
-      "sha256": "7165736b3292a7d6a895439e3d0eef22177ceaff7255f5a779c8e9c001957df6"
+      "sha256": "219f326cf1a45a07cc118aa461e575ebefb31040a23a0bec83e1ccc033f2b997"
     },
     {
       "bytes": 3314,
@@ -726,7 +726,7 @@
       "sha256": "2339f549395bf295ed9d19bee5627466c502feb80c6b4ae2dc75cc244a85473a"
     }
   ],
-  "freeze_manifest_sha256": "6474e582b86be9025312a66b2fac5f760be8f1676af33a119a96b67cb867ee23",
+  "freeze_manifest_sha256": "1475f7fdf31aa1a91d8dca59692824d24460139d91f05f65f364ec4f990bc37b",
   "freeze_version": "tier0-v1",
   "note": "The release tag and this manifest's hash together constitute the public preregistration commitment referenced in Section XI-I. The commitment is the public timestamped git tag, not this file on its own.",
   "tag_at_generation": null

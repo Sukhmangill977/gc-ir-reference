@@ -1,5 +1,5 @@
 {
-  "file_count": 149,
+  "file_count": 174,
   "files": [
     {
       "bytes": 452,
@@ -8,16 +8,52 @@
       "sha256": "b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d"
     },
     {
+      "bytes": 3734,
+      "path": "CHANGELOG.md",
+      "role": "repository_root",
+      "sha256": "84631517fe89da36cabb4cd1aa200d7c4c9470979892992b589899113479e4cc"
+    },
+    {
+      "bytes": 2007,
+      "path": "CITATION.cff",
+      "role": "repository_root",
+      "sha256": "1fc00762fe18d601c5cb8e676293a36ff6ed4a7686e2c77fccfda54f1636a7d0"
+    },
+    {
+      "bytes": 1821,
+      "path": "Dockerfile",
+      "role": "repository_root",
+      "sha256": "f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886"
+    },
+    {
       "bytes": 1081,
       "path": "LICENSE",
       "role": "repository_root",
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 30125,
+      "bytes": 30719,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "8416eafa65fa9fb5f9a17e7bdfa00e93ae0df604cf6883c7eaeb2b92754dd09e"
+      "sha256": "0893c4ad4f2ad8c999290d36c10ce65845247e314d47b876adfca4e537371402"
+    },
+    {
+      "bytes": 2029,
+      "path": "Makefile",
+      "role": "repository_root",
+      "sha256": "b188e1325d8435a894580e3c84c1274e2e4d949be665a3e4b79a672cf1842d11"
+    },
+    {
+      "bytes": 15938,
+      "path": "README.md",
+      "role": "repository_root",
+      "sha256": "2fc0fa555c32206465fc9fe99e14eafaeb7a401f5d414369004faed08674ec5f"
+    },
+    {
+      "bytes": 2889,
+      "path": "SECURITY.md",
+      "role": "repository_root",
+      "sha256": "70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382"
     },
     {
       "bytes": 46157,
@@ -30,6 +66,12 @@
       "path": "cases/case_a/dispositions/dispositions.json",
       "role": "dispositions_a",
       "sha256": "174147daa039c69c2fc30cbdcae1c6d487503965cd78bcbe9ce2863f1de089fb"
+    },
+    {
+      "bytes": 714,
+      "path": "cases/case_a/expected/reference_hashes.json",
+      "role": "case_a_input",
+      "sha256": "8b26824fc6585ee830d8c0ef7756fdd92e9b0564dfca558797b50bf2884fc16d"
     },
     {
       "bytes": 43948,
@@ -120,6 +162,12 @@
       "path": "cases/case_b/dispositions/dispositions.json",
       "role": "dispositions_b",
       "sha256": "4bb03b9f67366839f7cce010e98c3839fdfed6553dc1edb95d7b94566266a7ee"
+    },
+    {
+      "bytes": 726,
+      "path": "cases/case_b/expected/reference_hashes.json",
+      "role": "case_b_input",
+      "sha256": "3e858c248c3b2af500777d6801e62106bd2fa4ed0924d4ce4d3d6a096bbec220"
     },
     {
       "bytes": 21381,
@@ -218,10 +266,46 @@
       "sha256": "4ddac753c23fefc3c598c9bcd3bb0b8044959a859fc5cf73e5932d28ff76e5f6"
     },
     {
+      "bytes": 11704,
+      "path": "docs/EXPERIMENT_PROTOCOL.md",
+      "role": "documentation",
+      "sha256": "d22a8644737297519dd124592981debffadc9eca59ccb25f2c633d214d502ded"
+    },
+    {
+      "bytes": 18414,
+      "path": "docs/FIXTURE_PROVENANCE.md",
+      "role": "documentation",
+      "sha256": "b3deff423eb921328e40d36bd80d9983975a53a3716179e35e92ba9dd774b70e"
+    },
+    {
+      "bytes": 5236,
+      "path": "docs/IEEE_ARTIFACT_CHECKLIST.md",
+      "role": "documentation",
+      "sha256": "0ba7265d25f5902a46eccd606da01cd9ae94da6b9c5f80d091d83a11cfce6a2f"
+    },
+    {
       "bytes": 36045,
       "path": "docs/PAPER_REQUIREMENTS.md",
       "role": "documentation",
       "sha256": "031669ed51501941a6679319f9ad59c6bc2f91363ad39da1ecf897b452e3e65c"
+    },
+    {
+      "bytes": 7078,
+      "path": "docs/REPRODUCIBILITY.md",
+      "role": "documentation",
+      "sha256": "238f177801caf2a59ee0bb1223b884c681a1220342873a02ad2283c25058368b"
+    },
+    {
+      "bytes": 11385,
+      "path": "docs/RESULT_INTERPRETATION.md",
+      "role": "documentation",
+      "sha256": "f8f5ffc6775893897bb1b730e5635c2fe3331616075ca5aad4596c2086802175"
+    },
+    {
+      "bytes": 3053,
+      "path": "docs/ZENODO_RELEASE_STEPS.md",
+      "role": "documentation",
+      "sha256": "931f88be082de70990f2dcf159a34137cfbbe8dbc66965bb45bd76ec7620afc6"
     },
     {
       "bytes": 0,
@@ -236,10 +320,22 @@
       "sha256": "e5956cc525c6e51422610f3e65374c9ca50369d7d9316a4d1124c88c8e08d972"
     },
     {
+      "bytes": 4778,
+      "path": "experiments/check_ci_agreement.py",
+      "role": "experiment_code",
+      "sha256": "d7d43b56d0243fa7431e6980d46d369931495dd393b443c7f6c3249c89ee8194"
+    },
+    {
       "bytes": 5034,
       "path": "experiments/common.py",
       "role": "experiment_code",
       "sha256": "9779ca390eb96bdfcabbd7390d70d4b33fa01a64a5ada916a96cfd52019aa406"
+    },
+    {
+      "bytes": 11914,
+      "path": "experiments/make_freeze_manifest.py",
+      "role": "experiment_code",
+      "sha256": "d1526d87d5dd5d2d1e9d955a28059dd5261538023af9a73b2cdcc1eb114bd6de"
     },
     {
       "bytes": 6016,
@@ -306,6 +402,18 @@
       "path": "experiments/run_traceability.py",
       "role": "experiment_code",
       "sha256": "cf709bc7a67a9f1df2780e2810e3137873e4ecf9ea7472ceb084ad08dbc28afc"
+    },
+    {
+      "bytes": 9483,
+      "path": "experiments/verify_freeze.py",
+      "role": "experiment_code",
+      "sha256": "b8f63c8536baf7236ad98e661292b4ee99beeab95a8126b78717582e600b0ad6"
+    },
+    {
+      "bytes": 5068,
+      "path": "experiments/verify_hashes.py",
+      "role": "experiment_code",
+      "sha256": "45c380cd8bb465de6affa15ea67597b5efdea31b0b1f4b8b07ee39bb9a9673f3"
     },
     {
       "bytes": 7905,
@@ -380,16 +488,52 @@
       "sha256": "542d175075ae09b98e0192aa26952eda3c872e6d051168e466ee95959598ee52"
     },
     {
+      "bytes": 25277,
+      "path": "preregistration/FREEZE_MANIFEST.json",
+      "role": "prereg_commitment",
+      "sha256": "97e50f84e9c532493fc1b24d7f1a627b2584652bad986d4cd6881d0f83c5bbb5"
+    },
+    {
+      "bytes": 16771,
+      "path": "preregistration/FREEZE_MANIFEST.sha256",
+      "role": "prereg_commitment",
+      "sha256": "1475f7fdf31aa1a91d8dca59692824d24460139d91f05f65f364ec4f990bc37b"
+    },
+    {
+      "bytes": 1991,
+      "path": "preregistration/HELD_OUT_REGISTER.md",
+      "role": "prereg_commitment",
+      "sha256": "f7a0b4a6f9c8a29848ef54f62797f6cdb1f25e6f4ca3498d0b37f9030d80c8d6"
+    },
+    {
+      "bytes": 8204,
+      "path": "preregistration/RQ5_DEFERRED_PROTOCOL.md",
+      "role": "adjudication_instrument",
+      "sha256": "0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935"
+    },
+    {
+      "bytes": 10789,
+      "path": "preregistration/TIER0_FREEZE.md",
+      "role": "prereg_commitment",
+      "sha256": "219f326cf1a45a07cc118aa461e575ebefb31040a23a0bec83e1ccc033f2b997"
+    },
+    {
       "bytes": 3314,
       "path": "preregistration/monte_carlo_distributions_v1.json",
       "role": "prereg_commitment",
       "sha256": "8593587323af92666c9ebe7ec0712455569dcf2394956c9895679fe29dc1238d"
     },
     {
-      "bytes": 67,
+      "bytes": 1456,
+      "path": "pyproject.toml",
+      "role": "repository_root",
+      "sha256": "a45ff25f8d1f037a3dd560a4b9764881ed87a56abae96f4db3d8ae263d0e4898"
+    },
+    {
+      "bytes": 69,
       "path": "pytest.ini",
       "role": "repository_root",
-      "sha256": "f7589d8cd441853dc94be7d76b17b350d279402af601a9d180bb701eed95802e"
+      "sha256": "ca2441589cd7ed62e01cf6cf519d6b5f94fd145a698d1e9cb0cb0a0034a74a60"
     },
     {
       "bytes": 3636,
@@ -398,10 +542,16 @@
       "sha256": "ee03bc1270115d536d01c65f79a7761e37750477611d49305ba6f05b947f511f"
     },
     {
-      "bytes": 13704,
+      "bytes": 497,
+      "path": "requirements.lock",
+      "role": "repository_root",
+      "sha256": "e134ac5741cd39d3caaa304f38918d364d451a540bbef1d2dc829997fc5ec3e4"
+    },
+    {
+      "bytes": 13772,
       "path": "results/development/SUMMARY.md",
       "role": "development_result",
-      "sha256": "e9c89b490d526a35763f07fe2c875bad4a641707fec848977125c0de4d3ced54"
+      "sha256": "be3e6b7bdc1eda538b2f6409f2bbeb40ec0c0171677860b34e7a8f82914e1a63"
     },
     {
       "bytes": 48058,
@@ -578,10 +728,10 @@
       "sha256": "55ca4ca8b3ee1cd17fb41f05d08bce8da5e3d63e123abad005e5b431cf612d73"
     },
     {
-      "bytes": 2791,
+      "bytes": 2547,
       "path": "results/development/reproduce_all.json",
       "role": "development_result",
-      "sha256": "57df8646f237368c7295c0240b59c5296ac8fccd3cd863fb4783b6e3cd7cf217"
+      "sha256": "e1e2d8cc076e617564a5f54b734a1f5afce061463fb7c82690f2ee4f34905315"
     },
     {
       "bytes": 16521,
@@ -896,10 +1046,11 @@
       "sha256": "2339f549395bf295ed9d19bee5627466c502feb80c6b4ae2dc75cc244a85473a"
     }
   ],
-  "manifest_sha256": "46dbc4bf42f935c8c6cc78798b4ce9bf87c501d8072c5e3fedb12b72623d9e63",
+  "manifest_sha256": "569460b30621af510200db29c1a5debe4696834c07debaf76158132be396a154",
   "roles": [
     "acs_a",
     "acs_b",
+    "adjudication_instrument",
     "case_a_input",
     "case_b_input",
     "catalog",
@@ -922,5 +1073,5 @@
     "schema",
     "test_suite"
   ],
-  "total_bytes": 1654129
+  "total_bytes": 1837505
 }

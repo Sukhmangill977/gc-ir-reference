@@ -187,3 +187,37 @@ already run:
    `paper_update/PLACEHOLDER_REPLACEMENT_TABLE.md`.
 
 A frozen number is never edited in place.
+
+---
+
+## Publication state of this freeze — READ THIS
+
+The Section XI-I requirement is a **public** timestamped commitment. Its status is
+recorded here truthfully, and `experiments/verify_freeze.py` re-checks it on every
+run rather than relying on this prose.
+
+At the time this freeze was created, the GitHub CLI was installed but **not
+authenticated**, and the environment could not run an interactive OAuth flow. The
+freeze commit and the tag `preregister-tier0-v1` therefore exist **locally** and the
+final campaign was executed against them, but **the public commitment was not
+discharged at that moment.**
+
+What the local freeze does and does not establish:
+
+* **It does establish**, and `verify_freeze.py` checks, that every frozen file
+  hashes at the freeze commit to the value in `FREEZE_MANIFEST.sha256`, that the
+  final results were produced at a commit descended from the freeze commit, and
+  that **no frozen file changed in between**. That is a content-and-ancestry claim
+  a timestamp cannot fake, and it is the substantive guarantee.
+* **It does not establish** third-party-verifiable ordering in time. A local tag's
+  date is author-settable. Only the push makes the commitment public and its
+  timestamp attributable to a third party.
+
+**Therefore:** until `git push --tags` has placed this tag on the public
+repository, this artifact must describe the preregistration as *prepared and
+locally committed*, **not** as publicly hash-committed. Once pushed, the
+requirement is discharged and `verify_freeze.py` reports
+`public_commitment_discharged: true`.
+
+The single command that discharges it is recorded in the final report and in
+`docs/ZENODO_RELEASE_STEPS.md`.
