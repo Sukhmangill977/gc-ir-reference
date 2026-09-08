@@ -1,0 +1,41 @@
+{
+  "spec_id": "MC-DIST-V1",
+  "version": "1.0",
+  "seed": 20260201,
+  "draws_K": 250000,
+  "provenance": {
+    "class": "author_specified_synthetic_sensitivity_distributions",
+    "NOT": "independently adjudicated panel distributions",
+    "statement": "Manuscript Section XI-G attributes the rating distributions to the independent adjudication panel of Section XI-C. NO SUCH PANEL HAS BEEN CONVENED. The distributions used here are author-specified synthetic sensitivity distributions constructed from a single a-priori rule (below). They are NOT independently adjudicated and must not be described as such. See docs/FIXTURE_PROVENANCE.md FP-020 and paper_update/MEASURED_RESULTS.md for the exact manuscript wording this requires.",
+    "consequence_for_claims": "The Monte Carlo result is a sensitivity analysis under a declared perturbation model, not an estimate of real rating uncertainty. It supports the qualitative claim that heat-map gate membership moves under rating perturbation while C* membership does not; it does not support any quantitative claim about how uncertain enterprise ratings actually are."
+  },
+  "perturbation_rule": {
+    "name": "symmetric_pm1_ordinal_with_clamping",
+    "description": "For each risk and each of L and I independently: probability 0.6 on the approved rating, 0.2 on the rating one step below, 0.2 on the rating one step above. The scale is the enterprise 1..5 ordinal scale. Mass that would fall outside [1, 5] is reassigned to the approved rating (clamping), so an approved rating of 5 carries 0.8 on 5 and 0.2 on 4, and an approved rating of 1 carries 0.8 on 1 and 0.2 on 2.",
+    "rationale": "The simplest defensible model of ordinal rating disagreement: an assessor is most likely to reproduce the approved rating and, when they differ, differ by one step in either direction. Chosen a priori before any result was computed. It is deliberately not tuned to any target value.",
+    "mass_on_approved": 0.6,
+    "mass_one_step_each_side": 0.2,
+    "scale_min": 1,
+    "scale_max": 5,
+    "out_of_range_handling": "reassign_to_approved"
+  },
+  "sensitivity_variant": {
+    "name": "symmetric_pm1_ordinal_with_renormalisation",
+    "description": "Identical, except that mass falling outside [1, 5] is removed and the remaining masses renormalised, rather than reassigned to the approved rating. Reported as a secondary result so the reader can see how much the boundary rule matters.",
+    "out_of_range_handling": "renormalise"
+  },
+  "quantities_reported": [
+    "per-risk heat-map gate-flip probability FP_i^heat",
+    "per-risk C* gate-flip probability FP_i^Cstar (structurally zero: the coverage rule does not read L or I)",
+    "expected gate changes per register",
+    "distribution of GD(T_H)",
+    "distribution of GD_min",
+    "Monte Carlo standard error MCSE(p_hat) = sqrt(p_hat (1 - p_hat) / K)"
+  ],
+  "exclusion_rules": {
+    "risks_excluded": "none -- every register row carries a residual rating and is included, consistent with the GD definition running over all rows",
+    "draws_excluded": "none",
+    "missing_data": "not applicable: the distributions are fully specified over a finite support"
+  },
+  "stopping_rule": "K is fixed at 250000 draws per risk before execution. No adaptive stopping. MCSE is bounded above by 0.001 at this K."
+}

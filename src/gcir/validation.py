@@ -15,7 +15,9 @@ import json
 import os
 from typing import Any, Dict, List, Optional
 
-from jsonschema import Draft202012Validator, RefResolver
+from jsonschema import Draft202012Validator
+from referencing import Registry, Resource
+from referencing.jsonschema import DRAFT202012 as DRAFT_2020_12
 
 from .models import (
     EVALUATION_BASES,
@@ -49,17 +51,36 @@ def load_schema(name, schema_dir=None):
     return _SCHEMA_CACHE[key]
 
 
+_REGISTRY_CACHE = {}
+
+
+def _registry(directory):
+    """A ``referencing`` registry over every schema in ``directory``.
+
+    Each schema is registered under both its absolute ``$id`` and its bare
+    filename, so ``{"$ref": "common.schema.json#/$defs/identifier"}`` resolves
+    the same way whether the referring schema declares an ``$id`` or not.
+    """
+    if directory not in _REGISTRY_CACHE:
+        resources = []
+        for filename in sorted(os.listdir(directory)):
+            if not filename.endswith(".schema.json"):
+                continue
+            document = load_schema(filename, directory)
+            resource = Resource.from_contents(
+                document, default_specification=DRAFT_2020_12
+            )
+            if "$id" in document:
+                resources.append((document["$id"], resource))
+            resources.append((filename, resource))
+        _REGISTRY_CACHE[directory] = Registry().with_resources(resources)
+    return _REGISTRY_CACHE[directory]
+
+
 def schema_validator(name, schema_dir=None):
     directory = schema_dir or SCHEMA_DIR
     schema = load_schema(name, directory)
-    store = {}
-    for filename in sorted(os.listdir(directory)):
-        if filename.endswith(".schema.json"):
-            other = load_schema(filename, directory)
-            if "$id" in other:
-                store[other["$id"]] = other
-    resolver = RefResolver(base_uri=schema.get("$id", ""), referrer=schema, store=store)
-    return Draft202012Validator(schema, resolver=resolver)
+    return Draft202012Validator(schema, registry=_registry(directory))
 
 
 def validate_document(document, schema_name, label=None, schema_dir=None):

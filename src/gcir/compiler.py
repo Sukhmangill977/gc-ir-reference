@@ -563,11 +563,10 @@ def compile_bundle(inputs, verify_signatures=True):
         for acs_id in canonical_order(disposition.acs_ids, lambda x: x):
             acs = acs_index[acs_id]
 
+            # Section VI-A steps 2-5, in the order the manuscript states them.
+
             # step 2: resolve event_type to exactly one approved template
             template = inputs.catalog.exact_lookup(acs["event_type"], acs["template_id"])
-
-            # step 5 (evidence semantics) + template conformance
-            inputs.catalog.check_acs_against_template(acs.data, template)
 
             # step 3: resolve the action tuple against S.authority_matrix
             action_tuple = acs.action_tuple
@@ -580,6 +579,10 @@ def compile_bundle(inputs, verify_signatures=True):
                 entry,
                 parameter_schema_ref=acs["parameter_schema_ref"],
             )
+
+            # step 5: validate evidence type and producer against the selected
+            # catalog entry (and the rest of the template's conformance surface)
+            inputs.catalog.check_acs_against_template(acs.data, template)
 
             # step 7: assign gate source and gate type under Section VII
             gate_type, gate_source = _classify_gate(acs, cstar_flags[risk["risk_id"]])

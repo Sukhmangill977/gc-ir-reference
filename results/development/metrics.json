@@ -1,0 +1,552 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "d9b59ecebbf035d882e5db159061a77ebf4229f4",
+    "git_commit_short": "d9b59ec",
+    "git_describe": "d9b59ec",
+    "git_status_clean": false,
+    "git_tag_exact": null,
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-08T04:20:39Z",
+    "system": "Darwin"
+  },
+  "phase": "development",
+  "phase_note": "DEVELOPMENT result. Not a reportable number.",
+  "result": {
+    "notes": {
+      "GD": "Both GD sums run over ALL register rows, non-runtime dispositions included: those rows carry ratings but no gate, and excluding them would understate divergence at low thresholds.",
+      "OPR": "Required 0. This is a compiler guarantee over Phi-produced bundles; it extends to a deployment only under the runtime acceptance condition of Section VI-F.",
+      "RCY": "Descriptive, not a quality target. Forcing it toward 1 would incorrectly encourage non-runtime risks to be translated into unsuitable predicates.",
+      "SNR_DF": "RQ5 outcomes. Deferred; no participant data exists.",
+      "TD": "Measured separately by experiments/run_determinism.py."
+    },
+    "per_case": {
+      "case_a": {
+        "CV": {
+          "definition": "|{r_i : C*(c_i)=1 and each hazardous action path mandatorily gated}| / |{r_i : C*(c_i)=1}|",
+          "denominator": 6,
+          "note": "",
+          "numerator": 6,
+          "required": "1.000",
+          "value": 1.0
+        },
+        "DC": {
+          "definition": "|{r_i : Delta_i in (runtime, nonruntime, accepted)}| / |R|",
+          "denominator": 16,
+          "numerator": 16,
+          "required": "1.000 for release admissibility",
+          "value": 1.0
+        },
+        "GD": {
+          "declared_threshold": 15,
+          "definition": "GD(T_H) = sum_i 1[g_i != 1[s_i >= T_H]] over ALL register rows",
+          "divergent_rows": [
+            {
+              "approved_gate": 1,
+              "heatmap_gate": 0,
+              "risk_id": "R-09",
+              "score": 12
+            },
+            {
+              "approved_gate": 1,
+              "heatmap_gate": 0,
+              "risk_id": "R-10",
+              "score": 10
+            },
+            {
+              "approved_gate": 1,
+              "heatmap_gate": 0,
+              "risk_id": "R-13",
+              "score": 10
+            }
+          ],
+          "value": 3
+        },
+        "GD_min": {
+          "argmin_thresholds": [
+            9,
+            10,
+            13,
+            14,
+            15
+          ],
+          "definition": "min over t in T of sum_i 1[g_i != 1[s_i >= t]]",
+          "per_threshold": [
+            {
+              "gd": 5,
+              "threshold": 5
+            },
+            {
+              "gd": 5,
+              "threshold": 6
+            },
+            {
+              "gd": 4,
+              "threshold": 7
+            },
+            {
+              "gd": 4,
+              "threshold": 8
+            },
+            {
+              "gd": 3,
+              "threshold": 9
+            },
+            {
+              "gd": 3,
+              "threshold": 10
+            },
+            {
+              "gd": 5,
+              "threshold": 11
+            },
+            {
+              "gd": 5,
+              "threshold": 12
+            },
+            {
+              "gd": 3,
+              "threshold": 13
+            },
+            {
+              "gd": 3,
+              "threshold": 14
+            },
+            {
+              "gd": 3,
+              "threshold": 15
+            },
+            {
+              "gd": 7,
+              "threshold": 16
+            },
+            {
+              "gd": 10,
+              "threshold": 17
+            },
+            {
+              "gd": 10,
+              "threshold": 19
+            },
+            {
+              "gd": 10,
+              "threshold": 20
+            },
+            {
+              "gd": 11,
+              "threshold": 21
+            }
+          ],
+          "value": 3
+        },
+        "NDR": {
+          "definition": "|{r_i : Delta_i in (nonruntime, accepted)}| / |R|",
+          "denominator": 16,
+          "numerator": 3,
+          "required": "descriptive",
+          "value": 0.1875
+        },
+        "ODC": {
+          "definition": "|{o in O : o ~> runtime or nonruntime or accepted}| / |O|",
+          "denominator": 12,
+          "numerator": 12,
+          "obligations_without_predicate": [
+            "OSFI-B10-TPR",
+            "OSFI-E21-ORR"
+          ],
+          "required": "1.000",
+          "undisposed": [],
+          "value": 1.0
+        },
+        "OPR": {
+          "definition": "|{p in P : origin(p) not in R union INV}| / |P|",
+          "denominator": 19,
+          "numerator": 0,
+          "orphans": [],
+          "required": "0.000",
+          "value": 0.0
+        },
+        "PTC": {
+          "definition": "|{p in P : p ~> risk or compiler invariant}| / |P|",
+          "denominator": 19,
+          "numerator": 19,
+          "required": "1.000",
+          "value": 1.0
+        },
+        "RCY": {
+          "definition": "|{r_i : Delta_i = runtime(D_i)}| / |R|",
+          "denominator": 16,
+          "numerator": 13,
+          "required": "descriptive, not a quality target",
+          "value": 0.8125
+        },
+        "deferred": {
+          "DF": {
+            "definition": "DF_i = |F_i intersect F_i*| / |F_i*|; DF = mean over R",
+            "reason": "RQ5 is preregistered and deferred (Section XI).",
+            "status": "DEFERRED",
+            "value": null
+          },
+          "SNR": {
+            "definition": "sum_i SN_i / |R| against the independently adjudicated reference",
+            "reason": "RQ5 is preregistered and deferred (Section XI). No adjudication panel has been convened and no participant data exists. Reporting any value here would be fabrication.",
+            "status": "DEFERRED",
+            "value": null
+          }
+        },
+        "disposition_counts": {
+          "accepted": 0,
+          "nonruntime": 3,
+          "runtime": 13,
+          "unresolved": 0
+        },
+        "gate_sources": {
+          "by_gate_type_and_source": {
+            "advisory/SOFT": 2,
+            "mandatory/C_STAR": 7,
+            "mandatory/OTHER_MANDATORY": 9,
+            "weighted/SOFT": 1
+          },
+          "by_mandatory_role": {
+            "decisive": 16,
+            "supporting": 3
+          }
+        },
+        "gate_vector": {
+          "R-01": 1,
+          "R-02": 1,
+          "R-03": 1,
+          "R-04": 0,
+          "R-05": 1,
+          "R-06": 1,
+          "R-07": 1,
+          "R-08": 1,
+          "R-09": 1,
+          "R-10": 1,
+          "R-11": 1,
+          "R-12": 0,
+          "R-13": 1,
+          "R-14": 0,
+          "R-15": 0,
+          "R-16": 0
+        },
+        "payload_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+        "proposition_1_premise": {
+          "holds": true,
+          "implies": "GD_min >= 1",
+          "inversion_count": 6,
+          "inversions": [
+            {
+              "gated_risk": "R-10",
+              "gated_score": 10,
+              "ungated_risk": "R-04",
+              "ungated_score": 12
+            },
+            {
+              "gated_risk": "R-10",
+              "gated_score": 10,
+              "ungated_risk": "R-12",
+              "ungated_score": 12
+            },
+            {
+              "gated_risk": "R-10",
+              "gated_score": 10,
+              "ungated_risk": "R-14",
+              "ungated_score": 12
+            },
+            {
+              "gated_risk": "R-13",
+              "gated_score": 10,
+              "ungated_risk": "R-04",
+              "ungated_score": 12
+            },
+            {
+              "gated_risk": "R-13",
+              "gated_score": 10,
+              "ungated_risk": "R-12",
+              "ungated_score": 12
+            },
+            {
+              "gated_risk": "R-13",
+              "gated_score": 10,
+              "ungated_risk": "R-14",
+              "ungated_score": 12
+            }
+          ],
+          "statement": "exists r_i, r_j with s_i < s_j, g_i = 1, g_j = 0"
+        },
+        "proposition_2_premise": {
+          "collisions": [
+            {
+              "gated": [
+                "R-09"
+              ],
+              "score": 12,
+              "ungated": [
+                "R-04",
+                "R-12",
+                "R-14"
+              ]
+            }
+          ],
+          "holds": true,
+          "implies": "no function of the scalar score alone reproduces the approved gate assignment",
+          "statement": "exists r_i, r_j with s_i = s_j and g_i != g_j"
+        },
+        "score_vector": {
+          "R-01": 20,
+          "R-02": 16,
+          "R-03": 16,
+          "R-04": 12,
+          "R-05": 15,
+          "R-06": 15,
+          "R-07": 15,
+          "R-08": 15,
+          "R-09": 12,
+          "R-10": 10,
+          "R-11": 16,
+          "R-12": 12,
+          "R-13": 10,
+          "R-14": 12,
+          "R-15": 6,
+          "R-16": 8
+        },
+        "statistics": {
+          "acs_count": 16,
+          "compiler_invariant_predicate_count": 3,
+          "cstar_risk_count": 6,
+          "mandatory_gate_count": 16,
+          "obligation_count": 12,
+          "predicate_count": 19,
+          "risk_count": 16,
+          "risk_derived_predicate_count": 16,
+          "warning_count": 0
+        }
+      },
+      "case_b": {
+        "CV": {
+          "definition": "|{r_i : C*(c_i)=1 and each hazardous action path mandatorily gated}| / |{r_i : C*(c_i)=1}|",
+          "denominator": 4,
+          "note": "",
+          "numerator": 4,
+          "required": "1.000",
+          "value": 1.0
+        },
+        "DC": {
+          "definition": "|{r_i : Delta_i in (runtime, nonruntime, accepted)}| / |R|",
+          "denominator": 6,
+          "numerator": 6,
+          "required": "1.000 for release admissibility",
+          "value": 1.0
+        },
+        "GD": {
+          "declared_threshold": 15,
+          "definition": "GD(T_H) = sum_i 1[g_i != 1[s_i >= T_H]] over ALL register rows",
+          "divergent_rows": [
+            {
+              "approved_gate": 1,
+              "heatmap_gate": 0,
+              "risk_id": "B-03",
+              "score": 12
+            },
+            {
+              "approved_gate": 1,
+              "heatmap_gate": 0,
+              "risk_id": "B-04",
+              "score": 5
+            },
+            {
+              "approved_gate": 1,
+              "heatmap_gate": 0,
+              "risk_id": "B-05",
+              "score": 10
+            },
+            {
+              "approved_gate": 1,
+              "heatmap_gate": 0,
+              "risk_id": "B-06",
+              "score": 10
+            }
+          ],
+          "value": 4
+        },
+        "GD_min": {
+          "argmin_thresholds": [
+            4,
+            5
+          ],
+          "definition": "min over t in T of sum_i 1[g_i != 1[s_i >= t]]",
+          "per_threshold": [
+            {
+              "gd": 0,
+              "threshold": 4
+            },
+            {
+              "gd": 0,
+              "threshold": 5
+            },
+            {
+              "gd": 1,
+              "threshold": 6
+            },
+            {
+              "gd": 1,
+              "threshold": 9
+            },
+            {
+              "gd": 1,
+              "threshold": 10
+            },
+            {
+              "gd": 3,
+              "threshold": 11
+            },
+            {
+              "gd": 3,
+              "threshold": 12
+            },
+            {
+              "gd": 4,
+              "threshold": 13
+            },
+            {
+              "gd": 4,
+              "threshold": 14
+            },
+            {
+              "gd": 4,
+              "threshold": 15
+            },
+            {
+              "gd": 5,
+              "threshold": 16
+            },
+            {
+              "gd": 6,
+              "threshold": 17
+            }
+          ],
+          "value": 0
+        },
+        "NDR": {
+          "definition": "|{r_i : Delta_i in (nonruntime, accepted)}| / |R|",
+          "denominator": 6,
+          "numerator": 0,
+          "required": "descriptive",
+          "value": 0.0
+        },
+        "ODC": {
+          "definition": "|{o in O : o ~> runtime or nonruntime or accepted}| / |O|",
+          "denominator": 6,
+          "numerator": 6,
+          "obligations_without_predicate": [],
+          "required": "1.000",
+          "undisposed": [],
+          "value": 1.0
+        },
+        "OPR": {
+          "definition": "|{p in P : origin(p) not in R union INV}| / |P|",
+          "denominator": 9,
+          "numerator": 0,
+          "orphans": [],
+          "required": "0.000",
+          "value": 0.0
+        },
+        "PTC": {
+          "definition": "|{p in P : p ~> risk or compiler invariant}| / |P|",
+          "denominator": 9,
+          "numerator": 9,
+          "required": "1.000",
+          "value": 1.0
+        },
+        "RCY": {
+          "definition": "|{r_i : Delta_i = runtime(D_i)}| / |R|",
+          "denominator": 6,
+          "numerator": 6,
+          "required": "descriptive, not a quality target",
+          "value": 1.0
+        },
+        "deferred": {
+          "DF": {
+            "definition": "DF_i = |F_i intersect F_i*| / |F_i*|; DF = mean over R",
+            "reason": "RQ5 is preregistered and deferred (Section XI).",
+            "status": "DEFERRED",
+            "value": null
+          },
+          "SNR": {
+            "definition": "sum_i SN_i / |R| against the independently adjudicated reference",
+            "reason": "RQ5 is preregistered and deferred (Section XI). No adjudication panel has been convened and no participant data exists. Reporting any value here would be fabrication.",
+            "status": "DEFERRED",
+            "value": null
+          }
+        },
+        "disposition_counts": {
+          "accepted": 0,
+          "nonruntime": 0,
+          "runtime": 6,
+          "unresolved": 0
+        },
+        "gate_sources": {
+          "by_gate_type_and_source": {
+            "mandatory/C_STAR": 4,
+            "mandatory/OTHER_MANDATORY": 5
+          },
+          "by_mandatory_role": {
+            "decisive": 9
+          }
+        },
+        "gate_vector": {
+          "B-01": 1,
+          "B-02": 1,
+          "B-03": 1,
+          "B-04": 1,
+          "B-05": 1,
+          "B-06": 1
+        },
+        "payload_hash": "ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
+        "proposition_1_premise": {
+          "holds": false,
+          "implies": "GD_min >= 1",
+          "inversion_count": 0,
+          "inversions": [],
+          "statement": "exists r_i, r_j with s_i < s_j, g_i = 1, g_j = 0"
+        },
+        "proposition_2_premise": {
+          "collisions": [],
+          "holds": false,
+          "implies": "no function of the scalar score alone reproduces the approved gate assignment",
+          "statement": "exists r_i, r_j with s_i = s_j and g_i != g_j"
+        },
+        "score_vector": {
+          "B-01": 15,
+          "B-02": 16,
+          "B-03": 12,
+          "B-04": 5,
+          "B-05": 10,
+          "B-06": 10
+        },
+        "statistics": {
+          "acs_count": 6,
+          "compiler_invariant_predicate_count": 3,
+          "cstar_risk_count": 4,
+          "mandatory_gate_count": 9,
+          "obligation_count": 6,
+          "predicate_count": 9,
+          "risk_count": 6,
+          "risk_derived_predicate_count": 6,
+          "warning_count": 0
+        }
+      }
+    }
+  },
+  "result_name": "metrics"
+}
