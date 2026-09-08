@@ -26,16 +26,16 @@
         "numpy": "2.2.1",
         "pytest": "8.3.4"
       },
-      "git_commit": "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e",
-      "git_commit_short": "c44f25d",
-      "git_describe": "preregister-tier0-v2.2-dirty",
-      "git_status_clean": false,
-      "git_tag_exact": "preregister-tier0-v2.2",
+      "git_commit": "e5911dfd084b293884832c50db6e32f7e8febf82",
+      "git_commit_short": "e5911df",
+      "git_describe": "preregister-tier0-v2.2-1-ge5911df",
+      "git_status_clean": true,
+      "git_tag_exact": null,
       "machine": "arm64",
       "platform": "macOS-26.6.2-arm64-arm-64bit",
       "python_implementation": "CPython",
       "python_version": "3.11.15",
-      "run_completed_utc": "2026-09-08T18:04:38Z",
+      "run_completed_utc": "2026-09-08T18:04:57Z",
       "system": "Darwin"
     }
   },
@@ -132,15 +132,15 @@
   },
   "manifest_sha256": "9d102886fef3931c543693e836a8537b646ccd87451e296fdaca2ce30fa9fa51",
   "public_freeze": {
-    "freeze_commit": "0c0da7e06e26771575ae24fddbeaab812b680165",
+    "freeze_commit": "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e",
     "note": "The commitment is the PUBLIC tag. Its presence on the remote, dereferencing to the freeze commit, is what discharges Section XI-I -- not the local tag's date.",
-    "public_url": "https://github.com/Sukhmangill977/gc-ir-reference/releases/tag/preregister-tier0-v2.1",
-    "remote_tag_commit": "0c0da7e06e26771575ae24fddbeaab812b680165",
+    "public_url": "https://github.com/Sukhmangill977/gc-ir-reference/releases/tag/preregister-tier0-v2.2",
+    "remote_tag_commit": "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e",
     "remote_tag_matches_freeze_commit": true,
-    "remote_tag_object": "56c4cfc1dd29776750e030fa9590667e46d692b4",
+    "remote_tag_object": "6eeaa1f817362daa96a83f6f019d5e8f9d204f68",
     "remote_tag_verified": true,
     "remote_url": "https://github.com/Sukhmangill977/gc-ir-reference.git",
-    "tag": "preregister-tier0-v2.1"
+    "tag": "preregister-tier0-v2.2"
   },
   "result_file_count": 42,
   "result_files": [
@@ -150,9 +150,9 @@
       "sha256": "d2de20289358a51fd37c7553b80cbfeb72ac7c59a341f02215119c5aa8d4ce6e"
     },
     {
-      "bytes": 10968,
+      "bytes": 11887,
       "path": "results/final_v2/PROVENANCE.json",
-      "sha256": "a3e0d505affa03de1b05927ba394f8561bf2fbb16fdc5a0ed4aa76491a2aa2cc"
+      "sha256": "601c918fd2adbda58c5d142b950ed013b969db0a04f1d475625031a7d1cbec7e"
     },
     {
       "bytes": 14229,

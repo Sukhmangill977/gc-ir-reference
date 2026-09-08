@@ -32,10 +32,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 56249,
+      "bytes": 57932,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "b9f3c3bf1f151e6f0cc3bcf00c83629296c8f81d327990df5edc8c74219ffa1b"
+      "sha256": "c05160e192b51373dd0603e694641d9a5497f585dac3bb2b2827ea82498e8dca"
     },
     {
       "bytes": 2029,
@@ -1118,10 +1118,10 @@
       "sha256": "d2de20289358a51fd37c7553b80cbfeb72ac7c59a341f02215119c5aa8d4ce6e"
     },
     {
-      "bytes": 10968,
+      "bytes": 11871,
       "path": "results/final_v2/PROVENANCE.json",
       "role": "measured_result",
-      "sha256": "a3e0d505affa03de1b05927ba394f8561bf2fbb16fdc5a0ed4aa76491a2aa2cc"
+      "sha256": "2915e8bb4163c53dd27a51a01e4dc94429ade0432a445eee38e5f63996052d41"
     },
     {
       "bytes": 14229,
@@ -1688,7 +1688,7 @@
       "sha256": "64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44"
     }
   ],
-  "manifest_sha256": "9d102886fef3931c543693e836a8537b646ccd87451e296fdaca2ce30fa9fa51",
+  "manifest_sha256": "4d6846500848d591355d1e80427456e8f9995a5e81a3dde785704f69a3031ae8",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1721,5 +1721,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 3509112
+  "total_bytes": 3511698
 }

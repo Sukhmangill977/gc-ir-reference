@@ -18,7 +18,7 @@ b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_roo
 1fc00762fe18d601c5cb8e676293a36ff6ed4a7686e2c77fccfda54f1636a7d0  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-b9f3c3bf1f151e6f0cc3bcf00c83629296c8f81d327990df5edc8c74219ffa1b  repository_root            MANIFEST.json
+c05160e192b51373dd0603e694641d9a5497f585dac3bb2b2827ea82498e8dca  repository_root            MANIFEST.json
 b188e1325d8435a894580e3c84c1274e2e4d949be665a3e4b79a672cf1842d11  repository_root            Makefile
 084e071a0f2042a2ab12e9953db473e14eaf1a6cf1d627551694be2f201ee5e4  repository_root            README.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
@@ -199,7 +199,7 @@ ea15a2e8bf44406b15106ec5a15820691081bd8cca352d0d74f0b88473e6b812  superseded_res
 9084e3597a1945bc716ebfff30c6e9d8a9c25b403cd586762663f714b22e2bcf  superseded_result          results/final/traceability_queries.csv
 3a4b9a4547cd8d7bbb371b318365cadcc450f2af68502f37fe978bfd91413b6a  superseded_result          results/final/traceability_queries.json
 d2de20289358a51fd37c7553b80cbfeb72ac7c59a341f02215119c5aa8d4ce6e  measured_result            results/final_v2/CI_STATUS.md
-a3e0d505affa03de1b05927ba394f8561bf2fbb16fdc5a0ed4aa76491a2aa2cc  measured_result            results/final_v2/PROVENANCE.json
+2915e8bb4163c53dd27a51a01e4dc94429ade0432a445eee38e5f63996052d41  measured_result            results/final_v2/PROVENANCE.json
 a3058efa558a8113677d446ed01c37e00e7477871b187cf7cb58d4c7da70905b  measured_result            results/final_v2/SUMMARY.md
 a844e3a52e566c8350f6fbb499ddba782e5ccf9d56b3a7196f91c1c408b5288b  measured_result            results/final_v2/adversarial.json
 1c63ce7caf90c92ab55c25a5bbc40251308f17e3b53b9bd0bdc36c824a8ad1a3  measured_result            results/final_v2/adversarial_cases.csv
