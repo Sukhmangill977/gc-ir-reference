@@ -43,6 +43,7 @@ from experiments.common import (
     CASES,
     REPO_ROOT,
     add_common_args,
+    phase_of,
     load_case_bundle,
     read_json,
     write_csv,
@@ -298,12 +299,12 @@ def main(argv=None):
     args = parser.parse_args(argv)
     spec = read_json(SPEC_PATH)
     draws = args.draws or spec["draws_K"]
-    if args.final and draws < spec["draws_K"]:
+    if phase_of(args) != "development" and draws < spec["draws_K"]:
         raise SystemExit(
-            "refusing to write a final result with K=%d below the frozen K=%d"
-            % (draws, spec["draws_K"])
+            "refusing to write a reportable (%s) result with K=%d below the frozen "
+            "K=%d" % (phase_of(args), draws, spec["draws_K"])
         )
-    run(draws, args.final)
+    run(draws, phase_of(args))
     return 0
 
 

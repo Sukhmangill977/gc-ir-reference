@@ -1,5 +1,5 @@
 {
-  "file_count": 221,
+  "file_count": 236,
   "files": [
     {
       "bytes": 452,
@@ -32,10 +32,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 45442,
+      "bytes": 48511,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "3c3d13d29adf47bf1d66bcaad3107f6700758b2ed6b1c88e2004a2a24e73a7c7"
+      "sha256": "7b550b29ffef85cd665cd3d13039ede7220b589843dec67388788ff0eb9b110a"
     },
     {
       "bytes": 2029,
@@ -218,6 +218,18 @@
       "sha256": "384099fc6a9431648235086465458ba8f3afc5d0777aa32fb1ae7d40aa2324c8"
     },
     {
+      "bytes": 4332,
+      "path": "cases/case_b/ldrea_predicate_family.json",
+      "role": "case_b_input",
+      "sha256": "c045d5d3bc40952961844376713ac508e6cb2026b6ef5c75773b93e7a1c46f4c"
+    },
+    {
+      "bytes": 19189,
+      "path": "cases/case_b/ldrea_traceability.json",
+      "role": "case_b_input",
+      "sha256": "c358f5a676c0b7b75b7705c0ea089afadeb01fbce91c0524159e0c263e929b70"
+    },
+    {
       "bytes": 487,
       "path": "cases/case_b/lifecycle/actuations.json",
       "role": "lifecycle_registry",
@@ -258,6 +270,18 @@
       "path": "catalog/control_derivation_catalog_v1.json",
       "role": "catalog",
       "sha256": "90d6882ee1fd40533419e779e4553bd93dada4a9055ad202447d12d6d1a8bc34"
+    },
+    {
+      "bytes": 15134,
+      "path": "docs/ARTIFACT_RUNS_COMPLIANCE.md",
+      "role": "documentation",
+      "sha256": "65e563ba98de0431930661ce8e78480db79a064642020cb3fcac303ebf08f601"
+    },
+    {
+      "bytes": 7670,
+      "path": "docs/CASE_B_LDREA_TRACEABILITY.md",
+      "role": "documentation",
+      "sha256": "f0e537bd1388d9287bfef368af8a7d3a5c7af512bb46001288b22c5291605ae4"
     },
     {
       "bytes": 17310,
@@ -314,16 +338,28 @@
       "sha256": "931f88be082de70990f2dcf159a34137cfbbe8dbc66965bb45bd76ec7620afc6"
     },
     {
+      "bytes": 12056,
+      "path": "docs/source/Artifact_Runs_Effort_and_Impact(1).docx",
+      "role": "source_document",
+      "sha256": "dc0215f7e205de187a17c832602f58366479887993766664658b865ef26001e4"
+    },
+    {
       "bytes": 0,
       "path": "experiments/__init__.py",
       "role": "experiment_code",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "bytes": 37983,
+      "bytes": 42271,
       "path": "experiments/adversarial_cases.py",
       "role": "experiment_code",
-      "sha256": "e5956cc525c6e51422610f3e65374c9ca50369d7d9316a4d1124c88c8e08d972"
+      "sha256": "b5f0f830472406c7ceb32effae67674cff90efd593cdb7b95bf7ed4b2714a5bb"
+    },
+    {
+      "bytes": 10199,
+      "path": "experiments/case_b_injection_scenarios.py",
+      "role": "experiment_code",
+      "sha256": "90599d0e6ba2a7ec055a589ca77df368dc55ccbe5b4805fc10ad1010bcd90b4c"
     },
     {
       "bytes": 4778,
@@ -332,88 +368,88 @@
       "sha256": "d7d43b56d0243fa7431e6980d46d369931495dd393b443c7f6c3249c89ee8194"
     },
     {
-      "bytes": 5034,
+      "bytes": 6121,
       "path": "experiments/common.py",
       "role": "experiment_code",
-      "sha256": "9779ca390eb96bdfcabbd7390d70d4b33fa01a64a5ada916a96cfd52019aa406"
+      "sha256": "cd3eb9181d9dfd4e9adfdb949392ba07bf926e15023c353dfbbc392afc0f383d"
     },
     {
-      "bytes": 11914,
+      "bytes": 12706,
       "path": "experiments/make_freeze_manifest.py",
       "role": "experiment_code",
-      "sha256": "d1526d87d5dd5d2d1e9d955a28059dd5261538023af9a73b2cdcc1eb114bd6de"
+      "sha256": "ef9899540d82b6c2dbb0eef7a547914f62f244fe8a6d1394e87ff40593af62bd"
     },
     {
-      "bytes": 6016,
+      "bytes": 6660,
       "path": "experiments/make_manifest.py",
       "role": "experiment_code",
-      "sha256": "97e379cedf0828b1c601ec4a7afeee70ea4aac9ed883496f472694956990dc18"
+      "sha256": "3266d999f9ae0d8cb7b1517c2b40673c35c8c88825e2873ebfdd76c216a4888c"
     },
     {
-      "bytes": 22594,
+      "bytes": 22616,
       "path": "experiments/make_summary.py",
       "role": "experiment_code",
-      "sha256": "29bca51a3515f0ea713b7a62a2f49b9a67d785bfc6a3174d076864f9e864a2eb"
+      "sha256": "4588e3f2b498a2b59429c1a0bdf6d4d9299c3b0491f05d9f89c9ae9fe6ee9125"
     },
     {
-      "bytes": 7248,
+      "bytes": 7344,
       "path": "experiments/reproduce_all.py",
       "role": "experiment_code",
-      "sha256": "c758522006f49f2ca9848b34d520851bb2c1ed491d73d67d27bd40e0b272c9e2"
+      "sha256": "5b256adc5bd60743962d39bc5c52fa100d024b7f28d897e21250ed2f6c07acbb"
     },
     {
-      "bytes": 27950,
+      "bytes": 29773,
       "path": "experiments/run_adversarial.py",
       "role": "experiment_code",
-      "sha256": "3e56c5147f801d7752f52f2ff51637a052abcb9707f14a8d25d63859891f131b"
+      "sha256": "63447a50cc83e7cd20b78e294fbd4065ad5f6169a2609a6831741dba4a016925"
     },
     {
-      "bytes": 5352,
+      "bytes": 5388,
       "path": "experiments/run_case.py",
       "role": "experiment_code",
-      "sha256": "22684aac7bcf0d80f77ed33d44eb8bd8798a213c579306b1c4bf308407fec7e3"
+      "sha256": "d757ae962402c31cdeec6b47f807876f8dcf93b814b7ef03a3100a42ac3f35af"
     },
     {
-      "bytes": 17285,
+      "bytes": 21401,
       "path": "experiments/run_determinism.py",
       "role": "experiment_code",
-      "sha256": "46c57056d4d317b267f50e0ec6558167707a1321b8636221c8b552eb6f68a137"
+      "sha256": "cef8b228d51a4577a512242203822ae0febdb8e31cb85bc3f8ad33e021c07ca2"
     },
     {
-      "bytes": 8830,
+      "bytes": 8848,
       "path": "experiments/run_gate_divergence.py",
       "role": "experiment_code",
-      "sha256": "fcf0aec22a2c0ede637f6efdffbbf3669c2fdb05e5497334d52027f007399d04"
+      "sha256": "755c90dac82766fb4d1403f0699896fda6c6b681309ddd0aac2f16f02326c41e"
     },
     {
-      "bytes": 4554,
+      "bytes": 4572,
       "path": "experiments/run_metrics.py",
       "role": "experiment_code",
-      "sha256": "d0ff9f9a7683a3f78399c6cb513648313c486b599873c0e112153cc34f585c01"
+      "sha256": "12cc0ef82a146fc3d08dd2974451398b81862fb4a5e8856d129247f57c025084"
     },
     {
-      "bytes": 12458,
+      "bytes": 12526,
       "path": "experiments/run_monte_carlo.py",
       "role": "experiment_code",
-      "sha256": "0b953c39b0187d20fb5e12ecc26702fb6f90ed81515fb6438235c69e798222b8"
+      "sha256": "429cc329af8fcd02cf8320bddcaada96bc1033d0fe869acedda90fdbdaa545a9"
     },
     {
-      "bytes": 8650,
+      "bytes": 8654,
       "path": "experiments/run_properties.py",
       "role": "experiment_code",
-      "sha256": "b2f3274dbcdb762e2ce9fb9f2f327418f54b352509e9dc3e04ac10b9dbc44763"
+      "sha256": "deabafd4e1832d233b4f2217dda0deab4c29a77723e59df9d624835fecb59cd2"
     },
     {
-      "bytes": 11116,
+      "bytes": 11134,
       "path": "experiments/run_traceability.py",
       "role": "experiment_code",
-      "sha256": "cf709bc7a67a9f1df2780e2810e3137873e4ecf9ea7472ceb084ad08dbc28afc"
+      "sha256": "703c0342ad1126b4f1267cb4b2af07981be69129e4fdf880927a83327ecaf5a3"
     },
     {
-      "bytes": 9483,
+      "bytes": 11163,
       "path": "experiments/verify_freeze.py",
       "role": "experiment_code",
-      "sha256": "b8f63c8536baf7236ad98e661292b4ee99beeab95a8126b78717582e600b0ad6"
+      "sha256": "3a25b44c38184afa6e6ad5138cd87dd72d6b5d1575fbb16d4431b4be35428c82"
     },
     {
       "bytes": 5068,
@@ -524,6 +560,18 @@
       "sha256": "1475f7fdf31aa1a91d8dca59692824d24460139d91f05f65f364ec4f990bc37b"
     },
     {
+      "bytes": 28361,
+      "path": "preregistration/FREEZE_MANIFEST_V2.json",
+      "role": "prereg_commitment",
+      "sha256": "336424ca41c9badfd2eaa99d2f230c87506fb8745b89062922a136dee5d0d7ef"
+    },
+    {
+      "bytes": 18632,
+      "path": "preregistration/FREEZE_MANIFEST_V2.sha256",
+      "role": "prereg_commitment",
+      "sha256": "85af47b630684110f38b3eba87eec9168877909c88bd2664af9a1cd4d2016b28"
+    },
+    {
       "bytes": 1991,
       "path": "preregistration/HELD_OUT_REGISTER.md",
       "role": "prereg_commitment",
@@ -540,6 +588,12 @@
       "path": "preregistration/TIER0_FREEZE.md",
       "role": "prereg_commitment",
       "sha256": "219f326cf1a45a07cc118aa461e575ebefb31040a23a0bec83e1ccc033f2b997"
+    },
+    {
+      "bytes": 9502,
+      "path": "preregistration/TIER0_FREEZE_V2.md",
+      "role": "prereg_commitment",
+      "sha256": "468cd4eaf9e74e916948458c7d8459d046051fd7bab630060fed74aa419f1694"
     },
     {
       "bytes": 3314,
@@ -578,16 +632,16 @@
       "sha256": "be3e6b7bdc1eda538b2f6409f2bbeb40ec0c0171677860b34e7a8f82914e1a63"
     },
     {
-      "bytes": 48058,
+      "bytes": 59826,
       "path": "results/development/adversarial.json",
       "role": "development_result",
-      "sha256": "dd4d89c5b3fed97bdccdefb510ff6e6f7bab1f29df5ee1a7a6e484a73f11df4a"
+      "sha256": "6c4999c5dfda966331824360af434e9b6b252f498f8a62c37e1b5f6a1b2aa74a"
     },
     {
-      "bytes": 20364,
+      "bytes": 21559,
       "path": "results/development/adversarial_cases.csv",
       "role": "development_result",
-      "sha256": "95bf249ec90cbf9955c533e3c7f6271d7dcffda1bfd78cfbce6a351674b92968"
+      "sha256": "1c63ce7caf90c92ab55c25a5bbc40251308f17e3b53b9bd0bdc36c824a8ad1a3"
     },
     {
       "bytes": 81791,
@@ -698,16 +752,16 @@
       "sha256": "674359ea9b84a36310688d2e13f2619940184434575cb9003bd7dff33a0ea196"
     },
     {
-      "bytes": 18693,
+      "bytes": 1670,
       "path": "results/development/determinism_runs.csv",
       "role": "development_result",
-      "sha256": "95b8a3d2afd8c29788d97bac8bea5b820ff72a96ed1047985b85f7dc68ffcf48"
+      "sha256": "c17bbc6b5cb3247b2cc528ba6cfa4949e9a68a3e6dbe3c40dbc16f5d1520a879"
     },
     {
-      "bytes": 3449,
+      "bytes": 3641,
       "path": "results/development/determinism_summary.json",
       "role": "development_result",
-      "sha256": "fd3ca784b4c47e1cf3442fe1edbb564114ffde69b13e4b0bdd6b24a054501e0c"
+      "sha256": "0d95ae9b38dcdd81f83eb31c39c3de958902f64817108294a0432169542e6bc3"
     },
     {
       "bytes": 18243,
@@ -734,16 +788,16 @@
       "sha256": "608535de7b4bfbe3c60ca665341c7c3e053d0cf7c6b5cccc25fdde14104ccac9"
     },
     {
-      "bytes": 1431,
+      "bytes": 1378,
       "path": "results/development/monte_carlo_per_risk.csv",
       "role": "development_result",
-      "sha256": "4fbfea9226f2f9d58393a11b9c4ac51be2771820bdf9e09f93b41b3484a3ed7f"
+      "sha256": "0e17413942868191898082d74cb72f9db5c12e2aecb0967cd600ac9a7ded477d"
     },
     {
-      "bytes": 26084,
+      "bytes": 25978,
       "path": "results/development/monte_carlo_summary.json",
       "role": "development_result",
-      "sha256": "03dd5d0920624b1e9f6ba7b0fee4738c2b971f0e8647350cc7e3ad824884ed9d"
+      "sha256": "e85b43ee59d6a910e821b83bb7b72214dbfc12a46952c474423ddc45000d921f"
     },
     {
       "bytes": 83210,
@@ -796,25 +850,25 @@
     {
       "bytes": 4133,
       "path": "results/final/CI_STATUS.md",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "8288ff3c76f343edc15f53748d7699656ca2a16e70d9d6fa6f040fa447c8b9d1"
     },
     {
       "bytes": 14800,
       "path": "results/final/SUMMARY.md",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "e3aa9e20b34709a7a66b39b8acad5dbe4883e03b20a13cf7b5453af46a28feba"
     },
     {
       "bytes": 48116,
       "path": "results/final/adversarial.json",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "06ae2814c45a4e3770a0d0a3f8e956352fd3ffa8b3f4e3925322a0ca3349aa2d"
     },
     {
       "bytes": 20364,
       "path": "results/final/adversarial_cases.csv",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "95bf249ec90cbf9955c533e3c7f6271d7dcffda1bfd78cfbce6a351674b92968"
     },
     {
@@ -928,116 +982,122 @@
     {
       "bytes": 18693,
       "path": "results/final/cross_environment/determinism_runs_container_linux.csv",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "95b8a3d2afd8c29788d97bac8bea5b820ff72a96ed1047985b85f7dc68ffcf48"
     },
     {
       "bytes": 3491,
       "path": "results/final/cross_environment/determinism_summary_container_linux.json",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "d503ca6f15dde4a636cbc49ba5e28a67fef34f2da2d3303068a72091fe26a8c1"
     },
     {
       "bytes": 18693,
       "path": "results/final/determinism_runs.csv",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "95b8a3d2afd8c29788d97bac8bea5b820ff72a96ed1047985b85f7dc68ffcf48"
     },
     {
       "bytes": 3507,
       "path": "results/final/determinism_summary.json",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "f23d484f7289c501372c1d564a8465af3082a410bf12f1febb1e97c59a3e0a29"
     },
     {
       "bytes": 465,
       "path": "results/final/freeze_verification.json",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "daee161e4d7397689b233aa8b60b4dee27cb88fbfafc31fcc038d3a326fb4d7c"
     },
     {
       "bytes": 18301,
       "path": "results/final/gate_divergence.json",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "ef671f67802af0b242a759dc6605e78085f91d67812661a4fdf850f8e879680e"
     },
     {
       "bytes": 1893,
       "path": "results/final/gate_divergence_heatmap.csv",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "4157530151b69936b613cd0f130f7a61a802435c1da392fcce5d1b9b39532d9d"
     },
     {
       "bytes": 1567,
       "path": "results/final/metrics.csv",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "770b9ffe870b1c80f93a3a118d3cb450994fed7e488ed85bd2b3521205313661"
     },
     {
       "bytes": 15874,
       "path": "results/final/metrics.json",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "65980ccd8ea61f23ccdf6b2a4109891bb04f03f2ebfba8db41b91a99f677288c"
     },
     {
       "bytes": 1431,
       "path": "results/final/monte_carlo_per_risk.csv",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "4fbfea9226f2f9d58393a11b9c4ac51be2771820bdf9e09f93b41b3484a3ed7f"
     },
     {
       "bytes": 26142,
       "path": "results/final/monte_carlo_summary.json",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "9197f4bcd19b8f5cf9c3c3779cfed05bf1bd23d1c29489e8fc03eddf2248e552"
     },
     {
       "bytes": 83254,
       "path": "results/final/property_tests.json",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "c8f44f1aa94a4099819ceb009491a146a41c1a5527c81438a2dde7ac6e161561"
     },
     {
       "bytes": 2610,
       "path": "results/final/reproduce_all.json",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "8df8c9abdc93d4c23553c8ed4ae9cf19e3b84d631b735a03b8fa4dc5afea1b0c"
     },
     {
       "bytes": 16521,
       "path": "results/final/test_reports/junit_adversarial.xml",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "36a72c8978d8225b6d14f89d145ae9bbf6efd9ec77529efd559e247d53800ee2"
     },
     {
       "bytes": 3335,
       "path": "results/final/test_reports/junit_integration.xml",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "919aecea50ae731dc163030ba7e5b63fd8881173db300ac967378931f2d6c778"
     },
     {
       "bytes": 13028,
       "path": "results/final/test_reports/junit_properties.xml",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "ea15a2e8bf44406b15106ec5a15820691081bd8cca352d0d74f0b88473e6b812"
     },
     {
       "bytes": 11961,
       "path": "results/final/test_reports/junit_unit.xml",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "9242d2d214b14fb9a744e11b98974af53be7bd033ae4eb9f4f7db386ccd32f2f"
     },
     {
       "bytes": 1663,
       "path": "results/final/traceability_queries.csv",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "9084e3597a1945bc716ebfff30c6e9d8a9c25b403cd586762663f714b22e2bcf"
     },
     {
       "bytes": 16027,
       "path": "results/final/traceability_queries.json",
-      "role": "measured_result",
+      "role": "superseded_result",
       "sha256": "3a4b9a4547cd8d7bbb371b318365cadcc450f2af68502f37fe978bfd91413b6a"
+    },
+    {
+      "bytes": 1009,
+      "path": "run_all.py",
+      "role": "experiment_code",
+      "sha256": "963c5c498c334c418bc44816494564e83e967dfacdd0a78183d2a2984fe33384"
     },
     {
       "bytes": 7666,
@@ -1148,10 +1208,10 @@
       "sha256": "4f5e513b4cc7b9f5a40c4b9341d64023d134b727c8914863701ced24864a29a4"
     },
     {
-      "bytes": 34982,
+      "bytes": 35310,
       "path": "src/gcir/compiler.py",
       "role": "phi_impl",
-      "sha256": "7491524ce02a736928383cea0974a801beb75eccaeca79af0831753cef84ebd9"
+      "sha256": "b22316d8d192e8ab0b76357ae8accf1e799dea934ddf1bb1ae8145b22215234d"
     },
     {
       "bytes": 11413,
@@ -1208,10 +1268,10 @@
       "sha256": "9243f56cd3e915752109a2118c9d574f434395ece04c7244600fcb76518ef43a"
     },
     {
-      "bytes": 17410,
+      "bytes": 20087,
       "path": "src/gcir/validation.py",
       "role": "phi_impl",
-      "sha256": "9b4c7a35b100262834dc3333024bf4a9a0f554b24f2a9fd522ccb013855764ab"
+      "sha256": "cf9e17c37f137fe07c53b25f510a8449ff9e3371156223358accbe32ae0d1483"
     },
     {
       "bytes": 0,
@@ -1280,6 +1340,12 @@
       "sha256": "ff96abd318cf16ed230cb725eea7b9989435320a95d56b6683297081f2587610"
     },
     {
+      "bytes": 19439,
+      "path": "tools/build_ldrea_traceability.py",
+      "role": "case_b_input",
+      "sha256": "1c42648c415483e77e74785f6dc72bb176425076c5a60900d154f47a45611fb3"
+    },
+    {
       "bytes": 10168,
       "path": "tools/build_lifecycle.py",
       "role": "fixture_generator",
@@ -1310,6 +1376,18 @@
       "sha256": "56297a2967e6cbb7fa97bab4d833784148c6f6c8e28c39ebc4b7f323f8f45024"
     },
     {
+      "bytes": 11258,
+      "path": "tools/derive_ldrea_predicate_family.py",
+      "role": "case_b_input",
+      "sha256": "1a90a5118d6e54e5ce8608d47b2c538fd652bdb8438875c28c9551683d25cbb9"
+    },
+    {
+      "bytes": 9795,
+      "path": "tools/freeze_check.py",
+      "role": "phi_impl",
+      "sha256": "aca10d7c256438fd6345c7a19ec10de97d293365f08dea10e7bc583352dadd92"
+    },
+    {
       "bytes": 7998,
       "path": "tools/invariants_data.py",
       "role": "fixture_generator",
@@ -1322,13 +1400,25 @@
       "sha256": "e88efdb78cb2efd93ff3499ea17d43252ce3e9a180999a79012525a8a73ad522"
     },
     {
+      "bytes": 1308,
+      "path": "tools/montecarlo.py",
+      "role": "experiment_code",
+      "sha256": "aa82bdd98cab8c9f3d9c2b82ea5f7438e1a427d2714e29ad050403ea6e520bbb"
+    },
+    {
       "bytes": 3706,
       "path": "tools/publish.sh",
       "role": "fixture_generator",
       "sha256": "030944eb6ce267dd2e1aab2405bc1fc8b1776da2f16cdfd489e4e5b460d1c995"
+    },
+    {
+      "bytes": 2089,
+      "path": "tools/td_crossenv.py",
+      "role": "experiment_code",
+      "sha256": "64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44"
     }
   ],
-  "manifest_sha256": "52de476167385b3c6ea1373173141880da9543631111e11c8ffc646b792e7ee3",
+  "manifest_sha256": "b7b726f91b67c4ffee105ba48cb2fd9bf68d848295a9b183ab76520531f4dd75",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1349,7 +1439,6 @@
     "judgment_record_b",
     "lifecycle_registry",
     "manuscript_reconciliation",
-    "measured_result",
     "phi_impl",
     "prereg_commitment",
     "psi_tooling",
@@ -1357,7 +1446,9 @@
     "repository_root",
     "research_key_TEST_ONLY",
     "schema",
+    "source_document",
+    "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 2577510
+  "total_bytes": 2764240
 }

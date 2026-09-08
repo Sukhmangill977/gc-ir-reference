@@ -38,8 +38,18 @@ import subprocess
 
 from experiments.common import REPO_ROOT, read_json
 
-FREEZE_TAG = "preregister-tier0-v1"
-FREEZE_MANIFEST = os.path.join(REPO_ROOT, "preregistration", "FREEZE_MANIFEST.sha256")
+FREEZE_TAG = "preregister-tier0-v2"
+
+#: Each freeze version has its own manifest; the tag selects which one applies.
+FREEZE_MANIFESTS = {
+    "preregister-tier0-v1": "FREEZE_MANIFEST.sha256",
+    "preregister-tier0-v2": "FREEZE_MANIFEST_V2.sha256",
+}
+
+
+def manifest_for(tag):
+    return os.path.join(REPO_ROOT, "preregistration",
+                        FREEZE_MANIFESTS.get(tag, "FREEZE_MANIFEST_V2.sha256"))
 
 
 def git(*args, check=False):
@@ -108,7 +118,7 @@ def main(argv=None):
     print("freeze date     : %s" % report["freeze_tag_date"])
 
     # ---- 2. manifest hashes match the freeze commit's content ----------
-    rows = parse_manifest(FREEZE_MANIFEST)
+    rows = parse_manifest(manifest_for(args.tag))
     report["frozen_file_count"] = len(rows)
     mismatched = []
     absent = []
@@ -190,19 +200,43 @@ def main(argv=None):
     remotes = git("remote") or ""
     pushed = False
     remote_url = None
+    remote_tag_sha = None
+    remote_points_at_freeze_commit = False
     if remotes:
         remote_name = remotes.splitlines()[0]
         remote_url = git("remote", "get-url", remote_name)
         listing = git("ls-remote", "--tags", remote_name, args.tag)
         pushed = bool(listing)
+        if listing:
+            # An annotated tag lists both the tag object and its dereferenced
+            # commit (^{}); the dereferenced line is the commit the tag names.
+            for line in listing.splitlines():
+                sha, ref = line.split("\t", 1)
+                if ref.endswith("^{}"):
+                    remote_tag_sha = sha
+            if remote_tag_sha is None:
+                remote_tag_sha = listing.splitlines()[0].split("\t", 1)[0]
+            remote_points_at_freeze_commit = (remote_tag_sha == freeze_commit)
+            if not remote_points_at_freeze_commit:
+                findings.append(
+                    "the remote tag %r points at %s, not at the local freeze commit %s"
+                    % (args.tag, (remote_tag_sha or "?")[:12], freeze_commit[:12])
+                )
     report["remote"] = remote_url
     report["tag_pushed_to_remote"] = pushed
-    report["public_commitment_discharged"] = pushed
+    report["remote_tag_commit"] = remote_tag_sha
+    report["remote_tag_matches_freeze_commit"] = remote_points_at_freeze_commit
+    report["public_commitment_discharged"] = pushed and remote_points_at_freeze_commit
 
     print("")
-    if pushed:
+    if pushed and remote_points_at_freeze_commit:
         print("PUBLICATION     : freeze tag is present on %s" % remote_url)
+        print("                  remote tag commit: %s" % remote_tag_sha)
         print("                  the Section XI-I public timestamped commitment IS discharged")
+    elif pushed:
+        print("PUBLICATION     : freeze tag is on the remote but points at %s,"
+              % (remote_tag_sha or "?")[:12])
+        print("                  not at the local freeze commit -- NOT discharged")
     else:
         print("PUBLICATION     : freeze tag is NOT present on any remote")
         print("                  the Section XI-I public timestamped commitment is NOT yet")

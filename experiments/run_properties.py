@@ -213,7 +213,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     add_common_args(parser)
     args = parser.parse_args(argv)
-    payload = run(args.final)
+    payload = run(phase_of(args))
     return 0 if payload["all_green"] else 1
 
 

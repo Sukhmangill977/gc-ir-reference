@@ -27,6 +27,7 @@ if os.path.join(REPO_ROOT, "src") not in sys.path:
 
 RESULTS_DEV = os.path.join(REPO_ROOT, "results", "development")
 RESULTS_FINAL = os.path.join(REPO_ROOT, "results", "final")
+RESULTS_FINAL_V2 = os.path.join(REPO_ROOT, "results", "final_v2")
 
 CASES = ("case_a", "case_b")
 
@@ -35,14 +36,35 @@ def add_common_args(parser):
     parser.add_argument(
         "--final",
         action="store_true",
-        help="write to results/final/ (the frozen reportable campaign) instead of "
-        "results/development/",
+        help="write to results/final/ (the tier0-v1 reportable campaign)",
+    )
+    parser.add_argument(
+        "--final-v2",
+        dest="final_v2",
+        action="store_true",
+        help="write to results/final_v2/ (the tier0-v2 reportable campaign, "
+             "executed after the PUBLIC freeze)",
     )
     return parser
 
 
+def phase_of(args):
+    """Resolve the results phase from parsed arguments."""
+    if getattr(args, "final_v2", False):
+        return "final_v2"
+    if getattr(args, "final", False):
+        return "final"
+    return "development"
+
+
 def results_dir(final):
-    directory = RESULTS_FINAL if final else RESULTS_DEV
+    """``final`` may be a bool (legacy) or a phase string."""
+    if final == "final_v2":
+        directory = RESULTS_FINAL_V2
+    elif final == "final" or final is True:
+        directory = RESULTS_FINAL
+    else:
+        directory = RESULTS_DEV
     os.makedirs(directory, exist_ok=True)
     return directory
 
@@ -95,15 +117,21 @@ def write_result(final, name, payload, phase_note=None):
     ``constraint_13_payload_is_hash_clean``.
     """
     directory = results_dir(final)
+    phase = ("final_v2" if final == "final_v2"
+             else "final" if (final == "final" or final is True)
+             else "development")
+    default_note = {
+        "final_v2": "FINAL v2 reportable campaign result, produced AFTER the "
+                    "publicly pushed preregistration freeze preregister-tier0-v2.",
+        "final": "tier0-v1 campaign result. Produced after a LOCAL freeze that was "
+                 "not public at execution time; superseded by the v2 campaign for "
+                 "reporting purposes.",
+        "development": "DEVELOPMENT result. Not a reportable number.",
+    }
     document = {
         "result_name": name,
-        "phase": "final" if final else "development",
-        "phase_note": phase_note
-        or (
-            "FINAL reportable campaign result, produced after the public preregistration freeze."
-            if final
-            else "DEVELOPMENT result. Not a reportable number."
-        ),
+        "phase": phase,
+        "phase_note": phase_note or default_note[phase],
         "environment": environment(),
         "result": payload,
     }

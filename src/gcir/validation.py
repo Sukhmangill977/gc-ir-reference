@@ -188,6 +188,46 @@ def constraint_03_threshold_contract_and_unit(predicate, threshold_contracts):
             )
 
 
+def constraint_03b_mandatory_temporal_window_is_contractual(predicate, gate_type,
+                                                            threshold_contracts):
+    """A mandatory condition that declares a temporal window must state the bound.
+
+    Section V: "Missing, stale, or schema-invalid context is indeterminacy,
+    distinct from violation ... For mandatory gates, on_unknown = fail is
+    required, not default."
+
+    A condition can only fail closed on *stale* evidence if "stale" is defined.
+    A declared ``temporal_window`` without a threshold contract carrying the
+    freshness bound and its unit leaves the timeout boundary unspecified, so the
+    predicate cannot deterministically distinguish fresh evidence from stale
+    evidence -- and an unevaluable staleness test is exactly the silent mandatory
+    pass Appendix A constraint 2 exists to prevent.
+    """
+    if gate_type != "mandatory":
+        return
+    for condition in predicate["context_conditions"]:
+        window = condition.get("temporal_window")
+        if not window:
+            continue
+        ref = condition.get("threshold_contract_ref")
+        if not ref:
+            raise ValidationError(
+                "predicate %s condition %r declares temporal_window %r on a "
+                "mandatory gate with no threshold_contract_ref; the staleness "
+                "boundary would be unevaluable and stale evidence could not fail "
+                "closed" % (predicate["gcir_id"], condition["attribute"], window),
+                code="A3B_TEMPORAL_WINDOW_UNCONTRACTED",
+            )
+        contract = threshold_contracts.get(ref)
+        if contract is None or not contract.get("unit"):
+            raise ValidationError(
+                "predicate %s condition %r declares a temporal_window whose "
+                "threshold contract %r is missing or carries no unit"
+                % (predicate["gcir_id"], condition["attribute"], ref),
+                code="A3B_TEMPORAL_WINDOW_UNCONTRACTED",
+            )
+
+
 def constraint_04_weighted_structure(predicate, gate_type):
     """weighted requires weight, normalized deficit function, aggregation group,
     group threshold, and a response."""
@@ -433,5 +473,19 @@ def check_runtime_acceptance(runtime_declaration, receipt, bundle):
         problems.append(
             "receipt cites predicates %s that are not in the bundle -- policy "
             "content entered through a channel outside the compiled bundle" % unknown
+        )
+
+    # The other direction: a receipt that silently omits mandatory predicates the
+    # bundle requires is a state mismatch between the loaded policy and the
+    # policy actually evaluated. Only mandatory gates are required to appear --
+    # an advisory result may legitimately be absent.
+    required = {
+        p["gcir_id"] for p in bundle.predicates if p["gate_type"] == "mandatory"
+    }
+    omitted = sorted(required - evaluated)
+    if omitted:
+        problems.append(
+            "receipt omits mandatory predicates %s that the cited bundle requires "
+            "-- the evaluated policy state does not match the loaded bundle" % omitted
         )
     return (not problems), problems

@@ -24,6 +24,7 @@ import os
 from experiments.common import (
     REPO_ROOT,
     add_common_args,
+    phase_of,
     load_case_bundle,
     read_json,
     write_csv,
@@ -383,6 +384,23 @@ def run_structural_checks():
             "passed": ok_rt, "detail": "; ".join(problems_rt),
         })
 
+        # A receipt that OMITS mandatory predicates the bundle requires is a
+        # state mismatch between the loaded policy and the policy evaluated.
+        omitted = copy.deepcopy(clean_receipt)
+        mandatory_ids = [p["gcir_id"] for p in bundle.predicates
+                         if p["gate_type"] == "mandatory"]
+        omitted["evaluated_predicates"] = [
+            e for e in omitted["evaluated_predicates"]
+            if e["gcir_id"] != mandatory_ids[0]
+        ]
+        ok_omit, problems_omit = check_runtime_acceptance(conformant, omitted, bundle)
+        checks.append({
+            "case": case_id, "check": "state_mismatch_omitted_mandatory_predicate_detected",
+            "manuscript_ref": "Appendix A constraint 14",
+            "passed": (not ok_omit) and any("omits mandatory" in p for p in problems_omit),
+            "detail": "; ".join(problems_omit),
+        })
+
         injected = copy.deepcopy(clean_receipt)
         injected["evaluated_predicates"].append({
             "gcir_id": "GCIR-INJECTED-FROM-ANOTHER-CHANNEL",
@@ -550,10 +568,19 @@ def run_validation_seeds():
     return seeds
 
 
+def run_case_b_injections():
+    """The thirteen Case B injection scenarios (artifact-runs memo)."""
+    from experiments import case_b_injection_scenarios
+
+    _, _, result = load_case_bundle("case_b")
+    return case_b_injection_scenarios.run(result.bundle)
+
+
 def run(final):
     rows = run_corpus()
     checks = run_structural_checks()
     seeds = run_validation_seeds()
+    injections = run_case_b_injections()
 
     negative = [r for r in rows if r["expects"] == "reject"]
     positive = [r for r in rows if r["expects"] == "compile"]
@@ -580,6 +607,7 @@ def run(final):
             "passed": sum(1 for s in seeds if s["outcome"] == "PASS"),
             "seeds": seeds,
         },
+        "case_b_injection_scenarios": injections,
         "note": "A case rejected with the WRONG error code is recorded as "
                 "CODE_MISMATCH, not counted as a pass: rejecting for an unrelated "
                 "reason is not evidence that the intended constraint works.",
@@ -600,6 +628,14 @@ def run(final):
           % (summary["structural_checks"]["passed"], len(checks)))
     print("validation seeds: %d/%d passed"
           % (summary["validation_seeds"]["passed"], len(seeds)))
+    print("Case B injection scenarios: %d/%d resolved to SAFE_STATE (%s)"
+          % (injections["passed"], injections["scenario_count"],
+             "families read from the published L-DREA artifact"
+             if injections["families_from_published_artifact"]
+             else "FALLBACK: artifact not reachable"))
+    for scenario in injections["scenarios"]:
+        if not scenario["passed"]:
+            print("  UNEXPECTED %s -> %s" % (scenario["family"], scenario.get("status")))
     for row in rows:
         if row["outcome"] != "PASS":
             print("  %s %-8s %-52s expected=%s actual=%s"
@@ -615,9 +651,10 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     add_common_args(parser)
     args = parser.parse_args(argv)
-    summary = run(args.final)
+    summary = run(phase_of(args))
     ok = (
-        summary["corpus"]["failed"] == 0
+        summary["case_b_injection_scenarios"]["failed"] == 0
+        and summary["corpus"]["failed"] == 0
         and summary["corpus"]["code_mismatch"] == 0
         and summary["corpus"]["errors"] == 0
         and summary["structural_checks"]["failed"] == 0

@@ -16,6 +16,7 @@ import os
 from experiments.common import (
     REPO_ROOT,
     add_common_args,
+    phase_of,
     environment,
     read_json,
     results_dir,
@@ -453,8 +454,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     add_common_args(parser)
     args = parser.parse_args(argv)
-    text, missing = build(args.final)
-    path = os.path.join(results_dir(args.final), "SUMMARY.md")
+    text, missing = build(phase_of(args))
+    path = os.path.join(results_dir(phase_of(args)), "SUMMARY.md")
     with open(path, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(text)
     print("wrote %s" % os.path.relpath(path, REPO_ROOT))

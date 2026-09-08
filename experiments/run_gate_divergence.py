@@ -29,6 +29,7 @@ import json
 from experiments.common import (
     CASES,
     add_common_args,
+    phase_of,
     load_case_bundle,
     write_csv,
     write_result,
@@ -210,7 +211,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     add_common_args(parser)
     args = parser.parse_args(argv)
-    run(args.final)
+    run(phase_of(args))
     return 0
 
 

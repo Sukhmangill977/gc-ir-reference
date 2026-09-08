@@ -32,7 +32,7 @@ FREEZE_DIR = os.path.join(REPO_ROOT, "preregistration")
 #: Section XI-I category -> the paths that discharge it.
 FROZEN_ITEMS = {
     "hypotheses_and_primary_outcomes": [
-        "preregistration/TIER0_FREEZE.md",
+        "preregistration/TIER0_FREEZE_V2.md",
         "preregistration/RQ5_DEFERRED_PROTOCOL.md",
         "docs/EXPERIMENT_PROTOCOL.md",
     ],
@@ -130,6 +130,8 @@ FROZEN_ITEMS = {
         "experiments/run_monte_carlo.py",
         "experiments/run_properties.py",
         "experiments/adversarial_cases.py",
+        "experiments/case_b_injection_scenarios.py",
+        "experiments/verify_freeze.py",
         "experiments/reproduce_all.py",
         "experiments/make_summary.py",
         "experiments/make_manifest.py",
@@ -149,6 +151,26 @@ FROZEN_ITEMS = {
     "monte_carlo_distributions_and_seed": [
         "preregistration/monte_carlo_distributions_v1.json",
     ],
+    "case_b_ldrea_mapping": [
+        "cases/case_b/ldrea_traceability.json",
+        "cases/case_b/ldrea_predicate_family.json",
+        "tools/derive_ldrea_predicate_family.py",
+        "tools/build_ldrea_traceability.py",
+        "docs/CASE_B_LDREA_TRACEABILITY.md",
+    ],
+    "case_b_injection_scenarios": [
+        "experiments/case_b_injection_scenarios.py",
+    ],
+    "artifact_runs_compliance": [
+        "docs/ARTIFACT_RUNS_COMPLIANCE.md",
+        "docs/source/Artifact_Runs_Effort_and_Impact(1).docx",
+    ],
+    "reproduction_entry_points": [
+        "tools/freeze_check.py",
+        "tools/montecarlo.py",
+        "tools/td_crossenv.py",
+        "run_all.py",
+    ],
     "determinism_matrix": [
         "experiments/run_determinism.py",
     ],
@@ -160,7 +182,7 @@ FROZEN_ITEMS = {
         "preregistration/RQ5_DEFERRED_PROTOCOL.md",
     ],
     "randomization_seed": [
-        "preregistration/TIER0_FREEZE.md",
+        "preregistration/TIER0_FREEZE_V2.md",
     ],
     "dependency_lock_and_container": [
         "requirements.lock",
@@ -231,7 +253,7 @@ def build():
 
 def render(rows, commit, tag):
     lines = [
-        "# FREEZE_MANIFEST.sha256 -- Tier-0 preregistration commitment",
+        "# FREEZE_MANIFEST_V2.sha256 -- Tier-0 v2 preregistration commitment",
         "#",
         "# Manuscript Section XI-I requires the following to be publicly",
         "# hash-committed BEFORE the reportable campaign is executed:",
@@ -283,13 +305,13 @@ def main(argv=None):
     tag = git("describe", "--tags", "--exact-match")
     text = render(rows, commit, tag)
 
-    path = os.path.join(FREEZE_DIR, "FREEZE_MANIFEST.sha256")
+    path = os.path.join(FREEZE_DIR, "FREEZE_MANIFEST_V2.sha256")
     with open(path, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(text)
 
     manifest_hash = hashlib.sha256(text.encode("utf-8")).hexdigest()
     index = {
-        "freeze_version": "tier0-v1",
+        "freeze_version": "tier0-v2",
         "commit_at_generation": commit,
         "tag_at_generation": tag,
         "categories": sorted(FROZEN_ITEMS),
@@ -302,7 +324,7 @@ def main(argv=None):
             "commitment is the public timestamped git tag, not this file on its own."
         ),
     }
-    with open(os.path.join(FREEZE_DIR, "FREEZE_MANIFEST.json"), "w",
+    with open(os.path.join(FREEZE_DIR, "FREEZE_MANIFEST_V2.json"), "w",
               encoding="utf-8", newline="\n") as handle:
         json.dump(index, handle, indent=2, sort_keys=True)
         handle.write("\n")

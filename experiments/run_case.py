@@ -23,6 +23,7 @@ import os
 from experiments.common import (
     REPO_ROOT,
     add_common_args,
+    phase_of,
     environment,
     load_case_bundle,
     read_json,
@@ -124,9 +125,10 @@ def main(argv=None):
     args = parser.parse_args(argv)
 
     cases = [args.case] if args.case else ["case_a", "case_b"]
+    phase = phase_of(args)
     summaries = {}
     for case_id in cases:
-        summary = run(case_id, args.final)
+        summary = run(case_id, phase)
         summaries[case_id] = summary
         print("%s: payload_hash=%s predicates=%d warnings=%d"
               % (case_id, summary["payload_hash"],

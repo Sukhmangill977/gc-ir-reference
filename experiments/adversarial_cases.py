@@ -938,3 +938,76 @@ def all_cases(target=None):
 def applicable_to(entry, case_id):
     """Case B lacks non-runtime rows and some Case A identifiers."""
     return entry["target_case"] == case_id
+
+
+# ---------------------------------------------------------------------------
+# Timeout and state mismatch -- named explicitly in the artifact-runs memo
+# ---------------------------------------------------------------------------
+
+
+@case("ADV-055", "mandatory gate with an uncontracted evidence timeout window",
+      "reject", "A3B_TEMPORAL_WINDOW_UNCONTRACTED",
+      "Section V (indeterminacy); Appendix A constraints 2 and 3",
+      "The 'timeout' failure class. A mandatory condition can only fail closed on "
+      "STALE evidence if 'stale' is defined. Declaring a temporal_window without a "
+      "threshold contract carrying the freshness bound and its unit leaves the "
+      "timeout boundary unevaluable, so stale evidence could silently become a "
+      "mandatory pass -- exactly what constraint 2 exists to prevent.")
+def adv_055(documents):
+    for record in documents["approved_control_specifications"]["records"]:
+        if record["gate_candidate"] == "mandatory":
+            record["context_conditions"][0]["temporal_window"] = "PT300S"
+            record["context_conditions"][0]["threshold_contract_ref"] = None
+            return documents
+    return documents
+
+
+@case("ADV-056", "mandatory gate whose timeout window cites a unitless contract",
+      "reject", "A3B_TEMPORAL_WINDOW_UNCONTRACTED",
+      "Section V commitment 4; Appendix A constraint 3",
+      "The same timeout class, one step subtler: a contract is referenced but "
+      "carries no unit, so the freshness bound has no dimension and cannot be "
+      "compared against an elapsed time.")
+def adv_056(documents):
+    contracts = documents["threshold_contracts"]["contracts"]
+    target = sorted(contracts)[0]
+    contracts[target]["unit"] = ""
+    for record in documents["approved_control_specifications"]["records"]:
+        if record["gate_candidate"] == "mandatory":
+            record["context_conditions"][0]["temporal_window"] = "PT300S"
+            record["context_conditions"][0]["threshold_contract_ref"] = target
+            return documents
+    return documents
+
+
+@case("POS-006", "mandatory gate with a fully contracted timeout window",
+      "compile", None,
+      "Section V commitment 4",
+      "Positive control for the timeout class: with the freshness bound stated in "
+      "a complete threshold contract carrying a unit, a temporal window on a "
+      "mandatory gate is admissible and must compile.")
+def pos_006(documents):
+    contracts = documents["threshold_contracts"]["contracts"]
+    contracts["TC-EVIDENCE-FRESHNESS"] = {
+        "contract_id": "TC-EVIDENCE-FRESHNESS",
+        "operational_definition": "Maximum age of the signed evidence artifact, at authorization time, for a mandatory gate to treat it as fresh rather than stale.",
+        "numerator": "seconds elapsed between the evidence artifact's signing time and the authorization decision time",
+        "denominator": "one authorization decision; not a rate",
+        "evidence_source": "the evidence artifact's own signature envelope signing time",
+        "ground_truth": "the signing time recorded by the evidence producer, independently of the authorization path",
+        "threshold_rationale": "300 s is the approved staleness boundary for authorization-time evidence; beyond it the artifact is treated as indeterminate and the mandatory gate fails closed.",
+        "uncertainty_method": "Bounded by the trusted-time skew of the evidence producer (<= 2 s); the artifact reports both instants so the margin is auditable.",
+        "unit": "seconds",
+        "reproduction_procedure": "Re-request the evidence artifact and recompute authorization_time minus signing_time.",
+        "proposed_by": "technology.applied_ai_platform",
+        "approved_by": "ai_governance_forum",
+        "approval_time": "2026-01-20T14:00:00Z",
+        "value": 300,
+        "zero_event_reporting": "Not applicable: this is a per-decision bound, not a rate.",
+    }
+    for record in documents["approved_control_specifications"]["records"]:
+        if record["gate_candidate"] == "mandatory":
+            record["context_conditions"][0]["temporal_window"] = "PT300S"
+            record["context_conditions"][0]["threshold_contract_ref"] = "TC-EVIDENCE-FRESHNESS"
+            return documents
+    return documents

@@ -597,6 +597,9 @@ def compile_bundle(inputs, verify_signatures=True):
                 validation_mod.constraint_03_threshold_contract_and_unit(
                     predicate, inputs.threshold_contracts
                 )
+                validation_mod.constraint_03b_mandatory_temporal_window_is_contractual(
+                    predicate, gate_type, inputs.threshold_contracts
+                )
                 validation_mod.constraint_04_weighted_structure(predicate, gate_type)
                 validation_mod.constraint_06_risk_derived_resolves(
                     predicate, acs_index, risk_index
@@ -627,6 +630,9 @@ def compile_bundle(inputs, verify_signatures=True):
         validation_mod.constraint_02_mandatory_unknown_fails(predicate, "mandatory")
         validation_mod.constraint_03_threshold_contract_and_unit(
             predicate, inputs.threshold_contracts
+        )
+        validation_mod.constraint_03b_mandatory_temporal_window_is_contractual(
+            predicate, "mandatory", inputs.threshold_contracts
         )
         validation_mod.constraint_07_invariant_resolves(predicate, invariant_index)
         warnings.extend(

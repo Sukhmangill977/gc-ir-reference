@@ -1,0 +1,821 @@
+{
+  "categories": [
+    "adjudication_instrument",
+    "analysis_code",
+    "artifact_runs_compliance",
+    "bayesian_priors",
+    "case_artifacts",
+    "case_b_injection_scenarios",
+    "case_b_ldrea_mapping",
+    "compiler_implementation",
+    "dependency_lock_and_container",
+    "derivation_catalog",
+    "determinism_matrix",
+    "exclusion_and_missing_data_rules",
+    "fixture_generators",
+    "held_out_register_hash",
+    "hypotheses_and_primary_outcomes",
+    "monte_carlo_distributions_and_seed",
+    "provenance_and_interpretation",
+    "randomization_seed",
+    "reproduction_entry_points",
+    "research_signing_keys",
+    "schemas",
+    "test_suite",
+    "thresholds_and_cstar_definition"
+  ],
+  "commit_at_generation": "f4a42367fad1f7c3e45cfe4274c75955a84e5601",
+  "file_count": 131,
+  "files": [
+    {
+      "bytes": 1821,
+      "category": "dependency_lock_and_container",
+      "path": "Dockerfile",
+      "sha256": "f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886"
+    },
+    {
+      "bytes": 2029,
+      "category": "dependency_lock_and_container",
+      "path": "Makefile",
+      "sha256": "b188e1325d8435a894580e3c84c1274e2e4d949be665a3e4b79a672cf1842d11"
+    },
+    {
+      "bytes": 46157,
+      "category": "case_artifacts",
+      "path": "cases/case_a/acs/approved_control_specifications.json",
+      "sha256": "5b95bbef0ffae8f0f727cff131f22c57c3331a7dd33c64121b98d2ff799b6bc4"
+    },
+    {
+      "bytes": 3400,
+      "category": "case_artifacts",
+      "path": "cases/case_a/dispositions/dispositions.json",
+      "sha256": "174147daa039c69c2fc30cbdcae1c6d487503965cd78bcbe9ce2863f1de089fb"
+    },
+    {
+      "bytes": 714,
+      "category": "case_artifacts",
+      "path": "cases/case_a/expected/reference_hashes.json",
+      "sha256": "8b26824fc6585ee830d8c0ef7756fdd92e9b0564dfca558797b50bf2884fc16d"
+    },
+    {
+      "bytes": 43948,
+      "category": "case_artifacts",
+      "path": "cases/case_a/inputs/assessment.json",
+      "sha256": "dcd80177c9e2c0b92ad6429d4fb21805575195f126c308591a26cc549d1390a2"
+    },
+    {
+      "bytes": 623,
+      "category": "case_artifacts",
+      "path": "cases/case_a/inputs/compile_parameters.json",
+      "sha256": "dc63fb0580b939e03699316cddddef7399c9a63321a1e3c0cab74ff4556f975d"
+    },
+    {
+      "bytes": 16237,
+      "category": "derivation_catalog",
+      "path": "cases/case_a/inputs/control_derivation_catalog.json",
+      "sha256": "90d6882ee1fd40533419e779e4553bd93dada4a9055ad202447d12d6d1a8bc34"
+    },
+    {
+      "bytes": 3208,
+      "category": "case_artifacts",
+      "path": "cases/case_a/inputs/cstar_profile.json",
+      "sha256": "0b13c6f31b87bc3c6b33a0c2ba2f537b88eaa15bf8fffc9dc534042eb5db071b"
+    },
+    {
+      "bytes": 3208,
+      "category": "thresholds_and_cstar_definition",
+      "path": "cases/case_a/inputs/cstar_profile.json",
+      "sha256": "0b13c6f31b87bc3c6b33a0c2ba2f537b88eaa15bf8fffc9dc534042eb5db071b"
+    },
+    {
+      "bytes": 7857,
+      "category": "case_artifacts",
+      "path": "cases/case_a/inputs/invariant_register.json",
+      "sha256": "6d74b85d58b1daefb688bf40406a619b074fef1f97d6a5046d50d5b34051941e"
+    },
+    {
+      "bytes": 781,
+      "category": "case_artifacts",
+      "path": "cases/case_a/inputs/policy_metadata.json",
+      "sha256": "76607c7b68a8b3199c4c7893ba55c56fb3b279f100010fc0c65ae1986673e867"
+    },
+    {
+      "bytes": 4918,
+      "category": "case_artifacts",
+      "path": "cases/case_a/inputs/threshold_contracts.json",
+      "sha256": "a179a3beaf572ba5045850b3432048fa9992583bc7bf993c2c27646e5e15d365"
+    },
+    {
+      "bytes": 4918,
+      "category": "thresholds_and_cstar_definition",
+      "path": "cases/case_a/inputs/threshold_contracts.json",
+      "sha256": "a179a3beaf572ba5045850b3432048fa9992583bc7bf993c2c27646e5e15d365"
+    },
+    {
+      "bytes": 15263,
+      "category": "case_artifacts",
+      "path": "cases/case_a/judgment/judgment_record.json",
+      "sha256": "c7defef681ea0df6af4505345fc1309f2846d0aa0bfc43d031febdb6c207645d"
+    },
+    {
+      "bytes": 489,
+      "category": "case_artifacts",
+      "path": "cases/case_a/lifecycle/actuations.json",
+      "sha256": "015178ca19bf7090ec01b88a47171bc31d2272e1f7a244936a2f6d49d66c84bd"
+    },
+    {
+      "bytes": 954,
+      "category": "case_artifacts",
+      "path": "cases/case_a/lifecycle/lifecycle_registry.json",
+      "sha256": "e655d70707b4e79fca2fd1a830ee82e00986082d8cb59d6064e76e56a6585ef6"
+    },
+    {
+      "bytes": 16404,
+      "category": "case_artifacts",
+      "path": "cases/case_a/lifecycle/negative/fixtures.json",
+      "sha256": "365847bc28489a68813d94622014121929fea24ee97cb9bf2cd6094034aae6f9"
+    },
+    {
+      "bytes": 10811,
+      "category": "case_artifacts",
+      "path": "cases/case_a/lifecycle/receipts.json",
+      "sha256": "d6fb34cf28ae1c8f1fe12a2df0ea720898cb760cfb24998b8276fb52067a39f0"
+    },
+    {
+      "bytes": 17540,
+      "category": "case_artifacts",
+      "path": "cases/case_b/acs/approved_control_specifications.json",
+      "sha256": "a99b8282ea09e4d21cb7bbaa96f98b6a179ed898552f94f8e5ba2688ea84b3be"
+    },
+    {
+      "bytes": 1146,
+      "category": "case_artifacts",
+      "path": "cases/case_b/dispositions/dispositions.json",
+      "sha256": "4bb03b9f67366839f7cce010e98c3839fdfed6553dc1edb95d7b94566266a7ee"
+    },
+    {
+      "bytes": 726,
+      "category": "case_artifacts",
+      "path": "cases/case_b/expected/reference_hashes.json",
+      "sha256": "3e858c248c3b2af500777d6801e62106bd2fa4ed0924d4ce4d3d6a096bbec220"
+    },
+    {
+      "bytes": 21381,
+      "category": "case_artifacts",
+      "path": "cases/case_b/inputs/assessment.json",
+      "sha256": "f9eb999eb974022b9d684a9b998e8a0eb80d8a58ca64eb46e0380b2335ffcbe6"
+    },
+    {
+      "bytes": 623,
+      "category": "case_artifacts",
+      "path": "cases/case_b/inputs/compile_parameters.json",
+      "sha256": "9200a687440e96ceff32edc2772ed7f30dd2b01aa45a8025f79577f3e4cf964b"
+    },
+    {
+      "bytes": 6551,
+      "category": "derivation_catalog",
+      "path": "cases/case_b/inputs/control_derivation_catalog.json",
+      "sha256": "5420093d0d77d00e5be65e191fa756c1f5232b8bccff944751767257a58d4e29"
+    },
+    {
+      "bytes": 2823,
+      "category": "case_artifacts",
+      "path": "cases/case_b/inputs/cstar_profile.json",
+      "sha256": "95e44fd0629702a9937b72b9af51026f264c9a7e38b6ea6e52126b33b677eedd"
+    },
+    {
+      "bytes": 2823,
+      "category": "thresholds_and_cstar_definition",
+      "path": "cases/case_b/inputs/cstar_profile.json",
+      "sha256": "95e44fd0629702a9937b72b9af51026f264c9a7e38b6ea6e52126b33b677eedd"
+    },
+    {
+      "bytes": 7905,
+      "category": "case_artifacts",
+      "path": "cases/case_b/inputs/invariant_register.json",
+      "sha256": "992a887e13eeec64da8859f3b6fd52399c40de9e00f6f5415ecb9045cc1fc9a7"
+    },
+    {
+      "bytes": 540,
+      "category": "case_artifacts",
+      "path": "cases/case_b/inputs/policy_metadata.json",
+      "sha256": "acd6d0ec90133e75c53956a2b545c43bf3bc7e159e46ae2ce30c9380a9e07129"
+    },
+    {
+      "bytes": 3469,
+      "category": "case_artifacts",
+      "path": "cases/case_b/inputs/threshold_contracts.json",
+      "sha256": "ce336a886d2b8927637eb108ef967ce87609afba0c2c0d0a5d1123af59bc0059"
+    },
+    {
+      "bytes": 3469,
+      "category": "thresholds_and_cstar_definition",
+      "path": "cases/case_b/inputs/threshold_contracts.json",
+      "sha256": "ce336a886d2b8927637eb108ef967ce87609afba0c2c0d0a5d1123af59bc0059"
+    },
+    {
+      "bytes": 6206,
+      "category": "case_artifacts",
+      "path": "cases/case_b/judgment/judgment_record.json",
+      "sha256": "384099fc6a9431648235086465458ba8f3afc5d0777aa32fb1ae7d40aa2324c8"
+    },
+    {
+      "bytes": 4332,
+      "category": "case_b_ldrea_mapping",
+      "path": "cases/case_b/ldrea_predicate_family.json",
+      "sha256": "c045d5d3bc40952961844376713ac508e6cb2026b6ef5c75773b93e7a1c46f4c"
+    },
+    {
+      "bytes": 19189,
+      "category": "case_b_ldrea_mapping",
+      "path": "cases/case_b/ldrea_traceability.json",
+      "sha256": "c358f5a676c0b7b75b7705c0ea089afadeb01fbce91c0524159e0c263e929b70"
+    },
+    {
+      "bytes": 487,
+      "category": "case_artifacts",
+      "path": "cases/case_b/lifecycle/actuations.json",
+      "sha256": "cf06aad5e29c7e323be1f5ba5e51b732b3533e496c5a080c946b0fd47c5df7b4"
+    },
+    {
+      "bytes": 954,
+      "category": "case_artifacts",
+      "path": "cases/case_b/lifecycle/lifecycle_registry.json",
+      "sha256": "69429e1815bbd4f0b7ecb424479209e808a032831fc1d36a8d6900e656f04c4a"
+    },
+    {
+      "bytes": 10099,
+      "category": "case_artifacts",
+      "path": "cases/case_b/lifecycle/negative/fixtures.json",
+      "sha256": "b32822042543f8e38a952fe33c5e9b8f3dc3bcf3053856fb0c8f70bc8e844b0a"
+    },
+    {
+      "bytes": 6249,
+      "category": "case_artifacts",
+      "path": "cases/case_b/lifecycle/receipts.json",
+      "sha256": "adfbde89384b5bec0b5d8eba5bc93881b0f4d2abfbd2abaf3007e7e0676bf907"
+    },
+    {
+      "bytes": 6551,
+      "category": "derivation_catalog",
+      "path": "catalog/control_derivation_catalog_b_v1.json",
+      "sha256": "5420093d0d77d00e5be65e191fa756c1f5232b8bccff944751767257a58d4e29"
+    },
+    {
+      "bytes": 16237,
+      "category": "derivation_catalog",
+      "path": "catalog/control_derivation_catalog_v1.json",
+      "sha256": "90d6882ee1fd40533419e779e4553bd93dada4a9055ad202447d12d6d1a8bc34"
+    },
+    {
+      "bytes": 15134,
+      "category": "artifact_runs_compliance",
+      "path": "docs/ARTIFACT_RUNS_COMPLIANCE.md",
+      "sha256": "65e563ba98de0431930661ce8e78480db79a064642020cb3fcac303ebf08f601"
+    },
+    {
+      "bytes": 7670,
+      "category": "case_b_ldrea_mapping",
+      "path": "docs/CASE_B_LDREA_TRACEABILITY.md",
+      "sha256": "f0e537bd1388d9287bfef368af8a7d3a5c7af512bb46001288b22c5291605ae4"
+    },
+    {
+      "bytes": 17310,
+      "category": "provenance_and_interpretation",
+      "path": "docs/CLAIM_TO_ARTIFACT_MATRIX.md",
+      "sha256": "4ddac753c23fefc3c598c9bcd3bb0b8044959a859fc5cf73e5932d28ff76e5f6"
+    },
+    {
+      "bytes": 11704,
+      "category": "hypotheses_and_primary_outcomes",
+      "path": "docs/EXPERIMENT_PROTOCOL.md",
+      "sha256": "d22a8644737297519dd124592981debffadc9eca59ccb25f2c633d214d502ded"
+    },
+    {
+      "bytes": 18414,
+      "category": "provenance_and_interpretation",
+      "path": "docs/FIXTURE_PROVENANCE.md",
+      "sha256": "b3deff423eb921328e40d36bd80d9983975a53a3716179e35e92ba9dd774b70e"
+    },
+    {
+      "bytes": 36045,
+      "category": "provenance_and_interpretation",
+      "path": "docs/PAPER_REQUIREMENTS.md",
+      "sha256": "031669ed51501941a6679319f9ad59c6bc2f91363ad39da1ecf897b452e3e65c"
+    },
+    {
+      "bytes": 11881,
+      "category": "provenance_and_interpretation",
+      "path": "docs/RESULT_INTERPRETATION.md",
+      "sha256": "7ea96ad9d83191da516b4d068a626bce5bfc89842c0a8d5464ddb1565d7e3a94"
+    },
+    {
+      "bytes": 12056,
+      "category": "artifact_runs_compliance",
+      "path": "docs/source/Artifact_Runs_Effort_and_Impact(1).docx",
+      "sha256": "dc0215f7e205de187a17c832602f58366479887993766664658b865ef26001e4"
+    },
+    {
+      "bytes": 42271,
+      "category": "analysis_code",
+      "path": "experiments/adversarial_cases.py",
+      "sha256": "b5f0f830472406c7ceb32effae67674cff90efd593cdb7b95bf7ed4b2714a5bb"
+    },
+    {
+      "bytes": 10199,
+      "category": "analysis_code",
+      "path": "experiments/case_b_injection_scenarios.py",
+      "sha256": "90599d0e6ba2a7ec055a589ca77df368dc55ccbe5b4805fc10ad1010bcd90b4c"
+    },
+    {
+      "bytes": 10199,
+      "category": "case_b_injection_scenarios",
+      "path": "experiments/case_b_injection_scenarios.py",
+      "sha256": "90599d0e6ba2a7ec055a589ca77df368dc55ccbe5b4805fc10ad1010bcd90b4c"
+    },
+    {
+      "bytes": 4778,
+      "category": "analysis_code",
+      "path": "experiments/check_ci_agreement.py",
+      "sha256": "d7d43b56d0243fa7431e6980d46d369931495dd393b443c7f6c3249c89ee8194"
+    },
+    {
+      "bytes": 6121,
+      "category": "analysis_code",
+      "path": "experiments/common.py",
+      "sha256": "cd3eb9181d9dfd4e9adfdb949392ba07bf926e15023c353dfbbc392afc0f383d"
+    },
+    {
+      "bytes": 6660,
+      "category": "analysis_code",
+      "path": "experiments/make_manifest.py",
+      "sha256": "3266d999f9ae0d8cb7b1517c2b40673c35c8c88825e2873ebfdd76c216a4888c"
+    },
+    {
+      "bytes": 22616,
+      "category": "analysis_code",
+      "path": "experiments/make_summary.py",
+      "sha256": "4588e3f2b498a2b59429c1a0bdf6d4d9299c3b0491f05d9f89c9ae9fe6ee9125"
+    },
+    {
+      "bytes": 7344,
+      "category": "analysis_code",
+      "path": "experiments/reproduce_all.py",
+      "sha256": "5b256adc5bd60743962d39bc5c52fa100d024b7f28d897e21250ed2f6c07acbb"
+    },
+    {
+      "bytes": 29773,
+      "category": "analysis_code",
+      "path": "experiments/run_adversarial.py",
+      "sha256": "63447a50cc83e7cd20b78e294fbd4065ad5f6169a2609a6831741dba4a016925"
+    },
+    {
+      "bytes": 5388,
+      "category": "analysis_code",
+      "path": "experiments/run_case.py",
+      "sha256": "d757ae962402c31cdeec6b47f807876f8dcf93b814b7ef03a3100a42ac3f35af"
+    },
+    {
+      "bytes": 21401,
+      "category": "analysis_code",
+      "path": "experiments/run_determinism.py",
+      "sha256": "cef8b228d51a4577a512242203822ae0febdb8e31cb85bc3f8ad33e021c07ca2"
+    },
+    {
+      "bytes": 21401,
+      "category": "determinism_matrix",
+      "path": "experiments/run_determinism.py",
+      "sha256": "cef8b228d51a4577a512242203822ae0febdb8e31cb85bc3f8ad33e021c07ca2"
+    },
+    {
+      "bytes": 8848,
+      "category": "analysis_code",
+      "path": "experiments/run_gate_divergence.py",
+      "sha256": "755c90dac82766fb4d1403f0699896fda6c6b681309ddd0aac2f16f02326c41e"
+    },
+    {
+      "bytes": 4572,
+      "category": "analysis_code",
+      "path": "experiments/run_metrics.py",
+      "sha256": "12cc0ef82a146fc3d08dd2974451398b81862fb4a5e8856d129247f57c025084"
+    },
+    {
+      "bytes": 12526,
+      "category": "analysis_code",
+      "path": "experiments/run_monte_carlo.py",
+      "sha256": "429cc329af8fcd02cf8320bddcaada96bc1033d0fe869acedda90fdbdaa545a9"
+    },
+    {
+      "bytes": 8654,
+      "category": "analysis_code",
+      "path": "experiments/run_properties.py",
+      "sha256": "deabafd4e1832d233b4f2217dda0deab4c29a77723e59df9d624835fecb59cd2"
+    },
+    {
+      "bytes": 11134,
+      "category": "analysis_code",
+      "path": "experiments/run_traceability.py",
+      "sha256": "703c0342ad1126b4f1267cb4b2af07981be69129e4fdf880927a83327ecaf5a3"
+    },
+    {
+      "bytes": 11163,
+      "category": "analysis_code",
+      "path": "experiments/verify_freeze.py",
+      "sha256": "3a25b44c38184afa6e6ad5138cd87dd72d6b5d1575fbb16d4431b4be35428c82"
+    },
+    {
+      "bytes": 5068,
+      "category": "analysis_code",
+      "path": "experiments/verify_hashes.py",
+      "sha256": "45c380cd8bb465de6affa15ea67597b5efdea31b0b1f4b8b07ee39bb9a9673f3"
+    },
+    {
+      "bytes": 7905,
+      "category": "thresholds_and_cstar_definition",
+      "path": "invariants/invariant_register_b_v1.json",
+      "sha256": "992a887e13eeec64da8859f3b6fd52399c40de9e00f6f5415ecb9045cc1fc9a7"
+    },
+    {
+      "bytes": 7857,
+      "category": "thresholds_and_cstar_definition",
+      "path": "invariants/invariant_register_v1.json",
+      "sha256": "6d74b85d58b1daefb688bf40406a619b074fef1f97d6a5046d50d5b34051941e"
+    },
+    {
+      "bytes": 712,
+      "category": "research_signing_keys",
+      "path": "keys/public_keys.json",
+      "sha256": "542d175075ae09b98e0192aa26952eda3c872e6d051168e466ee95959598ee52"
+    },
+    {
+      "bytes": 1991,
+      "category": "held_out_register_hash",
+      "path": "preregistration/HELD_OUT_REGISTER.md",
+      "sha256": "f7a0b4a6f9c8a29848ef54f62797f6cdb1f25e6f4ca3498d0b37f9030d80c8d6"
+    },
+    {
+      "bytes": 8204,
+      "category": "adjudication_instrument",
+      "path": "preregistration/RQ5_DEFERRED_PROTOCOL.md",
+      "sha256": "0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935"
+    },
+    {
+      "bytes": 8204,
+      "category": "bayesian_priors",
+      "path": "preregistration/RQ5_DEFERRED_PROTOCOL.md",
+      "sha256": "0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935"
+    },
+    {
+      "bytes": 8204,
+      "category": "exclusion_and_missing_data_rules",
+      "path": "preregistration/RQ5_DEFERRED_PROTOCOL.md",
+      "sha256": "0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935"
+    },
+    {
+      "bytes": 8204,
+      "category": "hypotheses_and_primary_outcomes",
+      "path": "preregistration/RQ5_DEFERRED_PROTOCOL.md",
+      "sha256": "0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935"
+    },
+    {
+      "bytes": 9502,
+      "category": "hypotheses_and_primary_outcomes",
+      "path": "preregistration/TIER0_FREEZE_V2.md",
+      "sha256": "468cd4eaf9e74e916948458c7d8459d046051fd7bab630060fed74aa419f1694"
+    },
+    {
+      "bytes": 9502,
+      "category": "randomization_seed",
+      "path": "preregistration/TIER0_FREEZE_V2.md",
+      "sha256": "468cd4eaf9e74e916948458c7d8459d046051fd7bab630060fed74aa419f1694"
+    },
+    {
+      "bytes": 3314,
+      "category": "exclusion_and_missing_data_rules",
+      "path": "preregistration/monte_carlo_distributions_v1.json",
+      "sha256": "8593587323af92666c9ebe7ec0712455569dcf2394956c9895679fe29dc1238d"
+    },
+    {
+      "bytes": 3314,
+      "category": "monte_carlo_distributions_and_seed",
+      "path": "preregistration/monte_carlo_distributions_v1.json",
+      "sha256": "8593587323af92666c9ebe7ec0712455569dcf2394956c9895679fe29dc1238d"
+    },
+    {
+      "bytes": 1456,
+      "category": "dependency_lock_and_container",
+      "path": "pyproject.toml",
+      "sha256": "a45ff25f8d1f037a3dd560a4b9764881ed87a56abae96f4db3d8ae263d0e4898"
+    },
+    {
+      "bytes": 3636,
+      "category": "analysis_code",
+      "path": "queries/traceability.sql",
+      "sha256": "ee03bc1270115d536d01c65f79a7761e37750477611d49305ba6f05b947f511f"
+    },
+    {
+      "bytes": 497,
+      "category": "dependency_lock_and_container",
+      "path": "requirements.lock",
+      "sha256": "e134ac5741cd39d3caaa304f38918d364d451a540bbef1d2dc829997fc5ec3e4"
+    },
+    {
+      "bytes": 1009,
+      "category": "reproduction_entry_points",
+      "path": "run_all.py",
+      "sha256": "963c5c498c334c418bc44816494564e83e967dfacdd0a78183d2a2984fe33384"
+    },
+    {
+      "bytes": 7666,
+      "category": "schemas",
+      "path": "schemas/acs.schema.json",
+      "sha256": "1301b55884a280738b8d98e8027092ba941508a0a2fdc216790c942fd3bff8fb"
+    },
+    {
+      "bytes": 13487,
+      "category": "schemas",
+      "path": "schemas/assessment.schema.json",
+      "sha256": "75841231fad4c4c72b1dd3c03f0d556bf19cd585e7aa89d461da568b061d8d6a"
+    },
+    {
+      "bytes": 4554,
+      "category": "schemas",
+      "path": "schemas/bundle.schema.json",
+      "sha256": "7fb9401c1d899b2e16340599a4c15254461b13dcb526e793a0895b00cd8bc38d"
+    },
+    {
+      "bytes": 5092,
+      "category": "schemas",
+      "path": "schemas/common.schema.json",
+      "sha256": "9ce6e475724c674f4e2a7e1b82d689a2688be6ab3686da6ebfa1013c185d72dd"
+    },
+    {
+      "bytes": 3568,
+      "category": "schemas",
+      "path": "schemas/control_derivation_catalog.schema.json",
+      "sha256": "5144dbd06d46752b9cf77f5f199e4c7af037cd4e13a38882d1fb54d35f3fdbda"
+    },
+    {
+      "bytes": 2518,
+      "category": "schemas",
+      "path": "schemas/cstar_profile.schema.json",
+      "sha256": "3e236549cb02a81baabf59ab73db4e353b91b08c49df4d23c3710bd14b792416"
+    },
+    {
+      "bytes": 3706,
+      "category": "schemas",
+      "path": "schemas/dispositions.schema.json",
+      "sha256": "414c294f42a6d3dfea9dbb2a4abb31b70e7edbf63bfd8a041d6aacf639dff5fe"
+    },
+    {
+      "bytes": 12040,
+      "category": "schemas",
+      "path": "schemas/gcir.schema.json",
+      "sha256": "862d84d457e73ffd59ca469cb28a44de834441f69a34aa9316b51e91f287708a"
+    },
+    {
+      "bytes": 4709,
+      "category": "schemas",
+      "path": "schemas/invariant_register.schema.json",
+      "sha256": "9beba1e118bc72d8efecfeb571e30617d39886cde16119ba3d9ac4993474f427"
+    },
+    {
+      "bytes": 3983,
+      "category": "schemas",
+      "path": "schemas/judgment_record.schema.json",
+      "sha256": "bcecefc3edf289993521ccf5383e6899b2f4ed9ee58f7524c0fb93c0edccb3d6"
+    },
+    {
+      "bytes": 2109,
+      "category": "schemas",
+      "path": "schemas/lifecycle_registry.schema.json",
+      "sha256": "1b7ae0d8470a5abee1a4390d7fbf5c75b682a209a1617491cd6a52108300bb59"
+    },
+    {
+      "bytes": 2148,
+      "category": "schemas",
+      "path": "schemas/receipt.schema.json",
+      "sha256": "06a513af1ae2474517d9658f20f95d16b0575cdd9bc5fae92a07db91fab37fe2"
+    },
+    {
+      "bytes": 2008,
+      "category": "schemas",
+      "path": "schemas/threshold_contract.schema.json",
+      "sha256": "7e5ce8e97d9f37b67b451ab8348f2300fe8e6e0892f6ccca7b7bd082561a1e7f"
+    },
+    {
+      "bytes": 0,
+      "category": "compiler_implementation",
+      "path": "src/gcir/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 5316,
+      "category": "compiler_implementation",
+      "path": "src/gcir/authority.py",
+      "sha256": "0b86afeea10a0dae969ade0942d96fa3dae0e1dc88efb15b9865aeade3a6dc3d"
+    },
+    {
+      "bytes": 6746,
+      "category": "compiler_implementation",
+      "path": "src/gcir/canonicalization.py",
+      "sha256": "b6b4867ed2652158ff103846ec8759762807a833d12e6e4d698c29e91c00e995"
+    },
+    {
+      "bytes": 5916,
+      "category": "compiler_implementation",
+      "path": "src/gcir/caseio.py",
+      "sha256": "e87b9d136ca88fa64d867dd7319bbe8097a1e74c471ff4159e77177cf2e15b65"
+    },
+    {
+      "bytes": 8540,
+      "category": "compiler_implementation",
+      "path": "src/gcir/catalog.py",
+      "sha256": "4f5e513b4cc7b9f5a40c4b9341d64023d134b727c8914863701ced24864a29a4"
+    },
+    {
+      "bytes": 35310,
+      "category": "compiler_implementation",
+      "path": "src/gcir/compiler.py",
+      "sha256": "b22316d8d192e8ab0b76357ae8accf1e799dea934ddf1bb1ae8145b22215234d"
+    },
+    {
+      "bytes": 11413,
+      "category": "compiler_implementation",
+      "path": "src/gcir/coverage.py",
+      "sha256": "5dd16ceee940e07f041b8cc97757e8e36319ac6496a6aaef38b83f911093ac41"
+    },
+    {
+      "bytes": 6927,
+      "category": "compiler_implementation",
+      "path": "src/gcir/lifecycle.py",
+      "sha256": "20eb6b693163c65075fe563ada5f2e99985f711f7ee2ffb2f52c9926665659b6"
+    },
+    {
+      "bytes": 10059,
+      "category": "compiler_implementation",
+      "path": "src/gcir/metrics.py",
+      "sha256": "4a5bbe70c1e45a43b4eee19eec623234d040c726f623e6a39f202e05326a86b5"
+    },
+    {
+      "bytes": 10970,
+      "category": "compiler_implementation",
+      "path": "src/gcir/models.py",
+      "sha256": "fce58642b4331984c3fcf954bb19fda6d5f21410088b6e344f9f3d6afdbfc37c"
+    },
+    {
+      "bytes": 6173,
+      "category": "compiler_implementation",
+      "path": "src/gcir/precedence.py",
+      "sha256": "6cdd0fca9730b05eb919309163a3be2288243478b66182c9ef21bbc36699dbd2"
+    },
+    {
+      "bytes": 11430,
+      "category": "compiler_implementation",
+      "path": "src/gcir/refinement.py",
+      "sha256": "e816523d7795e535726615c80d469dc412196ea84ed288cd593a60c2b8f18284"
+    },
+    {
+      "bytes": 9120,
+      "category": "compiler_implementation",
+      "path": "src/gcir/signatures.py",
+      "sha256": "d3b934f3b4de76fed85bcf2e862b766ccd9a9f28c5c1b76768a217ef4915abcb"
+    },
+    {
+      "bytes": 3316,
+      "category": "compiler_implementation",
+      "path": "src/gcir/temporal.py",
+      "sha256": "9d70fe3150adb0e40f08379dafc9a6b58c621c6032b71ff38a53a09e7dcbc109"
+    },
+    {
+      "bytes": 15024,
+      "category": "compiler_implementation",
+      "path": "src/gcir/traceability.py",
+      "sha256": "9243f56cd3e915752109a2118c9d574f434395ece04c7244600fcb76518ef43a"
+    },
+    {
+      "bytes": 20087,
+      "category": "compiler_implementation",
+      "path": "src/gcir/validation.py",
+      "sha256": "cf9e17c37f137fe07c53b25f510a8449ff9e3371156223358accbe32ae0d1483"
+    },
+    {
+      "bytes": 2650,
+      "category": "test_suite",
+      "path": "tests/adversarial/test_corpus.py",
+      "sha256": "5cd0f15f30b6d32440fce110ec3fdf5b74dc5dce91d9639a1fa80219fc471155"
+    },
+    {
+      "bytes": 7191,
+      "category": "test_suite",
+      "path": "tests/adversarial/test_no_inference.py",
+      "sha256": "a8e3cc4122fbc1679665dce6ac0bc2b575bb52d9f52a15ec4c786e618dbbdae9"
+    },
+    {
+      "bytes": 1060,
+      "category": "test_suite",
+      "path": "tests/conftest.py",
+      "sha256": "cf272be81986b2446d6fdc5da450a540da28e7c17028ad0a1982ae4eaf71397a"
+    },
+    {
+      "bytes": 12625,
+      "category": "test_suite",
+      "path": "tests/integration/test_cases.py",
+      "sha256": "397c5e8510f9ec0a46000320a737a7ac66799946ec099f84d5b1d9da75b4197d"
+    },
+    {
+      "bytes": 27060,
+      "category": "test_suite",
+      "path": "tests/properties/test_invariants.py",
+      "sha256": "1d5a1ac254e1c831cf14c85d27ac163fdb7f97468bb4d82c619760d7cda8beae"
+    },
+    {
+      "bytes": 26133,
+      "category": "test_suite",
+      "path": "tests/unit/test_core.py",
+      "sha256": "1e9e81cbe819680fc5e8ab611d3981d678a9c9a6738b2834009738b924462dc7"
+    },
+    {
+      "bytes": 5436,
+      "category": "test_suite",
+      "path": "tests/unit/test_rfc8785.py",
+      "sha256": "05d30eb17bee151e52057d3d250076616d40241f3668c06759c5327fd1d0f2ed"
+    },
+    {
+      "bytes": 11662,
+      "category": "fixture_generators",
+      "path": "tools/build_cases.py",
+      "sha256": "ff96abd318cf16ed230cb725eea7b9989435320a95d56b6683297081f2587610"
+    },
+    {
+      "bytes": 19439,
+      "category": "case_b_ldrea_mapping",
+      "path": "tools/build_ldrea_traceability.py",
+      "sha256": "1c42648c415483e77e74785f6dc72bb176425076c5a60900d154f47a45611fb3"
+    },
+    {
+      "bytes": 10168,
+      "category": "fixture_generators",
+      "path": "tools/build_lifecycle.py",
+      "sha256": "fbb76840a65204592d5e8689d684d0ce65ed0938d5c7e54f877c2f40fc357391"
+    },
+    {
+      "bytes": 52481,
+      "category": "fixture_generators",
+      "path": "tools/case_a_control.py",
+      "sha256": "46f016ae52803acdbb3ad13dd74a6312528c43e9769fb6664ad7c8bb2ca87486"
+    },
+    {
+      "bytes": 26444,
+      "category": "fixture_generators",
+      "path": "tools/case_a_data.py",
+      "sha256": "c38584acd06e825233fbea120b85dee085bc93ba2846c126c8a3c673a739d315"
+    },
+    {
+      "bytes": 23667,
+      "category": "fixture_generators",
+      "path": "tools/case_b_control.py",
+      "sha256": "4f6726b6b96f53b014bcb45f20879db8be9ff0c2be48c6d39ab5a463ab9dfc7b"
+    },
+    {
+      "bytes": 14444,
+      "category": "fixture_generators",
+      "path": "tools/case_b_data.py",
+      "sha256": "56297a2967e6cbb7fa97bab4d833784148c6f6c8e28c39ebc4b7f323f8f45024"
+    },
+    {
+      "bytes": 11258,
+      "category": "case_b_ldrea_mapping",
+      "path": "tools/derive_ldrea_predicate_family.py",
+      "sha256": "1a90a5118d6e54e5ce8608d47b2c538fd652bdb8438875c28c9551683d25cbb9"
+    },
+    {
+      "bytes": 9795,
+      "category": "reproduction_entry_points",
+      "path": "tools/freeze_check.py",
+      "sha256": "aca10d7c256438fd6345c7a19ec10de97d293365f08dea10e7bc583352dadd92"
+    },
+    {
+      "bytes": 7998,
+      "category": "fixture_generators",
+      "path": "tools/invariants_data.py",
+      "sha256": "2339f549395bf295ed9d19bee5627466c502feb80c6b4ae2dc75cc244a85473a"
+    },
+    {
+      "bytes": 1308,
+      "category": "reproduction_entry_points",
+      "path": "tools/montecarlo.py",
+      "sha256": "aa82bdd98cab8c9f3d9c2b82ea5f7438e1a427d2714e29ad050403ea6e520bbb"
+    },
+    {
+      "bytes": 2089,
+      "category": "reproduction_entry_points",
+      "path": "tools/td_crossenv.py",
+      "sha256": "64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44"
+    }
+  ],
+  "freeze_manifest_sha256": "85af47b630684110f38b3eba87eec9168877909c88bd2664af9a1cd4d2016b28",
+  "freeze_version": "tier0-v2",
+  "note": "The release tag and this manifest's hash together constitute the public preregistration commitment referenced in Section XI-I. The commitment is the public timestamped git tag, not this file on its own.",
+  "tag_at_generation": "v1.0.0"
+}

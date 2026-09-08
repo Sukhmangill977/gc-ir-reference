@@ -7,28 +7,223 @@
       "numpy": "2.2.1",
       "pytest": "8.3.4"
     },
-    "git_commit": "fed211aece4064cba1479138a9edca0b2a27e209",
-    "git_commit_short": "fed211a",
-    "git_describe": "fed211a-dirty",
+    "git_commit": "f4a42367fad1f7c3e45cfe4274c75955a84e5601",
+    "git_commit_short": "f4a4236",
+    "git_describe": "v1.0.0-dirty",
     "git_status_clean": false,
-    "git_tag_exact": null,
+    "git_tag_exact": "v1.0.0",
     "machine": "arm64",
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "python_implementation": "CPython",
     "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-08T04:41:25Z",
+    "run_completed_utc": "2026-09-08T17:47:32Z",
     "system": "Darwin"
   },
   "phase": "development",
   "phase_note": "DEVELOPMENT result. Not a reportable number.",
   "result": {
+    "case_b_injection_scenarios": {
+      "adversarial_attack_families": [
+        "missing_predicate",
+        "corrupted_input",
+        "toctou",
+        "replay_attack",
+        "payload_mutation",
+        "concurrency_conflict",
+        "network_partition_or_delay",
+        "adaptive_attacker"
+      ],
+      "asb_scenario_families": [
+        "identity_provenance_deception",
+        "runtime_infrastructure_drift",
+        "economic_logic_fragility",
+        "cross_entity_fraud_propagation",
+        "session_intent_compromise"
+      ],
+      "claim_boundary": "Decision-level injections against the compiled Case B predicate set. These establish that the compiled bundle refuses to permit under each hazard class the published enforcement artifact enumerates. They are NOT a run over the 284,807-event corpus, establish NO detection performance, and reproduce no figure from [15].",
+      "failed": 0,
+      "families_from_published_artifact": true,
+      "passed": 13,
+      "scenario_count": 13,
+      "scenarios": [
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "missing_predicate",
+          "hazard": "the permit-binding evidence is absent at authorization time",
+          "injected_outcome": "unknown",
+          "passed": true,
+          "source": "adversarial_attack_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-B0001",
+          "why_safe_state": "indeterminacy on a mandatory gate resolves to failure (on_unknown = fail), never to a silent pass"
+        },
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "corrupted_input",
+          "hazard": "the signed instruction artifact is schema-invalid, so the amount cannot be compared against the approved bound",
+          "injected_outcome": "unknown",
+          "passed": true,
+          "source": "adversarial_attack_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-B0002",
+          "why_safe_state": "a corrupted artifact is indeterminacy, not a pass"
+        },
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "toctou",
+          "hazard": "the evidence record is committed after actuation rather than before it, so the state read at check time is not the state at use time",
+          "injected_outcome": "fail",
+          "passed": true,
+          "source": "adversarial_attack_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-B0006",
+          "why_safe_state": "the commit-before-actuate ordering predicate fails"
+        },
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "replay_attack",
+          "hazard": "a previously redeemed permit is presented again",
+          "injected_outcome": "fail",
+          "passed": true,
+          "source": "adversarial_attack_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-B0005",
+          "why_safe_state": "the single-use predicate fails on a redeemed permit"
+        },
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "payload_mutation",
+          "hazard": "the instruction is altered after the permit was issued, so the permit's bound hash no longer matches the transaction",
+          "injected_outcome": "fail",
+          "passed": true,
+          "source": "adversarial_attack_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-B0001",
+          "why_safe_state": "the permit-binding predicate fails on the hash mismatch"
+        },
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "concurrency_conflict",
+          "hazard": "concurrent releases to one counterparty exceed the approved window bound",
+          "injected_outcome": "fail",
+          "passed": true,
+          "source": "adversarial_attack_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-B0003",
+          "why_safe_state": "the velocity bound fails"
+        },
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "network_partition_or_delay",
+          "hazard": "the restricted-party screening service is unreachable, so no signed screening artifact is available",
+          "injected_outcome": "unknown",
+          "passed": true,
+          "source": "adversarial_attack_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-B0004",
+          "why_safe_state": "an unreachable evidence producer is indeterminacy; the mandatory sanctions gate fails closed rather than permitting an unscreened counterparty"
+        },
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "adaptive_attacker",
+          "hazard": "an attacker splits a large payment into instructions shaped to sit just under each individual bound",
+          "injected_outcome": "fail",
+          "passed": true,
+          "source": "adversarial_attack_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-B0002",
+          "why_safe_state": "the per-transaction bound still fails on the instruction that crosses it; the residual -- structuring below every bound -- is stated in the ACS warrant boundary and is NOT claimed to be caught here"
+        },
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "identity_provenance_deception",
+          "hazard": "a forged authority signature is presented on the permit",
+          "injected_outcome": "fail",
+          "passed": true,
+          "source": "asb_scenario_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-B0001",
+          "why_safe_state": "the permit-binding predicate verifies the signature"
+        },
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "runtime_infrastructure_drift",
+          "hazard": "the runtime configuration fingerprint no longer matches the assessed configuration",
+          "injected_outcome": "fail",
+          "passed": true,
+          "source": "asb_scenario_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-INV-VERSION",
+          "why_safe_state": "the compiler invariant INV-VERSION fails per action -- note this is a predicate the GC-IR bundle emits and the published L-DREA family does NOT contain (see docs/CASE_B_LDREA_TRACEABILITY.md, declared gap)"
+        },
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "economic_logic_fragility",
+          "hazard": "the instruction amount exceeds the approved automated release ceiling",
+          "injected_outcome": "fail",
+          "passed": true,
+          "source": "asb_scenario_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-B0002",
+          "why_safe_state": "the amount bound fails"
+        },
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "cross_entity_fraud_propagation",
+          "hazard": "the counterparty is a member of the restricted-party list",
+          "injected_outcome": "fail",
+          "passed": true,
+          "source": "asb_scenario_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-B0004",
+          "why_safe_state": "the sanctions screening predicate fails and escalates"
+        },
+        {
+          "clean_control_decision": "PERMIT",
+          "deciding_class": "mandatory_failure",
+          "decision": "SAFE_STATE",
+          "family": "session_intent_compromise",
+          "hazard": "the session's permit cannot be resolved to this transaction, so the binding is indeterminate",
+          "injected_outcome": "unknown",
+          "passed": true,
+          "source": "asb_scenario_family",
+          "status": "SAFE_STATE",
+          "target_predicate": "GCIR-B0001",
+          "why_safe_state": "indeterminacy on a mandatory gate fails closed"
+        }
+      ]
+    },
     "corpus": {
       "code_mismatch": 0,
       "errors": 0,
       "failed": 0,
-      "negative_cases": 52,
-      "passed": 59,
-      "positive_controls": 7,
+      "negative_cases": 54,
+      "passed": 62,
+      "positive_controls": 8,
       "rows": [
         {
           "actual_code": "WC-01",
@@ -796,9 +991,48 @@
           "outcome": "PASS",
           "schema_code": "",
           "target_case": "case_a"
+        },
+        {
+          "actual_code": "A3B_TEMPORAL_WINDOW_UNCONTRACTED",
+          "compiler_code": "A3B_TEMPORAL_WINDOW_UNCONTRACTED",
+          "detail": "predicate GCIR-0001 condition 'unresolved_claim_objects_present' declares temporal_window 'PT300S' on a mandatory gate with no threshold_contract_ref; the staleness boundary would be unevaluable and stale evidence could not fail closed",
+          "expected_code": "A3B_TEMPORAL_WINDOW_UNCONTRACTED",
+          "expects": "reject",
+          "id": "ADV-055",
+          "manuscript_ref": "Section V (indeterminacy); Appendix A constraints 2 and 3",
+          "name": "mandatory gate with an uncontracted evidence timeout window",
+          "outcome": "PASS",
+          "schema_code": "",
+          "target_case": "case_a"
+        },
+        {
+          "actual_code": "SCHEMA_VALIDATION_FAILED|A3B_TEMPORAL_WINDOW_UNCONTRACTED",
+          "compiler_code": "A3B_TEMPORAL_WINDOW_UNCONTRACTED",
+          "detail": "TC-COVERAGE-SKEW failed threshold_contract.schema.json validation: unit: '' should be non-empty || predicate GCIR-0001 condition 'unresolved_claim_objects_present' declares a temporal_window whose threshold contract 'TC-COVERAGE-SKEW' is missing or carries no unit",
+          "expected_code": "A3B_TEMPORAL_WINDOW_UNCONTRACTED",
+          "expects": "reject",
+          "id": "ADV-056",
+          "manuscript_ref": "Section V commitment 4; Appendix A constraint 3",
+          "name": "mandatory gate whose timeout window cites a unitless contract",
+          "outcome": "PASS",
+          "schema_code": "SCHEMA_VALIDATION_FAILED",
+          "target_case": "case_a"
+        },
+        {
+          "actual_code": "none",
+          "compiler_code": "",
+          "detail": "compiled; hash=e242d2d926707880; warnings=none",
+          "expected_code": "",
+          "expects": "compile",
+          "id": "POS-006",
+          "manuscript_ref": "Section V commitment 4",
+          "name": "mandatory gate with a fully contracted timeout window",
+          "outcome": "PASS",
+          "schema_code": "",
+          "target_case": "case_a"
         }
       ],
-      "total": 59
+      "total": 62
     },
     "note": "A case rejected with the WRONG error code is recorded as CODE_MISMATCH, not counted as a pass: rejecting for an unrelated reason is not evidence that the intended constraint works.",
     "structural_checks": {
@@ -877,6 +1111,13 @@
           "case": "case_a",
           "check": "conformant_runtime_accepted",
           "detail": "",
+          "manuscript_ref": "Appendix A constraint 14",
+          "passed": true
+        },
+        {
+          "case": "case_a",
+          "check": "state_mismatch_omitted_mandatory_predicate_detected",
+          "detail": "receipt omits mandatory predicates ['GCIR-0001'] that the cited bundle requires -- the evaluated policy state does not match the loaded bundle",
           "manuscript_ref": "Appendix A constraint 14",
           "passed": true
         },
@@ -966,6 +1207,13 @@
         },
         {
           "case": "case_b",
+          "check": "state_mismatch_omitted_mandatory_predicate_detected",
+          "detail": "receipt omits mandatory predicates ['GCIR-B0001'] that the cited bundle requires -- the evaluated policy state does not match the loaded bundle",
+          "manuscript_ref": "Appendix A constraint 14",
+          "passed": true
+        },
+        {
+          "case": "case_b",
           "check": "policy_injected_outside_bundle_detected",
           "detail": "runtime declares alternate policy channels ['operator_console_policy_upload']; the orphan-control guarantee does not extend to this deployment; receipt cites predicates ['GCIR-INJECTED-FROM-ANOTHER-CHANNEL'] that are not in the bundle -- policy content entered through a channel outside the compiled bundle",
           "manuscript_ref": "Section VI-F; Appendix A constraint 14",
@@ -973,8 +1221,8 @@
         }
       ],
       "failed": 0,
-      "passed": 24,
-      "total": 24
+      "passed": 26,
+      "total": 26
     },
     "validation_seeds": {
       "passed": 3,

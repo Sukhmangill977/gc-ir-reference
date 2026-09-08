@@ -1,0 +1,133 @@
+{
+  "all_cross_checks_passed": true,
+  "cross_checks": [
+    {
+      "actual": 13,
+      "check": "derived family size equals benchmark_report.predicate_count",
+      "expected": 13,
+      "passed": true
+    },
+    {
+      "actual": 13,
+      "check": "derived family size equals dataset.predicate_dimensionality",
+      "expected": 13,
+      "passed": true
+    },
+    {
+      "actual": 13,
+      "check": "derived family size equals negative_control.n_predicates",
+      "expected": 13,
+      "passed": true
+    },
+    {
+      "actual": 0.077,
+      "check": "reported single_deficit_score equals round(1/|family|, 3)",
+      "expected": 0.077,
+      "passed": true
+    },
+    {
+      "actual": [],
+      "check": "every node gate column is present in the golden trace header",
+      "expected": [],
+      "passed": true
+    }
+  ],
+  "derivation_note": "Derived programmatically from the published enforcement artifact by tools/derive_ldrea_predicate_family.py. Nothing here is transcribed from prose or assumed from the artifact-runs memo.",
+  "golden_trace": {
+    "column_count": 112,
+    "file": "GAMMA_G0_CREDITCARD_GOLDEN_TRACE_20260629_001_sample_master112_1000.csv",
+    "sha256": "39397475935810d7896090f8dd482454b915fd61ff1945e6e6ca48d4be7a1e33"
+  },
+  "p_identifiers_in_artifact": {
+    "count": 4,
+    "found": [
+      {
+        "id": "P1",
+        "title": "Ghost Treasury Transfer"
+      },
+      {
+        "id": "P2",
+        "title": "Sanctions Drift Cascade"
+      },
+      {
+        "id": "P3",
+        "title": "Multi-Agent Liquidity Panic"
+      },
+      {
+        "id": "P4",
+        "title": "Sovereign Cascade Edge Case"
+      }
+    ],
+    "what_they_are": "stress-test SCENARIOS in realdatatestcode/stress_test.py",
+    "what_they_are_not": "predicate identifiers; there is no P1-P13 predicate identifier family anywhere in the published artifact"
+  },
+  "predicate_family": {
+    "all": [
+      "Gate_A1",
+      "Gate_A2",
+      "Gate_A3",
+      "Gate_A4",
+      "Gate_A5",
+      "Gate_A6",
+      "Gate_A7",
+      "Lambda_G",
+      "TOKEN_VALID",
+      "AuthoritySignatureValid",
+      "HARM_RISK_THETA",
+      "STALE_CONTEXT",
+      "TELEMETRY_STALE"
+    ],
+    "artifact_comment": "Node-level authorization predicates. Each must concur (be TRUE) for Gamma_G = 0. This is the predicate vector G = {g_1..g_n}; deficit d_i = 1 when g_i fails.",
+    "definition_site": "realdatatestcode/gamma_test_runner.py :: NODE_GATE_COLS plus the deficits[...] assignments in the deficit-matrix construction",
+    "derived_deficit_predicates": [
+      "HARM_RISK_THETA",
+      "STALE_CONTEXT",
+      "TELEMETRY_STALE"
+    ],
+    "node_authorization_gates": [
+      "Gate_A1",
+      "Gate_A2",
+      "Gate_A3",
+      "Gate_A4",
+      "Gate_A5",
+      "Gate_A6",
+      "Gate_A7",
+      "Lambda_G",
+      "TOKEN_VALID",
+      "AuthoritySignatureValid"
+    ],
+    "size": 13
+  },
+  "reported_counts": {
+    "realdatatestcode/concurbench_full_report.json::benchmark_report.predicate_count": 13,
+    "realdatatestcode/concurbench_full_report.json::dataset.predicate_dimensionality": 13,
+    "realdatatestcode/gamma_lab_v1_report.json::negative_control.n_predicates": 13,
+    "realdatatestcode/gamma_lab_v1_report.json::negative_control.single_deficit_score": 0.077
+  },
+  "source_files": {
+    "realdatatestcode/concurbench_full_report.json": {
+      "bytes": 74633,
+      "sha256": "f3a6fca9a1e32f41e4b5e2de8a247753c49326e3d2f1fbf8f96fe0e21f097613"
+    },
+    "realdatatestcode/gamma_lab_v1_report.json": {
+      "bytes": 11638,
+      "sha256": "3029c5ef67ac6dcc149cc79caf9f9def378ba43f8072d31d5ababa01e5872b77"
+    },
+    "realdatatestcode/gamma_test_runner.py": {
+      "bytes": 72127,
+      "sha256": "20056c40b5805bf1107130f4fcd46460a831694b4c2ff0badfc93b10434485ab"
+    },
+    "realdatatestcode/stress_test.py": {
+      "bytes": 16437,
+      "sha256": "0d2037e639c3abcb79559a6e45eead0ff15fea50ab86bce89e98be650768a0cf"
+    }
+  },
+  "source_repository": {
+    "commit": "40fa8f046ad3c6632c66df46abe5500e5dd05696",
+    "commit_short": "40fa8f0",
+    "note": "This is the repository of record named in the manuscript's Appendix C for reference [15].",
+    "path": "/Users/sukhmangill/Documents/GitHub/Gamma-Permit-Package",
+    "remote": "https://github.com/AGLakhowal/Gamma-Permit-Package.git",
+    "tag": "40fa8f0"
+  }
+}

@@ -35,6 +35,7 @@ import argparse
 import copy
 import json
 import os
+import platform
 import random
 import subprocess
 import sys
@@ -43,6 +44,7 @@ from experiments.common import (
     CASES,
     REPO_ROOT,
     add_common_args,
+    phase_of,
     environment,
     read_json,
     write_csv,
@@ -133,59 +135,117 @@ def apply_permutation(documents, spec, seed):
 # ---------------------------------------------------------------------------
 
 
-def build_matrix(runs_per_case, seed=20260101):
-    """Deterministic run matrix: the same matrix every time the script runs."""
+#: The examiner's 31-run breakdown, from the artifact-runs memo:
+#:
+#:     "a loop: 10 repeats, 10 row shuffles, 5 key shuffles, 3 LC_ALL, 3 TZ;
+#:      record hash and fingerprint"
+#:
+#: 10 + 10 + 5 + 3 + 3 = 31 executions per case.  The five strata are the
+#: *primary* dimension each run exercises; every run additionally records the
+#: locale, time zone and process boundary it actually ran under, so the coverage
+#: of the manuscript's Section VI-C list is auditable per run rather than assumed.
+#:
+#: "Equivalent permitted serialization" (Section VI-C: explicit numeric
+#: representations) has no stratum of its own in the memo's arithmetic, so it is
+#: layered onto a documented subset of the row-shuffle and key-shuffle strata and
+#: recorded in its own column.  That keeps the totals at exactly 31 while still
+#: exercising the dimension the manuscript requires.
+STRATA = (
+    ("repeat", 10),
+    ("row_shuffle", 10),
+    ("key_shuffle", 5),
+    ("locale", 3),
+    ("timezone", 3),
+)
+
+TOTAL_RUNS_PER_CASE = sum(count for _, count in STRATA)  # 31
+
+
+def build_matrix(runs_per_case=None, seed=20260101):
+    """The frozen 31-run matrix, identical on every execution and every platform.
+
+    ``runs_per_case`` is accepted for backward compatibility.  When it is None or
+    equal to ``TOTAL_RUNS_PER_CASE`` the full stratified matrix is returned; a
+    smaller value truncates it (development smoke runs only, never the reportable
+    campaign).
+    """
     rng = random.Random(seed)
     matrix = []
+    index = 0
 
-    #: Runs 1-8 exercise each permutation dimension in isolation.
-    isolated = [
-        {"label": "baseline", "spec": {}},
-        {"label": "key_order_reverse", "spec": {"key_order": "reverse"}},
-        {"label": "key_order_shuffle", "spec": {"key_order": "shuffle"}},
-        {"label": "key_order_rotate", "spec": {"key_order": "rotate"}},
-        {"label": "risk_order", "spec": {"risk_order": True}},
-        {"label": "obligation_order", "spec": {"obligation_order": True}},
-        {"label": "acs_order", "spec": {"acs_order": True}},
-        {"label": "catalog_order", "spec": {"catalog_order": True}},
-        {"label": "authority_order", "spec": {"authority_order": True}},
-        {"label": "numeric_form", "spec": {"numeric_form": True}},
-        {
-            "label": "all_permutations",
-            "spec": {
-                "key_order": "shuffle",
-                "risk_order": True,
-                "obligation_order": True,
-                "acs_order": True,
-                "catalog_order": True,
-                "authority_order": True,
-                "numeric_form": True,
-            },
-        },
-    ]
-
-    for index in range(runs_per_case):
-        if index < len(isolated):
-            entry = dict(isolated[index])
-        else:
-            # Remaining runs combine a random subset of dimensions.
+    for stratum, count in STRATA:
+        for position in range(count):
             spec = {}
-            if rng.random() < 0.8:
-                spec["key_order"] = rng.choice(["reverse", "shuffle", "rotate"])
-            for dimension in ("risk_order", "obligation_order", "acs_order",
-                              "catalog_order", "authority_order", "numeric_form"):
-                if rng.random() < 0.6:
-                    spec[dimension] = True
-            entry = {"label": "mixed_%02d" % (index + 1), "spec": spec}
+            label = "%s_%02d" % (stratum, position + 1)
 
-        entry["permutation_seed"] = rng.randrange(1, 2**31)
-        entry["locale"] = LOCALES[index % len(LOCALES)]
-        entry["timezone"] = TIMEZONES[(index * 3) % len(TIMEZONES)]
-        entry["clean_process"] = (index % 2 == 1)
-        entry["python_hash_seed"] = rng.randrange(1, 4294967295)
-        matrix.append(entry)
+            if stratum == "repeat":
+                # Clean repeat executions: identical inputs, no permutation.
+                # Half run in a freshly spawned interpreter so a different
+                # PYTHONHASHSEED is exercised.
+                pass
+            elif stratum == "row_shuffle":
+                # Every semantically unordered array is permuted. Which arrays
+                # are permuted is cycled so all of them are covered.
+                dimensions = ["risk_order", "obligation_order", "acs_order",
+                              "catalog_order", "authority_order"]
+                if position < len(dimensions):
+                    spec[dimensions[position]] = True          # one at a time
+                else:
+                    for dimension in dimensions:               # then all together
+                        spec[dimension] = True
+            elif stratum == "key_shuffle":
+                spec["key_order"] = ["reverse", "shuffle", "rotate",
+                                     "shuffle", "reverse"][position]
+            elif stratum == "locale":
+                # The permutation is held fixed so the locale is the only thing
+                # that varies within this stratum.
+                spec["risk_order"] = True
+            elif stratum == "timezone":
+                spec["risk_order"] = True
 
+            # Equivalent permitted serialization: integers re-encoded as
+            # equal-valued floats. Layered onto every third row-shuffle run and
+            # every second key-shuffle run.
+            numeric = (
+                (stratum == "row_shuffle" and position % 3 == 2)
+                or (stratum == "key_shuffle" and position % 2 == 1)
+            )
+            if numeric:
+                spec["numeric_form"] = True
+
+            if stratum == "locale":
+                locale_name = LOCALES[1 + position]            # non-C locales
+                timezone = "UTC"
+            elif stratum == "timezone":
+                locale_name = "C"
+                timezone = TIMEZONES[1 + position]             # non-UTC zones
+            else:
+                locale_name = LOCALES[index % len(LOCALES)]
+                timezone = TIMEZONES[(index * 3) % len(TIMEZONES)]
+
+            matrix.append({
+                "label": label,
+                "stratum": stratum,
+                "spec": spec,
+                "numeric_form": numeric,
+                "permutation_seed": rng.randrange(1, 2**31),
+                "locale": locale_name,
+                "timezone": timezone,
+                "clean_process": (index % 2 == 1),
+                "python_hash_seed": rng.randrange(1, 4294967295),
+            })
+            index += 1
+
+    if runs_per_case is not None and runs_per_case < len(matrix):
+        return matrix[:runs_per_case]
     return matrix
+
+
+def stratum_breakdown(matrix):
+    counts = {}
+    for entry in matrix:
+        counts[entry["stratum"]] = counts.get(entry["stratum"], 0) + 1
+    return counts
 
 
 # ---------------------------------------------------------------------------
@@ -303,6 +363,24 @@ def run_in_process(case_id, entry):
     return digest, locale_applied
 
 
+def _environment_fingerprint(entry, execution):
+    """A short, stable fingerprint of the conditions a run actually executed under.
+
+    The memo asks the harness to "record hash and fingerprint".  The hash is the
+    canonical payload hash; this is the fingerprint of the environment that
+    produced it, so a row of the CSV is self-describing.
+    """
+    import hashlib
+
+    material = "|".join([
+        entry["stratum"], entry["label"], execution, entry["locale"],
+        entry["timezone"], str(entry["python_hash_seed"]),
+        str(entry["numeric_form"]), json.dumps(entry["spec"], sort_keys=True),
+        platform.platform(), platform.machine(), sys.version.split()[0],
+    ])
+    return hashlib.sha256(material.encode("utf-8")).hexdigest()[:16]
+
+
 def run(runs_per_case, final):
     from gcir.caseio import load_case
     from gcir.compiler import compile_bundle
@@ -328,6 +406,7 @@ def run(runs_per_case, final):
                 digest, locale_applied = run_in_process(case_id, entry)
                 execution = "in_process"
 
+            fingerprint = _environment_fingerprint(entry, execution)
             matched = digest == reference
             per_case[case_id]["runs"] += 1
             per_case[case_id]["matches"] += 1 if matched else 0
@@ -335,7 +414,10 @@ def run(runs_per_case, final):
                 {
                     "run_id": run_id,
                     "case": case_id,
+                    "stratum": entry["stratum"],
                     "permutation": entry["label"],
+                    "numeric_form": entry["numeric_form"],
+                    "environment_fingerprint": fingerprint,
                     "permutation_spec": json.dumps(entry["spec"], sort_keys=True),
                     "permutation_seed": entry["permutation_seed"],
                     "environment": execution,
@@ -347,9 +429,9 @@ def run(runs_per_case, final):
                     "pass": "PASS" if matched else "FAIL",
                 }
             )
-            print("  %s %-20s %-14s %-14s %s"
-                  % (run_id, entry["label"], entry["locale"], entry["timezone"],
-                     "PASS" if matched else "FAIL <<<"))
+            print("  %s %-12s %-16s %-14s %-18s %s"
+                  % (run_id, entry["stratum"], entry["label"], entry["locale"],
+                     entry["timezone"], "PASS" if matched else "FAIL <<<"))
 
     all_hashes = [row["hash"] for row in rows]
     overall_matches = sum(1 for row in rows if row["pass"] == "PASS")
@@ -363,6 +445,15 @@ def run(runs_per_case, final):
 
     summary = {
         "runs_per_case": runs_per_case,
+        "frozen_runs_per_case": TOTAL_RUNS_PER_CASE,
+        "stratum_breakdown": stratum_breakdown(matrix),
+        "stratum_breakdown_source": (
+            "artifact-runs memo: '10 repeats, 10 row shuffles, 5 key shuffles, "
+            "3 LC_ALL, 3 TZ' = 31 per case"
+        ),
+        "runs_with_equivalent_serialization": sum(
+            1 for e in matrix if e["numeric_form"]) * len(CASES),
+        "clean_process_runs": sum(1 for e in matrix if e["clean_process"]) * len(CASES),
         "total_runs": len(rows),
         "matches": overall_matches,
         "TD": {
@@ -405,9 +496,10 @@ def run(runs_per_case, final):
         final,
         "determinism_runs.csv",
         [
-            "run_id", "case", "permutation", "permutation_spec", "permutation_seed",
-            "environment", "python_hash_seed", "locale", "timezone", "hash",
-            "reference_hash", "pass",
+            "run_id", "case", "stratum", "permutation", "numeric_form",
+            "permutation_spec", "permutation_seed", "environment",
+            "environment_fingerprint", "python_hash_seed", "locale", "timezone",
+            "hash", "reference_hash", "pass",
         ],
         rows,
     )
@@ -419,11 +511,13 @@ def run(runs_per_case, final):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--runs-per-case", type=int, default=30,
-                        help="minimum 30 for the reportable campaign (>= 60 total)")
+    parser.add_argument("--runs-per-case", type=int, default=TOTAL_RUNS_PER_CASE,
+                        help="the frozen matrix is %d per case (62 total); a smaller "
+                             "value truncates it and is for development smoke runs "
+                             "only" % TOTAL_RUNS_PER_CASE)
     add_common_args(parser)
     args = parser.parse_args(argv)
-    summary = run(args.runs_per_case, args.final)
+    summary = run(args.runs_per_case, phase_of(args))
     return 0 if summary["TD"]["value"] == 1.0 else 1
 
 

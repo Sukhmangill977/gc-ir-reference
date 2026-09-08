@@ -30,7 +30,8 @@ import subprocess
 import sys
 import time
 
-from experiments.common import REPO_ROOT, add_common_args, banner, results_dir, write_result
+from experiments.common import (REPO_ROOT, add_common_args, banner, phase_of,
+                                results_dir, write_result)
 
 
 def _step(name, function, *args, **kwargs):
@@ -96,8 +97,10 @@ def _tree_digest():
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--runs-per-case", type=int, default=30,
-                        help="determinism runs per case (>= 30 for the reportable campaign)")
+    parser.add_argument("--runs-per-case", type=int, default=31,
+                        help="determinism runs per case; the frozen matrix is 31 "
+                             "(10 repeats + 10 row shuffles + 5 key shuffles + "
+                             "3 locales + 3 time zones), 62 total")
     parser.add_argument("--draws", type=int, default=None,
                         help="Monte Carlo K (default: the frozen 250000)")
     parser.add_argument("--skip-monte-carlo", action="store_true",
@@ -118,25 +121,28 @@ def main(argv=None):
         run_traceability,
     )
 
+    phase = phase_of(args)
+    phase_args = (["--final-v2"] if phase == "final_v2"
+                  else ["--final"] if phase == "final" else [])
+
     steps = []
     steps.append(_step("1. Regenerate case artifacts and verify the committed tree",
                        _regenerate_and_verify))
     steps.append(_step("2. Compile Case A and Case B",
-                       run_case.main, ["--final"] if args.final else []))
+                       run_case.main, phase_args))
     steps.append(_step("3. Test suites (unit, property-based, adversarial, integration)",
-                       run_properties.main, ["--final"] if args.final else []))
+                       run_properties.main, phase_args))
     steps.append(_step("4. Adversarial corpus, structural checks, validation seeds",
-                       run_adversarial.main, ["--final"] if args.final else []))
+                       run_adversarial.main, phase_args))
     steps.append(_step("5. Traceability audit queries and negative controls",
-                       run_traceability.main, ["--final"] if args.final else []))
+                       run_traceability.main, phase_args))
     steps.append(_step("6. Primary metrics",
-                       run_metrics.main, ["--final"] if args.final else []))
+                       run_metrics.main, phase_args))
     steps.append(_step("7. Gate divergence and Proposition 1/2 premises",
-                       run_gate_divergence.main, ["--final"] if args.final else []))
+                       run_gate_divergence.main, phase_args))
 
     determinism_args = ["--runs-per-case", str(args.runs_per_case)]
-    if args.final:
-        determinism_args.append("--final")
+    determinism_args += phase_args
     steps.append(_step("8. Determinism experiment (%d runs per case)" % args.runs_per_case,
                        run_determinism.main, determinism_args))
 
@@ -148,14 +154,13 @@ def main(argv=None):
         monte_args = []
         if args.draws:
             monte_args += ["--draws", str(args.draws)]
-        if args.final:
-            monte_args.append("--final")
+        monte_args += phase_args
         steps.append(_step("9. Monte Carlo rating robustness",
                            run_monte_carlo.main, monte_args))
 
     steps.append(_step("10. Hash manifest", make_manifest.main, []))
     steps.append(_step("11. SUMMARY.md",
-                       make_summary.main, ["--final"] if args.final else []))
+                       make_summary.main, phase_args))
 
     banner("REPRODUCTION SUMMARY")
     width = max(len(step["step"]) for step in steps)
@@ -165,7 +170,7 @@ def main(argv=None):
                  step["detail"]))
 
     failed = [step for step in steps if step["status"] == "failed"]
-    write_result(args.final, "reproduce_all", {
+    write_result(phase, "reproduce_all", {
         "steps": steps,
         "failed_steps": [step["step"] for step in failed],
         "all_ok": not failed,
@@ -173,7 +178,7 @@ def main(argv=None):
             "runs_per_case": args.runs_per_case,
             "draws": args.draws,
             "skip_monte_carlo": args.skip_monte_carlo,
-            "final": args.final,
+            "phase": phase,
         },
     })
 
@@ -182,7 +187,7 @@ def main(argv=None):
               % (len(failed), ", ".join(step["step"] for step in failed)))
         return 1
     print("\nAll steps completed. Results in %s"
-          % os.path.relpath(results_dir(args.final), REPO_ROOT))
+          % os.path.relpath(results_dir(phase), REPO_ROOT))
     return 0
 
 

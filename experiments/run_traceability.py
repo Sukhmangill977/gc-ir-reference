@@ -26,6 +26,7 @@ from experiments.common import (
     CASES,
     REPO_ROOT,
     add_common_args,
+    phase_of,
     load_case_bundle,
     read_json,
     write_csv,
@@ -253,7 +254,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     add_common_args(parser)
     args = parser.parse_args(argv)
-    payload = run(args.final)
+    payload = run(phase_of(args))
     ok = (payload["summary"]["all_clean_queries_empty"]
           and payload["summary"]["all_negative_controls_detected"])
     return 0 if ok else 1

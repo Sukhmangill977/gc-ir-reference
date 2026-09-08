@@ -17,6 +17,7 @@ from experiments.common import (
     CASES,
     REPO_ROOT,
     add_common_args,
+    phase_of,
     load_case_bundle,
     results_dir,
     write_csv,
@@ -115,7 +116,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     add_common_args(parser)
     args = parser.parse_args(argv)
-    run(args.final)
+    run(phase_of(args))
     return 0
 
 
