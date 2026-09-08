@@ -1,6 +1,12 @@
 {
-  "file_count": 281,
+  "file_count": 282,
   "files": [
+    {
+      "bytes": 1022,
+      "path": ".gitattributes",
+      "role": "repository_root",
+      "sha256": "7a272a8b633083d49e974721cd78866a9e95c9212b1d0870ce3567741a1343c0"
+    },
     {
       "bytes": 452,
       "path": ".gitignore",
@@ -35,7 +41,7 @@
       "bytes": 57932,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "c05160e192b51373dd0603e694641d9a5497f585dac3bb2b2827ea82498e8dca"
+      "sha256": "03629e1866f4520b03d2de49674a812e09c3b4caa604fbb3adace2db04f6f946"
     },
     {
       "bytes": 2029,
@@ -1688,7 +1694,7 @@
       "sha256": "64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44"
     }
   ],
-  "manifest_sha256": "4d6846500848d591355d1e80427456e8f9995a5e81a3dde785704f69a3031ae8",
+  "manifest_sha256": "482f40335b837271c6c85f5e6b6b4ba245a04ed533eda23d21ca1a8f4e29a410",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1721,5 +1727,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 3511698
+  "total_bytes": 3512720
 }

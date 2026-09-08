@@ -1,0 +1,31 @@
+# Force LF on checkout for every text file, on every platform.
+#
+# Without this, git on Windows checks out with CRLF (core.autocrlf=true by
+# default). That changes the bytes on disk, so:
+#   * MANIFEST.sha256 verification fails on a Windows clone;
+#   * the "committed case tree matches the generator" test fails, because the
+#     generators write LF explicitly (newline="\n") while the checkout has CRLF.
+#
+# It does NOT affect the determinism claim: the canonical payload hash is computed
+# over parsed JSON re-serialized under RFC 8785, so line endings never reach it.
+# That is why the cross-platform determinism workflow passed on Windows even while
+# the byte-comparison test did not.
+
+* text=auto eol=lf
+
+*.json   text eol=lf
+*.md     text eol=lf
+*.py     text eol=lf
+*.sql    text eol=lf
+*.yml    text eol=lf
+*.yaml   text eol=lf
+*.csv    text eol=lf
+*.cff    text eol=lf
+*.lock   text eol=lf
+*.sha256 text eol=lf
+*.txt    text eol=lf
+Makefile text eol=lf
+Dockerfile text eol=lf
+
+*.docx   binary
+*.pdf    binary

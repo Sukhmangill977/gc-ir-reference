@@ -13,12 +13,13 @@
 # TEST ONLY / NOT FOR PRODUCTION. They are committed so that a reviewer
 # regenerating the case artifacts obtains byte-identical signatures.
 
+7a272a8b633083d49e974721cd78866a9e95c9212b1d0870ce3567741a1343c0  repository_root            .gitattributes
 b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_root            .gitignore
 84631517fe89da36cabb4cd1aa200d7c4c9470979892992b589899113479e4cc  repository_root            CHANGELOG.md
 1fc00762fe18d601c5cb8e676293a36ff6ed4a7686e2c77fccfda54f1636a7d0  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-c05160e192b51373dd0603e694641d9a5497f585dac3bb2b2827ea82498e8dca  repository_root            MANIFEST.json
+03629e1866f4520b03d2de49674a812e09c3b4caa604fbb3adace2db04f6f946  repository_root            MANIFEST.json
 b188e1325d8435a894580e3c84c1274e2e4d949be665a3e4b79a672cf1842d11  repository_root            Makefile
 084e071a0f2042a2ab12e9953db473e14eaf1a6cf1d627551694be2f201ee5e4  repository_root            README.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
