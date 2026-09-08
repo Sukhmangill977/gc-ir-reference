@@ -1,0 +1,97 @@
+{
+  "GCIR-0001": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-0002": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-0003": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-0004": {
+    "gate_source": "SOFT",
+    "gate_type": "weighted",
+    "mandatory_role": "supporting"
+  },
+  "GCIR-0005": {
+    "gate_source": "SOFT",
+    "gate_type": "advisory",
+    "mandatory_role": "supporting"
+  },
+  "GCIR-0006": {
+    "gate_source": "C_STAR",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-0007": {
+    "gate_source": "C_STAR",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-0008": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-0009": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-0010": {
+    "gate_source": "C_STAR",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-0011": {
+    "gate_source": "C_STAR",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-0012": {
+    "gate_source": "C_STAR",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-0013": {
+    "gate_source": "C_STAR",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-0014": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-0015": {
+    "gate_source": "SOFT",
+    "gate_type": "advisory",
+    "mandatory_role": "supporting"
+  },
+  "GCIR-0016": {
+    "gate_source": "C_STAR",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-INV-AUTHORITY-CLOSURE": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-INV-EVIDENCE-COMMIT": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-INV-VERSION": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  }
+}

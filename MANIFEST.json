@@ -1,5 +1,5 @@
 {
-  "file_count": 174,
+  "file_count": 209,
   "files": [
     {
       "bytes": 452,
@@ -32,10 +32,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 30719,
+      "bytes": 35601,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "0893c4ad4f2ad8c999290d36c10ce65845247e314d47b876adfca4e537371402"
+      "sha256": "47a6953c95995f955df510b1d53b803a908b541ce45b08f29e27d4ef612c5d2f"
     },
     {
       "bytes": 2029,
@@ -770,6 +770,216 @@
       "sha256": "93c958993fd720b29d3b8b26b1d7fed69249a9e26f87d563d160b15e0c1391f4"
     },
     {
+      "bytes": 48116,
+      "path": "results/final/adversarial.json",
+      "role": "measured_result",
+      "sha256": "06ae2814c45a4e3770a0d0a3f8e956352fd3ffa8b3f4e3925322a0ca3349aa2d"
+    },
+    {
+      "bytes": 20364,
+      "path": "results/final/adversarial_cases.csv",
+      "role": "measured_result",
+      "sha256": "95bf249ec90cbf9955c533e3c7f6271d7dcffda1bfd78cfbce6a351674b92968"
+    },
+    {
+      "bytes": 81791,
+      "path": "results/final/case_a/bundle.json",
+      "role": "compiled_bundle_a",
+      "sha256": "4ca1a50cbb17f3981cfc3dc8765675f483594ad6490f8c1321d17594629c7170"
+    },
+    {
+      "bytes": 56254,
+      "path": "results/final/case_a/canonical_payload.json",
+      "role": "compiled_bundle_a",
+      "sha256": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536"
+    },
+    {
+      "bytes": 1914,
+      "path": "results/final/case_a/compilation.json",
+      "role": "compiled_bundle_a",
+      "sha256": "707652c4233a91f4db43adea0b59a290e444c280a57c2177532fd140f97db564"
+    },
+    {
+      "bytes": 10923,
+      "path": "results/final/case_a/coverage_matrix.json",
+      "role": "compiled_bundle_a",
+      "sha256": "d5fcad108e00af0f507737c0c14ae04ae3fe7f147b0df0f770edb1df906a4b11"
+    },
+    {
+      "bytes": 1634,
+      "path": "results/final/case_a/escalation_map.json",
+      "role": "compiled_bundle_a",
+      "sha256": "d2a8c3450359d7dd08b3a27cef6febd1153b70d0a8f29d17beef98065e7665c3"
+    },
+    {
+      "bytes": 2286,
+      "path": "results/final/case_a/gate_map.json",
+      "role": "compiled_bundle_a",
+      "sha256": "f2a61e92494ffb59b093c6774f3c7ad1be92ff2f7293e2f913630b37b062a34c"
+    },
+    {
+      "bytes": 53283,
+      "path": "results/final/case_a/gcir_records.json",
+      "role": "compiled_bundle_a",
+      "sha256": "e0dfaabe4d1e01ec7d52f96443c3cb428af72e68511edad02984cff4da059bc9"
+    },
+    {
+      "bytes": 65,
+      "path": "results/final/case_a/payload_hash.txt",
+      "role": "compiled_bundle_a",
+      "sha256": "88c9150891d0901d500b8985a7f65c376cc598c2217ed7739ba983308e74decd"
+    },
+    {
+      "bytes": 587,
+      "path": "results/final/case_a/payload_purity.json",
+      "role": "compiled_bundle_a",
+      "sha256": "1cf3167bca56ec6c86ddfe0cc11e8ca82e6df0d16cd786fa1b8e973f5947b563"
+    },
+    {
+      "bytes": 40723,
+      "path": "results/final/case_b/bundle.json",
+      "role": "compiled_bundle_b",
+      "sha256": "610612401769c648188262da946ef03f2cea33735c2677e1686167e8197baa40"
+    },
+    {
+      "bytes": 28099,
+      "path": "results/final/case_b/canonical_payload.json",
+      "role": "compiled_bundle_b",
+      "sha256": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce"
+    },
+    {
+      "bytes": 1922,
+      "path": "results/final/case_b/compilation.json",
+      "role": "compiled_bundle_b",
+      "sha256": "b367f45f691e9388fa6e3c7e68cdcffae8128e81874a195753f1b1f36cf4ea20"
+    },
+    {
+      "bytes": 5383,
+      "path": "results/final/case_b/coverage_matrix.json",
+      "role": "compiled_bundle_b",
+      "sha256": "fb970c2ffae35d0045562720b23a45c7f5a2e1ac1d3fe99883ec602b1958a1d4"
+    },
+    {
+      "bytes": 790,
+      "path": "results/final/case_b/escalation_map.json",
+      "role": "compiled_bundle_b",
+      "sha256": "e16dbd72eeebf56de6313117bce0f35cd86048d956283d462ad543ab7c840d6c"
+    },
+    {
+      "bytes": 1119,
+      "path": "results/final/case_b/gate_map.json",
+      "role": "compiled_bundle_b",
+      "sha256": "a9461c4c4600e78f1ecd1dec3cf244f9cdb8c48777a7c6ac24a4582ccaf4256c"
+    },
+    {
+      "bytes": 24548,
+      "path": "results/final/case_b/gcir_records.json",
+      "role": "compiled_bundle_b",
+      "sha256": "da87dbfb05fab3b8f39ae5cd358d8ec6bacffe8a48e347a38102d9a40e3c3874"
+    },
+    {
+      "bytes": 65,
+      "path": "results/final/case_b/payload_hash.txt",
+      "role": "compiled_bundle_b",
+      "sha256": "ec8ac3517c29ab3ca60b332ac3a710cfcfc91194f9ab250c6438121b7d053b44"
+    },
+    {
+      "bytes": 587,
+      "path": "results/final/case_b/payload_purity.json",
+      "role": "compiled_bundle_b",
+      "sha256": "674359ea9b84a36310688d2e13f2619940184434575cb9003bd7dff33a0ea196"
+    },
+    {
+      "bytes": 18693,
+      "path": "results/final/determinism_runs.csv",
+      "role": "measured_result",
+      "sha256": "95b8a3d2afd8c29788d97bac8bea5b820ff72a96ed1047985b85f7dc68ffcf48"
+    },
+    {
+      "bytes": 3507,
+      "path": "results/final/determinism_summary.json",
+      "role": "measured_result",
+      "sha256": "f23d484f7289c501372c1d564a8465af3082a410bf12f1febb1e97c59a3e0a29"
+    },
+    {
+      "bytes": 18301,
+      "path": "results/final/gate_divergence.json",
+      "role": "measured_result",
+      "sha256": "ef671f67802af0b242a759dc6605e78085f91d67812661a4fdf850f8e879680e"
+    },
+    {
+      "bytes": 1893,
+      "path": "results/final/gate_divergence_heatmap.csv",
+      "role": "measured_result",
+      "sha256": "4157530151b69936b613cd0f130f7a61a802435c1da392fcce5d1b9b39532d9d"
+    },
+    {
+      "bytes": 1567,
+      "path": "results/final/metrics.csv",
+      "role": "measured_result",
+      "sha256": "770b9ffe870b1c80f93a3a118d3cb450994fed7e488ed85bd2b3521205313661"
+    },
+    {
+      "bytes": 15874,
+      "path": "results/final/metrics.json",
+      "role": "measured_result",
+      "sha256": "65980ccd8ea61f23ccdf6b2a4109891bb04f03f2ebfba8db41b91a99f677288c"
+    },
+    {
+      "bytes": 1431,
+      "path": "results/final/monte_carlo_per_risk.csv",
+      "role": "measured_result",
+      "sha256": "4fbfea9226f2f9d58393a11b9c4ac51be2771820bdf9e09f93b41b3484a3ed7f"
+    },
+    {
+      "bytes": 26142,
+      "path": "results/final/monte_carlo_summary.json",
+      "role": "measured_result",
+      "sha256": "9197f4bcd19b8f5cf9c3c3779cfed05bf1bd23d1c29489e8fc03eddf2248e552"
+    },
+    {
+      "bytes": 83254,
+      "path": "results/final/property_tests.json",
+      "role": "measured_result",
+      "sha256": "c8f44f1aa94a4099819ceb009491a146a41c1a5527c81438a2dde7ac6e161561"
+    },
+    {
+      "bytes": 16521,
+      "path": "results/final/test_reports/junit_adversarial.xml",
+      "role": "measured_result",
+      "sha256": "36a72c8978d8225b6d14f89d145ae9bbf6efd9ec77529efd559e247d53800ee2"
+    },
+    {
+      "bytes": 3335,
+      "path": "results/final/test_reports/junit_integration.xml",
+      "role": "measured_result",
+      "sha256": "919aecea50ae731dc163030ba7e5b63fd8881173db300ac967378931f2d6c778"
+    },
+    {
+      "bytes": 13028,
+      "path": "results/final/test_reports/junit_properties.xml",
+      "role": "measured_result",
+      "sha256": "ea15a2e8bf44406b15106ec5a15820691081bd8cca352d0d74f0b88473e6b812"
+    },
+    {
+      "bytes": 11961,
+      "path": "results/final/test_reports/junit_unit.xml",
+      "role": "measured_result",
+      "sha256": "9242d2d214b14fb9a744e11b98974af53be7bd033ae4eb9f4f7db386ccd32f2f"
+    },
+    {
+      "bytes": 1663,
+      "path": "results/final/traceability_queries.csv",
+      "role": "measured_result",
+      "sha256": "9084e3597a1945bc716ebfff30c6e9d8a9c25b403cd586762663f714b22e2bcf"
+    },
+    {
+      "bytes": 16027,
+      "path": "results/final/traceability_queries.json",
+      "role": "measured_result",
+      "sha256": "3a4b9a4547cd8d7bbb371b318365cadcc450f2af68502f37fe978bfd91413b6a"
+    },
+    {
       "bytes": 7666,
       "path": "schemas/acs.schema.json",
       "role": "schema",
@@ -1046,7 +1256,7 @@
       "sha256": "2339f549395bf295ed9d19bee5627466c502feb80c6b4ae2dc75cc244a85473a"
     }
   ],
-  "manifest_sha256": "569460b30621af510200db29c1a5debe4696834c07debaf76158132be396a154",
+  "manifest_sha256": "598d6007cfd7c18aab3e07c11643f4ff166dbc193b89a09bec87bbbd54207571",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1054,6 +1264,8 @@
     "case_a_input",
     "case_b_input",
     "catalog",
+    "compiled_bundle_a",
+    "compiled_bundle_b",
     "development_result",
     "dispositions_a",
     "dispositions_b",
@@ -1064,6 +1276,7 @@
     "judgment_record_a",
     "judgment_record_b",
     "lifecycle_registry",
+    "measured_result",
     "phi_impl",
     "prereg_commitment",
     "psi_tooling",
@@ -1073,5 +1286,5 @@
     "schema",
     "test_suite"
   ],
-  "total_bytes": 1837505
+  "total_bytes": 2456037
 }

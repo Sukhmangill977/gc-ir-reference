@@ -1,0 +1,16 @@
+{
+  "final_result_file_count": 24,
+  "findings": [],
+  "freeze_commit": "196820b23a632d56c4575dba3def71247b343f6a",
+  "freeze_tag": "preregister-tier0-v1",
+  "freeze_tag_date": "2026-09-08T10:26:18+05:30",
+  "frozen_file_count": 117,
+  "frozen_files_changed_since_freeze": {},
+  "public_commitment_discharged": false,
+  "remote": null,
+  "results_commits": [
+    "196820b23a632d56c4575dba3def71247b343f6a"
+  ],
+  "tag_pushed_to_remote": false,
+  "verified": true
+}

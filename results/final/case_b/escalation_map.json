@@ -1,0 +1,38 @@
+{
+  "GCIR-B0001": {
+    "route": "payment_operations_urgent",
+    "sla_hours": 1
+  },
+  "GCIR-B0002": {
+    "route": "payment_operations_urgent",
+    "sla_hours": 2
+  },
+  "GCIR-B0003": {
+    "route": "payment_operations_urgent",
+    "sla_hours": 2
+  },
+  "GCIR-B0004": {
+    "route": "sanctions_desk_urgent",
+    "sla_hours": 1
+  },
+  "GCIR-B0005": {
+    "route": "payment_operations_urgent",
+    "sla_hours": 1
+  },
+  "GCIR-B0006": {
+    "route": "compliance_records_urgent",
+    "sla_hours": 1
+  },
+  "GCIR-INV-AUTHORITY-CLOSURE": {
+    "route": "governance_forum_urgent",
+    "sla_hours": 1
+  },
+  "GCIR-INV-EVIDENCE-COMMIT": {
+    "route": "compliance_records_desk",
+    "sla_hours": 1
+  },
+  "GCIR-INV-VERSION": {
+    "route": "technology_change_management",
+    "sla_hours": 1
+  }
+}

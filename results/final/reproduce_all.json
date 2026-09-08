@@ -1,0 +1,103 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "196820b23a632d56c4575dba3def71247b343f6a",
+    "git_commit_short": "196820b",
+    "git_describe": "preregister-tier0-v1-dirty",
+    "git_status_clean": false,
+    "git_tag_exact": "preregister-tier0-v1",
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-08T04:57:16Z",
+    "system": "Darwin"
+  },
+  "phase": "final",
+  "phase_note": "FINAL reportable campaign result, produced after the public preregistration freeze.",
+  "result": {
+    "all_ok": true,
+    "arguments": {
+      "draws": null,
+      "final": true,
+      "runs_per_case": 30,
+      "skip_monte_carlo": false
+    },
+    "failed_steps": [],
+    "steps": [
+      {
+        "detail": "",
+        "seconds": 0.2,
+        "status": "ok",
+        "step": "1. Regenerate case artifacts and verify the committed tree"
+      },
+      {
+        "detail": "",
+        "seconds": 0.37,
+        "status": "ok",
+        "step": "2. Compile Case A and Case B"
+      },
+      {
+        "detail": "",
+        "seconds": 8.93,
+        "status": "ok",
+        "step": "3. Test suites (unit, property-based, adversarial, integration)"
+      },
+      {
+        "detail": "",
+        "seconds": 4.51,
+        "status": "ok",
+        "step": "4. Adversarial corpus, structural checks, validation seeds"
+      },
+      {
+        "detail": "",
+        "seconds": 0.55,
+        "status": "ok",
+        "step": "5. Traceability audit queries and negative controls"
+      },
+      {
+        "detail": "",
+        "seconds": 0.18,
+        "status": "ok",
+        "step": "6. Primary metrics"
+      },
+      {
+        "detail": "",
+        "seconds": 0.66,
+        "status": "ok",
+        "step": "7. Gate divergence and Proposition 1/2 premises"
+      },
+      {
+        "detail": "",
+        "seconds": 5.77,
+        "status": "ok",
+        "step": "8. Determinism experiment (30 runs per case)"
+      },
+      {
+        "detail": "",
+        "seconds": 22.34,
+        "status": "ok",
+        "step": "9. Monte Carlo rating robustness"
+      },
+      {
+        "detail": "",
+        "seconds": 0.02,
+        "status": "ok",
+        "step": "10. Hash manifest"
+      },
+      {
+        "detail": "",
+        "seconds": 0.1,
+        "status": "ok",
+        "step": "11. SUMMARY.md"
+      }
+    ]
+  },
+  "result_name": "reproduce_all"
+}
