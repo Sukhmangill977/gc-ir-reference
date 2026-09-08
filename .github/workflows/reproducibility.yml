@@ -51,11 +51,15 @@ jobs:
         # other row must be unchanged: the released artifact, the case tree, the
         # frozen code and the reportable results.
         run: |
-          git show HEAD:MANIFEST.sha256 | grep -v '  development_result ' > /tmp/manifest_before.txt
+          # MANIFEST.json embeds every file's hash, including the development
+          # results, so its own row necessarily changes too. Both are excluded;
+          # everything else must match exactly.
+          filter() { grep -vE '  development_result |  MANIFEST\.json$'; }
+          git show HEAD:MANIFEST.sha256 | filter > /tmp/manifest_before.txt
           python -m experiments.make_manifest
-          grep -v '  development_result ' MANIFEST.sha256 > /tmp/manifest_after.txt
+          filter < MANIFEST.sha256 > /tmp/manifest_after.txt
           diff /tmp/manifest_before.txt /tmp/manifest_after.txt \
-            && echo "manifest is current for every non-development path"
+            && echo "manifest is current for every released path ($(wc -l < /tmp/manifest_after.txt) rows checked)"
 
       - name: Show the generated summary
         run: cat results/development/SUMMARY.md
