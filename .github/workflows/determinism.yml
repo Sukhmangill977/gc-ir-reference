@@ -66,8 +66,8 @@ jobs:
       - name: Verify committed reference canonical payload hashes
         run: python -m experiments.verify_hashes
 
-      - name: Determinism experiment (permutations, locales, time zones, clean processes)
-        run: python -m experiments.run_determinism --runs-per-case 30
+      - name: Determinism experiment (frozen 31-run stratified matrix per case)
+        run: python -m experiments.run_determinism --runs-per-case 31
 
       - name: Upload determinism run log
         if: always()
