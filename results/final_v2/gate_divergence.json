@@ -1,0 +1,634 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e",
+    "git_commit_short": "c44f25d",
+    "git_describe": "preregister-tier0-v2.2",
+    "git_status_clean": false,
+    "git_tag_exact": "preregister-tier0-v2.2",
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-08T18:02:12Z",
+    "system": "Darwin"
+  },
+  "phase": "final_v2",
+  "phase_note": "FINAL v2 reportable campaign result, produced AFTER the publicly pushed preregistration freeze preregister-tier0-v2.",
+  "result": {
+    "case_a_fixture_rating_sensitivity": {
+      "GD_min_distribution": {
+        "2": 3375,
+        "3": 7534,
+        "4": 4068,
+        "5": 648
+      },
+      "GD_min_range": [
+        2,
+        5
+      ],
+      "actual_GD_min": 3,
+      "actual_scores": {
+        "R-14": 12,
+        "R-15": 6,
+        "R-16": 8
+      },
+      "combinations_evaluated": 15625,
+      "fixture_rated_rows": [
+        "R-14",
+        "R-15",
+        "R-16"
+      ],
+      "grid": "every (L, I) in {1..5}^2 for each fixture-rated row",
+      "interpretation": "GD_min over the whole register depends in part on the ratings assigned to rows the manuscript leaves unrated. The reported GD_min is the value for the committed fixture ratings; this sweep states the range the choice could have produced, so the number is not silently contingent.",
+      "share_of_grid_matching_actual": 0.482176
+    },
+    "per_case": {
+      "case_a": {
+        "GD_at_declared_threshold": 3,
+        "GD_min": 3,
+        "GD_min_argmin_thresholds": [
+          9,
+          10,
+          13,
+          14,
+          15
+        ],
+        "case_id": "case_a",
+        "declared_threshold": 15,
+        "divergent_rows": [
+          {
+            "approved_gate": 1,
+            "heatmap_gate": 0,
+            "risk_id": "R-09",
+            "score": 12
+          },
+          {
+            "approved_gate": 1,
+            "heatmap_gate": 0,
+            "risk_id": "R-10",
+            "score": 10
+          },
+          {
+            "approved_gate": 1,
+            "heatmap_gate": 0,
+            "risk_id": "R-13",
+            "score": 10
+          }
+        ],
+        "gd_curve": [
+          {
+            "gd": 5,
+            "threshold": 5
+          },
+          {
+            "gd": 5,
+            "threshold": 6
+          },
+          {
+            "gd": 4,
+            "threshold": 7
+          },
+          {
+            "gd": 4,
+            "threshold": 8
+          },
+          {
+            "gd": 3,
+            "threshold": 9
+          },
+          {
+            "gd": 3,
+            "threshold": 10
+          },
+          {
+            "gd": 5,
+            "threshold": 11
+          },
+          {
+            "gd": 5,
+            "threshold": 12
+          },
+          {
+            "gd": 3,
+            "threshold": 13
+          },
+          {
+            "gd": 3,
+            "threshold": 14
+          },
+          {
+            "gd": 3,
+            "threshold": 15
+          },
+          {
+            "gd": 7,
+            "threshold": 16
+          },
+          {
+            "gd": 10,
+            "threshold": 17
+          },
+          {
+            "gd": 10,
+            "threshold": 19
+          },
+          {
+            "gd": 10,
+            "threshold": 20
+          },
+          {
+            "gd": 11,
+            "threshold": 21
+          }
+        ],
+        "heatmap_table": [
+          {
+            "approved_gate": 1,
+            "c_star": 0,
+            "case": "case_a",
+            "consequence_class": "client_harm",
+            "disposition": "RuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "mandatory/OTHER_MANDATORY",
+            "heatmap_gate_at_declared_threshold": 1,
+            "impact_residual": 5,
+            "likelihood_residual": 4,
+            "risk_id": "R-01",
+            "score": 20
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 0,
+            "case": "case_a",
+            "consequence_class": "client_harm",
+            "disposition": "RuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "mandatory/OTHER_MANDATORY",
+            "heatmap_gate_at_declared_threshold": 1,
+            "impact_residual": 4,
+            "likelihood_residual": 4,
+            "risk_id": "R-02",
+            "score": 16
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 0,
+            "case": "case_a",
+            "consequence_class": "client_harm",
+            "disposition": "RuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "mandatory/OTHER_MANDATORY",
+            "heatmap_gate_at_declared_threshold": 1,
+            "impact_residual": 4,
+            "likelihood_residual": 4,
+            "risk_id": "R-03",
+            "score": 16
+          },
+          {
+            "approved_gate": 0,
+            "c_star": 0,
+            "case": "case_a",
+            "consequence_class": "conduct",
+            "disposition": "RuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "advisory/SOFT|weighted/SOFT",
+            "heatmap_gate_at_declared_threshold": 0,
+            "impact_residual": 4,
+            "likelihood_residual": 3,
+            "risk_id": "R-04",
+            "score": 12
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 1,
+            "case": "case_a",
+            "consequence_class": "information_barrier",
+            "disposition": "RuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "mandatory/C_STAR",
+            "heatmap_gate_at_declared_threshold": 1,
+            "impact_residual": 5,
+            "likelihood_residual": 3,
+            "risk_id": "R-05",
+            "score": 15
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 1,
+            "case": "case_a",
+            "consequence_class": "statutory",
+            "disposition": "RuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "mandatory/C_STAR",
+            "heatmap_gate_at_declared_threshold": 1,
+            "impact_residual": 5,
+            "likelihood_residual": 3,
+            "risk_id": "R-06",
+            "score": 15
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 0,
+            "case": "case_a",
+            "consequence_class": "security",
+            "disposition": "RuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "mandatory/OTHER_MANDATORY",
+            "heatmap_gate_at_declared_threshold": 1,
+            "impact_residual": 5,
+            "likelihood_residual": 3,
+            "risk_id": "R-07",
+            "score": 15
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 1,
+            "case": "case_a",
+            "consequence_class": "authority",
+            "disposition": "RuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "mandatory/C_STAR",
+            "heatmap_gate_at_declared_threshold": 1,
+            "impact_residual": 5,
+            "likelihood_residual": 3,
+            "risk_id": "R-08",
+            "score": 15
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 1,
+            "case": "case_a",
+            "consequence_class": "authority",
+            "disposition": "RuntimeDisposition",
+            "divergent": 1,
+            "gate_sources": "mandatory/C_STAR",
+            "heatmap_gate_at_declared_threshold": 0,
+            "impact_residual": 4,
+            "likelihood_residual": 3,
+            "risk_id": "R-09",
+            "score": 12
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 1,
+            "case": "case_a",
+            "consequence_class": "irreversible",
+            "disposition": "RuntimeDisposition",
+            "divergent": 1,
+            "gate_sources": "mandatory/C_STAR",
+            "heatmap_gate_at_declared_threshold": 0,
+            "impact_residual": 5,
+            "likelihood_residual": 2,
+            "risk_id": "R-10",
+            "score": 10
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 0,
+            "case": "case_a",
+            "consequence_class": "governance",
+            "disposition": "RuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "mandatory/OTHER_MANDATORY",
+            "heatmap_gate_at_declared_threshold": 1,
+            "impact_residual": 4,
+            "likelihood_residual": 4,
+            "risk_id": "R-11",
+            "score": 16
+          },
+          {
+            "approved_gate": 0,
+            "c_star": 0,
+            "case": "case_a",
+            "consequence_class": "governance",
+            "disposition": "RuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "advisory/SOFT",
+            "heatmap_gate_at_declared_threshold": 0,
+            "impact_residual": 4,
+            "likelihood_residual": 3,
+            "risk_id": "R-12",
+            "score": 12
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 1,
+            "case": "case_a",
+            "consequence_class": "statutory",
+            "disposition": "RuntimeDisposition",
+            "divergent": 1,
+            "gate_sources": "mandatory/C_STAR",
+            "heatmap_gate_at_declared_threshold": 0,
+            "impact_residual": 5,
+            "likelihood_residual": 2,
+            "risk_id": "R-13",
+            "score": 10
+          },
+          {
+            "approved_gate": 0,
+            "c_star": 0,
+            "case": "case_a",
+            "consequence_class": "operational_resilience",
+            "disposition": "NonRuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "none",
+            "heatmap_gate_at_declared_threshold": 0,
+            "impact_residual": 4,
+            "likelihood_residual": 3,
+            "risk_id": "R-14",
+            "score": 12
+          },
+          {
+            "approved_gate": 0,
+            "c_star": 0,
+            "case": "case_a",
+            "consequence_class": "reputational",
+            "disposition": "NonRuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "none",
+            "heatmap_gate_at_declared_threshold": 0,
+            "impact_residual": 2,
+            "likelihood_residual": 3,
+            "risk_id": "R-15",
+            "score": 6
+          },
+          {
+            "approved_gate": 0,
+            "c_star": 0,
+            "case": "case_a",
+            "consequence_class": "third_party_viability",
+            "disposition": "NonRuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "none",
+            "heatmap_gate_at_declared_threshold": 0,
+            "impact_residual": 4,
+            "likelihood_residual": 2,
+            "risk_id": "R-16",
+            "score": 8
+          }
+        ],
+        "proposition_1": {
+          "consequence": "GD_min >= 1",
+          "consistent_with_proposition": true,
+          "holds": true,
+          "inversion_count": 6,
+          "inversions": [
+            {
+              "gated_risk": "R-10",
+              "gated_score": 10,
+              "ungated_risk": "R-04",
+              "ungated_score": 12
+            },
+            {
+              "gated_risk": "R-10",
+              "gated_score": 10,
+              "ungated_risk": "R-12",
+              "ungated_score": 12
+            },
+            {
+              "gated_risk": "R-10",
+              "gated_score": 10,
+              "ungated_risk": "R-14",
+              "ungated_score": 12
+            },
+            {
+              "gated_risk": "R-13",
+              "gated_score": 10,
+              "ungated_risk": "R-04",
+              "ungated_score": 12
+            },
+            {
+              "gated_risk": "R-13",
+              "gated_score": 10,
+              "ungated_risk": "R-12",
+              "ungated_score": 12
+            },
+            {
+              "gated_risk": "R-13",
+              "gated_score": 10,
+              "ungated_risk": "R-14",
+              "ungated_score": 12
+            }
+          ],
+          "measured_GD_min": 3,
+          "premise": "exists r_i, r_j with s_i < s_j, g_i = 1, g_j = 0"
+        },
+        "proposition_2": {
+          "collisions": [
+            {
+              "gated": [
+                "R-09"
+              ],
+              "score": 12,
+              "ungated": [
+                "R-04",
+                "R-12",
+                "R-14"
+              ]
+            }
+          ],
+          "consequence": "no function of the scalar score alone -- monotone or otherwise -- reproduces the approved gate assignment",
+          "holds": true,
+          "premise": "exists r_i, r_j with s_i = s_j and g_i != g_j"
+        },
+        "register_row_count": 16
+      },
+      "case_b": {
+        "GD_at_declared_threshold": 4,
+        "GD_min": 0,
+        "GD_min_argmin_thresholds": [
+          4,
+          5
+        ],
+        "case_id": "case_b",
+        "declared_threshold": 15,
+        "divergent_rows": [
+          {
+            "approved_gate": 1,
+            "heatmap_gate": 0,
+            "risk_id": "B-03",
+            "score": 12
+          },
+          {
+            "approved_gate": 1,
+            "heatmap_gate": 0,
+            "risk_id": "B-04",
+            "score": 5
+          },
+          {
+            "approved_gate": 1,
+            "heatmap_gate": 0,
+            "risk_id": "B-05",
+            "score": 10
+          },
+          {
+            "approved_gate": 1,
+            "heatmap_gate": 0,
+            "risk_id": "B-06",
+            "score": 10
+          }
+        ],
+        "gd_curve": [
+          {
+            "gd": 0,
+            "threshold": 4
+          },
+          {
+            "gd": 0,
+            "threshold": 5
+          },
+          {
+            "gd": 1,
+            "threshold": 6
+          },
+          {
+            "gd": 1,
+            "threshold": 9
+          },
+          {
+            "gd": 1,
+            "threshold": 10
+          },
+          {
+            "gd": 3,
+            "threshold": 11
+          },
+          {
+            "gd": 3,
+            "threshold": 12
+          },
+          {
+            "gd": 4,
+            "threshold": 13
+          },
+          {
+            "gd": 4,
+            "threshold": 14
+          },
+          {
+            "gd": 4,
+            "threshold": 15
+          },
+          {
+            "gd": 5,
+            "threshold": 16
+          },
+          {
+            "gd": 6,
+            "threshold": 17
+          }
+        ],
+        "heatmap_table": [
+          {
+            "approved_gate": 1,
+            "c_star": 1,
+            "case": "case_b",
+            "consequence_class": "authority",
+            "disposition": "RuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "mandatory/C_STAR",
+            "heatmap_gate_at_declared_threshold": 1,
+            "impact_residual": 5,
+            "likelihood_residual": 3,
+            "risk_id": "B-01",
+            "score": 15
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 0,
+            "case": "case_b",
+            "consequence_class": "financial_loss",
+            "disposition": "RuntimeDisposition",
+            "divergent": 0,
+            "gate_sources": "mandatory/OTHER_MANDATORY",
+            "heatmap_gate_at_declared_threshold": 1,
+            "impact_residual": 4,
+            "likelihood_residual": 4,
+            "risk_id": "B-02",
+            "score": 16
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 0,
+            "case": "case_b",
+            "consequence_class": "financial_loss",
+            "disposition": "RuntimeDisposition",
+            "divergent": 1,
+            "gate_sources": "mandatory/OTHER_MANDATORY",
+            "heatmap_gate_at_declared_threshold": 0,
+            "impact_residual": 4,
+            "likelihood_residual": 3,
+            "risk_id": "B-03",
+            "score": 12
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 1,
+            "case": "case_b",
+            "consequence_class": "statutory",
+            "disposition": "RuntimeDisposition",
+            "divergent": 1,
+            "gate_sources": "mandatory/C_STAR",
+            "heatmap_gate_at_declared_threshold": 0,
+            "impact_residual": 5,
+            "likelihood_residual": 1,
+            "risk_id": "B-04",
+            "score": 5
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 1,
+            "case": "case_b",
+            "consequence_class": "irreversible",
+            "disposition": "RuntimeDisposition",
+            "divergent": 1,
+            "gate_sources": "mandatory/C_STAR",
+            "heatmap_gate_at_declared_threshold": 0,
+            "impact_residual": 5,
+            "likelihood_residual": 2,
+            "risk_id": "B-05",
+            "score": 10
+          },
+          {
+            "approved_gate": 1,
+            "c_star": 1,
+            "case": "case_b",
+            "consequence_class": "statutory",
+            "disposition": "RuntimeDisposition",
+            "divergent": 1,
+            "gate_sources": "mandatory/C_STAR",
+            "heatmap_gate_at_declared_threshold": 0,
+            "impact_residual": 5,
+            "likelihood_residual": 2,
+            "risk_id": "B-06",
+            "score": 10
+          }
+        ],
+        "proposition_1": {
+          "consequence": "no inversion on this register",
+          "consistent_with_proposition": true,
+          "holds": false,
+          "inversion_count": 0,
+          "inversions": [],
+          "measured_GD_min": 0,
+          "premise": "exists r_i, r_j with s_i < s_j, g_i = 1, g_j = 0"
+        },
+        "proposition_2": {
+          "collisions": [],
+          "consequence": "no score collision with divergent gates on this register",
+          "holds": false,
+          "premise": "exists r_i, r_j with s_i = s_j and g_i != g_j"
+        },
+        "register_row_count": 6
+      }
+    }
+  },
+  "result_name": "gate_divergence"
+}

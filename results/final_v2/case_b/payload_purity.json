@@ -1,0 +1,24 @@
+{
+  "canonical_payload_bytes": 28099,
+  "envelope_signing_time": "2026-02-02T09:05:00Z",
+  "forbidden_keys_checked": [
+    "compiled_at",
+    "current_status",
+    "effective_until",
+    "generated_at",
+    "lifecycle_state",
+    "lifecycle_status",
+    "nonce",
+    "random_nonce",
+    "retired_at",
+    "revoked_at",
+    "signature",
+    "signing_time",
+    "superseded_at",
+    "timestamp"
+  ],
+  "hash_unchanged_by_signing": true,
+  "offenders": [],
+  "payload_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+  "signature_envelope_outside_payload": true
+}

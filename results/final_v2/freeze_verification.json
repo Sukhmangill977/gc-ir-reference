@@ -1,0 +1,18 @@
+{
+  "final_result_file_count": 23,
+  "findings": [],
+  "freeze_commit": "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e",
+  "freeze_tag": "preregister-tier0-v2.2",
+  "freeze_tag_date": "2026-09-08T23:31:35+05:30",
+  "frozen_file_count": 133,
+  "frozen_files_changed_since_freeze": {},
+  "public_commitment_discharged": true,
+  "remote": "https://github.com/Sukhmangill977/gc-ir-reference.git",
+  "remote_tag_commit": "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e",
+  "remote_tag_matches_freeze_commit": true,
+  "results_commits": [
+    "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e"
+  ],
+  "tag_pushed_to_remote": true,
+  "verified": true
+}

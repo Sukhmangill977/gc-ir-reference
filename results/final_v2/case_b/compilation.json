@@ -1,0 +1,58 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e",
+    "git_commit_short": "c44f25d",
+    "git_describe": "preregister-tier0-v2.2",
+    "git_status_clean": false,
+    "git_tag_exact": "preregister-tier0-v2.2",
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-08T18:01:57Z",
+    "system": "Darwin"
+  },
+  "phase": "final_v2",
+  "phase_note": "FINAL v2 reportable campaign result, produced AFTER the publicly pushed preregistration freeze preregister-tier0-v2.",
+  "result": {
+    "case_class": "forensic_reconstruction",
+    "case_id": "case_b",
+    "compile_time_declared": "2026-02-02T09:00:00Z",
+    "declared_heatmap_threshold": 15,
+    "output_dir": "results/final_v2/case_b",
+    "payload_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+    "schema_validation": {
+      "bundle": "pass",
+      "gcir_records": "pass",
+      "record_count": 15
+    },
+    "signature_envelope": {
+      "algorithm": "Ed25519",
+      "domain": "bundle",
+      "key_id": "key.governance_forum_b",
+      "payload_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+      "signature_b64": "ik97xwP9urLDQdK65BjniWBOt/K9cG1xErr5lCZYbxivnJw6PXnTFnEhXsd2Z4Z4OLHIghvIEkHFzhpN0gEJCw==",
+      "signing_time": "2026-02-02T09:05:00Z"
+    },
+    "statistics": {
+      "acs_count": 6,
+      "compiler_invariant_predicate_count": 3,
+      "cstar_risk_count": 4,
+      "mandatory_gate_count": 9,
+      "obligation_count": 6,
+      "predicate_count": 9,
+      "risk_count": 6,
+      "risk_derived_predicate_count": 6,
+      "warning_count": 0
+    },
+    "warnings": []
+  },
+  "result_name": "case_b/compilation"
+}

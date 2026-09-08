@@ -1,0 +1,1486 @@
+{
+  "dispositions": [
+    {
+      "acs_ids": [
+        "ACS-0001-01"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-01"
+    },
+    {
+      "acs_ids": [
+        "ACS-0002-01"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-02"
+    },
+    {
+      "acs_ids": [
+        "ACS-0003-01"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-03"
+    },
+    {
+      "acs_ids": [
+        "ACS-0004-01",
+        "ACS-0004-02"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-04"
+    },
+    {
+      "acs_ids": [
+        "ACS-0005-01"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-05"
+    },
+    {
+      "acs_ids": [
+        "ACS-0006-01"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-06"
+    },
+    {
+      "acs_ids": [
+        "ACS-0007-01",
+        "ACS-0007-02"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-07"
+    },
+    {
+      "acs_ids": [
+        "ACS-0008-01"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-08"
+    },
+    {
+      "acs_ids": [
+        "ACS-0009-01",
+        "ACS-0009-02"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-09"
+    },
+    {
+      "acs_ids": [
+        "ACS-0010-01"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-10"
+    },
+    {
+      "acs_ids": [
+        "ACS-0011-01"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-11"
+    },
+    {
+      "acs_ids": [
+        "ACS-0012-01"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-12"
+    },
+    {
+      "acs_ids": [
+        "ACS-0013-01"
+      ],
+      "record_type": "RuntimeDisposition",
+      "risk_id": "R-13"
+    },
+    {
+      "approval": {
+        "approval_time": "2026-01-20T14:00:00Z",
+        "approver": "forum.chair_l_tremblay",
+        "forum": "ai_governance_forum"
+      },
+      "control_ref": "CTL-A-RESILIENCE-01 (multi-vendor clause; annual resilience testing; OSFI B-10 alignment)",
+      "owner": "technology.applied_ai_platform",
+      "reason_code": "RC-01",
+      "record_type": "NonRuntimeDisposition",
+      "risk_id": "R-14",
+      "routed_to_control_family": "architectural_and_contractual"
+    },
+    {
+      "approval": {
+        "approval_time": "2026-01-20T14:00:00Z",
+        "approver": "forum.chair_l_tremblay",
+        "forum": "ai_governance_forum"
+      },
+      "control_ref": "CTL-A-TONE-01 (editorial review workflow under the style guide)",
+      "owner": "business.research_operations",
+      "reason_code": "RC-03",
+      "record_type": "NonRuntimeDisposition",
+      "risk_id": "R-15",
+      "routed_to_control_family": "human_process"
+    },
+    {
+      "approval": {
+        "approval_time": "2026-01-20T14:00:00Z",
+        "approver": "forum.chair_l_tremblay",
+        "forum": "ai_governance_forum"
+      },
+      "control_ref": "CTL-A-VENDOR-01 (source-code escrow; exit and transition clause)",
+      "owner": "procurement.third_party_risk",
+      "reason_code": "RC-01",
+      "record_type": "NonRuntimeDisposition",
+      "risk_id": "R-16",
+      "routed_to_control_family": "contractual"
+    }
+  ],
+  "predicates": [
+    {
+      "acs_id": "ACS-0001-01",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 0,
+      "catalog_ref": {
+        "event_type": "output_schema_claim_resolution",
+        "template_id": "T-CLAIM-RESOLVE"
+      },
+      "context_conditions": [
+        {
+          "attribute": "unresolved_claim_objects_present",
+          "condition_index": 0,
+          "evidence_producer": "brief_schema_validator_v2",
+          "evidence_schema_ref": "ES-CLAIM-RESOLUTION",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": false
+        }
+      ],
+      "decision_semantics": "PERMIT requires that the set of unresolved typed claim objects is empty; indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "research_supervision_desk",
+        "sla_hours": 4
+      },
+      "evaluation_basis": "structural_check",
+      "evidence_producer": "brief_schema_validator_v2",
+      "evidence_requirement": [
+        "artifact_signature",
+        "claim_count",
+        "draft_hash",
+        "unresolved_claim_ids"
+      ],
+      "evidence_schema_ref": "ES-CLAIM-RESOLUTION",
+      "evidence_semantics": "A signed schema-validation artifact enumerating every typed claim object in the draft and the subset whose source-hash slot is empty or unresolvable against the approved library.",
+      "gate_source": "OTHER_MANDATORY",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0001",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-01",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-SOURCING",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "INT-RES-QA",
+          "OSFI-E23-MRM"
+        ],
+        "risk_id": "R-01"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes that every claim REPRESENTED AS A TYPED CLAIM OBJECT resolves to an approved source. It does NOT establish that untyped prose contains no factual assertion -- identifying that would require probabilistic judgment (RC-03) and is routed to the evidence-production layer and to R-12 monitoring."
+    },
+    {
+      "acs_id": "ACS-0002-01",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 0,
+      "catalog_ref": {
+        "event_type": "citation_membership",
+        "template_id": "T-CITE-SUBSET"
+      },
+      "context_conditions": [
+        {
+          "attribute": "citations_within_manifest",
+          "condition_index": 0,
+          "evidence_producer": "library_manifest_service_v4",
+          "evidence_schema_ref": "ES-CITATION-SET",
+          "on_unknown": "fail",
+          "operator": "subset_of",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires the cited source-hash set to be a subset of the approved library manifest; indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "research_supervision_desk",
+        "sla_hours": 4
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "evidence_producer": "library_manifest_service_v4",
+      "evidence_requirement": [
+        "artifact_signature",
+        "cited_source_hashes",
+        "draft_hash",
+        "manifest_version"
+      ],
+      "evidence_schema_ref": "ES-CITATION-SET",
+      "evidence_semantics": "A signed manifest-membership artifact listing every cited source hash and whether each is a member of the approved library manifest at the stated manifest version.",
+      "gate_source": "OTHER_MANDATORY",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0002",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-02",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-SOURCING",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "INT-RES-QA"
+        ],
+        "risk_id": "R-02"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes membership in the approved library. It does not establish that a cited source supports the claim it is attached to."
+    },
+    {
+      "acs_id": "ACS-0003-01",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 0,
+      "catalog_ref": {
+        "event_type": "source_freshness",
+        "template_id": "T-FRESHNESS"
+      },
+      "context_conditions": [
+        {
+          "attribute": "max_source_age_hours",
+          "condition_index": 0,
+          "evidence_producer": "library_manifest_service_v4",
+          "evidence_schema_ref": "ES-SOURCE-AGE",
+          "on_unknown": "fail",
+          "operator": "<=",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": "TC-FRESHNESS-EQUITY",
+          "unit": "hours",
+          "value": 2160
+        }
+      ],
+      "decision_semantics": "PERMIT requires max_source_age_hours <= the approved bound under threshold contract TC-FRESHNESS-EQUITY; indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "research_supervision_desk",
+        "sla_hours": 4
+      },
+      "evaluation_basis": "threshold_on_measured_value",
+      "evidence_producer": "library_manifest_service_v4",
+      "evidence_requirement": [
+        "artifact_signature",
+        "asset_class",
+        "draft_hash",
+        "max_source_age_hours"
+      ],
+      "evidence_schema_ref": "ES-SOURCE-AGE",
+      "evidence_semantics": "A signed source-age artifact reporting the maximum age in hours, at authorization time, of any source cited by the draft, together with the asset class that selects the bound.",
+      "gate_source": "OTHER_MANDATORY",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0003",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-03",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-SOURCING",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "INT-RES-QA"
+        ],
+        "risk_id": "R-03"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes that no cited source exceeds the approved age bound. It does not establish that the underlying facts have not changed within the bound."
+    },
+    {
+      "acs_id": "ACS-0004-01",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "aggregation": {
+        "aggregation_group": "AG-EDITORIAL-BALANCE",
+        "deficit_function": "max(0, (skew_index - 0.6) / 0.4)",
+        "group_threshold": 0.5,
+        "response": "WARN",
+        "weight": 0.7
+      },
+      "c_star": 0,
+      "catalog_ref": {
+        "event_type": "coverage_skew",
+        "template_id": "T-SKEW"
+      },
+      "context_conditions": [
+        {
+          "attribute": "coverage_skew_index",
+          "condition_index": 0,
+          "evidence_producer": "editorial_metrics_service_v1",
+          "evidence_schema_ref": "ES-COVERAGE-SKEW",
+          "on_unknown": "warn",
+          "operator": "<=",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": "TC-COVERAGE-SKEW",
+          "unit": "dimensionless ratio in [0, 1]",
+          "value": 0.6
+        }
+      ],
+      "decision_semantics": "The condition contributes a normalized deficit to the editorial-balance aggregation group; the group's threshold test enters the mandatory aggregate as a single dimension. It never overrides a mandatory result.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "research_editorial_desk",
+        "sla_hours": 24
+      },
+      "evaluation_basis": "threshold_on_measured_value",
+      "evidence_producer": "editorial_metrics_service_v1",
+      "evidence_requirement": [
+        "artifact_signature",
+        "draft_hash",
+        "issuer_id",
+        "skew_index"
+      ],
+      "evidence_schema_ref": "ES-COVERAGE-SKEW",
+      "evidence_semantics": "A signed editorial-metrics artifact reporting the coverage-skew index computed from directional tags assigned at library intake, not by the drafting model.",
+      "gate_source": "SOFT",
+      "gate_type": "weighted",
+      "gcir_id": "GCIR-0004",
+      "mandatory_role": "supporting",
+      "on_fail": "WARN",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-04",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-BALANCE",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "INT-RES-QA"
+        ],
+        "risk_id": "R-04"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes that measured directional imbalance is within the approved bound. It does not establish that the brief is balanced in any editorial or legal sense."
+    },
+    {
+      "acs_id": "ACS-0004-02",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 0,
+      "catalog_ref": {
+        "event_type": "advisory_framing_flag",
+        "template_id": "T-FRAMING-ADVISORY"
+      },
+      "context_conditions": [
+        {
+          "attribute": "framing_flags_absent",
+          "condition_index": 0,
+          "evidence_producer": "editorial_metrics_service_v1",
+          "evidence_schema_ref": "ES-FRAMING-FLAGS",
+          "on_unknown": "warn",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "An advisory result surfaced to the editorial desk. It never overrides a mandatory result and never blocks distribution.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "research_editorial_desk",
+        "sla_hours": 24
+      },
+      "evaluation_basis": "structural_check",
+      "evidence_producer": "editorial_metrics_service_v1",
+      "evidence_requirement": [
+        "artifact_signature",
+        "draft_hash",
+        "flagged_section_ids"
+      ],
+      "evidence_schema_ref": "ES-FRAMING-FLAGS",
+      "evidence_semantics": "A signed artifact listing brief sections flagged by the approved structural framing rules (for example, a conclusion section citing only one directional tag).",
+      "gate_source": "SOFT",
+      "gate_type": "advisory",
+      "gcir_id": "GCIR-0005",
+      "mandatory_role": "supporting",
+      "on_fail": "WARN",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-04",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-BALANCE",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "INT-RES-QA"
+        ],
+        "risk_id": "R-04"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes that no approved structural framing rule fired. It does not establish absence of bias."
+    },
+    {
+      "acs_id": "ACS-0005-01",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 1,
+      "catalog_ref": {
+        "event_type": "restricted_list_screening",
+        "template_id": "T-RESTRICTED"
+      },
+      "context_conditions": [
+        {
+          "attribute": "restricted_list_match",
+          "condition_index": 0,
+          "evidence_producer": "entity_resolution_service_v3",
+          "evidence_schema_ref": "ES-RESTRICTED-MATCH",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": false
+        }
+      ],
+      "decision_semantics": "PERMIT requires restricted_list_match == false. Missing, stale or schema-invalid evidence is indeterminacy and fails; escalation is raised on failure.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "compliance_information_barrier_desk",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "evidence_producer": "entity_resolution_service_v3",
+      "evidence_requirement": [
+        "artifact_signature",
+        "draft_hash",
+        "match_count",
+        "restricted_list_version"
+      ],
+      "evidence_schema_ref": "ES-RESTRICTED-MATCH",
+      "evidence_semantics": "A SIGNED entity-resolution artifact reporting whether any entity in the retrieval context or the generated brief matches the restricted list at a stated list version.",
+      "gate_source": "C_STAR",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0006",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-05",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-INFOBARRIER",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "PIPEDA-PRIV",
+          "SEC-BAR-INT"
+        ],
+        "risk_id": "R-05"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes that the signed entity-resolution artifact reports no match. It does NOT establish that the upstream entity resolver is perfectly accurate, nor that no material non-public information reached the context by a path the resolver does not observe."
+    },
+    {
+      "acs_id": "ACS-0006-01",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 1,
+      "catalog_ref": {
+        "event_type": "disclosure_completeness",
+        "template_id": "T-DISCLOSURE"
+      },
+      "context_conditions": [
+        {
+          "attribute": "disclosure_checklist_complete",
+          "condition_index": 0,
+          "evidence_producer": "disclosure_checklist_service_v2",
+          "evidence_schema_ref": "ES-DISCLOSURE",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires every required checklist item to be populated; indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "compliance_research_supervision",
+        "sla_hours": 2
+      },
+      "evaluation_basis": "structural_check",
+      "evidence_producer": "disclosure_checklist_service_v2",
+      "evidence_requirement": [
+        "artifact_signature",
+        "checklist_id",
+        "draft_hash",
+        "missing_item_ids"
+      ],
+      "evidence_schema_ref": "ES-DISCLOSURE",
+      "evidence_semantics": "A signed checklist artifact enumerating every disclosure item CIRO s. 3608 requires for this brief and which of them are populated.",
+      "gate_source": "C_STAR",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0007",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-06",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-DISCLOSURE",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "CIRO-3608-DISC"
+        ],
+        "risk_id": "R-06"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes structural completeness of the disclosure checklist. It does not establish that a populated disclosure is accurate or adequate as a matter of law."
+    },
+    {
+      "acs_id": "ACS-0007-01",
+      "action": "retrieve_document",
+      "action_parameters": {
+        "query_id": "QUERY-BOUND"
+      },
+      "c_star": 0,
+      "catalog_ref": {
+        "event_type": "retrieval_provenance",
+        "template_id": "T-PROVENANCE"
+      },
+      "context_conditions": [
+        {
+          "attribute": "all_documents_provenance_verified",
+          "condition_index": 0,
+          "evidence_producer": "library_manifest_service_v4",
+          "evidence_schema_ref": "ES-PROVENANCE",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires every retrieved document to verify; indeterminate or absent evidence fails.",
+      "destination": "agent_context",
+      "escalation": {
+        "route": "security_operations",
+        "sla_hours": 2
+      },
+      "evaluation_basis": "structural_check",
+      "evidence_producer": "library_manifest_service_v4",
+      "evidence_requirement": [
+        "artifact_signature",
+        "document_hashes",
+        "query_id",
+        "unverified_document_hashes"
+      ],
+      "evidence_schema_ref": "ES-PROVENANCE",
+      "evidence_semantics": "A signed provenance artifact listing each retrieved document hash and whether its ingestion signature and structural form verify.",
+      "gate_source": "OTHER_MANDATORY",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0008",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-07",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-RETRIEVE",
+      "policy_id": "POL-A-SECURITY",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "OSFI-B13-TECH"
+        ],
+        "risk_id": "R-07"
+      },
+      "resource": "research_library",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes that retrieved documents carry verified provenance. It does not establish that a verified document contains no adversarial content."
+    },
+    {
+      "acs_id": "ACS-0007-02",
+      "action": "invoke_tool",
+      "action_parameters": {
+        "invocation_class": "read_only",
+        "tool_id": "TOOL-BOUND"
+      },
+      "c_star": 0,
+      "catalog_ref": {
+        "event_type": "tool_call_origin",
+        "template_id": "T-TOOL-ORIGIN"
+      },
+      "context_conditions": [
+        {
+          "attribute": "tool_call_originates_outside_retrieved_content",
+          "condition_index": 0,
+          "evidence_producer": "tool_gateway_v2",
+          "evidence_schema_ref": "ES-TOOL-ORIGIN",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires the invocation to originate outside retrieved content; indeterminate or absent evidence fails.",
+      "destination": "tool_gateway",
+      "escalation": {
+        "route": "security_operations",
+        "sla_hours": 2
+      },
+      "evaluation_basis": "structural_check",
+      "evidence_producer": "tool_gateway_v2",
+      "evidence_requirement": [
+        "artifact_signature",
+        "originating_span_class",
+        "tool_id"
+      ],
+      "evidence_schema_ref": "ES-TOOL-ORIGIN",
+      "evidence_semantics": "A signed gateway artifact recording the span class (system prompt, user turn, or retrieved document) from which each tool invocation originated.",
+      "gate_source": "OTHER_MANDATORY",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0009",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-07",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-INVOKE-TOOL",
+      "policy_id": "POL-A-SECURITY",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "OSFI-B13-TECH"
+        ],
+        "risk_id": "R-07"
+      },
+      "resource": "external_tool",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes the structural origin of the invocation. It does not establish that a legitimately originated invocation is safe."
+    },
+    {
+      "acs_id": "ACS-0008-01",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 1,
+      "catalog_ref": {
+        "event_type": "approval_token_binding",
+        "template_id": "T-APPROVAL"
+      },
+      "context_conditions": [
+        {
+          "attribute": "approval_token_bound_and_valid",
+          "condition_index": 0,
+          "evidence_producer": "approval_service_v3",
+          "evidence_schema_ref": "ES-APPROVAL-TOKEN",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires a valid, unexpired approval token cryptographically bound to the draft hash under evaluation; indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "research_supervision_desk",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "human_attestation",
+      "evidence_producer": "approval_service_v3",
+      "evidence_requirement": [
+        "approver_id",
+        "draft_hash",
+        "token_id",
+        "token_signature"
+      ],
+      "evidence_schema_ref": "ES-APPROVAL-TOKEN",
+      "evidence_semantics": "A signed supervisory approval token whose payload binds the approver identity to this draft hash.",
+      "gate_source": "C_STAR",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0010",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-08",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-SUPERVISION",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "CIRO-3616-SUP"
+        ],
+        "risk_id": "R-08"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes the presence and validity of the signed attestation artifact. It does NOT establish that the review behind the artifact was substantive -- that is monitored separately and deterministically by R-12."
+    },
+    {
+      "acs_id": "ACS-0009-01",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 1,
+      "catalog_ref": {
+        "event_type": "output_field_class_absence",
+        "template_id": "T-FIELD-ABSENT"
+      },
+      "context_conditions": [
+        {
+          "attribute": "recommendation_class_fields_absent",
+          "condition_index": 0,
+          "evidence_producer": "brief_schema_validator_v2",
+          "evidence_schema_ref": "ES-FIELD-CLASS",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires every recommendation-class field slot to be unpopulated; indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "compliance_research_supervision",
+        "sla_hours": 2
+      },
+      "evaluation_basis": "structural_check",
+      "evidence_producer": "brief_schema_validator_v2",
+      "evidence_requirement": [
+        "artifact_signature",
+        "draft_hash",
+        "present_field_classes"
+      ],
+      "evidence_schema_ref": "ES-FIELD-CLASS",
+      "evidence_semantics": "A signed schema-validation artifact enumerating which output field classes are populated in the draft, including the rating, price-target and action-language slots.",
+      "gate_source": "C_STAR",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0011",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-09",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-RECOMMENDATION",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "CIRO-3622-REC"
+        ],
+        "risk_id": "R-09"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes that no recommendation-class FIELD is populated. It does not establish that free prose could not be read as a recommendation -- that residual is a human-factors exposure routed to R-12 monitoring."
+    },
+    {
+      "acs_id": "ACS-0009-02",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 1,
+      "catalog_ref": {
+        "event_type": "disclaimer_presence",
+        "template_id": "T-DISCLAIMER"
+      },
+      "context_conditions": [
+        {
+          "attribute": "reliance_disclaimer_present",
+          "condition_index": 0,
+          "evidence_producer": "brief_schema_validator_v2",
+          "evidence_schema_ref": "ES-DISCLAIMER",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires the disclaimer slot to be populated with the approved text hash; indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "compliance_research_supervision",
+        "sla_hours": 2
+      },
+      "evaluation_basis": "structural_check",
+      "evidence_producer": "brief_schema_validator_v2",
+      "evidence_requirement": [
+        "disclaimer_slot_populated",
+        "disclaimer_text_hash",
+        "draft_hash"
+      ],
+      "evidence_schema_ref": "ES-DISCLAIMER",
+      "evidence_semantics": "A signed schema-validation artifact reporting whether the mandatory reliance-disclaimer slot is populated with the approved text, identified by hash.",
+      "gate_source": "C_STAR",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0012",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-09",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-RECOMMENDATION",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "CIRO-3622-REC"
+        ],
+        "risk_id": "R-09"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes structural presence of the approved disclaimer. It does not establish that a reader will act on it."
+    },
+    {
+      "acs_id": "ACS-0010-01",
+      "action": "invoke_tool",
+      "action_parameters": {
+        "invocation_class": "read_only",
+        "tool_id": "TOOL-BOUND"
+      },
+      "c_star": 1,
+      "catalog_ref": {
+        "event_type": "tool_target_authorization",
+        "template_id": "T-TOOL-TARGET"
+      },
+      "context_conditions": [
+        {
+          "attribute": "tool_target_in_approved_manifest",
+          "condition_index": 0,
+          "evidence_producer": "tool_gateway_v2",
+          "evidence_schema_ref": "ES-TOOL-TARGET",
+          "on_unknown": "fail",
+          "operator": "in",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires the resolved target endpoint to be a member of the approved manifest; indeterminate or absent evidence fails. An order-system call is therefore structurally unpermittable.",
+      "destination": "tool_gateway",
+      "escalation": {
+        "route": "security_operations",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "evidence_producer": "tool_gateway_v2",
+      "evidence_requirement": [
+        "artifact_signature",
+        "manifest_version",
+        "target_endpoint",
+        "tool_id"
+      ],
+      "evidence_schema_ref": "ES-TOOL-TARGET",
+      "evidence_semantics": "A signed gateway artifact recording the resolved target endpoint of each tool invocation and its membership in the approved read-only tool manifest. No order-management endpoint is a member of that manifest.",
+      "gate_source": "C_STAR",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0013",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-10",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-INVOKE-TOOL",
+      "policy_id": "POL-A-TOOLING",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "INT-NO-TRADE-CONN"
+        ],
+        "risk_id": "R-10"
+      },
+      "resource": "external_tool",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes that the invocation resolves to an approved read-only endpoint. It does not establish that the endpoint behaves as its manifest entry describes."
+    },
+    {
+      "acs_id": "ACS-0011-01",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 0,
+      "catalog_ref": {
+        "event_type": "version_fingerprint_match",
+        "template_id": "T-VERSION"
+      },
+      "context_conditions": [
+        {
+          "attribute": "runtime_fingerprint",
+          "condition_index": 0,
+          "evidence_producer": "deployment_attestation_service_v1",
+          "evidence_schema_ref": "ES-VERSION-FINGERPRINT",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": "sha256:8f3a1d5c2e0b47a9c6d18e4f7b2a09c35de6178b4a0c9f2e1d7b3865a4c0e9f1"
+        }
+      ],
+      "decision_semantics": "PERMIT requires the runtime fingerprint to equal M.version_binding.fingerprint; indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "technology_change_management",
+        "sla_hours": 2
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "evidence_producer": "deployment_attestation_service_v1",
+      "evidence_requirement": [
+        "artifact_signature",
+        "dataset_version",
+        "fingerprint",
+        "model_version",
+        "policy_version",
+        "prompt_version"
+      ],
+      "evidence_schema_ref": "ES-VERSION-FINGERPRINT",
+      "evidence_semantics": "A signed deployment attestation reporting the model, prompt, dataset and policy versions actually loaded at authorization time, and their combined fingerprint.",
+      "gate_source": "OTHER_MANDATORY",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0014",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-11",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-VERSION",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "OSFI-B13-TECH",
+          "OSFI-E23-MRM"
+        ],
+        "risk_id": "R-11"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes that the running configuration is the assessed configuration. It coincides with compiler invariant INV-VERSION, which Phi emits for every bundle regardless; origin metadata keeps the two authorizations distinct. The register row attaches the governance apparatus -- owner, rating, treatment, escalation -- to the invariant."
+    },
+    {
+      "acs_id": "ACS-0012-01",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 0,
+      "catalog_ref": {
+        "event_type": "review_telemetry_band",
+        "template_id": "T-REVIEW-BAND"
+      },
+      "context_conditions": [
+        {
+          "attribute": "review_dwell_seconds",
+          "condition_index": 0,
+          "evidence_producer": "review_telemetry_service_v1",
+          "evidence_schema_ref": "ES-REVIEW-TELEMETRY",
+          "on_unknown": "warn",
+          "operator": ">=",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": "TC-REVIEW-DWELL",
+          "unit": "seconds",
+          "value": 180
+        }
+      ],
+      "decision_semantics": "An advisory monitoring result routed to supervisory review. It never blocks distribution and never overrides a mandatory result.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "compliance_research_supervision",
+        "sla_hours": 48
+      },
+      "evaluation_basis": "threshold_on_measured_value",
+      "evidence_producer": "review_telemetry_service_v1",
+      "evidence_requirement": [
+        "artifact_signature",
+        "draft_hash",
+        "dwell_seconds",
+        "reviewer_id",
+        "reviews_in_window"
+      ],
+      "evidence_schema_ref": "ES-REVIEW-TELEMETRY",
+      "evidence_semantics": "A signed telemetry artifact reporting active reviewer dwell time on this draft and the reviewer's review volume in the preceding window.",
+      "gate_source": "SOFT",
+      "gate_type": "advisory",
+      "gcir_id": "GCIR-0015",
+      "mandatory_role": "supporting",
+      "on_fail": "WARN",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-12",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-SUPERVISION",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "CIRO-3616-SUP"
+        ],
+        "risk_id": "R-12"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes a deterministic PROXY for substantive review. It does not establish that the review was substantive; it establishes only that dwell and volume are inside the approved band."
+    },
+    {
+      "acs_id": "ACS-0013-01",
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 1,
+      "catalog_ref": {
+        "event_type": "receipt_chain_completeness",
+        "template_id": "T-RECEIPT-CHAIN"
+      },
+      "context_conditions": [
+        {
+          "attribute": "receipt_committed_and_chained",
+          "condition_index": 0,
+          "evidence_producer": "evidence_chain_service_v2",
+          "evidence_schema_ref": "ES-RECEIPT-CHAIN",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires authorization_time <= evidence_commit_time and a verified chain link, evaluated before actuation; indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "compliance_records_desk",
+        "sla_hours": 2
+      },
+      "evaluation_basis": "structural_check",
+      "evidence_producer": "evidence_chain_service_v2",
+      "evidence_requirement": [
+        "authorization_time",
+        "chain_prev_hash",
+        "evidence_commit_time",
+        "receipt_id"
+      ],
+      "evidence_schema_ref": "ES-RECEIPT-CHAIN",
+      "evidence_semantics": "A signed evidence-chain artifact reporting that the decision receipt for this authorization was committed after the authorization decision and chained to its predecessor before release.",
+      "gate_source": "C_STAR",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-0016",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "forum.chair_l_tremblay",
+        "origin_id": "R-13",
+        "origin_type": "risk_derived"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "policy_id": "POL-A-EVIDENCE",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "obligation_ids": [
+          "CIRO-3616-SUP",
+          "INT-EVID-CHAIN"
+        ],
+        "risk_id": "R-13"
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes that the receipt exists, is ordered correctly and is chained. It coincides with compiler invariant INV-EVIDENCE-COMMIT; origin metadata keeps the two authorizations distinct. It does not establish that the receipt's content is true."
+    },
+    {
+      "acs_id": null,
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 0,
+      "catalog_ref": null,
+      "context_conditions": [
+        {
+          "attribute": "action_tuple_within_approved_matrix",
+          "condition_index": 0,
+          "evidence_producer": "authority_matrix_service_v1",
+          "evidence_schema_ref": "ES-AUTHORITY-CLOSURE",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires the proposed tuple and parameters to resolve exactly to an approved matrix row. Indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "governance_forum_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "evidence_producer": "authority_matrix_service_v1",
+      "evidence_requirement": [
+        "action",
+        "artifact_signature",
+        "destination",
+        "matrix_version",
+        "resource",
+        "subject"
+      ],
+      "evidence_schema_ref": "ES-AUTHORITY-CLOSURE",
+      "evidence_semantics": "A signed lookup artifact reporting whether the proposed action tuple and its bound parameters are present in the approved authority matrix at the stated matrix version.",
+      "gate_source": "OTHER_MANDATORY",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "ai_governance_forum",
+        "origin_id": "INV-AUTHORITY-CLOSURE",
+        "origin_type": "compiler_invariant"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "internal_requirement_id": "INV-AUTHORITY-CLOSURE",
+        "obligation_ids": [],
+        "risk_id": null
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes closure of the proposed action against the approved matrix. It does not establish that the matrix itself is correctly scoped -- that is a governance judgment recorded in S."
+    },
+    {
+      "acs_id": null,
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 0,
+      "catalog_ref": null,
+      "context_conditions": [
+        {
+          "attribute": "receipt_committed_between_authorization_and_actuation",
+          "condition_index": 0,
+          "evidence_producer": "evidence_chain_service_v2",
+          "evidence_schema_ref": "ES-RECEIPT-CHAIN",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires authorization_time <= evidence_commit_time < actuation_time, with the receipt chained to its predecessor.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "compliance_records_desk",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "evidence_producer": "evidence_chain_service_v2",
+      "evidence_requirement": [
+        "authorization_time",
+        "chain_prev_hash",
+        "evidence_commit_time",
+        "receipt_id"
+      ],
+      "evidence_schema_ref": "ES-RECEIPT-CHAIN",
+      "evidence_semantics": "A signed evidence-chain artifact carrying the authorization, commit and actuation instants for this decision.",
+      "gate_source": "OTHER_MANDATORY",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "ai_governance_forum",
+        "origin_id": "INV-EVIDENCE-COMMIT",
+        "origin_type": "compiler_invariant"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "internal_requirement_id": "INV-EVIDENCE-COMMIT",
+        "obligation_ids": [],
+        "risk_id": null
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes the temporal ordering and chaining of the evidence record. It does not establish the truth of the receipt's content, nor that the trusted time source is honest."
+    },
+    {
+      "acs_id": null,
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "c_star": 0,
+      "catalog_ref": null,
+      "context_conditions": [
+        {
+          "attribute": "runtime_fingerprint",
+          "condition_index": 0,
+          "evidence_producer": "deployment_attestation_service_v1",
+          "evidence_schema_ref": "ES-VERSION-FINGERPRINT",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": "sha256:8f3a1d5c2e0b47a9c6d18e4f7b2a09c35de6178b4a0c9f2e1d7b3865a4c0e9f1"
+        }
+      ],
+      "decision_semantics": "PERMIT requires the runtime fingerprint to equal M.version_binding.fingerprint. Indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "escalation": {
+        "route": "technology_change_management",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "evidence_producer": "deployment_attestation_service_v1",
+      "evidence_requirement": [
+        "artifact_signature",
+        "dataset_version",
+        "fingerprint",
+        "model_version",
+        "policy_version",
+        "prompt_version"
+      ],
+      "evidence_schema_ref": "ES-VERSION-FINGERPRINT",
+      "evidence_semantics": "A signed deployment attestation reporting the configuration actually loaded at authorization time.",
+      "gate_source": "OTHER_MANDATORY",
+      "gate_type": "mandatory",
+      "gcir_id": "GCIR-INV-VERSION",
+      "mandatory_role": "decisive",
+      "on_fail": "SAFE_STATE",
+      "origin": {
+        "authorized_by": "ai_governance_forum",
+        "origin_id": "INV-VERSION",
+        "origin_type": "compiler_invariant"
+      },
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "record_type": "CompiledPredicate",
+      "requirement_ref": {
+        "internal_requirement_id": "INV-VERSION",
+        "obligation_ids": [],
+        "risk_id": null
+      },
+      "resource": "research_report",
+      "schema_version": "1.0",
+      "subject": "research_agent",
+      "validity": {
+        "effective_from": "2026-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes that the running configuration is the assessed configuration. It does not establish that the assessed configuration is safe. This is the per-action form of the version-drift argument: no action is authorized under a configuration the assessment never covered."
+    }
+  ]
+}

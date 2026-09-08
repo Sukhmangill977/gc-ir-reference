@@ -1,0 +1,267 @@
+{
+  "c_star_coverage": [
+    {
+      "c_star": 1,
+      "covered": true,
+      "paths": [
+        {
+          "action_path": {
+            "action": "release_payment",
+            "destination": "payment_rail",
+            "resource": "payment_instruction",
+            "subject": "transaction_agent"
+          },
+          "covered": true,
+          "covering_predicates": [
+            "GCIR-B0001"
+          ]
+        }
+      ],
+      "risk_id": "B-01"
+    },
+    {
+      "c_star": 1,
+      "covered": true,
+      "paths": [
+        {
+          "action_path": {
+            "action": "release_payment",
+            "destination": "payment_rail",
+            "resource": "payment_instruction",
+            "subject": "transaction_agent"
+          },
+          "covered": true,
+          "covering_predicates": [
+            "GCIR-B0004"
+          ]
+        }
+      ],
+      "risk_id": "B-04"
+    },
+    {
+      "c_star": 1,
+      "covered": true,
+      "paths": [
+        {
+          "action_path": {
+            "action": "release_payment",
+            "destination": "payment_rail",
+            "resource": "payment_instruction",
+            "subject": "transaction_agent"
+          },
+          "covered": true,
+          "covering_predicates": [
+            "GCIR-B0005"
+          ]
+        }
+      ],
+      "risk_id": "B-05"
+    },
+    {
+      "c_star": 1,
+      "covered": true,
+      "paths": [
+        {
+          "action_path": {
+            "action": "release_payment",
+            "destination": "payment_rail",
+            "resource": "payment_instruction",
+            "subject": "transaction_agent"
+          },
+          "covered": true,
+          "covering_predicates": [
+            "GCIR-B0006"
+          ]
+        }
+      ],
+      "risk_id": "B-06"
+    }
+  ],
+  "obligations": [
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "INT-EVID-CHAIN-B",
+      "predicate_ids": [
+        "GCIR-B0006"
+      ],
+      "requirement_class": "internal",
+      "risk_ids": [
+        "B-06"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "INT-PAY-LIMIT",
+      "predicate_ids": [
+        "GCIR-B0002",
+        "GCIR-B0003"
+      ],
+      "requirement_class": "internal",
+      "risk_ids": [
+        "B-02",
+        "B-03"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "INT-PERMIT-BIND",
+      "predicate_ids": [
+        "GCIR-B0001",
+        "GCIR-B0005"
+      ],
+      "requirement_class": "internal",
+      "risk_ids": [
+        "B-01",
+        "B-05"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "OSFI-E21-ORR-B",
+      "predicate_ids": [
+        "GCIR-B0003"
+      ],
+      "requirement_class": "supervisory",
+      "risk_ids": [
+        "B-03"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "PCMLTFA-REPORT",
+      "predicate_ids": [
+        "GCIR-B0004",
+        "GCIR-B0006"
+      ],
+      "requirement_class": "statutory",
+      "risk_ids": [
+        "B-04",
+        "B-06"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "SEMA-SANCTIONS",
+      "predicate_ids": [
+        "GCIR-B0004"
+      ],
+      "requirement_class": "statutory",
+      "risk_ids": [
+        "B-04"
+      ]
+    }
+  ],
+  "risks": [
+    {
+      "acs_ids": [
+        "ACS-B01-01"
+      ],
+      "c_star": 1,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "INT-PERMIT-BIND"
+      ],
+      "predicate_ids": [
+        "GCIR-B0001"
+      ],
+      "reason_code": null,
+      "risk_id": "B-01"
+    },
+    {
+      "acs_ids": [
+        "ACS-B02-01"
+      ],
+      "c_star": 0,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "INT-PAY-LIMIT"
+      ],
+      "predicate_ids": [
+        "GCIR-B0002"
+      ],
+      "reason_code": null,
+      "risk_id": "B-02"
+    },
+    {
+      "acs_ids": [
+        "ACS-B03-01"
+      ],
+      "c_star": 0,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "INT-PAY-LIMIT",
+        "OSFI-E21-ORR-B"
+      ],
+      "predicate_ids": [
+        "GCIR-B0003"
+      ],
+      "reason_code": null,
+      "risk_id": "B-03"
+    },
+    {
+      "acs_ids": [
+        "ACS-B04-01"
+      ],
+      "c_star": 1,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "PCMLTFA-REPORT",
+        "SEMA-SANCTIONS"
+      ],
+      "predicate_ids": [
+        "GCIR-B0004"
+      ],
+      "reason_code": null,
+      "risk_id": "B-04"
+    },
+    {
+      "acs_ids": [
+        "ACS-B05-01"
+      ],
+      "c_star": 1,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "INT-PERMIT-BIND"
+      ],
+      "predicate_ids": [
+        "GCIR-B0005"
+      ],
+      "reason_code": null,
+      "risk_id": "B-05"
+    },
+    {
+      "acs_ids": [
+        "ACS-B06-01"
+      ],
+      "c_star": 1,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "INT-EVID-CHAIN-B",
+        "PCMLTFA-REPORT"
+      ],
+      "predicate_ids": [
+        "GCIR-B0006"
+      ],
+      "reason_code": null,
+      "risk_id": "B-06"
+    }
+  ]
+}

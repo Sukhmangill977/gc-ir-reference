@@ -1,0 +1,358 @@
+{
+  "campaign": "final_v2",
+  "case_b_ldrea_traceability": {
+    "by_correspondence": {
+      "exact": 4,
+      "family": 3,
+      "not_established": 2
+    },
+    "external_commit": "40fa8f046ad3c6632c66df46abe5500e5dd05696",
+    "external_repository": "https://github.com/AGLakhowal/Gamma-Permit-Package.git",
+    "mapping_file_sha256": "c358f5a676c0b7b75b7705c0ea089afadeb01fbce91c0524159e0c263e929b70",
+    "predicate_family_size": 13,
+    "rows": 9,
+    "verification_failures": 0
+  },
+  "document_type": "CampaignProvenance",
+  "execution": {
+    "commits_recorded_in_result_files": [
+      "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e"
+    ],
+    "environment": {
+      "dependencies": {
+        "cryptography": "44.0.0",
+        "hypothesis": "6.122.3",
+        "jsonschema": "4.23.0",
+        "numpy": "2.2.1",
+        "pytest": "8.3.4"
+      },
+      "git_commit": "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e",
+      "git_commit_short": "c44f25d",
+      "git_describe": "preregister-tier0-v2.2-dirty",
+      "git_status_clean": false,
+      "git_tag_exact": "preregister-tier0-v2.2",
+      "machine": "arm64",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python_implementation": "CPython",
+      "python_version": "3.11.15",
+      "run_completed_utc": "2026-09-08T18:04:38Z",
+      "system": "Darwin"
+    }
+  },
+  "freeze_verification": {
+    "final_result_file_count": 23,
+    "findings": [],
+    "freeze_commit": "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e",
+    "freeze_tag": "preregister-tier0-v2.2",
+    "freeze_tag_date": "2026-09-08T23:31:35+05:30",
+    "frozen_file_count": 133,
+    "frozen_files_changed_since_freeze": {},
+    "public_commitment_discharged": true,
+    "remote": "https://github.com/Sukhmangill977/gc-ir-reference.git",
+    "remote_tag_commit": "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e",
+    "remote_tag_matches_freeze_commit": true,
+    "results_commits": [
+      "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e"
+    ],
+    "tag_pushed_to_remote": true,
+    "verified": true
+  },
+  "headline_measurements": {
+    "TD": {
+      "denominator": 62,
+      "numerator": 62,
+      "runs_per_case": 31,
+      "stratum_breakdown": {
+        "key_shuffle": 5,
+        "locale": 3,
+        "repeat": 10,
+        "row_shuffle": 10,
+        "timezone": 3
+      },
+      "value": 1.0
+    },
+    "adversarial": {
+      "case_b_injections": "13/13",
+      "corpus": 62,
+      "passed": 62,
+      "structural": "26/26"
+    },
+    "case_a": {
+      "CV": 1.0,
+      "DC": 1.0,
+      "GD": 3,
+      "GD_min": 3,
+      "NDR": 0.1875,
+      "ODC": 1.0,
+      "OPR": 0.0,
+      "PTC": 1.0,
+      "RCY": 0.8125,
+      "declared_threshold": 15
+    },
+    "case_b": {
+      "CV": 1.0,
+      "DC": 1.0,
+      "GD": 4,
+      "GD_min": 0,
+      "NDR": 0.0,
+      "ODC": 1.0,
+      "OPR": 0.0,
+      "PTC": 1.0,
+      "RCY": 1.0,
+      "declared_threshold": 15
+    },
+    "monte_carlo": {
+      "case_a": {
+        "draws_K": 250000,
+        "max_FP_cstar": 0.0,
+        "max_FP_heat": 0.321268,
+        "max_FP_heat_mcse": 0.000933926918288578
+      },
+      "case_b": {
+        "draws_K": 250000,
+        "max_FP_cstar": 0.0,
+        "max_FP_heat": 0.31798,
+        "max_FP_heat_mcse": 0.000931383314430745
+      }
+    },
+    "payload_hashes": {
+      "case_a": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+      "case_b": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce"
+    },
+    "tests": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 280,
+      "tests": 280
+    },
+    "traceability": {
+      "all_clean_empty": true,
+      "all_controls_detected": true
+    }
+  },
+  "manifest_sha256": "9d102886fef3931c543693e836a8537b646ccd87451e296fdaca2ce30fa9fa51",
+  "public_freeze": {
+    "freeze_commit": "0c0da7e06e26771575ae24fddbeaab812b680165",
+    "note": "The commitment is the PUBLIC tag. Its presence on the remote, dereferencing to the freeze commit, is what discharges Section XI-I -- not the local tag's date.",
+    "public_url": "https://github.com/Sukhmangill977/gc-ir-reference/releases/tag/preregister-tier0-v2.1",
+    "remote_tag_commit": "0c0da7e06e26771575ae24fddbeaab812b680165",
+    "remote_tag_matches_freeze_commit": true,
+    "remote_tag_object": "56c4cfc1dd29776750e030fa9590667e46d692b4",
+    "remote_tag_verified": true,
+    "remote_url": "https://github.com/Sukhmangill977/gc-ir-reference.git",
+    "tag": "preregister-tier0-v2.1"
+  },
+  "result_file_count": 42,
+  "result_files": [
+    {
+      "bytes": 4293,
+      "path": "results/final_v2/CI_STATUS.md",
+      "sha256": "d2de20289358a51fd37c7553b80cbfeb72ac7c59a341f02215119c5aa8d4ce6e"
+    },
+    {
+      "bytes": 10968,
+      "path": "results/final_v2/PROVENANCE.json",
+      "sha256": "a3e0d505affa03de1b05927ba394f8561bf2fbb16fdc5a0ed4aa76491a2aa2cc"
+    },
+    {
+      "bytes": 14229,
+      "path": "results/final_v2/SUMMARY.md",
+      "sha256": "a3058efa558a8113677d446ed01c37e00e7477871b187cf7cb58d4c7da70905b"
+    },
+    {
+      "bytes": 59921,
+      "path": "results/final_v2/adversarial.json",
+      "sha256": "a844e3a52e566c8350f6fbb499ddba782e5ccf9d56b3a7196f91c1c408b5288b"
+    },
+    {
+      "bytes": 21559,
+      "path": "results/final_v2/adversarial_cases.csv",
+      "sha256": "1c63ce7caf90c92ab55c25a5bbc40251308f17e3b53b9bd0bdc36c824a8ad1a3"
+    },
+    {
+      "bytes": 81791,
+      "path": "results/final_v2/case_a/bundle.json",
+      "sha256": "4ca1a50cbb17f3981cfc3dc8765675f483594ad6490f8c1321d17594629c7170"
+    },
+    {
+      "bytes": 56254,
+      "path": "results/final_v2/case_a/canonical_payload.json",
+      "sha256": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536"
+    },
+    {
+      "bytes": 1957,
+      "path": "results/final_v2/case_a/compilation.json",
+      "sha256": "9a79856f2eeb89a00c362854bccfbd4cf3770c19ef8390eb7b2168c10c4eb46b"
+    },
+    {
+      "bytes": 10923,
+      "path": "results/final_v2/case_a/coverage_matrix.json",
+      "sha256": "d5fcad108e00af0f507737c0c14ae04ae3fe7f147b0df0f770edb1df906a4b11"
+    },
+    {
+      "bytes": 1634,
+      "path": "results/final_v2/case_a/escalation_map.json",
+      "sha256": "d2a8c3450359d7dd08b3a27cef6febd1153b70d0a8f29d17beef98065e7665c3"
+    },
+    {
+      "bytes": 2286,
+      "path": "results/final_v2/case_a/gate_map.json",
+      "sha256": "f2a61e92494ffb59b093c6774f3c7ad1be92ff2f7293e2f913630b37b062a34c"
+    },
+    {
+      "bytes": 53283,
+      "path": "results/final_v2/case_a/gcir_records.json",
+      "sha256": "e0dfaabe4d1e01ec7d52f96443c3cb428af72e68511edad02984cff4da059bc9"
+    },
+    {
+      "bytes": 65,
+      "path": "results/final_v2/case_a/payload_hash.txt",
+      "sha256": "88c9150891d0901d500b8985a7f65c376cc598c2217ed7739ba983308e74decd"
+    },
+    {
+      "bytes": 587,
+      "path": "results/final_v2/case_a/payload_purity.json",
+      "sha256": "1cf3167bca56ec6c86ddfe0cc11e8ca82e6df0d16cd786fa1b8e973f5947b563"
+    },
+    {
+      "bytes": 40723,
+      "path": "results/final_v2/case_b/bundle.json",
+      "sha256": "610612401769c648188262da946ef03f2cea33735c2677e1686167e8197baa40"
+    },
+    {
+      "bytes": 28099,
+      "path": "results/final_v2/case_b/canonical_payload.json",
+      "sha256": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce"
+    },
+    {
+      "bytes": 1965,
+      "path": "results/final_v2/case_b/compilation.json",
+      "sha256": "2f03268d3480aaf36a9bc683da25927fc483519393d91650b15fc1d6803f9eaa"
+    },
+    {
+      "bytes": 5383,
+      "path": "results/final_v2/case_b/coverage_matrix.json",
+      "sha256": "fb970c2ffae35d0045562720b23a45c7f5a2e1ac1d3fe99883ec602b1958a1d4"
+    },
+    {
+      "bytes": 790,
+      "path": "results/final_v2/case_b/escalation_map.json",
+      "sha256": "e16dbd72eeebf56de6313117bce0f35cd86048d956283d462ad543ab7c840d6c"
+    },
+    {
+      "bytes": 1119,
+      "path": "results/final_v2/case_b/gate_map.json",
+      "sha256": "a9461c4c4600e78f1ecd1dec3cf244f9cdb8c48777a7c6ac24a4582ccaf4256c"
+    },
+    {
+      "bytes": 24548,
+      "path": "results/final_v2/case_b/gcir_records.json",
+      "sha256": "da87dbfb05fab3b8f39ae5cd358d8ec6bacffe8a48e347a38102d9a40e3c3874"
+    },
+    {
+      "bytes": 65,
+      "path": "results/final_v2/case_b/payload_hash.txt",
+      "sha256": "ec8ac3517c29ab3ca60b332ac3a710cfcfc91194f9ab250c6438121b7d053b44"
+    },
+    {
+      "bytes": 587,
+      "path": "results/final_v2/case_b/payload_purity.json",
+      "sha256": "674359ea9b84a36310688d2e13f2619940184434575cb9003bd7dff33a0ea196"
+    },
+    {
+      "bytes": 18374,
+      "path": "results/final_v2/cross_environment/determinism_runs_container_linux.csv",
+      "sha256": "0bbc2768ef868e122396830a933741c2bdc6a167b440359cf4e38525a74ad7cd"
+    },
+    {
+      "bytes": 3883,
+      "path": "results/final_v2/cross_environment/determinism_summary_container_linux.json",
+      "sha256": "a44704745c03d76258e0ce7d0b1e76dbacc9bbbb327f42d9a492eaecc13f6b8e"
+    },
+    {
+      "bytes": 18374,
+      "path": "results/final_v2/determinism_runs.csv",
+      "sha256": "31973c38162f542dbbf385b6978281bc6a922f4e09303ba79b4a6504ead3ddf4"
+    },
+    {
+      "bytes": 3928,
+      "path": "results/final_v2/determinism_summary.json",
+      "sha256": "4b77a1372536d8d896cad97e945aa0a86f405559e6a0217dd167acb1541fdd89"
+    },
+    {
+      "bytes": 627,
+      "path": "results/final_v2/freeze_verification.json",
+      "sha256": "9bec5c1dd39c46584f072e3b7e32a97a3050605fecf25096d3bece80282b0d0a"
+    },
+    {
+      "bytes": 18341,
+      "path": "results/final_v2/gate_divergence.json",
+      "sha256": "45a9d1ade88c796afb65165cedc997ac7d95ce6e8de39bdc18a0c06973335527"
+    },
+    {
+      "bytes": 1893,
+      "path": "results/final_v2/gate_divergence_heatmap.csv",
+      "sha256": "4157530151b69936b613cd0f130f7a61a802435c1da392fcce5d1b9b39532d9d"
+    },
+    {
+      "bytes": 1567,
+      "path": "results/final_v2/metrics.csv",
+      "sha256": "770b9ffe870b1c80f93a3a118d3cb450994fed7e488ed85bd2b3521205313661"
+    },
+    {
+      "bytes": 15914,
+      "path": "results/final_v2/metrics.json",
+      "sha256": "0bc0c79937215870dca900a906f752f0e5f1c5f6c32c77aa5c9fb6b87d30a6f8"
+    },
+    {
+      "bytes": 1431,
+      "path": "results/final_v2/monte_carlo_per_risk.csv",
+      "sha256": "4fbfea9226f2f9d58393a11b9c4ac51be2771820bdf9e09f93b41b3484a3ed7f"
+    },
+    {
+      "bytes": 26182,
+      "path": "results/final_v2/monte_carlo_summary.json",
+      "sha256": "0093a4ea5c87bc6ff1c3fd75224ebbc348edcf8ea36343a8faae1de946757cb9"
+    },
+    {
+      "bytes": 84512,
+      "path": "results/final_v2/property_tests.json",
+      "sha256": "5561d30236fcee0314033bbd2d32c0019e203117eb44627f6eede586361a91fd"
+    },
+    {
+      "bytes": 3006,
+      "path": "results/final_v2/reproduce_all.json",
+      "sha256": "6cb174e638fc66eecc89d2490d502d5fe0bec8ce11d4dd446278eb6a06b6afd6"
+    },
+    {
+      "bytes": 17125,
+      "path": "results/final_v2/test_reports/junit_adversarial.xml",
+      "sha256": "4a7a39c52e88b941b065c40592eeebf850a26dd8dc59d00de66accd01097cf51"
+    },
+    {
+      "bytes": 3312,
+      "path": "results/final_v2/test_reports/junit_integration.xml",
+      "sha256": "4aeba54cd272bd5bca1349cb8e5994e22e5a767df8dfb17f7bcc712cfb535c98"
+    },
+    {
+      "bytes": 13005,
+      "path": "results/final_v2/test_reports/junit_properties.xml",
+      "sha256": "b43284127f2d5529413f543a9c97103e26b2f13f3d003cc0530b9706f0997e58"
+    },
+    {
+      "bytes": 11938,
+      "path": "results/final_v2/test_reports/junit_unit.xml",
+      "sha256": "7f05ddac09aceb037b830bf208b9c65483427fb1f54cc1e6bb2cb482dad26409"
+    },
+    {
+      "bytes": 1663,
+      "path": "results/final_v2/traceability_queries.csv",
+      "sha256": "9084e3597a1945bc716ebfff30c6e9d8a9c25b403cd586762663f714b22e2bcf"
+    },
+    {
+      "bytes": 16067,
+      "path": "results/final_v2/traceability_queries.json",
+      "sha256": "2c407350b03e77dabee111cc3a47381d3ad08aa5ed68cd4447ad273dadf2d382"
+    }
+  ]
+}

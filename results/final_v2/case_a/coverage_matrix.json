@@ -1,0 +1,544 @@
+{
+  "c_star_coverage": [
+    {
+      "c_star": 1,
+      "covered": true,
+      "paths": [
+        {
+          "action_path": {
+            "action": "publish_report",
+            "destination": "internal_distribution",
+            "resource": "research_report",
+            "subject": "research_agent"
+          },
+          "covered": true,
+          "covering_predicates": [
+            "GCIR-0006"
+          ]
+        }
+      ],
+      "risk_id": "R-05"
+    },
+    {
+      "c_star": 1,
+      "covered": true,
+      "paths": [
+        {
+          "action_path": {
+            "action": "publish_report",
+            "destination": "internal_distribution",
+            "resource": "research_report",
+            "subject": "research_agent"
+          },
+          "covered": true,
+          "covering_predicates": [
+            "GCIR-0007"
+          ]
+        }
+      ],
+      "risk_id": "R-06"
+    },
+    {
+      "c_star": 1,
+      "covered": true,
+      "paths": [
+        {
+          "action_path": {
+            "action": "publish_report",
+            "destination": "internal_distribution",
+            "resource": "research_report",
+            "subject": "research_agent"
+          },
+          "covered": true,
+          "covering_predicates": [
+            "GCIR-0010"
+          ]
+        }
+      ],
+      "risk_id": "R-08"
+    },
+    {
+      "c_star": 1,
+      "covered": true,
+      "paths": [
+        {
+          "action_path": {
+            "action": "publish_report",
+            "destination": "internal_distribution",
+            "resource": "research_report",
+            "subject": "research_agent"
+          },
+          "covered": true,
+          "covering_predicates": [
+            "GCIR-0011",
+            "GCIR-0012"
+          ]
+        }
+      ],
+      "risk_id": "R-09"
+    },
+    {
+      "c_star": 1,
+      "covered": true,
+      "paths": [
+        {
+          "action_path": {
+            "action": "invoke_tool",
+            "destination": "tool_gateway",
+            "resource": "external_tool",
+            "subject": "research_agent"
+          },
+          "covered": true,
+          "covering_predicates": [
+            "GCIR-0013"
+          ]
+        }
+      ],
+      "risk_id": "R-10"
+    },
+    {
+      "c_star": 1,
+      "covered": true,
+      "paths": [
+        {
+          "action_path": {
+            "action": "publish_report",
+            "destination": "internal_distribution",
+            "resource": "research_report",
+            "subject": "research_agent"
+          },
+          "covered": true,
+          "covering_predicates": [
+            "GCIR-0016"
+          ]
+        }
+      ],
+      "risk_id": "R-13"
+    }
+  ],
+  "obligations": [
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "CIRO-3608-DISC",
+      "predicate_ids": [
+        "GCIR-0007"
+      ],
+      "requirement_class": "statutory",
+      "risk_ids": [
+        "R-06"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "CIRO-3616-SUP",
+      "predicate_ids": [
+        "GCIR-0010",
+        "GCIR-0015",
+        "GCIR-0016"
+      ],
+      "requirement_class": "statutory",
+      "risk_ids": [
+        "R-08",
+        "R-12",
+        "R-13"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "CIRO-3622-REC",
+      "predicate_ids": [
+        "GCIR-0011",
+        "GCIR-0012"
+      ],
+      "requirement_class": "statutory",
+      "risk_ids": [
+        "R-09"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "INT-EVID-CHAIN",
+      "predicate_ids": [
+        "GCIR-0016"
+      ],
+      "requirement_class": "internal",
+      "risk_ids": [
+        "R-13"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "INT-NO-TRADE-CONN",
+      "predicate_ids": [
+        "GCIR-0013"
+      ],
+      "requirement_class": "internal",
+      "risk_ids": [
+        "R-10"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "nonruntime",
+        "runtime"
+      ],
+      "obligation_id": "INT-RES-QA",
+      "predicate_ids": [
+        "GCIR-0001",
+        "GCIR-0002",
+        "GCIR-0003",
+        "GCIR-0004",
+        "GCIR-0005"
+      ],
+      "requirement_class": "internal",
+      "risk_ids": [
+        "R-01",
+        "R-02",
+        "R-03",
+        "R-04",
+        "R-15"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "nonruntime"
+      ],
+      "obligation_id": "OSFI-B10-TPR",
+      "predicate_ids": [],
+      "requirement_class": "supervisory",
+      "risk_ids": [
+        "R-16"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "OSFI-B13-TECH",
+      "predicate_ids": [
+        "GCIR-0008",
+        "GCIR-0009",
+        "GCIR-0014"
+      ],
+      "requirement_class": "supervisory",
+      "risk_ids": [
+        "R-07",
+        "R-11"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "nonruntime"
+      ],
+      "obligation_id": "OSFI-E21-ORR",
+      "predicate_ids": [],
+      "requirement_class": "supervisory",
+      "risk_ids": [
+        "R-14"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "OSFI-E23-MRM",
+      "predicate_ids": [
+        "GCIR-0001",
+        "GCIR-0014"
+      ],
+      "requirement_class": "supervisory",
+      "risk_ids": [
+        "R-01",
+        "R-11"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "PIPEDA-PRIV",
+      "predicate_ids": [
+        "GCIR-0006"
+      ],
+      "requirement_class": "statutory",
+      "risk_ids": [
+        "R-05"
+      ]
+    },
+    {
+      "disposed": true,
+      "disposition_statuses": [
+        "runtime"
+      ],
+      "obligation_id": "SEC-BAR-INT",
+      "predicate_ids": [
+        "GCIR-0006"
+      ],
+      "requirement_class": "statutory",
+      "risk_ids": [
+        "R-05"
+      ]
+    }
+  ],
+  "risks": [
+    {
+      "acs_ids": [
+        "ACS-0001-01"
+      ],
+      "c_star": 0,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "INT-RES-QA",
+        "OSFI-E23-MRM"
+      ],
+      "predicate_ids": [
+        "GCIR-0001"
+      ],
+      "reason_code": null,
+      "risk_id": "R-01"
+    },
+    {
+      "acs_ids": [
+        "ACS-0002-01"
+      ],
+      "c_star": 0,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "INT-RES-QA"
+      ],
+      "predicate_ids": [
+        "GCIR-0002"
+      ],
+      "reason_code": null,
+      "risk_id": "R-02"
+    },
+    {
+      "acs_ids": [
+        "ACS-0003-01"
+      ],
+      "c_star": 0,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "INT-RES-QA"
+      ],
+      "predicate_ids": [
+        "GCIR-0003"
+      ],
+      "reason_code": null,
+      "risk_id": "R-03"
+    },
+    {
+      "acs_ids": [
+        "ACS-0004-01",
+        "ACS-0004-02"
+      ],
+      "c_star": 0,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "INT-RES-QA"
+      ],
+      "predicate_ids": [
+        "GCIR-0004",
+        "GCIR-0005"
+      ],
+      "reason_code": null,
+      "risk_id": "R-04"
+    },
+    {
+      "acs_ids": [
+        "ACS-0005-01"
+      ],
+      "c_star": 1,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "PIPEDA-PRIV",
+        "SEC-BAR-INT"
+      ],
+      "predicate_ids": [
+        "GCIR-0006"
+      ],
+      "reason_code": null,
+      "risk_id": "R-05"
+    },
+    {
+      "acs_ids": [
+        "ACS-0006-01"
+      ],
+      "c_star": 1,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "CIRO-3608-DISC"
+      ],
+      "predicate_ids": [
+        "GCIR-0007"
+      ],
+      "reason_code": null,
+      "risk_id": "R-06"
+    },
+    {
+      "acs_ids": [
+        "ACS-0007-01",
+        "ACS-0007-02"
+      ],
+      "c_star": 0,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "OSFI-B13-TECH"
+      ],
+      "predicate_ids": [
+        "GCIR-0008",
+        "GCIR-0009"
+      ],
+      "reason_code": null,
+      "risk_id": "R-07"
+    },
+    {
+      "acs_ids": [
+        "ACS-0008-01"
+      ],
+      "c_star": 1,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "CIRO-3616-SUP"
+      ],
+      "predicate_ids": [
+        "GCIR-0010"
+      ],
+      "reason_code": null,
+      "risk_id": "R-08"
+    },
+    {
+      "acs_ids": [
+        "ACS-0009-01",
+        "ACS-0009-02"
+      ],
+      "c_star": 1,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "CIRO-3622-REC"
+      ],
+      "predicate_ids": [
+        "GCIR-0011",
+        "GCIR-0012"
+      ],
+      "reason_code": null,
+      "risk_id": "R-09"
+    },
+    {
+      "acs_ids": [
+        "ACS-0010-01"
+      ],
+      "c_star": 1,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "INT-NO-TRADE-CONN"
+      ],
+      "predicate_ids": [
+        "GCIR-0013"
+      ],
+      "reason_code": null,
+      "risk_id": "R-10"
+    },
+    {
+      "acs_ids": [
+        "ACS-0011-01"
+      ],
+      "c_star": 0,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "OSFI-B13-TECH",
+        "OSFI-E23-MRM"
+      ],
+      "predicate_ids": [
+        "GCIR-0014"
+      ],
+      "reason_code": null,
+      "risk_id": "R-11"
+    },
+    {
+      "acs_ids": [
+        "ACS-0012-01"
+      ],
+      "c_star": 0,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "CIRO-3616-SUP"
+      ],
+      "predicate_ids": [
+        "GCIR-0015"
+      ],
+      "reason_code": null,
+      "risk_id": "R-12"
+    },
+    {
+      "acs_ids": [
+        "ACS-0013-01"
+      ],
+      "c_star": 1,
+      "disposition_status": "runtime",
+      "obligation_ids": [
+        "CIRO-3616-SUP",
+        "INT-EVID-CHAIN"
+      ],
+      "predicate_ids": [
+        "GCIR-0016"
+      ],
+      "reason_code": null,
+      "risk_id": "R-13"
+    },
+    {
+      "acs_ids": [],
+      "c_star": 0,
+      "disposition_status": "nonruntime",
+      "obligation_ids": [
+        "OSFI-E21-ORR"
+      ],
+      "predicate_ids": [],
+      "reason_code": "RC-01",
+      "risk_id": "R-14"
+    },
+    {
+      "acs_ids": [],
+      "c_star": 0,
+      "disposition_status": "nonruntime",
+      "obligation_ids": [
+        "INT-RES-QA"
+      ],
+      "predicate_ids": [],
+      "reason_code": "RC-03",
+      "risk_id": "R-15"
+    },
+    {
+      "acs_ids": [],
+      "c_star": 0,
+      "disposition_status": "nonruntime",
+      "obligation_ids": [
+        "OSFI-B10-TPR"
+      ],
+      "predicate_ids": [],
+      "reason_code": "RC-01",
+      "risk_id": "R-16"
+    }
+  ]
+}

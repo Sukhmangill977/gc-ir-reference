@@ -1,0 +1,446 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e",
+    "git_commit_short": "c44f25d",
+    "git_describe": "preregister-tier0-v2.2",
+    "git_status_clean": false,
+    "git_tag_exact": "preregister-tier0-v2.2",
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-08T18:02:12Z",
+    "system": "Darwin"
+  },
+  "phase": "final_v2",
+  "phase_note": "FINAL v2 reportable campaign result, produced AFTER the publicly pushed preregistration freeze preregister-tier0-v2.",
+  "result": {
+    "clean": {
+      "case_a": {
+        "Q1": {
+          "detects": "an obligation that no risk disposes, or whose risks are unresolved",
+          "empty": true,
+          "query_id": "Q1",
+          "row_count": 0,
+          "rows": [],
+          "title": "Obligations without an approved disposition"
+        },
+        "Q2": {
+          "detects": "a risk with zero dispositions, or with more than one",
+          "empty": true,
+          "query_id": "Q2",
+          "row_count": 0,
+          "rows": [],
+          "title": "Risks without exactly one disposition"
+        },
+        "Q3": {
+          "detects": "an orphan predicate: origin(p) not in R union INV",
+          "empty": true,
+          "query_id": "Q3",
+          "row_count": 0,
+          "rows": [],
+          "title": "Predicates without a risk or compiler-invariant origin"
+        },
+        "Q4": {
+          "detects": "a receipt whose payload hash does not bind, whose bundle was not yet effective, or whose bundle the registry had already retired at decision time",
+          "empty": true,
+          "query_id": "Q4",
+          "row_count": 0,
+          "rows": [],
+          "title": "Receipts whose bundle was not valid at decision time"
+        },
+        "Q5": {
+          "detects": "an actuation with no receipt, or whose receipt violates authorization_time <= evidence_commit_time < actuation_time",
+          "empty": true,
+          "query_id": "Q5",
+          "row_count": 0,
+          "rows": [],
+          "title": "Actuation without a temporally prior committed receipt"
+        },
+        "Q6": {
+          "detects": "a registry record signed by a key outside authorized_signing_keys, or whose signature does not verify",
+          "empty": true,
+          "query_id": "Q6",
+          "row_count": 0,
+          "rows": [],
+          "title": "Lifecycle-registry records lacking a valid signing authority"
+        }
+      },
+      "case_b": {
+        "Q1": {
+          "detects": "an obligation that no risk disposes, or whose risks are unresolved",
+          "empty": true,
+          "query_id": "Q1",
+          "row_count": 0,
+          "rows": [],
+          "title": "Obligations without an approved disposition"
+        },
+        "Q2": {
+          "detects": "a risk with zero dispositions, or with more than one",
+          "empty": true,
+          "query_id": "Q2",
+          "row_count": 0,
+          "rows": [],
+          "title": "Risks without exactly one disposition"
+        },
+        "Q3": {
+          "detects": "an orphan predicate: origin(p) not in R union INV",
+          "empty": true,
+          "query_id": "Q3",
+          "row_count": 0,
+          "rows": [],
+          "title": "Predicates without a risk or compiler-invariant origin"
+        },
+        "Q4": {
+          "detects": "a receipt whose payload hash does not bind, whose bundle was not yet effective, or whose bundle the registry had already retired at decision time",
+          "empty": true,
+          "query_id": "Q4",
+          "row_count": 0,
+          "rows": [],
+          "title": "Receipts whose bundle was not valid at decision time"
+        },
+        "Q5": {
+          "detects": "an actuation with no receipt, or whose receipt violates authorization_time <= evidence_commit_time < actuation_time",
+          "empty": true,
+          "query_id": "Q5",
+          "row_count": 0,
+          "rows": [],
+          "title": "Actuation without a temporally prior committed receipt"
+        },
+        "Q6": {
+          "detects": "a registry record signed by a key outside authorized_signing_keys, or whose signature does not verify",
+          "empty": true,
+          "query_id": "Q6",
+          "row_count": 0,
+          "rows": [],
+          "title": "Lifecycle-registry records lacking a valid signing authority"
+        }
+      }
+    },
+    "negative_controls": {
+      "case_a": [
+        {
+          "case": "case_a",
+          "control_label": "orphan obligation",
+          "defect_introduced": "an obligation added to O that no register row cites",
+          "detected": true,
+          "query_id": "Q1",
+          "row_count": 1,
+          "rows": [
+            {
+              "obligation_id": "ORPHAN-OBLIGATION-01",
+              "requirement_class": "statutory"
+            }
+          ]
+        },
+        {
+          "case": "case_a",
+          "control_label": "risk with no disposition",
+          "defect_introduced": "one RuntimeDisposition record removed from the projection",
+          "detected": true,
+          "query_id": "Q2",
+          "row_count": 1,
+          "rows": [
+            {
+              "disposition_count": 0,
+              "risk_id": "R-01"
+            }
+          ]
+        },
+        {
+          "case": "case_a",
+          "control_label": "risk with two dispositions",
+          "defect_introduced": "a duplicate disposition row for one risk",
+          "detected": true,
+          "query_id": "Q2",
+          "row_count": 1,
+          "rows": [
+            {
+              "disposition_count": 2,
+              "risk_id": "R-01"
+            }
+          ]
+        },
+        {
+          "case": "case_a",
+          "control_label": "orphan predicate",
+          "defect_introduced": "a predicate whose origin_id resolves to no register row and no invariant",
+          "detected": true,
+          "query_id": "Q3",
+          "row_count": 1,
+          "rows": [
+            {
+              "gcir_id": "GCIR-ORPHAN-001",
+              "origin_id": "R-DOES-NOT-EXIST",
+              "origin_type": "risk_derived"
+            }
+          ]
+        },
+        {
+          "case": "case_a",
+          "control_label": "post-retirement receipt",
+          "defect_introduced": "a receipt whose decision_time is after the signed retirement's effective_time",
+          "detected": true,
+          "query_id": "Q4",
+          "row_count": 1,
+          "rows": [
+            {
+              "bundle_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+              "decision_time": "2026-07-01T09:00:00Z",
+              "receipt_id": "RCPT-CASE-A-NEG-Q4A",
+              "valid_at_reasons": "bundle retired by retire effective 2026-06-01T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "case": "case_a",
+          "control_label": "wrong bundle hash",
+          "defect_introduced": "a receipt citing a bundle_hash that is not H(b.payload)",
+          "detected": true,
+          "query_id": "Q4",
+          "row_count": 1,
+          "rows": [
+            {
+              "bundle_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+              "decision_time": "2026-03-04T10:15:00Z",
+              "receipt_id": "RCPT-CASE-A-NEG-Q4B",
+              "valid_at_reasons": "receipt bundle_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match H(b.payload) f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536"
+            }
+          ]
+        },
+        {
+          "case": "case_a",
+          "control_label": "actuation with no receipt",
+          "defect_introduced": "an actuation record whose receipt_id is null",
+          "detected": true,
+          "query_id": "Q5",
+          "row_count": 1,
+          "rows": [
+            {
+              "actuation_id": "ACT-CASE-A-NEG-Q5A",
+              "actuation_time": "2026-03-04T10:15:02Z",
+              "receipt_id": null
+            }
+          ]
+        },
+        {
+          "case": "case_a",
+          "control_label": "commit after actuation",
+          "defect_introduced": "a receipt whose evidence_commit_time is later than the actuation_time",
+          "detected": true,
+          "query_id": "Q5",
+          "row_count": 1,
+          "rows": [
+            {
+              "actuation_id": "ACT-CASE-A-NEG-Q5B",
+              "actuation_time": "2026-03-04T10:15:03Z",
+              "receipt_id": "RCPT-CASE-A-NEG-Q5B"
+            }
+          ]
+        },
+        {
+          "case": "case_a",
+          "control_label": "unauthorized registry signature",
+          "defect_introduced": "a revocation record signed by a key absent from authorized_signing_keys",
+          "detected": true,
+          "query_id": "Q6",
+          "row_count": 1,
+          "rows": [
+            {
+              "action": "revoke",
+              "authority": "impersonated.head_of_operations",
+              "bundle_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+              "entry_id": "REG-CASE-A-NEG-Q6",
+              "signing_key_id": "key.unauthorized_party"
+            }
+          ]
+        }
+      ],
+      "case_b": [
+        {
+          "case": "case_b",
+          "control_label": "orphan obligation",
+          "defect_introduced": "an obligation added to O that no register row cites",
+          "detected": true,
+          "query_id": "Q1",
+          "row_count": 1,
+          "rows": [
+            {
+              "obligation_id": "ORPHAN-OBLIGATION-01",
+              "requirement_class": "statutory"
+            }
+          ]
+        },
+        {
+          "case": "case_b",
+          "control_label": "risk with no disposition",
+          "defect_introduced": "one RuntimeDisposition record removed from the projection",
+          "detected": true,
+          "query_id": "Q2",
+          "row_count": 1,
+          "rows": [
+            {
+              "disposition_count": 0,
+              "risk_id": "B-01"
+            }
+          ]
+        },
+        {
+          "case": "case_b",
+          "control_label": "risk with two dispositions",
+          "defect_introduced": "a duplicate disposition row for one risk",
+          "detected": true,
+          "query_id": "Q2",
+          "row_count": 1,
+          "rows": [
+            {
+              "disposition_count": 2,
+              "risk_id": "B-01"
+            }
+          ]
+        },
+        {
+          "case": "case_b",
+          "control_label": "orphan predicate",
+          "defect_introduced": "a predicate whose origin_id resolves to no register row and no invariant",
+          "detected": true,
+          "query_id": "Q3",
+          "row_count": 1,
+          "rows": [
+            {
+              "gcir_id": "GCIR-ORPHAN-001",
+              "origin_id": "R-DOES-NOT-EXIST",
+              "origin_type": "risk_derived"
+            }
+          ]
+        },
+        {
+          "case": "case_b",
+          "control_label": "post-retirement receipt",
+          "defect_introduced": "a receipt whose decision_time is after the signed retirement's effective_time",
+          "detected": true,
+          "query_id": "Q4",
+          "row_count": 1,
+          "rows": [
+            {
+              "bundle_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+              "decision_time": "2026-07-01T09:00:00Z",
+              "receipt_id": "RCPT-CASE-B-NEG-Q4A",
+              "valid_at_reasons": "bundle retired by retire effective 2026-06-01T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "case": "case_b",
+          "control_label": "wrong bundle hash",
+          "defect_introduced": "a receipt citing a bundle_hash that is not H(b.payload)",
+          "detected": true,
+          "query_id": "Q4",
+          "row_count": 1,
+          "rows": [
+            {
+              "bundle_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+              "decision_time": "2026-03-04T10:15:00Z",
+              "receipt_id": "RCPT-CASE-B-NEG-Q4B",
+              "valid_at_reasons": "receipt bundle_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match H(b.payload) 2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce"
+            }
+          ]
+        },
+        {
+          "case": "case_b",
+          "control_label": "actuation with no receipt",
+          "defect_introduced": "an actuation record whose receipt_id is null",
+          "detected": true,
+          "query_id": "Q5",
+          "row_count": 1,
+          "rows": [
+            {
+              "actuation_id": "ACT-CASE-B-NEG-Q5A",
+              "actuation_time": "2026-03-04T10:15:02Z",
+              "receipt_id": null
+            }
+          ]
+        },
+        {
+          "case": "case_b",
+          "control_label": "commit after actuation",
+          "defect_introduced": "a receipt whose evidence_commit_time is later than the actuation_time",
+          "detected": true,
+          "query_id": "Q5",
+          "row_count": 1,
+          "rows": [
+            {
+              "actuation_id": "ACT-CASE-B-NEG-Q5B",
+              "actuation_time": "2026-03-04T10:15:03Z",
+              "receipt_id": "RCPT-CASE-B-NEG-Q5B"
+            }
+          ]
+        },
+        {
+          "case": "case_b",
+          "control_label": "unauthorized registry signature",
+          "defect_introduced": "a revocation record signed by a key absent from authorized_signing_keys",
+          "detected": true,
+          "query_id": "Q6",
+          "row_count": 1,
+          "rows": [
+            {
+              "action": "revoke",
+              "authority": "impersonated.head_of_operations",
+              "bundle_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+              "entry_id": "REG-CASE-B-NEG-Q6",
+              "signing_key_id": "key.unauthorized_party"
+            }
+          ]
+        }
+      ]
+    },
+    "query_catalogue": {
+      "Q1": {
+        "detects": "an obligation that no risk disposes, or whose risks are unresolved",
+        "title": "Obligations without an approved disposition"
+      },
+      "Q2": {
+        "detects": "a risk with zero dispositions, or with more than one",
+        "title": "Risks without exactly one disposition"
+      },
+      "Q3": {
+        "detects": "an orphan predicate: origin(p) not in R union INV",
+        "title": "Predicates without a risk or compiler-invariant origin"
+      },
+      "Q4": {
+        "detects": "a receipt whose payload hash does not bind, whose bundle was not yet effective, or whose bundle the registry had already retired at decision time",
+        "title": "Receipts whose bundle was not valid at decision time"
+      },
+      "Q5": {
+        "detects": "an actuation with no receipt, or whose receipt violates authorization_time <= evidence_commit_time < actuation_time",
+        "title": "Actuation without a temporally prior committed receipt"
+      },
+      "Q6": {
+        "detects": "a registry record signed by a key outside authorized_signing_keys, or whose signature does not verify",
+        "title": "Lifecycle-registry records lacking a valid signing authority"
+      }
+    },
+    "summary": {
+      "all_clean_queries_empty": true,
+      "all_negative_controls_detected": true,
+      "interpretation": "Empty result sets on the clean fixtures demonstrate linkage and temporal-integrity completeness UNDER THE DECLARED DATA MODEL. They do not establish legal compliance, semantic correctness, or control effectiveness. The negative controls establish that each query can in fact detect the violation it exists to detect.",
+      "queries_implemented": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q6"
+      ]
+    }
+  },
+  "result_name": "traceability_queries"
+}

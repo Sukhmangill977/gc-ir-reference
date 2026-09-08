@@ -1,0 +1,78 @@
+{
+  "GCIR-0001": {
+    "route": "research_supervision_desk",
+    "sla_hours": 4
+  },
+  "GCIR-0002": {
+    "route": "research_supervision_desk",
+    "sla_hours": 4
+  },
+  "GCIR-0003": {
+    "route": "research_supervision_desk",
+    "sla_hours": 4
+  },
+  "GCIR-0004": {
+    "route": "research_editorial_desk",
+    "sla_hours": 24
+  },
+  "GCIR-0005": {
+    "route": "research_editorial_desk",
+    "sla_hours": 24
+  },
+  "GCIR-0006": {
+    "route": "compliance_information_barrier_desk",
+    "sla_hours": 1
+  },
+  "GCIR-0007": {
+    "route": "compliance_research_supervision",
+    "sla_hours": 2
+  },
+  "GCIR-0008": {
+    "route": "security_operations",
+    "sla_hours": 2
+  },
+  "GCIR-0009": {
+    "route": "security_operations",
+    "sla_hours": 2
+  },
+  "GCIR-0010": {
+    "route": "research_supervision_desk",
+    "sla_hours": 1
+  },
+  "GCIR-0011": {
+    "route": "compliance_research_supervision",
+    "sla_hours": 2
+  },
+  "GCIR-0012": {
+    "route": "compliance_research_supervision",
+    "sla_hours": 2
+  },
+  "GCIR-0013": {
+    "route": "security_operations",
+    "sla_hours": 1
+  },
+  "GCIR-0014": {
+    "route": "technology_change_management",
+    "sla_hours": 2
+  },
+  "GCIR-0015": {
+    "route": "compliance_research_supervision",
+    "sla_hours": 48
+  },
+  "GCIR-0016": {
+    "route": "compliance_records_desk",
+    "sla_hours": 2
+  },
+  "GCIR-INV-AUTHORITY-CLOSURE": {
+    "route": "governance_forum_urgent",
+    "sla_hours": 1
+  },
+  "GCIR-INV-EVIDENCE-COMMIT": {
+    "route": "compliance_records_desk",
+    "sla_hours": 1
+  },
+  "GCIR-INV-VERSION": {
+    "route": "technology_change_management",
+    "sla_hours": 1
+  }
+}
