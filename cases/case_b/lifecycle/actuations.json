@@ -1,0 +1,16 @@
+{
+  "actuations": [
+    {
+      "action_tuple": "transaction_agent/release_payment/payment_instruction/payment_rail",
+      "actuation_id": "ACT-CASE-B-001",
+      "actuation_time": "2026-03-04T10:15:02Z",
+      "receipt_id": "RCPT-CASE-B-001"
+    },
+    {
+      "action_tuple": "transaction_agent/release_payment/payment_instruction/payment_rail",
+      "actuation_id": "ACT-CASE-B-002",
+      "actuation_time": "2026-05-30T08:00:02Z",
+      "receipt_id": "RCPT-CASE-B-002"
+    }
+  ]
+}

@@ -1,0 +1,495 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gcir.example/schemas/v1.0/assessment.schema.json",
+  "title": "Approved governance assessment G = (M, S, O, R, A)",
+  "description": "Manuscript Section III -- the five-step governance input model.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "assessment_id",
+    "metadata",
+    "system_profile",
+    "obligations",
+    "risk_register",
+    "risk_analysis"
+  ],
+  "properties": {
+    "assessment_id": {
+      "$ref": "common.schema.json#/$defs/identifier"
+    },
+    "case_class": {
+      "enum": [
+        "synthetic",
+        "forensic_reconstruction"
+      ],
+      "description": "Evidence class of the case artifact (Sections IX, X, XII). Case A is synthetic; Case B is a forensic reconstruction."
+    },
+    "signature": {
+      "$ref": "common.schema.json#/$defs/signature"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Step 1 -- M.",
+      "required": [
+        "system_id",
+        "purpose",
+        "owner_business",
+        "owner_technical",
+        "accountable_exec",
+        "assessor",
+        "deployment",
+        "scope",
+        "exclusions",
+        "method",
+        "version_binding",
+        "review_cycle",
+        "triggers",
+        "validity_interval"
+      ],
+      "properties": {
+        "system_id": {
+          "$ref": "common.schema.json#/$defs/identifier"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner_business": {
+          "$ref": "common.schema.json#/$defs/identifier"
+        },
+        "owner_technical": {
+          "$ref": "common.schema.json#/$defs/identifier"
+        },
+        "accountable_exec": {
+          "$ref": "common.schema.json#/$defs/identifier",
+          "description": "The accountable business authority who accepts residual risk -- never the developer, model vendor, or the AI-governance team that performed the assessment."
+        },
+        "assessor": {
+          "$ref": "common.schema.json#/$defs/identifier"
+        },
+        "deployment": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "method": {
+          "type": "string"
+        },
+        "version_binding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "binding_id",
+            "model_version",
+            "prompt_version",
+            "dataset_version",
+            "policy_version",
+            "fingerprint"
+          ],
+          "properties": {
+            "binding_id": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            },
+            "model_version": {
+              "type": "string"
+            },
+            "prompt_version": {
+              "type": "string"
+            },
+            "dataset_version": {
+              "type": "string"
+            },
+            "policy_version": {
+              "type": "string"
+            },
+            "fingerprint": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "review_cycle": {
+          "type": "string"
+        },
+        "triggers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "model_version_change",
+              "prompt_or_policy_change",
+              "dataset_refresh_outside_bounds",
+              "scope_expansion",
+              "new_obligation",
+              "catalog_change",
+              "consequence_class_reclassification",
+              "incident_above_declared_severity"
+            ]
+          }
+        },
+        "validity_interval": {
+          "$ref": "common.schema.json#/$defs/validityInterval"
+        }
+      }
+    },
+    "system_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Step 2 -- S.",
+      "required": [
+        "capabilities",
+        "data_classes",
+        "actors",
+        "affected_parties",
+        "authority_matrix",
+        "architecture",
+        "scale",
+        "autonomy_level"
+      ],
+      "properties": {
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "data_classes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "actors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "affected_parties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "architecture": {
+          "type": "string"
+        },
+        "scale": {
+          "type": "object"
+        },
+        "autonomy_level": {
+          "enum": [
+            "generative_application",
+            "assisted_agent",
+            "autonomous_agent"
+          ]
+        },
+        "authority_matrix": {
+          "type": "array",
+          "minItems": 1,
+          "description": "actor x action x resource x destination -- the closed vocabulary from which predicate tuples are drawn, and the compiler symbol table.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "subject",
+              "action",
+              "resource",
+              "destination",
+              "parameter_schema",
+              "parameter_schema_id"
+            ],
+            "properties": {
+              "subject": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "action": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "resource": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "destination": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "parameter_schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "common.schema.json#/$defs/typeDescriptor"
+                }
+              },
+              "hazardous": {
+                "type": "boolean"
+              },
+              "notes": {
+                "type": "string"
+              },
+              "parameter_schema_id": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              }
+            }
+          }
+        }
+      }
+    },
+    "obligations": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Step 3 -- O.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "obligation_id",
+          "source",
+          "jurisdiction",
+          "territorial_basis",
+          "clause_ref",
+          "requirement_text_hash",
+          "applicability_basis",
+          "applicability_decision",
+          "decision_authority",
+          "decision_time",
+          "effective_from",
+          "legal_source_version",
+          "requirement_class"
+        ],
+        "properties": {
+          "obligation_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "source": {
+            "type": "string"
+          },
+          "jurisdiction": {
+            "type": "string"
+          },
+          "territorial_basis": {
+            "type": "string"
+          },
+          "clause_ref": {
+            "type": "string"
+          },
+          "requirement_text_hash": {
+            "$ref": "common.schema.json#/$defs/sha256Hex"
+          },
+          "applicability_basis": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "applicability_decision": {
+            "enum": [
+              "applicable",
+              "not_applicable"
+            ]
+          },
+          "decision_authority": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "decision_time": {
+            "$ref": "common.schema.json#/$defs/rfc3339Utc"
+          },
+          "effective_from": {
+            "$ref": "common.schema.json#/$defs/rfc3339Utc"
+          },
+          "effective_until": {
+            "$ref": "common.schema.json#/$defs/rfc3339Utc"
+          },
+          "legal_source_version": {
+            "type": "string"
+          },
+          "requirement_class": {
+            "$ref": "common.schema.json#/$defs/requirementClass"
+          }
+        }
+      }
+    },
+    "risk_register": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Step 4 -- R. The cause-event-consequence triple is mandatory.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "risk_id",
+          "cause",
+          "event",
+          "consequence",
+          "affected_parties",
+          "obligation_refs",
+          "existing_controls",
+          "owner"
+        ],
+        "properties": {
+          "risk_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "cause": {
+            "type": "string",
+            "minLength": 1
+          },
+          "event": {
+            "type": "string",
+            "minLength": 1
+          },
+          "consequence": {
+            "type": "string",
+            "minLength": 1
+          },
+          "affected_parties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "obligation_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            }
+          },
+          "existing_controls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "owner": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "hazardous_action_paths": {
+            "type": "array",
+            "description": "The authorized hazardous action paths associated with this risk (Section VII-A). Each must resolve to S.authority_matrix and be marked hazardous there.",
+            "items": {
+              "$ref": "common.schema.json#/$defs/actionTuple"
+            }
+          },
+          "source_register_row": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "risk_analysis": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Step 5 -- A.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "risk_id",
+          "likelihood_inherent",
+          "impact_inherent",
+          "control_effectiveness",
+          "likelihood_residual",
+          "impact_residual",
+          "consequence_class",
+          "tier",
+          "treatment"
+        ],
+        "properties": {
+          "risk_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "likelihood_inherent": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "impact_inherent": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "control_effectiveness": {
+            "enum": [
+              "ineffective",
+              "partially_effective",
+              "effective"
+            ]
+          },
+          "likelihood_residual": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "impact_residual": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "consequence_class": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "consequence_descriptor": {
+            "$ref": "common.schema.json#/$defs/consequenceDescriptor"
+          },
+          "tier": {
+            "enum": [
+              "tier_1",
+              "tier_2",
+              "tier_3"
+            ]
+          },
+          "treatment": {
+            "enum": [
+              "mitigate",
+              "transfer",
+              "avoid",
+              "accept"
+            ]
+          },
+          "acceptance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "authority",
+              "scope",
+              "expiry"
+            ],
+            "properties": {
+              "authority": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "scope": {
+                "type": "string"
+              },
+              "expiry": {
+                "$ref": "common.schema.json#/$defs/rfc3339Utc"
+              }
+            }
+          },
+          "reopening_trigger": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Per-risk reopening trigger rho_i -- an event class that forces re-analysis of this row without a full reassessment."
+          }
+        }
+      }
+    }
+  }
+}

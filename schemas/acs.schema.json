@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gcir.example/schemas/v1.0/acs.schema.json",
+  "title": "Approved Control Specification set D",
+  "description": "Manuscript Section IV-C. Each ACS carries three express statements: evidence semantics, decision semantics, and warrant boundary.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["acs_set_id", "version_binding_ref", "records"],
+  "properties": {
+    "acs_set_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "version_binding_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+    "signature": { "$ref": "common.schema.json#/$defs/signature" },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["acs_id", "gcir_id", "risk_id", "obligation_refs", "event_type",
+                     "template_id", "observable_id", "observable_class",
+                     "observable_producer", "evidence_source", "evidence_schema_ref",
+                     "subject", "action", "resource", "destination",
+                     "parameter_schema_ref", "operator", "expected_value",
+                     "evaluation_basis", "on_unknown", "on_fail", "gate_candidate",
+                     "mandatory_role", "escalation", "evidence_requirements",
+                     "context_conditions", "control_owner", "approver",
+                     "approval_time", "validity_interval", "version_binding_ref",
+                     "evidence_semantics", "decision_semantics", "warrant_boundary"],
+        "properties": {
+          "acs_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "gcir_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "risk_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "obligation_refs": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/identifier" } },
+          "event_type": { "$ref": "common.schema.json#/$defs/identifier" },
+          "template_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "observable_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "observable_class": { "$ref": "common.schema.json#/$defs/identifier" },
+          "observable_producer": {
+            "$ref": "common.schema.json#/$defs/identifier",
+            "description": "The component or person that creates the evidence. Keeps a deterministic predicate distinct from the possibly probabilistic process that generated its input."
+          },
+          "evidence_source": { "type": "string" },
+          "evidence_schema_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+          "subject": { "$ref": "common.schema.json#/$defs/identifier" },
+          "action": { "$ref": "common.schema.json#/$defs/identifier" },
+          "resource": { "$ref": "common.schema.json#/$defs/identifier" },
+          "destination": { "$ref": "common.schema.json#/$defs/identifier" },
+          "action_parameters": { "type": "object" },
+          "parameter_schema_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+          "operator": { "$ref": "common.schema.json#/$defs/operator" },
+          "expected_value": {},
+          "temporal_window": { "type": ["string", "null"] },
+          "evaluation_basis": { "$ref": "common.schema.json#/$defs/evaluationBasis" },
+          "threshold_contract_ref": { "type": ["string", "null"] },
+          "on_unknown": { "$ref": "common.schema.json#/$defs/onUnknown" },
+          "on_fail": { "$ref": "common.schema.json#/$defs/onFail" },
+          "gate_candidate": { "$ref": "common.schema.json#/$defs/gateType" },
+          "soft_gate_type": { "enum": ["weighted", "advisory"] },
+          "mandatory_role": { "$ref": "common.schema.json#/$defs/mandatoryRole" },
+          "escalation": { "$ref": "common.schema.json#/$defs/escalation" },
+          "evidence_requirements": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "context_conditions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["attribute", "operator", "value", "on_unknown", "evidence_producer"],
+              "properties": {
+                "attribute": { "$ref": "common.schema.json#/$defs/identifier" },
+                "operator": { "$ref": "common.schema.json#/$defs/operator" },
+                "value": {},
+                "unit": { "type": ["string", "null"] },
+                "on_unknown": { "$ref": "common.schema.json#/$defs/onUnknown" },
+                "required": { "type": "boolean" },
+                "evidence_producer": { "$ref": "common.schema.json#/$defs/identifier" },
+                "evidence_schema_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+                "threshold_contract_ref": { "type": ["string", "null"] },
+                "temporal_window": { "type": ["string", "null"] },
+                "fail_open_approval": {
+                  "type": "object",
+                  "description": "Section V: for non-mandatory conditions any fail-open exception must be explicitly approved and carries the approver's identity.",
+                  "additionalProperties": false,
+                  "required": ["approver", "approval_time", "rationale"],
+                  "properties": {
+                    "approver": { "$ref": "common.schema.json#/$defs/identifier" },
+                    "approval_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+                    "rationale": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "aggregation": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["aggregation_group", "weight", "deficit_function",
+                         "group_threshold", "response"],
+            "properties": {
+              "aggregation_group": { "$ref": "common.schema.json#/$defs/identifier" },
+              "weight": { "type": "number", "exclusiveMinimum": 0 },
+              "deficit_function": { "type": "string", "minLength": 1 },
+              "group_threshold": { "type": "number" },
+              "response": { "$ref": "common.schema.json#/$defs/onFail" }
+            }
+          },
+          "conflict_group": { "type": ["string", "null"] },
+          "policy_id": { "type": ["string", "null"] },
+          "input_provenance": {
+            "type": "object",
+            "description": "Section VII-H: declared enumeration of AI-generated contributions on which an already-classified consequential decision rests.",
+            "additionalProperties": false,
+            "required": ["declared_inputs", "residual_disposition"],
+            "properties": {
+              "declared_inputs": { "type": "array", "items": { "type": "object" } },
+              "residual_disposition": { "type": "string" }
+            }
+          },
+          "control_owner": { "$ref": "common.schema.json#/$defs/identifier" },
+          "approver": { "$ref": "common.schema.json#/$defs/identifier" },
+          "approval_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+          "validity_interval": { "$ref": "common.schema.json#/$defs/validityInterval" },
+          "version_binding_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+          "evidence_semantics": { "type": "string", "minLength": 1 },
+          "decision_semantics": { "type": "string", "minLength": 1 },
+          "warrant_boundary": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

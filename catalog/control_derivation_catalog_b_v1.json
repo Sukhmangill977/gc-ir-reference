@@ -1,0 +1,270 @@
+{
+  "approval_time": "2026-01-22T15:00:00Z",
+  "approved_by": "payments_governance_forum",
+  "catalog_id": "K-CASE-B",
+  "entries": [
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "authority_permit_service_v2"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "permit_binding",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "permit_id",
+          "permit_signature",
+          "bound_hash"
+        ],
+        "schema_id": "ES-PERMIT-BIND"
+      },
+      "notes": "",
+      "observable_class": "permit_binding_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-PERMIT-BIND",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "<="
+      ],
+      "allowed_producers": [
+        "payment_instruction_service_v1"
+      ],
+      "evaluation_basis": "threshold_on_measured_value",
+      "event_type": "amount_limit",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "amount_minor_units",
+          "currency"
+        ],
+        "schema_id": "ES-AMOUNT"
+      },
+      "notes": "",
+      "observable_class": "instruction_amount_measurement",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-AMOUNT-LIMIT",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "number"
+      }
+    },
+    {
+      "allowed_operators": [
+        "<="
+      ],
+      "allowed_producers": [
+        "velocity_counter_service_v1"
+      ],
+      "evaluation_basis": "threshold_on_measured_value",
+      "event_type": "velocity_bound",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "window_count",
+          "window_seconds",
+          "counterparty_id"
+        ],
+        "schema_id": "ES-VELOCITY"
+      },
+      "notes": "",
+      "observable_class": "window_transaction_count",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-VELOCITY",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "number"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "sanctions_screening_service_v5"
+      ],
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "restricted_party_screening",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "counterparty_id",
+          "list_version",
+          "match_count",
+          "artifact_signature"
+        ],
+        "schema_id": "ES-RESTRICTED-PARTY"
+      },
+      "notes": "The predicate deterministically verifies that a signed screening artifact reports no restricted-party match. It does not claim the screening service resolves every alias correctly.",
+      "observable_class": "restricted_party_match",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-RESTRICTED-PARTY",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "authority_permit_service_v2"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "permit_single_use",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "permit_id",
+          "permit_previously_redeemed",
+          "hash_previously_seen"
+        ],
+        "schema_id": "ES-SINGLE-USE"
+      },
+      "notes": "",
+      "observable_class": "permit_and_hash_novelty",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-SINGLE-USE",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "evidence_chain_service_v2"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "receipt_chain_completeness",
+      "evidence_schema": {
+        "fields": [
+          "receipt_id",
+          "authorization_time",
+          "evidence_commit_time",
+          "actuation_time",
+          "chain_prev_hash"
+        ],
+        "schema_id": "ES-RECEIPT-CHAIN"
+      },
+      "notes": "",
+      "observable_class": "receipt_chain_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-RECEIPT-CHAIN-B",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "catalog",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "44afd7fee1778df177c42e45ed426ca575acf0d53e754b049c3cdeb9c0c3d5ae",
+    "signature_b64": "rdKqb3CMEbd3PRw4LtEjq7HhD9aFTmNe4qL+FD5ulNEcGSm3g3D+clDRbJAe6Hk7SMO9EyuxGoVYv1f36laCCg==",
+    "signing_time": "2026-01-22T15:05:00Z"
+  },
+  "version": "1.0",
+  "version_binding_ref": "VB-CASE-B-1.0"
+}

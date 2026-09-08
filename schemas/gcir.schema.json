@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gcir.example/schemas/v1.0/gcir.schema.json",
+  "title": "GC-IR record family (v1.0)",
+  "description": "Manuscript Section V and Appendix A. Record = CompiledPredicate oneOf NonRuntimeDisposition oneOf AcceptedRiskDisposition oneOf UnresolvedDisposition. A non-runtime, accepted, or unresolved record shall not be required to contain subject, action, resource, evaluation basis, or gate type.",
+  "oneOf": [
+    { "$ref": "#/$defs/CompiledPredicate" },
+    { "$ref": "#/$defs/RuntimeDisposition" },
+    { "$ref": "#/$defs/NonRuntimeDisposition" },
+    { "$ref": "#/$defs/AcceptedRiskDisposition" },
+    { "$ref": "#/$defs/UnresolvedDisposition" }
+  ],
+  "$defs": {
+    "CompiledPredicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Appendix A: requires predicate ID and ACS ID; authorized origin type and origin ID; risk and obligation references; subject, action, resource, destination; action-parameter schema; at least one context condition; evidence producer and evidence schema; evaluation basis; gate type, gate source and mandatory role; on-fail and on-unknown; escalation; evidence requirements; version and validity bindings (effective_from only -- lifecycle state is external per Section VI-F).",
+      "required": ["record_type", "gcir_id", "acs_id", "schema_version", "origin",
+                   "requirement_ref", "subject", "action", "resource", "destination",
+                   "parameter_schema_ref", "context_conditions", "evidence_producer",
+                   "evidence_schema_ref", "evaluation_basis", "gate_type",
+                   "gate_source", "mandatory_role", "on_fail", "escalation",
+                   "evidence_requirement", "version_binding_ref", "validity",
+                   "evidence_semantics", "decision_semantics", "warrant_boundary"],
+      "properties": {
+        "record_type": { "const": "CompiledPredicate" },
+        "gcir_id": { "$ref": "common.schema.json#/$defs/identifier" },
+        "acs_id": { "type": ["string", "null"] },
+        "schema_version": { "const": "1.0" },
+        "origin": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["origin_type", "origin_id", "authorized_by"],
+          "properties": {
+            "origin_type": { "$ref": "common.schema.json#/$defs/originType" },
+            "origin_id": { "$ref": "common.schema.json#/$defs/identifier" },
+            "authorized_by": { "$ref": "common.schema.json#/$defs/identifier" }
+          }
+        },
+        "requirement_ref": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["obligation_ids"],
+          "properties": {
+            "risk_id": { "type": ["string", "null"] },
+            "internal_requirement_id": { "type": ["string", "null"] },
+            "obligation_ids": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "subject": { "$ref": "common.schema.json#/$defs/identifier" },
+        "action": { "$ref": "common.schema.json#/$defs/identifier" },
+        "resource": { "$ref": "common.schema.json#/$defs/identifier" },
+        "destination": { "$ref": "common.schema.json#/$defs/identifier" },
+        "action_parameters": { "type": "object" },
+        "parameter_schema_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+        "context_conditions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["attribute", "operator", "value", "on_unknown", "required",
+                         "evidence_producer", "evidence_schema_ref", "condition_index"],
+            "properties": {
+              "attribute": { "$ref": "common.schema.json#/$defs/identifier" },
+              "operator": { "$ref": "common.schema.json#/$defs/operator" },
+              "value": {},
+              "unit": { "type": ["string", "null"] },
+              "on_unknown": { "$ref": "common.schema.json#/$defs/onUnknown" },
+              "required": { "type": "boolean" },
+              "evidence_producer": { "$ref": "common.schema.json#/$defs/identifier" },
+              "evidence_schema_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+              "threshold_contract_ref": { "type": ["string", "null"] },
+              "temporal_window": { "type": ["string", "null"] },
+              "condition_index": { "type": "integer", "minimum": 0 }
+            }
+          }
+        },
+        "evidence_producer": { "$ref": "common.schema.json#/$defs/identifier" },
+        "evidence_schema_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+        "evaluation_basis": { "$ref": "common.schema.json#/$defs/evaluationBasis" },
+        "gate_type": { "$ref": "common.schema.json#/$defs/gateType" },
+        "gate_source": { "$ref": "common.schema.json#/$defs/gateSource" },
+        "mandatory_role": { "$ref": "common.schema.json#/$defs/mandatoryRole" },
+        "on_fail": { "$ref": "common.schema.json#/$defs/onFail" },
+        "escalation": { "$ref": "common.schema.json#/$defs/escalation" },
+        "evidence_requirement": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "version_binding_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+        "validity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["effective_from"],
+          "description": "effective_from only. Lifecycle state (retirement, supersession, revocation) lives in the separately signed registry, never in the hashed payload.",
+          "properties": {
+            "effective_from": { "$ref": "common.schema.json#/$defs/rfc3339Utc" }
+          }
+        },
+        "aggregation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["aggregation_group", "weight", "deficit_function",
+                       "group_threshold", "response"],
+          "properties": {
+            "aggregation_group": { "$ref": "common.schema.json#/$defs/identifier" },
+            "weight": { "type": "number", "exclusiveMinimum": 0 },
+            "deficit_function": { "type": "string" },
+            "group_threshold": { "type": "number" },
+            "response": { "$ref": "common.schema.json#/$defs/onFail" }
+          }
+        },
+        "conflict_group": { "type": ["string", "null"] },
+        "policy_id": { "type": ["string", "null"] },
+        "input_provenance": { "type": "object" },
+        "catalog_ref": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "event_type": { "type": "string" },
+            "template_id": { "type": "string" }
+          }
+        },
+        "c_star": { "enum": [0, 1] },
+        "evidence_semantics": { "type": "string", "minLength": 1 },
+        "decision_semantics": { "type": "string", "minLength": 1 },
+        "warrant_boundary": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "gate_type": { "const": "mandatory" } }, "required": ["gate_type"] },
+          "then": {
+            "description": "Appendix A constraints 1 and 2.",
+            "properties": {
+              "on_fail": { "const": "SAFE_STATE" },
+              "context_conditions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    { "properties": { "required": { "const": false } }, "required": ["required"] },
+                    { "properties": { "on_unknown": { "const": "fail" } }, "required": ["on_unknown"] }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "gate_type": { "const": "weighted" } }, "required": ["gate_type"] },
+          "then": {
+            "description": "Appendix A constraint 4.",
+            "required": ["aggregation"]
+          }
+        },
+        {
+          "if": {
+            "properties": { "origin": { "properties": { "origin_type": { "const": "risk_derived" } },
+                                        "required": ["origin_type"] } },
+            "required": ["origin"]
+          },
+          "then": {
+            "description": "Appendix A constraint 6: every risk-derived predicate resolves to an ACS and risk.",
+            "properties": {
+              "acs_id": { "type": "string", "minLength": 1 },
+              "requirement_ref": { "properties": { "risk_id": { "type": "string", "minLength": 1 } },
+                                   "required": ["risk_id"] }
+            },
+            "required": ["acs_id"]
+          }
+        }
+      ]
+    },
+
+    "RuntimeDisposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "risk_id", "acs_ids"],
+      "properties": {
+        "record_type": { "const": "RuntimeDisposition" },
+        "risk_id": { "$ref": "common.schema.json#/$defs/identifier" },
+        "acs_ids": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    },
+
+    "NonRuntimeDisposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Appendix A: requires risk reference, reason code, routed-to control family, control reference, owner, and approval record. Deliberately does NOT require subject, action, resource, evaluation basis, or gate type.",
+      "required": ["record_type", "risk_id", "reason_code",
+                   "routed_to_control_family", "control_ref", "owner", "approval"],
+      "properties": {
+        "record_type": { "const": "NonRuntimeDisposition" },
+        "risk_id": { "$ref": "common.schema.json#/$defs/identifier" },
+        "reason_code": { "$ref": "common.schema.json#/$defs/reasonCode" },
+        "routed_to_control_family": { "type": "string", "minLength": 1 },
+        "control_ref": { "type": "string", "minLength": 1 },
+        "owner": { "$ref": "common.schema.json#/$defs/identifier" },
+        "approval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["approver", "approval_time", "forum"],
+          "properties": {
+            "approver": { "$ref": "common.schema.json#/$defs/identifier" },
+            "approval_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+            "forum": { "$ref": "common.schema.json#/$defs/identifier" }
+          }
+        }
+      }
+    },
+
+    "AcceptedRiskDisposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Appendix A: requires risk reference, scope, rationale, acceptor identity (resolving to M.accountable_exec), approval time, and expiry.",
+      "required": ["record_type", "risk_id", "scope", "rationale", "acceptor",
+                   "approval_time", "expiry"],
+      "properties": {
+        "record_type": { "const": "AcceptedRiskDisposition" },
+        "risk_id": { "$ref": "common.schema.json#/$defs/identifier" },
+        "scope": { "type": "string", "minLength": 1 },
+        "rationale": { "type": "string", "minLength": 1 },
+        "acceptor": { "$ref": "common.schema.json#/$defs/identifier" },
+        "approval_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+        "expiry": { "$ref": "common.schema.json#/$defs/rfc3339Utc" }
+      }
+    },
+
+    "UnresolvedDisposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Appendix A: requires risk reference, reason code, and the authority scope blocked from release.",
+      "required": ["record_type", "risk_id", "reason_code", "blocked_authority_scope"],
+      "properties": {
+        "record_type": { "const": "UnresolvedDisposition" },
+        "risk_id": { "$ref": "common.schema.json#/$defs/identifier" },
+        "reason_code": { "$ref": "common.schema.json#/$defs/reasonCode" },
+        "blocked_authority_scope": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    }
+  }
+}

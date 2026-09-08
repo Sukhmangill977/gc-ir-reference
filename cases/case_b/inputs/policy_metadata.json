@@ -1,0 +1,11 @@
+{
+  "aggregation_groups": {},
+  "bundle_id": "BUNDLE-CASE-B-1.0",
+  "precedence": {},
+  "precedence_relation": [
+    "mandatory_failure",
+    "mandatory_pass",
+    "weighted_or_advisory"
+  ],
+  "runtime_acceptance_condition": "A conformant consuming runtime loads only bundles verifying as signed Phi outputs (signature, payload hash, lifecycle-registry state), accepts no policy content through any other channel, and emits decision receipts carrying the requirement reference (gcir_id, acs_id and origin) of every evaluated predicate."
+}

@@ -1,0 +1,216 @@
+{
+  "receipts": [
+    {
+      "action_tuple": {
+        "action": "release_payment",
+        "destination": "payment_rail",
+        "resource": "payment_instruction",
+        "subject": "transaction_agent"
+      },
+      "actuation_time": "2026-03-04T10:15:02Z",
+      "authorization_time": "2026-03-04T10:15:00Z",
+      "bundle_hash": "ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
+      "decision": "PERMIT",
+      "decision_time": "2026-03-04T10:15:00Z",
+      "evaluated_predicates": [
+        {
+          "acs_id": "ACS-B01-01",
+          "gcir_id": "GCIR-B0001",
+          "origin": {
+            "origin_id": "B-01",
+            "origin_type": "risk_derived"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": "ACS-B02-01",
+          "gcir_id": "GCIR-B0002",
+          "origin": {
+            "origin_id": "B-02",
+            "origin_type": "risk_derived"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": "ACS-B03-01",
+          "gcir_id": "GCIR-B0003",
+          "origin": {
+            "origin_id": "B-03",
+            "origin_type": "risk_derived"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": "ACS-B04-01",
+          "gcir_id": "GCIR-B0004",
+          "origin": {
+            "origin_id": "B-04",
+            "origin_type": "risk_derived"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": "ACS-B05-01",
+          "gcir_id": "GCIR-B0005",
+          "origin": {
+            "origin_id": "B-05",
+            "origin_type": "risk_derived"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": "ACS-B06-01",
+          "gcir_id": "GCIR-B0006",
+          "origin": {
+            "origin_id": "B-06",
+            "origin_type": "risk_derived"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": null,
+          "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+          "origin": {
+            "origin_id": "INV-AUTHORITY-CLOSURE",
+            "origin_type": "compiler_invariant"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": null,
+          "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+          "origin": {
+            "origin_id": "INV-EVIDENCE-COMMIT",
+            "origin_type": "compiler_invariant"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": null,
+          "gcir_id": "GCIR-INV-VERSION",
+          "origin": {
+            "origin_id": "INV-VERSION",
+            "origin_type": "compiler_invariant"
+          },
+          "outcome": "pass"
+        }
+      ],
+      "evidence_commit_time": "2026-03-04T10:15:01Z",
+      "receipt_id": "RCPT-CASE-B-001",
+      "signature": {
+        "algorithm": "Ed25519",
+        "domain": "receipt",
+        "key_id": "key.runtime_authority_b",
+        "payload_hash": "89648ae2438c39e93be14072aeedec890d2e85123328adbb571c597aaeb85321",
+        "signature_b64": "NeKQHQRP1WblzxAbJyqkvBRRk/hlN5HnH1o7M58oxDkpk2qMl+QBqQ9F1bZkZj96dvR7emB6KlkRjMds9EIeAg==",
+        "signing_time": "2026-03-04T10:15:01Z"
+      }
+    },
+    {
+      "action_tuple": {
+        "action": "release_payment",
+        "destination": "payment_rail",
+        "resource": "payment_instruction",
+        "subject": "transaction_agent"
+      },
+      "actuation_time": "2026-05-30T08:00:02Z",
+      "authorization_time": "2026-05-30T08:00:00Z",
+      "bundle_hash": "ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
+      "decision": "PERMIT",
+      "decision_time": "2026-05-30T08:00:00Z",
+      "evaluated_predicates": [
+        {
+          "acs_id": "ACS-B01-01",
+          "gcir_id": "GCIR-B0001",
+          "origin": {
+            "origin_id": "B-01",
+            "origin_type": "risk_derived"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": "ACS-B02-01",
+          "gcir_id": "GCIR-B0002",
+          "origin": {
+            "origin_id": "B-02",
+            "origin_type": "risk_derived"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": "ACS-B03-01",
+          "gcir_id": "GCIR-B0003",
+          "origin": {
+            "origin_id": "B-03",
+            "origin_type": "risk_derived"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": "ACS-B04-01",
+          "gcir_id": "GCIR-B0004",
+          "origin": {
+            "origin_id": "B-04",
+            "origin_type": "risk_derived"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": "ACS-B05-01",
+          "gcir_id": "GCIR-B0005",
+          "origin": {
+            "origin_id": "B-05",
+            "origin_type": "risk_derived"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": "ACS-B06-01",
+          "gcir_id": "GCIR-B0006",
+          "origin": {
+            "origin_id": "B-06",
+            "origin_type": "risk_derived"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": null,
+          "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+          "origin": {
+            "origin_id": "INV-AUTHORITY-CLOSURE",
+            "origin_type": "compiler_invariant"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": null,
+          "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+          "origin": {
+            "origin_id": "INV-EVIDENCE-COMMIT",
+            "origin_type": "compiler_invariant"
+          },
+          "outcome": "pass"
+        },
+        {
+          "acs_id": null,
+          "gcir_id": "GCIR-INV-VERSION",
+          "origin": {
+            "origin_id": "INV-VERSION",
+            "origin_type": "compiler_invariant"
+          },
+          "outcome": "pass"
+        }
+      ],
+      "evidence_commit_time": "2026-05-30T08:00:01Z",
+      "receipt_id": "RCPT-CASE-B-002",
+      "signature": {
+        "algorithm": "Ed25519",
+        "domain": "receipt",
+        "key_id": "key.runtime_authority_b",
+        "payload_hash": "282e7921fc2c742370bfef861cb57bd9c7f1e1444ca03efc3822efbd6d950f26",
+        "signature_b64": "UdIjwDgxguoX9y1xY1vFfN/5IiRcjhFSNsvTTI0gti9AYMkMKVPnQhsb3oaqry8PEex4uT+n1mVXjT2SEaCOAg==",
+        "signing_time": "2026-05-30T08:00:01Z"
+      }
+    }
+  ]
+}

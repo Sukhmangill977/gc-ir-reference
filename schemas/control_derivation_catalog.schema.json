@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gcir.example/schemas/v1.0/control_derivation_catalog.schema.json",
+  "title": "Control Derivation Catalog K",
+  "description": "Manuscript Section IV-B. k_j = (event_type, observable_class, allowed_producers, triple_template, allowed_operators, value_schema, evaluation_basis, evidence_schema, permitted_responses). Approved by the governance forum, versioned with M, canonically serialized, and included in the compiled-bundle hash.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["catalog_id", "version", "version_binding_ref", "approved_by",
+               "approval_time", "entries"],
+  "properties": {
+    "catalog_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "version": { "type": "string" },
+    "version_binding_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+    "approved_by": { "$ref": "common.schema.json#/$defs/identifier" },
+    "approval_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+    "signature": { "$ref": "common.schema.json#/$defs/signature" },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["event_type", "template_id", "observable_class",
+                     "allowed_producers", "triple_template", "allowed_operators",
+                     "value_schema", "evaluation_basis", "evidence_schema",
+                     "permitted_responses"],
+        "properties": {
+          "event_type": { "$ref": "common.schema.json#/$defs/identifier" },
+          "template_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "observable_class": { "$ref": "common.schema.json#/$defs/identifier" },
+          "allowed_producers": {
+            "type": "array", "minItems": 1,
+            "items": { "$ref": "common.schema.json#/$defs/identifier" }
+          },
+          "triple_template": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Which authority-matrix roles this event type may bind. A null role means unconstrained by the template (the authority matrix still constrains it).",
+            "properties": {
+              "subject": { "type": ["array", "null"], "items": { "type": "string" } },
+              "action": { "type": ["array", "null"], "items": { "type": "string" } },
+              "resource": { "type": ["array", "null"], "items": { "type": "string" } },
+              "destination": { "type": ["array", "null"], "items": { "type": "string" } }
+            }
+          },
+          "allowed_operators": {
+            "type": "array", "minItems": 1,
+            "items": { "$ref": "common.schema.json#/$defs/operator" }
+          },
+          "value_schema": { "$ref": "common.schema.json#/$defs/typeDescriptor" },
+          "evaluation_basis": { "$ref": "common.schema.json#/$defs/evaluationBasis" },
+          "evidence_schema": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["schema_id", "fields"],
+            "properties": {
+              "schema_id": { "$ref": "common.schema.json#/$defs/identifier" },
+              "fields": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+            }
+          },
+          "permitted_responses": {
+            "type": "array", "minItems": 1,
+            "items": { "$ref": "common.schema.json#/$defs/onFail" }
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

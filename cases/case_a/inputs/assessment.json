@@ -1,0 +1,1101 @@
+{
+  "assessment_id": "ASSESSMENT-CASE-A",
+  "case_class": "synthetic",
+  "metadata": {
+    "accountable_exec": "exec.head_of_research",
+    "assessor": "governance.assessor_r_okafor",
+    "deployment": "internal-only, single production tenant, Canadian dealer entity",
+    "exclusions": [
+      "No trading connectivity: the order-management system is not reachable from the agent's tool gateway and is not in scope.",
+      "No external client distribution; internal distribution only.",
+      "No portfolio construction, no discretionary mandate.",
+      "No retail-facing summarization."
+    ],
+    "method": "NIST AI RMF 1.0 Map/Measure profile with ISO 31000 cause-event-consequence register",
+    "owner_business": "business.research_operations",
+    "owner_technical": "technology.applied_ai_platform",
+    "purpose": "Retrieval-augmented drafting of internal equity research briefs from an approved research library, for analyst review and supervisory approval before internal distribution.",
+    "review_cycle": "annual, or on any trigger",
+    "scope": "Draft generation and internal distribution of equity research briefs. Draft-only authority: analyst review and supervisory approval are required before any brief leaves the drafting workspace.",
+    "system_id": "CASE-A-INVESTMENT-RESEARCH-AGENT",
+    "triggers": [
+      "model_version_change",
+      "prompt_or_policy_change",
+      "dataset_refresh_outside_bounds",
+      "scope_expansion",
+      "new_obligation",
+      "catalog_change",
+      "consequence_class_reclassification",
+      "incident_above_declared_severity"
+    ],
+    "validity_interval": {
+      "effective_from": "2026-02-01T00:00:00Z",
+      "effective_until": "2027-02-01T00:00:00Z"
+    },
+    "version_binding": {
+      "binding_id": "VB-CASE-A-1.0",
+      "dataset_version": "approved-research-library-2026-01",
+      "fingerprint": "sha256:8f3a1d5c2e0b47a9c6d18e4f7b2a09c35de6178b4a0c9f2e1d7b3865a4c0e9f1",
+      "model_version": "vendor-llm-2026.01-rev3",
+      "policy_version": "research-policy-2026.1",
+      "prompt_version": "research-brief-prompt-v7"
+    }
+  },
+  "obligations": [
+    {
+      "applicability_basis": [
+        "registered investment dealer",
+        "produces research reports",
+        "internal distribution to registered representatives"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "s. 3608",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-12T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "CIRO Rules consolidated 2025-12-01",
+      "obligation_id": "CIRO-3608-DISC",
+      "requirement_class": "statutory",
+      "requirement_text_hash": "d179b00c9d43ab316d55b891f421e3241aa667210157340c1f2f8059d7111d46",
+      "source": "CIRO Investment Dealer and Partially Consolidated Rules, Rule 3600 (Research Reports)",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "registered investment dealer",
+        "supervisory review of research reports required"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "s. 3616",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-12T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "CIRO Rules consolidated 2025-12-01",
+      "obligation_id": "CIRO-3616-SUP",
+      "requirement_class": "statutory",
+      "requirement_text_hash": "2be5d3099f56428c84314239f49cdf495640f32dc2c2ff671b51a9286848be2d",
+      "source": "CIRO Investment Dealer and Partially Consolidated Rules, Rule 3600 (Research Reports)",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "registered investment dealer",
+        "recommendation and rating standards"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "s. 3622",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-12T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "CIRO Rules consolidated 2025-12-01",
+      "obligation_id": "CIRO-3622-REC",
+      "requirement_class": "statutory",
+      "requirement_text_hash": "ec3a2cc43421c96a0dbe99e516e9afc8cf8a8db2bbc3f1f8a9341dc3b91bcc54",
+      "source": "CIRO Investment Dealer and Partially Consolidated Rules, Rule 3600 (Research Reports)",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "dealer with both advisory and research functions",
+        "access to material non-public information"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "information barrier policy clause 4.2",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-12T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "OSC/ASC consolidated 2025-09-30",
+      "obligation_id": "SEC-BAR-INT",
+      "requirement_class": "statutory",
+      "requirement_text_hash": "da2855975e423028ed60eae885d72a3453cabbc983fc2c4da0561cafbc86b450",
+      "source": "Provincial securities legislation -- information barrier and material non-public information requirements",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "processes personal information of identifiable individuals"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "Sch. 1, principle 4.7 (safeguards)",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-12T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "PIPEDA as amended to 2025-06-20",
+      "obligation_id": "PIPEDA-PRIV",
+      "requirement_class": "statutory",
+      "requirement_text_hash": "0d6e7624da53e10e495abc0100537278f1956fa86fca42053c01cf49ed0e2df7",
+      "source": "Personal Information Protection and Electronic Documents Act",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "federally regulated financial institution",
+        "technology system in production"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "s. 2.3 technology operations and s. 3 cyber security",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-12T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "OSFI B-13 (2022)",
+      "obligation_id": "OSFI-B13-TECH",
+      "requirement_class": "supervisory",
+      "requirement_text_hash": "91ea4537609a2b89048c8f63809e5d58a9fd90bf2ab211304f37dafc219c91ff",
+      "source": "OSFI Guideline B-13, Technology and Cyber Risk Management",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "federally regulated financial institution",
+        "operation supports a critical business service"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "s. 4 critical operations and s. 5 resilience",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-12T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "OSFI E-21 (2024)",
+      "obligation_id": "OSFI-E21-ORR",
+      "requirement_class": "supervisory",
+      "requirement_text_hash": "b504abb3e5cd7cc50b005b6ff5dab4eed5c3e28f68014fbd9eb029970bbc7672",
+      "source": "OSFI Guideline E-21, Operational Risk and Resilience",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "material third-party arrangement for model and retrieval services"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "s. 3 third-party arrangements",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-12T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "OSFI B-10 (2023)",
+      "obligation_id": "OSFI-B10-TPR",
+      "requirement_class": "supervisory",
+      "requirement_text_hash": "ae732cc994e26bbad08d6892dedb725bd6a54094fcc81fa8c2c5e633fbce73c9",
+      "source": "OSFI Guideline B-10, Third-Party Risk Management",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "model in the enterprise model inventory",
+        "readiness posture ahead of the 2027-05-01 effective date"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "s. 3 model lifecycle and s. 5 model risk controls",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-12T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "OSFI E-23 published 2025-09-11, effective 2027-05-01",
+      "obligation_id": "OSFI-E23-MRM",
+      "requirement_class": "supervisory",
+      "requirement_text_hash": "b6d2da4e34afb6aeac69e488ebcb14624b4b0a1f925387fa0ea97c9f7f3a11be",
+      "source": "OSFI Guideline E-23, Model Risk Management (readiness)",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "all internally distributed research output"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "RQA-2026 s. 2 (sourcing) and s. 3 (balance)",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-12T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "RQA-2026.1",
+      "obligation_id": "INT-RES-QA",
+      "requirement_class": "internal",
+      "requirement_text_hash": "a78fcb85b0f95d53aa352baac5179643439093a0caa489ee67eb41b5f1a81821",
+      "source": "Internal requirement -- Research Quality Assurance Standard",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "all authorization decisions taken by an automated authority"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "ECC-2026 s. 1 (authorization receipts)",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-12T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "ECC-2026.1",
+      "obligation_id": "INT-EVID-CHAIN",
+      "requirement_class": "internal",
+      "requirement_text_hash": "8635fc5a7a653612f29cb62d7ad8047c158f189f3a431baee69d146b82bcf987",
+      "source": "Internal requirement -- Evidence Chain Completeness Standard",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "research systems without a discretionary trading mandate"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "RSTP-2026 s. 1",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-12T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "RSTP-2026.1",
+      "obligation_id": "INT-NO-TRADE-CONN",
+      "requirement_class": "internal",
+      "requirement_text_hash": "34d5de1e71928b0a1392da64c9678b5454f70f47a3a8573d9a3443370b531a27",
+      "source": "Internal requirement -- Research Systems Trading Connectivity Prohibition",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    }
+  ],
+  "risk_analysis": [
+    {
+      "consequence_class": "client_harm",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "client_harm",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "partially_reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 5,
+      "likelihood_residual": 4,
+      "reopening_trigger": null,
+      "risk_id": "R-01",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "client_harm",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "client_harm",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "partially_reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 5,
+      "likelihood_residual": 4,
+      "reopening_trigger": null,
+      "risk_id": "R-02",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "client_harm",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "client_harm",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "partially_reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 5,
+      "likelihood_residual": 4,
+      "reopening_trigger": null,
+      "risk_id": "R-03",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "conduct",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "conduct",
+        "materiality": "minor",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "R-04",
+      "tier": "tier_2",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "information_barrier",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "material_information_barrier_breach",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": "any change to the restricted-list feed or to repository access boundaries",
+      "risk_id": "R-05",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "statutory",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "material_statutory_prohibition",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "R-06",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "security",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "security",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "partially_reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "R-07",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "authority",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "unauthorized_authority_exercise",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "R-08",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "authority",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "unauthorized_authority_exercise",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 4,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "R-09",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "irreversible",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "irreversible_external_effect_above_approved_bound",
+        "materiality": "severe",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": "any change to the approved tool manifest or to network segmentation",
+      "risk_id": "R-10",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "governance",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "governance_bundle_validity",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 5,
+      "likelihood_residual": 4,
+      "reopening_trigger": "any deployment of a model, prompt, dataset or policy artifact",
+      "risk_id": "R-11",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "governance",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "governance_oversight",
+        "materiality": "minor",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "R-12",
+      "tier": "tier_2",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "statutory",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "material_statutory_prohibition",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": null,
+      "risk_id": "R-13",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "operational_resilience",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "operational_resilience",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": "any change to the retrieval vendor arrangement",
+      "risk_id": "R-14",
+      "tier": "tier_2",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "reputational",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "reputational",
+        "materiality": "minor",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "reversible"
+      },
+      "control_effectiveness": "ineffective",
+      "impact_inherent": 3,
+      "impact_residual": 2,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "R-15",
+      "tier": "tier_3",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "third_party_viability",
+      "consequence_descriptor": {
+        "authority": "dealer_research_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-20T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "third_party_viability",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-A-1.0; materiality assessed against the profile's boundary for this kind.",
+        "reversibility": "reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": "any adverse change in the vendor's published financial position",
+      "risk_id": "R-16",
+      "tier": "tier_2",
+      "treatment": "mitigate"
+    }
+  ],
+  "risk_register": [
+    {
+      "affected_parties": [
+        "internal research consumers",
+        "clients of the dealer"
+      ],
+      "cause": "because the model generates probabilistic text, unsupported financial facts may be presented as true",
+      "consequence": "defective research is distributed and relied upon, causing client harm",
+      "event": "a typed claim object in the output schema carries no resolving source hash",
+      "existing_controls": [
+        "analyst review of every brief",
+        "typed claim schema in the brief template"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "INT-RES-QA",
+        "OSFI-E23-MRM"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-01",
+      "source_register_row": "R14-01"
+    },
+    {
+      "affected_parties": [
+        "internal research consumers",
+        "clients of the dealer"
+      ],
+      "cause": "retrieval may surface documents outside the approved library, or the generator may fabricate a citation",
+      "consequence": "unsourced or misattributed research is distributed, causing client harm",
+      "event": "a cited source is not a member of the approved library manifest",
+      "existing_controls": [
+        "approved research library manifest",
+        "analyst spot-check of citations"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "INT-RES-QA"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-02",
+      "source_register_row": "R14-02"
+    },
+    {
+      "affected_parties": [
+        "internal research consumers",
+        "clients of the dealer"
+      ],
+      "cause": "the approved library contains documents of differing vintage and no per-asset-class freshness gate exists at generation time",
+      "consequence": "stale analysis is distributed as current, causing client harm",
+      "event": "a source timestamp exceeds the approved freshness bound for its asset class",
+      "existing_controls": [
+        "library ingestion timestamps",
+        "analyst judgement on vintage"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "INT-RES-QA"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-03",
+      "source_register_row": "R14-03"
+    },
+    {
+      "affected_parties": [
+        "internal research consumers",
+        "issuers covered by the brief"
+      ],
+      "cause": "retrieval ranking and prompt framing may systematically over-weight one side of a covered issuer's evidence base",
+      "consequence": "systematically biased framing reaches internal readers, a conduct exposure",
+      "event": "the measured coverage-skew metric for a brief exceeds the approved bound",
+      "existing_controls": [
+        "editorial guidance on balance"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "INT-RES-QA"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-04",
+      "source_register_row": "R14-04"
+    },
+    {
+      "affected_parties": [
+        "issuers covered by the brief",
+        "clients of the dealer"
+      ],
+      "cause": "the agent's retrieval context spans repositories on both sides of the information barrier",
+      "consequence": "material non-public information crosses the information barrier",
+      "event": "a restricted-list entity match appears in the retrieval context or the generated brief",
+      "existing_controls": [
+        "repository-level access control",
+        "restricted-list maintenance process"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "publish_report",
+          "destination": "internal_distribution",
+          "resource": "research_report",
+          "subject": "research_agent"
+        }
+      ],
+      "obligation_refs": [
+        "SEC-BAR-INT",
+        "PIPEDA-PRIV"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-05",
+      "source_register_row": "R14-05"
+    },
+    {
+      "affected_parties": [
+        "clients of the dealer",
+        "the dealer as regulated entity"
+      ],
+      "cause": "conflict disclosures are assembled from several systems and the generator has no structural obligation to include them",
+      "consequence": "a research report is distributed without a statutorily mandated disclosure",
+      "event": "a mandatory conflict disclosure required by the disclosure checklist is absent from the brief",
+      "existing_controls": [
+        "disclosure checklist maintained by compliance"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "publish_report",
+          "destination": "internal_distribution",
+          "resource": "research_report",
+          "subject": "research_agent"
+        }
+      ],
+      "obligation_refs": [
+        "CIRO-3608-DISC"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-06",
+      "source_register_row": "R14-06"
+    },
+    {
+      "affected_parties": [
+        "the dealer as regulated entity",
+        "internal research consumers"
+      ],
+      "cause": "retrieved documents are third-party controlled and may carry adversarial instructions or forged provenance",
+      "consequence": "the agent is steered by untrusted content, a security exposure",
+      "event": "a retrieved document fails its provenance or structural check, or a tool call originates inside retrieved content",
+      "existing_controls": [
+        "library ingestion vetting",
+        "network egress controls"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "OSFI-B13-TECH"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-07",
+      "source_register_row": "R14-07"
+    },
+    {
+      "affected_parties": [
+        "clients of the dealer",
+        "the dealer as regulated entity"
+      ],
+      "cause": "the drafting workspace and the distribution channel are separate systems and approval state is carried by a token",
+      "consequence": "an unapproved research report is distributed -- an exercise of authority the system does not hold",
+      "event": "distribution proceeds without a valid supervisory approval token bound to the draft hash",
+      "existing_controls": [
+        "supervisory approval workflow"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "publish_report",
+          "destination": "internal_distribution",
+          "resource": "research_report",
+          "subject": "research_agent"
+        }
+      ],
+      "obligation_refs": [
+        "CIRO-3616-SUP"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-08",
+      "source_register_row": "R14-08"
+    },
+    {
+      "affected_parties": [
+        "clients of the dealer",
+        "the dealer as regulated entity"
+      ],
+      "cause": "the brief schema contains rating, price-target and action-language slots that the system is not authorized to populate",
+      "consequence": "an unauthorized investment recommendation is issued in the dealer's name",
+      "event": "recommendation-class fields are present in the output, or the mandatory reliance disclaimer is absent",
+      "existing_controls": [
+        "brief template guidance",
+        "analyst attestation"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "publish_report",
+          "destination": "internal_distribution",
+          "resource": "research_report",
+          "subject": "research_agent"
+        }
+      ],
+      "obligation_refs": [
+        "CIRO-3622-REC"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-09",
+      "source_register_row": "R14-09"
+    },
+    {
+      "affected_parties": [
+        "clients of the dealer",
+        "the dealer as regulated entity"
+      ],
+      "cause": "the tool gateway is a general invocation surface and an order-management endpoint could be reachable through a misconfiguration",
+      "consequence": "an unauthorized trade is placed -- an irreversible external effect",
+      "event": "a tool call targets an endpoint outside the approved read-only tool manifest",
+      "existing_controls": [
+        "network segmentation between research and trading estates"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "invoke_tool",
+          "destination": "tool_gateway",
+          "resource": "external_tool",
+          "subject": "research_agent"
+        }
+      ],
+      "obligation_refs": [
+        "INT-NO-TRADE-CONN"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-10",
+      "source_register_row": "R14-10"
+    },
+    {
+      "affected_parties": [
+        "the dealer as regulated entity"
+      ],
+      "cause": "model, prompt, dataset and policy artifacts are deployed independently and a stale artifact can remain active",
+      "consequence": "the system operates under a configuration the assessment never covered; the compiled control set is invalid by construction",
+      "event": "the runtime model, prompt or policy fingerprint differs from the assessed configuration",
+      "existing_controls": [
+        "change management process",
+        "deployment manifests"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "OSFI-B13-TECH",
+        "OSFI-E23-MRM"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-11",
+      "source_register_row": "R14-11"
+    },
+    {
+      "affected_parties": [
+        "the dealer as regulated entity"
+      ],
+      "cause": "review volume and time pressure make click-through approval possible without substantive examination",
+      "consequence": "human oversight is nominal rather than substantive, a governance exposure",
+      "event": "reviewer dwell time or review volume for a brief falls outside the approved band",
+      "existing_controls": [
+        "supervisory review policy"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "CIRO-3616-SUP"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-12",
+      "source_register_row": "R14-12"
+    },
+    {
+      "affected_parties": [
+        "clients of the dealer",
+        "the dealer as regulated entity"
+      ],
+      "cause": "the authorization decision and its evidence record are produced by different components and can diverge under failure",
+      "consequence": "the authorization decision is not evidenced, defeating the statutory record-keeping requirement",
+      "event": "a decision receipt is absent from, or unchained in, the evidence record for an authorized release",
+      "existing_controls": [
+        "application logging"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "publish_report",
+          "destination": "internal_distribution",
+          "resource": "research_report",
+          "subject": "research_agent"
+        }
+      ],
+      "obligation_refs": [
+        "INT-EVID-CHAIN",
+        "CIRO-3616-SUP"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-13",
+      "source_register_row": "R14-13"
+    },
+    {
+      "affected_parties": [
+        "internal research consumers"
+      ],
+      "cause": "the retrieval stack depends on a single vendor for both embedding and index services",
+      "consequence": "the research pipeline loses its retrieval capability, an operational-resilience exposure",
+      "event": "that vendor's service degrades or becomes unavailable",
+      "existing_controls": [
+        "vendor SLA",
+        "annual resilience review"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "OSFI-E21-ORR"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-14",
+      "source_register_row": "R14-14"
+    },
+    {
+      "affected_parties": [
+        "the dealer as regulated entity"
+      ],
+      "cause": "generated prose carries a register and tone that no structural field of the brief schema constrains",
+      "consequence": "reputational damage to the dealer's research franchise",
+      "event": "a brief is drafted in an unprofessional or reputationally damaging register",
+      "existing_controls": [
+        "style guide",
+        "analyst editing"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "INT-RES-QA"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-15",
+      "source_register_row": "register extension"
+    },
+    {
+      "affected_parties": [
+        "internal research consumers"
+      ],
+      "cause": "the third-party model vendor is an early-stage company with concentrated funding",
+      "consequence": "loss of the model capability on which the pipeline depends, a third-party viability exposure",
+      "event": "the vendor ceases trading or is acquired and the service is withdrawn",
+      "existing_controls": [
+        "vendor financial review at onboarding"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "OSFI-B10-TPR"
+      ],
+      "owner": "business.research_operations",
+      "risk_id": "R-16",
+      "source_register_row": "register extension"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "assessment",
+    "key_id": "key.assessor",
+    "payload_hash": "2e5f94665cf96dc313ee4451e1ef5e5dcd4355b17d8074966073d41f399c146b",
+    "signature_b64": "dMg3br03bGqGEbY67OUVexqtmdSt9FGgnrk1ElP3kChflnylRfxSloDnY9svLk2F3ma7Omkwg5i3S5nZZtyuCg==",
+    "signing_time": "2026-01-20T09:00:00Z"
+  },
+  "system_profile": {
+    "actors": [
+      "research_agent",
+      "supervisory_analyst",
+      "research_analyst",
+      "compliance_officer"
+    ],
+    "affected_parties": [
+      "internal research consumers",
+      "issuers covered by the brief",
+      "clients of the dealer (indirectly, via analyst-authored output)"
+    ],
+    "architecture": "RAG summarizer: approved research library -> retriever -> typed brief generator -> analyst review -> supervisory approval -> internal distribution.",
+    "authority_matrix": [
+      {
+        "action": "publish_report",
+        "destination": "internal_distribution",
+        "hazardous": true,
+        "notes": "The only externally effective action in scope: once distributed, a brief is not rescindable from readers who have already acted on it.",
+        "parameter_schema": {
+          "distribution_list": {
+            "enum": [
+              "internal_research_desk",
+              "internal_all_analysts"
+            ],
+            "required": true,
+            "type": "string"
+          },
+          "draft_id": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-PUBLISH-REPORT",
+        "resource": "research_report",
+        "subject": "research_agent"
+      },
+      {
+        "action": "invoke_tool",
+        "destination": "tool_gateway",
+        "hazardous": true,
+        "notes": "Tool invocation is hazardous because a tool target outside the approved manifest would be an unauthorized authority exercise.",
+        "parameter_schema": {
+          "invocation_class": {
+            "enum": [
+              "read_only",
+              "stateful"
+            ],
+            "required": true,
+            "type": "string"
+          },
+          "tool_id": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-INVOKE-TOOL",
+        "resource": "external_tool",
+        "subject": "research_agent"
+      },
+      {
+        "action": "generate_draft",
+        "destination": "draft_workspace",
+        "hazardous": false,
+        "notes": "Internal, reversible, not externally effective.",
+        "parameter_schema": {
+          "draft_id": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-GENERATE-DRAFT",
+        "resource": "research_report",
+        "subject": "research_agent"
+      },
+      {
+        "action": "retrieve_document",
+        "destination": "agent_context",
+        "hazardous": false,
+        "notes": "Retrieval into context is reversible and not externally effective.",
+        "parameter_schema": {
+          "query_id": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-RETRIEVE",
+        "resource": "research_library",
+        "subject": "research_agent"
+      },
+      {
+        "action": "approve_draft",
+        "destination": "approval_service",
+        "hazardous": false,
+        "notes": "Human approval act; recorded as a signed attestation artifact.",
+        "parameter_schema": {
+          "draft_id": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-APPROVE",
+        "resource": "research_report",
+        "subject": "supervisory_analyst"
+      }
+    ],
+    "autonomy_level": "assisted_agent",
+    "capabilities": [
+      "retrieval over an approved research library",
+      "abstractive and extractive summarization into a typed brief schema",
+      "typed claim-object emission with source-hash slots",
+      "read-only tool invocation through an approved tool gateway"
+    ],
+    "data_classes": [
+      "public issuer filings",
+      "licensed third-party research",
+      "internal restricted list (information-barrier controlled)",
+      "analyst identity and review telemetry"
+    ],
+    "scale": {
+      "analysts": 220,
+      "briefs_per_month": 3200,
+      "unit": "count"
+    }
+  }
+}

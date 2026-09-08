@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gcir.example/schemas/v1.0/receipt.schema.json",
+  "title": "Decision receipt (consumed interface)",
+  "description": "Manuscript Sections II, VIII and Appendix A constraint 14. The permit-binding and single-use semantics are specified in [15] and consumed unchanged; what this paper adds is the requirement-reference and disposition content a conformant receipt must carry.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["receipt_id", "bundle_hash", "decision", "decision_time",
+               "authorization_time", "evidence_commit_time", "evaluated_predicates",
+               "signature"],
+  "properties": {
+    "receipt_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "bundle_hash": { "$ref": "common.schema.json#/$defs/sha256Hex" },
+    "decision": { "enum": ["PERMIT", "SAFE_STATE"] },
+    "decision_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+    "authorization_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+    "evidence_commit_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+    "actuation_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+    "action_tuple": { "$ref": "common.schema.json#/$defs/actionTuple" },
+    "evaluated_predicates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["gcir_id", "acs_id", "origin", "outcome"],
+        "properties": {
+          "gcir_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "acs_id": { "type": ["string", "null"] },
+          "origin": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["origin_type", "origin_id"],
+            "properties": {
+              "origin_type": { "$ref": "common.schema.json#/$defs/originType" },
+              "origin_id": { "type": "string" }
+            }
+          },
+          "outcome": { "enum": ["pass", "fail", "unknown"] }
+        }
+      }
+    },
+    "signature": { "$ref": "common.schema.json#/$defs/signature" }
+  }
+}

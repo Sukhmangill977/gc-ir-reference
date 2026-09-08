@@ -1,0 +1,164 @@
+{
+  "approvals": [
+    {
+      "acs_id": "ACS-B01-01",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B02-01",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B03-01",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B04-01",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B05-01",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B06-01",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    }
+  ],
+  "assessment_ref": {
+    "assessment_id": "ASSESSMENT-CASE-B",
+    "binding_id": "VB-CASE-B-1.0"
+  },
+  "catalog_ref": {
+    "catalog_id": "K-CASE-B",
+    "version": "1.0"
+  },
+  "disposition_decisions": [
+    {
+      "decided_by": "business.head_payment_operations",
+      "decision_time": "2026-01-21T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "B-01",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_payment_operations",
+      "decision_time": "2026-01-21T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "B-02",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_payment_operations",
+      "decision_time": "2026-01-21T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "B-03",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "compliance.head_sanctions",
+      "decision_time": "2026-01-21T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "B-04",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_payment_operations",
+      "decision_time": "2026-01-21T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "B-05",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "compliance.head_records",
+      "decision_time": "2026-01-21T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "B-06",
+      "status": "runtime"
+    }
+  ],
+  "judgment_id": "J-CASE-B",
+  "selections": [
+    {
+      "acs_id": "ACS-B01-01",
+      "event_type": "permit_binding",
+      "rationale": "Permit validity and binding is a structural check over a signed artifact; T-PERMIT-BIND is the approved template.",
+      "risk_id": "B-01",
+      "selected_by": "business.head_payment_operations",
+      "selection_id": "JB-SEL-001",
+      "selection_time": "2026-01-21T10:00:00Z",
+      "template_id": "T-PERMIT-BIND"
+    },
+    {
+      "acs_id": "ACS-B02-01",
+      "event_type": "amount_limit",
+      "rationale": "The instruction amount is a measured value requiring a threshold contract; T-AMOUNT-LIMIT selected with TC-PAYMENT-LIMIT.",
+      "risk_id": "B-02",
+      "selected_by": "business.head_payment_operations",
+      "selection_id": "JB-SEL-002",
+      "selection_time": "2026-01-21T10:00:00Z",
+      "template_id": "T-AMOUNT-LIMIT"
+    },
+    {
+      "acs_id": "ACS-B03-01",
+      "event_type": "velocity_bound",
+      "rationale": "Window transaction count is a measured value requiring a threshold contract; T-VELOCITY selected with TC-VELOCITY-BOUND.",
+      "risk_id": "B-03",
+      "selected_by": "business.head_payment_operations",
+      "selection_id": "JB-SEL-003",
+      "selection_time": "2026-01-21T10:00:00Z",
+      "template_id": "T-VELOCITY"
+    },
+    {
+      "acs_id": "ACS-B04-01",
+      "event_type": "restricted_party_screening",
+      "rationale": "Restricted-party screening resolves to a signed artifact; T-RESTRICTED-PARTY is the approved deterministic-lookup template. Selected by class, not by score: at s = 5 this is the lowest-rated row on the register.",
+      "risk_id": "B-04",
+      "selected_by": "compliance.head_sanctions",
+      "selection_id": "JB-SEL-004",
+      "selection_time": "2026-01-21T10:00:00Z",
+      "template_id": "T-RESTRICTED-PARTY"
+    },
+    {
+      "acs_id": "ACS-B05-01",
+      "event_type": "permit_single_use",
+      "rationale": "Permit redemption state and hash novelty are structural; T-SINGLE-USE selected.",
+      "risk_id": "B-05",
+      "selected_by": "business.head_payment_operations",
+      "selection_id": "JB-SEL-005",
+      "selection_time": "2026-01-21T10:00:00Z",
+      "template_id": "T-SINGLE-USE"
+    },
+    {
+      "acs_id": "ACS-B06-01",
+      "event_type": "receipt_chain_completeness",
+      "rationale": "Receipt ordering and chaining are structural; T-RECEIPT-CHAIN-B selected. The forum recorded that this coincides with INV-EVIDENCE-COMMIT.",
+      "risk_id": "B-06",
+      "selected_by": "compliance.head_records",
+      "selection_id": "JB-SEL-006",
+      "selection_time": "2026-01-21T10:00:00Z",
+      "template_id": "T-RECEIPT-CHAIN-B"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "judgment_record",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "0cba17beb8b909bace46e4722058ec7e4eb0781ebea5ad34fbf27c60ddd25980",
+    "signature_b64": "PT/K4N33FdpC/GjEYmqezz3ytpkB/FYAkYt0Olgui/OjI9aSE2elWHDYU5H+SZ83RZ57d9rvVWA3T5BB1GhpAA==",
+    "signing_time": "2026-01-22T15:08:00Z"
+  },
+  "version": "1.0"
+}

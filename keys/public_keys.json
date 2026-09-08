@@ -1,0 +1,13 @@
+{
+  "keys": {
+    "key.assessor": "729dT4r3MOvR15sQmBZV0CxxdUfLUCCmciJxKXAYImM=",
+    "key.governance_forum_a": "ny7+xfWzJMpS8JayBBa7oz0M2eNiFe+seC7RftFgkZI=",
+    "key.governance_forum_b": "K2/fAa9kAZ7RpuvZZqFBxBav3GnuL822ZcmdjfuKHUM=",
+    "key.lifecycle_authority_a": "sF/08SOdvuaa19jqTK4HfpCvW/kg3IGtRXNs2NYZ8mg=",
+    "key.lifecycle_authority_b": "SVgSABRBZe2KC6XvvLS6wwXIYJ70YmdaWlBaHfbjwFo=",
+    "key.runtime_authority_a": "BSiga8yu8aE09flvbbHc8x5YP15qZtKJrSbpokQsNr4=",
+    "key.runtime_authority_b": "neePbTfbt1PmQdBMo5yJA1oquhuONxTgz0Ly9lI0yEo=",
+    "key.unauthorized_party": "LtZGWk00qgNNxdH2rOhZOJ4Q7ngAZszy6+hHWRSt8E4="
+  },
+  "warning": "TEST ONLY / NOT FOR PRODUCTION -- research fixture key"
+}

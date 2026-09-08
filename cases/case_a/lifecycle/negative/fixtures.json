@@ -1,0 +1,619 @@
+{
+  "q4_post_retirement_receipt": {
+    "action_tuple": {
+      "action": "publish_report",
+      "destination": "internal_distribution",
+      "resource": "research_report",
+      "subject": "research_agent"
+    },
+    "actuation_time": "2026-07-01T09:00:02Z",
+    "authorization_time": "2026-07-01T09:00:00Z",
+    "bundle_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+    "decision": "PERMIT",
+    "decision_time": "2026-07-01T09:00:00Z",
+    "evaluated_predicates": [
+      {
+        "acs_id": "ACS-0001-01",
+        "gcir_id": "GCIR-0001",
+        "origin": {
+          "origin_id": "R-01",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0002-01",
+        "gcir_id": "GCIR-0002",
+        "origin": {
+          "origin_id": "R-02",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0003-01",
+        "gcir_id": "GCIR-0003",
+        "origin": {
+          "origin_id": "R-03",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0004-01",
+        "gcir_id": "GCIR-0004",
+        "origin": {
+          "origin_id": "R-04",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0004-02",
+        "gcir_id": "GCIR-0005",
+        "origin": {
+          "origin_id": "R-04",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0005-01",
+        "gcir_id": "GCIR-0006",
+        "origin": {
+          "origin_id": "R-05",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0006-01",
+        "gcir_id": "GCIR-0007",
+        "origin": {
+          "origin_id": "R-06",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0007-01",
+        "gcir_id": "GCIR-0008",
+        "origin": {
+          "origin_id": "R-07",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0007-02",
+        "gcir_id": "GCIR-0009",
+        "origin": {
+          "origin_id": "R-07",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0008-01",
+        "gcir_id": "GCIR-0010",
+        "origin": {
+          "origin_id": "R-08",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0009-01",
+        "gcir_id": "GCIR-0011",
+        "origin": {
+          "origin_id": "R-09",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0009-02",
+        "gcir_id": "GCIR-0012",
+        "origin": {
+          "origin_id": "R-09",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0010-01",
+        "gcir_id": "GCIR-0013",
+        "origin": {
+          "origin_id": "R-10",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0011-01",
+        "gcir_id": "GCIR-0014",
+        "origin": {
+          "origin_id": "R-11",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0012-01",
+        "gcir_id": "GCIR-0015",
+        "origin": {
+          "origin_id": "R-12",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0013-01",
+        "gcir_id": "GCIR-0016",
+        "origin": {
+          "origin_id": "R-13",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+        "origin": {
+          "origin_id": "INV-AUTHORITY-CLOSURE",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+        "origin": {
+          "origin_id": "INV-EVIDENCE-COMMIT",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-VERSION",
+        "origin": {
+          "origin_id": "INV-VERSION",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      }
+    ],
+    "evidence_commit_time": "2026-07-01T09:00:01Z",
+    "receipt_id": "RCPT-CASE-A-NEG-Q4A",
+    "signature": {
+      "algorithm": "Ed25519",
+      "domain": "receipt",
+      "key_id": "key.runtime_authority_a",
+      "payload_hash": "081e44cc0a3ae3df5c339cd66a065fd3664757da85cc98e4b3104c22c5ae78db",
+      "signature_b64": "/TJ/3OtSWtBBhcu17ohgyUdtnXevEctC7MsFA7kghO6eBK1UFHMdW1OMxNHSlA9aCTYqUuFPRFUPrgoa2XgEBw==",
+      "signing_time": "2026-07-01T09:00:01Z"
+    }
+  },
+  "q4_wrong_bundle_hash_receipt": {
+    "action_tuple": {
+      "action": "publish_report",
+      "destination": "internal_distribution",
+      "resource": "research_report",
+      "subject": "research_agent"
+    },
+    "actuation_time": "2026-03-04T10:15:02Z",
+    "authorization_time": "2026-03-04T10:15:00Z",
+    "bundle_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "decision": "PERMIT",
+    "decision_time": "2026-03-04T10:15:00Z",
+    "evaluated_predicates": [
+      {
+        "acs_id": "ACS-0001-01",
+        "gcir_id": "GCIR-0001",
+        "origin": {
+          "origin_id": "R-01",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0002-01",
+        "gcir_id": "GCIR-0002",
+        "origin": {
+          "origin_id": "R-02",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0003-01",
+        "gcir_id": "GCIR-0003",
+        "origin": {
+          "origin_id": "R-03",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0004-01",
+        "gcir_id": "GCIR-0004",
+        "origin": {
+          "origin_id": "R-04",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0004-02",
+        "gcir_id": "GCIR-0005",
+        "origin": {
+          "origin_id": "R-04",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0005-01",
+        "gcir_id": "GCIR-0006",
+        "origin": {
+          "origin_id": "R-05",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0006-01",
+        "gcir_id": "GCIR-0007",
+        "origin": {
+          "origin_id": "R-06",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0007-01",
+        "gcir_id": "GCIR-0008",
+        "origin": {
+          "origin_id": "R-07",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0007-02",
+        "gcir_id": "GCIR-0009",
+        "origin": {
+          "origin_id": "R-07",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0008-01",
+        "gcir_id": "GCIR-0010",
+        "origin": {
+          "origin_id": "R-08",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0009-01",
+        "gcir_id": "GCIR-0011",
+        "origin": {
+          "origin_id": "R-09",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0009-02",
+        "gcir_id": "GCIR-0012",
+        "origin": {
+          "origin_id": "R-09",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0010-01",
+        "gcir_id": "GCIR-0013",
+        "origin": {
+          "origin_id": "R-10",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0011-01",
+        "gcir_id": "GCIR-0014",
+        "origin": {
+          "origin_id": "R-11",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0012-01",
+        "gcir_id": "GCIR-0015",
+        "origin": {
+          "origin_id": "R-12",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0013-01",
+        "gcir_id": "GCIR-0016",
+        "origin": {
+          "origin_id": "R-13",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+        "origin": {
+          "origin_id": "INV-AUTHORITY-CLOSURE",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+        "origin": {
+          "origin_id": "INV-EVIDENCE-COMMIT",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-VERSION",
+        "origin": {
+          "origin_id": "INV-VERSION",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      }
+    ],
+    "evidence_commit_time": "2026-03-04T10:15:01Z",
+    "receipt_id": "RCPT-CASE-A-NEG-Q4B",
+    "signature": {
+      "algorithm": "Ed25519",
+      "domain": "receipt",
+      "key_id": "key.runtime_authority_a",
+      "payload_hash": "24ba6d1fc8724618a59cce25332732f5ad5d6f843ddc19a00922a06968e9dba8",
+      "signature_b64": "oKEKOIRGq1E/3KGXvYfo1LO0ijOb92aJPmmdrWd9KEqcnw3kYR1GtrO90BNdx5s8UsYcdys3FpVu4SSf4j9wBA==",
+      "signing_time": "2026-03-04T10:15:01Z"
+    }
+  },
+  "q5_late_commit_actuation": {
+    "action_tuple": "research_agent/publish_report/research_report/internal_distribution",
+    "actuation_id": "ACT-CASE-A-NEG-Q5B",
+    "actuation_time": "2026-03-04T10:15:03Z",
+    "receipt_id": "RCPT-CASE-A-NEG-Q5B"
+  },
+  "q5_late_commit_receipt": {
+    "action_tuple": {
+      "action": "publish_report",
+      "destination": "internal_distribution",
+      "resource": "research_report",
+      "subject": "research_agent"
+    },
+    "actuation_time": "2026-03-04T10:15:03Z",
+    "authorization_time": "2026-03-04T10:15:00Z",
+    "bundle_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+    "decision": "PERMIT",
+    "decision_time": "2026-03-04T10:15:00Z",
+    "evaluated_predicates": [
+      {
+        "acs_id": "ACS-0001-01",
+        "gcir_id": "GCIR-0001",
+        "origin": {
+          "origin_id": "R-01",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0002-01",
+        "gcir_id": "GCIR-0002",
+        "origin": {
+          "origin_id": "R-02",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0003-01",
+        "gcir_id": "GCIR-0003",
+        "origin": {
+          "origin_id": "R-03",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0004-01",
+        "gcir_id": "GCIR-0004",
+        "origin": {
+          "origin_id": "R-04",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0004-02",
+        "gcir_id": "GCIR-0005",
+        "origin": {
+          "origin_id": "R-04",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0005-01",
+        "gcir_id": "GCIR-0006",
+        "origin": {
+          "origin_id": "R-05",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0006-01",
+        "gcir_id": "GCIR-0007",
+        "origin": {
+          "origin_id": "R-06",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0007-01",
+        "gcir_id": "GCIR-0008",
+        "origin": {
+          "origin_id": "R-07",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0007-02",
+        "gcir_id": "GCIR-0009",
+        "origin": {
+          "origin_id": "R-07",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0008-01",
+        "gcir_id": "GCIR-0010",
+        "origin": {
+          "origin_id": "R-08",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0009-01",
+        "gcir_id": "GCIR-0011",
+        "origin": {
+          "origin_id": "R-09",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0009-02",
+        "gcir_id": "GCIR-0012",
+        "origin": {
+          "origin_id": "R-09",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0010-01",
+        "gcir_id": "GCIR-0013",
+        "origin": {
+          "origin_id": "R-10",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0011-01",
+        "gcir_id": "GCIR-0014",
+        "origin": {
+          "origin_id": "R-11",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0012-01",
+        "gcir_id": "GCIR-0015",
+        "origin": {
+          "origin_id": "R-12",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-0013-01",
+        "gcir_id": "GCIR-0016",
+        "origin": {
+          "origin_id": "R-13",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+        "origin": {
+          "origin_id": "INV-AUTHORITY-CLOSURE",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+        "origin": {
+          "origin_id": "INV-EVIDENCE-COMMIT",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-VERSION",
+        "origin": {
+          "origin_id": "INV-VERSION",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      }
+    ],
+    "evidence_commit_time": "2026-03-04T10:15:05Z",
+    "receipt_id": "RCPT-CASE-A-NEG-Q5B",
+    "signature": {
+      "algorithm": "Ed25519",
+      "domain": "receipt",
+      "key_id": "key.runtime_authority_a",
+      "payload_hash": "2fc57163909b90b9c762d8ca8522cd4aab7cc3f0680106c02b0952358f878848",
+      "signature_b64": "32qp0VWSOcz3zat+WxBIA/SKD2iGfmKAy+ljXLV2ed4zN4LDtiw/xGr3ci3luXLd6cZsdB/xQ7JQQBGcIZymBg==",
+      "signing_time": "2026-03-04T10:15:05Z"
+    }
+  },
+  "q5_orphan_actuation": {
+    "action_tuple": "research_agent/publish_report/research_report/internal_distribution",
+    "actuation_id": "ACT-CASE-A-NEG-Q5A",
+    "actuation_time": "2026-03-04T10:15:02Z",
+    "receipt_id": null
+  },
+  "q6_unauthorized_registry_entry": {
+    "action": "revoke",
+    "authority": "impersonated.head_of_operations",
+    "bundle_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+    "effective_time": "2026-03-01T00:00:00Z",
+    "entry_id": "REG-CASE-A-NEG-Q6",
+    "reason": "Purported emergency revocation signed by a key that is not in the registry's authorized_signing_keys.",
+    "signature": {
+      "algorithm": "Ed25519",
+      "domain": "lifecycle",
+      "key_id": "key.unauthorized_party",
+      "payload_hash": "a92184a663a13dcdcbba211fd40333e7c47f6afcbbb0e063857ea0a34fd2776d",
+      "signature_b64": "e5oF5XpmzBPpxQmL4RivqNCRMyB601vPE2GLKwvTDCjrL8Hc5f6pkbPQj37BDYEvF4oNZlIeHrOzYqfJpdRkAw==",
+      "signing_time": "2026-03-01T00:00:00Z"
+    },
+    "trigger": null
+  }
+}

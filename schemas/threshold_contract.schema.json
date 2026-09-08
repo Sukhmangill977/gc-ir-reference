@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gcir.example/schemas/v1.0/threshold_contract.schema.json",
+  "title": "Threshold contract",
+  "description": "Manuscript Section V, design commitment 4: a numeric or temporal bound is not admissible until it carries operational definition, numerator, denominator, evidence source, ground truth, threshold rationale, uncertainty method, unit, and reproduction procedure. Threshold authority is separated from evaluation: control owners propose, the accountable governance forum approves, the runtime evaluator never sets or adjusts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_id", "operational_definition", "numerator", "denominator",
+               "evidence_source", "ground_truth", "threshold_rationale",
+               "uncertainty_method", "unit", "reproduction_procedure",
+               "proposed_by", "approved_by", "approval_time"],
+  "properties": {
+    "contract_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "operational_definition": { "type": "string", "minLength": 1 },
+    "numerator": { "type": "string", "minLength": 1 },
+    "denominator": { "type": "string", "minLength": 1 },
+    "evidence_source": { "type": "string", "minLength": 1 },
+    "ground_truth": { "type": "string", "minLength": 1 },
+    "threshold_rationale": { "type": "string", "minLength": 1 },
+    "uncertainty_method": { "type": "string", "minLength": 1 },
+    "unit": { "type": "string", "minLength": 1 },
+    "reproduction_procedure": { "type": "string", "minLength": 1 },
+    "proposed_by": { "$ref": "common.schema.json#/$defs/identifier" },
+    "approved_by": {
+      "$ref": "common.schema.json#/$defs/identifier",
+      "description": "The accountable governance forum. Never the runtime evaluator."
+    },
+    "approval_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+    "value": { "type": ["number", "string"] },
+    "zero_event_reporting": { "type": "string" }
+  }
+}

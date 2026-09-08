@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gcir.example/schemas/v1.0/invariant_register.schema.json",
+  "title": "Approved invariant register INV",
+  "description": "Manuscript Section VI-B. Compiler invariants are not orphan controls; they are separately authorized requirements included in M or S and recorded here. The traceability requirement is: for all p in P, origin(p) in R union INV.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["register_id", "version", "version_binding_ref", "invariants"],
+  "properties": {
+    "register_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "version": { "type": "string" },
+    "version_binding_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+    "signature": { "$ref": "common.schema.json#/$defs/signature" },
+    "invariants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["invariant_id", "gcir_id", "title", "authorizing_requirement",
+                     "approved_by", "approval_time", "effective_from",
+                     "version_binding_ref", "subject", "action", "resource",
+                     "destination", "parameter_schema_ref", "context_conditions",
+                     "evidence_producer", "evidence_schema_ref", "evaluation_basis",
+                     "escalation", "evidence_requirements", "evidence_semantics",
+                     "decision_semantics", "warrant_boundary"],
+        "properties": {
+          "invariant_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "gcir_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "title": { "type": "string" },
+          "authorizing_requirement": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["source", "reference"],
+            "properties": {
+              "source": { "enum": ["M", "S"] },
+              "reference": { "type": "string", "minLength": 1 }
+            }
+          },
+          "obligation_refs": { "type": "array", "items": { "type": "string" } },
+          "approved_by": { "$ref": "common.schema.json#/$defs/identifier" },
+          "approval_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+          "effective_from": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+          "version_binding_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+          "subject": { "$ref": "common.schema.json#/$defs/identifier" },
+          "action": { "$ref": "common.schema.json#/$defs/identifier" },
+          "resource": { "$ref": "common.schema.json#/$defs/identifier" },
+          "destination": { "$ref": "common.schema.json#/$defs/identifier" },
+          "action_parameters": { "type": "object" },
+          "parameter_schema_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+          "context_conditions": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["attribute", "operator", "value", "on_unknown",
+                           "evidence_producer", "evidence_schema_ref"],
+              "properties": {
+                "attribute": { "$ref": "common.schema.json#/$defs/identifier" },
+                "operator": { "$ref": "common.schema.json#/$defs/operator" },
+                "value": {},
+                "value_from": { "enum": ["M.version_binding"] },
+                "unit": { "type": ["string", "null"] },
+                "on_unknown": { "const": "fail" },
+                "required": { "type": "boolean" },
+                "evidence_producer": { "$ref": "common.schema.json#/$defs/identifier" },
+                "evidence_schema_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+                "threshold_contract_ref": { "type": ["string", "null"] },
+                "temporal_window": { "type": ["string", "null"] }
+              }
+            }
+          },
+          "evidence_producer": { "$ref": "common.schema.json#/$defs/identifier" },
+          "evidence_schema_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+          "evaluation_basis": { "$ref": "common.schema.json#/$defs/evaluationBasis" },
+          "escalation": { "$ref": "common.schema.json#/$defs/escalation" },
+          "evidence_requirements": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "evidence_semantics": { "type": "string", "minLength": 1 },
+          "decision_semantics": { "type": "string", "minLength": 1 },
+          "warrant_boundary": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

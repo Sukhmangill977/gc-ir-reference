@@ -1,0 +1,7 @@
+{
+  "algorithm": "Ed25519",
+  "key_id": "key.lifecycle_authority_a",
+  "private_key_b64": "F9XT1M84F1Q8S7PznXEQOi4bx2wyNX8UNeZ1JFNQEuU=",
+  "public_key_b64": "sF/08SOdvuaa19jqTK4HfpCvW/kg3IGtRXNs2NYZ8mg=",
+  "warning": "TEST ONLY / NOT FOR PRODUCTION -- research fixture key"
+}

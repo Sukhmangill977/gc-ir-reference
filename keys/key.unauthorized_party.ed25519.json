@@ -1,0 +1,7 @@
+{
+  "algorithm": "Ed25519",
+  "key_id": "key.unauthorized_party",
+  "private_key_b64": "wHsJFE+XICO72xR4RRo1R8lcuE1T6SZSNW+evP5D5J8=",
+  "public_key_b64": "LtZGWk00qgNNxdH2rOhZOJ4Q7ngAZszy6+hHWRSt8E4=",
+  "warning": "TEST ONLY / NOT FOR PRODUCTION -- research fixture key"
+}

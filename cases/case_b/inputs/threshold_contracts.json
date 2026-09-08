@@ -1,0 +1,38 @@
+{
+  "contracts": {
+    "TC-PAYMENT-LIMIT": {
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approved_by": "payments_governance_forum",
+      "contract_id": "TC-PAYMENT-LIMIT",
+      "denominator": "one transaction; not a rate",
+      "evidence_source": "payment_instruction_service_v1 signed instruction artifact",
+      "ground_truth": "the instruction amount as recorded by the originating system at instruction creation, before the authorization path sees it",
+      "numerator": "instruction amount in minor units as carried on the signed payment-instruction artifact",
+      "operational_definition": "Per-transaction release limit: the instruction amount, in minor currency units, that a single automated authorization may release without human co-authorization.",
+      "proposed_by": "business.payment_operations",
+      "reproduction_procedure": "Re-request the signed instruction artifact for the transaction hash and compare its amount_minor_units field against the approved bound for its currency.",
+      "threshold_rationale": "The Payment Authorization Limit Standard sets the automated release ceiling at CAD 250,000.00 (25,000,000 minor units), the board-approved single-transaction exposure bound for unattended release.",
+      "uncertainty_method": "Amounts are exact integers in minor units; there is no measurement uncertainty. Currency conversion is out of scope -- the bound applies per currency and the artifact carries the currency code.",
+      "unit": "minor currency units (CAD cents)",
+      "value": 25000000,
+      "zero_event_reporting": "Not applicable: this is a per-transaction bound, not a rate."
+    },
+    "TC-VELOCITY-BOUND": {
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approved_by": "payments_governance_forum",
+      "contract_id": "TC-VELOCITY-BOUND",
+      "denominator": "one rolling 3600-second window per counterparty",
+      "evidence_source": "velocity_counter_service_v1 signed window-count artifact",
+      "ground_truth": "committed receipts in the evidence chain, not the authorization service's own in-memory state",
+      "numerator": "count of released transactions to the counterparty with actuation_time inside the window",
+      "operational_definition": "Counterparty velocity bound: the number of releases to the same counterparty permitted within a rolling 3600-second window.",
+      "proposed_by": "business.payment_operations",
+      "reproduction_procedure": "Re-request the signed window-count artifact for the transaction hash and recount committed receipts for the counterparty inside the stated window boundaries.",
+      "threshold_rationale": "The Payment Authorization Limit Standard sets 20 releases per counterparty per hour as the bound above which an upstream defect or compromise is more likely than legitimate activity, based on the 99.9th percentile of the counterparty-hour distribution over the preceding twelve months.",
+      "uncertainty_method": "The count is exact given the window boundary; the reported uncertainty is the evidence-chain commit latency bound (<= 250 ms), which can move at most one transaction across a window edge. The artifact reports the boundary instants so the effect is auditable.",
+      "unit": "transactions per counterparty per 3600 s",
+      "value": 20,
+      "zero_event_reporting": "A window with zero releases is reported with its exposure denominator and an exact one-sided upper bound, never as 'no velocity risk'."
+    }
+  }
+}

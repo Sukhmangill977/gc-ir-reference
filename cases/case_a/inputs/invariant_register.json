@@ -1,0 +1,179 @@
+{
+  "invariants": [
+    {
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approved_by": "ai_governance_forum",
+      "authorizing_requirement": {
+        "reference": "M.version_binding and M.triggers -- the assessment covers exactly one configuration; an action taken under any other configuration is unauthorized by construction.",
+        "source": "M"
+      },
+      "context_conditions": [
+        {
+          "attribute": "runtime_fingerprint",
+          "evidence_producer": "deployment_attestation_service_v1",
+          "evidence_schema_ref": "ES-VERSION-FINGERPRINT",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": "sha256:8f3a1d5c2e0b47a9c6d18e4f7b2a09c35de6178b4a0c9f2e1d7b3865a4c0e9f1",
+          "value_from": "M.version_binding"
+        }
+      ],
+      "decision_semantics": "PERMIT requires the runtime fingerprint to equal M.version_binding.fingerprint. Indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "escalation": {
+        "route": "technology_change_management",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "evidence_producer": "deployment_attestation_service_v1",
+      "evidence_requirements": [
+        "model_version",
+        "prompt_version",
+        "dataset_version",
+        "policy_version",
+        "fingerprint",
+        "artifact_signature"
+      ],
+      "evidence_schema_ref": "ES-VERSION-FINGERPRINT",
+      "evidence_semantics": "A signed deployment attestation reporting the configuration actually loaded at authorization time.",
+      "gcir_id": "GCIR-INV-VERSION",
+      "invariant_id": "INV-VERSION",
+      "obligation_refs": [],
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "resource": "research_report",
+      "subject": "research_agent",
+      "title": "Per-action version-binding check",
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes that the running configuration is the assessed configuration. It does not establish that the assessed configuration is safe. This is the per-action form of the version-drift argument: no action is authorized under a configuration the assessment never covered."
+    },
+    {
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approved_by": "ai_governance_forum",
+      "authorizing_requirement": {
+        "reference": "S.architecture -- the consuming enforcement pipeline issues a permit, commits the trace record, and only then releases the interlock. The ordering is a system requirement, not a per-risk treatment choice.",
+        "source": "S"
+      },
+      "context_conditions": [
+        {
+          "attribute": "receipt_committed_between_authorization_and_actuation",
+          "evidence_producer": "evidence_chain_service_v2",
+          "evidence_schema_ref": "ES-RECEIPT-CHAIN",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires authorization_time <= evidence_commit_time < actuation_time, with the receipt chained to its predecessor.",
+      "destination": "internal_distribution",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "escalation": {
+        "route": "compliance_records_desk",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "evidence_producer": "evidence_chain_service_v2",
+      "evidence_requirements": [
+        "receipt_id",
+        "authorization_time",
+        "evidence_commit_time",
+        "chain_prev_hash"
+      ],
+      "evidence_schema_ref": "ES-RECEIPT-CHAIN",
+      "evidence_semantics": "A signed evidence-chain artifact carrying the authorization, commit and actuation instants for this decision.",
+      "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+      "invariant_id": "INV-EVIDENCE-COMMIT",
+      "obligation_refs": [],
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "resource": "research_report",
+      "subject": "research_agent",
+      "title": "Receipt committed after authorization and before actuation",
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes the temporal ordering and chaining of the evidence record. It does not establish the truth of the receipt's content, nor that the trusted time source is honest."
+    },
+    {
+      "action": "publish_report",
+      "action_parameters": {
+        "distribution_list": "internal_research_desk",
+        "draft_id": "DRAFT-BOUND"
+      },
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approved_by": "ai_governance_forum",
+      "authorizing_requirement": {
+        "reference": "S.authority_matrix -- the accountable executive's signature over what the system may cause. An action outside the matrix is unauthorized irrespective of any risk treatment.",
+        "source": "S"
+      },
+      "context_conditions": [
+        {
+          "attribute": "action_tuple_within_approved_matrix",
+          "evidence_producer": "authority_matrix_service_v1",
+          "evidence_schema_ref": "ES-AUTHORITY-CLOSURE",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires the proposed tuple and parameters to resolve exactly to an approved matrix row. Indeterminate or absent evidence fails.",
+      "destination": "internal_distribution",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "escalation": {
+        "route": "governance_forum_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "evidence_producer": "authority_matrix_service_v1",
+      "evidence_requirements": [
+        "subject",
+        "action",
+        "resource",
+        "destination",
+        "matrix_version",
+        "artifact_signature"
+      ],
+      "evidence_schema_ref": "ES-AUTHORITY-CLOSURE",
+      "evidence_semantics": "A signed lookup artifact reporting whether the proposed action tuple and its bound parameters are present in the approved authority matrix at the stated matrix version.",
+      "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+      "invariant_id": "INV-AUTHORITY-CLOSURE",
+      "obligation_refs": [],
+      "parameter_schema_ref": "PS-PUBLISH-REPORT",
+      "resource": "research_report",
+      "subject": "research_agent",
+      "title": "Action tuple within the approved authority matrix",
+      "version_binding_ref": "VB-CASE-A-1.0",
+      "warrant_boundary": "Establishes closure of the proposed action against the approved matrix. It does not establish that the matrix itself is correctly scoped -- that is a governance judgment recorded in S."
+    }
+  ],
+  "register_id": "INV-CASE-A",
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "invariants",
+    "key_id": "key.governance_forum_a",
+    "payload_hash": "88452707c35ca73881b41fed94fb56aa2865f0ac4f6752f0bc06a34575caae56",
+    "signature_b64": "4OQx5HxagmJLkb747VvbwaXTJl96jkdG/phiqKpif6kgUaDL6qzrbMHH0503q1ujmbwbwz5alBxtxzxwk2RuDg==",
+    "signing_time": "2026-01-20T14:14:00Z"
+  },
+  "version": "1.0",
+  "version_binding_ref": "VB-CASE-A-1.0"
+}

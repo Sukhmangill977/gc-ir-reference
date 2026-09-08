@@ -1,0 +1,676 @@
+{
+  "approval_time": "2026-01-20T14:00:00Z",
+  "approved_by": "ai_governance_forum",
+  "catalog_id": "K-CASE-A",
+  "entries": [
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "brief_schema_validator_v2"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "output_schema_claim_resolution",
+      "evidence_schema": {
+        "fields": [
+          "draft_hash",
+          "claim_count",
+          "unresolved_claim_ids"
+        ],
+        "schema_id": "ES-CLAIM-RESOLUTION"
+      },
+      "notes": "Structural check over enumerated typed claim objects. Identifying what constitutes a factual claim in unstructured prose would require probabilistic judgment and is an RC-03 condition, not this template.",
+      "observable_class": "typed_claim_object_set",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-CLAIM-RESOLVE",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "subset_of"
+      ],
+      "allowed_producers": [
+        "library_manifest_service_v4"
+      ],
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "citation_membership",
+      "evidence_schema": {
+        "fields": [
+          "draft_hash",
+          "cited_source_hashes",
+          "manifest_version"
+        ],
+        "schema_id": "ES-CITATION-SET"
+      },
+      "notes": "",
+      "observable_class": "citation_set",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-CITE-SUBSET",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "<="
+      ],
+      "allowed_producers": [
+        "library_manifest_service_v4"
+      ],
+      "evaluation_basis": "threshold_on_measured_value",
+      "event_type": "source_freshness",
+      "evidence_schema": {
+        "fields": [
+          "draft_hash",
+          "max_source_age_hours",
+          "asset_class"
+        ],
+        "schema_id": "ES-SOURCE-AGE"
+      },
+      "notes": "",
+      "observable_class": "source_age_measurement",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-FRESHNESS",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "number"
+      }
+    },
+    {
+      "allowed_operators": [
+        "<="
+      ],
+      "allowed_producers": [
+        "editorial_metrics_service_v1"
+      ],
+      "evaluation_basis": "threshold_on_measured_value",
+      "event_type": "coverage_skew",
+      "evidence_schema": {
+        "fields": [
+          "draft_hash",
+          "skew_index",
+          "issuer_id"
+        ],
+        "schema_id": "ES-COVERAGE-SKEW"
+      },
+      "notes": "",
+      "observable_class": "coverage_skew_measurement",
+      "permitted_responses": [
+        "WARN"
+      ],
+      "template_id": "T-SKEW",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "number"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "editorial_metrics_service_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "advisory_framing_flag",
+      "evidence_schema": {
+        "fields": [
+          "draft_hash",
+          "flagged_section_ids"
+        ],
+        "schema_id": "ES-FRAMING-FLAGS"
+      },
+      "notes": "",
+      "observable_class": "framing_flag_set",
+      "permitted_responses": [
+        "WARN"
+      ],
+      "template_id": "T-FRAMING-ADVISORY",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "entity_resolution_service_v3"
+      ],
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "restricted_list_screening",
+      "evidence_schema": {
+        "fields": [
+          "draft_hash",
+          "restricted_list_version",
+          "match_count",
+          "artifact_signature"
+        ],
+        "schema_id": "ES-RESTRICTED-MATCH"
+      },
+      "notes": "The predicate deterministically verifies that a SIGNED entity-resolution artifact reports no restricted-list match. It does not claim the upstream entity resolver is perfectly accurate -- that is the warrant boundary.",
+      "observable_class": "restricted_list_match",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-RESTRICTED",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "disclosure_checklist_service_v2"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "disclosure_completeness",
+      "evidence_schema": {
+        "fields": [
+          "draft_hash",
+          "checklist_id",
+          "missing_item_ids"
+        ],
+        "schema_id": "ES-DISCLOSURE"
+      },
+      "notes": "",
+      "observable_class": "disclosure_checklist_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-DISCLOSURE",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "library_manifest_service_v4"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "retrieval_provenance",
+      "evidence_schema": {
+        "fields": [
+          "query_id",
+          "document_hashes",
+          "unverified_document_hashes"
+        ],
+        "schema_id": "ES-PROVENANCE"
+      },
+      "notes": "",
+      "observable_class": "document_provenance_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-PROVENANCE",
+      "triple_template": {
+        "action": [
+          "retrieve_document"
+        ],
+        "destination": [
+          "agent_context"
+        ],
+        "resource": [
+          "research_library"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "tool_gateway_v2"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "tool_call_origin",
+      "evidence_schema": {
+        "fields": [
+          "tool_id",
+          "originating_span_class"
+        ],
+        "schema_id": "ES-TOOL-ORIGIN"
+      },
+      "notes": "",
+      "observable_class": "tool_call_origin_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-TOOL-ORIGIN",
+      "triple_template": {
+        "action": [
+          "invoke_tool"
+        ],
+        "destination": [
+          "tool_gateway"
+        ],
+        "resource": [
+          "external_tool"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "approval_service_v3"
+      ],
+      "evaluation_basis": "human_attestation",
+      "event_type": "approval_token_binding",
+      "evidence_schema": {
+        "fields": [
+          "draft_hash",
+          "approver_id",
+          "token_id",
+          "token_signature"
+        ],
+        "schema_id": "ES-APPROVAL-TOKEN"
+      },
+      "notes": "human_attestation is deterministic at evaluation time: the predicate tests for the presence and validity of a signed attestation artifact, not for the quality of the human judgment it records.",
+      "observable_class": "supervisory_approval_attestation",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-APPROVAL",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "brief_schema_validator_v2"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "output_field_class_absence",
+      "evidence_schema": {
+        "fields": [
+          "draft_hash",
+          "present_field_classes"
+        ],
+        "schema_id": "ES-FIELD-CLASS"
+      },
+      "notes": "",
+      "observable_class": "output_field_class_set",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-FIELD-ABSENT",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "brief_schema_validator_v2"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "disclaimer_presence",
+      "evidence_schema": {
+        "fields": [
+          "draft_hash",
+          "disclaimer_slot_populated",
+          "disclaimer_text_hash"
+        ],
+        "schema_id": "ES-DISCLAIMER"
+      },
+      "notes": "",
+      "observable_class": "disclaimer_slot_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-DISCLAIMER",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "in"
+      ],
+      "allowed_producers": [
+        "tool_gateway_v2"
+      ],
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "tool_target_authorization",
+      "evidence_schema": {
+        "fields": [
+          "tool_id",
+          "target_endpoint",
+          "manifest_version"
+        ],
+        "schema_id": "ES-TOOL-TARGET"
+      },
+      "notes": "",
+      "observable_class": "tool_target_membership",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-TOOL-TARGET",
+      "triple_template": {
+        "action": [
+          "invoke_tool"
+        ],
+        "destination": [
+          "tool_gateway"
+        ],
+        "resource": [
+          "external_tool"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "deployment_attestation_service_v1"
+      ],
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "version_fingerprint_match",
+      "evidence_schema": {
+        "fields": [
+          "model_version",
+          "prompt_version",
+          "dataset_version",
+          "policy_version",
+          "fingerprint"
+        ],
+        "schema_id": "ES-VERSION-FINGERPRINT"
+      },
+      "notes": "",
+      "observable_class": "runtime_fingerprint",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-VERSION",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "string"
+      }
+    },
+    {
+      "allowed_operators": [
+        ">="
+      ],
+      "allowed_producers": [
+        "review_telemetry_service_v1"
+      ],
+      "evaluation_basis": "threshold_on_measured_value",
+      "event_type": "review_telemetry_band",
+      "evidence_schema": {
+        "fields": [
+          "draft_hash",
+          "reviewer_id",
+          "dwell_seconds",
+          "reviews_in_window"
+        ],
+        "schema_id": "ES-REVIEW-TELEMETRY"
+      },
+      "notes": "A deterministic proxy for substantive review. It does not measure the quality of the reviewer's judgment.",
+      "observable_class": "review_dwell_measurement",
+      "permitted_responses": [
+        "WARN"
+      ],
+      "template_id": "T-REVIEW-BAND",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "number"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "evidence_chain_service_v2"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "receipt_chain_completeness",
+      "evidence_schema": {
+        "fields": [
+          "receipt_id",
+          "authorization_time",
+          "evidence_commit_time",
+          "chain_prev_hash"
+        ],
+        "schema_id": "ES-RECEIPT-CHAIN"
+      },
+      "notes": "",
+      "observable_class": "receipt_chain_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-RECEIPT-CHAIN",
+      "triple_template": {
+        "action": [
+          "publish_report"
+        ],
+        "destination": [
+          "internal_distribution"
+        ],
+        "resource": [
+          "research_report"
+        ],
+        "subject": [
+          "research_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "catalog",
+    "key_id": "key.governance_forum_a",
+    "payload_hash": "193858b2477c3a2bcf253f39ca55212e3fff039c3fc2883a5be376bbd9456f71",
+    "signature_b64": "3UIvLZInkJ35sL9H+A9d6VOJXzeEdbXal8+QkQOedwBRNLse5APP1a02N9zrjWDUc4lfOUWjOEQzrUlwX9iVDA==",
+    "signing_time": "2026-01-20T14:05:00Z"
+  },
+  "version": "1.0",
+  "version_binding_ref": "VB-CASE-A-1.0"
+}

@@ -1,0 +1,147 @@
+{
+  "disposition_set_id": "DELTA-CASE-A",
+  "records": [
+    {
+      "acs_ids": [
+        "ACS-0001-01"
+      ],
+      "risk_id": "R-01",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-0002-01"
+      ],
+      "risk_id": "R-02",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-0003-01"
+      ],
+      "risk_id": "R-03",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-0004-01",
+        "ACS-0004-02"
+      ],
+      "risk_id": "R-04",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-0005-01"
+      ],
+      "risk_id": "R-05",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-0006-01"
+      ],
+      "risk_id": "R-06",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-0007-01",
+        "ACS-0007-02"
+      ],
+      "risk_id": "R-07",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-0008-01"
+      ],
+      "risk_id": "R-08",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-0009-01",
+        "ACS-0009-02"
+      ],
+      "risk_id": "R-09",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-0010-01"
+      ],
+      "risk_id": "R-10",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-0011-01"
+      ],
+      "risk_id": "R-11",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-0012-01"
+      ],
+      "risk_id": "R-12",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-0013-01"
+      ],
+      "risk_id": "R-13",
+      "status": "runtime"
+    },
+    {
+      "approval": {
+        "approval_time": "2026-01-20T14:00:00Z",
+        "approver": "forum.chair_l_tremblay",
+        "forum": "ai_governance_forum"
+      },
+      "control_ref": "CTL-A-RESILIENCE-01 (multi-vendor clause; annual resilience testing; OSFI B-10 alignment)",
+      "owner": "technology.applied_ai_platform",
+      "reason_code": "RC-01",
+      "risk_id": "R-14",
+      "routed_to_control_family": "architectural_and_contractual",
+      "status": "nonruntime"
+    },
+    {
+      "approval": {
+        "approval_time": "2026-01-20T14:00:00Z",
+        "approver": "forum.chair_l_tremblay",
+        "forum": "ai_governance_forum"
+      },
+      "control_ref": "CTL-A-TONE-01 (editorial review workflow under the style guide)",
+      "owner": "business.research_operations",
+      "reason_code": "RC-03",
+      "risk_id": "R-15",
+      "routed_to_control_family": "human_process",
+      "status": "nonruntime"
+    },
+    {
+      "approval": {
+        "approval_time": "2026-01-20T14:00:00Z",
+        "approver": "forum.chair_l_tremblay",
+        "forum": "ai_governance_forum"
+      },
+      "control_ref": "CTL-A-VENDOR-01 (source-code escrow; exit and transition clause)",
+      "owner": "procurement.third_party_risk",
+      "reason_code": "RC-01",
+      "risk_id": "R-16",
+      "routed_to_control_family": "contractual",
+      "status": "nonruntime"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "dispositions",
+    "key_id": "key.governance_forum_a",
+    "payload_hash": "454d995dfb5ea5d34f300994435244ab3a2eb420da4d58dcdca7586193d4870a",
+    "signature_b64": "DsuPHXUY37jzjj0ZZ7iKzbVALwgwZZ9O2ALAwTyaMVuBfuwlSAsdz6jmNQtYXkVv69WEpco5cs35XJcrM3DzDg==",
+    "signing_time": "2026-01-20T14:12:00Z"
+  },
+  "version_binding_ref": "VB-CASE-A-1.0"
+}

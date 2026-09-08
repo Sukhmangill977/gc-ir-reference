@@ -1,0 +1,69 @@
+{
+  "approval_time": "2026-01-20T14:00:00Z",
+  "approved_by": "ai_governance_forum",
+  "classification_rules": {
+    "irreversible_external_effect_above_approved_bound": {
+      "approving_authority": "exec.head_of_research",
+      "effective_date": "2026-01-20T14:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "A reversible or rescindable external effect, or one below the approved bound, is not a member.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "An external effect that cannot be rescinded cannot be traded off against a priority score."
+    },
+    "material_information_barrier_breach": {
+      "approving_authority": "exec.head_of_research",
+      "effective_date": "2026-01-20T14:00:00Z",
+      "emergency_override_procedure": "Head of Information Barriers may authorize a time-boxed exception with written rationale, recorded and reported to the forum within 24 hours.",
+      "materiality_boundary": {
+        "description": "A match on a de-listed or expired restricted-list entry with no live exposure is below the boundary.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "Information-barrier integrity is a condition of the dealer's registration; a material breach is irreversible on disclosure."
+    },
+    "material_statutory_prohibition": {
+      "approving_authority": "exec.head_of_research",
+      "effective_date": "2026-01-20T14:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "A documentation defect or other immaterial technical non-conformance does not enter C* solely because its source is statutory.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "A statutory prohibition whose breach is material to clients or to the dealer's registration is non-negotiable irrespective of its heat-map score."
+    },
+    "unauthorized_authority_exercise": {
+      "approving_authority": "exec.head_of_research",
+      "effective_date": "2026-01-20T14:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "An unauthorized act with no external effect and no reliance exposure is below the boundary.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "The system causing an effect it is not authorized to cause is an authorization failure, not a priority question."
+    }
+  },
+  "materiality_order": [
+    "immaterial",
+    "minor",
+    "material",
+    "severe"
+  ],
+  "member_kinds": [
+    "material_statutory_prohibition",
+    "unauthorized_authority_exercise",
+    "material_information_barrier_breach",
+    "irreversible_external_effect_above_approved_bound"
+  ],
+  "profile_id": "CSTAR-A",
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "cstar_profile",
+    "key_id": "key.governance_forum_a",
+    "payload_hash": "31cb7c0220dba184ce86d3edcaf03e8e20b5185b7a6340ac78754ac29706679e",
+    "signature_b64": "vbV+Nld9dA+v4pVKp5OPmlGbZtyx7C6MtkKV5vsYZoaqQ4tlQ2W0IjXGbpVpcgMeNfNwDqrkzkCLz3AXpQwGDQ==",
+    "signing_time": "2026-01-20T14:06:00Z"
+  },
+  "version": "1.0",
+  "version_binding_ref": "VB-CASE-A-1.0"
+}

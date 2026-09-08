@@ -1,0 +1,17 @@
+{
+  "bundle_effective_from": "2026-02-01T00:00:00Z",
+  "bundle_signing_key": "key.governance_forum_b",
+  "compile_time": "2026-02-02T09:00:00Z",
+  "declared_heatmap_threshold": 15,
+  "lifecycle_authority_key": "key.lifecycle_authority_b",
+  "runtime_authority_key": "key.runtime_authority_b",
+  "signing_authorities": {
+    "acs": "key.governance_forum_b",
+    "assessment": "key.assessor",
+    "catalog": "key.governance_forum_b",
+    "cstar_profile": "key.governance_forum_b",
+    "dispositions": "key.governance_forum_b",
+    "invariants": "key.governance_forum_b",
+    "judgment_record": "key.governance_forum_b"
+  }
+}

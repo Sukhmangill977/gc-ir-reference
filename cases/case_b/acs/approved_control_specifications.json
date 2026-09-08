@@ -1,0 +1,439 @@
+{
+  "acs_set_id": "D-CASE-B",
+  "records": [
+    {
+      "acs_id": "ACS-B01-01",
+      "action": "release_payment",
+      "action_parameters": {
+        "currency": "CAD",
+        "rail": "domestic_rtr",
+        "transaction_hash": "TXN-BOUND"
+      },
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "context_conditions": [
+        {
+          "attribute": "permit_valid_and_bound",
+          "evidence_producer": "authority_permit_service_v2",
+          "evidence_schema_ref": "ES-PERMIT-BIND",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "technology.payments_platform",
+      "decision_semantics": "PERMIT requires a valid permit signature whose bound hash equals the transaction hash under evaluation; indeterminate or absent evidence fails.",
+      "destination": "payment_rail",
+      "escalation": {
+        "route": "payment_operations_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "permit_binding",
+      "evidence_requirements": [
+        "transaction_hash",
+        "permit_id",
+        "permit_signature",
+        "bound_hash"
+      ],
+      "evidence_schema_ref": "ES-PERMIT-BIND",
+      "evidence_semantics": "A signed permit artifact whose payload binds the permit identifier to this transaction hash.",
+      "evidence_source": "authority_permit_service_v2 signed artifact bound to the transaction hash",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-B0001",
+      "mandatory_role": "decisive",
+      "obligation_refs": [
+        "INT-PERMIT-BIND"
+      ],
+      "observable_class": "permit_binding_state",
+      "observable_id": "permit_valid_and_bound",
+      "observable_producer": "authority_permit_service_v2",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-RELEASE-PAYMENT",
+      "policy_id": "POL-B-PERMIT",
+      "resource": "payment_instruction",
+      "risk_id": "B-01",
+      "subject": "transaction_agent",
+      "template_id": "T-PERMIT-BIND",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-02-01T00:00:00Z",
+        "effective_until": "2027-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-B-1.0",
+      "warrant_boundary": "Establishes that a valid, bound permit exists. It does not establish that the authorization decision behind the permit was substantively correct."
+    },
+    {
+      "acs_id": "ACS-B02-01",
+      "action": "release_payment",
+      "action_parameters": {
+        "currency": "CAD",
+        "rail": "domestic_rtr",
+        "transaction_hash": "TXN-BOUND"
+      },
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "context_conditions": [
+        {
+          "attribute": "amount_minor_units",
+          "evidence_producer": "payment_instruction_service_v1",
+          "evidence_schema_ref": "ES-AMOUNT",
+          "on_unknown": "fail",
+          "operator": "<=",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": "TC-PAYMENT-LIMIT",
+          "unit": "minor currency units (CAD cents)",
+          "value": 25000000
+        }
+      ],
+      "control_owner": "business.payment_operations",
+      "decision_semantics": "PERMIT requires amount_minor_units <= the approved bound under threshold contract TC-PAYMENT-LIMIT for the stated currency; indeterminate or absent evidence fails.",
+      "destination": "payment_rail",
+      "escalation": {
+        "route": "payment_operations_urgent",
+        "sla_hours": 2
+      },
+      "evaluation_basis": "threshold_on_measured_value",
+      "event_type": "amount_limit",
+      "evidence_requirements": [
+        "transaction_hash",
+        "amount_minor_units",
+        "currency",
+        "artifact_signature"
+      ],
+      "evidence_schema_ref": "ES-AMOUNT",
+      "evidence_semantics": "A signed instruction artifact carrying the amount in minor units and the currency code, as recorded by the originating system.",
+      "evidence_source": "payment_instruction_service_v1 signed artifact bound to the transaction hash",
+      "expected_value": 25000000,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-B0002",
+      "mandatory_role": "decisive",
+      "obligation_refs": [
+        "INT-PAY-LIMIT"
+      ],
+      "observable_class": "instruction_amount_measurement",
+      "observable_id": "amount_minor_units",
+      "observable_producer": "payment_instruction_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "<=",
+      "parameter_schema_ref": "PS-RELEASE-PAYMENT",
+      "policy_id": "POL-B-LIMIT",
+      "resource": "payment_instruction",
+      "risk_id": "B-02",
+      "subject": "transaction_agent",
+      "template_id": "T-AMOUNT-LIMIT",
+      "temporal_window": null,
+      "threshold_contract_ref": "TC-PAYMENT-LIMIT",
+      "validity_interval": {
+        "effective_from": "2026-02-01T00:00:00Z",
+        "effective_until": "2027-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-B-1.0",
+      "warrant_boundary": "Establishes that the instruction is within the approved automated release ceiling. It does not establish that the payment is legitimate."
+    },
+    {
+      "acs_id": "ACS-B03-01",
+      "action": "release_payment",
+      "action_parameters": {
+        "currency": "CAD",
+        "rail": "domestic_rtr",
+        "transaction_hash": "TXN-BOUND"
+      },
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "context_conditions": [
+        {
+          "attribute": "window_transaction_count",
+          "evidence_producer": "velocity_counter_service_v1",
+          "evidence_schema_ref": "ES-VELOCITY",
+          "on_unknown": "fail",
+          "operator": "<=",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": "TC-VELOCITY-BOUND",
+          "unit": "transactions per counterparty per 3600 s",
+          "value": 20
+        }
+      ],
+      "control_owner": "business.payment_operations",
+      "decision_semantics": "PERMIT requires window_transaction_count <= the approved bound under threshold contract TC-VELOCITY-BOUND; indeterminate or absent evidence fails.",
+      "destination": "payment_rail",
+      "escalation": {
+        "route": "payment_operations_urgent",
+        "sla_hours": 2
+      },
+      "evaluation_basis": "threshold_on_measured_value",
+      "event_type": "velocity_bound",
+      "evidence_requirements": [
+        "transaction_hash",
+        "window_count",
+        "window_seconds",
+        "counterparty_id",
+        "artifact_signature"
+      ],
+      "evidence_schema_ref": "ES-VELOCITY",
+      "evidence_semantics": "A signed window-count artifact reporting committed releases to the same counterparty inside the approved rolling window.",
+      "evidence_source": "velocity_counter_service_v1 signed artifact bound to the transaction hash",
+      "expected_value": 20,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-B0003",
+      "mandatory_role": "decisive",
+      "obligation_refs": [
+        "INT-PAY-LIMIT"
+      ],
+      "observable_class": "window_transaction_count",
+      "observable_id": "window_transaction_count",
+      "observable_producer": "velocity_counter_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "<=",
+      "parameter_schema_ref": "PS-RELEASE-PAYMENT",
+      "policy_id": "POL-B-LIMIT",
+      "resource": "payment_instruction",
+      "risk_id": "B-03",
+      "subject": "transaction_agent",
+      "template_id": "T-VELOCITY",
+      "temporal_window": null,
+      "threshold_contract_ref": "TC-VELOCITY-BOUND",
+      "validity_interval": {
+        "effective_from": "2026-02-01T00:00:00Z",
+        "effective_until": "2027-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-B-1.0",
+      "warrant_boundary": "Establishes that observed velocity is within the approved bound. It does not establish that a within-bound pattern is legitimate."
+    },
+    {
+      "acs_id": "ACS-B04-01",
+      "action": "release_payment",
+      "action_parameters": {
+        "currency": "CAD",
+        "rail": "domestic_rtr",
+        "transaction_hash": "TXN-BOUND"
+      },
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "context_conditions": [
+        {
+          "attribute": "restricted_party_match",
+          "evidence_producer": "sanctions_screening_service_v5",
+          "evidence_schema_ref": "ES-RESTRICTED-PARTY",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": false
+        }
+      ],
+      "control_owner": "compliance.sanctions_desk",
+      "decision_semantics": "PERMIT requires restricted_party_match == false. Missing, stale or schema-invalid evidence is indeterminacy and fails; escalation is raised on failure.",
+      "destination": "payment_rail",
+      "escalation": {
+        "route": "sanctions_desk_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "restricted_party_screening",
+      "evidence_requirements": [
+        "transaction_hash",
+        "counterparty_id",
+        "list_version",
+        "match_count",
+        "artifact_signature"
+      ],
+      "evidence_schema_ref": "ES-RESTRICTED-PARTY",
+      "evidence_semantics": "A SIGNED screening artifact reporting whether the counterparty matches the restricted-party list at a stated list version.",
+      "evidence_source": "sanctions_screening_service_v5 signed artifact bound to the transaction hash",
+      "expected_value": false,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-B0004",
+      "mandatory_role": "decisive",
+      "obligation_refs": [
+        "SEMA-SANCTIONS",
+        "PCMLTFA-REPORT"
+      ],
+      "observable_class": "restricted_party_match",
+      "observable_id": "restricted_party_match",
+      "observable_producer": "sanctions_screening_service_v5",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-RELEASE-PAYMENT",
+      "policy_id": "POL-B-SANCTIONS",
+      "resource": "payment_instruction",
+      "risk_id": "B-04",
+      "subject": "transaction_agent",
+      "template_id": "T-RESTRICTED-PARTY",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-02-01T00:00:00Z",
+        "effective_until": "2027-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-B-1.0",
+      "warrant_boundary": "Establishes that the signed screening artifact reports no match at the stated list version. It does NOT establish that the screening service resolves every alias, transliteration or ownership chain correctly; that residual is an evidence-production exposure outside this predicate's warrant."
+    },
+    {
+      "acs_id": "ACS-B05-01",
+      "action": "release_payment",
+      "action_parameters": {
+        "currency": "CAD",
+        "rail": "domestic_rtr",
+        "transaction_hash": "TXN-BOUND"
+      },
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "context_conditions": [
+        {
+          "attribute": "permit_unredeemed_and_hash_novel",
+          "evidence_producer": "authority_permit_service_v2",
+          "evidence_schema_ref": "ES-SINGLE-USE",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "technology.payments_platform",
+      "decision_semantics": "PERMIT requires the permit to be unredeemed and the transaction hash to be novel; indeterminate or absent evidence fails.",
+      "destination": "payment_rail",
+      "escalation": {
+        "route": "payment_operations_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "permit_single_use",
+      "evidence_requirements": [
+        "transaction_hash",
+        "permit_id",
+        "permit_previously_redeemed",
+        "hash_previously_seen"
+      ],
+      "evidence_schema_ref": "ES-SINGLE-USE",
+      "evidence_semantics": "A signed redemption-state artifact reporting whether this permit has already been redeemed and whether this transaction hash has already been seen.",
+      "evidence_source": "authority_permit_service_v2 signed artifact bound to the transaction hash",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-B0005",
+      "mandatory_role": "decisive",
+      "obligation_refs": [
+        "INT-PERMIT-BIND"
+      ],
+      "observable_class": "permit_and_hash_novelty",
+      "observable_id": "permit_unredeemed_and_hash_novel",
+      "observable_producer": "authority_permit_service_v2",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-RELEASE-PAYMENT",
+      "policy_id": "POL-B-PERMIT",
+      "resource": "payment_instruction",
+      "risk_id": "B-05",
+      "subject": "transaction_agent",
+      "template_id": "T-SINGLE-USE",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-02-01T00:00:00Z",
+        "effective_until": "2027-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-B-1.0",
+      "warrant_boundary": "Establishes single-use semantics over the permit and hash. It does not establish that two economically identical instructions with different hashes are not duplicates."
+    },
+    {
+      "acs_id": "ACS-B06-01",
+      "action": "release_payment",
+      "action_parameters": {
+        "currency": "CAD",
+        "rail": "domestic_rtr",
+        "transaction_hash": "TXN-BOUND"
+      },
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "context_conditions": [
+        {
+          "attribute": "receipt_committed_between_authorization_and_actuation",
+          "evidence_producer": "evidence_chain_service_v2",
+          "evidence_schema_ref": "ES-RECEIPT-CHAIN",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "compliance.records_desk",
+      "decision_semantics": "PERMIT requires authorization_time <= evidence_commit_time < actuation_time with a verified chain link; indeterminate or absent evidence fails.",
+      "destination": "payment_rail",
+      "escalation": {
+        "route": "compliance_records_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "receipt_chain_completeness",
+      "evidence_requirements": [
+        "receipt_id",
+        "authorization_time",
+        "evidence_commit_time",
+        "actuation_time",
+        "chain_prev_hash"
+      ],
+      "evidence_schema_ref": "ES-RECEIPT-CHAIN",
+      "evidence_semantics": "A signed evidence-chain artifact carrying the authorization, commit and actuation instants for this decision, and the chain link to its predecessor.",
+      "evidence_source": "evidence_chain_service_v2 signed artifact bound to the transaction hash",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-B0006",
+      "mandatory_role": "decisive",
+      "obligation_refs": [
+        "INT-EVID-CHAIN-B",
+        "PCMLTFA-REPORT"
+      ],
+      "observable_class": "receipt_chain_state",
+      "observable_id": "receipt_committed_between_authorization_and_actuation",
+      "observable_producer": "evidence_chain_service_v2",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-RELEASE-PAYMENT",
+      "policy_id": "POL-B-EVIDENCE",
+      "resource": "payment_instruction",
+      "risk_id": "B-06",
+      "subject": "transaction_agent",
+      "template_id": "T-RECEIPT-CHAIN-B",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-02-01T00:00:00Z",
+        "effective_until": "2027-02-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-B-1.0",
+      "warrant_boundary": "Establishes the temporal ordering and chaining of the evidence record. It coincides with compiler invariant INV-EVIDENCE-COMMIT; origin metadata keeps the two authorizations distinct. It does not establish the truth of the receipt's content."
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "acs",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "b9f5ed8461b0d7b6873280b41748adb2c24ee8810a8ffecae6f1c055c9120aba",
+    "signature_b64": "rJ3CYYgxbg3pdpSzGev5umvolZfGMaaacF/QusXzT1RECCpd89DdRdhhNZSxCKkk+sCyHvs464bfKDlai/l/Dg==",
+    "signing_time": "2026-01-22T15:10:00Z"
+  },
+  "version_binding_ref": "VB-CASE-B-1.0"
+}

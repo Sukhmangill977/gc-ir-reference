@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gcir.example/schemas/v1.0/judgment_record.schema.json",
+  "title": "Signed judgment record J",
+  "description": "Manuscript Section IV-A. J is the set of signed selections (assigned event types, chosen templates, completed control fields, approvals) that the governance authorities actually made. Psi_K is a relation over the assessment; J is what closes it into a single-valued mapping. J is itself a governance artifact: versioned, signed, and included in the authorized-origin chain.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["judgment_id", "version", "assessment_ref", "catalog_ref",
+               "selections", "approvals"],
+  "properties": {
+    "judgment_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "version": { "type": "string" },
+    "signature": { "$ref": "common.schema.json#/$defs/signature" },
+    "assessment_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessment_id", "binding_id"],
+      "properties": {
+        "assessment_id": { "$ref": "common.schema.json#/$defs/identifier" },
+        "binding_id": { "$ref": "common.schema.json#/$defs/identifier" }
+      }
+    },
+    "catalog_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["catalog_id", "version"],
+      "properties": {
+        "catalog_id": { "$ref": "common.schema.json#/$defs/identifier" },
+        "version": { "type": "string" }
+      }
+    },
+    "selections": {
+      "type": "array",
+      "minItems": 1,
+      "description": "One signed human selection per Approved Control Specification.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["selection_id", "risk_id", "acs_id", "event_type",
+                     "template_id", "selected_by", "selection_time", "rationale"],
+        "properties": {
+          "selection_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "risk_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "acs_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "event_type": { "$ref": "common.schema.json#/$defs/identifier" },
+          "template_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "selected_by": { "$ref": "common.schema.json#/$defs/identifier" },
+          "selection_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+          "rationale": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "disposition_decisions": {
+      "type": "array",
+      "description": "The signed human decision that assigned each risk its disposition, including non-runtime and accepted rows.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["risk_id", "status", "decided_by", "decision_time", "rationale"],
+        "properties": {
+          "risk_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "status": { "enum": ["runtime", "nonruntime", "accepted", "unresolved"] },
+          "reason_code": { "$ref": "common.schema.json#/$defs/reasonCode" },
+          "decided_by": { "$ref": "common.schema.json#/$defs/identifier" },
+          "decision_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+          "rationale": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["acs_id", "approver", "approval_time", "forum"],
+        "properties": {
+          "acs_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "approver": { "$ref": "common.schema.json#/$defs/identifier" },
+          "approval_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+          "forum": { "$ref": "common.schema.json#/$defs/identifier" }
+        }
+      }
+    }
+  }
+}

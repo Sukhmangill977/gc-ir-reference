@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gcir.example/schemas/v1.0/common.schema.json",
+  "title": "GC-IR shared definitions (v1.0)",
+  "$defs": {
+    "rfc3339Utc": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{1,9})?Z$",
+      "description": "RFC 3339 instant in UTC. Local offsets are rejected so that canonical serialization cannot depend on a local time zone (Section VI-C)."
+    },
+    "identifier": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "sha256Hex": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "domain", "key_id", "payload_hash", "signature_b64"],
+      "properties": {
+        "algorithm": { "const": "Ed25519" },
+        "domain": {
+          "enum": ["assessment", "catalog", "judgment_record", "dispositions", "acs",
+                   "invariants", "bundle", "lifecycle", "receipt", "cstar_profile"]
+        },
+        "key_id": { "$ref": "#/$defs/identifier" },
+        "payload_hash": { "$ref": "#/$defs/sha256Hex" },
+        "signature_b64": { "type": "string" },
+        "signing_time": { "$ref": "#/$defs/rfc3339Utc" },
+        "certificate_ref": { "type": "string" }
+      }
+    },
+    "actionTuple": {
+      "type": "object",
+      "required": ["subject", "action", "resource", "destination"],
+      "properties": {
+        "subject": { "$ref": "#/$defs/identifier" },
+        "action": { "$ref": "#/$defs/identifier" },
+        "resource": { "$ref": "#/$defs/identifier" },
+        "destination": { "$ref": "#/$defs/identifier" }
+      }
+    },
+    "typeDescriptor": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["string", "number", "integer", "boolean", "array", "null"] },
+        "enum": { "type": "array" },
+        "required": { "type": "boolean" }
+      }
+    },
+    "evaluationBasis": {
+      "enum": ["deterministic_lookup", "threshold_on_measured_value",
+               "structural_check", "human_attestation"],
+      "description": "Section V: closed set. A GC-IR condition never evaluates a probability directly."
+    },
+    "operator": {
+      "enum": ["==", "!=", "in", "not_in", "subset_of", "<", "<=", ">", ">=",
+               "within", "not_older_than"]
+    },
+    "numericTemporalOperator": {
+      "enum": ["<", "<=", ">", ">=", "within", "not_older_than"]
+    },
+    "onUnknown": {
+      "enum": ["fail", "warn", "pass_with_approved_exception"],
+      "description": "Section V: every context condition declares on_unknown. For mandatory gates on_unknown = fail is required, not default."
+    },
+    "onFail": { "enum": ["SAFE_STATE", "WARN", "ESCALATE"] },
+    "gateType": { "enum": ["mandatory", "weighted", "advisory"] },
+    "gateSource": { "enum": ["C_STAR", "OTHER_MANDATORY", "SOFT"] },
+    "mandatoryRole": { "enum": ["decisive", "supporting"] },
+    "originType": { "enum": ["risk_derived", "compiler_invariant"] },
+    "reasonCode": {
+      "enum": ["RC-01", "RC-02", "RC-03", "RC-05"],
+      "description": "Closed at schema v1.0 (Section V). RC-01 no per-action observable; RC-02 no authority-matrix action; RC-03 requires probabilistic judgment; RC-05 consequence class undefined. RC-04 is not defined in the manuscript and is reserved-unused."
+    },
+    "warningCode": {
+      "enum": ["WC-01"],
+      "description": "WC-01 unresolved obligation reference. A warning, never a disposition."
+    },
+    "requirementClass": { "enum": ["statutory", "supervisory", "contractual", "internal"] },
+    "escalation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["route", "sla_hours"],
+      "properties": {
+        "route": { "$ref": "#/$defs/identifier" },
+        "sla_hours": { "type": "number", "exclusiveMinimum": 0 },
+        "notify": { "type": "array", "items": { "$ref": "#/$defs/identifier" } }
+      }
+    },
+    "validityInterval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["effective_from"],
+      "properties": {
+        "effective_from": { "$ref": "#/$defs/rfc3339Utc" },
+        "effective_until": { "$ref": "#/$defs/rfc3339Utc" }
+      }
+    },
+    "consequenceDescriptor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "materiality", "reversibility", "authority"],
+      "description": "c_i = (kind_i, materiality_i, reversibility_i, authority_i) -- Section VII-A.",
+      "properties": {
+        "kind": { "$ref": "#/$defs/identifier" },
+        "materiality": { "$ref": "#/$defs/identifier" },
+        "reversibility": { "enum": ["reversible", "partially_reversible", "irreversible"] },
+        "authority": { "$ref": "#/$defs/identifier" },
+        "classification_authority": { "$ref": "#/$defs/identifier" },
+        "rationale": { "type": "string" },
+        "effective_date": { "$ref": "#/$defs/rfc3339Utc" },
+        "emergency_override_procedure": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

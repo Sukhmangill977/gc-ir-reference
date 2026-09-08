@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gcir.example/schemas/v1.0/cstar_profile.schema.json",
+  "title": "Approved consequence-class profile C*",
+  "description": "Manuscript Section VII-A. C* is a governance object versioned with M. Each classification records the approving authority, rationale, materiality boundary, effective date, and any authorized emergency-override procedure. Contraction within an active assessment is a trigger event requiring re-approval.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["profile_id", "version", "version_binding_ref", "approved_by",
+               "approval_time", "materiality_order", "member_kinds",
+               "classification_rules"],
+  "properties": {
+    "profile_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "version": { "type": "string" },
+    "version_binding_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+    "approved_by": { "$ref": "common.schema.json#/$defs/identifier" },
+    "approval_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+    "signature": { "$ref": "common.schema.json#/$defs/signature" },
+    "materiality_order": {
+      "type": "array", "minItems": 2, "items": { "type": "string" },
+      "description": "Ascending order of materiality. Membership of C* requires the descriptor's materiality to be at or above the rule's minimum."
+    },
+    "member_kinds": {
+      "type": "array", "minItems": 1, "items": { "type": "string" }
+    },
+    "classification_rules": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["approving_authority", "rationale", "materiality_boundary",
+                     "effective_date"],
+        "properties": {
+          "approving_authority": { "$ref": "common.schema.json#/$defs/identifier" },
+          "rationale": { "type": "string", "minLength": 1 },
+          "materiality_boundary": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["minimum_materiality", "description"],
+            "properties": {
+              "minimum_materiality": { "type": "string" },
+              "description": { "type": "string", "minLength": 1 }
+            }
+          },
+          "effective_date": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+          "emergency_override_procedure": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "algorithm": "Ed25519",
+  "key_id": "key.governance_forum_a",
+  "private_key_b64": "V9YZsxaJUtWSHsWf6XXYls+O4mUPXpT3cAnOcZtv9m8=",
+  "public_key_b64": "ny7+xfWzJMpS8JayBBa7oz0M2eNiFe+seC7RftFgkZI=",
+  "warning": "TEST ONLY / NOT FOR PRODUCTION -- research fixture key"
+}

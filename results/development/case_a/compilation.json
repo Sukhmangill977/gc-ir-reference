@@ -1,0 +1,58 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": null,
+    "git_commit_short": null,
+    "git_describe": null,
+    "git_status_clean": false,
+    "git_tag_exact": null,
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-08T04:19:09Z",
+    "system": "Darwin"
+  },
+  "phase": "development",
+  "phase_note": "DEVELOPMENT result. Not a reportable number.",
+  "result": {
+    "case_class": "synthetic",
+    "case_id": "case_a",
+    "compile_time_declared": "2026-02-02T09:00:00Z",
+    "declared_heatmap_threshold": 15,
+    "output_dir": "results/development/case_a",
+    "payload_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+    "schema_validation": {
+      "bundle": "pass",
+      "gcir_records": "pass",
+      "record_count": 35
+    },
+    "signature_envelope": {
+      "algorithm": "Ed25519",
+      "domain": "bundle",
+      "key_id": "key.governance_forum_a",
+      "payload_hash": "ec76b81d89b43128ec05c580a6bc03780ce1fa882b223442aeb630f3a8954ec9",
+      "signature_b64": "gDkEWlorzB/iNzhUEUo/PfJsXaWvWTmigGbimlRYFNHB5FXqQgRK1puBQ1kY4DwmzJ5wK96JbIQDKz7Dtj2MDQ==",
+      "signing_time": "2026-02-02T09:05:00Z"
+    },
+    "statistics": {
+      "acs_count": 16,
+      "compiler_invariant_predicate_count": 3,
+      "cstar_risk_count": 6,
+      "mandatory_gate_count": 16,
+      "obligation_count": 12,
+      "predicate_count": 19,
+      "risk_count": 16,
+      "risk_derived_predicate_count": 16,
+      "warning_count": 0
+    },
+    "warnings": []
+  },
+  "result_name": "case_a/compilation"
+}

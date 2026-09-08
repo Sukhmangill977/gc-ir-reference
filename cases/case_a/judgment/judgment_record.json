@@ -1,0 +1,397 @@
+{
+  "approvals": [
+    {
+      "acs_id": "ACS-0001-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0002-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0003-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0004-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0004-02",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0005-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0006-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0007-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0007-02",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0008-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0009-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0009-02",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0010-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0011-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0012-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    },
+    {
+      "acs_id": "ACS-0013-01",
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approver": "forum.chair_l_tremblay",
+      "forum": "ai_governance_forum"
+    }
+  ],
+  "assessment_ref": {
+    "assessment_id": "ASSESSMENT-CASE-A",
+    "binding_id": "VB-CASE-A-1.0"
+  },
+  "catalog_ref": {
+    "catalog_id": "K-CASE-A",
+    "version": "1.0"
+  },
+  "disposition_decisions": [
+    {
+      "decided_by": "business.head_research_operations",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-01",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_research_operations",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-02",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_research_operations",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-03",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_research_operations",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-04",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "compliance.head_information_barriers",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-05",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "compliance.head_research_supervision",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-06",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "technology.head_security_engineering",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-07",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "compliance.head_research_supervision",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-08",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "compliance.head_research_supervision",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-09",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "technology.head_security_engineering",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-10",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "technology.head_change_management",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-11",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_research_operations",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-12",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "compliance.head_records",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "The risk has at least one approved catalog observable evaluable at authorization time.",
+      "risk_id": "R-13",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_research_operations",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "No event evaluable at authorization time distinguishes a concentrated retrieval architecture from a diversified one. An honest non-runtime disposition, not a forced translation.",
+      "reason_code": "RC-01",
+      "risk_id": "R-14",
+      "status": "nonruntime"
+    },
+    {
+      "decided_by": "business.head_research_operations",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "Tone has no approved catalog observable; any classifier score is a probability, which GC-IR conditions may not evaluate directly. A derived deterministic proxy (measured style-guide violation count under a threshold contract) may be proposed to the governance forum as a new catalog entry and register row -- a governance act, not a compiler shortcut.",
+      "reason_code": "RC-03",
+      "risk_id": "R-15",
+      "status": "nonruntime"
+    },
+    {
+      "decided_by": "business.head_research_operations",
+      "decision_time": "2026-01-19T11:00:00Z",
+      "rationale": "Vendor solvency has no authorization-time observable. Distinct from R-11's technical vendor-change risk, which compiles.",
+      "reason_code": "RC-01",
+      "risk_id": "R-16",
+      "status": "nonruntime"
+    }
+  ],
+  "judgment_id": "J-CASE-A",
+  "selections": [
+    {
+      "acs_id": "ACS-0001-01",
+      "event_type": "output_schema_claim_resolution",
+      "rationale": "The register row names a typed claim object as the phenomenon; T-CLAIM-RESOLVE is the only approved template whose observable class is the typed claim object set.",
+      "risk_id": "R-01",
+      "selected_by": "business.head_research_operations",
+      "selection_id": "J-SEL-001",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-CLAIM-RESOLVE"
+    },
+    {
+      "acs_id": "ACS-0002-01",
+      "event_type": "citation_membership",
+      "rationale": "Citation membership against the approved manifest is a deterministic lookup; T-CITE-SUBSET is the approved template for it.",
+      "risk_id": "R-02",
+      "selected_by": "business.head_research_operations",
+      "selection_id": "J-SEL-002",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-CITE-SUBSET"
+    },
+    {
+      "acs_id": "ACS-0003-01",
+      "event_type": "source_freshness",
+      "rationale": "Source age is a measured value requiring a threshold contract; T-FRESHNESS is selected with TC-FRESHNESS-EQUITY.",
+      "risk_id": "R-03",
+      "selected_by": "business.head_research_operations",
+      "selection_id": "J-SEL-003",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-FRESHNESS"
+    },
+    {
+      "acs_id": "ACS-0004-01",
+      "event_type": "coverage_skew",
+      "rationale": "Coverage skew is measurable but not decisive; selected as a weighted contribution to the editorial-balance group rather than a gate.",
+      "risk_id": "R-04",
+      "selected_by": "business.head_research_operations",
+      "selection_id": "J-SEL-004",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-SKEW"
+    },
+    {
+      "acs_id": "ACS-0004-02",
+      "event_type": "advisory_framing_flag",
+      "rationale": "A second, structural framing check is selected as advisory support for the same risk.",
+      "risk_id": "R-04",
+      "selected_by": "business.head_research_operations",
+      "selection_id": "J-SEL-005",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-FRAMING-ADVISORY"
+    },
+    {
+      "acs_id": "ACS-0005-01",
+      "event_type": "restricted_list_screening",
+      "rationale": "Restricted-list screening resolves to a signed artifact; T-RESTRICTED is the approved deterministic-lookup template.",
+      "risk_id": "R-05",
+      "selected_by": "compliance.head_information_barriers",
+      "selection_id": "J-SEL-006",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-RESTRICTED"
+    },
+    {
+      "acs_id": "ACS-0006-01",
+      "event_type": "disclosure_completeness",
+      "rationale": "Disclosure completeness is a structural check over an enumerated checklist; T-DISCLOSURE selected.",
+      "risk_id": "R-06",
+      "selected_by": "compliance.head_research_supervision",
+      "selection_id": "J-SEL-007",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-DISCLOSURE"
+    },
+    {
+      "acs_id": "ACS-0007-01",
+      "event_type": "retrieval_provenance",
+      "rationale": "Provenance verification of retrieved documents is structural; T-PROVENANCE selected on the retrieval path.",
+      "risk_id": "R-07",
+      "selected_by": "technology.head_security_engineering",
+      "selection_id": "J-SEL-008",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-PROVENANCE"
+    },
+    {
+      "acs_id": "ACS-0007-02",
+      "event_type": "tool_call_origin",
+      "rationale": "Tool-call origin is a distinct action path for the same risk; T-TOOL-ORIGIN selected on the invocation path.",
+      "risk_id": "R-07",
+      "selected_by": "technology.head_security_engineering",
+      "selection_id": "J-SEL-009",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-TOOL-ORIGIN"
+    },
+    {
+      "acs_id": "ACS-0008-01",
+      "event_type": "approval_token_binding",
+      "rationale": "Supervisory approval is a signed human attestation; T-APPROVAL selected, with the warrant boundary stated.",
+      "risk_id": "R-08",
+      "selected_by": "compliance.head_research_supervision",
+      "selection_id": "J-SEL-010",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-APPROVAL"
+    },
+    {
+      "acs_id": "ACS-0009-01",
+      "event_type": "output_field_class_absence",
+      "rationale": "Recommendation-class field absence is structural, never a judgment about whether prose sounds like advice.",
+      "risk_id": "R-09",
+      "selected_by": "compliance.head_research_supervision",
+      "selection_id": "J-SEL-011",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-FIELD-ABSENT"
+    },
+    {
+      "acs_id": "ACS-0009-02",
+      "event_type": "disclaimer_presence",
+      "rationale": "Disclaimer presence is a second structural condition on the same authorized hazardous path.",
+      "risk_id": "R-09",
+      "selected_by": "compliance.head_research_supervision",
+      "selection_id": "J-SEL-012",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-DISCLAIMER"
+    },
+    {
+      "acs_id": "ACS-0010-01",
+      "event_type": "tool_target_authorization",
+      "rationale": "Tool-target membership in the approved manifest is a deterministic lookup; T-TOOL-TARGET selected.",
+      "risk_id": "R-10",
+      "selected_by": "technology.head_security_engineering",
+      "selection_id": "J-SEL-013",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-TOOL-TARGET"
+    },
+    {
+      "acs_id": "ACS-0011-01",
+      "event_type": "version_fingerprint_match",
+      "rationale": "Runtime fingerprint equality is a deterministic lookup; T-VERSION selected. The forum recorded that this coincides with INV-VERSION and approved both origins.",
+      "risk_id": "R-11",
+      "selected_by": "technology.head_change_management",
+      "selection_id": "J-SEL-014",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-VERSION"
+    },
+    {
+      "acs_id": "ACS-0012-01",
+      "event_type": "review_telemetry_band",
+      "rationale": "Reviewer dwell is a measured proxy under a threshold contract; selected as advisory monitoring, explicitly not as a gate.",
+      "risk_id": "R-12",
+      "selected_by": "business.head_research_operations",
+      "selection_id": "J-SEL-015",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-REVIEW-BAND"
+    },
+    {
+      "acs_id": "ACS-0013-01",
+      "event_type": "receipt_chain_completeness",
+      "rationale": "Receipt chain completeness is structural; T-RECEIPT-CHAIN selected. The forum recorded that this coincides with INV-EVIDENCE-COMMIT.",
+      "risk_id": "R-13",
+      "selected_by": "compliance.head_records",
+      "selection_id": "J-SEL-016",
+      "selection_time": "2026-01-19T11:00:00Z",
+      "template_id": "T-RECEIPT-CHAIN"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "judgment_record",
+    "key_id": "key.governance_forum_a",
+    "payload_hash": "520201bebefacaa197957e1a50743bc277bbaae43fde07e679d3c20b48f6327a",
+    "signature_b64": "2H8NUib9rC6FJ/3i1dj/o8tuaCWC4Mnx7YSoP5MmQT0sHvYP4chGirZOFnFaytkX72jfzv/701hvKxwDKMJ1Cw==",
+    "signing_time": "2026-01-20T14:08:00Z"
+  },
+  "version": "1.0"
+}

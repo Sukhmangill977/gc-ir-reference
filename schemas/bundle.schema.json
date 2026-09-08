@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gcir.example/schemas/v1.0/bundle.schema.json",
+  "title": "Compiled predicate bundle payload B",
+  "description": "Manuscript Sections VI-C and VI-F, Appendix B. The payload is immutable after signing and contains no timestamp, nonce, or mutable lifecycle field. The signature envelope (signing time, key id, certificate material) lives OUTSIDE this payload.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["payload_type", "schema_version", "bundle_id", "case_id",
+               "version_binding", "catalog_ref", "cstar_profile_ref",
+               "judgment_record_ref", "invariant_register_ref", "dispositions",
+               "predicates", "gate_map", "escalation_map", "coverage_matrix",
+               "threshold_contracts", "policy_metadata", "validity"],
+  "properties": {
+    "payload_type": { "const": "GcirPredicateBundle" },
+    "schema_version": { "const": "1.0" },
+    "bundle_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "case_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "version_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["binding_id", "model_version", "prompt_version",
+                   "dataset_version", "policy_version", "fingerprint"],
+      "properties": {
+        "binding_id": { "type": "string" },
+        "model_version": { "type": "string" },
+        "prompt_version": { "type": "string" },
+        "dataset_version": { "type": "string" },
+        "policy_version": { "type": "string" },
+        "fingerprint": { "type": "string" }
+      }
+    },
+    "catalog_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["catalog_id", "version", "content_hash"],
+      "properties": {
+        "catalog_id": { "type": "string" },
+        "version": { "type": "string" },
+        "content_hash": { "$ref": "common.schema.json#/$defs/sha256Hex" }
+      }
+    },
+    "cstar_profile_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_id", "version", "member_kinds", "content_hash"],
+      "properties": {
+        "profile_id": { "type": "string" },
+        "version": { "type": "string" },
+        "member_kinds": { "type": "array", "items": { "type": "string" } },
+        "content_hash": { "$ref": "common.schema.json#/$defs/sha256Hex" }
+      }
+    },
+    "judgment_record_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["judgment_id", "version"],
+      "properties": {
+        "judgment_id": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    },
+    "invariant_register_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["invariant_ids"],
+      "properties": {
+        "invariant_ids": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "dispositions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "gcir.schema.json" }
+    },
+    "predicates": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "gcir.schema.json#/$defs/CompiledPredicate" }
+    },
+    "gate_map": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["gate_type", "gate_source", "mandatory_role"],
+        "properties": {
+          "gate_type": { "$ref": "common.schema.json#/$defs/gateType" },
+          "gate_source": { "$ref": "common.schema.json#/$defs/gateSource" },
+          "mandatory_role": { "$ref": "common.schema.json#/$defs/mandatoryRole" }
+        }
+      }
+    },
+    "escalation_map": {
+      "type": "object",
+      "additionalProperties": { "$ref": "common.schema.json#/$defs/escalation" }
+    },
+    "coverage_matrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["obligations", "risks", "c_star_coverage"],
+      "properties": {
+        "obligations": { "type": "array" },
+        "risks": { "type": "array" },
+        "c_star_coverage": { "type": "array" }
+      }
+    },
+    "threshold_contracts": {
+      "type": "object",
+      "additionalProperties": { "$ref": "threshold_contract.schema.json" }
+    },
+    "policy_metadata": { "type": "object" },
+    "validity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["effective_from"],
+      "properties": {
+        "effective_from": { "$ref": "common.schema.json#/$defs/rfc3339Utc" }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "algorithm": "Ed25519",
+  "key_id": "key.assessor",
+  "private_key_b64": "HwZWYlE0M5iPtQhJVwbu1b82oK5QbjyjMpJV6m/JBKM=",
+  "public_key_b64": "729dT4r3MOvR15sQmBZV0CxxdUfLUCCmciJxKXAYImM=",
+  "warning": "TEST ONLY / NOT FOR PRODUCTION -- research fixture key"
+}

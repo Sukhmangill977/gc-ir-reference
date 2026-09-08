@@ -1,0 +1,47 @@
+{
+  "GCIR-B0001": {
+    "gate_source": "C_STAR",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-B0002": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-B0003": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-B0004": {
+    "gate_source": "C_STAR",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-B0005": {
+    "gate_source": "C_STAR",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-B0006": {
+    "gate_source": "C_STAR",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-INV-AUTHORITY-CLOSURE": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-INV-EVIDENCE-COMMIT": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  },
+  "GCIR-INV-VERSION": {
+    "gate_source": "OTHER_MANDATORY",
+    "gate_type": "mandatory",
+    "mandatory_role": "decisive"
+  }
+}

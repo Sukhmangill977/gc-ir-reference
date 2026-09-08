@@ -1,0 +1,69 @@
+{
+  "approval_time": "2026-01-22T15:00:00Z",
+  "approved_by": "payments_governance_forum",
+  "classification_rules": {
+    "irreversible_external_effect_above_approved_bound": {
+      "approving_authority": "exec.head_of_payments",
+      "effective_date": "2026-01-22T15:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "A release that the rail can recall before settlement is below the boundary.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "A settled duplicate payment cannot be rescinded on the rail."
+    },
+    "material_information_barrier_breach": {
+      "approving_authority": "exec.head_of_payments",
+      "effective_date": "2026-01-22T15:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "Not exercised by this register.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "Retained from the enterprise base profile; no Case B row is classified under it."
+    },
+    "material_statutory_prohibition": {
+      "approving_authority": "exec.head_of_payments",
+      "effective_date": "2026-01-22T15:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "An immaterial technical non-conformance does not enter C* solely because its source is statutory.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "A sanctions or record-keeping breach is a statutory prohibition whose materiality does not depend on its frequency."
+    },
+    "unauthorized_authority_exercise": {
+      "approving_authority": "exec.head_of_payments",
+      "effective_date": "2026-01-22T15:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "An unauthorized act with no external effect is below the boundary.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "Releasing a payment without a valid permit is the system causing an effect it is not authorized to cause."
+    }
+  },
+  "materiality_order": [
+    "immaterial",
+    "minor",
+    "material",
+    "severe"
+  ],
+  "member_kinds": [
+    "material_statutory_prohibition",
+    "unauthorized_authority_exercise",
+    "material_information_barrier_breach",
+    "irreversible_external_effect_above_approved_bound"
+  ],
+  "profile_id": "CSTAR-B",
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "cstar_profile",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "080b07dc65f2e5eb8d4ea7825c451b47273e204fcdcc6e200fd796010174b0b3",
+    "signature_b64": "/UpviQ5js4PI/bGKmDsFe2dQ5zNgc35GvPFICnz2LgW/Ghiw0F9z4ftKCX3dj8l2PbdJOi+eUwUd6pEoh3ohAg==",
+    "signing_time": "2026-01-22T15:06:00Z"
+  },
+  "version": "1.0",
+  "version_binding_ref": "VB-CASE-B-1.0"
+}

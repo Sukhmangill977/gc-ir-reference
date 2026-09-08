@@ -1,0 +1,349 @@
+{
+  "q4_post_retirement_receipt": {
+    "action_tuple": {
+      "action": "release_payment",
+      "destination": "payment_rail",
+      "resource": "payment_instruction",
+      "subject": "transaction_agent"
+    },
+    "actuation_time": "2026-07-01T09:00:02Z",
+    "authorization_time": "2026-07-01T09:00:00Z",
+    "bundle_hash": "ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
+    "decision": "PERMIT",
+    "decision_time": "2026-07-01T09:00:00Z",
+    "evaluated_predicates": [
+      {
+        "acs_id": "ACS-B01-01",
+        "gcir_id": "GCIR-B0001",
+        "origin": {
+          "origin_id": "B-01",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B02-01",
+        "gcir_id": "GCIR-B0002",
+        "origin": {
+          "origin_id": "B-02",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B03-01",
+        "gcir_id": "GCIR-B0003",
+        "origin": {
+          "origin_id": "B-03",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B04-01",
+        "gcir_id": "GCIR-B0004",
+        "origin": {
+          "origin_id": "B-04",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B05-01",
+        "gcir_id": "GCIR-B0005",
+        "origin": {
+          "origin_id": "B-05",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B06-01",
+        "gcir_id": "GCIR-B0006",
+        "origin": {
+          "origin_id": "B-06",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+        "origin": {
+          "origin_id": "INV-AUTHORITY-CLOSURE",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+        "origin": {
+          "origin_id": "INV-EVIDENCE-COMMIT",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-VERSION",
+        "origin": {
+          "origin_id": "INV-VERSION",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      }
+    ],
+    "evidence_commit_time": "2026-07-01T09:00:01Z",
+    "receipt_id": "RCPT-CASE-B-NEG-Q4A",
+    "signature": {
+      "algorithm": "Ed25519",
+      "domain": "receipt",
+      "key_id": "key.runtime_authority_b",
+      "payload_hash": "706aea52760627e142bfc7acfc2a80e77c91502931225cb29c4433e47da4748d",
+      "signature_b64": "tUx9h/a4e8J+Usl5Ac5Sr2SHTnDhWxJ25oc+FmVqNTnK/WXgEc+DSmQadk/owirMmY4y6O7RldyYXoeefPbjCg==",
+      "signing_time": "2026-07-01T09:00:01Z"
+    }
+  },
+  "q4_wrong_bundle_hash_receipt": {
+    "action_tuple": {
+      "action": "release_payment",
+      "destination": "payment_rail",
+      "resource": "payment_instruction",
+      "subject": "transaction_agent"
+    },
+    "actuation_time": "2026-03-04T10:15:02Z",
+    "authorization_time": "2026-03-04T10:15:00Z",
+    "bundle_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "decision": "PERMIT",
+    "decision_time": "2026-03-04T10:15:00Z",
+    "evaluated_predicates": [
+      {
+        "acs_id": "ACS-B01-01",
+        "gcir_id": "GCIR-B0001",
+        "origin": {
+          "origin_id": "B-01",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B02-01",
+        "gcir_id": "GCIR-B0002",
+        "origin": {
+          "origin_id": "B-02",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B03-01",
+        "gcir_id": "GCIR-B0003",
+        "origin": {
+          "origin_id": "B-03",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B04-01",
+        "gcir_id": "GCIR-B0004",
+        "origin": {
+          "origin_id": "B-04",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B05-01",
+        "gcir_id": "GCIR-B0005",
+        "origin": {
+          "origin_id": "B-05",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B06-01",
+        "gcir_id": "GCIR-B0006",
+        "origin": {
+          "origin_id": "B-06",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+        "origin": {
+          "origin_id": "INV-AUTHORITY-CLOSURE",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+        "origin": {
+          "origin_id": "INV-EVIDENCE-COMMIT",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-VERSION",
+        "origin": {
+          "origin_id": "INV-VERSION",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      }
+    ],
+    "evidence_commit_time": "2026-03-04T10:15:01Z",
+    "receipt_id": "RCPT-CASE-B-NEG-Q4B",
+    "signature": {
+      "algorithm": "Ed25519",
+      "domain": "receipt",
+      "key_id": "key.runtime_authority_b",
+      "payload_hash": "8f06456c1b020fd6cd8603c3ec2385b43d05de156e0cfe57a52819335634e837",
+      "signature_b64": "O+Xl0c2NzN8XpHxrnm/gKn0DdP6RlMR13w/AOQ3wPRKSzqVpZ68YP5qAT8ZMv2shrYzH39lYwK4gyQDZgLgFBQ==",
+      "signing_time": "2026-03-04T10:15:01Z"
+    }
+  },
+  "q5_late_commit_actuation": {
+    "action_tuple": "transaction_agent/release_payment/payment_instruction/payment_rail",
+    "actuation_id": "ACT-CASE-B-NEG-Q5B",
+    "actuation_time": "2026-03-04T10:15:03Z",
+    "receipt_id": "RCPT-CASE-B-NEG-Q5B"
+  },
+  "q5_late_commit_receipt": {
+    "action_tuple": {
+      "action": "release_payment",
+      "destination": "payment_rail",
+      "resource": "payment_instruction",
+      "subject": "transaction_agent"
+    },
+    "actuation_time": "2026-03-04T10:15:03Z",
+    "authorization_time": "2026-03-04T10:15:00Z",
+    "bundle_hash": "ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
+    "decision": "PERMIT",
+    "decision_time": "2026-03-04T10:15:00Z",
+    "evaluated_predicates": [
+      {
+        "acs_id": "ACS-B01-01",
+        "gcir_id": "GCIR-B0001",
+        "origin": {
+          "origin_id": "B-01",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B02-01",
+        "gcir_id": "GCIR-B0002",
+        "origin": {
+          "origin_id": "B-02",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B03-01",
+        "gcir_id": "GCIR-B0003",
+        "origin": {
+          "origin_id": "B-03",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B04-01",
+        "gcir_id": "GCIR-B0004",
+        "origin": {
+          "origin_id": "B-04",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B05-01",
+        "gcir_id": "GCIR-B0005",
+        "origin": {
+          "origin_id": "B-05",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": "ACS-B06-01",
+        "gcir_id": "GCIR-B0006",
+        "origin": {
+          "origin_id": "B-06",
+          "origin_type": "risk_derived"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+        "origin": {
+          "origin_id": "INV-AUTHORITY-CLOSURE",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+        "origin": {
+          "origin_id": "INV-EVIDENCE-COMMIT",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      },
+      {
+        "acs_id": null,
+        "gcir_id": "GCIR-INV-VERSION",
+        "origin": {
+          "origin_id": "INV-VERSION",
+          "origin_type": "compiler_invariant"
+        },
+        "outcome": "pass"
+      }
+    ],
+    "evidence_commit_time": "2026-03-04T10:15:05Z",
+    "receipt_id": "RCPT-CASE-B-NEG-Q5B",
+    "signature": {
+      "algorithm": "Ed25519",
+      "domain": "receipt",
+      "key_id": "key.runtime_authority_b",
+      "payload_hash": "eb10f1dec7d01ca7b24899729396bc955607c2c339077de858471ceebab21767",
+      "signature_b64": "UT+qI7/TIoj3uiid6+Hl1utYTKGTxJYJwNniSgk/Dc/hsasPdtZcQx04l+PV/iUAu8ld4KvzfcPVdW409t3kAQ==",
+      "signing_time": "2026-03-04T10:15:05Z"
+    }
+  },
+  "q5_orphan_actuation": {
+    "action_tuple": "transaction_agent/release_payment/payment_instruction/payment_rail",
+    "actuation_id": "ACT-CASE-B-NEG-Q5A",
+    "actuation_time": "2026-03-04T10:15:02Z",
+    "receipt_id": null
+  },
+  "q6_unauthorized_registry_entry": {
+    "action": "revoke",
+    "authority": "impersonated.head_of_operations",
+    "bundle_hash": "ff01015b3c4165f7d976c33feaf83bc50f76f64c4535d9d63931264dc63148c8",
+    "effective_time": "2026-03-01T00:00:00Z",
+    "entry_id": "REG-CASE-B-NEG-Q6",
+    "reason": "Purported emergency revocation signed by a key that is not in the registry's authorized_signing_keys.",
+    "signature": {
+      "algorithm": "Ed25519",
+      "domain": "lifecycle",
+      "key_id": "key.unauthorized_party",
+      "payload_hash": "91f4df280891e51505e04152432a82ccaf6e7b7d9414d25ca92ceaefc57edca3",
+      "signature_b64": "ooLYo51GW0Z0MTR6WuUMvAzM452gWCr6SonfrI0HthaFtTMQ/qPEW+btGBGLeEpqDofSeoINJrgJAslZN7KVDA==",
+      "signing_time": "2026-03-01T00:00:00Z"
+    },
+    "trigger": null
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gcir.example/schemas/v1.0/dispositions.schema.json",
+  "title": "Total risk disposition Delta",
+  "description": "Manuscript Section IV-D. Every risk receives exactly one disposition. Totality is a property of dispositions, not of predicate counts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["disposition_set_id", "version_binding_ref", "records"],
+  "properties": {
+    "disposition_set_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "version_binding_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+    "signature": { "$ref": "common.schema.json#/$defs/signature" },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["risk_id", "status"],
+        "properties": {
+          "risk_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "status": { "enum": ["runtime", "nonruntime", "accepted", "unresolved"] }
+        },
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "risk_id": true,
+              "status": { "const": "runtime" },
+              "acs_ids": { "type": "array", "minItems": 1,
+                           "items": { "$ref": "common.schema.json#/$defs/identifier" } }
+            },
+            "required": ["acs_ids"]
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "risk_id": true,
+              "status": { "const": "nonruntime" },
+              "reason_code": { "$ref": "common.schema.json#/$defs/reasonCode" },
+              "routed_to_control_family": { "type": "string", "minLength": 1 },
+              "control_ref": { "type": "string", "minLength": 1 },
+              "owner": { "$ref": "common.schema.json#/$defs/identifier" },
+              "approval": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["approver", "approval_time", "forum"],
+                "properties": {
+                  "approver": { "$ref": "common.schema.json#/$defs/identifier" },
+                  "approval_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+                  "forum": { "$ref": "common.schema.json#/$defs/identifier" }
+                }
+              }
+            },
+            "required": ["reason_code", "routed_to_control_family", "control_ref",
+                         "owner", "approval"]
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "risk_id": true,
+              "status": { "const": "accepted" },
+              "scope": { "type": "string", "minLength": 1 },
+              "rationale": { "type": "string", "minLength": 1 },
+              "acceptor": { "$ref": "common.schema.json#/$defs/identifier" },
+              "approval_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+              "expiry": { "$ref": "common.schema.json#/$defs/rfc3339Utc" }
+            },
+            "required": ["scope", "rationale", "acceptor", "approval_time", "expiry"]
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "risk_id": true,
+              "status": { "const": "unresolved" },
+              "reason_code": { "$ref": "common.schema.json#/$defs/reasonCode" },
+              "blocked_authority_scope": { "type": "array", "minItems": 1,
+                                           "items": { "type": "string" } }
+            },
+            "required": ["reason_code", "blocked_authority_scope"]
+          }
+        ]
+      }
+    }
+  }
+}

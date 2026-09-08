@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.hypothesis/
+.coverage
+htmlcov/
+coverage.xml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# Local scratch -- never committed
+scratch/
+*.tmp
+*.log
+
+# NOTE: results/ IS committed. The reproducibility evidence is the point of this
+# repository. results/development/ holds exploratory numbers; results/final/ holds
+# the frozen reportable campaign.

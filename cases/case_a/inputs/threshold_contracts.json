@@ -1,0 +1,55 @@
+{
+  "contracts": {
+    "TC-COVERAGE-SKEW": {
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approved_by": "ai_governance_forum",
+      "contract_id": "TC-COVERAGE-SKEW",
+      "denominator": "supporting_citation_count + opposing_citation_count (citations carrying a directional tag in the approved library)",
+      "evidence_source": "editorial_metrics_service_v1 signed skew artifact",
+      "ground_truth": "directional tags assigned at library intake by the research editorial function, not by the drafting model",
+      "numerator": "|supporting_citation_count - opposing_citation_count|",
+      "operational_definition": "Coverage-skew index for a brief: the normalized absolute difference between the share of cited evidence supporting and the share opposing the brief's central assertion, as tagged in the approved library metadata.",
+      "proposed_by": "business.research_operations",
+      "reproduction_procedure": "Re-request the signed skew artifact for the draft hash and recompute the index from the tagged citation counts it carries.",
+      "threshold_rationale": "The Research Quality Assurance Standard treats a directional imbalance above 0.6 as requiring editorial attention; the bound is advisory and feeds a weighted aggregation group rather than a mandatory gate.",
+      "uncertainty_method": "Binomial proportion; the artifact reports the Jeffreys 95% interval alongside the point estimate. Briefs with fewer than 5 directional citations report the exposure denominator and are excluded from the weighted group.",
+      "unit": "dimensionless ratio in [0, 1]",
+      "value": 0.6,
+      "zero_event_reporting": "A zero-skew result is reported with its citation denominator and an exact one-sided upper bound, never as 'no bias'."
+    },
+    "TC-FRESHNESS-EQUITY": {
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approved_by": "ai_governance_forum",
+      "contract_id": "TC-FRESHNESS-EQUITY",
+      "denominator": "one brief (per-brief maximum over its cited sources); not a rate",
+      "evidence_source": "library_manifest_service_v4 signed source-age artifact",
+      "ground_truth": "library ingestion timestamps recorded at document intake, independently of the drafting pipeline",
+      "numerator": "hours elapsed between the source document's library ingestion timestamp and the authorization decision time",
+      "operational_definition": "Maximum age, at authorization time, of the oldest source document cited by a brief covering a listed-equity issuer.",
+      "proposed_by": "business.research_operations",
+      "reproduction_procedure": "Re-request the signed source-age artifact for the draft hash and recompute max(authorization_time - ingestion_time) over cited sources.",
+      "threshold_rationale": "The research supervision policy requires listed-equity briefs to rest on sources no older than one quarter's reporting cycle; 2160 hours is 90 days.",
+      "uncertainty_method": "Ingestion timestamps are exact to the second; the reported uncertainty is the clock skew bound of the ingestion service (<= 2 s), which is immaterial at this threshold.",
+      "unit": "hours",
+      "value": 2160,
+      "zero_event_reporting": "Not applicable: this is a per-brief maximum, not a rate."
+    },
+    "TC-REVIEW-DWELL": {
+      "approval_time": "2026-01-20T14:00:00Z",
+      "approved_by": "ai_governance_forum",
+      "contract_id": "TC-REVIEW-DWELL",
+      "denominator": "one review event; reported alongside reviews_in_window (reviews by the same reviewer in the preceding 60 minutes)",
+      "evidence_source": "review_telemetry_service_v1 signed telemetry artifact",
+      "ground_truth": "workspace interaction events, recorded independently of the reviewer's self-report",
+      "numerator": "active dwell seconds recorded by the approval workspace",
+      "operational_definition": "Reviewer dwell time on a brief: seconds between the reviewer opening the draft in the approval workspace and submitting the approval decision, excluding periods with no interaction events for more than 120 s.",
+      "proposed_by": "compliance.research_supervision",
+      "reproduction_procedure": "Re-request the signed telemetry artifact for the draft hash and recompute active dwell from its interaction-event list.",
+      "threshold_rationale": "Supervisory policy sets 180 s as the minimum plausible time to examine a brief's claims and disclosures. The bound is an advisory monitoring proxy, not an authorization gate: it does not measure the quality of the judgment.",
+      "uncertainty_method": "Dwell is a censored measurement (idle gaps excluded). The artifact reports both raw and active dwell so the censoring is visible; no distributional assumption is made.",
+      "unit": "seconds",
+      "value": 180,
+      "zero_event_reporting": "A window with zero qualifying reviews is reported with its exposure denominator, never as compliance."
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "algorithm": "Ed25519",
+  "key_id": "key.runtime_authority_b",
+  "private_key_b64": "ZSIY1zp3ydhSlNdb9KlGYMZW8BMtmrLB2lxGLKRDyEs=",
+  "public_key_b64": "neePbTfbt1PmQdBMo5yJA1oquhuONxTgz0Ly9lI0yEo=",
+  "warning": "TEST ONLY / NOT FOR PRODUCTION -- research fixture key"
+}
