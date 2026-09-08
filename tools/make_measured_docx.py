@@ -42,62 +42,92 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 CASE_A_HASH = "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536"
 CASE_B_HASH = "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce"
-FREEZE_TAG = "preregister-tier0-v1"
+FREEZE_TAG = "preregister-tier0-v2.2"
+REPO_URL = "https://github.com/Sukhmangill977/gc-ir-reference"
 
-#: (search, replace, why) -- applied to paragraph text, longest first.
+#: (search, replace, why) -- applied to paragraph text.
+#: v2 campaign values, read from results/final_v2/.
 SUBSTITUTIONS = [
     (
         "translation determinism of 1.000 over 31 compilation runs",
-        "translation determinism of 1.000 over 60 compilation runs (30 per case)",
-        "Abstract: the reportable campaign ran 60 runs, not the provisional 31. "
-        "Evidence: results/final/determinism_runs.csv",
+        "translation determinism of 1.000 over 62 compilation runs (31 per case)",
+        "Abstract: the v2 campaign ran 31 per case following the examiner's "
+        "10 repeats + 10 row shuffles + 5 key shuffles + 3 LC_ALL + 3 TZ "
+        "breakdown, 62 in total. Evidence: results/final_v2/determinism_runs.csv",
     ),
     (
         "1.000 (31/31 runs, pinned container)",
-        "1.000 (60/60 runs; 30 per case, declared host environment)",
-        "Section XI-B metrics table: measured count and the actual execution "
-        "environment. The 60 reported runs were executed on a host, not inside "
-        "the container; a pinned container definition ships with the artifact. "
-        "Evidence: results/final/determinism_summary.json",
+        "1.000 (62/62 runs; 31 per case, reproduced on three operating systems)",
+        "Section XI-B metrics table: measured count and environment. TD = 1.000 "
+        "was reproduced on macOS/arm64, Ubuntu/x86_64, Windows/AMD64 and a Debian "
+        "container/aarch64. Evidence: results/final_v2/CI_STATUS.md",
     ),
     (
         "Measured: TD = 1.000 over 31 compilation runs",
-        "Measured: TD = 1.000 over 60 compilation runs (30 per case)",
-        "Section XI-H: measured count. Evidence: results/final/determinism_runs.csv",
+        "Measured: TD = 1.000 over 62 compilation runs (31 per case)",
+        "Section XI-H: measured count. "
+        "Evidence: results/final_v2/determinism_runs.csv",
     ),
     (
         "[PENDING: hash-pinned Case B artifact release]",
         "Case B canonical bundle payload SHA-256: " + CASE_B_HASH,
-        "Section X: placeholder resolved. Evidence: "
-        "cases/case_b/expected/reference_hashes.json",
+        "Section X: placeholder resolved. "
+        "Evidence: cases/case_b/expected/reference_hashes.json",
+    ),
+    (
+        "[TO CONFIRM: final repository path at release]",
+        REPO_URL + " (release tag v1.0.0; preregistration freeze " + FREEZE_TAG + ")",
+        "Appendix C: the repository is public and the freeze tag was pushed before "
+        "the reportable campaign ran. Evidence: results/final_v2/PROVENANCE.json",
     ),
     (
         "[PENDING: v1.0 freeze and $id host set at the artifact-repository release]",
         "The schema is frozen at v1.0 and hash-pinned in the release manifest; "
         "schema $id values are stable identifiers rather than resolvable endpoints, "
         "and the authoritative copies are the files in the tagged release.",
-        "Appendix A: placeholder resolved as far as it honestly can be. A "
-        "resolvable $id host is NOT claimed, because none is maintained. "
-        "Evidence: preregistration/FREEZE_MANIFEST.sha256",
+        "Appendix A: resolved as far as it honestly can be. A resolvable $id host "
+        "is NOT claimed, because none is maintained. The artifact-runs memo's "
+        "'v1.1 JSON Schema' has no manuscript basis and no revision was made -- see "
+        "docs/ARTIFACT_RUNS_COMPLIANCE.md section C2.",
     ),
     (
         "the maximum per-risk heat-map flip probability is 0.321",
         "the maximum per-risk heat-map flip probability is 0.321 (MCSE 0.001)",
-        "Section XI-G: value confirmed at K = 250,000; Monte Carlo standard error "
-        "added. Evidence: results/final/monte_carlo_summary.json",
+        "Section XI-G: value confirmed at K = 250,000 in the v2 campaign; Monte "
+        "Carlo standard error added. "
+        "Evidence: results/final_v2/monte_carlo_summary.json",
     ),
     (
-        "while FPᵢ^C* = 0.000 across the register by construction",
-        "while FPᵢ^C* = 0.000 across the register -- verified by re-running the "
+        "while FP\u1d62^C* = 0.000 across the register by construction",
+        "while FP\u1d62^C* = 0.000 across the register -- verified by re-running the "
         "approved consequence-class classifier on 1,000 perturbed draws, with no "
         "membership change observed",
         "Section XI-G: the zero is verified rather than asserted. Evidence: "
-        "results/final/monte_carlo_summary.json cstar_membership_changes_observed",
+        "results/final_v2/monte_carlo_summary.json "
+        "cstar_membership_changes_observed",
     ),
 ]
 
 #: Changes that must NOT be automated -- they alter meaning.
 MANUAL_ONLY = [
+    (
+        "Section XII -- determinism scope MUST BE WIDENED, NOT DELETED",
+        "Three operating systems and two machine architectures are now measured "
+        "(macOS/arm64, Ubuntu/x86_64, Windows/AMD64, Debian container/aarch64), "
+        "so the current limitation understates the evidence -- but deleting it "
+        "would overstate it, because a finite matrix is not the set of all "
+        "environments. The replacement paragraph changes what is claimed and is "
+        "therefore left for manual application.",
+        "paper_update/MEASURED_RESULTS_V2.md section 4",
+    ),
+    (
+        "Section X -- the L-DREA predicate-family linkage",
+        "New material establishing continuity between the Case B predicate set "
+        "and the published enforcement artifact's own 13-member predicate family, "
+        "with four exact correspondences, three by family, and two declared gaps. "
+        "It adds a claim and must be read before insertion.",
+        "paper_update/MEASURED_RESULTS_V2.md section 7",
+    ),
     (
         "Section XI-G / XI-C -- Monte Carlo panel attribution",
         "The manuscript states that 'the independent panel freezes discrete "

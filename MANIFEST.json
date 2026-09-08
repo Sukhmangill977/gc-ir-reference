@@ -1,5 +1,5 @@
 {
-  "file_count": 282,
+  "file_count": 297,
   "files": [
     {
       "bytes": 1022,
@@ -38,10 +38,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 58114,
+      "bytes": 61692,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "6b6285aa39c459542553b88405cfcf0c30e6dbee147d46d9a67c9c0433722fc2"
+      "sha256": "5be7596f61cdb5b492d656ef48e5e145e2b3ce92c867413465cf7af753bcce69"
     },
     {
       "bytes": 2029,
@@ -320,10 +320,10 @@
       "sha256": "031669ed51501941a6679319f9ad59c6bc2f91363ad39da1ecf897b452e3e65c"
     },
     {
-      "bytes": 3942,
+      "bytes": 4846,
       "path": "docs/RELEASE_NOTES_v1.0.0.md",
       "role": "documentation",
-      "sha256": "93862c41b9bdc3f76a128d666674a47b0f44f4a48a5cdaa02f10cfebc4ebfa60"
+      "sha256": "5f9b78ad5eca4f620df1fdadece6b68669b48c08bd0cda8b17298c279df9957b"
     },
     {
       "bytes": 7078,
@@ -554,16 +554,34 @@
       "sha256": "1b8b0a0726a27d3d89329dfb429d2893eeafda488105c537e1afe71d74dd58b8"
     },
     {
+      "bytes": 7027,
+      "path": "paper_update/DOCX_CHANGE_LOG_V2.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "dc6e4f50543da206c08582582666db5bb5adeae9b080a7531a4d7b3edb1cae56"
+    },
+    {
       "bytes": 19534,
       "path": "paper_update/MEASURED_RESULTS.md",
       "role": "manuscript_reconciliation",
       "sha256": "a06511f99e2c8e7d466e0f392056d98aec288a25e12a78ecd12e2ee09724147e"
     },
     {
+      "bytes": 12464,
+      "path": "paper_update/MEASURED_RESULTS_V2.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "dbb5e6a9d9943a25f58f469ff81c19828caa77af6aae09e0a127afaf0a6b76e2"
+    },
+    {
       "bytes": 18104,
       "path": "paper_update/PLACEHOLDER_REPLACEMENT_TABLE.md",
       "role": "manuscript_reconciliation",
       "sha256": "45977502840c534fd0185cbec47b2e170f1a78c5959793fdfd365f6596fdad2b"
+    },
+    {
+      "bytes": 8027,
+      "path": "paper_update/PLACEHOLDER_REPLACEMENT_TABLE_V2.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "3190fe13f4282f57fcfb8b7546bb73ab3340d6e6c1cf8567e905e15cbafbe50c"
     },
     {
       "bytes": 25277,
@@ -1118,10 +1136,10 @@
       "sha256": "3a4b9a4547cd8d7bbb371b318365cadcc450f2af68502f37fe978bfd91413b6a"
     },
     {
-      "bytes": 4293,
+      "bytes": 3058,
       "path": "results/final_v2/CI_STATUS.md",
       "role": "measured_result",
-      "sha256": "d2de20289358a51fd37c7553b80cbfeb72ac7c59a341f02215119c5aa8d4ce6e"
+      "sha256": "5501329da3555e2ef6caee509b0eb4bad344b4b03990e0d85edc1c469b404496"
     },
     {
       "bytes": 11871,
@@ -1254,6 +1272,78 @@
       "path": "results/final_v2/case_b/payload_purity.json",
       "role": "measured_result",
       "sha256": "674359ea9b84a36310688d2e13f2619940184434575cb9003bd7dff33a0ea196"
+    },
+    {
+      "bytes": 18374,
+      "path": "results/final_v2/cross_environment/ci/determinism-macos-latest-py3.11/determinism_runs.csv",
+      "role": "measured_result",
+      "sha256": "d0a2cf816e6090ca06c33db0625e571d5e9e458ad8cee9a02d29c60ba6c24bf2"
+    },
+    {
+      "bytes": 3829,
+      "path": "results/final_v2/cross_environment/ci/determinism-macos-latest-py3.11/determinism_summary.json",
+      "role": "measured_result",
+      "sha256": "cfe6c9b3b8a44b90826efb6ac598bbea5c8966b96b5e9eb84f94b77793e8be83"
+    },
+    {
+      "bytes": 18374,
+      "path": "results/final_v2/cross_environment/ci/determinism-macos-latest-py3.12/determinism_runs.csv",
+      "role": "measured_result",
+      "sha256": "5119737b6645eeb19a8ce2bf6fe27fee83b6dbd8b0b8b609a0894188adfd2966"
+    },
+    {
+      "bytes": 3830,
+      "path": "results/final_v2/cross_environment/ci/determinism-macos-latest-py3.12/determinism_summary.json",
+      "role": "measured_result",
+      "sha256": "96e2baab29dfcb92a9dc9fff52643153afcf4002ffc49f573f949ebec7e683f2"
+    },
+    {
+      "bytes": 21920,
+      "path": "results/final_v2/cross_environment/ci/determinism-ubuntu-latest-py3.11/determinism_runs.csv",
+      "role": "measured_result",
+      "sha256": "c609f6e5edf52c543586260dc36666590f9597d8fcca2b78b68909e31a7bf794"
+    },
+    {
+      "bytes": 4495,
+      "path": "results/final_v2/cross_environment/ci/determinism-ubuntu-latest-py3.11/determinism_summary.json",
+      "role": "measured_result",
+      "sha256": "e2a7e594d95d0782c572b993cca7b8007e38f44f2a47dc1aecab4a3b1b34c909"
+    },
+    {
+      "bytes": 21920,
+      "path": "results/final_v2/cross_environment/ci/determinism-ubuntu-latest-py3.12/determinism_runs.csv",
+      "role": "measured_result",
+      "sha256": "654f72239fdc6b00f3bd02d3ad3de76056b5f7fa83f4ec201976509189e4e617"
+    },
+    {
+      "bytes": 4495,
+      "path": "results/final_v2/cross_environment/ci/determinism-ubuntu-latest-py3.12/determinism_summary.json",
+      "role": "measured_result",
+      "sha256": "a87c2001ba51732ff17af81b04b6695f263a7d98c324aa2543d9c953e10da57d"
+    },
+    {
+      "bytes": 18374,
+      "path": "results/final_v2/cross_environment/ci/determinism-windows-latest-py3.11/determinism_runs.csv",
+      "role": "measured_result",
+      "sha256": "b9397a77af135b0d416b7c228b5304f61a6e7d277aad9fbaeb6604baa2e47352"
+    },
+    {
+      "bytes": 3827,
+      "path": "results/final_v2/cross_environment/ci/determinism-windows-latest-py3.11/determinism_summary.json",
+      "role": "measured_result",
+      "sha256": "efb3e1ac5f68f9bcb3049d483b3dc87fb9ee21629dff45d9a2086a5bb2d08291"
+    },
+    {
+      "bytes": 18374,
+      "path": "results/final_v2/cross_environment/ci/determinism-windows-latest-py3.12/determinism_runs.csv",
+      "role": "measured_result",
+      "sha256": "e1220f15284db1cb526419bc863203dbedbd8cd08980caf5a0c8480b9d89c6e0"
+    },
+    {
+      "bytes": 3836,
+      "path": "results/final_v2/cross_environment/ci/determinism-windows-latest-py3.12/determinism_summary.json",
+      "role": "measured_result",
+      "sha256": "a4e612dfb66e5bfd3cfd8c9dc2055a4c97fc54ae200961f36af9476c6a3f5f92"
     },
     {
       "bytes": 18374,
@@ -1670,10 +1760,10 @@
       "sha256": "2339f549395bf295ed9d19bee5627466c502feb80c6b4ae2dc75cc244a85473a"
     },
     {
-      "bytes": 13302,
+      "bytes": 14975,
       "path": "tools/make_measured_docx.py",
       "role": "fixture_generator",
-      "sha256": "e88efdb78cb2efd93ff3499ea17d43252ce3e9a180999a79012525a8a73ad522"
+      "sha256": "4fa88a558f9b88315d88cf9acde3b1b239d66ebdb8c52c6c88a204f5777a1e35"
     },
     {
       "bytes": 1308,
@@ -1694,7 +1784,7 @@
       "sha256": "64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44"
     }
   ],
-  "manifest_sha256": "c8554f07e415ed542d38abb5fe71d9ece0a90acc6ff9f8366d4200a110d86bae",
+  "manifest_sha256": "91075e7d95a02d4af728884ff27f2b50c801438181b977ebcf9f6d819080ad80",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1727,5 +1817,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 3512902
+  "total_bytes": 3686988
 }

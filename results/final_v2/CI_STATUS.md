@@ -1,103 +1,62 @@
-# Cross-environment determinism — measured status (v2 campaign)
+# Cross-platform determinism — MEASURED
 
-Two distinct claims, with two very different amounts of evidence behind them.
+Generated from real GitHub Actions run artifacts by
+`experiments/check_ci_agreement.py`. Run:
+<https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/34261657261>
 
----
+## Result
 
-## 1. Two independently installed operating systems — **MEASURED**
+**TD = 1.000 on every environment, with byte-identical reference canonical
+payload hashes: 6 CI legs plus two local environments.**
 
-The determinism experiment has been executed to completion on two different
-operating systems, with two different CPython patch versions, and both reproduce
-the committed reference canonical payload hashes exactly.
+| Environment | OS | Arch | CPython | Runs | TD | Case A | Case B |
+|---|---|---|---|---|---|---|---|
+| local host | macOS 26.6.2 | arm64 | 3.11.15 | 62 | **1.0** | match | match |
+| pinned container | Linux-6.12.76-linuxkit-aarch64 | aarch64 | 3.11.11 | 62 | **1.0** | match | match |
+| CI `macos-latest-py3.11` | macOS-26.6.2-arm64-arm-64bit | arm64 | 3.11.9 | 62 | **1.0** | match | match |
+| CI `macos-latest-py3.12` | macOS-26.6.2-arm64-arm-64bit | arm64 | 3.12.10 | 62 | **1.0** | match | match |
+| CI `ubuntu-latest-py3.11` | Linux-6.17.0-1022-azure-x86_64 | x86_64 | 3.11.16 | 62 | **1.0** | match | match |
+| CI `ubuntu-latest-py3.12` | Linux-6.17.0-1022-azure-x86_64 | x86_64 | 3.12.14 | 62 | **1.0** | match | match |
+| CI `windows-latest-py3.11` | Windows-10-10.0.26100-SP0 | AMD64 | 3.11.9 | 62 | **1.0** | match | match |
+| CI `windows-latest-py3.12` | Windows-2025Server-10.0.26100-SP0 | AMD64 | 3.12.10 | 62 | **1.0** | match | match |
 
-| | Host | Pinned container |
-|---|---|---|
-| Operating system | macOS 26.6.2 | Linux 6.12.76 (Debian bookworm, glibc 2.36) |
-| Architecture | arm64 | aarch64 |
-| CPython | 3.11.15 | 3.11.11 |
-| Baseline locale / TZ | inherited from the host | `C.UTF-8` / `UTC` |
-| Runs | **62 (31 per case)** | **62 (31 per case)** |
-| **TD** | **1.000 (62/62)** | **1.000 (62/62)** |
-| Case A reference hash | `f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536` | *identical* |
-| Case B reference hash | `2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce` | *identical* |
+Reference hashes, identical everywhere:
 
-Both runs additionally varied, within themselves, five locales
-(C, en_US.UTF-8, de_DE.UTF-8, tr_TR.UTF-8, ja_JP.UTF-8), five time zones
-(UTC, America/Edmonton, Asia/Kolkata, Pacific/Chatham, Europe/Berlin),
-object-key ordering, every semantically unordered array's ordering,
-integer→float re-encoding, and clean-process execution under varying
-`PYTHONHASHSEED`.
+| Case | canonical payload SHA-256 |
+|---|---|
+| A | `f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536` |
+| B | `2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce` |
 
-**Evidence**
+All legs ran the frozen stratified matrix: {"key_shuffle": 5, "locale": 3, "repeat": 10, "row_shuffle": 10, "timezone": 3}.
 
-* Host: `results/final_v2/determinism_summary.json`, `determinism_runs.csv`
-* Container: `results/final_v2/cross_environment/determinism_summary_container_linux.json`,
-  `determinism_runs_container_linux.csv`
-* Container image id: `sha256:4900d778ea34b3f1882a5da9fd6971862d6fb040e6d2251c12264936e25a75d4`
-  `sha256:98452faaef7b3e717352ac21503cd2ba7ffb00ef8272defec443bd993b3956c0`
-  (built from the `Dockerfile`, whose base image is pinned by digest)
+## Coverage achieved
 
-**Reproduce it**
+| Dimension | Values exercised |
+|---|---|
+| Operating systems | **3** — macOS 26.6.2, Linux (Ubuntu 6.17 / glibc 2.39, and Debian bookworm / glibc 2.36 in the container), Windows 10.0.26100 |
+| Architectures | **2** — arm64/aarch64 and x86_64/AMD64 |
+| CPython versions | **6** — 3.11.9, 3.11.11, 3.11.15, 3.11.16, 3.12.10, 3.12.14 |
+| Locales | C, C.UTF-8, en_US, de_DE, tr_TR, ja_JP |
+| Time zones | UTC, America/Edmonton, Asia/Kolkata, Pacific/Chatham, Europe/Berlin |
+| Total compilations | **496** across all environments |
 
-```bash
-make docker-build
-docker run --rm gcir python -m experiments.verify_hashes
-docker run --rm gcir python -m experiments.run_determinism --runs-per-case 30
-```
+## Wording this licenses
 
-**What this licenses.** The compiler produces identical canonical payload hashes
-on macOS/arm64 and on Linux/aarch64 under two CPython patch versions. That is
-genuine cross-operating-system evidence, and it is stronger than the manuscript's
-current "inside the pinned reproducible container" statement, which describes only
-one environment.
+> Translation determinism was measured as TD = 1.000 over 62 compilation runs
+> (31 per case) on each of 8 independently provisioned environments spanning
+> three operating systems, two machine architectures and six CPython patch
+> versions, all reproducing the committed reference canonical payload hashes
+> exactly.
 
-**What it does not license.** Two operating systems on one machine architecture is
-not platform independence. Windows is untested. x86-64 is untested. Other CPython
-implementations are untested.
+**Still not licensed:** *platform independence*. Three operating systems and
+two architectures are not the set of all environments. The supportable claim
+remains **deterministic across the tested supported environments** — which is
+now a substantially wider set than the manuscript's current "inside the pinned
+reproducible container".
 
----
-
-## 2. The full CI matrix — **CONFIGURED, NOT YET EXECUTED**
-
-`.github/workflows/determinism.yml` compiles both cases on `ubuntu-latest`,
-`windows-latest` and `macos-latest` under CPython 3.11 and 3.12 — each leg with a
-different locale and time zone — and a second job asserts every leg agreed with
-the committed reference hashes.
-
-**Status at the time this file was generated: the repository has now been pushed
-and the workflows are triggered. Whether they have completed is recorded below
-by `experiments/check_ci_agreement.py` once the run artifacts are downloaded.**
-
-Until it does, **Windows and x86-64 remain untested**, and no claim covering them
-may be made.
-
-### To discharge it
+## Reproduce
 
 ```bash
-gh auth login                    # once, interactively
-bash tools/publish.sh            # pushes main + the freeze tag, creates the release
-# then, once the workflow finishes:
-gh run download --name 'determinism-*' --dir downloaded
-python -m experiments.check_ci_agreement downloaded --out results/final_v2/CI_STATUS.md
+gh run download <run id> --dir downloaded
+python -m experiments.check_ci_agreement downloaded --out CI_STATUS.md
 ```
-
----
-
-## Wording the evidence supports
-
-**Now, on the strength of section 1:**
-
-> Translation determinism was measured as TD = 1.000 over 60 compilation runs on
-> each of two independently installed operating systems — macOS 26.6.2 (arm64,
-> CPython 3.11.15) and a pinned Debian-based container (Linux 6.12, aarch64,
-> CPython 3.11.11) — with both reproducing the committed reference canonical
-> payload hashes exactly, across five locales, five time zones, input permutation
-> and clean-process execution.
-
-**Only after section 2 passes:**
-
-> …deterministic across the tested supported environments.
-
-**Never, on any evidence in this artifact:**
-
-> …platform independent.

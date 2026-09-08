@@ -19,7 +19,7 @@ b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_roo
 1fc00762fe18d601c5cb8e676293a36ff6ed4a7686e2c77fccfda54f1636a7d0  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-6b6285aa39c459542553b88405cfcf0c30e6dbee147d46d9a67c9c0433722fc2  repository_root            MANIFEST.json
+5be7596f61cdb5b492d656ef48e5e145e2b3ce92c867413465cf7af753bcce69  repository_root            MANIFEST.json
 b188e1325d8435a894580e3c84c1274e2e4d949be665a3e4b79a672cf1842d11  repository_root            Makefile
 084e071a0f2042a2ab12e9953db473e14eaf1a6cf1d627551694be2f201ee5e4  repository_root            README.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
@@ -66,7 +66,7 @@ d22a8644737297519dd124592981debffadc9eca59ccb25f2c633d214d502ded  documentation 
 b3deff423eb921328e40d36bd80d9983975a53a3716179e35e92ba9dd774b70e  documentation              docs/FIXTURE_PROVENANCE.md
 0ba7265d25f5902a46eccd606da01cd9ae94da6b9c5f80d091d83a11cfce6a2f  documentation              docs/IEEE_ARTIFACT_CHECKLIST.md
 031669ed51501941a6679319f9ad59c6bc2f91363ad39da1ecf897b452e3e65c  documentation              docs/PAPER_REQUIREMENTS.md
-93862c41b9bdc3f76a128d666674a47b0f44f4a48a5cdaa02f10cfebc4ebfa60  documentation              docs/RELEASE_NOTES_v1.0.0.md
+5f9b78ad5eca4f620df1fdadece6b68669b48c08bd0cda8b17298c279df9957b  documentation              docs/RELEASE_NOTES_v1.0.0.md
 238f177801caf2a59ee0bb1223b884c681a1220342873a02ad2283c25058368b  documentation              docs/REPRODUCIBILITY.md
 7ea96ad9d83191da516b4d068a626bce5bfc89842c0a8d5464ddb1565d7e3a94  documentation              docs/RESULT_INTERPRETATION.md
 931f88be082de70990f2dcf159a34137cfbbe8dbc66965bb45bd76ec7620afc6  documentation              docs/ZENODO_RELEASE_STEPS.md
@@ -105,8 +105,11 @@ c3d16243a7afe93a862acaaae6ec68af699bfd38cd351b7c683236da1108bc66  research_key_T
 25d46aca103f1c26bba685e23725098360c1745fd7c51f1696848a6bef0c5998  research_key_TEST_ONLY     keys/key.unauthorized_party.ed25519.json
 542d175075ae09b98e0192aa26952eda3c872e6d051168e466ee95959598ee52  research_key_TEST_ONLY     keys/public_keys.json
 1b8b0a0726a27d3d89329dfb429d2893eeafda488105c537e1afe71d74dd58b8  manuscript_reconciliation  paper_update/DOCX_CHANGE_LOG.md
+dc6e4f50543da206c08582582666db5bb5adeae9b080a7531a4d7b3edb1cae56  manuscript_reconciliation  paper_update/DOCX_CHANGE_LOG_V2.md
 a06511f99e2c8e7d466e0f392056d98aec288a25e12a78ecd12e2ee09724147e  manuscript_reconciliation  paper_update/MEASURED_RESULTS.md
+dbb5e6a9d9943a25f58f469ff81c19828caa77af6aae09e0a127afaf0a6b76e2  manuscript_reconciliation  paper_update/MEASURED_RESULTS_V2.md
 45977502840c534fd0185cbec47b2e170f1a78c5959793fdfd365f6596fdad2b  manuscript_reconciliation  paper_update/PLACEHOLDER_REPLACEMENT_TABLE.md
+3190fe13f4282f57fcfb8b7546bb73ab3340d6e6c1cf8567e905e15cbafbe50c  manuscript_reconciliation  paper_update/PLACEHOLDER_REPLACEMENT_TABLE_V2.md
 97e50f84e9c532493fc1b24d7f1a627b2584652bad986d4cd6881d0f83c5bbb5  prereg_commitment          preregistration/FREEZE_MANIFEST.json
 1475f7fdf31aa1a91d8dca59692824d24460139d91f05f65f364ec4f990bc37b  prereg_commitment          preregistration/FREEZE_MANIFEST.sha256
 643a10128687e7c05965077a3f85f15e7f239be304e962422658abf1f66c9042  prereg_commitment          preregistration/FREEZE_MANIFEST_V2.json
@@ -199,7 +202,7 @@ ea15a2e8bf44406b15106ec5a15820691081bd8cca352d0d74f0b88473e6b812  superseded_res
 9242d2d214b14fb9a744e11b98974af53be7bd033ae4eb9f4f7db386ccd32f2f  superseded_result          results/final/test_reports/junit_unit.xml
 9084e3597a1945bc716ebfff30c6e9d8a9c25b403cd586762663f714b22e2bcf  superseded_result          results/final/traceability_queries.csv
 3a4b9a4547cd8d7bbb371b318365cadcc450f2af68502f37fe978bfd91413b6a  superseded_result          results/final/traceability_queries.json
-d2de20289358a51fd37c7553b80cbfeb72ac7c59a341f02215119c5aa8d4ce6e  measured_result            results/final_v2/CI_STATUS.md
+5501329da3555e2ef6caee509b0eb4bad344b4b03990e0d85edc1c469b404496  measured_result            results/final_v2/CI_STATUS.md
 2915e8bb4163c53dd27a51a01e4dc94429ade0432a445eee38e5f63996052d41  measured_result            results/final_v2/PROVENANCE.json
 a3058efa558a8113677d446ed01c37e00e7477871b187cf7cb58d4c7da70905b  measured_result            results/final_v2/SUMMARY.md
 a844e3a52e566c8350f6fbb499ddba782e5ccf9d56b3a7196f91c1c408b5288b  measured_result            results/final_v2/adversarial.json
@@ -222,6 +225,18 @@ a9461c4c4600e78f1ecd1dec3cf244f9cdb8c48777a7c6ac24a4582ccaf4256c  measured_resul
 da87dbfb05fab3b8f39ae5cd358d8ec6bacffe8a48e347a38102d9a40e3c3874  measured_result            results/final_v2/case_b/gcir_records.json
 ec8ac3517c29ab3ca60b332ac3a710cfcfc91194f9ab250c6438121b7d053b44  measured_result            results/final_v2/case_b/payload_hash.txt
 674359ea9b84a36310688d2e13f2619940184434575cb9003bd7dff33a0ea196  measured_result            results/final_v2/case_b/payload_purity.json
+d0a2cf816e6090ca06c33db0625e571d5e9e458ad8cee9a02d29c60ba6c24bf2  measured_result            results/final_v2/cross_environment/ci/determinism-macos-latest-py3.11/determinism_runs.csv
+cfe6c9b3b8a44b90826efb6ac598bbea5c8966b96b5e9eb84f94b77793e8be83  measured_result            results/final_v2/cross_environment/ci/determinism-macos-latest-py3.11/determinism_summary.json
+5119737b6645eeb19a8ce2bf6fe27fee83b6dbd8b0b8b609a0894188adfd2966  measured_result            results/final_v2/cross_environment/ci/determinism-macos-latest-py3.12/determinism_runs.csv
+96e2baab29dfcb92a9dc9fff52643153afcf4002ffc49f573f949ebec7e683f2  measured_result            results/final_v2/cross_environment/ci/determinism-macos-latest-py3.12/determinism_summary.json
+c609f6e5edf52c543586260dc36666590f9597d8fcca2b78b68909e31a7bf794  measured_result            results/final_v2/cross_environment/ci/determinism-ubuntu-latest-py3.11/determinism_runs.csv
+e2a7e594d95d0782c572b993cca7b8007e38f44f2a47dc1aecab4a3b1b34c909  measured_result            results/final_v2/cross_environment/ci/determinism-ubuntu-latest-py3.11/determinism_summary.json
+654f72239fdc6b00f3bd02d3ad3de76056b5f7fa83f4ec201976509189e4e617  measured_result            results/final_v2/cross_environment/ci/determinism-ubuntu-latest-py3.12/determinism_runs.csv
+a87c2001ba51732ff17af81b04b6695f263a7d98c324aa2543d9c953e10da57d  measured_result            results/final_v2/cross_environment/ci/determinism-ubuntu-latest-py3.12/determinism_summary.json
+b9397a77af135b0d416b7c228b5304f61a6e7d277aad9fbaeb6604baa2e47352  measured_result            results/final_v2/cross_environment/ci/determinism-windows-latest-py3.11/determinism_runs.csv
+efb3e1ac5f68f9bcb3049d483b3dc87fb9ee21629dff45d9a2086a5bb2d08291  measured_result            results/final_v2/cross_environment/ci/determinism-windows-latest-py3.11/determinism_summary.json
+e1220f15284db1cb526419bc863203dbedbd8cd08980caf5a0c8480b9d89c6e0  measured_result            results/final_v2/cross_environment/ci/determinism-windows-latest-py3.12/determinism_runs.csv
+a4e612dfb66e5bfd3cfd8c9dc2055a4c97fc54ae200961f36af9476c6a3f5f92  measured_result            results/final_v2/cross_environment/ci/determinism-windows-latest-py3.12/determinism_summary.json
 0bbc2768ef868e122396830a933741c2bdc6a167b440359cf4e38525a74ad7cd  measured_result            results/final_v2/cross_environment/determinism_runs_container_linux.csv
 a44704745c03d76258e0ce7d0b1e76dbacc9bbbb327f42d9a492eaecc13f6b8e  measured_result            results/final_v2/cross_environment/determinism_summary_container_linux.json
 31973c38162f542dbbf385b6978281bc6a922f4e09303ba79b4a6504ead3ddf4  measured_result            results/final_v2/determinism_runs.csv
@@ -291,7 +306,7 @@ c38584acd06e825233fbea120b85dee085bc93ba2846c126c8a3c673a739d315  fixture_genera
 1a90a5118d6e54e5ce8608d47b2c538fd652bdb8438875c28c9551683d25cbb9  case_b_input               tools/derive_ldrea_predicate_family.py
 aca10d7c256438fd6345c7a19ec10de97d293365f08dea10e7bc583352dadd92  phi_impl                   tools/freeze_check.py
 2339f549395bf295ed9d19bee5627466c502feb80c6b4ae2dc75cc244a85473a  fixture_generator          tools/invariants_data.py
-e88efdb78cb2efd93ff3499ea17d43252ce3e9a180999a79012525a8a73ad522  fixture_generator          tools/make_measured_docx.py
+4fa88a558f9b88315d88cf9acde3b1b239d66ebdb8c52c6c88a204f5777a1e35  fixture_generator          tools/make_measured_docx.py
 aa82bdd98cab8c9f3d9c2b82ea5f7438e1a427d2714e29ad050403ea6e520bbb  experiment_code            tools/montecarlo.py
 030944eb6ce267dd2e1aab2405bc1fc8b1776da2f16cdfd489e4e5b460d1c995  fixture_generator          tools/publish.sh
 64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44  experiment_code            tools/td_crossenv.py
