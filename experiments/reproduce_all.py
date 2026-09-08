@@ -35,12 +35,20 @@ from experiments.common import (REPO_ROOT, add_common_args, banner, phase_of,
 
 
 def _step(name, function, *args, **kwargs):
+    """Run one step, treating a non-zero RETURN as a failure.
+
+    Each experiment's ``main()`` signals failure by *returning* a non-zero exit
+    code, not by raising.  An earlier version of this harness inspected only
+    ``SystemExit``, so a step that returned 1 -- a failed freeze verification, a
+    failed adversarial corpus -- was reported OK and the campaign looked green.
+    Return codes are honoured here for exactly that reason.
+    """
     banner(name)
     started = time.time()
     try:
-        function(*args, **kwargs)
-        status = "ok"
-        detail = ""
+        code = function(*args, **kwargs)
+        status = "ok" if code in (0, None) else "failed"
+        detail = "" if code in (0, None) else "returned exit code %s" % code
     except SystemExit as exc:
         status = "ok" if exc.code in (0, None) else "failed"
         detail = "exit code %s" % exc.code
@@ -76,6 +84,22 @@ def _regenerate_and_verify():
     print("case tree regenerated; %d files unchanged" % len(after))
 
 
+def _newest_freeze_tag():
+    """The most recent ``preregister-tier0-*`` tag reachable from HEAD.
+
+    Resolved rather than hardcoded so that incrementing a freeze does not require
+    editing this file -- which is itself a frozen file, and editing it would break
+    the very freeze the campaign is meant to run against.
+    """
+    described = subprocess.run(
+        ["git", "describe", "--tags", "--abbrev=0", "--match", "preregister-tier0-*"],
+        cwd=REPO_ROOT, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+    )
+    if described.returncode == 0:
+        return described.stdout.decode("utf-8").strip()
+    return "preregister-tier0-v2.1"
+
+
 def _tree_digest():
     import hashlib
 
@@ -105,8 +129,14 @@ def main(argv=None):
                         help="Monte Carlo K (default: the frozen 250000)")
     parser.add_argument("--skip-monte-carlo", action="store_true",
                         help="skip the Monte Carlo step (it is the slowest)")
+    parser.add_argument("--freeze-tag", default=None,
+                        help="freeze tag the reportable campaign is governed by "
+                             "(default: the most recent preregister-tier0-* tag "
+                             "reachable from HEAD)")
     add_common_args(parser)
     args = parser.parse_args(argv)
+
+    freeze_tag = args.freeze_tag or _newest_freeze_tag()
 
     from experiments import (
         make_manifest,
@@ -167,12 +197,16 @@ def main(argv=None):
         steps.append(_step(
             "12. Freeze verification (public tag, ancestry, frozen-file integrity)",
             verify_freeze.main,
-            ["--results", results_dir(phase),
+            ["--tag", freeze_tag,
+             "--results", results_dir(phase),
              "--write", os.path.join(results_dir(phase), "freeze_verification.json")]))
         steps.append(_step("13. PROVENANCE.json",
-                           make_provenance.main, phase_args))
+                           make_provenance.main,
+                           phase_args + ["--tag", freeze_tag]))
 
     banner("REPRODUCTION SUMMARY")
+    if phase != "development":
+        print("  governed by freeze tag: %s\n" % freeze_tag)
     width = max(len(step["step"]) for step in steps)
     for step in steps:
         print("  %-8s %-*s %8.2fs %s"
@@ -189,6 +223,7 @@ def main(argv=None):
             "draws": args.draws,
             "skip_monte_carlo": args.skip_monte_carlo,
             "phase": phase,
+            "freeze_tag": freeze_tag,
         },
     })
 

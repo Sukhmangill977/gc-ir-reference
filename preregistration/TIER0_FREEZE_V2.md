@@ -219,3 +219,41 @@ the two analysis scripts added with it (`make_provenance.py`,
 *second campaign*; the freeze governing it is `v2.1` because it is the *corrected
 second freeze*. `results/final_v2/PROVENANCE.json` records both explicitly so the
 pairing is never ambiguous.
+
+---
+
+## Second supersession: `preregister-tier0-v2.1` → `preregister-tier0-v2.2`
+
+**The amendment procedure, executed a second time.** Both tags remain public and
+unmoved; no campaign ran against either.
+
+A full dry run of the exact final command (`python run_all.py --final-v2`) — run
+deliberately *before* freezing, with its outputs discarded — surfaced two further
+defects in frozen files:
+
+1. **`experiments/reproduce_all.py::_step` ignored return codes.** Each
+   experiment's `main()` signals failure by *returning* a non-zero exit code, not
+   by raising. `_step` inspected only `SystemExit`, so a step that returned 1 — a
+   failed freeze verification, a failed adversarial corpus — was reported **OK**
+   and the whole campaign would have looked green. This is the most serious defect
+   found in either freeze cycle: it could have concealed a genuine failure in a
+   reportable campaign. Demonstrated with a probe (`_step("probe", lambda: 1)`
+   returned status `ok`) and fixed.
+
+2. **The freeze tag was not plumbed through.** Steps 12 and 13 used
+   `verify_freeze`'s hardcoded default, which still named the superseded
+   `preregister-tier0-v2`. `reproduce_all` now resolves the newest
+   `preregister-tier0-*` tag reachable from `HEAD` and passes it explicitly, so
+   incrementing a freeze never again requires editing a frozen file — which would
+   break the freeze it is meant to run against.
+
+| | |
+|---|---|
+| Superseded | `preregister-tier0-v2` (17:52:54Z), `preregister-tier0-v2.1` (17:58:41Z) |
+| **Governing tag** | **`preregister-tier0-v2.2`** |
+| Reason | return codes ignored by the step harness; freeze tag not plumbed through |
+| Campaign | `results/final_v2/` |
+
+That three defects were found across two amendment cycles, each **before** any
+campaign ran, is the procedure working. None of them was patched in place under a
+public tag, and no result was produced against a freeze that did not govern it.

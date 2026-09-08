@@ -12,8 +12,8 @@
 # Every hash below is computed from the file on disk by
 # `python -m experiments.make_freeze_manifest`. None is typed by hand.
 #
-#   frozen at commit: 33a610c850b2847b88d3667e0706a457a3e37307
-#   frozen at tag:    preregister-tier0-v2
+#   frozen at commit: 0c0da7e06e26771575ae24fddbeaab812b680165
+#   frozen at tag:    preregister-tier0-v2.1
 #
 # "The internal selection of frozen elements is not a freeze -- the public
 #  timestamped commitment is."  (Section XI-I)
@@ -29,7 +29,7 @@ bdbb635375048b25722a87f788e499a8a8730ee1273063b5afbf312b733244a6  analysis_code 
 3266d999f9ae0d8cb7b1517c2b40673c35c8c88825e2873ebfdd76c216a4888c  analysis_code                       experiments/make_manifest.py
 95c3551b792113b8f7317469033aed3fda30dcd2c823633cd36ad16972faaca2  analysis_code                       experiments/make_provenance.py
 4588e3f2b498a2b59429c1a0bdf6d4d9299c3b0491f05d9f89c9ae9fe6ee9125  analysis_code                       experiments/make_summary.py
-61faa4b97e0a313e47770ea0ab412089d9f440ce0fe3e2044c202904a07e7f60  analysis_code                       experiments/reproduce_all.py
+59c9562b34287af67eebff784a1d6f7452c0cb9105cefd67a83c0e15512a84d7  analysis_code                       experiments/reproduce_all.py
 63447a50cc83e7cd20b78e294fbd4065ad5f6169a2609a6831741dba4a016925  analysis_code                       experiments/run_adversarial.py
 d757ae962402c31cdeec6b47f807876f8dcf93b814b7ef03a3100a42ac3f35af  analysis_code                       experiments/run_case.py
 cef8b228d51a4577a512242203822ae0febdb8e31cb85bc3f8ad33e021c07ca2  analysis_code                       experiments/run_determinism.py
@@ -115,13 +115,13 @@ c38584acd06e825233fbea120b85dee085bc93ba2846c126c8a3c673a739d315  fixture_genera
 f7a0b4a6f9c8a29848ef54f62797f6cdb1f25e6f4ca3498d0b37f9030d80c8d6  held_out_register_hash              preregistration/HELD_OUT_REGISTER.md
 d22a8644737297519dd124592981debffadc9eca59ccb25f2c633d214d502ded  hypotheses_and_primary_outcomes     docs/EXPERIMENT_PROTOCOL.md
 0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935  hypotheses_and_primary_outcomes     preregistration/RQ5_DEFERRED_PROTOCOL.md
-3d73f63226a19172e099d94da415bfcdb6ad26ee54f291b86a418cc84861406e  hypotheses_and_primary_outcomes     preregistration/TIER0_FREEZE_V2.md
+1b21cf83fd2d71a862cc083766febb43b89a64d2c702776eb74b6e1d9bc57712  hypotheses_and_primary_outcomes     preregistration/TIER0_FREEZE_V2.md
 8593587323af92666c9ebe7ec0712455569dcf2394956c9895679fe29dc1238d  monte_carlo_distributions_and_seed  preregistration/monte_carlo_distributions_v1.json
 4ddac753c23fefc3c598c9bcd3bb0b8044959a859fc5cf73e5932d28ff76e5f6  provenance_and_interpretation       docs/CLAIM_TO_ARTIFACT_MATRIX.md
 b3deff423eb921328e40d36bd80d9983975a53a3716179e35e92ba9dd774b70e  provenance_and_interpretation       docs/FIXTURE_PROVENANCE.md
 031669ed51501941a6679319f9ad59c6bc2f91363ad39da1ecf897b452e3e65c  provenance_and_interpretation       docs/PAPER_REQUIREMENTS.md
 7ea96ad9d83191da516b4d068a626bce5bfc89842c0a8d5464ddb1565d7e3a94  provenance_and_interpretation       docs/RESULT_INTERPRETATION.md
-3d73f63226a19172e099d94da415bfcdb6ad26ee54f291b86a418cc84861406e  randomization_seed                  preregistration/TIER0_FREEZE_V2.md
+1b21cf83fd2d71a862cc083766febb43b89a64d2c702776eb74b6e1d9bc57712  randomization_seed                  preregistration/TIER0_FREEZE_V2.md
 963c5c498c334c418bc44816494564e83e967dfacdd0a78183d2a2984fe33384  reproduction_entry_points           run_all.py
 aca10d7c256438fd6345c7a19ec10de97d293365f08dea10e7bc583352dadd92  reproduction_entry_points           tools/freeze_check.py
 aa82bdd98cab8c9f3d9c2b82ea5f7438e1a427d2714e29ad050403ea6e520bbb  reproduction_entry_points           tools/montecarlo.py

@@ -24,7 +24,7 @@
     "test_suite",
     "thresholds_and_cstar_definition"
   ],
-  "commit_at_generation": "33a610c850b2847b88d3667e0706a457a3e37307",
+  "commit_at_generation": "0c0da7e06e26771575ae24fddbeaab812b680165",
   "file_count": 133,
   "files": [
     {
@@ -370,10 +370,10 @@
       "sha256": "4588e3f2b498a2b59429c1a0bdf6d4d9299c3b0491f05d9f89c9ae9fe6ee9125"
     },
     {
-      "bytes": 7837,
+      "bytes": 9586,
       "category": "analysis_code",
       "path": "experiments/reproduce_all.py",
-      "sha256": "61faa4b97e0a313e47770ea0ab412089d9f440ce0fe3e2044c202904a07e7f60"
+      "sha256": "59c9562b34287af67eebff784a1d6f7452c0cb9105cefd67a83c0e15512a84d7"
     },
     {
       "bytes": 29773,
@@ -490,16 +490,16 @@
       "sha256": "0d5ae5f35815a62e23bc6c82b35fba608801cf4662131d163bad5f889e8da935"
     },
     {
-      "bytes": 11737,
+      "bytes": 13681,
       "category": "hypotheses_and_primary_outcomes",
       "path": "preregistration/TIER0_FREEZE_V2.md",
-      "sha256": "3d73f63226a19172e099d94da415bfcdb6ad26ee54f291b86a418cc84861406e"
+      "sha256": "1b21cf83fd2d71a862cc083766febb43b89a64d2c702776eb74b6e1d9bc57712"
     },
     {
-      "bytes": 11737,
+      "bytes": 13681,
       "category": "randomization_seed",
       "path": "preregistration/TIER0_FREEZE_V2.md",
-      "sha256": "3d73f63226a19172e099d94da415bfcdb6ad26ee54f291b86a418cc84861406e"
+      "sha256": "1b21cf83fd2d71a862cc083766febb43b89a64d2c702776eb74b6e1d9bc57712"
     },
     {
       "bytes": 3314,
@@ -826,8 +826,8 @@
       "sha256": "64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44"
     }
   ],
-  "freeze_manifest_sha256": "099d46c4768656bb945e6dbb963b3e10a12ea44c354e8acb169185230e76c584",
+  "freeze_manifest_sha256": "9b264e0553d7b3a9d030870c0def80e62df4b0a14b3b937be29925f12b039332",
   "freeze_version": "tier0-v2",
   "note": "The release tag and this manifest's hash together constitute the public preregistration commitment referenced in Section XI-I. The commitment is the public timestamped git tag, not this file on its own.",
-  "tag_at_generation": "preregister-tier0-v2"
+  "tag_at_generation": "preregister-tier0-v2.1"
 }

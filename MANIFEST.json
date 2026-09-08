@@ -32,10 +32,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 48513,
+      "bytes": 56249,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "d285b6b8f46203589b997313b1dba888dc8dba2805cff5e2cb1f3fc6a4c7b183"
+      "sha256": "9868e93348001e43b987b794371cfa87cc48acee12e91144621a78a94a69fea0"
     },
     {
       "bytes": 2029,
@@ -404,10 +404,10 @@
       "sha256": "4588e3f2b498a2b59429c1a0bdf6d4d9299c3b0491f05d9f89c9ae9fe6ee9125"
     },
     {
-      "bytes": 7837,
+      "bytes": 9586,
       "path": "experiments/reproduce_all.py",
       "role": "experiment_code",
-      "sha256": "61faa4b97e0a313e47770ea0ab412089d9f440ce0fe3e2044c202904a07e7f60"
+      "sha256": "59c9562b34287af67eebff784a1d6f7452c0cb9105cefd67a83c0e15512a84d7"
     },
     {
       "bytes": 29773,
@@ -572,16 +572,16 @@
       "sha256": "1475f7fdf31aa1a91d8dca59692824d24460139d91f05f65f364ec4f990bc37b"
     },
     {
-      "bytes": 28780,
+      "bytes": 28782,
       "path": "preregistration/FREEZE_MANIFEST_V2.json",
       "role": "prereg_commitment",
-      "sha256": "0271c3887d781adc784cc30245dfed6f3949b1f754951f4536658c855ca15761"
+      "sha256": "643a10128687e7c05965077a3f85f15e7f239be304e962422658abf1f66c9042"
     },
     {
-      "bytes": 18914,
+      "bytes": 18916,
       "path": "preregistration/FREEZE_MANIFEST_V2.sha256",
       "role": "prereg_commitment",
-      "sha256": "099d46c4768656bb945e6dbb963b3e10a12ea44c354e8acb169185230e76c584"
+      "sha256": "9b264e0553d7b3a9d030870c0def80e62df4b0a14b3b937be29925f12b039332"
     },
     {
       "bytes": 1991,
@@ -602,10 +602,10 @@
       "sha256": "219f326cf1a45a07cc118aa461e575ebefb31040a23a0bec83e1ccc033f2b997"
     },
     {
-      "bytes": 11737,
+      "bytes": 13681,
       "path": "preregistration/TIER0_FREEZE_V2.md",
       "role": "prereg_commitment",
-      "sha256": "3d73f63226a19172e099d94da415bfcdb6ad26ee54f291b86a418cc84861406e"
+      "sha256": "1b21cf83fd2d71a862cc083766febb43b89a64d2c702776eb74b6e1d9bc57712"
     },
     {
       "bytes": 3314,
@@ -1430,7 +1430,7 @@
       "sha256": "64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44"
     }
   ],
-  "manifest_sha256": "f7fa4f5c1a2f8c96a7f1912b2a691141ea3e63c057f81d346ef967415094cd16",
+  "manifest_sha256": "cecde9b6e5ecf6395a727ea9b58af50f08dccb3790a9869c42173ff0f341e414",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1462,5 +1462,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 2808136
+  "total_bytes": 2819569
 }
