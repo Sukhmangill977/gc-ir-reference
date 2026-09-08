@@ -35,7 +35,7 @@
       "bytes": 45442,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "31e5f2839e73867386c132c13ff6bc171d32bd2ca7e49eabe751c0eec8c02e47"
+      "sha256": "3c3d13d29adf47bf1d66bcaad3107f6700758b2ed6b1c88e2004a2a24e73a7c7"
     },
     {
       "bytes": 2029,
@@ -350,10 +350,10 @@
       "sha256": "97e379cedf0828b1c601ec4a7afeee70ea4aac9ed883496f472694956990dc18"
     },
     {
-      "bytes": 22194,
+      "bytes": 22594,
       "path": "experiments/make_summary.py",
       "role": "experiment_code",
-      "sha256": "cce58b75656d2ba0df1f33920ef4c7c4ad9e653c2bf973a3344c0c0c0863e455"
+      "sha256": "29bca51a3515f0ea713b7a62a2f49b9a67d785bfc6a3174d076864f9e864a2eb"
     },
     {
       "bytes": 7248,
@@ -800,10 +800,10 @@
       "sha256": "8288ff3c76f343edc15f53748d7699656ca2a16e70d9d6fa6f040fa447c8b9d1"
     },
     {
-      "bytes": 14455,
+      "bytes": 14800,
       "path": "results/final/SUMMARY.md",
       "role": "measured_result",
-      "sha256": "d98ea36bb910b8ebbded053fb21a4934f42a5cf3c1a1372546cad89588680935"
+      "sha256": "e3aa9e20b34709a7a66b39b8acad5dbe4883e03b20a13cf7b5453af46a28feba"
     },
     {
       "bytes": 48116,
@@ -1328,7 +1328,7 @@
       "sha256": "030944eb6ce267dd2e1aab2405bc1fc8b1776da2f16cdfd489e4e5b460d1c995"
     }
   ],
-  "manifest_sha256": "954616977cc2e0dc817706ecd37837743318ceafae24f77d88bc7bc427a1d15e",
+  "manifest_sha256": "52de476167385b3c6ea1373173141880da9543631111e11c8ffc646b792e7ee3",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1359,5 +1359,5 @@
     "schema",
     "test_suite"
   ],
-  "total_bytes": 2576765
+  "total_bytes": 2577510
 }

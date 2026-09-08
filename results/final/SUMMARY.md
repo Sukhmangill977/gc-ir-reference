@@ -17,8 +17,8 @@
 | Field | Value |
 |---|---|
 | **git commit the campaign ran at** | `196820b23a632d56c4575dba3def71247b343f6a` |
-| git commit when this summary was rendered | `0651b7a3c566563ac60c2bf7de4dda1019cbb53c` |
-| git describe | `preregister-tier0-v1-1-g0651b7a-dirty` |
+| git commit when this summary was rendered | `a3210e2bcfed4f9d5c5fe3d3e22b6121cc367a8a` |
+| git describe | `preregister-tier0-v1-3-ga3210e2-dirty` |
 | git tag (exact) | `none at this commit` |
 | working tree clean | False |
 | Python | 3.11.15 (CPython) |
@@ -250,7 +250,7 @@ Negative controls -- each query must fire on a deliberately corrupted fixture:
 
 * **RQ5 (comparative expert study)** is preregistered and DEFERRED. No adjudication panel has been convened, no participant data exists, and no comparative-superiority claim is made. SNR and DF are therefore reported as DEFERRED, not as numbers. See `preregistration/RQ5_DEFERRED_PROTOCOL.md`.
 * **The Monte Carlo rating distributions are author-specified**, not panel-adjudicated. See `docs/FIXTURE_PROVENANCE.md` FP-020.
-* **Cross-platform determinism** is measured by the GitHub Actions matrix (ubuntu / windows / macOS), not by this run. See `results/final/CI_STATUS.md`.
+* **Cross-environment determinism.** The full determinism experiment has been run to completion on two independently installed operating systems -- the host recorded above and the pinned Linux container -- with identical reference hashes and TD = 1.000 on each. **Windows and x86-64 remain untested**; the CI matrix covering them is configured but has not run. See `results/final/CI_STATUS.md`. The supportable wording is scoped to the environments actually measured, never 'platform independent'.
 * **Detection performance, production impact and false-denial rates** are out of scope; they require the shadow-mode deployment identified as future work.
 * The 284,807-event golden-trace conformance run of [15] is **not** reproduced here and is not claimed as evidence for this paper.
 

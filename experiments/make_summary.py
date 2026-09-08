@@ -428,8 +428,13 @@ def build(final):
         "as DEFERRED, not as numbers. See `preregistration/RQ5_DEFERRED_PROTOCOL.md`.")
     add("* **The Monte Carlo rating distributions are author-specified**, not "
         "panel-adjudicated. See `docs/FIXTURE_PROVENANCE.md` FP-020.")
-    add("* **Cross-platform determinism** is measured by the GitHub Actions matrix "
-        "(ubuntu / windows / macOS), not by this run. See `results/final/CI_STATUS.md`.")
+    add("* **Cross-environment determinism.** The full determinism experiment has been "
+        "run to completion on two independently installed operating systems -- the "
+        "host recorded above and the pinned Linux container -- with identical "
+        "reference hashes and TD = 1.000 on each. **Windows and x86-64 remain "
+        "untested**; the CI matrix covering them is configured but has not run. "
+        "See `results/final/CI_STATUS.md`. The supportable wording is scoped to the "
+        "environments actually measured, never 'platform independent'.")
     add("* **Detection performance, production impact and false-denial rates** are "
         "out of scope; they require the shadow-mode deployment identified as future work.")
     add("* The 284,807-event golden-trace conformance run of [15] is **not** "

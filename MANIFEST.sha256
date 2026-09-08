@@ -18,7 +18,7 @@ b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_roo
 1fc00762fe18d601c5cb8e676293a36ff6ed4a7686e2c77fccfda54f1636a7d0  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-31e5f2839e73867386c132c13ff6bc171d32bd2ca7e49eabe751c0eec8c02e47  repository_root            MANIFEST.json
+3c3d13d29adf47bf1d66bcaad3107f6700758b2ed6b1c88e2004a2a24e73a7c7  repository_root            MANIFEST.json
 b188e1325d8435a894580e3c84c1274e2e4d949be665a3e4b79a672cf1842d11  repository_root            Makefile
 084e071a0f2042a2ab12e9953db473e14eaf1a6cf1d627551694be2f201ee5e4  repository_root            README.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
@@ -71,7 +71,7 @@ d7d43b56d0243fa7431e6980d46d369931495dd393b443c7f6c3249c89ee8194  experiment_cod
 9779ca390eb96bdfcabbd7390d70d4b33fa01a64a5ada916a96cfd52019aa406  experiment_code            experiments/common.py
 d1526d87d5dd5d2d1e9d955a28059dd5261538023af9a73b2cdcc1eb114bd6de  experiment_code            experiments/make_freeze_manifest.py
 97e379cedf0828b1c601ec4a7afeee70ea4aac9ed883496f472694956990dc18  experiment_code            experiments/make_manifest.py
-cce58b75656d2ba0df1f33920ef4c7c4ad9e653c2bf973a3344c0c0c0863e455  experiment_code            experiments/make_summary.py
+29bca51a3515f0ea713b7a62a2f49b9a67d785bfc6a3174d076864f9e864a2eb  experiment_code            experiments/make_summary.py
 c758522006f49f2ca9848b34d520851bb2c1ed491d73d67d27bd40e0b272c9e2  experiment_code            experiments/reproduce_all.py
 3e56c5147f801d7752f52f2ff51637a052abcb9707f14a8d25d63859891f131b  experiment_code            experiments/run_adversarial.py
 22684aac7bcf0d80f77ed33d44eb8bd8798a213c579306b1c4bf308407fec7e3  experiment_code            experiments/run_case.py
@@ -146,7 +146,7 @@ fe1fe9a190eaf89ee63777a8a3e698cf4eb7e6e2a10ed48d3fa0a352e477731f  development_re
 9084e3597a1945bc716ebfff30c6e9d8a9c25b403cd586762663f714b22e2bcf  development_result         results/development/traceability_queries.csv
 93c958993fd720b29d3b8b26b1d7fed69249a9e26f87d563d160b15e0c1391f4  development_result         results/development/traceability_queries.json
 8288ff3c76f343edc15f53748d7699656ca2a16e70d9d6fa6f040fa447c8b9d1  measured_result            results/final/CI_STATUS.md
-d98ea36bb910b8ebbded053fb21a4934f42a5cf3c1a1372546cad89588680935  measured_result            results/final/SUMMARY.md
+e3aa9e20b34709a7a66b39b8acad5dbe4883e03b20a13cf7b5453af46a28feba  measured_result            results/final/SUMMARY.md
 06ae2814c45a4e3770a0d0a3f8e956352fd3ffa8b3f4e3925322a0ca3349aa2d  measured_result            results/final/adversarial.json
 95bf249ec90cbf9955c533e3c7f6271d7dcffda1bfd78cfbce6a351674b92968  measured_result            results/final/adversarial_cases.csv
 4ca1a50cbb17f3981cfc3dc8765675f483594ad6490f8c1321d17594629c7170  compiled_bundle_a          results/final/case_a/bundle.json
