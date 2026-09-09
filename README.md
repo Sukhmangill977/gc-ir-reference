@@ -28,10 +28,22 @@ git clone https://github.com/Sukhmangill977/gc-ir-reference.git
 cd gc-ir-reference
 
 make install                  # .venv + the pinned dependency set (~30 s)
-make test                     # 280 tests across four suites          (~10 s)
+make test                     # 301 tests across four suites          (~10 s)
 make verify-hashes            # recompile both cases, check the hashes (~2 s)
-python tools/freeze_check.py --final-v2   # the 13 frozen numbers, recomputed
+python tools/freeze_check.py --final-v2        # the 13 frozen numbers, recomputed
+python tools/verify_reported_results.py        # every paper-facing number (~2 s)
 ```
+
+`make ieee-check` runs that whole sequence plus the traceability and manifest
+checks, and returns non-zero if anything disagrees. See
+[`artifact_review/README.md`](artifact_review/README.md) for the reviewer-oriented
+artifact guide.
+
+> **Why 301 tests here and 280 in the paper.** The frozen `preregister-tier0-v2.2`
+> campaign measured **280**, and that is what Section XI-H reports. The 21
+> additional tests cover `tools/verify_reported_results.py`, which was written
+> during artifact packaging *after* the freeze. They test the reviewer tooling,
+> not the compiler, and no reported result depends on them.
 
 `make verify-hashes` recompiles Case A and Case B from the committed governance
 artifacts and compares the SHA-256 of the RFC 8785 canonical bundle payload
@@ -178,11 +190,19 @@ gc-ir-reference/
 ├── tests/                 unit · properties · adversarial · integration
 ├── experiments/           every measurement, plus reproduce_all
 ├── results/development/   exploratory results -- NOT reportable
-├── results/final/         the frozen reportable campaign
-├── preregistration/       TIER0_FREEZE.md, RQ5_DEFERRED_PROTOCOL.md, FREEZE_MANIFEST.sha256
-├── paper_update/          measured results and the placeholder replacement table
+├── results/final_v2/      ** THE REPORTABLE CAMPAIGN ** (freeze preregister-tier0-v2.2)
+├── results/final/         the SUPERSEDED v1 campaign -- retained for provenance only
+├── results/V1_V2_COMPARISON.md   every difference between the two, with its cause
+├── artifact_review/       IEEE artifact-review package: reviewer README, the
+│                          paper-to-result map, data inventory, self-review
+├── preregistration/       TIER0_FREEZE_V2.md + FREEZE_MANIFEST_V2.sha256 (governing);
+│                          TIER0_FREEZE.md + FREEZE_MANIFEST.sha256 (v1, historical);
+│                          RQ5_DEFERRED_PROTOCOL.md, HELD_OUT_REGISTER.md
+├── paper_update/          measured results, the placeholder replacement tables, and
+│                          the manuscript-finalization audits
 ├── docs/                  requirements extraction, claim matrix, provenance, interpretation
-├── tools/                 the case-fixture generators
+├── tools/                 case-fixture generators, freeze_check, the result map and
+│                          the reported-result verifier
 └── keys/                  research signing keys -- TEST ONLY / NOT FOR PRODUCTION
 ```
 
@@ -219,14 +239,16 @@ way of avoiding the question.
 
 ```bash
 make test                                    # all four suites
+make ieee-check                              # the full reviewer check (~2 min)
 .venv/bin/python -m pytest tests/properties -q --hypothesis-show-statistics
 
 make reproduce                               # 11 steps -> results/development/
-make reproduce-final                         # the frozen campaign -> results/final/
+make reproduce-final-v2                      # the REPORTABLE campaign -> results/final_v2/
+make reproduce-final                         # the SUPERSEDED v1 campaign -> results/final/
 
-# individual experiments
+# individual experiments (add --final-v2 to write into results/final_v2/)
 .venv/bin/python -m experiments.run_case --case case_a
-.venv/bin/python -m experiments.run_determinism --runs-per-case 30
+.venv/bin/python -m experiments.run_determinism --runs-per-case 31
 .venv/bin/python -m experiments.run_gate_divergence
 .venv/bin/python -m experiments.run_monte_carlo --draws 250000
 .venv/bin/python -m experiments.run_traceability
@@ -234,17 +256,39 @@ make reproduce-final                         # the frozen campaign -> results/fi
 .venv/bin/python -m experiments.run_metrics
 ```
 
+`make reproduce-final-v2` **overwrites the reportable results**. It exists so the
+frozen campaign can be re-executed and compared, but a reviewer verifying the
+published numbers should use `python tools/verify_reported_results.py` or
+`make ieee-check`, which read the committed evidence and write nothing into
+`results/final_v2/`.
+
 ## Verifying hashes
 
 ```bash
 make verify-hashes                           # against the committed references
-make manifest && git diff --exit-code MANIFEST.sha256   # manifest is current
+make verify-manifest                         # the manifest is current
 shasum -a 256 -c <(awk '!/^#/ && NF {print $1 "  " $3}' MANIFEST.sha256)
 ```
 
 Every hash in `MANIFEST.sha256` is computed from the file on disk by
 `experiments/make_manifest.py`. Each line carries the Appendix C role alongside the
 path.
+
+`make verify-manifest` regenerates the manifest and diffs it against the committed
+one, **excluding two rows that necessarily change**: `results/development/` (which
+`make reproduce` rewrites by design) and `MANIFEST.json` itself. `MANIFEST.json`
+embeds every file's hash *including its own from the previous generation*, so it
+never reaches a fixpoint — a plain `git diff --exit-code MANIFEST.sha256` after
+regenerating would therefore always report a difference and tell you nothing. The
+filtered comparison is what CI runs, and it is the meaningful check: every
+released path must match exactly.
+
+### Two manifests, two purposes — do not conflate them
+
+| File | Purpose | Changes when |
+|---|---|---|
+| `MANIFEST.sha256` / `.json` | Inventories the **current repository / release state**. 304 files, 30 roles. | Any file is added or edited. Regenerate with `make manifest`. |
+| `preregistration/FREEZE_MANIFEST_V2.sha256` | **Proves the frozen scientific experiment**: the 133 files covered by `preregister-tier0-v2.2`. | **Never.** Regenerating it would destroy the evidence it exists to provide. |
 
 ## Inspecting Case A and Case B
 
@@ -281,10 +325,25 @@ state that produced it.
 being built. **They are not reportable**, and they are committed rather than
 deleted so the development history the freeze separates from is visible.
 
-`results/final/` holds the reportable campaign, executed **after** the public
-timestamped preregistration commit (`preregistration/TIER0_FREEZE.md`, tag
-`preregister-tier0-v1`). Per Section XI-I: *"The internal selection of frozen
-elements is not a freeze — the public timestamped commitment is."*
+`results/final_v2/` holds **the reportable campaign**. Its freeze
+(`preregistration/TIER0_FREEZE_V2.md`, tag `preregister-tier0-v2.2`, commit
+`c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e`) was **pushed to this repository and
+verified from the remote before the campaign executed**. Per Section XI-I: *"The
+internal selection of frozen elements is not a freeze — the public timestamped
+commitment is."*
+
+`results/final/` holds the **superseded v1 campaign**. It is retained unedited,
+for provenance, and **is not reportable**: its freeze tag `preregister-tier0-v1`
+existed only locally when that campaign ran, and was pushed afterwards. A later
+push cannot turn a completed experiment into a prospectively public preregistered
+one, so v1 was **superseded rather than relabelled** — its metadata was not
+edited and `public_commitment_discharged` was not flipped retroactively.
+
+`results/V1_V2_COMPARISON.md` compares the two value by value. Every substantive
+measured value is identical across the two independently executed campaigns; what
+changed is the determinism run count (30 → 31 per case), the adversarial corpus
+size (59 → 62) and the addition of the Case B injection scenarios — all deliberate
+scope increases made *before* the v2 freeze.
 
 Full detail: `docs/REPRODUCIBILITY.md` and `docs/EXPERIMENT_PROTOCOL.md`.
 
@@ -316,14 +375,23 @@ Beyond the claim boundary above, and beyond the manuscript's Section XII:
 * **Case B is a forensic reconstruction.** The mapping is retrospective. The
   284,807-event conformance run of the prior work is **not** reproduced here and is
   not evidence for anything in this artifact.
-* **`GD_min` is partly a function of undisclosed ratings.** Both GD sums run over
-  all sixteen Case A rows, and the manuscript states `L × I` only for the thirteen
-  runtime rows. The three non-runtime ratings are fixtures; a full sweep over every
-  plausible value shows `GD_min` would range over **2 to 5**, and the artifact
-  reports that sweep alongside the measured value (FP-014).
-* **The Monte Carlo distributions are author-specified**, not panel-adjudicated,
-  contrary to what the manuscript currently says. The deviation is declared in the
-  freeze, in the result file, and in `paper_update/MEASURED_RESULTS.md` (FP-020).
+* **`GD_min` is partly a function of fixture ratings.** Both GD sums run over all
+  sixteen Case A rows. The three non-runtime ratings are documented fixtures —
+  now published in the manuscript as R-14 = 12, R-15 = 6, R-16 = 8 — and a full
+  sweep over every plausible value shows `GD_min` would range over **2 to 5**. The
+  artifact reports that sweep alongside the measured value (FP-014). Neither
+  proposition premise depends on those three rows.
+* **The Monte Carlo distributions are author-specified**, not panel-adjudicated.
+  They are a declared ±1 ordinal sensitivity model, prospectively frozen in the
+  public preregistration before any result was computed; they do **not** estimate
+  real rating uncertainty. Declared in the freeze, in the result file's
+  `provenance_warning`, and in `paper_update/MEASURED_RESULTS_V2.md` (FP-020). The
+  submitted manuscript states this in the abstract, §XI-C, §XI-G and §XII.
+* **No adjudication panel has been convened.** §XI-C describes the panel in the
+  conditional; no result in the paper rests on panel adjudication.
+* **Determinism is measured, not universal.** `TD = 1.000 (62/62)` reproduces on
+  eight environments. That is not platform independence, and the artifact never
+  claims it is.
 * **The adversarial corpus is a finite list** of known failure modes, not a proof
   of robustness.
 * **Property-based tests sample**; they do not verify. The two properties whose
