@@ -47,7 +47,7 @@
       "bytes": 66746,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "a126bfa55849b79d0169d59fef92a393193c3423aee6a8ad8d443ea350b07e16"
+      "sha256": "ed3afcbb59caf430a710303035ae2560e4ab309f736fc247cf8a4397f7851a19"
     },
     {
       "bytes": 7091,
@@ -74,10 +74,10 @@
       "sha256": "335265c767b60b05547103d9229af600eae2798fb5d9a7d03d9132982f783631"
     },
     {
-      "bytes": 6137,
+      "bytes": 6647,
       "path": "artifact_review/CI_EVIDENCE.md",
       "role": "repository_root",
-      "sha256": "793cd75376736a0518ec2fbffdba832708f480657a6979fecfc1b48114f9ff32"
+      "sha256": "59914214a7933a37bf2973e042fa964915d28cb70835c8f9b779139478eba022"
     },
     {
       "bytes": 5573,
@@ -1922,7 +1922,7 @@
       "sha256": "869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc"
     }
   ],
-  "manifest_sha256": "6eb45952672ffc7306eb61e5f7d66ef02ff44deed42c352d72d288bd4af08c7f",
+  "manifest_sha256": "beb8a98116099061b251b25569be8d0faa6bb12023b260f6928b9c37ff9e4420",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1955,5 +1955,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 6329829
+  "total_bytes": 6330339
 }

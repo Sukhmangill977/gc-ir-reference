@@ -20,12 +20,12 @@ e6e3829a1e93d282e4895fd26b75e394ed547db787c55f6deaac03979842eeb3  repository_roo
 36ab0f204340e1ef266d9e1a7c07b3358383d9f5defe1aa9b1d05b7be2b6e669  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-a126bfa55849b79d0169d59fef92a393193c3423aee6a8ad8d443ea350b07e16  repository_root            MANIFEST.json
+ed3afcbb59caf430a710303035ae2560e4ab309f736fc247cf8a4397f7851a19  repository_root            MANIFEST.json
 d48ef220be0d710a1e530baf1161125df0c46a3a4745b46dbf2038d3b5a6f6a0  repository_root            Makefile
 aa4c8312201404682eb4f7cea947c5b62e42daff0edf78b773e53adbbbcff4a4  repository_root            README.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
 335265c767b60b05547103d9229af600eae2798fb5d9a7d03d9132982f783631  repository_root            artifact_review/ARCHIVAL_CHECKLIST.md
-793cd75376736a0518ec2fbffdba832708f480657a6979fecfc1b48114f9ff32  repository_root            artifact_review/CI_EVIDENCE.md
+59914214a7933a37bf2973e042fa964915d28cb70835c8f9b779139478eba022  repository_root            artifact_review/CI_EVIDENCE.md
 abc0ca2665e929f19aae581d765e23890e50da12ab7c3da76f69c345d7a3ba33  repository_root            artifact_review/CLEAN_CLONE_VERIFICATION.md
 acc56b0450d076123ca2ecdbb7a8eb00ffb46ab6e7cd257cc2d47c195346a2cb  repository_root            artifact_review/DATA_INVENTORY.md
 0a07961aa11b0f2ef371de5b612c60293c58b8e4a11bbba46b7da9e35d5521cf  repository_root            artifact_review/IEEE_REPRODUCIBILITY_SELF_REVIEW.md

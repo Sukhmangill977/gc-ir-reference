@@ -7,7 +7,19 @@ reviewer can open each one directly.
 
 ## Final successful runs
 
-**Commit `836436baa6e8` — 2026-09-09T05:30Z — the `v1.0.1` release commit**
+**Commit `675d2fc4d811` — the `v1.0.2` release commit (final pre-submission)**
+
+| Workflow | Run ID | Result |
+|---|---|---|
+| `tests` | **34325410118** | ✅ success |
+| `cross-platform determinism` | **34325410022** | ✅ success |
+| `reproducibility` | **34325410136** | ✅ success |
+
+The preceding commit `9a18244` was also fully green (`tests` 34325156932,
+`determinism` 34325156894, `reproducibility` 34325156902), as was `9280698`
+(`tests` 34324938516, `determinism` 34324938569, `reproducibility` 34324938666).
+
+### Earlier: commit `836436baa6e8` — the `v1.0.1` release commit
 
 | Workflow | Run ID | Result | Duration | Link |
 |---|---|---|---|---|
