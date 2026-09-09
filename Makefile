@@ -71,13 +71,18 @@ manifest:
 # because they necessarily change: results/development/ is rewritten by
 # `make reproduce`, and MANIFEST.json embeds every hash including its own from
 # the previous generation, so it never reaches a fixpoint. Every other row must
-# match the committed manifest exactly.
+# match the committed manifest exactly. The regenerated files are restored
+# afterwards, so this check leaves the working tree exactly as it found it.
 verify-manifest:
+	@cp MANIFEST.sha256 /tmp/gcir_manifest_saved.sha256
+	@cp MANIFEST.json /tmp/gcir_manifest_saved.json
 	@git show HEAD:MANIFEST.sha256 \
 	  | grep -vE '  development_result |  MANIFEST\.json$$' > /tmp/gcir_manifest_before.txt
 	@$(PY) -m experiments.make_manifest > /dev/null
 	@grep -vE '  development_result |  MANIFEST\.json$$' MANIFEST.sha256 \
 	  > /tmp/gcir_manifest_after.txt
+	@cp /tmp/gcir_manifest_saved.sha256 MANIFEST.sha256
+	@cp /tmp/gcir_manifest_saved.json MANIFEST.json
 	@diff /tmp/gcir_manifest_before.txt /tmp/gcir_manifest_after.txt \
 	  && echo "manifest is current for every released path ($$(wc -l < /tmp/gcir_manifest_after.txt) rows checked)"
 
