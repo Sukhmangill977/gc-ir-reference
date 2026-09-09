@@ -7,13 +7,17 @@ reviewer can open each one directly.
 
 ## Final successful runs
 
-**Commit `5dea99f1a0ef` — 2026-09-09T05:23Z**
+**Commit `836436baa6e8` — 2026-09-09T05:30Z — the `v1.0.1` release commit**
 
 | Workflow | Run ID | Result | Duration | Link |
 |---|---|---|---|---|
-| `tests` | **34314658635** | ✅ success | 1m10s | [run](https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/34314658635) |
-| `cross-platform determinism` | **34314658496** | ✅ success | 1m03s | [run](https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/34314658496) |
-| `reproducibility` | **34314658462** | ✅ success | 2m14s | [run](https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/34314658462) |
+| `tests` | **34315187544** | ✅ success | 1m17s | [run](https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/34315187544) |
+| `cross-platform determinism` | **34315187589** | ✅ success | 1m19s | [run](https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/34315187589) |
+| `reproducibility` | **34315187557** | ✅ success | 2m02s | [run](https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/34315187557) |
+
+The immediately preceding commit `5dea99f1a0ef` was also fully green
+(`tests` 34314658635, `determinism` 34314658496, `reproducibility` 34314658462);
+its per-job breakdown is what is listed below, and the job matrices are identical.
 
 ### `tests` — 6/6 matrix legs
 

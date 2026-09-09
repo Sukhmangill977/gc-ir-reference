@@ -17,6 +17,7 @@ README see [`../README.md`](../README.md).
 | **License** | MIT (`../LICENSE`) — code, schemas and case artifacts |
 | **Authoritative results** | `results/final_v2/` |
 | **Public preregistration freeze** | tag `preregister-tier0-v2.2`, commit `c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e` |
+| **Artifact release** | `v1.0.1` at commit `836436baa6e85816070893c9d12dafa835a68740` — packaging only; the scientific results remain those of the freeze above |
 | **Archival DOI** | **None yet.** See [`ARCHIVAL_CHECKLIST.md`](ARCHIVAL_CHECKLIST.md). The release tag and its hash manifest are the citable artifact until one exists. |
 
 **What the artifact is.** A deterministic compiler `Φ` from an approved governance
