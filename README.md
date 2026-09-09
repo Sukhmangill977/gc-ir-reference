@@ -128,6 +128,14 @@ unknown handling on mandatory gates; orphan-control impossibility **within
 `docs/RESULT_INTERPRETATION.md` states, metric by metric, what each number means
 and what it does not.
 
+> **Reading the frozen documents.** Several files under `docs/` are part of the
+> preregistration record and are covered by the freeze manifest. They still point
+> at `results/final/` (the v1 path) in places, and they have **deliberately not
+> been updated** — rewriting a preregistered document after seeing the results
+> would destroy the evidence the freeze exists to provide.
+> [`docs/FROZEN_DOCS_READING_NOTE.md`](docs/FROZEN_DOCS_READING_NOTE.md) says how
+> to read them; it is not frozen.
+
 ---
 
 ## Architecture

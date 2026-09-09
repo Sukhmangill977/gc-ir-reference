@@ -114,7 +114,7 @@ cat results/development/case_a/payload_hash.txt
 
 # 5. compare your summary against the committed final one
 diff <(sed '/run_completed_utc/d' results/development/SUMMARY.md) \
-     <(sed '/run_completed_utc/d' results/final/SUMMARY.md) | head -40
+     <(sed '/run_completed_utc/d' results/final_v2/SUMMARY.md) | head -40
 ```
 
 Step 5 will show differences in the environment table (your platform, your commit)
@@ -132,10 +132,17 @@ each with a different locale and time zone, and compares against the committed
 reference hashes. A separate job then asserts that every leg agreed.
 
 The status table that workflow produces is written to
-`results/final/CI_STATUS.md`. **Until that workflow has actually passed, the
-supportable wording is "deterministic under the declared environment"** — and once
-it passes, it becomes "deterministic across the tested supported environments",
-never "platform independent".
+`results/final_v2/CI_STATUS.md`. The rule was: **until that workflow has actually
+passed, the supportable wording is "deterministic under the declared
+environment"**; once it passes it becomes "deterministic across the tested
+supported environments", never "platform independent".
+
+**That workflow has now passed.** Run
+[34261657261](https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/34261657261)
+produced TD = 1.000 on all eight environments with byte-identical reference
+hashes, so the second wording is the one in force. The first is retained above
+because it records the rule the claim was held to, not because it still applies.
+`results/final_v2/CI_STATUS.md` carries the per-leg table.
 
 ---
 
@@ -145,13 +152,23 @@ never "platform independent".
 land in `results/development/`. They are committed, so the history the freeze
 separates from is visible, and they are labelled non-reportable in every file.
 
-**Phase 2 — freeze.** `preregistration/TIER0_FREEZE.md` and
-`FREEZE_MANIFEST.sha256` are generated, committed, **pushed publicly**, and tagged
-`preregister-tier0-v1`. The public timestamped tag is the freeze; an internal
-selection is not.
+**Phase 2 — freeze.** `preregistration/TIER0_FREEZE_V2.md` and
+`FREEZE_MANIFEST_V2.sha256` are generated, committed, **pushed publicly**, and
+tagged `preregister-tier0-v2.2`. The public timestamped tag is the freeze; an
+internal selection is not.
 
-**Phase 3 — final campaign.** `make reproduce-final` runs without changing any
-frozen analysis logic and writes only to `results/final/`.
+**Phase 3 — final campaign.** `make reproduce-final-v2` runs without changing any
+frozen analysis logic and writes only to `results/final_v2/`.
+
+> **On the v1 campaign.** An earlier freeze (`preregister-tier0-v1`,
+> `FREEZE_MANIFEST.sha256`) and campaign (`results/final/`) exist and are retained
+> **unedited**. That campaign is **not reportable**: its tag existed only locally
+> when the campaign ran and was pushed afterwards, so the public timestamped
+> commitment did not precede it. A later push cannot make a completed experiment
+> prospectively preregistered, so v1 was **superseded rather than relabelled** —
+> its metadata was not altered and `public_commitment_discharged` was not flipped
+> retroactively. `results/V1_V2_COMPARISON.md` compares the two value by value;
+> every substantive measured value is identical.
 
 If a defect is found in frozen code after the campaign, the frozen number is not
 edited: the freeze version is incremented, a new public tag is pushed, and the

@@ -1,5 +1,5 @@
 {
-  "file_count": 315,
+  "file_count": 318,
   "files": [
     {
       "bytes": 1022,
@@ -47,7 +47,7 @@
       "bytes": 65696,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "0680b784529fd81c1ac687fd7823c9d76e2ca98b260068c619301e49b34e0891"
+      "sha256": "d2d0e0820f522e0f7343ce08f8ee04f78451e229013eb2e29fd94ae2a0ebcc92"
     },
     {
       "bytes": 7091,
@@ -56,10 +56,10 @@
       "sha256": "d48ef220be0d710a1e530baf1161125df0c46a3a4745b46dbf2038d3b5a6f6a0"
     },
     {
-      "bytes": 21490,
+      "bytes": 21989,
       "path": "README.md",
       "role": "repository_root",
-      "sha256": "5ebf036a069f7ed61f4e100ec6c3b4a18faada63e96d9f136654ef5b48bfbb18"
+      "sha256": "aa4c8312201404682eb4f7cea947c5b62e42daff0edf78b773e53adbbbcff4a4"
     },
     {
       "bytes": 2889,
@@ -74,6 +74,12 @@
       "sha256": "d2ab4de57cb938fb5173bd50963c630c8ccb03842c62a419c339b382b59b4e9a"
     },
     {
+      "bytes": 5584,
+      "path": "artifact_review/CI_EVIDENCE.md",
+      "role": "repository_root",
+      "sha256": "b098d793fae6d93a77cddb6e15b0670d0e0cdbbb2ecbf0c1a2cea0116bc8d17f"
+    },
+    {
       "bytes": 5573,
       "path": "artifact_review/CLEAN_CLONE_VERIFICATION.md",
       "role": "repository_root",
@@ -84,6 +90,12 @@
       "path": "artifact_review/DATA_INVENTORY.md",
       "role": "repository_root",
       "sha256": "acc56b0450d076123ca2ecdbb7a8eb00ffb46ab6e7cd257cc2d47c195346a2cb"
+    },
+    {
+      "bytes": 13292,
+      "path": "artifact_review/IEEE_REPRODUCIBILITY_SELF_REVIEW.md",
+      "role": "repository_root",
+      "sha256": "0a07961aa11b0f2ef371de5b612c60293c58b8e4a11bbba46b7da9e35d5521cf"
     },
     {
       "bytes": 44434,
@@ -98,10 +110,10 @@
       "sha256": "ab5f3dd6ab20b9ea9fbdc1354489a0f7a5f9c3d2416578484403546bb3d47d9c"
     },
     {
-      "bytes": 14747,
+      "bytes": 15265,
       "path": "artifact_review/README.md",
       "role": "repository_root",
-      "sha256": "fc4f0ceab6296cb04bd125bc9d5e13b32ac5e1ccf8960a147a5e8fd43cc313c2"
+      "sha256": "f575eba52b12ea2267e063118ae5a3f52931abbb1cfe175202c1aed165e11f6e"
     },
     {
       "bytes": 12167,
@@ -356,6 +368,12 @@
       "sha256": "b3deff423eb921328e40d36bd80d9983975a53a3716179e35e92ba9dd774b70e"
     },
     {
+      "bytes": 4597,
+      "path": "docs/FROZEN_DOCS_READING_NOTE.md",
+      "role": "documentation",
+      "sha256": "59b64ac8ba4fbf6f823d31566e8013b18e76f9e4826658091538c79634289f3f"
+    },
+    {
       "bytes": 5236,
       "path": "docs/IEEE_ARTIFACT_CHECKLIST.md",
       "role": "documentation",
@@ -374,10 +392,10 @@
       "sha256": "5f9b78ad5eca4f620df1fdadece6b68669b48c08bd0cda8b17298c279df9957b"
     },
     {
-      "bytes": 7078,
+      "bytes": 8215,
       "path": "docs/REPRODUCIBILITY.md",
       "role": "documentation",
-      "sha256": "238f177801caf2a59ee0bb1223b884c681a1220342873a02ad2283c25058368b"
+      "sha256": "abee606c9142d4b1215314b65f411db01c59d1562519176e20519f78e3500f84"
     },
     {
       "bytes": 11881,
@@ -785,7 +803,7 @@
       "bytes": 1872,
       "path": "results/development/case_a/compilation.json",
       "role": "development_result",
-      "sha256": "3ba3d6825be25237485170bf622e2f92e562e6b56c54151ae3da5291f8c5782f"
+      "sha256": "7211a5ca08ed9c9f3d8e4733112dee824352b42718eae2a79bd25f8c742e09ca"
     },
     {
       "bytes": 10923,
@@ -839,7 +857,7 @@
       "bytes": 1880,
       "path": "results/development/case_b/compilation.json",
       "role": "development_result",
-      "sha256": "ec09fb425bc40e778054f87c286557c6fef00b8803ffd5c9834e9064a58afba9"
+      "sha256": "06deffc4b472e059423aab24f2554e3773d1e834260552f3f51ec0811c50c3f3"
     },
     {
       "bytes": 5383,
@@ -971,7 +989,7 @@
       "bytes": 15979,
       "path": "results/development/traceability_queries.json",
       "role": "development_result",
-      "sha256": "0633bd3ed0165ef991f3bf31f2962ee328710af3bf13a73463cd4b718920abc5"
+      "sha256": "11ca1c7c69d6c90f7a377044011a5f36c0ab24f67bacd0d78d39f1a029df42a0"
     },
     {
       "bytes": 4133,
@@ -1892,7 +1910,7 @@
       "sha256": "869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc"
     }
   ],
-  "manifest_sha256": "8379ee9368dcfe88f3390fa4abfcce208f5fec89fd5388a7783acd2f652f8652",
+  "manifest_sha256": "f98e6aa8d0aed79f375e2283870c6b349295abd2c634cb1f690fc58dd4397096",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1925,5 +1943,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 6280554
+  "total_bytes": 6306181
 }

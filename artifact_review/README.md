@@ -302,6 +302,14 @@ value — every substantive measured value is identical.
 NOT FOR PRODUCTION, committed so a reviewer regenerating the case artifacts
 obtains byte-identical signatures. They protect nothing.
 
+**Frozen documents point at the old path.** Several files under `docs/` are part
+of the preregistration record and still reference `results/final/` (the v1 output
+path). They are deliberately not updated — editing a preregistered document after
+seeing results would destroy the evidence the freeze provides.
+[`../docs/FROZEN_DOCS_READING_NOTE.md`](../docs/FROZEN_DOCS_READING_NOTE.md) maps
+them to the current state. For the authoritative mapping use
+[`PAPER_TO_ARTIFACT_RESULTS.md`](PAPER_TO_ARTIFACT_RESULTS.md).
+
 **Determinism found a real bug.** The experiment detected an ordering dependence
 in Φ — the compiled bundle hashed the derivation catalog as authored rather than
 in canonical order. It was fixed before the reportable campaign and is covered by
