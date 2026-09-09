@@ -15,7 +15,12 @@ Editing works on WordprocessingML paragraph text.  Where a replacement is confin
 to a single run, that run's text is edited in place and all formatting survives.
 Where it spans runs, the paragraph's first run receives the new text and the rest
 are blanked -- which preserves paragraph style, numbering and position, but
-collapses intra-paragraph character formatting for that paragraph.  The
+collapses intra-paragraph character formatting for that paragraph.
+
+Where a paragraph opens with a bold lead-in label ("Determinism scope.",
+"Monte Carlo scope."), the search text deliberately EXCLUDES that label: a match
+that starts inside the bold run would splice the whole replacement into it and
+repaint the entire paragraph bold.  The
 ``spans_runs`` count in the changelog reports how often that happened.
 """
 
@@ -345,13 +350,13 @@ EDITS = [
 
     # ---------------- XII limitations -------------------------------------
     ("E17",
-     "Determinism scope. Environment-independence is measured inside a pinned "
+     "Environment-independence is measured inside a pinned "
      "reproducible container. Determinism testing covers repeated runs, key and "
      "row reordering, and locale and time-zone variation, but replication across "
      "independently installed host operating systems is not yet reported; until it "
      "is, TD = 1.000 supports determinism under the declared environment rather "
      "than environment independence in general.",
-     "Determinism scope. TD = 1.000 is measured over 62 compilation runs, 31 per "
+     "TD = 1.000 is measured over 62 compilation runs, 31 per "
      "case, on each of eight independently provisioned environments spanning three "
      "operating systems (macOS 26.6.2, Linux on both x86_64 with glibc 2.39 and "
      "aarch64 with glibc 2.36, and Windows 10.0.26100), two machine architectures "
@@ -381,10 +386,10 @@ EDITS = [
      "is left intact and unqualified; only the stronger reading is excluded."),
 
     ("E18",
-     "Monte Carlo scope. Rating perturbation estimates sensitivity under the "
+     "Rating perturbation estimates sensitivity under the "
      "frozen input distributions; it does not estimate real-world event "
      "frequencies or harm probabilities.",
-     "Monte Carlo scope. Rating perturbation estimates sensitivity under the "
+     "Rating perturbation estimates sensitivity under the "
      "frozen input distributions; it does not estimate real-world event "
      "frequencies or harm probabilities. Those distributions are author-specified "
      "and prospectively frozen, not panel-adjudicated, so the analysis establishes "

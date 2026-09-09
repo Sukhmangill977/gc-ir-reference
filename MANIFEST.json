@@ -44,10 +44,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 66312,
+      "bytes": 66746,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "c3a921925ee468e582757ff1eeba7ff174f4a9d24c3a21313b01462a66b42a33"
+      "sha256": "34852141c57fea20f481e4d784976d9e8d11f403b38bf20f9ea7dd1d6803d65f"
     },
     {
       "bytes": 7091,
@@ -632,10 +632,10 @@
       "sha256": "84f003c431a71e6477da447fec869eba7e418c8551bb84afff676ff25d4a9332"
     },
     {
-      "bytes": 24149,
+      "bytes": 24104,
       "path": "paper_update/FINAL_MANUSCRIPT_CHANGELOG.md",
       "role": "manuscript_reconciliation",
-      "sha256": "35e39e350257f31efcbc071b84ca4b28c8a237bb063d5b77b3e8b233d59f726c"
+      "sha256": "0ed733244f6d99ae4fefb8655b51d807b079274a328e5ba278aa6021c5d4f029"
     },
     {
       "bytes": 15594,
@@ -644,10 +644,10 @@
       "sha256": "59566828b1c09ad6400d1679959b80f243263b15104cb750c39fdfc342bb1467"
     },
     {
-      "bytes": 2265039,
+      "bytes": 2265040,
       "path": "paper_update/From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION.docx",
       "role": "manuscript_reconciliation",
-      "sha256": "6b3875b0400f1b2d743b781a8c344eab7875c0e7f9f7367e886fcc5bdd6b3fe1"
+      "sha256": "2f3ca4031435666d5cc2cddb189037aebd05530669d0bc6612c6a56e96ee7e90"
     },
     {
       "bytes": 13682,
@@ -992,10 +992,10 @@
       "sha256": "b3fba44ea807c5d5efeb760992090e8984b9cf2a00137f2096915530a3404c13"
     },
     {
-      "bytes": 1663,
+      "bytes": 1632,
       "path": "results/development/traceability_queries.csv",
       "role": "development_result",
-      "sha256": "9084e3597a1945bc716ebfff30c6e9d8a9c25b403cd586762663f714b22e2bcf"
+      "sha256": "90db48a78deceefdd58a3e7d1f81cc91b4212529c333990c7b138347061b2240"
     },
     {
       "bytes": 15979,
@@ -1844,10 +1844,10 @@
       "sha256": "849269c41afd2ab98c8443897e165b9662724e6fcfdb70aea837760fa79c949b"
     },
     {
-      "bytes": 47644,
+      "bytes": 47837,
       "path": "tools/build_submission_docx.py",
       "role": "fixture_generator",
-      "sha256": "17d4dc63a7050522404e0e3553d0bdd70024635df3939b0958d6f39abda999ea"
+      "sha256": "1aacada42defa1f1cb816e419626674a844f9fc1be0dd6e3fe315bf186094d32"
     },
     {
       "bytes": 52481,
@@ -1922,7 +1922,7 @@
       "sha256": "869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc"
     }
   ],
-  "manifest_sha256": "1f442536b1e48f3dbca4528aa3af612170dd4527289fd296dd3032571fe69701",
+  "manifest_sha256": "a529317629c074bd858ffdc3153307fdb8e44f8256789e97af32f24a875f7de1",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1955,5 +1955,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 6328969
+  "total_bytes": 6329521
 }

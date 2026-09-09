@@ -7,8 +7,8 @@ Every substantive modification made to produce the IEEE-submission manuscript.
 | Source | `From_Risk_Register_to_Runtime_Predicate_FINAL.docx` (unmodified) |
 | Output | `From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION.docx` |
 | Edits applied | **34 of 34** |
-| Applied within a single run (formatting fully preserved) | 27 |
-| Applied by splicing across runs (all surrounding character formatting preserved) | 8 |
+| Applied within a single run (formatting fully preserved) | 29 |
+| Applied by splicing across runs (all surrounding character formatting preserved) | 6 |
 | Draft markers remaining | **0** |
 
 Every replacement is traceable to `paper_update/MEASURED_RESULTS_V2.md`, to a file under `results/final_v2/`, to `paper_update/LITERATURE_VERIFICATION.md`, or to `paper_update/REFERENCES_21_22_VERIFICATION.md`.
@@ -179,23 +179,23 @@ Every replacement is traceable to `paper_update/MEASURED_RESULTS_V2.md`, to a fi
 
 ### E17 — XII
 
-**Was:** Determinism scope. Environment-independence is measured inside a pinned reproducible container. Determinism testing covers repeated runs, key and row reordering, and locale and time-zone variation, but replication across…
+**Was:** Environment-independence is measured inside a pinned reproducible container. Determinism testing covers repeated runs, key and row reordering, and locale and time-zone variation, but replication across independently inst…
 
-**Now:** Determinism scope. TD = 1.000 is measured over 62 compilation runs, 31 per case, on each of eight independently provisioned environments spanning three operating systems (macOS 26.6.2, Linux on both x86_64 with glibc 2.39 and aarch64 with glibc 2.36, and Windows 10.0.26100), two machine architectures (arm64 and x86_64)…
+**Now:** TD = 1.000 is measured over 62 compilation runs, 31 per case, on each of eight independently provisioned environments spanning three operating systems (macOS 26.6.2, Linux on both x86_64 with glibc 2.39 and aarch64 with glibc 2.36, and Windows 10.0.26100), two machine architectures (arm64 and x86_64) and six CPython pa…
 
 **Why:** The old limitation now understates the evidence, and deleting it would overstate it. Widened to what was measured, with the boundary kept explicit. Evidence: results/final_v2/CI_STATUS.md. ALSO CARRIES R-04: the measured result is conformance of ONE implementation; specification-level uniqueness across independently authored implementations is a strictly stronger claim the artifact does not support, and the distinction was previously not drawn. TD = 1.000 across the tested supported environments is left intact and unqualified; only the stronger reading is excluded.
 
-*(applied spliced across runs)*
+*(applied in-run)*
 
 ### E18 — XII
 
-**Was:** Monte Carlo scope. Rating perturbation estimates sensitivity under the frozen input distributions; it does not estimate real-world event frequencies or harm probabilities.
+**Was:** Rating perturbation estimates sensitivity under the frozen input distributions; it does not estimate real-world event frequencies or harm probabilities.
 
-**Now:** Monte Carlo scope. Rating perturbation estimates sensitivity under the frozen input distributions; it does not estimate real-world event frequencies or harm probabilities. Those distributions are author-specified and prospectively frozen, not panel-adjudicated, so the analysis establishes that heat-map gate membership …
+**Now:** Rating perturbation estimates sensitivity under the frozen input distributions; it does not estimate real-world event frequencies or harm probabilities. Those distributions are author-specified and prospectively frozen, not panel-adjudicated, so the analysis establishes that heat-map gate membership is unstable and con…
 
 **Why:** Adds the two limitations the audit identified: sensitivity-model provenance and GD_min's dependence on fixture ratings. Evidence: docs/FIXTURE_PROVENANCE.md FP-014 and FP-020.
 
-*(applied spliced across runs)*
+*(applied in-run)*
 
 ### E19 — XIII
 

@@ -20,7 +20,7 @@ b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_roo
 7516476c134ea8b7356bcd4823998855343e9a34a09a4b0edfc00cef3c83e6d9  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-c3a921925ee468e582757ff1eeba7ff174f4a9d24c3a21313b01462a66b42a33  repository_root            MANIFEST.json
+34852141c57fea20f481e4d784976d9e8d11f403b38bf20f9ea7dd1d6803d65f  repository_root            MANIFEST.json
 d48ef220be0d710a1e530baf1161125df0c46a3a4745b46dbf2038d3b5a6f6a0  repository_root            Makefile
 aa4c8312201404682eb4f7cea947c5b62e42daff0edf78b773e53adbbbcff4a4  repository_root            README.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
@@ -118,9 +118,9 @@ c3d16243a7afe93a862acaaae6ec68af699bfd38cd351b7c683236da1108bc66  research_key_T
 1b8b0a0726a27d3d89329dfb429d2893eeafda488105c537e1afe71d74dd58b8  manuscript_reconciliation  paper_update/DOCX_CHANGE_LOG.md
 dc6e4f50543da206c08582582666db5bb5adeae9b080a7531a4d7b3edb1cae56  manuscript_reconciliation  paper_update/DOCX_CHANGE_LOG_V2.md
 84f003c431a71e6477da447fec869eba7e418c8551bb84afff676ff25d4a9332  manuscript_reconciliation  paper_update/FINAL_CLAIM_EVIDENCE_AUDIT.md
-35e39e350257f31efcbc071b84ca4b28c8a237bb063d5b77b3e8b233d59f726c  manuscript_reconciliation  paper_update/FINAL_MANUSCRIPT_CHANGELOG.md
+0ed733244f6d99ae4fefb8655b51d807b079274a328e5ba278aa6021c5d4f029  manuscript_reconciliation  paper_update/FINAL_MANUSCRIPT_CHANGELOG.md
 59566828b1c09ad6400d1679959b80f243263b15104cb750c39fdfc342bb1467  manuscript_reconciliation  paper_update/FINAL_REVIEWER_RISK_REPORT.md
-6b3875b0400f1b2d743b781a8c344eab7875c0e7f9f7367e886fcc5bdd6b3fe1  manuscript_reconciliation  paper_update/From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION.docx
+2f3ca4031435666d5cc2cddb189037aebd05530669d0bc6612c6a56e96ee7e90  manuscript_reconciliation  paper_update/From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION.docx
 83b409c6a898158d3e0b817ecee425c9e87e4ef0d17a75498ce80e9af30dd89e  manuscript_reconciliation  paper_update/LITERATURE_VERIFICATION.md
 a06511f99e2c8e7d466e0f392056d98aec288a25e12a78ecd12e2ee09724147e  manuscript_reconciliation  paper_update/MEASURED_RESULTS.md
 dbb5e6a9d9943a25f58f469ff81c19828caa77af6aae09e0a127afaf0a6b76e2  manuscript_reconciliation  paper_update/MEASURED_RESULTS_V2.md
@@ -178,7 +178,7 @@ b0181d36e16b1f23989f3759a746692869d582eda13ac0f2ae3249d2817da693  development_re
 05faae28d81fe2b7245a8b98cd5fe776a19c778ac0c139f379006ea5d0214705  development_result         results/development/test_reports/junit_integration.xml
 2c4a150968025d1e2e58af29b31da448b9aa33bc0209cc42843473550bdc808b  development_result         results/development/test_reports/junit_properties.xml
 b3fba44ea807c5d5efeb760992090e8984b9cf2a00137f2096915530a3404c13  development_result         results/development/test_reports/junit_unit.xml
-9084e3597a1945bc716ebfff30c6e9d8a9c25b403cd586762663f714b22e2bcf  development_result         results/development/traceability_queries.csv
+90db48a78deceefdd58a3e7d1f81cc91b4212529c333990c7b138347061b2240  development_result         results/development/traceability_queries.csv
 f784116be471f31fabe0aa0e762cf9c4efc4a368ca500dbf8a2bb05e744fba79  development_result         results/development/traceability_queries.json
 8288ff3c76f343edc15f53748d7699656ca2a16e70d9d6fa6f040fa447c8b9d1  superseded_result          results/final/CI_STATUS.md
 e3aa9e20b34709a7a66b39b8acad5dbe4883e03b20a13cf7b5453af46a28feba  superseded_result          results/final/SUMMARY.md
@@ -320,7 +320,7 @@ ff96abd318cf16ed230cb725eea7b9989435320a95d56b6683297081f2587610  fixture_genera
 1c42648c415483e77e74785f6dc72bb176425076c5a60900d154f47a45611fb3  case_b_input               tools/build_ldrea_traceability.py
 fbb76840a65204592d5e8689d684d0ce65ed0938d5c7e54f877c2f40fc357391  fixture_generator          tools/build_lifecycle.py
 849269c41afd2ab98c8443897e165b9662724e6fcfdb70aea837760fa79c949b  fixture_generator          tools/build_paper_result_map.py
-17d4dc63a7050522404e0e3553d0bdd70024635df3939b0958d6f39abda999ea  fixture_generator          tools/build_submission_docx.py
+1aacada42defa1f1cb816e419626674a844f9fc1be0dd6e3fe315bf186094d32  fixture_generator          tools/build_submission_docx.py
 46f016ae52803acdbb3ad13dd74a6312528c43e9769fb6664ad7c8bb2ca87486  fixture_generator          tools/case_a_control.py
 c38584acd06e825233fbea120b85dee085bc93ba2846c126c8a3c673a739d315  fixture_generator          tools/case_a_data.py
 4f6726b6b96f53b014bcb45f20879db8be9ff0c2be48c6d39ab5a463ab9dfc7b  fixture_generator          tools/case_b_control.py
