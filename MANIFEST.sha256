@@ -19,7 +19,7 @@ b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_roo
 1fc00762fe18d601c5cb8e676293a36ff6ed4a7686e2c77fccfda54f1636a7d0  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-ffe1195c5bc0d25cb5de0438c4ea4b3782e175a90158f6fcb8c61c58a51692b1  repository_root            MANIFEST.json
+b1ceac17e992699d2fbf0e411d3ebb56cb635dc5da20a3f04651bfcf3cc74f42  repository_root            MANIFEST.json
 b188e1325d8435a894580e3c84c1274e2e4d949be665a3e4b79a672cf1842d11  repository_root            Makefile
 c78bda57e1a856ed4db98aea78276d45463a40104240b38b4ae8c90280459ca1  repository_root            README.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
@@ -106,10 +106,16 @@ c3d16243a7afe93a862acaaae6ec68af699bfd38cd351b7c683236da1108bc66  research_key_T
 542d175075ae09b98e0192aa26952eda3c872e6d051168e466ee95959598ee52  research_key_TEST_ONLY     keys/public_keys.json
 1b8b0a0726a27d3d89329dfb429d2893eeafda488105c537e1afe71d74dd58b8  manuscript_reconciliation  paper_update/DOCX_CHANGE_LOG.md
 dc6e4f50543da206c08582582666db5bb5adeae9b080a7531a4d7b3edb1cae56  manuscript_reconciliation  paper_update/DOCX_CHANGE_LOG_V2.md
+84f003c431a71e6477da447fec869eba7e418c8551bb84afff676ff25d4a9332  manuscript_reconciliation  paper_update/FINAL_CLAIM_EVIDENCE_AUDIT.md
+1596ee6102fcda354c56339e68a3f19bf863fa7e3a8fc045a8f66259516bfb6d  manuscript_reconciliation  paper_update/FINAL_MANUSCRIPT_CHANGELOG.md
+bdd9ac4174c632d2222b41827b384666a24ed8fbfa299834c683a1fb22c40f3a  manuscript_reconciliation  paper_update/FINAL_REVIEWER_RISK_REPORT.md
+78e339f4618b68a2bdbdf4be3f177294d7accd092c0bb8f46632ebc2dd1ad4ea  manuscript_reconciliation  paper_update/From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION.docx
+83b409c6a898158d3e0b817ecee425c9e87e4ef0d17a75498ce80e9af30dd89e  manuscript_reconciliation  paper_update/LITERATURE_VERIFICATION.md
 a06511f99e2c8e7d466e0f392056d98aec288a25e12a78ecd12e2ee09724147e  manuscript_reconciliation  paper_update/MEASURED_RESULTS.md
 dbb5e6a9d9943a25f58f469ff81c19828caa77af6aae09e0a127afaf0a6b76e2  manuscript_reconciliation  paper_update/MEASURED_RESULTS_V2.md
 45977502840c534fd0185cbec47b2e170f1a78c5959793fdfd365f6596fdad2b  manuscript_reconciliation  paper_update/PLACEHOLDER_REPLACEMENT_TABLE.md
 3190fe13f4282f57fcfb8b7546bb73ab3340d6e6c1cf8567e905e15cbafbe50c  manuscript_reconciliation  paper_update/PLACEHOLDER_REPLACEMENT_TABLE_V2.md
+49a2c467558e8cbde4eb82df029ea56970c2001ecfbe8622493e6e0c1fcfbdf7  manuscript_reconciliation  paper_update/ZENODO_AND_DOI_INSERTION_POINTS.md
 97e50f84e9c532493fc1b24d7f1a627b2584652bad986d4cd6881d0f83c5bbb5  prereg_commitment          preregistration/FREEZE_MANIFEST.json
 1475f7fdf31aa1a91d8dca59692824d24460139d91f05f65f364ec4f990bc37b  prereg_commitment          preregistration/FREEZE_MANIFEST.sha256
 643a10128687e7c05965077a3f85f15e7f239be304e962422658abf1f66c9042  prereg_commitment          preregistration/FREEZE_MANIFEST_V2.json
@@ -299,6 +305,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  fixture_genera
 ff96abd318cf16ed230cb725eea7b9989435320a95d56b6683297081f2587610  fixture_generator          tools/build_cases.py
 1c42648c415483e77e74785f6dc72bb176425076c5a60900d154f47a45611fb3  case_b_input               tools/build_ldrea_traceability.py
 fbb76840a65204592d5e8689d684d0ce65ed0938d5c7e54f877c2f40fc357391  fixture_generator          tools/build_lifecycle.py
+b2b93c3192e499af70cf8e24b4843494303d47d0e3470e6c5969a2797c552d30  fixture_generator          tools/build_submission_docx.py
 46f016ae52803acdbb3ad13dd74a6312528c43e9769fb6664ad7c8bb2ca87486  fixture_generator          tools/case_a_control.py
 c38584acd06e825233fbea120b85dee085bc93ba2846c126c8a3c673a739d315  fixture_generator          tools/case_a_data.py
 4f6726b6b96f53b014bcb45f20879db8be9ff0c2be48c6d39ab5a463ab9dfc7b  fixture_generator          tools/case_b_control.py

@@ -1,5 +1,5 @@
 {
-  "file_count": 297,
+  "file_count": 304,
   "files": [
     {
       "bytes": 1022,
@@ -41,7 +41,7 @@
       "bytes": 61905,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "ffe1195c5bc0d25cb5de0438c4ea4b3782e175a90158f6fcb8c61c58a51692b1"
+      "sha256": "b1ceac17e992699d2fbf0e411d3ebb56cb635dc5da20a3f04651bfcf3cc74f42"
     },
     {
       "bytes": 2029,
@@ -560,6 +560,36 @@
       "sha256": "dc6e4f50543da206c08582582666db5bb5adeae9b080a7531a4d7b3edb1cae56"
     },
     {
+      "bytes": 9369,
+      "path": "paper_update/FINAL_CLAIM_EVIDENCE_AUDIT.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "84f003c431a71e6477da447fec869eba7e418c8551bb84afff676ff25d4a9332"
+    },
+    {
+      "bytes": 21339,
+      "path": "paper_update/FINAL_MANUSCRIPT_CHANGELOG.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "1596ee6102fcda354c56339e68a3f19bf863fa7e3a8fc045a8f66259516bfb6d"
+    },
+    {
+      "bytes": 13983,
+      "path": "paper_update/FINAL_REVIEWER_RISK_REPORT.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "bdd9ac4174c632d2222b41827b384666a24ed8fbfa299834c683a1fb22c40f3a"
+    },
+    {
+      "bytes": 2264728,
+      "path": "paper_update/From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION.docx",
+      "role": "manuscript_reconciliation",
+      "sha256": "78e339f4618b68a2bdbdf4be3f177294d7accd092c0bb8f46632ebc2dd1ad4ea"
+    },
+    {
+      "bytes": 13682,
+      "path": "paper_update/LITERATURE_VERIFICATION.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "83b409c6a898158d3e0b817ecee425c9e87e4ef0d17a75498ce80e9af30dd89e"
+    },
+    {
       "bytes": 19534,
       "path": "paper_update/MEASURED_RESULTS.md",
       "role": "manuscript_reconciliation",
@@ -582,6 +612,12 @@
       "path": "paper_update/PLACEHOLDER_REPLACEMENT_TABLE_V2.md",
       "role": "manuscript_reconciliation",
       "sha256": "3190fe13f4282f57fcfb8b7546bb73ab3340d6e6c1cf8567e905e15cbafbe50c"
+    },
+    {
+      "bytes": 3689,
+      "path": "paper_update/ZENODO_AND_DOI_INSERTION_POINTS.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "49a2c467558e8cbde4eb82df029ea56970c2001ecfbe8622493e6e0c1fcfbdf7"
     },
     {
       "bytes": 25277,
@@ -1718,6 +1754,12 @@
       "sha256": "fbb76840a65204592d5e8689d684d0ce65ed0938d5c7e54f877c2f40fc357391"
     },
     {
+      "bytes": 43335,
+      "path": "tools/build_submission_docx.py",
+      "role": "fixture_generator",
+      "sha256": "b2b93c3192e499af70cf8e24b4843494303d47d0e3470e6c5969a2797c552d30"
+    },
+    {
       "bytes": 52481,
       "path": "tools/case_a_control.py",
       "role": "fixture_generator",
@@ -1784,7 +1826,7 @@
       "sha256": "64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44"
     }
   ],
-  "manifest_sha256": "dc11cbe2552fafbb40c5318ebb3e50197d0d5e9784d71efe05feb98e9eca5579",
+  "manifest_sha256": "6e516b684b49f31adfc0aaaf9ce2144c188860feacc3896d6ee0111e42e1c91f",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1817,5 +1859,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 3688676
+  "total_bytes": 6058801
 }
