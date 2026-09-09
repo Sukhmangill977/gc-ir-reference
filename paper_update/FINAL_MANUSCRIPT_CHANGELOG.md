@@ -6,12 +6,12 @@ Every substantive modification made to produce the IEEE-submission manuscript.
 |---|---|
 | Source | `From_Risk_Register_to_Runtime_Predicate_FINAL.docx` (unmodified) |
 | Output | `From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION.docx` |
-| Edits applied | **31 of 31** |
-| Applied within a single run (formatting fully preserved) | 24 |
+| Edits applied | **34 of 34** |
+| Applied within a single run (formatting fully preserved) | 27 |
 | Applied by splicing across runs (all surrounding character formatting preserved) | 8 |
 | Draft markers remaining | **0** |
 
-Every replacement is traceable to `paper_update/MEASURED_RESULTS_V2.md`, to a file under `results/final_v2/`, or to `paper_update/LITERATURE_VERIFICATION.md`.
+Every replacement is traceable to `paper_update/MEASURED_RESULTS_V2.md`, to a file under `results/final_v2/`, to `paper_update/LITERATURE_VERIFICATION.md`, or to `paper_update/REFERENCES_21_22_VERIFICATION.md`.
 
 ---
 
@@ -183,7 +183,7 @@ Every replacement is traceable to `paper_update/MEASURED_RESULTS_V2.md`, to a fi
 
 **Now:** Determinism scope. TD = 1.000 is measured over 62 compilation runs, 31 per case, on each of eight independently provisioned environments spanning three operating systems (macOS 26.6.2, Linux on both x86_64 with glibc 2.39 and aarch64 with glibc 2.36, and Windows 10.0.26100), two machine architectures (arm64 and x86_64)…
 
-**Why:** The old limitation now understates the evidence, and deleting it would overstate it. Widened to what was measured, with the boundary kept explicit. Evidence: results/final_v2/CI_STATUS.md.
+**Why:** The old limitation now understates the evidence, and deleting it would overstate it. Widened to what was measured, with the boundary kept explicit. Evidence: results/final_v2/CI_STATUS.md. ALSO CARRIES R-04: the measured result is conformance of ONE implementation; specification-level uniqueness across independently authored implementations is a strictly stronger claim the artifact does not support, and the distinction was previously not drawn. TD = 1.000 across the tested supported environments is left intact and unqualified; only the stronger reading is excluded.
 
 *(applied spliced across runs)*
 
@@ -231,7 +231,7 @@ Every replacement is traceable to `paper_update/MEASURED_RESULTS_V2.md`, to a fi
 
 **Was:** and the preregistration commitment are released as a hash-pinned tagged release per Appendix C. The held-out expert-study register is withheld until study close, then released with the study data.
 
-**Now:** and the preregistration commitment are released as a hash-pinned tagged release per Appendix C, at https://github.com/Sukhmangill977/gc-ir-reference, release tag v1.0.0, under the MIT licence. The repository contains the GC-IR JSON Schemas; the Ψ_K tooling and the Φ reference implementation; the Control Derivation Cata…
+**Now:** and the preregistration commitment are released as a hash-pinned tagged release per Appendix C, at https://github.com/Sukhmangill977/gc-ir-reference, release tag v1.0.1, under the MIT licence. The repository contains the GC-IR JSON Schemas; the Ψ_K tooling and the Φ reference implementation; the Control Derivation Cata…
 
 **Why:** Replaces the generic statement with the actual release. No DOI is cited because none exists. Evidence: results/final_v2/PROVENANCE.json.
 
@@ -251,7 +251,7 @@ Every replacement is traceable to `paper_update/MEASURED_RESULTS_V2.md`, to a fi
 
 **Was:** named in the release notes; MIT license for code and schema, per that precedent. [TO CONFIRM: final repository path at release]
 
-**Now:** named in the release notes; MIT license for code and schema, per that precedent. The artifact is released at https://github.com/Sukhmangill977/gc-ir-reference, release tag v1.0.0.
+**Now:** named in the release notes; MIT license for code and schema, per that precedent. The artifact is released at https://github.com/Sukhmangill977/gc-ir-reference, release tag v1.0.1.
 
 **Why:** Resolves the [TO CONFIRM] marker with the actual repository path. Evidence: the public release.
 
@@ -304,6 +304,36 @@ Every replacement is traceable to `paper_update/MEASURED_RESULTS_V2.md`, to a fi
 **Now:** [27] K. L. Gwet, "Computing Inter-Rater Reliability and Its Variance in the Presence of High Agreement," British Journal of Mathematical and Statistical Psychology, vol. 61, no. 1, pp. 29–48, 2008. [28] C. Koch, "From Governance Norms to Enforceable Controls: A Layered Translation Method for Runtime Guardrails in Agent…
 
 **Why:** Adds the two references the literature sweep requires. Both verified against their arXiv abstract pages.
+
+*(applied in-run)*
+
+### E32 — References [21]
+
+**Was:** "Making AI Compliance Evidence Machine-Readable," arXiv:2604.13767, 2026.
+
+**Now:** "Making AI Compliance Evidence Machine-Readable," arXiv:2604.13767, Apr. 2026.
+
+**Why:** Verified against the arXiv API and abstract page: submitted 2026-04-15. Month added, matching the style already used for [23]. Title and all four authors confirmed exact. No DOI and no journal_ref are registered, so neither is cited; the Comments field says 'submitted to' IEEE Computer, which is not a publication. Evidence: paper_update/REFERENCES_21_22_VERIFICATION.md.
+
+*(applied in-run)*
+
+### E33 — References [22]
+
+**Was:** Profile-Based Validation for Trustworthy AI Systems," arXiv:2605.23297, 2026.
+
+**Now:** Profile-Based Validation for Trustworthy AI Systems," arXiv:2605.23297, May 2026.
+
+**Why:** Verified against the arXiv API and abstract page: submitted 2026-05-22. Month added. Title and both authors confirmed exact. arXiv registers no journal_ref and no DOI, and dblp has no record, so no venue is cited even though the author-supplied Comments field asserts acceptance at IEEE COMPSAC 2026 -- that is an assertion, not a publication record, and is flagged for the author rather than acted on. Evidence: paper_update/REFERENCES_21_22_VERIFICATION.md.
+
+*(applied in-run)*
+
+### E35 — XIII (opening)
+
+**Was:** The L-DREA paper (IEEE Xplore doc. 11641546) [15] contributes
+
+**Now:** References [15]–[17] are prior works by overlapping authors and provide the downstream enforcement context against which the present upstream compilation problem is scoped. The present contribution does not re-evaluate their detection results; the separation of contributions is stated explicitly here. The L-DREA paper …
+
+**Why:** R-07. The section read as third-party related work although [15]-[17] share authorship with this paper. Authorship checked before writing this: [16] is credited to A. Gill-Lakhowal, identical to this paper's author; [17] (US 2026/0127298 A1) names inventor Abhinandan Gill, verified on the published application; [15] is credited to A. Gill and its repository of record is the AGLakhowal organisation this artifact's Case B mapping verifies against. Disclosure strengthens the section rather than weakening it: it pre-empts a salami-slicing charge and makes the differentiation of contributions explicit.
 
 *(applied in-run)*
 

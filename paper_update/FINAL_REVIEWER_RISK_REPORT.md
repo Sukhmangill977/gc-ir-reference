@@ -26,8 +26,14 @@ marker remaining; the original manuscript file is byte-identical to what it was
 (`003db273…aa4869`); and the frozen artifact passes all 24 checks of
 `tools/freeze_check.py --final-v2` after finalization.
 
-Two items below (R-01 and R-02) are **author action items** rather than blockers, but
-they require the author's own confirmation and I cannot discharge them.
+**Updated at final pre-submission cleanup.** R-01, R-04 and R-07 are now
+**RESOLVED**: references [21] and [22] are verified against primary sources with
+their dates corrected; §XII states the implementation-versus-specification
+distinction; and §XIII discloses the overlapping authorship of [15]–[17], checked
+against the published patent record and the artifact's repository of record.
+
+One bibliographic item remains and does **not** block submission: reference [15]'s
+final DOI, which IEEE has not assigned and which was deliberately not invented.
 
 ---
 
@@ -35,20 +41,28 @@ they require the author's own confirmation and I cannot discharge them.
 
 ### R-01 — Three references could not be verified against a reachable primary source
 
-**The attack.** *"Reference [21] and [22] are arXiv preprints with 2026 identifiers I
-cannot locate, and [15] is cited without a DOI."*
+**STATUS: RESOLVED for [21] and [22]. [15] remains open pending IEEE.**
 
-**Status.** [21] (Cilla Ugarte et al., arXiv:2604.13767), [22] (Sharma and Kunkel,
-arXiv:2605.23297) and the final DOI of [15] could not be confirmed from a reachable
-primary source during the verification sweep — arXiv listing pages and IEEE Xplore were
-not retrievable. **No bibliographic data was invented to fill the gap**; [15] now cites
-its early-access article number instead of a DOI.
+**The attack.** *"Reference [21] and [22] are arXiv preprints with 2026
+identifiers I cannot locate, and [15] is cited without a DOI."*
 
-**Required action — author only.** Confirm the arXiv identifiers, author lists and
-titles of [21] and [22] against the actual abstract pages, and insert [15]'s DOI once
-IEEE assigns it (see `ZENODO_AND_DOI_INSERTION_POINTS.md`). If either arXiv identifier
-is wrong, correct it; a wrong preprint number is the kind of error a reviewer treats as
-carelessness about the whole reference list.
+**[21] and [22] are now verified** against the arXiv API and abstract pages, with
+dblp checked for any indexed publication record. Titles and complete author lists
+match exactly; both identifiers are correct. Both were missing only a month, now
+corrected to **Apr. 2026** and **May 2026** from the recorded submission dates.
+Neither has a registered DOI or `journal_ref`, so neither is cited — [21]'s
+comments say only *"submitted to"* IEEE Computer, and [22]'s assert acceptance at
+IEEE COMPSAC 2026 which **no indexed record confirms**, so no venue was added to
+either. Full record: `REFERENCES_21_22_VERIFICATION.md`.
+
+Both dependent §II-F claims were checked against the abstracts and are supported.
+Neither reference carries empirical weight: both appear once, in the passage where
+the paper *narrows* its own novelty claim.
+
+**Still open — author action.** [15]'s final DOI. IEEE Xplore was not readable and
+search did not confirm it. **No DOI was invented**; the early-access article
+number is cited instead. Insert it once IEEE assigns it — see
+`POST_ZENODO_PATCH.md`. This does not block submission.
 
 ### R-02 — Both cases are authored by the same party as the method
 
@@ -93,30 +107,34 @@ and formalization paper, and its C1/C2 claims stand without the study.
 
 ### R-04 — "Determinism" is reproducibility of one implementation, not of a specification
 
+**STATUS: RESOLVED. The distinction is now stated in §XII.**
+
 **The attack.** *"Eight environments all run the same source tree from the same
-lockfile. You have shown one program is deterministic, not that the specification admits
-only one output."*
+lockfile. You have shown one program is deterministic, not that the specification
+admits only one output."*
 
-**This is correct and is the sharpest technical objection.** No second, independent
-implementation of Φ was written, so specification-level determinism — that any conformant
-implementation produces the same canonical payload hash — is **not** established. What
-is established is that this implementation reproduces identical hashes across three
-operating systems, two architectures, six CPython patch versions, five locales, five time
-zones, input permutation and clean-process execution.
+**This was correct, and is now addressed in the manuscript.** §XII's Determinism
+scope paragraph carries, after the existing platform-independence disclaimer:
 
-**Partially bounded.** §XII states the claim is *"determinism across the tested supported
-environments"* and denies platform independence. It does **not** currently distinguish
-implementation determinism from specification determinism.
+> Nor is it a claim about the specification. The reported determinism result
+> establishes conformance of the reference implementation across the tested
+> environments; it does not prove that every independent implementation of the
+> GC-IR specification must produce the same output. Establishing that would
+> require a second, independently authored implementation of Φ compiled against
+> the normative schema of Appendix A, which does not exist. RFC 8785
+> canonicalization and the exhaustively specified compiler step order make such
+> agreement plausible; they do not demonstrate it.
 
-**Recommended,** if the author wishes to close this: one sentence in §XII noting that a
-second independent implementation would be required to establish specification-level
-determinism, and that RFC 8785 conformance is what makes that plausible rather than
-demonstrated. I have **not** added it, because it is a substantive scope statement and
-the author should decide whether to make it.
+**The empirical result is untouched.** TD = 1.000 over 62 runs across the tested
+supported environments stands exactly as measured and unqualified; only the
+stronger specification-level reading is excluded. The added text says what would
+be required to establish the stronger claim, so the limitation is bounded rather
+than merely admitted.
 
-**Genuine mitigating evidence:** the determinism experiment found a real ordering defect
-in Φ (the catalog was hashed as authored rather than canonically), which is reported in
-§XI-H. An experiment that catches its own implementation's bug is not a rubber stamp.
+**Genuine mitigating evidence:** the determinism experiment found a real ordering
+defect in Φ — the catalog was hashed as authored rather than canonically — which
+is reported in §XI-H. An experiment that catches its own implementation's bug is
+not a rubber stamp.
 
 ### R-05 — The Monte Carlo model is chosen by the party whose result it supports
 
@@ -153,20 +171,34 @@ importantly, true. Failing to cite [28] would have been the more dangerous outco
 
 ### R-07 — Self-citation and the risk of a salami-slicing charge
 
-**The attack.** *"[15], [16] and [17] appear to be the same author's prior work, and this
-paper consumes their interfaces. Is this a distinct contribution?"*
+**STATUS: RESOLVED. Overlapping authorship is now disclosed in §XIII.**
 
-**Status.** §XIII exists for exactly this and states the separation contribution by
-contribution: this paper supplies the upstream refinement and compilation method, the
-gate-coverage formalization with its three propositions, and the temporally valid
-traceability model, and repeats none of the enforcement architecture. The separation was
-checked at submission against the released artifact (edit E19).
+**The attack.** *"[15], [16] and [17] appear to be the same author's prior work,
+and this paper consumes their interfaces. Is this a distinct contribution?"*
 
-**Recommended.** §XIII does not currently state that [15]–[17] are the author's own prior
-work; it reads as third-party related work. At a single-blind venue, making the
-relationship explicit strengthens the section rather than weakening it, and pre-empts the
-charge. **Author's call** — it is a disclosure decision, not a correction, so I have not
-made it.
+**Authorship was checked before writing the disclosure**, rather than assumed:
+
+| Ref | Credited to | Verification |
+|---|---|---|
+| [16] | A. Gill-Lakhowal | **Identical** to this paper's author. |
+| [17] | US 2026/0127298 A1 | Published application names inventor **Abhinandan Gill**; title contains "lakhowal". Verified on the published patent record. |
+| [15] | A. Gill | Not independently verifiable — IEEE Xplore unreadable. Its repository of record is the **AGLakhowal** organisation that this artifact's Case B mapping verifies against, and the manuscript's own Appendix C names it. |
+
+Overlap is established for [16] and [17] from primary records, and for [15] from
+the artifact's repository-of-record linkage plus the author's own attribution.
+**"Overlapping authors" is accurate; it is not asserted more strongly than that.**
+
+§XIII now opens:
+
+> References [15]–[17] are prior works by overlapping authors and provide the
+> downstream enforcement context against which the present upstream compilation
+> problem is scoped. The present contribution does not re-evaluate their detection
+> results; the separation of contributions is stated explicitly here.
+
+The existing contribution-by-contribution separation follows unchanged. Disclosure
+strengthens the section: it pre-empts the charge instead of leaving a reviewer to
+discover the relationship, and it restates — at the point of disclosure — that the
+detection results are not re-evaluated here.
 
 ---
 

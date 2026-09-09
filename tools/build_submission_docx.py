@@ -41,7 +41,12 @@ CASE_B_HASH = "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce"
 FREEZE_TAG = "preregister-tier0-v2.2"
 FREEZE_COMMIT = "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e"
 REPO_URL = "https://github.com/Sukhmangill977/gc-ir-reference"
-RELEASE = "v1.0.0"
+#: The reviewer-facing artifact release. v1.0.0 is the earlier release and is
+#: retained unrewritten; v1.0.1 is the one that carries artifact_review/ and
+#: the reviewer tooling, so it is the release the article should name.
+#: The SCIENTIFIC results are unchanged and remain those of the
+#: preregister-tier0-v2.2 freeze, which Section XI-I cites separately.
+RELEASE = "v1.0.1"
 
 #: Edit ids whose search text legitimately occurs more than once and must be
 #: applied to EVERY occurrence.  The metrics table carries the same marker on
@@ -356,11 +361,24 @@ EDITS = [
      "this supports is determinism across the tested supported environments. It is "
      "not a claim of platform independence: a finite matrix of environments is not "
      "the set of all environments, and neither other operating systems nor other "
-     "Python implementations were exercised.",
+     "Python implementations were exercised. Nor is it a claim about the "
+     "specification. The reported determinism result establishes conformance of "
+     "the reference implementation across the tested environments; it does not "
+     "prove that every independent implementation of the GC-IR specification must "
+     "produce the same output. Establishing that would require a second, "
+     "independently authored implementation of \u03a6 compiled against the normative "
+     "schema of Appendix A, which does not exist. RFC 8785 canonicalization and the "
+     "exhaustively specified compiler step order make such agreement plausible; "
+     "they do not demonstrate it.",
      "XII",
      "The old limitation now understates the evidence, and deleting it would "
      "overstate it. Widened to what was measured, with the boundary kept "
-     "explicit. Evidence: results/final_v2/CI_STATUS.md."),
+     "explicit. Evidence: results/final_v2/CI_STATUS.md. ALSO CARRIES R-04: the "
+     "measured result is conformance of ONE implementation; specification-level "
+     "uniqueness across independently authored implementations is a strictly "
+     "stronger claim the artifact does not support, and the distinction was "
+     "previously not drawn. TD = 1.000 across the tested supported environments "
+     "is left intact and unqualified; only the stronger reading is excluded."),
 
     ("E18",
      "Monte Carlo scope. Rating perturbation estimates sensitivity under the "
@@ -532,6 +550,54 @@ EDITS = [
      "References [28], [29]",
      "Adds the two references the literature sweep requires. Both verified against "
      "their arXiv abstract pages."),
+    # ---------------- References [21], [22]: verified dates ---------------
+    ("E32",
+     "\"Making AI Compliance Evidence Machine-Readable,\" arXiv:2604.13767, 2026.",
+     "\"Making AI Compliance Evidence Machine-Readable,\" arXiv:2604.13767, "
+     "Apr. 2026.",
+     "References [21]",
+     "Verified against the arXiv API and abstract page: submitted 2026-04-15. "
+     "Month added, matching the style already used for [23]. Title and all four "
+     "authors confirmed exact. No DOI and no journal_ref are registered, so "
+     "neither is cited; the Comments field says 'submitted to' IEEE Computer, "
+     "which is not a publication. Evidence: "
+     "paper_update/REFERENCES_21_22_VERIFICATION.md."),
+
+    ("E33",
+     "Profile-Based Validation for Trustworthy AI Systems,\" arXiv:2605.23297, "
+     "2026.",
+     "Profile-Based Validation for Trustworthy AI Systems,\" arXiv:2605.23297, "
+     "May 2026.",
+     "References [22]",
+     "Verified against the arXiv API and abstract page: submitted 2026-05-22. "
+     "Month added. Title and both authors confirmed exact. arXiv registers no "
+     "journal_ref and no DOI, and dblp has no record, so no venue is cited "
+     "even though the author-supplied Comments field asserts acceptance at IEEE "
+     "COMPSAC 2026 -- that is an assertion, not a publication record, and is "
+     "flagged for the author rather than acted on. Evidence: "
+     "paper_update/REFERENCES_21_22_VERIFICATION.md."),
+
+    # ---------------- R-04: implementation vs specification ---------------
+    # ---------------- R-07: overlapping authorship disclosure -------------
+    ("E35",
+     "The L-DREA paper (IEEE Xplore doc. 11641546) [15] contributes",
+     "References [15]\u2013[17] are prior works by overlapping authors and provide "
+     "the downstream enforcement context against which the present upstream "
+     "compilation problem is scoped. The present contribution does not "
+     "re-evaluate their detection results; the separation of contributions is "
+     "stated explicitly here. The L-DREA paper (IEEE Xplore doc. 11641546) [15] "
+     "contributes",
+     "XIII (opening)",
+     "R-07. The section read as third-party related work although [15]-[17] "
+     "share authorship with this paper. Authorship checked before writing this: "
+     "[16] is credited to A. Gill-Lakhowal, identical to this paper's author; "
+     "[17] (US 2026/0127298 A1) names inventor Abhinandan Gill, verified on the "
+     "published application; [15] is credited to A. Gill and its repository of "
+     "record is the AGLakhowal organisation this artifact's Case B mapping "
+     "verifies against. Disclosure strengthens the section rather than weakening "
+     "it: it pre-empts a salami-slicing charge and makes the differentiation of "
+     "contributions explicit."),
+
     ("E30",
      "and the artifact is hash-pinned so refinement and compilation are "
      "reproducible by reviewers.)",
@@ -693,7 +759,8 @@ def build(source, destination, changelog_path):
         "| Draft markers remaining | **%d** |" % len(remaining),
         "",
         "Every replacement is traceable to `paper_update/MEASURED_RESULTS_V2.md`, to a "
-        "file under `results/final_v2/`, or to `paper_update/LITERATURE_VERIFICATION.md`.",
+        "file under `results/final_v2/`, to `paper_update/LITERATURE_VERIFICATION.md`, "
+        "or to `paper_update/REFERENCES_21_22_VERIFICATION.md`.",
         "",
         "---",
         "",

@@ -1,5 +1,5 @@
 {
-  "file_count": 318,
+  "file_count": 320,
   "files": [
     {
       "bytes": 1022,
@@ -47,7 +47,7 @@
       "bytes": 66312,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "61992a2f37fc1dae44938aea80b224af8b67eaf47eaf2208ac16357d73f44aad"
+      "sha256": "c3a921925ee468e582757ff1eeba7ff174f4a9d24c3a21313b01462a66b42a33"
     },
     {
       "bytes": 7091,
@@ -632,22 +632,22 @@
       "sha256": "84f003c431a71e6477da447fec869eba7e418c8551bb84afff676ff25d4a9332"
     },
     {
-      "bytes": 21339,
+      "bytes": 24149,
       "path": "paper_update/FINAL_MANUSCRIPT_CHANGELOG.md",
       "role": "manuscript_reconciliation",
-      "sha256": "1596ee6102fcda354c56339e68a3f19bf863fa7e3a8fc045a8f66259516bfb6d"
+      "sha256": "35e39e350257f31efcbc071b84ca4b28c8a237bb063d5b77b3e8b233d59f726c"
     },
     {
-      "bytes": 13983,
+      "bytes": 15594,
       "path": "paper_update/FINAL_REVIEWER_RISK_REPORT.md",
       "role": "manuscript_reconciliation",
-      "sha256": "bdd9ac4174c632d2222b41827b384666a24ed8fbfa299834c683a1fb22c40f3a"
+      "sha256": "59566828b1c09ad6400d1679959b80f243263b15104cb750c39fdfc342bb1467"
     },
     {
-      "bytes": 2264728,
+      "bytes": 2265039,
       "path": "paper_update/From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION.docx",
       "role": "manuscript_reconciliation",
-      "sha256": "78e339f4618b68a2bdbdf4be3f177294d7accd092c0bb8f46632ebc2dd1ad4ea"
+      "sha256": "6b3875b0400f1b2d743b781a8c344eab7875c0e7f9f7367e886fcc5bdd6b3fe1"
     },
     {
       "bytes": 13682,
@@ -678,6 +678,18 @@
       "path": "paper_update/PLACEHOLDER_REPLACEMENT_TABLE_V2.md",
       "role": "manuscript_reconciliation",
       "sha256": "3190fe13f4282f57fcfb8b7546bb73ab3340d6e6c1cf8567e905e15cbafbe50c"
+    },
+    {
+      "bytes": 4876,
+      "path": "paper_update/POST_ZENODO_PATCH.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "808372163b8cc0df5a74808b0fce768bc2280c33bd1b81c059b92820f6190de4"
+    },
+    {
+      "bytes": 6874,
+      "path": "paper_update/REFERENCES_21_22_VERIFICATION.md",
+      "role": "manuscript_reconciliation",
+      "sha256": "6009754f6a244e93116fdb76d45882e6169f7369e7fc0ce57707c62fcd42e343"
     },
     {
       "bytes": 3689,
@@ -1832,10 +1844,10 @@
       "sha256": "849269c41afd2ab98c8443897e165b9662724e6fcfdb70aea837760fa79c949b"
     },
     {
-      "bytes": 43335,
+      "bytes": 47644,
       "path": "tools/build_submission_docx.py",
       "role": "fixture_generator",
-      "sha256": "b2b93c3192e499af70cf8e24b4843494303d47d0e3470e6c5969a2797c552d30"
+      "sha256": "17d4dc63a7050522404e0e3553d0bdd70024635df3939b0958d6f39abda999ea"
     },
     {
       "bytes": 52481,
@@ -1910,7 +1922,7 @@
       "sha256": "869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc"
     }
   ],
-  "manifest_sha256": "9c9fcc80a58fa6e58a8f196f0eab7454c4222f59274a4b51f28418e9c048cb54",
+  "manifest_sha256": "1f442536b1e48f3dbca4528aa3af612170dd4527289fd296dd3032571fe69701",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1943,5 +1955,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 6308178
+  "total_bytes": 6328969
 }
