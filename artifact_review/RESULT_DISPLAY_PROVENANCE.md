@@ -61,7 +61,7 @@ No machine-readable ieee-check outcome is present in final_v2, so none is claime
 | max FP_heat (Case A) | `results/final_v2/monte_carlo_summary.json` | `result.per_case.case_a.max_FP_heat.value` | yes | yes |
 | max FP_C* (Case A) | `results/final_v2/monte_carlo_summary.json` | `result.per_case.case_a.max_FP_cstar` | yes | yes |
 | Monte Carlo K (Case B) | `results/final_v2/monte_carlo_summary.json` | `result.per_case.case_b.draws_K` | yes | yes |
-| max FP_heat (Case B) | `results/final_v2/monte_carlo_summary.json` | `result.per_case.case_b.max_FP_heat.value` | yes | yes |
+| max FP_heat (Case B) | `results/final_v2/monte_carlo_summary.json` | `result.per_case.case_b.max_FP_heat.value` | yes | no |
 | max FP_C* (Case B) | `results/final_v2/monte_carlo_summary.json` | `result.per_case.case_b.max_FP_cstar` | yes | yes |
 | Monte Carlo MCSE (Case A) | `results/final_v2/monte_carlo_summary.json` | `result.per_case.case_a.max_FP_heat.mcse` | yes | yes |
 | C* membership changes observed | `results/final_v2/monte_carlo_summary.json` | `result.per_case.case_a.cstar_membership_changes_observed` | yes | yes |
@@ -117,5 +117,5 @@ No machine-readable ieee-check outcome is present in final_v2, so none is claime
 | case_b MC cstar_membership_changes_observed | `results/final_v2/monte_carlo_summary.json` | `result.per_case.case_b.cstar_membership_changes_observed` | yes | no |
 | case_b determinism counts | `results/final_v2/determinism_summary.json` | `result.per_case.case_b.{matches,runs}` | yes | no |
 | TD failed | `results/final_v2/determinism_summary.json` | `result.TD.denominator - result.TD.numerator` | yes | no |
-| tests passed | `results/final_v2/property_tests.json` | `result.totals.passed` | yes | no |
+| tests passed | `results/final_v2/property_tests.json` | `result.totals.passed` | yes | yes |
 | adversarial composition | `results/final_v2/adversarial.json` | `result.corpus.{negative_cases,positive_controls,code_mismatch}` | yes | no |

@@ -57,7 +57,7 @@ def test_text_sections(capsys):
                                       'property_tests.json', 'freeze_verification.json'])
 def test_corrupt_source_fails(copied_repo, relative, capsys):
     path = copied_repo / 'results/final_v2' / relative
-    blob = json.loads(path.read_text())
+    blob = json.loads(path.read_text(encoding="utf-8"))
     blob['corrupt_value'] = True
     if relative == 'metrics.json':
         blob['result']['per_case']['case_a']['RCY']['value'] = 0.5
@@ -84,7 +84,7 @@ def test_missing_ci_leg_fails(copied_repo):
 
 def test_stale_readme_is_nonmutating(copied_repo, capsys):
     path = copied_repo / 'README.md'
-    path.write_text(path.read_text().replace('| DC | 1.000', '| DC | 0.500'))
+    path.write_text(path.read_text(encoding="utf-8").replace('| DC | 1.000', '| DC | 0.500'), encoding="utf-8")
     before = path.read_bytes()
     assert readme.main(['--check']) == 1
     assert path.read_bytes() == before
@@ -112,4 +112,4 @@ def test_invalid_markers_rejected(text):
 
 
 def test_provenance_document_matches_loader():
-    assert (ROOT / 'artifact_review/RESULT_DISPLAY_PROVENANCE.md').read_text() == readme.render_provenance(viewer.load_results())
+    assert (ROOT / 'artifact_review/RESULT_DISPLAY_PROVENANCE.md').read_text(encoding="utf-8") == readme.render_provenance(viewer.load_results())

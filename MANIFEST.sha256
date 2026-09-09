@@ -20,7 +20,7 @@ e6e3829a1e93d282e4895fd26b75e394ed547db787c55f6deaac03979842eeb3  repository_roo
 263b0681e3668f12646352d1047c5d90288a533a55a23647bb23ec7018598fef  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-d9fc380cb01a6b8ed32722f1117cb7cbb0c72cd2b731cd8da3fe47e0b8bd97e4  repository_root            MANIFEST.json
+8ea986073db4773f4c4d16f0d2afd611966fc39e7fc6ea17a12882c273db9d2e  repository_root            MANIFEST.json
 354a8a9ef66efa097095686786ba5daeb6800f83bdd6884779ee32264ce55533  repository_root            Makefile
 d8716ba21ac2f72a34d6e0ee33aa19b69e3bd26a76cd5dceb2ed156622241649  repository_root            README.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
@@ -34,7 +34,7 @@ ab5f3dd6ab20b9ea9fbdc1354489a0f7a5f9c3d2416578484403546bb3d47d9c  repository_roo
 edb52e3c33a3111f37c2fb96db4b7165e5609444fcdbd08d8681e02016de96ec  repository_root            artifact_review/README.md
 dcb95d54be3d4a04f5ae15e7c1cb696db67c439254f734975c40792d079afa82  repository_root            artifact_review/REAL_DATASET_ASSESSMENT.md
 9743c092497acb377f7e23cf0ea3336fcaf03bb9749791992fe35c9500d10405  repository_root            artifact_review/RELEASE_NOTES_v1.0.3.md
-99df4d21bc2d2b0cc1d96f90b1d75170c97edb88e855cfb5c71074e25336791a  repository_root            artifact_review/RESULT_DISPLAY_PROVENANCE.md
+8fe69564fa7e0ba87d91a2f4309efad13f4e2419fcbab10c6e16d8f87f1f5082  repository_root            artifact_review/RESULT_DISPLAY_PROVENANCE.md
 5b95bbef0ffae8f0f727cff131f22c57c3331a7dd33c64121b98d2ff799b6bc4  acs_a                      cases/case_a/acs/approved_control_specifications.json
 174147daa039c69c2fc30cbdcae1c6d487503965cd78bcbe9ce2863f1de089fb  dispositions_a             cases/case_a/dispositions/dispositions.json
 8b26824fc6585ee830d8c0ef7756fdd92e9b0564dfca558797b50bf2884fc16d  case_a_input               cases/case_a/expected/reference_hashes.json
@@ -315,7 +315,7 @@ cf272be81986b2446d6fdc5da450a540da28e7c17028ad0a1982ae4eaf71397a  test_suite    
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  test_suite                 tests/properties/__init__.py
 1d5a1ac254e1c831cf14c85d27ac163fdb7f97468bb4d82c619760d7cda8beae  test_suite                 tests/properties/test_invariants.py
 1e9e81cbe819680fc5e8ab611d3981d678a9c9a6738b2834009738b924462dc7  test_suite                 tests/unit/test_core.py
-46a26e46cebb514f5b576fbf65cb2615225d9488c6114994351291402a8a30df  test_suite                 tests/unit/test_result_display.py
+97866f113cc68c288510c4bb8df509abf5f3eff5ba59af7fc45140a155f13404  test_suite                 tests/unit/test_result_display.py
 05d30eb17bee151e52057d3d250076616d40241f3668c06759c5327fd1d0f2ed  test_suite                 tests/unit/test_rfc8785.py
 942d9dd3a163e6a62f316751325813b3e7055cac7521eae880acc0d8b5730319  test_suite                 tests/unit/test_verify_reported_results.py
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  fixture_generator          tools/__init__.py
@@ -334,7 +334,7 @@ c38584acd06e825233fbea120b85dee085bc93ba2846c126c8a3c673a739d315  fixture_genera
 4fa88a558f9b88315d88cf9acde3b1b239d66ebdb8c52c6c88a204f5777a1e35  fixture_generator          tools/make_measured_docx.py
 aa82bdd98cab8c9f3d9c2b82ea5f7438e1a427d2714e29ad050403ea6e520bbb  experiment_code            tools/montecarlo.py
 030944eb6ce267dd2e1aab2405bc1fc8b1776da2f16cdfd489e4e5b460d1c995  fixture_generator          tools/publish.sh
-cf2ef1b5a816f5f47ba62d474339ae347d91af5f4cfaefd84efa3e386d0fdf83  fixture_generator          tools/show_results.py
+10c415da96b4bd1cac2da45cebcaee33465c504c4d2d1ea7747c57207bf8ee0d  fixture_generator          tools/show_results.py
 64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44  experiment_code            tools/td_crossenv.py
 6adc77680e1e16520667dca6876fa7488c3899dcba1f5a82a36dfa2cbaef514e  fixture_generator          tools/update_readme_results.py
 869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc  fixture_generator          tools/verify_reported_results.py

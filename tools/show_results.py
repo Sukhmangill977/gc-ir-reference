@@ -272,7 +272,7 @@ def load_results():
                   "result.per_case.%s.draws_K" % case, readme=True)
         prov.note("max FP_heat (Case %s)" % case[-1].upper(), source,
                   "result.per_case.%s.max_FP_heat.value" % case,
-                  readme=True)
+                  readme=(case == "case_a"))
         prov.note("max FP_C* (Case %s)" % case[-1].upper(), source,
                   "result.per_case.%s.max_FP_cstar" % case,
                   readme=True)
@@ -364,7 +364,7 @@ def load_results():
             prov.note(case + " MC " + field, FINAL_V2 + "/monte_carlo_summary.json", "result.per_case." + case + "." + field)
         prov.note(case + " determinism counts", FINAL_V2 + "/determinism_summary.json", "result.per_case." + case + ".{matches,runs}")
     prov.note("TD failed", FINAL_V2 + "/determinism_summary.json", "result.TD.denominator - result.TD.numerator")
-    prov.note("tests passed", FINAL_V2 + "/property_tests.json", "result.totals.passed")
+    prov.note("tests passed", FINAL_V2 + "/property_tests.json", "result.totals.passed", readme=True)
     prov.note("adversarial composition", FINAL_V2 + "/adversarial.json", "result.corpus.{negative_cases,positive_controls,code_mismatch}")
     data["_provenance_rows"] = prov.rows
     data["_consistency"] = _consistency(data)
@@ -463,7 +463,7 @@ def _load_cross_platform(determinism, prov):
         name = os.path.basename(os.path.dirname(path))
         if name == "cross_environment":
             name = "pinned container"
-        prov.note("cross-platform " + name, os.path.relpath(path, REPO_ROOT),
+        prov.note("cross-platform " + name, Path(path).relative_to(REPO_ROOT).as_posix(),
                   "environment.{platform,machine,python_version}; result.TD.value; result.per_case.*.reference_hash", readme=True)
         legs.append({
             "leg": name,
