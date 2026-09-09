@@ -31,6 +31,11 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.lock
 
+      - name: Verify reportable result display and README staleness
+        run: |
+          python tools/show_results.py --json
+          python tools/update_readme_results.py --check
+
       - name: Schema validation and unit tests
         run: python -m pytest tests/unit -q
 

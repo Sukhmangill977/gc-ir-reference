@@ -11,6 +11,9 @@ PY     := $(VENV)/bin/python
         manifest clean docker-build docker-reproduce freeze-manifest lint-secrets
 
 help:
+	@echo "  make results           print the complete frozen campaign results"
+	@echo "  make readme-results    update the generated README results block"
+	@echo "  make verify-readme-results  reject stale README results (no writes)"
 	@echo "GC-IR Reference Implementation"
 	@echo ""
 	@echo "  make install           create .venv and install the pinned dependencies"
@@ -159,3 +162,13 @@ ieee-check:
 clean:
 	find . -name '__pycache__' -type d -prune -exec rm -rf {} +
 	rm -rf .pytest_cache .hypothesis
+
+.PHONY: results readme-results verify-readme-results
+results:
+	@$(PY) tools/show_results.py
+
+readme-results:
+	@$(PY) tools/update_readme_results.py
+
+verify-readme-results:
+	@$(PY) tools/update_readme_results.py --check

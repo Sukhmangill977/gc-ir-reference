@@ -24,7 +24,8 @@ manuscript.**
 | Repository visibility | ✅ | Public. |
 | Release `v1.0.0` | ✅ | Published 2026-09-08. **Not rewritten.** |
 | Release `v1.0.1` | ✅ | Superseded by `v1.0.2`; retained unrewritten. |
-| Release `v1.0.2` | ✅ | The release the article cites. Contains the submitted manuscript, so the cited release holds the document that cites it. |
+| Release `v1.0.3` | Pending CI | Packaging-only reviewer usability release; deposit after all required CI succeeds. |
+| Release `v1.0.2` | ✅ | Superseded packaging release; retained unrewritten. |
 | Freeze tag `preregister-tier0-v2.2` | ✅ | Public, at `c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e`. **Not moved.** |
 | `MANIFEST.sha256` | ✅ | Current; verified by `make verify-manifest` and by CI. |
 | `FREEZE_MANIFEST_V2.sha256` | ✅ | Untouched — it proves the frozen experiment and must never be regenerated. |
@@ -34,7 +35,7 @@ manuscript.**
 
 ## What gets archived
 
-The Zenodo deposit should be **the `v1.0.2` release tarball**, not a snapshot of
+The Zenodo deposit should be **the `v1.0.3` release tarball**, not a snapshot of
 `main` at some later time. The release tag, its `MANIFEST.sha256` and the
 preregistration freeze tag are what make the deposit self-verifying.
 
@@ -80,10 +81,10 @@ click. **Stop here and perform these by hand:**
    * **(a)** enable the toggle first and then publish the next release, or
    * **(b)** archive manually: on Zenodo choose *New upload*, attach the release
      tarball from
-     `https://github.com/Sukhmangill977/gc-ir-reference/archive/refs/tags/v1.0.2.tar.gz`,
+     `https://github.com/Sukhmangill977/gc-ir-reference/archive/refs/tags/v1.0.3.tar.gz`,
      and let `.zenodo.json` populate the metadata.
 
-   **(b) is what applies here**, because `v1.0.2` is created before the toggle.
+   **(b) is what applies here**, because `v1.0.3` is created before the toggle.
 
 4. **Check the metadata Zenodo picked up** against `.zenodo.json`: title, MIT
    license, ORCID, version `1.0.2`, and the description including the claim
