@@ -217,9 +217,14 @@ Python 3.11 or 3.12. No other runtime dependency. Four packages
 ## Local setup
 
 ```bash
-make install                    # or:
-python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.lock
+make install                    # or, with an explicit interpreter:
+make install PYTHON=python3.11
 ```
+
+`make install` checks the interpreter first and stops with a clear message if it
+is older than 3.11 — without that guard, the first symptom is pip failing to
+resolve a transitive dependency, and that error never mentions the Python
+version.
 
 ## Docker
 

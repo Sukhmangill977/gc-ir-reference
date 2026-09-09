@@ -19,14 +19,14 @@ b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_roo
 1fc00762fe18d601c5cb8e676293a36ff6ed4a7686e2c77fccfda54f1636a7d0  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-d35c7df2c9cdd061bf29bc1990372e22d8e07966758a9978c4ffffd6be48c525  repository_root            MANIFEST.json
-059bbe7e8d6be8635059ed627572f4c3b2b867d080a14d43f3c936cf05e99c74  repository_root            Makefile
-0a089a162286f97f5eebb2cb28cb9c61ea6308f961f5813c88c5a6fb6f8305a2  repository_root            README.md
+5973ac535683df406deee9ea141855fabb430e386034e2e27d3c68e1e12e43e5  repository_root            MANIFEST.json
+d48ef220be0d710a1e530baf1161125df0c46a3a4745b46dbf2038d3b5a6f6a0  repository_root            Makefile
+5ebf036a069f7ed61f4e100ec6c3b4a18faada63e96d9f136654ef5b48bfbb18  repository_root            README.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
 acc56b0450d076123ca2ecdbb7a8eb00ffb46ab6e7cd257cc2d47c195346a2cb  repository_root            artifact_review/DATA_INVENTORY.md
 d00a2f4b4165c9340b73f747ffac19faf094d07971f18691aa6e24b647c4fdf1  repository_root            artifact_review/PAPER_RESULT_MAP.json
 ab5f3dd6ab20b9ea9fbdc1354489a0f7a5f9c3d2416578484403546bb3d47d9c  repository_root            artifact_review/PAPER_TO_ARTIFACT_RESULTS.md
-1c9812c57ca32b02093af1278b14b2234585837b771c037e631e11989e66a9ff  repository_root            artifact_review/README.md
+fc4f0ceab6296cb04bd125bc9d5e13b32ac5e1ccf8960a147a5e8fd43cc313c2  repository_root            artifact_review/README.md
 dcb95d54be3d4a04f5ae15e7c1cb696db67c439254f734975c40792d079afa82  repository_root            artifact_review/REAL_DATASET_ASSESSMENT.md
 5b95bbef0ffae8f0f727cff131f22c57c3331a7dd33c64121b98d2ff799b6bc4  acs_a                      cases/case_a/acs/approved_control_specifications.json
 174147daa039c69c2fc30cbdcae1c6d487503965cd78bcbe9ce2863f1de089fb  dispositions_a             cases/case_a/dispositions/dispositions.json
@@ -140,7 +140,7 @@ e134ac5741cd39d3caaa304f38918d364d451a540bbef1d2dc829997fc5ec3e4  repository_roo
 1c63ce7caf90c92ab55c25a5bbc40251308f17e3b53b9bd0bdc36c824a8ad1a3  development_result         results/development/adversarial_cases.csv
 4ca1a50cbb17f3981cfc3dc8765675f483594ad6490f8c1321d17594629c7170  development_result         results/development/case_a/bundle.json
 f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536  development_result         results/development/case_a/canonical_payload.json
-dc349659162ed95751cee85623c58a62b8a8527dc615693af6237b8a4676e30a  development_result         results/development/case_a/compilation.json
+3ba3d6825be25237485170bf622e2f92e562e6b56c54151ae3da5291f8c5782f  development_result         results/development/case_a/compilation.json
 d5fcad108e00af0f507737c0c14ae04ae3fe7f147b0df0f770edb1df906a4b11  development_result         results/development/case_a/coverage_matrix.json
 d2a8c3450359d7dd08b3a27cef6febd1153b70d0a8f29d17beef98065e7665c3  development_result         results/development/case_a/escalation_map.json
 f2a61e92494ffb59b093c6774f3c7ad1be92ff2f7293e2f913630b37b062a34c  development_result         results/development/case_a/gate_map.json
@@ -149,7 +149,7 @@ e0dfaabe4d1e01ec7d52f96443c3cb428af72e68511edad02984cff4da059bc9  development_re
 1cf3167bca56ec6c86ddfe0cc11e8ca82e6df0d16cd786fa1b8e973f5947b563  development_result         results/development/case_a/payload_purity.json
 610612401769c648188262da946ef03f2cea33735c2677e1686167e8197baa40  development_result         results/development/case_b/bundle.json
 2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce  development_result         results/development/case_b/canonical_payload.json
-8a5db0425d8d1e04ad3e846d39de0e2b9d592843caa6296f09cf0b3476d3768b  development_result         results/development/case_b/compilation.json
+ec09fb425bc40e778054f87c286557c6fef00b8803ffd5c9834e9064a58afba9  development_result         results/development/case_b/compilation.json
 fb970c2ffae35d0045562720b23a45c7f5a2e1ac1d3fe99883ec602b1958a1d4  development_result         results/development/case_b/coverage_matrix.json
 e16dbd72eeebf56de6313117bce0f35cd86048d956283d462ad543ab7c840d6c  development_result         results/development/case_b/escalation_map.json
 a9461c4c4600e78f1ecd1dec3cf244f9cdb8c48777a7c6ac24a4582ccaf4256c  development_result         results/development/case_b/gate_map.json
@@ -171,7 +171,7 @@ b0181d36e16b1f23989f3759a746692869d582eda13ac0f2ae3249d2817da693  development_re
 2c4a150968025d1e2e58af29b31da448b9aa33bc0209cc42843473550bdc808b  development_result         results/development/test_reports/junit_properties.xml
 b3fba44ea807c5d5efeb760992090e8984b9cf2a00137f2096915530a3404c13  development_result         results/development/test_reports/junit_unit.xml
 9084e3597a1945bc716ebfff30c6e9d8a9c25b403cd586762663f714b22e2bcf  development_result         results/development/traceability_queries.csv
-84b469d1192eafe4ee7c46dce7667d743dab786cc1cfc528b8ac0a2c05e9474a  development_result         results/development/traceability_queries.json
+0633bd3ed0165ef991f3bf31f2962ee328710af3bf13a73463cd4b718920abc5  development_result         results/development/traceability_queries.json
 8288ff3c76f343edc15f53748d7699656ca2a16e70d9d6fa6f040fa447c8b9d1  superseded_result          results/final/CI_STATUS.md
 e3aa9e20b34709a7a66b39b8acad5dbe4883e03b20a13cf7b5453af46a28feba  superseded_result          results/final/SUMMARY.md
 06ae2814c45a4e3770a0d0a3f8e956352fd3ffa8b3f4e3925322a0ca3349aa2d  superseded_result          results/final/adversarial.json

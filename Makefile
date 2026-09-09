@@ -6,7 +6,7 @@ PYTHON ?= python3
 VENV   := .venv
 PY     := $(VENV)/bin/python
 
-.PHONY: help venv install test reproduce reproduce-final reproduce-final-v2 \
+.PHONY: help venv install check-python test reproduce reproduce-final reproduce-final-v2 \
         verify-hashes verify-results verify-manifest result-map ieee-check cases \
         manifest clean docker-build docker-reproduce freeze-manifest lint-secrets
 
@@ -14,6 +14,7 @@ help:
 	@echo "GC-IR Reference Implementation"
 	@echo ""
 	@echo "  make install           create .venv and install the pinned dependencies"
+	@echo "                         (needs CPython 3.11/3.12; override with PYTHON=python3.11)"
 	@echo "  make test              run all four pytest suites"
 	@echo "  make ieee-check        THE REVIEWER CHECK: everything below, in order (~20 s)"
 	@echo "  make verify-results    check every paper-facing number against results/final_v2/"
@@ -31,7 +32,24 @@ help:
 	@echo "  Five-minute verification: make install && make test && make verify-hashes"
 	@echo "  IEEE artifact review:     make install && make ieee-check"
 
-$(VENV):
+# Fail early and legibly if the interpreter is too old. Without this the first
+# sign of trouble is pip refusing to resolve a transitive dependency, whose error
+# message never mentions the Python version -- which is a poor first experience
+# for a reviewer whose system python3 happens to be older.
+check-python:
+	@$(PYTHON) -c 'import sys;\
+	v = sys.version_info;\
+	ok = v[:2] >= (3, 11);\
+	msg = "\nERROR: this artifact requires CPython 3.11 or 3.12.\n"\
+	      "  found: %s (%d.%d.%d)\n"\
+	      "Re-run with an explicit interpreter, for example:\n"\
+	      "    make install PYTHON=python3.11\n"\
+	      "    make install PYTHON=/opt/homebrew/bin/python3.12\n\n"\
+	      % (sys.executable, v[0], v[1], v[2]);\
+	sys.stderr.write("" if ok else msg);\
+	sys.exit(0 if ok else 1)'
+
+$(VENV): check-python
 	$(PYTHON) -m venv $(VENV)
 	$(PY) -m pip install --quiet --upgrade pip setuptools wheel
 

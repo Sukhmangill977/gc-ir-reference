@@ -41,19 +41,19 @@
       "bytes": 65100,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "d35c7df2c9cdd061bf29bc1990372e22d8e07966758a9978c4ffffd6be48c525"
+      "sha256": "5973ac535683df406deee9ea141855fabb430e386034e2e27d3c68e1e12e43e5"
     },
     {
-      "bytes": 6190,
+      "bytes": 7091,
       "path": "Makefile",
       "role": "repository_root",
-      "sha256": "059bbe7e8d6be8635059ed627572f4c3b2b867d080a14d43f3c936cf05e99c74"
+      "sha256": "d48ef220be0d710a1e530baf1161125df0c46a3a4745b46dbf2038d3b5a6f6a0"
     },
     {
-      "bytes": 21263,
+      "bytes": 21490,
       "path": "README.md",
       "role": "repository_root",
-      "sha256": "0a089a162286f97f5eebb2cb28cb9c61ea6308f961f5813c88c5a6fb6f8305a2"
+      "sha256": "5ebf036a069f7ed61f4e100ec6c3b4a18faada63e96d9f136654ef5b48bfbb18"
     },
     {
       "bytes": 2889,
@@ -80,10 +80,10 @@
       "sha256": "ab5f3dd6ab20b9ea9fbdc1354489a0f7a5f9c3d2416578484403546bb3d47d9c"
     },
     {
-      "bytes": 14454,
+      "bytes": 14747,
       "path": "artifact_review/README.md",
       "role": "repository_root",
-      "sha256": "1c9812c57ca32b02093af1278b14b2234585837b771c037e631e11989e66a9ff"
+      "sha256": "fc4f0ceab6296cb04bd125bc9d5e13b32ac5e1ccf8960a147a5e8fd43cc313c2"
     },
     {
       "bytes": 12167,
@@ -767,7 +767,7 @@
       "bytes": 1872,
       "path": "results/development/case_a/compilation.json",
       "role": "development_result",
-      "sha256": "dc349659162ed95751cee85623c58a62b8a8527dc615693af6237b8a4676e30a"
+      "sha256": "3ba3d6825be25237485170bf622e2f92e562e6b56c54151ae3da5291f8c5782f"
     },
     {
       "bytes": 10923,
@@ -821,7 +821,7 @@
       "bytes": 1880,
       "path": "results/development/case_b/compilation.json",
       "role": "development_result",
-      "sha256": "8a5db0425d8d1e04ad3e846d39de0e2b9d592843caa6296f09cf0b3476d3768b"
+      "sha256": "ec09fb425bc40e778054f87c286557c6fef00b8803ffd5c9834e9064a58afba9"
     },
     {
       "bytes": 5383,
@@ -953,7 +953,7 @@
       "bytes": 15979,
       "path": "results/development/traceability_queries.json",
       "role": "development_result",
-      "sha256": "84b469d1192eafe4ee7c46dce7667d743dab786cc1cfc528b8ac0a2c05e9474a"
+      "sha256": "0633bd3ed0165ef991f3bf31f2962ee328710af3bf13a73463cd4b718920abc5"
     },
     {
       "bytes": 4133,
@@ -1874,7 +1874,7 @@
       "sha256": "f5aceefa733fc39d2f0fa5737a8de0cbae6755c98b99ce9c935e96b3875020b9"
     }
   ],
-  "manifest_sha256": "6c31e58fb5553f14aa618145d3bd755fc4fc28beb73b6d001d690fc3f1f48272",
+  "manifest_sha256": "93cb9a756543b63b7b3bf024716f258bd74980be65cca882a86fe6ad8887e102",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1907,5 +1907,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 6261372
+  "total_bytes": 6262793
 }

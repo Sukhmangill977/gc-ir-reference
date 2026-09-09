@@ -87,8 +87,12 @@ external download step.
 ```bash
 git clone https://github.com/Sukhmangill977/gc-ir-reference.git
 cd gc-ir-reference
-make install
+make install                     # or: make install PYTHON=python3.11
 ```
+
+**If your system `python3` is older than 3.11**, `make install` stops immediately
+with a message naming the interpreter it found and how to override it. Pass
+`PYTHON=python3.11` (or any 3.11/3.12 interpreter) to select one explicitly.
 
 `make install` creates `.venv` and installs the pinned dependency set.
 **Estimated time: ~30 s** on a warm pip cache, ~60 s cold.
