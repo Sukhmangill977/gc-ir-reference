@@ -37,8 +37,24 @@ The Zenodo deposit should be **the `v1.0.1` release tarball**, not a snapshot of
 `main` at some later time. The release tag, its `MANIFEST.sha256` and the
 preregistration freeze tag are what make the deposit self-verifying.
 
-Approximate size: the repository is ~312 files. The largest single item is the
+Approximate size: 322 files, ~3.0 MB compressed. The largest single item is the
 submission manuscript under `paper_update/` (~2.2 MB).
+
+**The tarball was downloaded and verified**, exactly as a depositor would obtain
+it:
+
+```
+curl -sL -o v1.0.1.tar.gz \
+  https://github.com/Sukhmangill977/gc-ir-reference/archive/refs/tags/v1.0.1.tar.gz
+tar xzf v1.0.1.tar.gz && cd gc-ir-reference-1.0.1
+python tools/verify_reported_results.py      # exit 0
+```
+
+Result: **48/48 paper-facing claims verified, 21 cross-checks passed, 1 skipped**
+— the skip is the git-tag check, which a tarball cannot answer because it carries
+no git history. That is the intended behaviour, not a defect: the check reports
+`SKIP` and does not fail the run. `LICENSE`, `CITATION.cff` and `.zenodo.json` are
+all present in the tarball.
 
 ---
 

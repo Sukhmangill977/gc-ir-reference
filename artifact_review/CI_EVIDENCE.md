@@ -15,6 +15,11 @@ reviewer can open each one directly.
 | `cross-platform determinism` | **34315187589** | ✅ success | 1m19s | [run](https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/34315187589) |
 | `reproducibility` | **34315187557** | ✅ success | 2m02s | [run](https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/34315187557) |
 
+The following documentation commit `0bf23f6` is also fully green (`tests`
+34315506153, `determinism` 34315506155, `reproducibility` 34315506144). `main`
+may sit ahead of the release tag; **`v1.0.1` at `836436b` is the artifact of
+record**, and the runs in the table above are its runs.
+
 The immediately preceding commit `5dea99f1a0ef` was also fully green
 (`tests` 34314658635, `determinism` 34314658496, `reproducibility` 34314658462);
 its per-job breakdown is what is listed below, and the job matrices are identical.
