@@ -20,7 +20,7 @@ b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_roo
 7516476c134ea8b7356bcd4823998855343e9a34a09a4b0edfc00cef3c83e6d9  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-e8c8550369202e65dc60ff51dd268b1e377d4a84f458656618efd5b37493208f  repository_root            MANIFEST.json
+44595f1de50b5a831790b2eea2039a5f32501f37cdbc2b363581d20df5e19525  repository_root            MANIFEST.json
 d48ef220be0d710a1e530baf1161125df0c46a3a4745b46dbf2038d3b5a6f6a0  repository_root            Makefile
 5ebf036a069f7ed61f4e100ec6c3b4a18faada63e96d9f136654ef5b48bfbb18  repository_root            README.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
@@ -309,7 +309,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  test_suite    
 1d5a1ac254e1c831cf14c85d27ac163fdb7f97468bb4d82c619760d7cda8beae  test_suite                 tests/properties/test_invariants.py
 1e9e81cbe819680fc5e8ab611d3981d678a9c9a6738b2834009738b924462dc7  test_suite                 tests/unit/test_core.py
 05d30eb17bee151e52057d3d250076616d40241f3668c06759c5327fd1d0f2ed  test_suite                 tests/unit/test_rfc8785.py
-12ec74c718de4c4f7eee8cd86854c351197897fdf45d474b27bcbc3e879f562a  test_suite                 tests/unit/test_verify_reported_results.py
+4c7527794808bb311b15954265d658691df86d64132c1720e5f3602ed0d61ca7  test_suite                 tests/unit/test_verify_reported_results.py
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  fixture_generator          tools/__init__.py
 ff96abd318cf16ed230cb725eea7b9989435320a95d56b6683297081f2587610  fixture_generator          tools/build_cases.py
 1c42648c415483e77e74785f6dc72bb176425076c5a60900d154f47a45611fb3  case_b_input               tools/build_ldrea_traceability.py
@@ -327,4 +327,4 @@ c38584acd06e825233fbea120b85dee085bc93ba2846c126c8a3c673a739d315  fixture_genera
 aa82bdd98cab8c9f3d9c2b82ea5f7438e1a427d2714e29ad050403ea6e520bbb  experiment_code            tools/montecarlo.py
 030944eb6ce267dd2e1aab2405bc1fc8b1776da2f16cdfd489e4e5b460d1c995  fixture_generator          tools/publish.sh
 64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44  experiment_code            tools/td_crossenv.py
-f5aceefa733fc39d2f0fa5737a8de0cbae6755c98b99ce9c935e96b3875020b9  fixture_generator          tools/verify_reported_results.py
+869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc  fixture_generator          tools/verify_reported_results.py

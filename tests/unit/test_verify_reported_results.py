@@ -180,3 +180,49 @@ def test_command_line_entry_point_succeeds():
         cwd=REPO_ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     assert completed.returncode == 0, completed.stdout.decode()
     assert b"paper-facing empirical claims verified" in completed.stdout
+
+
+# --- skip semantics: "cannot verify" must not be conflated with "wrong" -------
+
+def test_missing_git_tag_is_skipped_not_failed(monkeypatch):
+    """A tagless or shallow checkout -- as CI's `tests` workflow uses -- cannot
+    resolve the freeze tag. That must skip, not fail: absence of the tag is not
+    evidence that the recorded freeze commit is wrong."""
+    real_run = subprocess.run
+
+    def no_tag(args, **kwargs):
+        if args[:2] == ["git", "rev-list"]:
+            return subprocess.CompletedProcess(args, 128, stdout=b"")
+        return real_run(args, **kwargs)
+
+    monkeypatch.setattr(verifier.subprocess, "run", no_tag)
+    checks = verifier.cross_checks()
+    tag_checks = [c for c in checks if "git tag" in c.label]
+    assert len(tag_checks) == 1
+    assert tag_checks[0].skipped is True
+    assert tag_checks[0].status == "SKIP"
+    assert not [c for c in checks if not c.passed], \
+        "a missing tag must not fail the run"
+
+
+def test_wrong_git_tag_commit_still_fails(monkeypatch):
+    """The skip path must not become a way for a genuinely wrong tag to pass."""
+    real_run = subprocess.run
+
+    def wrong_tag(args, **kwargs):
+        if args[:2] == ["git", "rev-list"]:
+            return subprocess.CompletedProcess(args, 0, stdout=b"0" * 40 + b"\n")
+        return real_run(args, **kwargs)
+
+    monkeypatch.setattr(verifier.subprocess, "run", wrong_tag)
+    failed = [c for c in verifier.cross_checks() if not c.passed]
+    assert any("git tag" in c.label for c in failed), \
+        "a tag pointing at the wrong commit must fail"
+
+
+def test_json_mode_reports_skips_separately(capsys):
+    assert verifier.main(["--json"]) == 0
+    blob = json.loads(capsys.readouterr().out)
+    assert "skipped" in blob
+    assert blob["passed"] + blob["failed"] + blob["skipped"] == len(blob["checks"])
+    assert all("status" in check for check in blob["checks"])

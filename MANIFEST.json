@@ -44,10 +44,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 65100,
+      "bytes": 65696,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "e8c8550369202e65dc60ff51dd268b1e377d4a84f458656618efd5b37493208f"
+      "sha256": "44595f1de50b5a831790b2eea2039a5f32501f37cdbc2b363581d20df5e19525"
     },
     {
       "bytes": 7091,
@@ -1778,10 +1778,10 @@
       "sha256": "05d30eb17bee151e52057d3d250076616d40241f3668c06759c5327fd1d0f2ed"
     },
     {
-      "bytes": 7062,
+      "bytes": 8947,
       "path": "tests/unit/test_verify_reported_results.py",
       "role": "test_suite",
-      "sha256": "12ec74c718de4c4f7eee8cd86854c351197897fdf45d474b27bcbc3e879f562a"
+      "sha256": "4c7527794808bb311b15954265d658691df86d64132c1720e5f3602ed0d61ca7"
     },
     {
       "bytes": 0,
@@ -1886,13 +1886,13 @@
       "sha256": "64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44"
     },
     {
-      "bytes": 18944,
+      "bytes": 20303,
       "path": "tools/verify_reported_results.py",
       "role": "fixture_generator",
-      "sha256": "f5aceefa733fc39d2f0fa5737a8de0cbae6755c98b99ce9c935e96b3875020b9"
+      "sha256": "869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc"
     }
   ],
-  "manifest_sha256": "876c769b4d60e2a994a21eb1a5ff6b2d54b97bdff77739f40b2a992e0db5018c",
+  "manifest_sha256": "cca8bdae86de145a477f3d341b5d45fd94e68332bc1d438cf6d3129ebaa9326d",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1925,5 +1925,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 6276404
+  "total_bytes": 6280244
 }

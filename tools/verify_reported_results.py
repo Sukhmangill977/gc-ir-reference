@@ -56,16 +56,29 @@ TOLERANCES = {
 
 
 class Check:
-    """One verification, with everything needed to explain a failure."""
+    """One verification, with everything needed to explain a failure.
 
-    def __init__(self, label, passed, detail="", kind="map"):
+    Three states, not two. ``skipped`` means *this environment cannot verify the
+    claim* -- for example a tagless CI checkout, where the freeze tag simply is
+    not present. That is not the same as the claim being wrong, and conflating
+    the two would either fail honest checkouts or hide real disagreements. A
+    skipped check never fails the run; a failed one always does.
+    """
+
+    def __init__(self, label, passed, detail="", kind="map", skipped=False):
         self.label = label
-        self.passed = passed
+        self.passed = passed or skipped
+        self.skipped = skipped
         self.detail = detail
         self.kind = kind
 
+    @property
+    def status(self):
+        return "SKIP" if self.skipped else ("PASS" if self.passed else "FAIL")
+
     def as_dict(self):
         return {"check": self.label, "passed": self.passed,
+                "skipped": self.skipped, "status": self.status,
                 "detail": self.detail, "kind": self.kind}
 
 
@@ -158,8 +171,9 @@ def verify_map(entries):
 def cross_checks():
     checks = []
 
-    def record(label, passed, detail=""):
-        checks.append(Check(label, passed, detail, kind="cross-check"))
+    def record(label, passed, detail="", skipped=False):
+        checks.append(Check(label, passed, detail, kind="cross-check",
+                            skipped=skipped))
 
     # 1. the compiled hash, the committed reference, the standalone hash file,
     #    and a hash computed here from the canonical bytes must all agree.
@@ -284,8 +298,12 @@ def cross_checks():
                actual_commit == freeze["freeze_commit"],
                actual_commit)
     else:
-        record("git tag %s is present locally" % tag, False,
-               "tag not found; clone with tags to verify this")
+        # A tagless or shallow checkout -- CI's `tests` workflow uses one -- simply
+        # cannot answer this. Skipped, not failed: absence of the tag is not
+        # evidence that the recorded freeze commit is wrong.
+        record("git tag %s resolves to the recorded freeze commit" % tag, False,
+               "tag not present in this checkout (shallow or tagless clone); "
+               "run in a full clone to verify", skipped=True)
 
     # 7. metrics recorded per case must agree with the compiled bundle's own counts
     metrics = load_json("results/final_v2/metrics.json")
@@ -371,23 +389,24 @@ def main(argv=None):
     if not args.json:
         print("\nReported results (%d)\n" % len(checks))
         for check in checks:
-            if check.passed and args.quiet:
+            if check.passed and not check.skipped and args.quiet:
                 continue
-            print("  %-4s %s" % ("PASS" if check.passed else "FAIL", check.label))
-            if not check.passed:
+            print("  %-4s %s" % (check.status, check.label))
+            if not check.passed or check.skipped:
                 print("       %s" % check.detail)
 
     crosses = cross_checks()
     if not args.json:
         print("\nIndependent cross-checks (%d)\n" % len(crosses))
         for check in crosses:
-            if check.passed and args.quiet:
+            if check.passed and not check.skipped and args.quiet:
                 continue
-            print("  %-4s %s" % ("PASS" if check.passed else "FAIL", check.label))
+            print("  %-4s %s" % (check.status, check.label))
             print("       %s" % check.detail)
 
     every = checks + crosses
     failed = [c for c in every if not c.passed]
+    skipped = [c for c in every if c.skipped]
 
     if args.json:
         print(json.dumps({
@@ -395,8 +414,9 @@ def main(argv=None):
             "freeze_tag": mapping["freeze_tag"],
             "reported_result_count": len(checks),
             "cross_check_count": len(crosses),
-            "passed": len(every) - len(failed),
+            "passed": len(every) - len(failed) - len(skipped),
             "failed": len(failed),
+            "skipped": len(skipped),
             "all_ok": not failed,
             "checks": [c.as_dict() for c in every],
         }, indent=2, sort_keys=True))
@@ -409,8 +429,12 @@ def main(argv=None):
                 print("  %s: %s" % (check.label, check.detail))
         else:
             print("%d/%d paper-facing empirical claims verified, "
-                  "%d independent cross-checks passed"
-                  % (len(checks), len(checks), len(crosses)))
+                  "%d independent cross-checks passed%s"
+                  % (len(checks), len(checks), len(crosses) - len(skipped),
+                     "" if not skipped
+                     else ", %d skipped (not verifiable here)" % len(skipped)))
+            for check in skipped:
+                print("  SKIP %s -- %s" % (check.label, check.detail))
             print("evidence: %s at freeze %s"
                   % (mapping["results_dir"], mapping["freeze_tag"]))
         print("=" * 78)
