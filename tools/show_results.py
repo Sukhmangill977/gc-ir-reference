@@ -771,6 +771,11 @@ def headline(data):
 
 
 def main(argv=None):
+    # Preserve the complete plain-text report when redirected on Windows or
+    # under an ASCII locale. Console and pipe output share UTF-8 bytes.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json", action="store_true",
                         help="emit the same values as JSON")

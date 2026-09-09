@@ -1,5 +1,6 @@
 """Presentation-only tests: all evidence mutations use temporary copies."""
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -113,3 +114,13 @@ def test_invalid_markers_rejected(text):
 
 def test_provenance_document_matches_loader():
     assert (ROOT / 'artifact_review/RESULT_DISPLAY_PROVENANCE.md').read_text(encoding="utf-8") == readme.render_provenance(viewer.load_results())
+
+
+def test_redirected_text_preserves_unicode_under_ascii_locale():
+    run = subprocess.run([sys.executable, str(ROOT / 'tools/show_results.py')],
+                         capture_output=True, cwd=ROOT.parent,
+                         env={**os.environ, 'PYTHONIOENCODING': 'ascii'}, check=True)
+    output = run.stdout.decode('utf-8')
+    assert 'GC-IR — REPORTABLE TIER-0 RESULTS' in output
+    assert 'REPORTABLE ARTIFACT VERIFIED' in output
+    assert run.stderr == b''

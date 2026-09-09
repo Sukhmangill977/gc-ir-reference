@@ -24,7 +24,7 @@ manuscript.**
 | Repository visibility | ✅ | Public. |
 | Release `v1.0.0` | ✅ | Published 2026-09-08. **Not rewritten.** |
 | Release `v1.0.1` | ✅ | Superseded by `v1.0.2`; retained unrewritten. |
-| Release `v1.0.3` | Pending CI | Packaging-only reviewer usability release; deposit after all required CI succeeds. |
+| Release `v1.0.3` | CI-gated | Packaging-only reviewer usability release; publish and deposit only after all required CI succeeds. |
 | Release `v1.0.2` | ✅ | Superseded packaging release; retained unrewritten. |
 | Freeze tag `preregister-tier0-v2.2` | ✅ | Public, at `c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e`. **Not moved.** |
 | `MANIFEST.sha256` | ✅ | Current; verified by `make verify-manifest` and by CI. |

@@ -47,7 +47,7 @@
       "bytes": 67753,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "8ea986073db4773f4c4d16f0d2afd611966fc39e7fc6ea17a12882c273db9d2e"
+      "sha256": "ca4ecc24fb5975b53cd334c5a0ed2ce09c6dc32a2e54877f6acfb94c5cc08062"
     },
     {
       "bytes": 7543,
@@ -68,10 +68,10 @@
       "sha256": "70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382"
     },
     {
-      "bytes": 6015,
+      "bytes": 6030,
       "path": "artifact_review/ARCHIVAL_CHECKLIST.md",
       "role": "repository_root",
-      "sha256": "5d6f996c3745cb96daa13d4d0ad5ec9258b8cbd19e0c91c56eb936a9eacca7a5"
+      "sha256": "a70fa0ba3d4bee22783577e90270417d92641d89f7d5b42c89bbe0557f4b7999"
     },
     {
       "bytes": 6647,
@@ -1814,10 +1814,10 @@
       "sha256": "1e9e81cbe819680fc5e8ab611d3981d678a9c9a6738b2834009738b924462dc7"
     },
     {
-      "bytes": 4551,
+      "bytes": 5037,
       "path": "tests/unit/test_result_display.py",
       "role": "test_suite",
-      "sha256": "97866f113cc68c288510c4bb8df509abf5f3eff5ba59af7fc45140a155f13404"
+      "sha256": "2112d34651b68fa4d48de3c8f65cec8dc3f3f54b4cf4cbb0c86262ccac93697f"
     },
     {
       "bytes": 5436,
@@ -1928,10 +1928,10 @@
       "sha256": "030944eb6ce267dd2e1aab2405bc1fc8b1776da2f16cdfd489e4e5b460d1c995"
     },
     {
-      "bytes": 35779,
+      "bytes": 36063,
       "path": "tools/show_results.py",
       "role": "fixture_generator",
-      "sha256": "10c415da96b4bd1cac2da45cebcaee33465c504c4d2d1ea7747c57207bf8ee0d"
+      "sha256": "597f352caf67094db054feb0482b77101aeec9caf63fded2c16e7bd9c53bb7d2"
     },
     {
       "bytes": 2089,
@@ -1952,7 +1952,7 @@
       "sha256": "869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc"
     }
   ],
-  "manifest_sha256": "a2a09a20ea6e8d29b3ef5ec1b93c5ed4086529f9bf4c8e65554b09254d5246c4",
+  "manifest_sha256": "70b7d2a55c3b0792707f6466be8a2aaab82ad1aeae5535bb4a66e9332b0d76c6",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1985,5 +1985,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 6397099
+  "total_bytes": 6397884
 }
