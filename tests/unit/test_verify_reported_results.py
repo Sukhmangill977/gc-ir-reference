@@ -79,9 +79,15 @@ def test_verifier_json_mode_is_wellformed(capsys):
     blob = json.loads(capsys.readouterr().out)
     assert blob["all_ok"] is True
     assert blob["failed"] == 0
-    assert blob["reported_result_count"] == blob["reported_result_count"]
+    assert blob["reported_result_count"] > 0
     assert blob["cross_check_count"] > 0
-    assert len(blob["checks"]) == blob["passed"]
+    # Skips are legitimate -- a tagless CI checkout cannot resolve the freeze tag --
+    # so the three states must account for every check, rather than assuming all
+    # of them passed.
+    assert (blob["passed"] + blob["failed"] + blob["skipped"]
+            == len(blob["checks"]))
+    assert blob["reported_result_count"] + blob["cross_check_count"] \
+        == len(blob["checks"])
 
 
 def test_missing_map_exits_two(tmp_path):

@@ -47,7 +47,7 @@
       "bytes": 65696,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "44595f1de50b5a831790b2eea2039a5f32501f37cdbc2b363581d20df5e19525"
+      "sha256": "0680b784529fd81c1ac687fd7823c9d76e2ca98b260068c619301e49b34e0891"
     },
     {
       "bytes": 7091,
@@ -1778,10 +1778,10 @@
       "sha256": "05d30eb17bee151e52057d3d250076616d40241f3668c06759c5327fd1d0f2ed"
     },
     {
-      "bytes": 8947,
+      "bytes": 9257,
       "path": "tests/unit/test_verify_reported_results.py",
       "role": "test_suite",
-      "sha256": "4c7527794808bb311b15954265d658691df86d64132c1720e5f3602ed0d61ca7"
+      "sha256": "942d9dd3a163e6a62f316751325813b3e7055cac7521eae880acc0d8b5730319"
     },
     {
       "bytes": 0,
@@ -1892,7 +1892,7 @@
       "sha256": "869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc"
     }
   ],
-  "manifest_sha256": "cca8bdae86de145a477f3d341b5d45fd94e68332bc1d438cf6d3129ebaa9326d",
+  "manifest_sha256": "8379ee9368dcfe88f3390fa4abfcce208f5fec89fd5388a7783acd2f652f8652",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1925,5 +1925,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 6280244
+  "total_bytes": 6280554
 }
