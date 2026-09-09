@@ -15,14 +15,17 @@
 
 7a272a8b633083d49e974721cd78866a9e95c9212b1d0870ce3567741a1343c0  repository_root            .gitattributes
 b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_root            .gitignore
+247c9fb46b0916d843f29a857b86faddb8294912be66d5f1c57d34e9ff76ef7a  repository_root            .zenodo.json
 84631517fe89da36cabb4cd1aa200d7c4c9470979892992b589899113479e4cc  repository_root            CHANGELOG.md
-1fc00762fe18d601c5cb8e676293a36ff6ed4a7686e2c77fccfda54f1636a7d0  repository_root            CITATION.cff
+7516476c134ea8b7356bcd4823998855343e9a34a09a4b0edfc00cef3c83e6d9  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-5973ac535683df406deee9ea141855fabb430e386034e2e27d3c68e1e12e43e5  repository_root            MANIFEST.json
+e8c8550369202e65dc60ff51dd268b1e377d4a84f458656618efd5b37493208f  repository_root            MANIFEST.json
 d48ef220be0d710a1e530baf1161125df0c46a3a4745b46dbf2038d3b5a6f6a0  repository_root            Makefile
 5ebf036a069f7ed61f4e100ec6c3b4a18faada63e96d9f136654ef5b48bfbb18  repository_root            README.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
+d2ab4de57cb938fb5173bd50963c630c8ccb03842c62a419c339b382b59b4e9a  repository_root            artifact_review/ARCHIVAL_CHECKLIST.md
+abc0ca2665e929f19aae581d765e23890e50da12ab7c3da76f69c345d7a3ba33  repository_root            artifact_review/CLEAN_CLONE_VERIFICATION.md
 acc56b0450d076123ca2ecdbb7a8eb00ffb46ab6e7cd257cc2d47c195346a2cb  repository_root            artifact_review/DATA_INVENTORY.md
 d00a2f4b4165c9340b73f747ffac19faf094d07971f18691aa6e24b647c4fdf1  repository_root            artifact_review/PAPER_RESULT_MAP.json
 ab5f3dd6ab20b9ea9fbdc1354489a0f7a5f9c3d2416578484403546bb3d47d9c  repository_root            artifact_review/PAPER_TO_ARTIFACT_RESULTS.md

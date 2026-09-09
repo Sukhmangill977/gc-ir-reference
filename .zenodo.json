@@ -1,0 +1,39 @@
+{
+  "title": "GC-IR Reference Implementation — reproducibility artifact for \"From Risk Register to Runtime Predicate\"",
+  "upload_type": "software",
+  "license": "MIT",
+  "access_right": "open",
+  "version": "1.0.1",
+  "creators": [
+    {
+      "name": "Gill-Lakhowal, Abhinandan",
+      "affiliation": "Gillian Holdings Incorporated, Calgary, AB, Canada",
+      "orcid": "0009-0004-2089-7262"
+    }
+  ],
+  "description": "<p>Reference implementation and empirical artifact for a deterministic method that compiles approved AI governance assessments into enforceable runtime predicates.</p><p>Implements the governed semantic refinement relation &Psi;_K, closed into a mapping only by a signed judgment record; the GC-IR record family with total risk disposition; the deterministic compiler &Phi; with RFC 8785 canonicalization and SHA-256 bundle hashing; authority closure against an approved action matrix; the consequence-class gate coverage rule; a separately signed lifecycle registry; and a temporally valid traceability model with six audit queries.</p><p>Ships two hash-pinned worked cases (Case A synthetic; Case B a forensic reconstruction), a 62-case adversarial corpus, property-based tests, and the preregistered Tier-0 evaluation campaign whose reportable results are in <code>results/final_v2/</code>, executed after the public preregistration freeze <code>preregister-tier0-v2.2</code>.</p><p><strong>Claim boundary.</strong> The comparative expert study (RQ5) is preregistered and deferred: no adjudication panel has been convened and no participant data exists. Determinism is measured across eight tested environments and is not a claim of platform independence. No detection performance, production deployment or independent validation is claimed.</p>",
+  "keywords": [
+    "AI governance",
+    "risk register",
+    "policy compilation",
+    "semantic refinement",
+    "runtime enforcement",
+    "agentic AI",
+    "model risk management",
+    "non-compensatory aggregation",
+    "traceability",
+    "RFC 8785",
+    "JSON canonicalization",
+    "reproducibility",
+    "IEEE Access Reproducibility Initiative"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Sukhmangill977/gc-ir-reference",
+      "relation": "isSupplementTo",
+      "resource_type": "software",
+      "scheme": "url"
+    }
+  ],
+  "notes": "The article this artifact supports is under submission; its DOI is not yet assigned and is deliberately not asserted here. The authoritative empirical campaign is results/final_v2/, governed by the public preregistration freeze preregister-tier0-v2.2 at commit c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e."
+}
