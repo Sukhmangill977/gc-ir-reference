@@ -47,11 +47,14 @@ FREEZE_TAG = "preregister-tier0-v2.2"
 FREEZE_COMMIT = "c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e"
 REPO_URL = "https://github.com/Sukhmangill977/gc-ir-reference"
 #: The reviewer-facing artifact release. v1.0.0 is the earlier release and is
-#: retained unrewritten; v1.0.1 is the one that carries artifact_review/ and
-#: the reviewer tooling, so it is the release the article should name.
+#: retained unrewritten. v1.0.2 is the release the article names: it carries
+#: artifact_review/, the reviewer tooling, AND this manuscript itself, so the
+#: cited release contains the manuscript that cites it. v1.0.1 held an earlier
+#: revision of the manuscript, which would have left a reviewer fetching the
+#: cited release and finding a different document.
 #: The SCIENTIFIC results are unchanged and remain those of the
 #: preregister-tier0-v2.2 freeze, which Section XI-I cites separately.
-RELEASE = "v1.0.1"
+RELEASE = "v1.0.2"
 
 #: Edit ids whose search text legitimately occurs more than once and must be
 #: applied to EVERY occurrence.  The metrics table carries the same marker on

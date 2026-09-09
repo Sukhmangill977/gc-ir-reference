@@ -17,7 +17,7 @@
       "bytes": 2665,
       "path": ".zenodo.json",
       "role": "repository_root",
-      "sha256": "247c9fb46b0916d843f29a857b86faddb8294912be66d5f1c57d34e9ff76ef7a"
+      "sha256": "e6e3829a1e93d282e4895fd26b75e394ed547db787c55f6deaac03979842eeb3"
     },
     {
       "bytes": 3734,
@@ -26,10 +26,10 @@
       "sha256": "84631517fe89da36cabb4cd1aa200d7c4c9470979892992b589899113479e4cc"
     },
     {
-      "bytes": 2205,
+      "bytes": 2156,
       "path": "CITATION.cff",
       "role": "repository_root",
-      "sha256": "7516476c134ea8b7356bcd4823998855343e9a34a09a4b0edfc00cef3c83e6d9"
+      "sha256": "36ab0f204340e1ef266d9e1a7c07b3358383d9f5defe1aa9b1d05b7be2b6e669"
     },
     {
       "bytes": 1821,
@@ -47,7 +47,7 @@
       "bytes": 66746,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "34852141c57fea20f481e4d784976d9e8d11f403b38bf20f9ea7dd1d6803d65f"
+      "sha256": "a126bfa55849b79d0169d59fef92a393193c3423aee6a8ad8d443ea350b07e16"
     },
     {
       "bytes": 7091,
@@ -68,10 +68,10 @@
       "sha256": "70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382"
     },
     {
-      "bytes": 5845,
+      "bytes": 5965,
       "path": "artifact_review/ARCHIVAL_CHECKLIST.md",
       "role": "repository_root",
-      "sha256": "aabf4cf9158edbe54c2685204bc6f7c840ed8d646a713680f34929e5b67b16e8"
+      "sha256": "335265c767b60b05547103d9229af600eae2798fb5d9a7d03d9132982f783631"
     },
     {
       "bytes": 6137,
@@ -110,10 +110,10 @@
       "sha256": "ab5f3dd6ab20b9ea9fbdc1354489a0f7a5f9c3d2416578484403546bb3d47d9c"
     },
     {
-      "bytes": 15430,
+      "bytes": 15453,
       "path": "artifact_review/README.md",
       "role": "repository_root",
-      "sha256": "7d2e610aec79af416cd438eec45ecf649ba07c789e96db56a3e7d11294805f08"
+      "sha256": "45ceef82aa93371eea3a79da508552e19b82ca7304ad1c7cf196b382cec9df27"
     },
     {
       "bytes": 12167,
@@ -635,7 +635,7 @@
       "bytes": 24104,
       "path": "paper_update/FINAL_MANUSCRIPT_CHANGELOG.md",
       "role": "manuscript_reconciliation",
-      "sha256": "0ed733244f6d99ae4fefb8655b51d807b079274a328e5ba278aa6021c5d4f029"
+      "sha256": "35188e8bf1b6a080d14a4d759f666cd9b015f915c512a90062c37235c07cbf8b"
     },
     {
       "bytes": 15594,
@@ -647,7 +647,7 @@
       "bytes": 2265040,
       "path": "paper_update/From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION.docx",
       "role": "manuscript_reconciliation",
-      "sha256": "2f3ca4031435666d5cc2cddb189037aebd05530669d0bc6612c6a56e96ee7e90"
+      "sha256": "f7ef9c420b287b245434e303fd77814ed85343e61e0cf361df42dc11d052c696"
     },
     {
       "bytes": 13682,
@@ -683,7 +683,7 @@
       "bytes": 4876,
       "path": "paper_update/POST_ZENODO_PATCH.md",
       "role": "manuscript_reconciliation",
-      "sha256": "808372163b8cc0df5a74808b0fce768bc2280c33bd1b81c059b92820f6190de4"
+      "sha256": "c727d17f822115c80b2a73dfa2660c9160c94c47cedaede75bbbd55826754d1e"
     },
     {
       "bytes": 6874,
@@ -1844,10 +1844,10 @@
       "sha256": "849269c41afd2ab98c8443897e165b9662724e6fcfdb70aea837760fa79c949b"
     },
     {
-      "bytes": 47837,
+      "bytes": 48051,
       "path": "tools/build_submission_docx.py",
       "role": "fixture_generator",
-      "sha256": "1aacada42defa1f1cb816e419626674a844f9fc1be0dd6e3fe315bf186094d32"
+      "sha256": "9beb9241498e99782ab6055cae0ef8d763b8827d7690f81e69f839a2f83cbb84"
     },
     {
       "bytes": 52481,
@@ -1922,7 +1922,7 @@
       "sha256": "869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc"
     }
   ],
-  "manifest_sha256": "a529317629c074bd858ffdc3153307fdb8e44f8256789e97af32f24a875f7de1",
+  "manifest_sha256": "6eb45952672ffc7306eb61e5f7d66ef02ff44deed42c352d72d288bd4af08c7f",
   "roles": [
     "acs_a",
     "acs_b",
@@ -1955,5 +1955,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 6329521
+  "total_bytes": 6329829
 }

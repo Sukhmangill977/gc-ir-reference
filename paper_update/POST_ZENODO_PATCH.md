@@ -30,7 +30,7 @@ Throughout, `⟨DOI⟩` means the bare identifier in the form
 
 **Replace with:**
 
-> The artifact is archived at doi: ⟨DOI⟩, which resolves to the `v1.0.1` release
+> The artifact is archived at doi: ⟨DOI⟩, which resolves to the `v1.0.2` release
 > and its hash manifest.
 
 This is the only substitution that is strictly required. If you make no other
@@ -41,12 +41,12 @@ change, the manuscript is correct.
 **Find:**
 
 > The artifact is released at https://github.com/Sukhmangill977/gc-ir-reference,
-> release tag v1.0.1.
+> release tag v1.0.2.
 
 **Replace with:**
 
 > The artifact is released at https://github.com/Sukhmangill977/gc-ir-reference,
-> release tag v1.0.1, and archived at doi: ⟨DOI⟩.
+> release tag v1.0.2, and archived at doi: ⟨DOI⟩.
 
 Apply only if the venue wants the identifier in the artifact appendix as well as
 in availability. One DOI in two places is fine; two *different* DOIs is not.
@@ -129,7 +129,7 @@ produced, and the build stops being reproducible.
 2. **Change no number, claim, or hash** while doing this. The scientific content
    is frozen; this is a bibliographic edit only.
 3. **Do not re-run any experiment.** Nothing here touches `results/final_v2/`.
-4. **The deposit must be the `v1.0.1` release**, not a later state of `main`. If
+4. **The deposit must be the `v1.0.2` release**, not a later state of `main`. If
    the repository has moved on, mint the DOI from the tag.
 5. **If no DOI ever materialises, submit as is.** The repository release plus its
    hash manifest is a complete availability statement, and nothing in the paper

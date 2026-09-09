@@ -12,12 +12,11 @@ authors:
     email: sovran@lakhowal.com
     affiliation: Gillian Holdings Incorporated, Calgary, AB, Canada
     orcid: 'https://orcid.org/0009-0004-2089-7262'
-version: 1.0.1
+version: 1.0.2
 license: MIT
 repository-code: 'https://github.com/Sukhmangill977/gc-ir-reference'
 url: 'https://github.com/Sukhmangill977/gc-ir-reference'
 date-released: '2026-09-09'
-commit: b4d7c67c1c17825889fba436fd31c81fade5b21d
 abstract: >-
   Reference implementation and empirical artifact for a deterministic method that
   compiles approved AI governance assessments into enforceable runtime predicates.

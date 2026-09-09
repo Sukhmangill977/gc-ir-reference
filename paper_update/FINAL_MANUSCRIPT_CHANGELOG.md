@@ -231,7 +231,7 @@ Every replacement is traceable to `paper_update/MEASURED_RESULTS_V2.md`, to a fi
 
 **Was:** and the preregistration commitment are released as a hash-pinned tagged release per Appendix C. The held-out expert-study register is withheld until study close, then released with the study data.
 
-**Now:** and the preregistration commitment are released as a hash-pinned tagged release per Appendix C, at https://github.com/Sukhmangill977/gc-ir-reference, release tag v1.0.1, under the MIT licence. The repository contains the GC-IR JSON Schemas; the Ψ_K tooling and the Φ reference implementation; the Control Derivation Cata…
+**Now:** and the preregistration commitment are released as a hash-pinned tagged release per Appendix C, at https://github.com/Sukhmangill977/gc-ir-reference, release tag v1.0.2, under the MIT licence. The repository contains the GC-IR JSON Schemas; the Ψ_K tooling and the Φ reference implementation; the Control Derivation Cata…
 
 **Why:** Replaces the generic statement with the actual release. No DOI is cited because none exists. Evidence: results/final_v2/PROVENANCE.json.
 
@@ -251,7 +251,7 @@ Every replacement is traceable to `paper_update/MEASURED_RESULTS_V2.md`, to a fi
 
 **Was:** named in the release notes; MIT license for code and schema, per that precedent. [TO CONFIRM: final repository path at release]
 
-**Now:** named in the release notes; MIT license for code and schema, per that precedent. The artifact is released at https://github.com/Sukhmangill977/gc-ir-reference, release tag v1.0.1.
+**Now:** named in the release notes; MIT license for code and schema, per that precedent. The artifact is released at https://github.com/Sukhmangill977/gc-ir-reference, release tag v1.0.2.
 
 **Why:** Resolves the [TO CONFIRM] marker with the actual repository path. Evidence: the public release.
 

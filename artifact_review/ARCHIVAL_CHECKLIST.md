@@ -17,13 +17,14 @@ manuscript.**
 | `CITATION.cff` — parses | ✅ | Valid CFF 1.2.0; all required keys present. |
 | `CITATION.cff` — author | ✅ | Abhinandan Gill-Lakhowal, ORCID `0009-0004-2089-7262`, Gillian Holdings Incorporated. |
 | `CITATION.cff` — `repository-code` | ✅ **FIXED** | Was `https://github.com/AGLakhowal/gc-ir-reference`, **which does not exist** (verified: GitHub returns "Could not resolve to a Repository"). Corrected to `https://github.com/Sukhmangill977/gc-ir-reference`. `AGLakhowal` is the organisation holding the *prior work* `Gamma-Permit-Package`, not this artifact. |
-| `CITATION.cff` — `version` | ✅ | `1.0.1`, matching the release below. |
+| `CITATION.cff` — `version` | ✅ | `1.0.2`, matching the release below. |
 | `CITATION.cff` — `date-released`, `commit` | ✅ **ADDED** | Pins the citation to a specific commit. |
 | `CITATION.cff` — paper DOI | ✅ | Recorded as "to be added once assigned"; **no DOI asserted**. |
 | `.zenodo.json` | ✅ **ADDED** | Explicit deposition metadata so Zenodo does not have to infer title, license, ORCID or description from the repository. Carries the claim boundary in the description. |
 | Repository visibility | ✅ | Public. |
 | Release `v1.0.0` | ✅ | Published 2026-09-08. **Not rewritten.** |
-| Release `v1.0.1` | ✅ | Packaging/documentation release; see `IEEE_REPRODUCIBILITY_SELF_REVIEW.md`. |
+| Release `v1.0.1` | ✅ | Superseded by `v1.0.2`; retained unrewritten. |
+| Release `v1.0.2` | ✅ | The release the article cites. Contains the submitted manuscript, so the cited release holds the document that cites it. |
 | Freeze tag `preregister-tier0-v2.2` | ✅ | Public, at `c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e`. **Not moved.** |
 | `MANIFEST.sha256` | ✅ | Current; verified by `make verify-manifest` and by CI. |
 | `FREEZE_MANIFEST_V2.sha256` | ✅ | Untouched — it proves the frozen experiment and must never be regenerated. |
@@ -33,7 +34,7 @@ manuscript.**
 
 ## What gets archived
 
-The Zenodo deposit should be **the `v1.0.1` release tarball**, not a snapshot of
+The Zenodo deposit should be **the `v1.0.2` release tarball**, not a snapshot of
 `main` at some later time. The release tag, its `MANIFEST.sha256` and the
 preregistration freeze tag are what make the deposit self-verifying.
 
@@ -79,13 +80,13 @@ click. **Stop here and perform these by hand:**
    * **(a)** enable the toggle first and then publish the next release, or
    * **(b)** archive manually: on Zenodo choose *New upload*, attach the release
      tarball from
-     `https://github.com/Sukhmangill977/gc-ir-reference/archive/refs/tags/v1.0.1.tar.gz`,
+     `https://github.com/Sukhmangill977/gc-ir-reference/archive/refs/tags/v1.0.2.tar.gz`,
      and let `.zenodo.json` populate the metadata.
 
-   **(b) is what applies here**, because `v1.0.1` is created before the toggle.
+   **(b) is what applies here**, because `v1.0.2` is created before the toggle.
 
 4. **Check the metadata Zenodo picked up** against `.zenodo.json`: title, MIT
-   license, ORCID, version `1.0.1`, and the description including the claim
+   license, ORCID, version `1.0.2`, and the description including the claim
    boundary. Correct anything Zenodo guessed differently.
 
 5. **Publish.** This mints the DOI. It is irreversible: a published Zenodo record
