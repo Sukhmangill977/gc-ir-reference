@@ -10,22 +10,21 @@ Abhinandan Gill-Lakhowal, Member, IEEE — Gillian Holdings Incorporated, Calgar
 [![cross-platform determinism](https://github.com/Sukhmangill977/gc-ir-reference/actions/workflows/determinism.yml/badge.svg)](../../actions/workflows/determinism.yml)
 [![reproducibility](https://github.com/Sukhmangill977/gc-ir-reference/actions/workflows/reproducibility.yml/badge.svg)](../../actions/workflows/reproducibility.yml)
 
-> **Reportable results: `results/final_v2/`.** Executed after the public
-> preregistration freeze `preregister-tier0-v2.2`, which was pushed to this
+> **Reportable results: `results/final_v3/`.** Executed after the public
+> preregistration freeze `preregister-tier0-v3`, which was pushed to this
 > repository *before* the campaign ran and verified from the remote.
-> `results/final/` holds the superseded v1 campaign, whose freeze was never
-> public at execution time; it is retained unedited and compared in
-> `results/V1_V2_COMPARISON.md`.
+> `results/final_v2/` and `results/final/` hold superseded campaigns and are
+> retained unedited for historical comparison.
 
 ---
 
 <!-- BEGIN AUTO-GENERATED MEASURED RESULTS -->
 ## Measured results
 
-**Reportable campaign:** `results/final_v2/`<br>
-**Scientific freeze:** `preregister-tier0-v2.2`<br>
-**Freeze commit:** `c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e`<br>
-**Artifact packaging:** `v1.0.3`
+**Reportable campaign:** `results/final_v3/`<br>
+**Scientific freeze:** `preregister-tier0-v3`<br>
+**Freeze commit:** `8f85d9b90dec1aa775a92a723df9ab3aff184052`<br>
+**Artifact packaging:** `v1.0.4`
 
 | Metric | Case A | Case B |
 |---|---:|---:|
@@ -40,11 +39,11 @@ Abhinandan Gill-Lakhowal, Member, IEEE — Gillian Holdings Incorporated, Calgar
 | GD(15) | 3 | 4 |
 | GD_min | 3 | 0 |
 
-**Determinism:** TD = 1.000; 62/62 executions passed (31 per case).
+**Determinism:** TD = 1.000; 62/62 executions passed (identical runs).
 
-**Monte Carlo:** K = 250,000 per evaluated risk in Case A; K = 250,000 in Case B. Case A max FP_heat = 0.321268 (MCSE 0.000934); FP_C* = 0 in Case A and 0 in Case B. Observed Case A C* membership changes: 0.
+**Monte Carlo:** Author-specified seed; executed without variance.
 
-**Frozen campaign verification:** 280/280 tests; adversarial corpus 62/62; structural checks 26/26; 16 property tests / 1,427 generated Hypothesis examples; 6 clean traceability queries per case, all empty; 18/18 negative controls detected.
+**Frozen campaign verification:** 320/320 tests; Q1-Q10 audit 20/20 PASS; negative fixtures 10/10 violations detected; 13-injection scenarios 13/13 PASS (4 HOLD + 9 DENY); freeze integrity verified public on GitHub.
 
 **Measured cross-platform evidence:**
 
@@ -86,7 +85,7 @@ make install                  # .venv + the pinned dependency set (~30 s)
 make results                  # machine-derived reportable results
 make test                     # current scientific and packaging tests
 make verify-hashes            # recompile both cases, check the hashes (~2 s)
-python tools/freeze_check.py --final-v2        # the 13 frozen numbers, recomputed
+python tools/freeze_check.py --final-v3        # the frozen metrics, recomputed
 python tools/verify_reported_results.py        # every paper-facing number (~2 s)
 ```
 

@@ -2,6 +2,7 @@
 
     python tools/freeze_check.py            # check against the committed references
     python tools/freeze_check.py --json     # machine-readable
+    python tools/freeze_check.py --final-v3 # check the final_v3 campaign's files
     python tools/freeze_check.py --final-v2 # check the final_v2 campaign's files
 
 This is the entry point the artifact-runs memo names.  It is a **thin
@@ -207,7 +208,9 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--results", default=None,
                         help="results directory to read TD from "
-                             "(default: results/final_v2 if present, else results/final)")
+                             "(default: results/final_v3 if present, else results/final_v2, else results/final)")
+    parser.add_argument("--final-v3", action="store_true",
+                        help="shorthand for --results results/final_v3")
     parser.add_argument("--final-v2", action="store_true",
                         help="shorthand for --results results/final_v2")
     parser.add_argument("--json", action="store_true", help="emit JSON on stdout")
@@ -215,12 +218,18 @@ def main(argv=None):
 
     if args.results:
         results_dir = args.results
+    elif args.final_v3:
+        results_dir = os.path.join(REPO_ROOT, "results", "final_v3")
     elif args.final_v2:
         results_dir = os.path.join(REPO_ROOT, "results", "final_v2")
     else:
-        candidate = os.path.join(REPO_ROOT, "results", "final_v2")
-        results_dir = candidate if os.path.isdir(candidate) else os.path.join(
-            REPO_ROOT, "results", "final")
+        candidate = os.path.join(REPO_ROOT, "results", "final_v3")
+        if os.path.isdir(candidate):
+            results_dir = candidate
+        else:
+            candidate = os.path.join(REPO_ROOT, "results", "final_v2")
+            results_dir = candidate if os.path.isdir(candidate) else os.path.join(
+                REPO_ROOT, "results", "final")
 
     print("=" * 78)
     print("freeze_check.py -- GC-IR reference implementation")

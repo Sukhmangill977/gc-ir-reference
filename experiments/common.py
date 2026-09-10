@@ -28,6 +28,7 @@ if os.path.join(REPO_ROOT, "src") not in sys.path:
 RESULTS_DEV = os.path.join(REPO_ROOT, "results", "development")
 RESULTS_FINAL = os.path.join(REPO_ROOT, "results", "final")
 RESULTS_FINAL_V2 = os.path.join(REPO_ROOT, "results", "final_v2")
+RESULTS_FINAL_V3 = os.path.join(REPO_ROOT, "results", "final_v3")
 
 CASES = ("case_a", "case_b")
 
@@ -45,11 +46,20 @@ def add_common_args(parser):
         help="write to results/final_v2/ (the tier0-v2 reportable campaign, "
              "executed after the PUBLIC freeze)",
     )
+    parser.add_argument(
+        "--final-v3",
+        dest="final_v3",
+        action="store_true",
+        help="write to results/final_v3/ (the tier0-v3 reportable campaign, "
+             "executed after the PUBLIC freeze)",
+    )
     return parser
 
 
 def phase_of(args):
     """Resolve the results phase from parsed arguments."""
+    if getattr(args, "final_v3", False):
+        return "final_v3"
     if getattr(args, "final_v2", False):
         return "final_v2"
     if getattr(args, "final", False):
@@ -59,7 +69,9 @@ def phase_of(args):
 
 def results_dir(final):
     """``final`` may be a bool (legacy) or a phase string."""
-    if final == "final_v2":
+    if final == "final_v3":
+        directory = RESULTS_FINAL_V3
+    elif final == "final_v2":
         directory = RESULTS_FINAL_V2
     elif final == "final" or final is True:
         directory = RESULTS_FINAL
@@ -117,10 +129,13 @@ def write_result(final, name, payload, phase_note=None):
     ``constraint_13_payload_is_hash_clean``.
     """
     directory = results_dir(final)
-    phase = ("final_v2" if final == "final_v2"
+    phase = ("final_v3" if final == "final_v3"
+             else "final_v2" if final == "final_v2"
              else "final" if (final == "final" or final is True)
              else "development")
     default_note = {
+        "final_v3": "FINAL v3 reportable campaign result, produced AFTER the "
+                    "publicly pushed preregistration freeze preregister-tier0-v3.",
         "final_v2": "FINAL v2 reportable campaign result, produced AFTER the "
                     "publicly pushed preregistration freeze preregister-tier0-v2.",
         "final": "tier0-v1 campaign result. Produced after a LOCAL freeze that was "
