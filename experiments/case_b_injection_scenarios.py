@@ -165,8 +165,23 @@ def run(bundle):
     attack, asb = load_ldrea_families()
     expected_names = (list(attack) + list(asb)) if attack else sorted(SCENARIOS)
 
-    predicates = {p["gcir_id"] for p in bundle.predicates}
+    predicates = {p["gcir_id"]: p for p in bundle.predicates}
     rows = []
+
+    # Map family -> expected exact outcome: unknown+escalation=HOLD, fail=DENY
+    expected_outcomes = {}
+    for family, spec in SCENARIOS.items():
+        target = spec["target"]
+        outcome = spec["outcome"]
+        if outcome == "unknown":
+            # Unknown outcome with escalation route -> HOLD
+            target_pred = predicates.get(target)
+            if target_pred and target_pred.get("escalation"):
+                expected_outcomes[family] = "HOLD"
+            else:
+                expected_outcomes[family] = "DENY"
+        else:  # outcome == "fail"
+            expected_outcomes[family] = "DENY"
 
     for family in expected_names:
         spec = SCENARIOS.get(family)
@@ -194,12 +209,17 @@ def run(bundle):
         outcomes[spec["target"]] = spec["outcome"]
         verdict = resolve(bundle, outcomes)
 
-        # A clean control: with nothing injected the same bundle must PERMIT, so
-        # a SAFE_STATE below is attributable to the injection and not to a bundle
-        # that refuses everything.
+        # Clean control: with nothing injected the same bundle must PERMIT
         clean = resolve(bundle, {p["gcir_id"]: "pass" for p in bundle.predicates})
 
-        passed = verdict["decision"] == "SAFE_STATE" and clean["decision"] == "PERMIT"
+        # Check for exact decision outcome and that safe_state is asserted
+        expected_decision = expected_outcomes.get(family)
+        passed = (
+            verdict["decision"] == expected_decision
+            and verdict.get("safe_state") == True
+            and clean["decision"] == "PERMIT"
+            and clean.get("safe_state") == False
+        )
         rows.append({
             "family": family,
             "source": "adversarial_attack_family" if attack and family in attack
@@ -208,10 +228,13 @@ def run(bundle):
             "injected_outcome": spec["outcome"],
             "hazard": spec["hazard"],
             "why_safe_state": spec["why_safe_state"],
+            "expected_decision": expected_decision,
             "decision": verdict["decision"],
+            "safe_state": verdict.get("safe_state"),
             "deciding_class": verdict["deciding_class"],
             "clean_control_decision": clean["decision"],
-            "status": "SAFE_STATE" if passed else "UNEXPECTED",
+            "clean_control_safe_state": clean.get("safe_state"),
+            "status": expected_decision if passed else "UNEXPECTED",
             "passed": passed,
         })
 

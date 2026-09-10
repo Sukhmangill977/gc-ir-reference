@@ -318,9 +318,9 @@ def run_structural_checks():
         })
 
         # 8. Conflicting mandatory policies with no unique precedence relation
-        #    resolve to SAFE_STATE as indeterminate (Section VI-D). This is an
-        #    evaluation-time property, not a compile-time rejection, so it is
-        #    checked here rather than in the mutation corpus.
+        #    resolve to DENY (indeterminate fail-closed, safe_state=true).
+        #    This is an evaluation-time property, not a compile-time rejection,
+        #    so it is checked here rather than in the mutation corpus.
         from gcir.models import CompiledBundle
         from gcir.precedence import resolve
 
@@ -337,7 +337,8 @@ def run_structural_checks():
         checks.append({
             "case": case_id, "check": "conflicting_mandatory_policies_are_indeterminate",
             "manuscript_ref": "Section VI-D",
-            "passed": (verdict["decision"] == "SAFE_STATE"
+            "passed": (verdict["decision"] == "DENY"
+                       and verdict["safe_state"] == True
                        and verdict["deciding_class"] == "indeterminate_mandatory_conflict"),
             "detail": verdict["reason"],
         })
@@ -350,7 +351,8 @@ def run_structural_checks():
             "case": case_id,
             "check": "unique_precedence_relation_resolves_the_conflict",
             "manuscript_ref": "Section VI-D",
-            "passed": (verdict["decision"] == "SAFE_STATE"
+            "passed": (verdict["decision"] == "DENY"
+                       and verdict["safe_state"] == True
                        and verdict["deciding_class"] == "mandatory_failure"),
             "detail": verdict["reason"],
         })

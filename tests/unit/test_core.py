@@ -390,7 +390,9 @@ def test_unknown_evidence_on_a_mandatory_gate_produces_safe_state(case_a):
     mandatory = next(p for p in bundle.predicates if p["gate_type"] == "mandatory")
     outcomes[mandatory["gcir_id"]] = "unknown"
     verdict = resolve(bundle, outcomes)
-    assert verdict["decision"] == "SAFE_STATE"
+    # Unknown + escalation route -> HOLD, otherwise -> DENY; both have safe_state=true
+    assert verdict["decision"] in ["HOLD", "DENY"]
+    assert verdict["safe_state"] == True
     assert verdict["deciding_class"] == "mandatory_failure"
 
 
@@ -411,15 +413,19 @@ def test_conflicting_mandatory_policies_without_precedence_are_indeterminate(cas
     outcomes = {p["gcir_id"]: "pass" for p in payload["predicates"]}
     outcomes[mandatory[0]["gcir_id"]] = "fail"
     verdict = resolve(bundle, outcomes)
-    assert verdict["decision"] == "SAFE_STATE"
+    # Indeterminate mandatory conflict -> DENY (terminal fail-closed)
+    assert verdict["decision"] == "DENY"
+    assert verdict["safe_state"] == True
     assert verdict["deciding_class"] == "indeterminate_mandatory_conflict"
 
     # With a unique precedence relation declared, it is no longer indeterminate.
+    # One gate fails, so it's a resolved mandatory failure -> DENY
     payload["policy_metadata"]["precedence"] = {
         "CG-DISPUTED": {"order": [p["gcir_id"] for p in mandatory]}
     }
     verdict = resolve(bundle, outcomes)
-    assert verdict["decision"] == "SAFE_STATE"
+    assert verdict["decision"] == "DENY"
+    assert verdict["safe_state"] == True
     assert verdict["deciding_class"] == "mandatory_failure"
 
 
