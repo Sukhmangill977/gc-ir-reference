@@ -1,0 +1,101 @@
+{
+  "freeze_commit": "8f85d9b90dec1aa775a92a723df9ab3aff184052",
+  "freeze_tag": "preregister-tier0-v3",
+  "campaign_date": "2026-09-10",
+  "campaign_status": "COMPLETE",
+  "overall_result": "GO_FOR_V1_0_4",
+  "metrics": {
+    "compilation": {
+      "case_a": {
+        "hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+        "predicates": 19,
+        "status": "PASS"
+      },
+      "case_b": {
+        "hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+        "predicates": 9,
+        "acs_count": 6,
+        "status": "PASS"
+      }
+    },
+    "audit_queries": {
+      "case_a": {
+        "q1_q10": {
+          "passed": 10,
+          "total": 10,
+          "status": "PASS"
+        }
+      },
+      "case_b": {
+        "q1_q10": {
+          "passed": 10,
+          "total": 10,
+          "status": "PASS"
+        }
+      },
+      "aggregate": {
+        "passed": 20,
+        "total": 20,
+        "status": "PASS"
+      }
+    },
+    "negative_fixtures": {
+      "total": 10,
+      "violations_detected": 10,
+      "status": "PASS"
+    },
+    "injection_scenarios": {
+      "total": 13,
+      "passed": 13,
+      "hold_outcomes": 4,
+      "deny_outcomes": 9,
+      "status": "PASS"
+    },
+    "test_suite": {
+      "total": 320,
+      "passed": 320,
+      "failed": 0,
+      "status": "PASS"
+    },
+    "determinism": {
+      "runs": 62,
+      "unique_outcomes": 1,
+      "td_value": 1.0,
+      "status": "PASS"
+    },
+    "monte_carlo": {
+      "executed": true,
+      "status": "PASS"
+    },
+    "manuscript_verifier": {
+      "executed": true,
+      "status": "PASS"
+    },
+    "freeze_integrity": {
+      "tag": "preregister-tier0-v3",
+      "commit": "8f85d9b90dec1aa775a92a723df9ab3aff184052",
+      "remote_verified": true,
+      "status": "PASS"
+    },
+    "preserved_state": {
+      "final_v2": "PRESERVED",
+      "preregister_tier0_v2_2": "PRESERVED",
+      "case_a_baseline": "NO_REGRESSION",
+      "v1_0_1_baseline": "PRESERVED",
+      "status": "PASS"
+    }
+  },
+  "critical_success_criteria": {
+    "compilation_verification": "PASS",
+    "q1_q10_audit": "PASS",
+    "negative_fixtures": "PASS",
+    "injections": "PASS",
+    "test_suite": "PASS",
+    "determinism": "PASS",
+    "freeze_integrity": "PASS",
+    "preserved_state": "PASS"
+  },
+  "gates_passed": 20,
+  "gates_total": 20,
+  "decision": "GO_FOR_V1_0_4_PUBLICATION"
+}
