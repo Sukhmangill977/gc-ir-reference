@@ -1,0 +1,500 @@
+{
+  "case_b_compilation": {
+    "status": "SUCCESS",
+    "predicate_count": 9,
+    "risk_derived_count": 0,
+    "compiler_invariant_count": 0,
+    "bundle_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+    "acs_count": 6
+  },
+  "audit_queries_case_b": {
+    "status": "SUCCESS",
+    "q7_passed": true,
+    "q8_passed": true,
+    "q9_passed": true,
+    "q10_passed": true,
+    "q7_details": "[]",
+    "q8_details": "{'missing_predicates': [], 'unused_decisive': []}",
+    "q9_details": "[]",
+    "q10_details": "[]"
+  },
+  "negative_fixtures": {
+    "status": "PARTIAL",
+    "fixture_count": 10,
+    "violations_detected": 0,
+    "fixtures": {
+      "negative_q7_missing_predicate": {
+        "detected_violation": false,
+        "details": {
+          "Q7": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q8": {
+            "passed": true,
+            "details": "{'missing_predicates': [], 'unused_decisive': []}"
+          },
+          "Q9": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q10": {
+            "passed": true,
+            "details": "[]"
+          }
+        }
+      },
+      "negative_q7_compiler_invariant_only": {
+        "detected_violation": false,
+        "details": {
+          "Q7": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q8": {
+            "passed": true,
+            "details": "{'missing_predicates': [], 'unused_decisive': []}"
+          },
+          "Q9": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q10": {
+            "passed": true,
+            "details": "[]"
+          }
+        }
+      },
+      "negative_q8_missing_predicate_reference": {
+        "detected_violation": false,
+        "details": {
+          "Q7": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q8": {
+            "passed": true,
+            "details": "{'missing_predicates': [], 'unused_decisive': []}"
+          },
+          "Q9": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q10": {
+            "passed": true,
+            "details": "[]"
+          }
+        }
+      },
+      "negative_q8_unused_decisive_predicate": {
+        "detected_violation": false,
+        "details": {
+          "Q7": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q8": {
+            "passed": true,
+            "details": "{'missing_predicates': [], 'unused_decisive': []}"
+          },
+          "Q9": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q10": {
+            "passed": true,
+            "details": "[]"
+          }
+        }
+      },
+      "negative_q9_invalid_producer": {
+        "detected_violation": false,
+        "details": {
+          "Q7": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q8": {
+            "passed": true,
+            "details": "{'missing_predicates': [], 'unused_decisive': []}"
+          },
+          "Q9": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q10": {
+            "passed": true,
+            "details": "[]"
+          }
+        }
+      },
+      "negative_q10_not_fail_closed": {
+        "detected_violation": false,
+        "details": {
+          "Q7": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q8": {
+            "passed": true,
+            "details": "{'missing_predicates': [], 'unused_decisive': []}"
+          },
+          "Q9": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q10": {
+            "passed": true,
+            "details": "[]"
+          }
+        }
+      },
+      "negative_q10_multiple_violations": {
+        "detected_violation": false,
+        "details": {
+          "Q7": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q8": {
+            "passed": true,
+            "details": "{'missing_predicates': [], 'unused_decisive': []}"
+          },
+          "Q9": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q10": {
+            "passed": true,
+            "details": "[]"
+          }
+        }
+      },
+      "negative_q7_missing_predicate_alt": {
+        "detected_violation": false,
+        "details": {
+          "Q7": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q8": {
+            "passed": true,
+            "details": "{'missing_predicates': [], 'unused_decisive': []}"
+          },
+          "Q9": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q10": {
+            "passed": true,
+            "details": "[]"
+          }
+        }
+      },
+      "negative_q8_unused_decisive_alt": {
+        "detected_violation": false,
+        "details": {
+          "Q7": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q8": {
+            "passed": true,
+            "details": "{'missing_predicates': [], 'unused_decisive': []}"
+          },
+          "Q9": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q10": {
+            "passed": true,
+            "details": "[]"
+          }
+        }
+      },
+      "negative_q10_not_fail_closed_alt": {
+        "detected_violation": false,
+        "details": {
+          "Q7": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q8": {
+            "passed": true,
+            "details": "{'missing_predicates': [], 'unused_decisive': []}"
+          },
+          "Q9": {
+            "passed": true,
+            "details": "[]"
+          },
+          "Q10": {
+            "passed": true,
+            "details": "[]"
+          }
+        }
+      }
+    }
+  },
+  "injections": {
+    "status": "SUCCESS",
+    "scenario_count": 13,
+    "passed": 13,
+    "failed": 0,
+    "hold_outcomes": 4,
+    "deny_outcomes": 9,
+    "hold_families": [
+      "missing_predicate",
+      "corrupted_input",
+      "network_partition_or_delay",
+      "session_intent_compromise"
+    ],
+    "deny_families": [
+      "toctou",
+      "replay_attack",
+      "payload_mutation",
+      "concurrency_conflict",
+      "adaptive_attacker",
+      "identity_provenance_deception",
+      "runtime_infrastructure_drift",
+      "economic_logic_fragility",
+      "cross_entity_fraud_propagation"
+    ],
+    "scenarios": [
+      {
+        "family": "missing_predicate",
+        "source": "adversarial_attack_family",
+        "target_predicate": "GCIR-B0001",
+        "injected_outcome": "unknown",
+        "hazard": "the permit-binding evidence is absent at authorization time",
+        "expected_exact_outcome": "HOLD",
+        "actual_exact_outcome": "HOLD",
+        "decision": "HOLD",
+        "exact_outcome": "HOLD",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": "payment_operations_urgent",
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      },
+      {
+        "family": "corrupted_input",
+        "source": "adversarial_attack_family",
+        "target_predicate": "GCIR-B0002",
+        "injected_outcome": "unknown",
+        "hazard": "the signed instruction artifact is schema-invalid, so the amount cannot be compared against the approved bound",
+        "expected_exact_outcome": "HOLD",
+        "actual_exact_outcome": "HOLD",
+        "decision": "HOLD",
+        "exact_outcome": "HOLD",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": "payment_operations_urgent",
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      },
+      {
+        "family": "toctou",
+        "source": "adversarial_attack_family",
+        "target_predicate": "GCIR-B0006",
+        "injected_outcome": "fail",
+        "hazard": "the evidence record is committed after actuation rather than before it, so the state read at check time is not the state at use time",
+        "expected_exact_outcome": "DENY",
+        "actual_exact_outcome": "DENY",
+        "decision": "DENY",
+        "exact_outcome": "DENY",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": null,
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      },
+      {
+        "family": "replay_attack",
+        "source": "adversarial_attack_family",
+        "target_predicate": "GCIR-B0005",
+        "injected_outcome": "fail",
+        "hazard": "a previously redeemed permit is presented again",
+        "expected_exact_outcome": "DENY",
+        "actual_exact_outcome": "DENY",
+        "decision": "DENY",
+        "exact_outcome": "DENY",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": null,
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      },
+      {
+        "family": "payload_mutation",
+        "source": "adversarial_attack_family",
+        "target_predicate": "GCIR-B0001",
+        "injected_outcome": "fail",
+        "hazard": "the instruction is altered after the permit was issued, so the permit's bound hash no longer matches the transaction",
+        "expected_exact_outcome": "DENY",
+        "actual_exact_outcome": "DENY",
+        "decision": "DENY",
+        "exact_outcome": "DENY",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": null,
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      },
+      {
+        "family": "concurrency_conflict",
+        "source": "adversarial_attack_family",
+        "target_predicate": "GCIR-B0003",
+        "injected_outcome": "fail",
+        "hazard": "concurrent releases to one counterparty exceed the approved window bound",
+        "expected_exact_outcome": "DENY",
+        "actual_exact_outcome": "DENY",
+        "decision": "DENY",
+        "exact_outcome": "DENY",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": null,
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      },
+      {
+        "family": "network_partition_or_delay",
+        "source": "adversarial_attack_family",
+        "target_predicate": "GCIR-B0004",
+        "injected_outcome": "unknown",
+        "hazard": "the restricted-party screening service is unreachable, so no signed screening artifact is available",
+        "expected_exact_outcome": "HOLD",
+        "actual_exact_outcome": "HOLD",
+        "decision": "HOLD",
+        "exact_outcome": "HOLD",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": "sanctions_desk_urgent",
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      },
+      {
+        "family": "adaptive_attacker",
+        "source": "adversarial_attack_family",
+        "target_predicate": "GCIR-B0002",
+        "injected_outcome": "fail",
+        "hazard": "an attacker splits a large payment into instructions shaped to sit just under each individual bound",
+        "expected_exact_outcome": "DENY",
+        "actual_exact_outcome": "DENY",
+        "decision": "DENY",
+        "exact_outcome": "DENY",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": null,
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      },
+      {
+        "family": "identity_provenance_deception",
+        "source": "asb_scenario_family",
+        "target_predicate": "GCIR-B0001",
+        "injected_outcome": "fail",
+        "hazard": "a forged authority signature is presented on the permit",
+        "expected_exact_outcome": "DENY",
+        "actual_exact_outcome": "DENY",
+        "decision": "DENY",
+        "exact_outcome": "DENY",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": null,
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      },
+      {
+        "family": "runtime_infrastructure_drift",
+        "source": "asb_scenario_family",
+        "target_predicate": "GCIR-INV-VERSION",
+        "injected_outcome": "fail",
+        "hazard": "the runtime configuration fingerprint no longer matches the assessed configuration",
+        "expected_exact_outcome": "DENY",
+        "actual_exact_outcome": "DENY",
+        "decision": "DENY",
+        "exact_outcome": "DENY",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": null,
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      },
+      {
+        "family": "economic_logic_fragility",
+        "source": "asb_scenario_family",
+        "target_predicate": "GCIR-B0002",
+        "injected_outcome": "fail",
+        "hazard": "the instruction amount exceeds the approved automated release ceiling",
+        "expected_exact_outcome": "DENY",
+        "actual_exact_outcome": "DENY",
+        "decision": "DENY",
+        "exact_outcome": "DENY",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": null,
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      },
+      {
+        "family": "cross_entity_fraud_propagation",
+        "source": "asb_scenario_family",
+        "target_predicate": "GCIR-B0004",
+        "injected_outcome": "fail",
+        "hazard": "the counterparty is a member of the restricted-party list",
+        "expected_exact_outcome": "DENY",
+        "actual_exact_outcome": "DENY",
+        "decision": "DENY",
+        "exact_outcome": "DENY",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": null,
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      },
+      {
+        "family": "session_intent_compromise",
+        "source": "asb_scenario_family",
+        "target_predicate": "GCIR-B0001",
+        "injected_outcome": "unknown",
+        "hazard": "the session's permit cannot be resolved to this transaction, so the binding is indeterminate",
+        "expected_exact_outcome": "HOLD",
+        "actual_exact_outcome": "HOLD",
+        "decision": "HOLD",
+        "exact_outcome": "HOLD",
+        "safe_state": true,
+        "deciding_class": "mandatory_failure",
+        "escalation_route": "payment_operations_urgent",
+        "clean_control_decision": "PERMIT",
+        "status": "PASS",
+        "passed": true
+      }
+    ]
+  },
+  "case_a_regression": {
+    "status": "SUCCESS",
+    "predicate_count": 19,
+    "clean_control_decision": "PERMIT",
+    "clean_control_safe_state": false,
+    "clean_control_passed": true
+  },
+  "audit_queries_case_a": {
+    "status": "SUCCESS",
+    "q7_passed": true,
+    "q8_passed": true,
+    "q9_passed": true,
+    "q10_passed": true
+  }
+}

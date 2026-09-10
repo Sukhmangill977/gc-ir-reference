@@ -62,8 +62,11 @@ def _resolve_unknown(predicate):
 def resolve(bundle, outcomes):
     """Resolve a decision over ``{gcir_id: outcome}`` and return a verdict.
 
-    Returns a dict with ``decision`` in {PERMIT, SAFE_STATE}, the deciding
-    precedence class, and every contributing predicate.
+    Returns a dict with ``decision`` in {PERMIT, DENY, HOLD}, where:
+    - PERMIT: all mandatory conditions satisfied, safe_state=false
+    - DENY: mandatory failure (known fail or no escalation), safe_state=true
+    - HOLD: unknown evidence + valid escalation route, safe_state=true
+    Also includes exact_outcome (alias), escalation_route (if HOLD).
     """
     gate_map = bundle.gate_map
     predicates = {p["gcir_id"]: p for p in bundle.predicates}
@@ -93,31 +96,66 @@ def resolve(bundle, outcomes):
         conflict = _mandatory_conflict(failures, classified, bundle)
         if conflict is not None:
             return {
-                "decision": "SAFE_STATE",
+                "decision": "DENY",
+                "exact_outcome": "DENY",
+                "safe_state": True,
                 "deciding_class": "indeterminate_mandatory_conflict",
                 "reason": conflict,
                 "contributions": classified,
             }
-        return {
-            "decision": "SAFE_STATE",
+
+        # Classify failure as DENY or HOLD
+        exact_outcome = _classify_exact_outcome(failures, classified, predicates)
+        reason = "mandatory gate(s) %s failed" % ", ".join(
+            sorted(f["gcir_id"] for f in failures)
+        )
+        result = {
+            "decision": exact_outcome,
+            "exact_outcome": exact_outcome,
+            "safe_state": True,
             "deciding_class": "mandatory_failure",
-            "reason": "mandatory gate(s) %s failed"
-            % ", ".join(sorted(f["gcir_id"] for f in failures)),
+            "reason": reason,
             "contributions": classified,
         }
 
-    # No mandatory failure: a weighted or advisory result can never override a
-    # mandatory pass, so the decision is PERMIT.  Advisory results are reported.
+        # If HOLD, include escalation route
+        if exact_outcome == "HOLD":
+            for failure in failures:
+                pred = predicates[failure["gcir_id"]]
+                if pred.get("escalation"):
+                    result["escalation_route"] = pred["escalation"]["route"]
+                    result["escalation_sla_hours"] = pred["escalation"].get("sla_hours")
+                    break
+
+        return result
+
+    # No mandatory failure: PERMIT
     advisory = [
         c for c in classified if c["precedence_class"] == "weighted_or_advisory"
     ]
     return {
         "decision": "PERMIT",
+        "exact_outcome": "PERMIT",
+        "safe_state": False,
         "deciding_class": "mandatory_pass",
         "reason": "no mandatory gate failed; %d weighted/advisory result(s) do not "
         "override a mandatory pass" % len(advisory),
         "contributions": classified,
     }
+
+
+def _classify_exact_outcome(failures, classified, predicates):
+    """Classify mandatory failure as DENY or HOLD.
+
+    HOLD: Unknown evidence + valid escalation route exists
+    DENY: Known failure (outcome='fail') OR no escalation route
+    """
+    for failure in failures:
+        if failure["outcome"] == "unknown":
+            pred = predicates.get(failure["gcir_id"])
+            if pred and pred.get("escalation"):
+                return "HOLD"
+    return "DENY"
 
 
 def _mandatory_conflict(failures, classified, bundle):

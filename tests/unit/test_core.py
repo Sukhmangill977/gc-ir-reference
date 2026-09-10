@@ -363,7 +363,8 @@ def test_mandatory_failure_outranks_everything(case_a):
     mandatory = next(p for p in bundle.predicates if p["gate_type"] == "mandatory")
     outcomes[mandatory["gcir_id"]] = "fail"
     verdict = resolve(bundle, outcomes)
-    assert verdict["decision"] == "SAFE_STATE"
+    assert verdict["decision"] == "DENY"
+    assert verdict["safe_state"] == True
     assert verdict["deciding_class"] == "mandatory_failure"
 
 
