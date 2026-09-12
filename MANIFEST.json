@@ -1,5 +1,5 @@
 {
-  "file_count": 459,
+  "file_count": 461,
   "files": [
     {
       "bytes": 1022,
@@ -62,10 +62,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 90306,
+      "bytes": 95864,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "b880a7494ae93ca7f1d68ad87d0fd475087487e5f30c762e5b12bf25c9273f96"
+      "sha256": "312d764b6f6d3ff5d4eab373d7eaca6401a34811bf9efab0498a1fe66774b6e4"
     },
     {
       "bytes": 8498,
@@ -728,6 +728,12 @@
       "sha256": "4947d02320419b1f7b2d17c35244dfebf7b5dc21735ab9622fe24c547eb94c1f"
     },
     {
+      "bytes": 7745,
+      "path": "docs/V4_MANIFEST_DEFECT_REPORT.json",
+      "role": "documentation",
+      "sha256": "fabe63e31f5980bf13f112ff8b18614ef032dd6658b5c83c794d0cbf46c37fc1"
+    },
+    {
       "bytes": 3053,
       "path": "docs/ZENODO_RELEASE_STEPS.md",
       "role": "documentation",
@@ -806,10 +812,10 @@
       "sha256": "457cca83b8ba27223a76c7f39e8369cf13bd2fb6d00da62a814a8147f7b8a17d"
     },
     {
-      "bytes": 7051,
+      "bytes": 11918,
       "path": "experiments/make_manifest.py",
       "role": "experiment_code",
-      "sha256": "f121abcd93b1dcf7ee9946ddd78ecc3c455702d35bc7bbed34f96ad8ad8f7a2c"
+      "sha256": "08c0544c8dd19807fd22c90e4f91aaeace82c575337c886a62f0ba3817abe185"
     },
     {
       "bytes": 9288,
@@ -1358,10 +1364,10 @@
       "sha256": "a037fdcc2985a3280ac0903e87c1e288f774ea496da568d3b1b6bad879f8892f"
     },
     {
-      "bytes": 2560,
+      "bytes": 2574,
       "path": "results/development/determinism_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "04add4785ffd8a9b7a01794c790eb974771f119dce418312f04ab58a84250796"
+      "sha256": "1b18bae2fa7f5f6035703c21e17090eb9f4a09e907bcde6b08bcbc115fc71596"
     },
     {
       "bytes": 18253,
@@ -1412,10 +1418,10 @@
       "sha256": "9cb5fd09fed54b54fb9292ca318e3941767fb0343ba51207925d8b042e37f888"
     },
     {
-      "bytes": 25881,
+      "bytes": 25895,
       "path": "results/development/monte_carlo_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "9609b9dd9d16543827a13dcc26559e8b9416e4942e30ce08e978b61c4a6e5331"
+      "sha256": "73a9f25d3f79da78066fe92e45ade0d265ef0142964f6e60f94ec0d06ddf51db"
     },
     {
       "bytes": 113422,
@@ -2564,6 +2570,12 @@
       "sha256": "c93e34287e3670c538108134ed126ceb0fbf97d7bd40dc27c8d6860b1eb23ad3"
     },
     {
+      "bytes": 6324,
+      "path": "tests/unit/test_make_manifest.py",
+      "role": "test_suite",
+      "sha256": "f48d9eccbe12cf2d58c928069cacbc6a5db2d95337a73575fd877450db0fcda8"
+    },
+    {
       "bytes": 5037,
       "path": "tests/unit/test_result_display.py",
       "role": "test_suite",
@@ -2690,10 +2702,10 @@
       "sha256": "e993ccdcbbebb1d01d9fa05855e250254c3b0f7afcf0fcafb571b72f0574ba1a"
     },
     {
-      "bytes": 20795,
+      "bytes": 21039,
       "path": "tools/freeze_check_prospective_v4.py",
       "role": "fixture_generator",
-      "sha256": "7f000f139963f8af88667fcdc0e96af9858c0e8980389eabb399ae5155ffad2d"
+      "sha256": "d980a4afca5c5ea1adf044b84cd609a1316a2674cfa4361ac84e155008bcc619"
     },
     {
       "bytes": 8851,
@@ -2756,8 +2768,8 @@
       "sha256": "869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc"
     }
   ],
-  "generated_from_ref": "INDEX",
-  "manifest_sha256": "a4d42fc56d52480e21124e3752b4d094ca7f51acf341de057d08bc1df53ead24",
+  "generated_from_ref": "HEAD",
+  "manifest_sha256": "fa2e0ad75b87c63affa016820662046f96d73fa7e7b070c092a70f1ee8a40de2",
   "roles": [
     "acs_a",
     "acs_b",
@@ -2792,5 +2804,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 10832992
+  "total_bytes": 10857758
 }
