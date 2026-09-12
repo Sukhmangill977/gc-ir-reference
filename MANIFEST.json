@@ -62,10 +62,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 95864,
+      "bytes": 96260,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "312d764b6f6d3ff5d4eab373d7eaca6401a34811bf9efab0498a1fe66774b6e4"
+      "sha256": "9d5c2d55516e7af69f6c1dc3ce96a89ee65d496eb699ce82f2e6e98070dcb688"
     },
     {
       "bytes": 8498,
@@ -1367,7 +1367,7 @@
       "bytes": 2574,
       "path": "results/development/determinism_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "1b18bae2fa7f5f6035703c21e17090eb9f4a09e907bcde6b08bcbc115fc71596"
+      "sha256": "29899bb8589836a03734e90b704710851544bda3f0d105341def0668cb2a3d67"
     },
     {
       "bytes": 18253,
@@ -1421,7 +1421,7 @@
       "bytes": 25895,
       "path": "results/development/monte_carlo_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "73a9f25d3f79da78066fe92e45ade0d265ef0142964f6e60f94ec0d06ddf51db"
+      "sha256": "041071463ffaf63107ce1008e153db77afe28eeacbc608bea2fe0380b77cbb0c"
     },
     {
       "bytes": 113422,
@@ -2702,10 +2702,10 @@
       "sha256": "e993ccdcbbebb1d01d9fa05855e250254c3b0f7afcf0fcafb571b72f0574ba1a"
     },
     {
-      "bytes": 21039,
+      "bytes": 21245,
       "path": "tools/freeze_check_prospective_v4.py",
       "role": "fixture_generator",
-      "sha256": "d980a4afca5c5ea1adf044b84cd609a1316a2674cfa4361ac84e155008bcc619"
+      "sha256": "f1ac8eceadb5c3241153d03c35e8b0d84dc612e59753b068fa48d9f25c886505"
     },
     {
       "bytes": 8851,
@@ -2769,7 +2769,7 @@
     }
   ],
   "generated_from_ref": "HEAD",
-  "manifest_sha256": "fa2e0ad75b87c63affa016820662046f96d73fa7e7b070c092a70f1ee8a40de2",
+  "manifest_sha256": "0640ad1e7a703879d4b9083a088f5b562b638173590292a2c1aed1625102e0e6",
   "roles": [
     "acs_a",
     "acs_b",
@@ -2804,5 +2804,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 10857758
+  "total_bytes": 10858360
 }

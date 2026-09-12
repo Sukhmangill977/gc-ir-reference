@@ -25,7 +25,7 @@ e6e3829a1e93d282e4895fd26b75e394ed547db787c55f6deaac03979842eeb3  repository_roo
 263b0681e3668f12646352d1047c5d90288a533a55a23647bb23ec7018598fef  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-312d764b6f6d3ff5d4eab373d7eaca6401a34811bf9efab0498a1fe66774b6e4  repository_root            MANIFEST.json
+9d5c2d55516e7af69f6c1dc3ce96a89ee65d496eb699ce82f2e6e98070dcb688  repository_root            MANIFEST.json
 8f05af2cba5818348e4b036ca5fe20d54e0f109e86f602feeda5cbb0b9e5a302  repository_root            Makefile
 fd14124e1de24d17f62aed69903484c659ecbcfe078b6a7ec6efe2ddda8aa07e  repository_root            README.md
 9580cbbd552bf339423846d761287250c67ab2125fc71fad66323a8a7ed49fb8  repository_root            RELEASE_NOTES_V1_0_4.md
@@ -242,7 +242,7 @@ ec8ac3517c29ab3ca60b332ac3a710cfcfc91194f9ab250c6438121b7d053b44  development_re
 a13cf5e0fb9006d6f40615112cb9aa9eda4812b1884617d3f767812708ee0d33  development_result         results/development/determinism_runs.csv
 a57f43db740ee65bb85025343df5d690e53588a8e8d012ee93e67a7b6dd4e77a  development_result         results/development/determinism_runs_case_b_v11.csv
 a037fdcc2985a3280ac0903e87c1e288f774ea496da568d3b1b6bad879f8892f  development_result         results/development/determinism_summary.json
-1b18bae2fa7f5f6035703c21e17090eb9f4a09e907bcde6b08bcbc115fc71596  development_result         results/development/determinism_summary_case_b_v11.json
+29899bb8589836a03734e90b704710851544bda3f0d105341def0668cb2a3d67  development_result         results/development/determinism_summary_case_b_v11.json
 a88d267f3f6b7b1dfd5b133eece5e69478df6a12a78e17b4fae555815a3b1f8f  development_result         results/development/gate_divergence.json
 f30e2494b4e45f1ad8ed75ca8044a9026414fd0a24c14ec5e99d158232d5b4db  development_result         results/development/gate_divergence_heatmap.csv
 70e1562ab95d373786634185a7ac838ff4bb07f63348fbb8904452893f1fb180  development_result         results/development/ieee_check_v4_result.json
@@ -251,7 +251,7 @@ f30e2494b4e45f1ad8ed75ca8044a9026414fd0a24c14ec5e99d158232d5b4db  development_re
 c26c8180cbfd440d8e256a53677427fed1ce3126b8f6ec63a31ea57397514ae5  development_result         results/development/monte_carlo_per_risk.csv
 5235b3ab7c7c981dbac63d556d180638b15eace7c9da59351f78fb9a1d28577d  development_result         results/development/monte_carlo_per_risk_case_b_v11.csv
 9cb5fd09fed54b54fb9292ca318e3941767fb0343ba51207925d8b042e37f888  development_result         results/development/monte_carlo_summary.json
-73a9f25d3f79da78066fe92e45ade0d265ef0142964f6e60f94ec0d06ddf51db  development_result         results/development/monte_carlo_summary_case_b_v11.json
+041071463ffaf63107ce1008e153db77afe28eeacbc608bea2fe0380b77cbb0c  development_result         results/development/monte_carlo_summary_case_b_v11.json
 613373849657fadc6f22247d7e9c6e9394e5221cf35e5a578aced8a02b3d5438  development_result         results/development/property_tests.json
 85faa54cad80c0c54d0892a0e5bcd0726e46ac09428e09b8e9eae2a667cef74f  development_result         results/development/reproduce_all.json
 ef22fa761afe2f1d6b6c25536b1a3b74d550dd3e5cd9f7a47d56438fa3665452  development_result         results/development/test_reports/junit_adversarial.xml
@@ -465,7 +465,7 @@ b144a9a7ee1e8ee4f52e8a2543ac730436ebe23b16b158eb74e2726f523dc0e3  fixture_genera
 31a555d09d95f37a0f86dc3c3267c615ae2d43eccb1bb08dcc04456e121ca2a1  fixture_generator          tools/case_c_data.py
 1a90a5118d6e54e5ce8608d47b2c538fd652bdb8438875c28c9551683d25cbb9  case_b_input               tools/derive_ldrea_predicate_family.py
 e993ccdcbbebb1d01d9fa05855e250254c3b0f7afcf0fcafb571b72f0574ba1a  phi_impl                   tools/freeze_check.py
-d980a4afca5c5ea1adf044b84cd609a1316a2674cfa4361ac84e155008bcc619  fixture_generator          tools/freeze_check_prospective_v4.py
+f1ac8eceadb5c3241153d03c35e8b0d84dc612e59753b068fa48d9f25c886505  fixture_generator          tools/freeze_check_prospective_v4.py
 be6448ca42011fe44ab8ab9c67089c1af578b3a47f65ae18a613c513d4a47823  fixture_generator          tools/invariants_data.py
 4fa88a558f9b88315d88cf9acde3b1b239d66ebdb8c52c6c88a204f5777a1e35  fixture_generator          tools/make_measured_docx.py
 aa82bdd98cab8c9f3d9c2b82ea5f7438e1a427d2714e29ad050403ea6e520bbb  experiment_code            tools/montecarlo.py
