@@ -314,18 +314,22 @@ def check():
         # regardless of scientific content, and MANIFEST.json is
         # self-referential (it lists its own manifest_sha256, which
         # necessarily moves each time the manifest itself is rewritten).
-        from experiments.make_manifest import verify_against_ref
+        from experiments.make_manifest import role_for, verify_against_ref
         excluded_roles = {"development_result"}
         excluded_paths = {"MANIFEST.json"}
+
+        def is_excluded(path):
+            return path in excluded_paths or role_for(path) in excluded_roles
+
         diff = verify_against_ref(
-            [row for row in manifest["files"]
-             if row["role"] not in excluded_roles and row["path"] not in excluded_paths],
+            [row for row in manifest["files"] if not is_excluded(row["path"])],
             REPO_ROOT, ref="HEAD",
         )
         # A path that legitimately belongs to an excluded role/path is not a
-        # real "missing" finding just because it was filtered out above.
-        diff["missing"] = [p for p in diff["missing"]
-                            if p not in excluded_paths]
+        # real "missing"/"extra" finding just because it was filtered out of
+        # the manifest side above -- the git-tree side is unfiltered, so the
+        # same exclusion must apply to whatever verify_against_ref reports.
+        diff = {key: [p for p in paths if not is_excluded(p)] for key, paths in diff.items()}
         record("MANIFEST.json matches the committed HEAD tree exactly "
                "(git ls-tree + git cat-file, excluding development_result/MANIFEST.json)",
                not diff["missing"] and not diff["extra"] and not diff["changed"],
