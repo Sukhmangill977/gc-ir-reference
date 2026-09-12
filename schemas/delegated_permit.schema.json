@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/delegated_permit.schema.json",
+  "title": "DelegatedPermit (schema v1.1)",
+  "description": "Manuscript Section V design commitment 7 (INV-DELEGATION-NARROWING). A child permit issued over the DELEGATE transition. Strict containment against its parent -- (scope, validity, actions) contained on every component and strictly smaller on at least one -- is checked at issuance by auxiliary check A3, since the compiler never sees a parent permit instance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_type", "permit_id", "parent_permit_id", "scope", "validity", "actions", "delegatee"],
+  "properties": {
+    "record_type": { "const": "DelegatedPermit" },
+    "permit_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "parent_permit_id": { "type": ["string", "null"] },
+    "scope": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "validity": { "$ref": "common.schema.json#/$defs/validityInterval" },
+    "actions": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "delegatee": { "$ref": "common.schema.json#/$defs/identifier" },
+    "signature": { "$ref": "common.schema.json#/$defs/signature" }
+  }
+}

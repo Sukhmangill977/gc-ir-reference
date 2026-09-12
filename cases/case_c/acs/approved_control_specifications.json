@@ -1,0 +1,906 @@
+{
+  "acs_set_id": "D-CASE-C",
+  "records": [
+    {
+      "acs_id": "ACS-C01-01",
+      "action": "activate_instrument",
+      "action_parameters": {
+        "instrument_id": "INSTR-001",
+        "procedure_step": "step_6"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "context_conditions": [
+        {
+          "attribute": "contraindication_absent",
+          "evidence_producer": "ifu_contraindication_table_v3",
+          "evidence_schema_ref": "ES-CONTRAINDICATION",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "compliance.surgical_safety_desk",
+      "decision_semantics": "PERMIT requires the triple to be absent from the approved contraindication table; indeterminate or absent evidence fails.",
+      "destination": "patient",
+      "enforcement_phase": "PRE_AUTHORIZATION",
+      "escalation": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "contraindication_check",
+      "evidence_requirements": [
+        "procedure_class",
+        "instrument_class",
+        "task",
+        "table_version"
+      ],
+      "evidence_schema_ref": "ES-CONTRAINDICATION",
+      "evidence_semantics": "A versioned IFU contraindication table lookup over (procedure_class, instrument_class, task).",
+      "evidence_source": "ifu_contraindication_table_v3 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-C0001",
+      "mandatory_role": "decisive",
+      "obligation_refs": [
+        "IFU-CONTRAINDICATION"
+      ],
+      "observable_class": "instrument_procedure_contraindication",
+      "observable_id": "contraindication_absent",
+      "observable_producer": "ifu_contraindication_table_v3",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-ACTIVATE-INSTRUMENT",
+      "policy_id": "POL-C-CONTRAINDICATION",
+      "resource": "surgical_instrument",
+      "risk_id": "C-01",
+      "subject": "assistance_module",
+      "template_id": "T-CONTRAINDICATION",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes the triple is not on the approved contraindication list. It does not establish trajectory or force safety."
+    },
+    {
+      "acs_id": "ACS-C02-01",
+      "action": "energy_activate",
+      "action_parameters": {
+        "port_configuration": "config_A"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "context_conditions": [
+        {
+          "attribute": "state_digest_match",
+          "evidence_producer": "state_binding_service_v1",
+          "evidence_schema_ref": "ES-STATE-BINDING",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "technology.surgical_robotics_platform",
+      "decision_semantics": "PERMIT requires the boundary digest to equal the authorization digest; a mismatch is HOLD (INV-STATE-BINDING), never a silent permit.",
+      "destination": "patient",
+      "enforcement_phase": "PRE_AUTHORIZATION",
+      "escalation": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "state_binding_check",
+      "evidence_requirements": [
+        "procedure_step",
+        "instrument_id",
+        "port_configuration",
+        "digest_at_authorization",
+        "digest_at_boundary"
+      ],
+      "evidence_schema_ref": "ES-STATE-BINDING",
+      "evidence_semantics": "A world-state digest computed over (procedure_step, instrument_id, port_configuration) at authorization and recomputed at the boundary.",
+      "evidence_source": "state_binding_service_v1 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-C0002",
+      "mandatory_role": "decisive",
+      "obligation_refs": [],
+      "observable_class": "world_state_digest_match",
+      "observable_id": "state_digest_match",
+      "observable_producer": "state_binding_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-ENERGY-ACTIVATE",
+      "policy_id": "POL-C-ENERGY",
+      "resource": "energy_delivery_channel",
+      "risk_id": "C-02",
+      "state_binding": {
+        "attributes": [
+          "procedure_step",
+          "instrument_id",
+          "port_configuration"
+        ]
+      },
+      "subject": "assistance_module",
+      "template_id": "T-STATE-BINDING",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes the world state has not changed since authorization. It does not establish the delivered energy is clinically appropriate."
+    },
+    {
+      "acs_id": "ACS-C03-01",
+      "action": "enter_autonomous_subtask",
+      "action_parameters": {
+        "procedure_step": "step_6"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "context_conditions": [
+        {
+          "attribute": "supervisor_authorized",
+          "evidence_producer": "control_token_service_v1",
+          "evidence_schema_ref": "ES-SUPERVISORY-AUTHORITY",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "compliance.surgical_safety_desk",
+      "decision_semantics": "PERMIT requires an authenticated, privileged, token-holding supervisor in SUPERVISED mode; indeterminate or absent evidence fails.",
+      "destination": "procedure_field",
+      "escalation": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "supervisory_authority_check",
+      "evidence_requirements": [
+        "supervisor_id",
+        "procedure_class",
+        "control_token_owner",
+        "autonomy_mode"
+      ],
+      "evidence_schema_ref": "ES-SUPERVISORY-AUTHORITY",
+      "evidence_semantics": "A signed control-token artifact reporting the authenticated supervisor, procedure-class privileging, token ownership, and autonomy mode.",
+      "evidence_source": "control_token_service_v1 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-C0003",
+      "mandatory_role": "decisive",
+      "obligation_refs": [],
+      "observable_class": "supervisor_authority_state",
+      "observable_id": "supervisor_authorized",
+      "observable_producer": "control_token_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-ENTER-SUBTASK",
+      "policy_id": "POL-C-AUTONOMY",
+      "resource": "subtask_permit",
+      "risk_id": "C-03",
+      "subject": "assistance_module",
+      "template_id": "T-SUPERVISORY-AUTHORITY",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes an identifiable supervising surgeon holds authority for this subtask. It does not establish the surgeon is attentive (see C-16)."
+    },
+    {
+      "acs_id": "ACS-C04-01",
+      "action": "transfer_control",
+      "action_parameters": {
+        "receiving_actor": "surgeon.second",
+        "releasing_actor": "surgeon.primary"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "concurrence_policy": {
+        "expiry_response": "DENY",
+        "m_eligible": [
+          "privileged_surgeon"
+        ],
+        "n_required": 2,
+        "window_seconds": 300
+      },
+      "context_conditions": [
+        {
+          "attribute": "concurrence_satisfied",
+          "evidence_producer": "console_attestation_service_v1",
+          "evidence_schema_ref": "ES-TRANSFER-CONCURRENCE",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "compliance.surgical_safety_desk",
+      "decision_semantics": "PERMIT requires 2-of-2 concurrence within the declared window; expiry with fewer than 2 attestations is DENY, never a timeout.",
+      "destination": "console",
+      "enforcement_phase": "PRE_AUTHORIZATION",
+      "escalation": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "concurrence_check",
+      "evidence_requirements": [
+        "releasing_actor",
+        "receiving_actor",
+        "attestation_count"
+      ],
+      "evidence_schema_ref": "ES-TRANSFER-CONCURRENCE",
+      "evidence_semantics": "A signed console-attestation artifact reporting distinct releasing and receiving actor attestations.",
+      "evidence_source": "console_attestation_service_v1 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-C0004",
+      "mandatory_role": "decisive",
+      "obligation_refs": [],
+      "observable_class": "control_transfer_concurrence_state",
+      "observable_id": "concurrence_satisfied",
+      "observable_producer": "console_attestation_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-TRANSFER-CONTROL",
+      "policy_id": "POL-C-TRANSFER",
+      "resource": "control_session",
+      "risk_id": "C-04",
+      "subject": "assistance_module",
+      "template_id": "T-TRANSFER-CONCURRENCE",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes both parties attested to the transfer. It does not establish either party reviewed the handoff substantively."
+    },
+    {
+      "acs_id": "ACS-C05-01",
+      "action": "activate_instrument",
+      "action_parameters": {
+        "instrument_id": "INSTR-001",
+        "procedure_step": "step_6"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "context_conditions": [
+        {
+          "attribute": "actor_scope_not_revoked",
+          "evidence_producer": "registry_service_v1",
+          "evidence_schema_ref": "ES-ACTOR-SCOPE",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "compliance.surgical_safety_desk",
+      "decision_semantics": "PERMIT requires no effective ActorScopeRevocation covers this actor and action tuple at authorization time.",
+      "destination": "patient",
+      "escalation": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "actor_scope_check",
+      "evidence_requirements": [
+        "actor_id",
+        "action_tuple",
+        "revocation_effective_time"
+      ],
+      "evidence_schema_ref": "ES-ACTOR-SCOPE",
+      "evidence_semantics": "A signed registry lookup reporting whether the proposing actor's scope over this action tuple has been revoked (auxiliary check A1).",
+      "evidence_source": "registry_service_v1 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-C0005",
+      "mandatory_role": "decisive",
+      "obligation_refs": [],
+      "observable_class": "actor_scope_revocation_state",
+      "observable_id": "actor_scope_not_revoked",
+      "observable_producer": "registry_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-ACTIVATE-INSTRUMENT",
+      "policy_id": "POL-C-REVOCATION",
+      "resource": "surgical_instrument",
+      "risk_id": "C-05",
+      "subject": "assistance_module",
+      "template_id": "T-ACTOR-SCOPE",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes the actor's scope was not revoked. It does not establish the actor was ever competent to hold it."
+    },
+    {
+      "acs_id": "ACS-C08-01",
+      "action": "present_guidance",
+      "action_parameters": {
+        "guidance_class": "phase_detection"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "context_conditions": [
+        {
+          "attribute": "guidance_permitted",
+          "evidence_producer": "ifu_contraindication_table_v3",
+          "evidence_schema_ref": "ES-GUIDANCE-CONTRAINDICATION",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "compliance.surgical_safety_desk",
+      "decision_semantics": "PERMIT requires the guidance class to be absent from the contraindication table for this procedure class, on a non-stale snapshot.",
+      "destination": "surgeon_display",
+      "enforcement_phase": "PRE_AUTHORIZATION",
+      "escalation": {
+        "route": "surgical_safety_desk",
+        "sla_hours": 4
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "guidance_contraindication_check",
+      "evidence_requirements": [
+        "guidance_class",
+        "procedure_class",
+        "context_snapshot_age_seconds"
+      ],
+      "evidence_schema_ref": "ES-GUIDANCE-CONTRAINDICATION",
+      "evidence_semantics": "A structural check that the guidance class is not contraindicated for this procedure class and the context snapshot is not stale.",
+      "evidence_source": "ifu_contraindication_table_v3 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-C0008",
+      "mandatory_role": "decisive",
+      "obligation_refs": [
+        "IFU-CONTRAINDICATION"
+      ],
+      "observable_class": "guidance_contraindication_state",
+      "observable_id": "guidance_permitted",
+      "observable_producer": "ifu_contraindication_table_v3",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-PRESENT-GUIDANCE",
+      "policy_id": "POL-C-GUIDANCE",
+      "resource": "guidance_output",
+      "response_policy": "REQUIRED",
+      "risk_id": "C-08",
+      "subject": "assistance_module",
+      "template_id": "T-GUIDANCE-CONTRAINDICATION",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes the presented guidance is not contraindicated by class. It does not establish the guidance content is clinically correct."
+    },
+    {
+      "acs_id": "ACS-C09-01",
+      "action": "export_data",
+      "action_parameters": {
+        "data_class": "video"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "context_conditions": [
+        {
+          "attribute": "consent_covers_export",
+          "evidence_producer": "consent_registry_service_v1",
+          "evidence_schema_ref": "ES-CONSENT-SCOPE",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "compliance.surgical_safety_desk",
+      "decision_semantics": "PERMIT requires the signed consent artifact to cover the proposed export tuple; indeterminate or absent evidence fails.",
+      "destination": "external_review_system",
+      "escalation": {
+        "route": "compliance_records_desk",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "consent_scope_check",
+      "evidence_requirements": [
+        "data_class",
+        "destination",
+        "purpose",
+        "attester"
+      ],
+      "evidence_schema_ref": "ES-CONSENT-SCOPE",
+      "evidence_semantics": "A signed consent artifact covering (data_class, destination, purpose), attested by the circulating nurse.",
+      "evidence_source": "consent_registry_service_v1 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-C0009",
+      "mandatory_role": "decisive",
+      "obligation_refs": [
+        "INST-CONSENT-SCOPE"
+      ],
+      "observable_class": "consent_artifact_state",
+      "observable_id": "consent_covers_export",
+      "observable_producer": "consent_registry_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-EXPORT-DATA",
+      "policy_id": "POL-C-CONSENT",
+      "resource": "telemetry_data",
+      "risk_id": "C-09",
+      "subject": "assistance_module",
+      "template_id": "T-CONSENT-SCOPE",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes the export is within the recorded consent scope. It does not establish the consent itself was properly obtained."
+    },
+    {
+      "acs_id": "ACS-C10-01",
+      "action": "present_guidance",
+      "action_parameters": {
+        "guidance_class": "phase_detection"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "context_conditions": [
+        {
+          "attribute": "model_validated_for_procedure",
+          "evidence_producer": "model_registry_service_v1",
+          "evidence_schema_ref": "ES-MODEL-VALIDITY",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "technology.surgical_robotics_platform",
+      "decision_semantics": "PERMIT requires the model id to resolve in the validated-models registry for this procedure class at the bound model version.",
+      "destination": "surgeon_display",
+      "escalation": {
+        "route": "surgical_safety_desk",
+        "sla_hours": 4
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "model_validity_check",
+      "evidence_requirements": [
+        "model_id",
+        "procedure_class",
+        "model_version"
+      ],
+      "evidence_schema_ref": "ES-MODEL-VALIDITY",
+      "evidence_semantics": "A signed model-registry lookup reporting whether the consulted model is validated for this procedure class and matches M.version_binding.",
+      "evidence_source": "model_registry_service_v1 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-C0010",
+      "mandatory_role": "decisive",
+      "obligation_refs": [],
+      "observable_class": "model_validation_state",
+      "observable_id": "model_validated_for_procedure",
+      "observable_producer": "model_registry_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-PRESENT-GUIDANCE",
+      "policy_id": "POL-C-MODEL",
+      "resource": "guidance_output",
+      "risk_id": "C-10",
+      "subject": "assistance_module",
+      "template_id": "T-MODEL-VALIDITY",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes the model was validated for this use. It does not establish the model's output is clinically correct."
+    },
+    {
+      "acs_id": "ACS-C11-01",
+      "action": "present_guidance",
+      "action_parameters": {
+        "guidance_class": "phase_detection"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "context_conditions": [
+        {
+          "attribute": "dwell_within_band",
+          "evidence_producer": "attestation_telemetry_service_v1",
+          "evidence_schema_ref": "ES-ATTESTATION-DWELL",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "compliance.surgical_safety_desk",
+      "decision_semantics": "A dwell outside the approved band raises an advisory monitoring signal; it does not itself deny authorization.",
+      "destination": "surgeon_display",
+      "escalation": {
+        "route": "surgical_safety_desk",
+        "sla_hours": 24
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "attestation_dwell_check",
+      "evidence_requirements": [
+        "step_class",
+        "dwell_seconds"
+      ],
+      "evidence_schema_ref": "ES-ATTESTATION-DWELL",
+      "evidence_semantics": "Deterministic telemetry proxy for substantive review: per-step attestation dwell time for pre-authorized step classes.",
+      "evidence_source": "attestation_telemetry_service_v1 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "advisory",
+      "gcir_id": "GCIR-C0011",
+      "mandatory_role": "supporting",
+      "obligation_refs": [],
+      "observable_class": "attestation_dwell_state",
+      "observable_id": "dwell_within_band",
+      "observable_producer": "attestation_telemetry_service_v1",
+      "on_fail": "WARN",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-PRESENT-GUIDANCE",
+      "policy_id": "POL-C-MONITORING",
+      "resource": "guidance_output",
+      "risk_id": "C-11",
+      "soft_gate_type": "advisory",
+      "subject": "assistance_module",
+      "template_id": "T-ATTESTATION-DWELL",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes a proxy for review substance. It does not establish the surgeon's attention was actually engaged."
+    },
+    {
+      "acs_id": "ACS-C12-01",
+      "action": "delegate",
+      "action_parameters": {
+        "parent_permit_id": "PARENT-SUBTASK-PERMIT"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "context_conditions": [
+        {
+          "attribute": "child_strictly_contained",
+          "evidence_producer": "delegation_registry_service_v1",
+          "evidence_schema_ref": "ES-DELEGATION-CONTAINMENT",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "compliance.surgical_safety_desk",
+      "decision_semantics": "PERMIT requires strict containment on every component and inequality on at least one; an identical or wider child is DENY.",
+      "delegation": {
+        "parent_permit_class_id": "PARENT-SUBTASK-PERMIT"
+      },
+      "destination": "delegatee_actor",
+      "enforcement_phase": "PRE_AUTHORIZATION",
+      "escalation": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "delegation_containment_check",
+      "evidence_requirements": [
+        "parent_permit_id",
+        "child_scope",
+        "child_validity",
+        "child_actions"
+      ],
+      "evidence_schema_ref": "ES-DELEGATION-CONTAINMENT",
+      "evidence_semantics": "A signed delegation-registry check that the child permit's (scope, validity, actions) is strictly contained in its parent's (auxiliary check A3, INV-DELEGATION-NARROWING).",
+      "evidence_source": "delegation_registry_service_v1 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-C0012",
+      "mandatory_role": "decisive",
+      "obligation_refs": [],
+      "observable_class": "delegation_containment_state",
+      "observable_id": "child_strictly_contained",
+      "observable_producer": "delegation_registry_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-DELEGATE",
+      "policy_id": "POL-C-DELEGATION",
+      "resource": "subtask_permit",
+      "risk_id": "C-12",
+      "subject": "assistance_module",
+      "template_id": "T-DELEGATION-CONTAINMENT",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes the child permit narrows its parent. It does not establish the parent permit itself was properly authorized."
+    },
+    {
+      "acs_id": "ACS-C13-01",
+      "action": "enter_autonomous_subtask",
+      "action_parameters": {
+        "procedure_step": "step_6"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "context_conditions": [
+        {
+          "attribute": "snapshot_valid",
+          "evidence_producer": "context_snapshot_service_v1",
+          "evidence_schema_ref": "ES-SNAPSHOT-PROVENANCE",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "technology.surgical_robotics_platform",
+      "decision_semantics": "PERMIT requires patient_id == scheduled patient, snapshot within its declared freshness bound, and a verified lineage chain.",
+      "destination": "procedure_field",
+      "escalation": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "snapshot_provenance_check",
+      "evidence_requirements": [
+        "patient_id",
+        "scheduled_patient_id",
+        "snapshot_age_seconds",
+        "lineage_hash_chain_valid"
+      ],
+      "evidence_schema_ref": "ES-SNAPSHOT-PROVENANCE",
+      "evidence_semantics": "A signed context-snapshot artifact reporting patient-identity match, freshness, and an unbroken lineage hash chain.",
+      "evidence_source": "context_snapshot_service_v1 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-C0013",
+      "mandatory_role": "decisive",
+      "obligation_refs": [],
+      "observable_class": "snapshot_provenance_state",
+      "observable_id": "snapshot_valid",
+      "observable_producer": "context_snapshot_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-ENTER-SUBTASK",
+      "policy_id": "POL-C-SNAPSHOT",
+      "resource": "subtask_permit",
+      "risk_id": "C-13",
+      "subject": "assistance_module",
+      "template_id": "T-SNAPSHOT-PROVENANCE",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes the snapshot's identity, freshness and lineage. It propagates to C-03 via input_provenance; it does not itself establish the autonomous proposal is clinically correct."
+    },
+    {
+      "acs_id": "ACS-C14-01",
+      "action": "enter_autonomous_subtask",
+      "action_parameters": {
+        "procedure_step": "step_6"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "context_conditions": [
+        {
+          "attribute": "evaluation_completed_within_bound",
+          "evidence_producer": "deadline_watchdog_service_v1",
+          "evidence_schema_ref": "ES-LATENCY-WATCHDOG",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "technology.surgical_robotics_platform",
+      "decision_semantics": "Expiry of the bound is HOLD (on_evaluation_timeout), never a partial permit; this is the governance row over INV-LATENCY, as R-11/B-06 sit over their coinciding invariants.",
+      "destination": "procedure_field",
+      "enforcement_phase": "PRE_AUTHORIZATION",
+      "escalation": {
+        "route": "technology_change_management",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "evaluation_latency_bound": {
+        "unit": "ms",
+        "value": 300
+      },
+      "event_type": "latency_watchdog_check",
+      "evidence_requirements": [
+        "evaluation_id",
+        "completed_within_bound"
+      ],
+      "evidence_schema_ref": "ES-LATENCY-WATCHDOG",
+      "evidence_semantics": "An independent deadline watchdog, outside the evaluator it supervises, reporting whether evaluation completed within evaluation_latency_bound.",
+      "evidence_source": "deadline_watchdog_service_v1 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-C0014",
+      "mandatory_role": "decisive",
+      "obligation_refs": [],
+      "observable_class": "evaluation_completion_state",
+      "observable_id": "evaluation_completed_within_bound",
+      "observable_producer": "deadline_watchdog_service_v1",
+      "on_evaluation_timeout": "HOLD",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-ENTER-SUBTASK",
+      "policy_id": "POL-C-LATENCY",
+      "resource": "subtask_permit",
+      "risk_id": "C-14",
+      "subject": "assistance_module",
+      "template_id": "T-LATENCY-WATCHDOG",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes the evaluator signaled completion in time. It does not establish the evaluation's substantive correctness."
+    },
+    {
+      "acs_id": "ACS-C15-01",
+      "action": "activate_instrument",
+      "action_parameters": {
+        "instrument_id": "INSTR-001",
+        "procedure_step": "step_6"
+      },
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "context_conditions": [
+        {
+          "attribute": "intervention_correlated",
+          "evidence_producer": "safety_event_registry_v1",
+          "evidence_schema_ref": "ES-SAFETY-CORRELATION",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "compliance.surgical_safety_desk",
+      "decision_semantics": "A missing correlation places HOLD on the next ordinary authorization in the affected scope (POST_EVENT_AUDIT); it never gates the intervention itself.",
+      "destination": "patient",
+      "enforcement_phase": "POST_EVENT_AUDIT",
+      "escalation": {
+        "route": "incident_review_board",
+        "sla_hours": 24
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "safety_correlation_check",
+      "evidence_requirements": [
+        "intervention_id",
+        "correlated_safety_event_id",
+        "recorded_within_window"
+      ],
+      "evidence_schema_ref": "ES-SAFETY-CORRELATION",
+      "evidence_semantics": "A signed safety-event registry check (auxiliary check A2) that every declared safety-layer intervention is correlated to a SafetyEvent within its recording window.",
+      "evidence_source": "safety_event_registry_v1 signed artifact",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-C0015",
+      "mandatory_role": "decisive",
+      "obligation_refs": [],
+      "observable_class": "safety_event_correlation_state",
+      "observable_id": "intervention_correlated",
+      "observable_producer": "safety_event_registry_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-ACTIVATE-INSTRUMENT",
+      "policy_id": "POL-C-SAFETY-EVIDENCE",
+      "resource": "surgical_instrument",
+      "risk_id": "C-15",
+      "subject": "assistance_module",
+      "template_id": "T-SAFETY-CORRELATION",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-01T00:00:00Z",
+        "effective_until": "2027-03-01T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-C-1.0",
+      "warrant_boundary": "Establishes recovery evidence completeness. It does not establish the safety layer's own correctness or certification."
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "acs",
+    "key_id": "key.governance_forum_a",
+    "payload_hash": "45e801b5a0c73fce114468470fbf5869f859c7af2df7c535d962ec1608b7d438",
+    "signature_b64": "QEZ+CfBhWop+5LNcJbaklJHJ+onZJ3vdMkXrim/PXtkqkYwKhMIRDmONMRmjgfnyAvhASVzg39ti/Q8tuQt6Bg==",
+    "signing_time": "2026-02-10T15:10:00Z"
+  },
+  "version_binding_ref": "VB-CASE-C-1.0"
+}

@@ -107,3 +107,84 @@ jobs:
           name: ci-status
           path: CI_STATUS.md
           if-no-files-found: ignore
+
+  # Prospective preregister-tier0-v4 state: Case A + Case B v1.1 (12 predicates,
+  # 9 ACS). Kept as separate jobs from reference-hashes / cross-platform-agreement
+  # above so the historical (Case A + historical Case B) evidence and workflow
+  # path are never touched -- do not cite the historical v2-era cross-platform
+  # run as evidence for this prospective v4 state.
+  reference-hashes-case-b-v11:
+    name: v4 reference hashes (${{ matrix.os }}, py${{ matrix.python-version }}, ${{ matrix.locale }}, ${{ matrix.tz }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.11', '3.12']
+        include:
+          - os: ubuntu-latest
+            locale: C.UTF-8
+            tz: UTC
+          - os: windows-latest
+            locale: C
+            tz: Asia/Kolkata
+          - os: macos-latest
+            locale: en_US.UTF-8
+            tz: Pacific/Chatham
+    env:
+      LANG: ${{ matrix.locale }}
+      LC_ALL: ${{ matrix.locale }}
+      TZ: ${{ matrix.tz }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.lock
+
+      - name: Determinism experiment, Case A + Case B v1.1 (frozen 31-run stratified matrix per case)
+        run: python -m experiments.run_determinism_case_b_v11
+
+      - name: Upload determinism run log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: determinism-case-b-v11-${{ matrix.os }}-py${{ matrix.python-version }}
+          path: |
+            results/development/determinism_runs_case_b_v11.csv
+            results/development/determinism_summary_case_b_v11.json
+          if-no-files-found: error
+
+  cross-platform-agreement-case-b-v11:
+    name: all platforms agree on the v4 reference hashes (Case A + Case B v1.1)
+    needs: reference-hashes-case-b-v11
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: downloaded
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.lock
+
+      - name: Compare every platform's v4 reference hash
+        run: python -m experiments.check_ci_agreement_case_b_v11 downloaded --out CI_STATUS_CASE_B_V11.md
+
+      - name: Publish the v4 cross-platform status table
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-status-case-b-v11
+          path: CI_STATUS_CASE_B_V11.md
+          if-no-files-found: ignore

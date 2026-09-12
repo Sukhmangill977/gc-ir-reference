@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/safety_event.schema.json",
+  "title": "SafetyEvent (schema v1.1)",
+  "description": "Manuscript Section VIII. Records an intervention by an independent runtime safety layer under standing authority (INV-SAFETY-RECOVERY), correlated to the authorization state in force when it fired. Never gates the intervention itself; a missing correlation places HOLD on the next ordinary authorization in the affected scope (auxiliary check A2), which never conditions the intervention.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_type", "safety_event_id", "safety_layer_id", "trigger",
+               "effective_time", "origin", "correlated_bundle_hash", "signature"],
+  "properties": {
+    "record_type": { "const": "SafetyEvent" },
+    "safety_event_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "safety_layer_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "trigger": { "type": "string", "minLength": 1 },
+    "effective_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+    "origin": { "const": "INV-SAFETY-RECOVERY" },
+    "correlated_permit_id": { "type": ["string", "null"] },
+    "correlated_bundle_hash": { "$ref": "common.schema.json#/$defs/sha256Hex" },
+    "signature": { "$ref": "common.schema.json#/$defs/signature" }
+  }
+}

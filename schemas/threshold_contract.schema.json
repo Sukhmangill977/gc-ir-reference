@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gcir.example/schemas/v1.0/threshold_contract.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/threshold_contract.schema.json",
   "title": "Threshold contract",
   "description": "Manuscript Section V, design commitment 4: a numeric or temporal bound is not admissible until it carries operational definition, numerator, denominator, evidence source, ground truth, threshold rationale, uncertainty method, unit, and reproduction procedure. Threshold authority is separated from evaluation: control owners propose, the accountable governance forum approves, the runtime evaluator never sets or adjusts.",
   "type": "object",

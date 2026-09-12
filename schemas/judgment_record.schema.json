@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gcir.example/schemas/v1.0/judgment_record.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/judgment_record.schema.json",
   "title": "Signed judgment record J",
   "description": "Manuscript Section IV-A. J is the set of signed selections (assigned event types, chosen templates, completed control fields, approvals) that the governance authorities actually made. Psi_K is a relation over the assessment; J is what closes it into a single-valued mapping. J is itself a governance artifact: versioned, signed, and included in the authorized-origin chain.",
   "type": "object",

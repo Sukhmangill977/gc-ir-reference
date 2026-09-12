@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/actor_scope_revocation.schema.json",
+  "title": "ActorScopeRevocation (schema v1.1)",
+  "description": "Manuscript Section VI-F / VIII. Withdraws a named actor's authority over a named scope from an effective time, without touching the compiled bundle. Lives outside the hashed payload, exactly like a lifecycle-registry entry or a receipt. Checked by auxiliary check A1.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_type", "actor_id", "scope", "effective_time", "authority", "signature"],
+  "properties": {
+    "record_type": { "const": "ActorScopeRevocation" },
+    "actor_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "scope": {
+      "type": "array",
+      "minItems": 1,
+      "description": "The action tuples this revocation withdraws the actor's authority over.",
+      "items": { "$ref": "common.schema.json#/$defs/actionTuple" }
+    },
+    "effective_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+    "authority": { "$ref": "common.schema.json#/$defs/identifier" },
+    "cascade_to_children": { "type": "boolean", "default": true },
+    "reason": { "type": "string" },
+    "signature": { "$ref": "common.schema.json#/$defs/signature" }
+  }
+}

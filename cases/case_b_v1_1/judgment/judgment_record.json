@@ -1,0 +1,212 @@
+{
+  "approvals": [
+    {
+      "acs_id": "ACS-B01-01",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B01-02",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B01-03",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B02-01",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B02-02",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B03-01",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B04-01",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B05-01",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    },
+    {
+      "acs_id": "ACS-B06-01",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "forum": "payments_governance_forum"
+    }
+  ],
+  "assessment_ref": {
+    "assessment_id": "ASSESSMENT-CASE-B",
+    "binding_id": "VB-CASE-B-1.0"
+  },
+  "catalog_ref": {
+    "catalog_id": "K-CASE-B-V1.1",
+    "version": "1.0"
+  },
+  "disposition_decisions": [
+    {
+      "decided_by": "business.head_payment_operations",
+      "decision_time": "2026-02-15T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "B-01",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_payment_operations",
+      "decision_time": "2026-02-15T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "B-02",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_payment_operations",
+      "decision_time": "2026-02-15T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "B-03",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "compliance.head_sanctions",
+      "decision_time": "2026-02-15T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "B-04",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_payment_operations",
+      "decision_time": "2026-02-15T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "B-05",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "compliance.head_records",
+      "decision_time": "2026-02-15T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "B-06",
+      "status": "runtime"
+    }
+  ],
+  "judgment_id": "J-CASE-B-V1.1",
+  "selections": [
+    {
+      "acs_id": "ACS-B01-01",
+      "event_type": "permit_binding",
+      "rationale": "Permit validity and binding is a structural check over a signed artifact; T-PERMIT-BIND is the approved template. Enriched at schema v1.1 with state_binding over the five-attribute transaction tuple Table II names.",
+      "risk_id": "B-01",
+      "selected_by": "business.head_payment_operations",
+      "selection_id": "JB11-SEL-001",
+      "selection_time": "2026-02-15T10:00:00Z",
+      "template_id": "T-PERMIT-BIND"
+    },
+    {
+      "acs_id": "ACS-B01-02",
+      "event_type": "prohibited_class_lookup",
+      "rationale": "New at schema v1.1, per Section X's explicit ACS-B01-02 specification: a deterministic-lookup prohibited-class check, kept structurally distinct from permit-binding evidence so a known prohibition DENYs independently of permit state.",
+      "risk_id": "B-01",
+      "selected_by": "compliance.head_sanctions",
+      "selection_id": "JB11-SEL-002",
+      "selection_time": "2026-02-15T10:00:00Z",
+      "template_id": "T-PROHIBITED-CLASS"
+    },
+    {
+      "acs_id": "ACS-B01-03",
+      "event_type": "enhanced_approval_check",
+      "rationale": "New at schema v1.1, per Section X's explicit ACS-B01-03 specification: human-attested enhanced approval with a concurrence_policy, unrepresentable before schema v1.1 added that mechanism.",
+      "risk_id": "B-01",
+      "selected_by": "compliance.enhanced_approval_officer",
+      "selection_id": "JB11-SEL-003",
+      "selection_time": "2026-02-15T10:00:00Z",
+      "template_id": "T-ENHANCED-APPROVAL"
+    },
+    {
+      "acs_id": "ACS-B02-01",
+      "event_type": "amount_limit",
+      "rationale": "The instruction amount is a measured value requiring a threshold contract; T-AMOUNT-LIMIT selected with TC-PAYMENT-LIMIT as the absolute ceiling. Unconditional DENY on breach -- no escalation route.",
+      "risk_id": "B-02",
+      "selected_by": "business.head_payment_operations",
+      "selection_id": "JB11-SEL-004",
+      "selection_time": "2026-02-15T10:00:00Z",
+      "template_id": "T-AMOUNT-LIMIT"
+    },
+    {
+      "acs_id": "ACS-B02-02",
+      "event_type": "escalation_tier_check",
+      "rationale": "New at schema v1.1, per Table II's explicit ACS-B02-02 specification: the delegated escalation tier for amounts between the ordinary limit and the absolute ceiling, via human_attestation + concurrence_policy.",
+      "risk_id": "B-02",
+      "selected_by": "business.head_payment_operations",
+      "selection_id": "JB11-SEL-005",
+      "selection_time": "2026-02-15T10:00:00Z",
+      "template_id": "T-ESCALATION-TIER"
+    },
+    {
+      "acs_id": "ACS-B03-01",
+      "event_type": "velocity_bound",
+      "rationale": "Window transaction count is a measured value requiring a threshold contract; T-VELOCITY selected with TC-VELOCITY-BOUND.",
+      "risk_id": "B-03",
+      "selected_by": "business.head_payment_operations",
+      "selection_id": "JB11-SEL-006",
+      "selection_time": "2026-02-15T10:00:00Z",
+      "template_id": "T-VELOCITY"
+    },
+    {
+      "acs_id": "ACS-B04-01",
+      "event_type": "restricted_party_screening",
+      "rationale": "Restricted-party screening resolves to a signed artifact; T-RESTRICTED-PARTY is the approved deterministic-lookup template. Selected by class, not by score.",
+      "risk_id": "B-04",
+      "selected_by": "compliance.head_sanctions",
+      "selection_id": "JB11-SEL-007",
+      "selection_time": "2026-02-15T10:00:00Z",
+      "template_id": "T-RESTRICTED-PARTY"
+    },
+    {
+      "acs_id": "ACS-B05-01",
+      "event_type": "permit_single_use",
+      "rationale": "Permit redemption state and hash novelty are structural; T-SINGLE-USE selected. state_binding over transaction_hash added at schema v1.1.",
+      "risk_id": "B-05",
+      "selected_by": "business.head_payment_operations",
+      "selection_id": "JB11-SEL-008",
+      "selection_time": "2026-02-15T10:00:00Z",
+      "template_id": "T-SINGLE-USE"
+    },
+    {
+      "acs_id": "ACS-B06-01",
+      "event_type": "receipt_chain_completeness",
+      "rationale": "Receipt ordering and chaining are structural; T-RECEIPT-CHAIN-B selected. enforcement_phase = POST_AUTH_PRE_ACTUATION at schema v1.1, matching its coincidence with INV-EVIDENCE-COMMIT.",
+      "risk_id": "B-06",
+      "selected_by": "compliance.head_records",
+      "selection_id": "JB11-SEL-009",
+      "selection_time": "2026-02-15T10:00:00Z",
+      "template_id": "T-RECEIPT-CHAIN-B"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "judgment_record",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "4af63060e9e1876c5b149dc52551a8fe33c3fb3d652b25dcf41327fdd0870f2e",
+    "signature_b64": "g5bH1dMo/ssshnpCcH+BroQrpQrpZ8hgAr/hxEgKwcwLXzPlwiFLkS7YylOmTKvZL4AO5e1PfnNJ/11yOpLaAw==",
+    "signing_time": "2026-01-22T15:08:00Z"
+  },
+  "version": "1.1"
+}

@@ -1,0 +1,528 @@
+{
+  "assessment_id": "ASSESSMENT-CASE-B-V1.1",
+  "case_class": "forensic_reconstruction",
+  "metadata": {
+    "accountable_exec": "exec.head_of_payments",
+    "assessor": "governance.assessor_r_okafor",
+    "deployment": "production payment authorization path, single rail",
+    "exclusions": [
+      "No payment initiation: the agent authorizes releases, it does not originate instructions.",
+      "No counterparty onboarding or KYC decisioning.",
+      "No customer-facing communication."
+    ],
+    "method": "NIST AI RMF 1.0 Map/Measure profile with ISO 31000 cause-event-consequence register; register reconstructed retrospectively from the deployed predicate families",
+    "owner_business": "business.payment_operations",
+    "owner_technical": "technology.payments_platform",
+    "purpose": "Per-transaction authorization of outbound payment instructions at machine speed, with every proposed externalization mediated by the runtime authority.",
+    "review_cycle": "semi-annual, or on any trigger",
+    "scope": "Authorization of outbound payment release. Every proposed externalization is mediated by the runtime authority; no payment leaves the institution without a permit.",
+    "system_id": "CASE-B-TRANSACTION-AUTHORIZATION-AGENT",
+    "triggers": [
+      "model_version_change",
+      "prompt_or_policy_change",
+      "dataset_refresh_outside_bounds",
+      "scope_expansion",
+      "new_obligation",
+      "catalog_change",
+      "consequence_class_reclassification",
+      "incident_above_declared_severity"
+    ],
+    "validity_interval": {
+      "effective_from": "2026-02-01T00:00:00Z",
+      "effective_until": "2027-02-01T00:00:00Z"
+    },
+    "version_binding": {
+      "binding_id": "VB-CASE-B-1.0",
+      "dataset_version": "restricted-party-list-2026-01-28",
+      "fingerprint": "sha256:2c7e94b0af165d3e8a2140c9db73f6e50b8d1a4c9e2f70b6a538d1c04e97fa38",
+      "model_version": "txn-authorization-policy-engine-2026.01",
+      "policy_version": "payments-policy-2026.1",
+      "prompt_version": "not-applicable-non-generative"
+    }
+  },
+  "obligations": [
+    {
+      "applicability_basis": [
+        "Canadian financial institution",
+        "effects outbound payments"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "prohibition on dealings with listed persons",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-14T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "consolidated to 2026-01-15",
+      "obligation_id": "SEMA-SANCTIONS",
+      "requirement_class": "statutory",
+      "requirement_text_hash": "8484acc4d1af73fdbe3e8f662767439d76b76f0a9775280527353476d52a72b3",
+      "source": "Special Economic Measures Act and related regulations; UN Act regulations",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "reporting entity under the Act"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "s. 7 reporting and s. 6 record keeping",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-14T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "consolidated to 2025-11-01",
+      "obligation_id": "PCMLTFA-REPORT",
+      "requirement_class": "statutory",
+      "requirement_text_hash": "084e435f9978b7cd7ddacc4a42e369c98cfbe2ec86d9fb20ca67ca811f900459",
+      "source": "Proceeds of Crime (Money Laundering) and Terrorist Financing Act",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "payment authorization is a critical business service"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "s. 4 critical operations",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-14T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "OSFI E-21 (2024)",
+      "obligation_id": "OSFI-E21-ORR-B",
+      "requirement_class": "supervisory",
+      "requirement_text_hash": "f5ec9db7acde45a8b4bd2f88bf8e4f9471234a5370152e70a816c1b13590f90e",
+      "source": "OSFI Guideline E-21, Operational Risk and Resilience",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "all automated payment authorization"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "PAL-2026 s. 2 (per-transaction limit) and s. 3 (velocity bound)",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-14T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "PAL-2026.1",
+      "obligation_id": "INT-PAY-LIMIT",
+      "requirement_class": "internal",
+      "requirement_text_hash": "2db3164f0c08a7d5d52ad78d9d4096caef2803b34e594827dcb18f5880d91559",
+      "source": "Internal requirement -- Payment Authorization Limit Standard",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "all automated authorization decisions with an external effect"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "PBS-2026 s. 1",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-14T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "PBS-2026.1",
+      "obligation_id": "INT-PERMIT-BIND",
+      "requirement_class": "internal",
+      "requirement_text_hash": "970c4ef09232615112d6e951f236a339ada4d1cc6a9c6db565d2e8a27db7cd6c",
+      "source": "Internal requirement -- Permit Binding and Single-Use Standard",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "all authorization decisions taken by an automated authority"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "ECC-2026 s. 1 (authorization receipts)",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-01-14T16:30:00Z",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "ECC-2026.1",
+      "obligation_id": "INT-EVID-CHAIN-B",
+      "requirement_class": "internal",
+      "requirement_text_hash": "5390fd626228dc93f9a849d86c4da59e06fcd0ee7a9dd2ee37172b7e5b6457ee",
+      "source": "Internal requirement -- Evidence Chain Completeness Standard",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    }
+  ],
+  "risk_analysis": [
+    {
+      "consequence_class": "authority",
+      "consequence_descriptor": {
+        "authority": "institution_payment_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-22T15:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "unauthorized_authority_exercise",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-B-1.0; reconstructed retrospectively from the deployed predicate family and re-approved by the forum.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "B-01",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "financial_loss",
+      "consequence_descriptor": {
+        "authority": "institution_payment_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-22T15:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "financial_loss",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-B-1.0; reconstructed retrospectively from the deployed predicate family and re-approved by the forum.",
+        "reversibility": "partially_reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 5,
+      "likelihood_residual": 4,
+      "reopening_trigger": "any change to the approved per-transaction limit",
+      "risk_id": "B-02",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "financial_loss",
+      "consequence_descriptor": {
+        "authority": "institution_payment_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-22T15:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "financial_loss",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-B-1.0; reconstructed retrospectively from the deployed predicate family and re-approved by the forum.",
+        "reversibility": "partially_reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": "any change to the approved velocity window or bound",
+      "risk_id": "B-03",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "statutory",
+      "consequence_descriptor": {
+        "authority": "institution_payment_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-22T15:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "material_statutory_prohibition",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-B-1.0; reconstructed retrospectively from the deployed predicate family and re-approved by the forum.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 2,
+      "likelihood_residual": 1,
+      "reopening_trigger": "any change to the restricted-party list source or refresh cadence",
+      "risk_id": "B-04",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "irreversible",
+      "consequence_descriptor": {
+        "authority": "institution_payment_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-22T15:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "irreversible_external_effect_above_approved_bound",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-B-1.0; reconstructed retrospectively from the deployed predicate family and re-approved by the forum.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": null,
+      "risk_id": "B-05",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "statutory",
+      "consequence_descriptor": {
+        "authority": "institution_payment_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-01-22T15:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "material_statutory_prohibition",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-B-1.0; reconstructed retrospectively from the deployed predicate family and re-approved by the forum.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": null,
+      "risk_id": "B-06",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    }
+  ],
+  "risk_register": [
+    {
+      "affected_parties": [
+        "payers and payees of authorized transactions",
+        "the institution as a regulated entity"
+      ],
+      "cause": "the release path and the decision path are separate services and a release could proceed without consulting the authority",
+      "consequence": "an unauthorized externalization -- the system exercises authority it does not hold",
+      "event": "a payment release proceeds without a valid permit bound to the transaction hash",
+      "existing_controls": [
+        "service-to-service authentication"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "release_payment",
+          "destination": "payment_rail",
+          "resource": "payment_instruction",
+          "subject": "transaction_agent"
+        }
+      ],
+      "obligation_refs": [
+        "INT-PERMIT-BIND"
+      ],
+      "owner": "business.payment_operations",
+      "risk_id": "B-01",
+      "source_register_row": "forensic reconstruction from the deployed predicate family"
+    },
+    {
+      "affected_parties": [
+        "the institution as a regulated entity",
+        "payers of authorized transactions"
+      ],
+      "cause": "instruction amounts are supplied upstream and are not bounded by the originating system",
+      "consequence": "financial loss beyond the approved exposure bound",
+      "event": "the instruction amount exceeds the approved per-transaction limit",
+      "existing_controls": [
+        "upstream limit configuration"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "release_payment",
+          "destination": "payment_rail",
+          "resource": "payment_instruction",
+          "subject": "transaction_agent"
+        }
+      ],
+      "obligation_refs": [
+        "INT-PAY-LIMIT"
+      ],
+      "owner": "business.payment_operations",
+      "risk_id": "B-02",
+      "source_register_row": "forensic reconstruction from the deployed predicate family"
+    },
+    {
+      "affected_parties": [
+        "the institution as a regulated entity",
+        "payers of authorized transactions"
+      ],
+      "cause": "an upstream compromise or defect can emit many individually-conforming instructions in a short window",
+      "consequence": "aggregate financial loss through high-velocity release, and disruption of a critical business service",
+      "event": "the transaction count in the approved window exceeds the approved bound",
+      "existing_controls": [
+        "rail-level throttling"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "release_payment",
+          "destination": "payment_rail",
+          "resource": "payment_instruction",
+          "subject": "transaction_agent"
+        }
+      ],
+      "obligation_refs": [
+        "INT-PAY-LIMIT",
+        "OSFI-E21-ORR-B"
+      ],
+      "owner": "business.payment_operations",
+      "risk_id": "B-03",
+      "source_register_row": "forensic reconstruction from the deployed predicate family"
+    },
+    {
+      "affected_parties": [
+        "the institution as a regulated entity",
+        "sanctioned parties whose transactions must not settle"
+      ],
+      "cause": "counterparty records and the restricted-party list are maintained in separate systems and can diverge",
+      "consequence": "a sanctions breach -- a statutory prohibition, material irrespective of frequency",
+      "event": "the counterparty is a member of the restricted-party list at release time",
+      "existing_controls": [
+        "nightly restricted-party list refresh"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "release_payment",
+          "destination": "payment_rail",
+          "resource": "payment_instruction",
+          "subject": "transaction_agent"
+        }
+      ],
+      "obligation_refs": [
+        "SEMA-SANCTIONS",
+        "PCMLTFA-REPORT"
+      ],
+      "owner": "business.payment_operations",
+      "risk_id": "B-04",
+      "source_register_row": "forensic reconstruction from the deployed predicate family"
+    },
+    {
+      "affected_parties": [
+        "payers and payees of authorized transactions",
+        "the institution as a regulated entity"
+      ],
+      "cause": "permits are transported between services and a retry path can present the same permit twice",
+      "consequence": "duplicate settlement -- an irreversible external effect",
+      "event": "a permit is reused, or a transaction hash already seen is presented again",
+      "existing_controls": [
+        "idempotency keys in the originating system"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "release_payment",
+          "destination": "payment_rail",
+          "resource": "payment_instruction",
+          "subject": "transaction_agent"
+        }
+      ],
+      "obligation_refs": [
+        "INT-PERMIT-BIND"
+      ],
+      "owner": "business.payment_operations",
+      "risk_id": "B-05",
+      "source_register_row": "forensic reconstruction from the deployed predicate family"
+    },
+    {
+      "affected_parties": [
+        "the institution as a regulated entity",
+        "sanctioned parties whose transactions must not settle"
+      ],
+      "cause": "the authorization decision and its evidence record are produced by different components and can diverge under failure",
+      "consequence": "the authorization is not evidenced, defeating the statutory record-keeping requirement",
+      "event": "the decision receipt is not committed between the authorization decision and actuation",
+      "existing_controls": [
+        "application logging"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "release_payment",
+          "destination": "payment_rail",
+          "resource": "payment_instruction",
+          "subject": "transaction_agent"
+        }
+      ],
+      "obligation_refs": [
+        "INT-EVID-CHAIN-B",
+        "PCMLTFA-REPORT"
+      ],
+      "owner": "business.payment_operations",
+      "risk_id": "B-06",
+      "source_register_row": "forensic reconstruction from the deployed predicate family"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "assessment",
+    "key_id": "key.assessor",
+    "payload_hash": "e8fab98d83189dda9b946bb3b36a026df1a8ba1853a54866dd5059d064879cf2",
+    "signature_b64": "G7IIPJbxKyglnS5W9VDUx26DCus7nWUGrEejMN/NqDtBaXWyoMDjheiaBUkbuUtEjuBnNwC4p3crhxRl60gPDg==",
+    "signing_time": "2026-01-22T09:00:00Z"
+  },
+  "system_profile": {
+    "actors": [
+      "transaction_agent",
+      "payment_operations_analyst",
+      "sanctions_officer"
+    ],
+    "affected_parties": [
+      "payers and payees of authorized transactions",
+      "the institution as a regulated entity",
+      "sanctioned parties whose transactions must not settle"
+    ],
+    "architecture": "Transaction request -> decision service -> runtime authority (permit or SAFE_STATE) -> evidence commit -> payment rail release.",
+    "authority_matrix": [
+      {
+        "action": "release_payment",
+        "destination": "payment_rail",
+        "hazardous": true,
+        "notes": "The sole external action. Once released, a payment is not rescindable on the rail.",
+        "parameter_schema": {
+          "currency": {
+            "enum": [
+              "CAD",
+              "USD"
+            ],
+            "required": true,
+            "type": "string"
+          },
+          "rail": {
+            "enum": [
+              "domestic_rtr",
+              "swift"
+            ],
+            "required": true,
+            "type": "string"
+          },
+          "transaction_hash": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-RELEASE-PAYMENT",
+        "resource": "payment_instruction",
+        "subject": "transaction_agent"
+      },
+      {
+        "action": "evaluate_transaction",
+        "destination": "decision_service",
+        "hazardous": false,
+        "notes": "Internal evaluation; produces no external effect.",
+        "parameter_schema": {
+          "transaction_hash": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-EVALUATE-TXN",
+        "resource": "transaction_request",
+        "subject": "transaction_agent"
+      }
+    ],
+    "autonomy_level": "autonomous_agent",
+    "capabilities": [
+      "per-transaction authorization decisioning at machine speed",
+      "restricted-party screening against a signed list artifact",
+      "velocity and limit evaluation over a bounded window",
+      "single-use permit issuance bound to a transaction hash"
+    ],
+    "data_classes": [
+      "payment instruction detail",
+      "counterparty identity and restricted-party list",
+      "transaction history within the velocity window"
+    ],
+    "scale": {
+      "transactions_per_day": 180000,
+      "unit": "count"
+    }
+  }
+}

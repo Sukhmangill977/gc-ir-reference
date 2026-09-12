@@ -39,6 +39,30 @@ def case_b(compiled_cases):
     return compiled_cases["case_b"]
 
 
+@pytest.fixture(scope="session")
+def case_b_v1_1():
+    """Development-generation artifact (schema v1.1); not part of the frozen
+    preregister-tier0-v3.1 campaign.  See docs/CASE_B_V1_1_RATIONALE.md."""
+    from gcir.caseio import load_case
+    from gcir.compiler import compile_bundle
+
+    case = load_case("case_b_v1_1")
+    inputs = case.compiler_inputs()
+    return case, inputs, compile_bundle(inputs)
+
+
+@pytest.fixture(scope="session")
+def case_c():
+    """Development-generation artifact (schema v1.1, cyber-physical worked
+    case). See docs/CASE_C_STATUS.md."""
+    from gcir.caseio import load_case
+    from gcir.compiler import compile_bundle
+
+    case = load_case("case_c")
+    inputs = case.compiler_inputs()
+    return case, inputs, compile_bundle(inputs)
+
+
 @pytest.fixture(params=["case_a", "case_b"])
 def any_case(request, compiled_cases):
     return compiled_cases[request.param]

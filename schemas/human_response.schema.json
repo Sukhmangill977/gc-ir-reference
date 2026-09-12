@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/human_response.schema.json",
+  "title": "HumanResponse (schema v1.1)",
+  "description": "Manuscript Section VII-I / V design commitment 8. Emitted by a conformant runtime for a permit whose governing predicate declares response_policy = REQUIRED, within the declared response window. Evidence; does not itself deny authorization unless a separate approved predicate explicitly depends on it. Checked by auxiliary check A4.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_type", "permit_id", "response", "responder", "response_time", "signature"],
+  "properties": {
+    "record_type": { "const": "HumanResponse" },
+    "permit_id": { "$ref": "common.schema.json#/$defs/identifier" },
+    "response": { "enum": ["followed", "deviated", "no_response"] },
+    "responder": { "$ref": "common.schema.json#/$defs/identifier" },
+    "response_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
+    "signature": { "$ref": "common.schema.json#/$defs/signature" }
+  }
+}

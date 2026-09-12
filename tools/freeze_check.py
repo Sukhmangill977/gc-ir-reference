@@ -213,8 +213,19 @@ def main(argv=None):
                         help="shorthand for --results results/final_v3")
     parser.add_argument("--final-v2", action="store_true",
                         help="shorthand for --results results/final_v2")
+    parser.add_argument("--prospective-v4", action="store_true",
+                        help="verify the CURRENT prospective v1.1 development state "
+                             "(Case A/B-v1.1/C, provenance, Q1-Q10, negative fixtures, "
+                             "A1-A4, 13 injections, v1.1 determinism/Monte Carlo) via "
+                             "the independent tools/freeze_check_prospective_v4.py "
+                             "checker. Does not read historical FREEZE_MANIFEST_V*.sha256 "
+                             "or touch anything --final-v2/--final-v3 depend on.")
     parser.add_argument("--json", action="store_true", help="emit JSON on stdout")
     args = parser.parse_args(argv)
+
+    if args.prospective_v4:
+        from tools import freeze_check_prospective_v4
+        return freeze_check_prospective_v4.main(["--json"] if args.json else [])
 
     if args.results:
         results_dir = args.results

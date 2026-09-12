@@ -1,0 +1,6 @@
+{
+  "case_id": "case_c",
+  "schema_version": "1.1",
+  "payload_hash": "d7c7971156e3591b64567148ed8fc21cc1cbee21973d3646f59e439c74bf1dbd",
+  "note": "First-ever compiled Case C bundle. Development-generation artifact; not part of the frozen preregister-tier0-v3.1 campaign. See docs/CASE_C_STATUS.md. Hash reflects: (1) enforcement_phase on compiler invariants, (2) the REAL reversibility-qualified C* semantics (gcir.coverage.CStarProfile required_reversibility) replacing the prior materiality-only workaround -- C-08/C-10 correctly excluded from C* by reversibility=reversible; C-13/C-16 kept out via a non-member consequence kind (clinical_oversight_defect) since their requires_intervention reversibility would otherwise qualify them, which would misrepresent the manuscripts stated other-mandatory/RC-03 disposition."
+}

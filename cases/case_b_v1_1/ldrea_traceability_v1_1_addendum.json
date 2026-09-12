@@ -1,0 +1,54 @@
+{
+  "claim_boundary": "This addendum extends cases/case_b/ldrea_traceability.json's exact/family/not_established correspondence classification to the three new schema-v1.1 Approved Control Specifications (ACS-B01-02, ACS-B01-03, ACS-B02-02) that cases/case_b_v1_1/ adds. It does NOT modify or supersede the historical mapping for the six frozen ACS, which is unchanged and still governs the frozen preregister-tier0-v3.1 Case B bundle. Note: the runbook that requested this crosswalk under a 'P1-P13' scenario-label convention predates the actual current documentation; the real downstream artifact and its own traceability file (cases/case_b/ldrea_traceability.json) never used 'P1'..'P13' as identifiers -- they use the artifact's real predicate names, reproduced below. See docs/CASE_B_V1_1_RATIONALE.md.",
+  "document_type": "CaseB_LDREA_Traceability_V1_1_Addendum",
+  "verified_against": {
+    "artifact_subtree": "realdatatestcode/",
+    "commit": "40fa8f046ad3c6632c66df46abe5500e5dd05696",
+    "local_path": "/Users/sukhmangill/Documents/GitHub/Gamma-Permit-Package",
+    "file_inspected": "realdatatestcode/gamma_test_runner.py",
+    "verification_method": "Direct grep of NODE_GATE_COLS and the deficits[...] assignment block at the pinned commit -- not inferred or assumed.",
+    "confirmed_full_predicate_family_13_members": [
+      "Gate_A1", "Gate_A2", "Gate_A3", "Gate_A4", "Gate_A5", "Gate_A6", "Gate_A7",
+      "Lambda_G", "TOKEN_VALID", "AuthoritySignatureValid",
+      "HARM_RISK_THETA", "STALE_CONTEXT", "TELEMETRY_STALE"
+    ]
+  },
+  "mapping": [
+    {
+      "acs_id": "ACS-B01-02",
+      "gcir_id": "GCIR-B0002",
+      "risk_id": "B-01",
+      "gcir_predicate_family": "prohibited_class_lookup",
+      "correspondence": "not_established",
+      "basis": "No member of the confirmed 13-predicate family evaluates a risk-classification lookup against an active prohibited-class policy. Gate_A1..A7 are anonymized structural gates with no published semantic mapping beyond TOKEN_VALID/AuthoritySignatureValid (already exact-mapped to ACS-B01-01); none is documented as a classification-policy check.",
+      "ldrea_observables": [],
+      "ldrea_predicates": []
+    },
+    {
+      "acs_id": "ACS-B01-03",
+      "gcir_id": "GCIR-B0003",
+      "risk_id": "B-01",
+      "gcir_predicate_family": "enhanced_approval_concurrence",
+      "correspondence": "not_established",
+      "basis": "The confirmed predicate family contains no human-attestation or concurrence-policy predicate; the external artifact's NODE_GATE_COLS are automated structural/threshold gates only. A schema-v1.1 concurrence_policy mechanism (this generation) has no counterpart in the frozen v1.0-era enforcement artifact by construction -- it predates the mechanism.",
+      "ldrea_observables": [],
+      "ldrea_predicates": []
+    },
+    {
+      "acs_id": "ACS-B02-02",
+      "gcir_id": "GCIR-B0005",
+      "risk_id": "B-02",
+      "gcir_predicate_family": "delegated_escalation_tier",
+      "correspondence": "not_established",
+      "basis": "HARM_RISK_THETA (already family-mapped to ACS-B02-01, the hard ceiling) is a single threshold test with no second, escalation-tier band and no attestation/approval concept. No member of the confirmed 13-predicate family represents a two-tier ceiling-plus-delegated-approval structure.",
+      "ldrea_observables": [],
+      "ldrea_predicates": []
+    }
+  ],
+  "summary": {
+    "exact": 0,
+    "family": 0,
+    "not_established": 3,
+    "note": "All three new v1.1 controls are correctly NOT_ESTABLISHED against the external artifact. This is expected, not a defect: they are prospectively designed v1.1 controls exercising mechanisms (human_attestation policy-lookup, concurrence_policy) that did not exist in the frozen enforcement artifact's evaluation surface. Do not convert this to 'family' on the basis of conceptual similarity to HARM_RISK_THETA or TOKEN_VALID -- the evidence does not support it."
+  }
+}

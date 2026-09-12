@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gcir.example/schemas/v1.0/lifecycle_registry.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/lifecycle_registry.schema.json",
   "title": "Lifecycle registry REG",
   "description": "Manuscript Section VI-F. reg_entry = (bundle_hash, action in {retire, supersede, revoke}, effective_time, authority, successor_hash?, signature). Lifecycle state lives here and NEVER inside the hashed bundle payload; a trigger event of M.triggers retires a bundle by appending a signed registry record, not by editing the bundle.",
   "type": "object",

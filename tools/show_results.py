@@ -88,6 +88,27 @@ def _result(relative):
     return blob.get("result", blob)
 
 
+def _ieee_check_line(filename="ieee_check_result.json", make_target="ieee-check"):
+    """Runbook item 8.B: report the machine-readable ieee-check result
+    tools/record_ieee_check_result.py writes, instead of a hardcoded
+    "no recorded machine-readable result" that was true unconditionally
+    because no stage of ieee-check ever wrote one."""
+    path = os.path.join(REPO_ROOT, "results", "development", filename)
+    if not os.path.exists(path):
+        return "no recorded machine-readable result (run `make %s`)" % make_target
+    try:
+        with open(path, encoding="utf-8") as handle:
+            record = json.load(handle)
+    except (OSError, ValueError):
+        return "no recorded machine-readable result (existing record unreadable)"
+    return "%s (%d/%d stages, recorded %s, commit %s)" % (
+        record.get("status", "UNKNOWN"),
+        record.get("stage_count", 0), len(record.get("stages", [])) or record.get("stage_count", 0),
+        record.get("recorded_at", "?"),
+        (record.get("git_head") or "?")[:12],
+    )
+
+
 def _need(blob, path, source):
     node = blob
     for part in path.split("."):
@@ -706,7 +727,9 @@ def render_text(data):
     add("  negative controls         %s/%s fired"
         % (v["negative_controls_detected"], v["negative_controls_total"]))
     add("  freeze checks             recorded verification passed" if v["freeze_checks"] else "  freeze checks             FAILED")
-    add("  ieee-check                no recorded machine-readable result")
+    add("  ieee-check (historical)   %s" % _ieee_check_line())
+    add("  ieee-check-v4 (prospective) %s"
+        % _ieee_check_line("ieee_check_v4_result.json", "ieee-check-v4"))
     add("  paper-facing results      %s mapped and machine-verified"
         % v["paper_facing_results"])
 

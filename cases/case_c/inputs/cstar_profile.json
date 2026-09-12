@@ -1,0 +1,106 @@
+{
+  "approval_time": "2026-02-10T14:00:00Z",
+  "approved_by": "surgical_platform_governance_forum",
+  "classification_rules": {
+    "accountability_transfer": {
+      "approving_authority": "exec.head_of_surgical_platform",
+      "effective_date": "2026-02-10T14:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "A transfer with full symmetric attestation and no scope widening is still material at proposal time; materiality governs, not outcome.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "A transition that changes who is answerable for the system's next consequential act -- control handoff or delegation to autonomy."
+    },
+    "irreversible_external_effect_above_approved_bound": {
+      "approving_authority": "exec.head_of_surgical_platform",
+      "effective_date": "2026-02-10T14:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "Not exercised by this register.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "Retained from the base profile; not exercised by this register."
+    },
+    "material_information_barrier_breach": {
+      "approving_authority": "exec.head_of_surgical_platform",
+      "effective_date": "2026-02-10T14:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "Not exercised by this register.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "Retained from the base profile; not exercised by this register."
+    },
+    "material_statutory_prohibition": {
+      "approving_authority": "exec.head_of_surgical_platform",
+      "effective_date": "2026-02-10T14:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "Not exercised by this register.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "Retained from the base profile; not exercised by this register."
+    },
+    "physical_harm_to_person": {
+      "approving_authority": "exec.head_of_surgical_platform",
+      "effective_date": "2026-02-10T14:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "Reversibility-qualified per Section VII-A: harm that is self-limiting and requires no intervention does not enter C* on its class alone. Enforced directly by gcir.coverage.CStarProfile.evaluate()'s required_reversibility check, not by a materiality workaround.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "Physical harm to a patient arising from a mediated transition (instrument activation, energy delivery) that is not self-limiting.",
+      "required_reversibility": [
+        "irreversible",
+        "requires_intervention"
+      ]
+    },
+    "protected_data_disclosure_outside_consent_scope": {
+      "approving_authority": "exec.head_of_surgical_platform",
+      "effective_date": "2026-02-10T14:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "Export within consent scope is below the boundary by definition, not by materiality.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "Intraoperative video/telemetry export outside the recorded consent scope."
+    },
+    "unauthorized_authority_exercise": {
+      "approving_authority": "exec.head_of_surgical_platform",
+      "effective_date": "2026-02-10T14:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "An unauthorized act with no external effect is below the boundary.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "Actuation or autonomous subtask entry without identifiable supervisory authority is the system exercising authority it does not hold."
+    }
+  },
+  "materiality_order": [
+    "immaterial",
+    "minor",
+    "material",
+    "severe"
+  ],
+  "member_kinds": [
+    "material_statutory_prohibition",
+    "unauthorized_authority_exercise",
+    "material_information_barrier_breach",
+    "irreversible_external_effect_above_approved_bound",
+    "physical_harm_to_person",
+    "accountability_transfer",
+    "protected_data_disclosure_outside_consent_scope"
+  ],
+  "profile_id": "CSTAR-C",
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "cstar_profile",
+    "key_id": "key.governance_forum_a",
+    "payload_hash": "3d33a2ef46b560f6b74e1a436a1adac50165d7e3ab31f762cef898a3683e22af",
+    "signature_b64": "IMHdf36RxSTv+tfDekAVymqUL5g78TUz3Tlptt8JvRNep9EHqYsqZvsK8RNwnyDN6IsaPxkmmK/+yuvfix3bBQ==",
+    "signing_time": "2026-02-10T15:06:00Z"
+  },
+  "version": "1.0",
+  "version_binding_ref": "VB-CASE-C-1.0"
+}

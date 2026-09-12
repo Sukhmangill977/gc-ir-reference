@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gcir.example/schemas/v1.0/gcir.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/gcir.schema.json",
   "title": "GC-IR record family (v1.0)",
   "description": "Manuscript Section V and Appendix A. Record = CompiledPredicate oneOf NonRuntimeDisposition oneOf AcceptedRiskDisposition oneOf UnresolvedDisposition. A non-runtime, accepted, or unresolved record shall not be required to contain subject, action, resource, evaluation basis, or gate type.",
   "oneOf": [
@@ -26,7 +26,7 @@
         "record_type": { "const": "CompiledPredicate" },
         "gcir_id": { "$ref": "common.schema.json#/$defs/identifier" },
         "acs_id": { "type": ["string", "null"] },
-        "schema_version": { "const": "1.0" },
+        "schema_version": { "enum": ["1.0", "1.1"] },
         "origin": {
           "type": "object",
           "additionalProperties": false,
@@ -122,9 +122,22 @@
         "c_star": { "enum": [0, 1] },
         "evidence_semantics": { "type": "string", "minLength": 1 },
         "decision_semantics": { "type": "string", "minLength": 1 },
-        "warrant_boundary": { "type": "string", "minLength": 1 }
+        "warrant_boundary": { "type": "string", "minLength": 1 },
+        "enforcement_phase": { "$ref": "common.schema.json#/$defs/enforcementPhase" },
+        "evaluation_latency_bound": { "$ref": "common.schema.json#/$defs/evaluationLatencyBound" },
+        "on_evaluation_timeout": { "$ref": "common.schema.json#/$defs/onEvaluationTimeout" },
+        "state_binding": { "$ref": "common.schema.json#/$defs/stateBinding" },
+        "concurrence_policy": { "$ref": "common.schema.json#/$defs/concurrencePolicy" },
+        "standing_permit_ref": { "type": ["string", "null"] },
+        "delegation": { "$ref": "common.schema.json#/$defs/delegationRef" },
+        "response_policy": { "$ref": "common.schema.json#/$defs/responsePolicy" }
       },
       "allOf": [
+        {
+          "description": "Schema v1.1: evaluation_latency_bound requires on_evaluation_timeout (Appendix A constraint 15).",
+          "if": { "required": ["evaluation_latency_bound"] },
+          "then": { "required": ["on_evaluation_timeout"] }
+        },
         {
           "if": { "properties": { "gate_type": { "const": "mandatory" } }, "required": ["gate_type"] },
           "then": {

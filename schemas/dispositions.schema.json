@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gcir.example/schemas/v1.0/dispositions.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/dispositions.schema.json",
   "title": "Total risk disposition Delta",
   "description": "Manuscript Section IV-D. Every risk receives exactly one disposition. Totality is a property of dispositions, not of predicate counts.",
   "type": "object",

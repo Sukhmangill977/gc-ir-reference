@@ -41,6 +41,12 @@ ROLE_RULES = [
     ("cases/case_b/ldrea_traceability.json", "case_b_input"),
     ("cases/case_b/ldrea_predicate_family.json", "case_b_input"),
     ("cases/case_b/", "case_b_input"),
+    # Schema v1.1 development artifacts (not part of preregister-tier0-v3.1).
+    # Case B v1.1's downstream correspondence addendum keeps the same
+    # `case_b_input` role as its historical counterpart, per runbook item 7/8.
+    ("cases/case_b_v1_1/ldrea_traceability_v1_1_addendum.json", "case_b_input"),
+    ("cases/case_b_v1_1/", "case_b_input"),
+    ("cases/case_c/", "case_c_input"),
     ("results/final/case_a/bundle.json", "compiled_bundle_a"),
     ("results/final/case_b/bundle.json", "compiled_bundle_b"),
     ("results/final/case_a/", "compiled_bundle_a"),

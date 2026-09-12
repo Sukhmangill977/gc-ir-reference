@@ -18,7 +18,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional, Tuple
 
-from .models import PrecedenceError
+from .models import PrecedenceError, safe_state_of
 
 #: Ordered strongest-first.  Index is the precedence rank.
 PRECEDENCE_ORDER = ("mandatory_failure", "mandatory_pass", "weighted_or_advisory")
@@ -95,31 +95,32 @@ def resolve(bundle, outcomes):
     if failures:
         conflict = _mandatory_conflict(failures, classified, bundle)
         if conflict is not None:
+            decision = "DENY"
             return {
-                "decision": "DENY",
-                "exact_outcome": "DENY",
-                "safe_state": True,
+                "decision": decision,
+                "exact_outcome": decision,
+                "safe_state": safe_state_of(decision),
                 "deciding_class": "indeterminate_mandatory_conflict",
                 "reason": conflict,
                 "contributions": classified,
             }
 
         # Classify failure as DENY or HOLD
-        exact_outcome = _classify_exact_outcome(failures, classified, predicates)
+        decision = _classify_exact_outcome(failures, classified, predicates)
         reason = "mandatory gate(s) %s failed" % ", ".join(
             sorted(f["gcir_id"] for f in failures)
         )
         result = {
-            "decision": exact_outcome,
-            "exact_outcome": exact_outcome,
-            "safe_state": True,
+            "decision": decision,
+            "exact_outcome": decision,
+            "safe_state": safe_state_of(decision),
             "deciding_class": "mandatory_failure",
             "reason": reason,
             "contributions": classified,
         }
 
         # If HOLD, include escalation route
-        if exact_outcome == "HOLD":
+        if decision == "HOLD":
             for failure in failures:
                 pred = predicates[failure["gcir_id"]]
                 if pred.get("escalation"):
@@ -133,10 +134,11 @@ def resolve(bundle, outcomes):
     advisory = [
         c for c in classified if c["precedence_class"] == "weighted_or_advisory"
     ]
+    decision = "PERMIT"
     return {
-        "decision": "PERMIT",
-        "exact_outcome": "PERMIT",
-        "safe_state": False,
+        "decision": decision,
+        "exact_outcome": decision,
+        "safe_state": safe_state_of(decision),
         "deciding_class": "mandatory_pass",
         "reason": "no mandatory gate failed; %d weighted/advisory result(s) do not "
         "override a mandatory pass" % len(advisory),

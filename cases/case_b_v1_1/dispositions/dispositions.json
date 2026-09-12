@@ -1,0 +1,59 @@
+{
+  "disposition_set_id": "DELTA-CASE-B-V1.1",
+  "records": [
+    {
+      "acs_ids": [
+        "ACS-B01-01",
+        "ACS-B01-02",
+        "ACS-B01-03"
+      ],
+      "risk_id": "B-01",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-B02-01",
+        "ACS-B02-02"
+      ],
+      "risk_id": "B-02",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-B03-01"
+      ],
+      "risk_id": "B-03",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-B04-01"
+      ],
+      "risk_id": "B-04",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-B05-01"
+      ],
+      "risk_id": "B-05",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-B06-01"
+      ],
+      "risk_id": "B-06",
+      "status": "runtime"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "dispositions",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "a02105d36488eef85b07e439b3f44b16a1c8ff7ccc7e47f34c6fb8a4ffdd6efd",
+    "signature_b64": "MdMVlqW+QDqXjGR9JYDMSVnSt0BniKFOAr3wueUXJUEEeQH+zPj8+4oFS/ECIULoq9q/31E8nU4hlqQ1bsDnAQ==",
+    "signing_time": "2026-01-22T15:12:00Z"
+  },
+  "version_binding_ref": "VB-CASE-B-1.0"
+}

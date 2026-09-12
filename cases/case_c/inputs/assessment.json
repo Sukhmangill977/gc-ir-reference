@@ -1,0 +1,1025 @@
+{
+  "assessment_id": "ASSESSMENT-CASE-C",
+  "case_class": "synthetic",
+  "metadata": {
+    "accountable_exec": "exec.head_of_surgical_platform",
+    "assessor": "governance.assessor_l_martins",
+    "deployment": "research/design case, not a deployed clinical product",
+    "exclusions": [
+      "No trajectory or motion safety claim: the authorization gate decides whether a transition may be attempted, never whether the resulting motion is safe.",
+      "No clinical efficacy or product-conformance claim.",
+      "No certified safety-layer implementation is described; the safety layer is declared, not built."
+    ],
+    "method": "NIST AI RMF 1.0 Map/Measure profile with ISO 31000 cause-event-consequence register, anchored to ISO 14971 / IEC 62304 / IEC 80601-2-77.",
+    "owner_business": "business.surgical_program_office",
+    "owner_technical": "technology.surgical_robotics_platform",
+    "purpose": "AI assistance module for a robotically assisted surgical platform, operating at the supervised-autonomy tier for bounded subtasks under an identifiable supervising surgeon. Synthetic, standards-anchored design case; no vendor system is described.",
+    "review_cycle": "semi-annual, or on any trigger",
+    "scope": "Supervised-autonomy assistance module: instrument activation, energy delivery, bounded autonomous subtasks, control transfer, delegation, guidance presentation, and telemetry export, each mediated by the runtime authority. Continuous force-scaling and envelope-keeping corrections are excluded (AD-1) and supervised by an independent safety layer.",
+    "system_id": "CASE-C-SUPERVISED-AUTONOMY-SURGICAL-ASSISTANT",
+    "triggers": [
+      "model_version_change",
+      "prompt_or_policy_change",
+      "dataset_refresh_outside_bounds",
+      "scope_expansion",
+      "new_obligation",
+      "catalog_change",
+      "consequence_class_reclassification",
+      "incident_above_declared_severity"
+    ],
+    "validity_interval": {
+      "effective_from": "2026-03-01T00:00:00Z",
+      "effective_until": "2027-03-01T00:00:00Z"
+    },
+    "version_binding": {
+      "binding_id": "VB-CASE-C-1.0",
+      "dataset_version": "procedure-context-corpus-2026-02",
+      "fingerprint": "sha256:7a1f0c6b4e832d915ac0e7f4d1b8c6a5e93f7028b1a4c6d9e5f0a3b7c2d8e416",
+      "model_version": "surgical-assistance-module-2026.02",
+      "policy_version": "surgical-safety-policy-2026.1",
+      "prompt_version": "not-applicable-non-generative"
+    }
+  },
+  "obligations": [
+    {
+      "applicability_basis": [
+        "robotically assisted surgical platform"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "risk control and residual-risk requirements",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-02-05T10:00:00Z",
+      "effective_from": "2026-03-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "ISO 14971:2019 (confirmed 2025)",
+      "obligation_id": "ISO-14971-RISK",
+      "requirement_class": "standards",
+      "requirement_text_hash": "9e032cb3f4de1d6fe90131587e0c019aa4bb8b586126380854bde90087b6aa71",
+      "source": "ISO 14971:2019",
+      "territorial_basis": "institution operating the platform is domiciled in Canada"
+    },
+    {
+      "applicability_basis": [
+        "software item of a medical device"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "software safety classification of the assistance module",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-02-05T10:00:00Z",
+      "effective_from": "2026-03-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "IEC 62304:2006+AMD1:2015",
+      "obligation_id": "IEC-62304-SW",
+      "requirement_class": "standards",
+      "requirement_text_hash": "be959cbc718ad8f3024db35a69592853ff73aead04ee62583ac9f4caed7ca7ad",
+      "source": "IEC 62304:2006+AMD1:2015",
+      "territorial_basis": "institution operating the platform is domiciled in Canada"
+    },
+    {
+      "applicability_basis": [
+        "robotically assisted surgical equipment"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "basic safety and essential performance of robotically assisted surgical equipment",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-02-05T10:00:00Z",
+      "effective_from": "2026-03-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "IEC 80601-2-77:2019+AMD1:2023",
+      "obligation_id": "IEC-80601-2-77-RASE",
+      "requirement_class": "standards",
+      "requirement_text_hash": "02f5de1f53b6339bd773c0583ea48c1d84a43d3d57ae460f2009e48be6ae465f",
+      "source": "IEC 80601-2-77:2019+AMD1:2023",
+      "territorial_basis": "institution operating the platform is domiciled in Canada"
+    },
+    {
+      "applicability_basis": [
+        "institution operates under the device's conditions of use"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "contraindicated instrument-procedure combinations",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-02-05T10:00:00Z",
+      "effective_from": "2026-03-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "IFU-2026.1",
+      "obligation_id": "IFU-CONTRAINDICATION",
+      "requirement_class": "contractual",
+      "requirement_text_hash": "de1a65adcdb5574117097f1df80c4da474b5c96ea3a4f231be32188447913148",
+      "source": "Manufacturer instructions for use",
+      "territorial_basis": "institution operating the platform is domiciled in Canada"
+    },
+    {
+      "applicability_basis": [
+        "all supervised-autonomy procedures"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "surgeon privileging by procedure class",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-02-05T10:00:00Z",
+      "effective_from": "2026-03-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "PRIV-2026.1",
+      "obligation_id": "INST-PRIVILEGING",
+      "requirement_class": "internal",
+      "requirement_text_hash": "073c2b6416f681a1ae7defc1c2589754eb10ad1bbc572d39ff17222acaee7b8c",
+      "source": "Institutional privileging and credentialing policy",
+      "territorial_basis": "institution operating the platform is domiciled in Canada"
+    },
+    {
+      "applicability_basis": [
+        "all recorded procedures"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "intraoperative video/telemetry consent scope",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-02-05T10:00:00Z",
+      "effective_from": "2026-03-01T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "CONSENT-2026.1",
+      "obligation_id": "INST-CONSENT-SCOPE",
+      "requirement_class": "internal",
+      "requirement_text_hash": "825295e84e880efe49e92b9a3e104ed21f4fafe5b4db31888217b741b619aa05",
+      "source": "Institutional consent policy",
+      "territorial_basis": "institution operating the platform is domiciled in Canada"
+    }
+  ],
+  "risk_analysis": [
+    {
+      "consequence_class": "physical_harm",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "physical_harm_to_person",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "requires_intervention"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": null,
+      "risk_id": "C-01",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "physical_harm",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "physical_harm_to_person",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": null,
+      "risk_id": "C-02",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "authority",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "unauthorized_authority_exercise",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 2,
+      "likelihood_residual": 1,
+      "reopening_trigger": null,
+      "risk_id": "C-03",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "accountability_transfer",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "accountability_transfer",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "partially_reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": null,
+      "risk_id": "C-04",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "authority",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "unauthorized_authority_exercise",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 2,
+      "likelihood_residual": 1,
+      "reopening_trigger": null,
+      "risk_id": "C-05",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "patient_harm",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "physical_harm_to_person",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "requires_intervention"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 5,
+      "likelihood_residual": 4,
+      "reopening_trigger": null,
+      "risk_id": "C-06",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "patient_harm",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "physical_harm_to_person",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "requires_intervention"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "C-07",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "patient_harm",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "physical_harm_to_person",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 3,
+      "impact_residual": 3,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "C-08",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "protected_data_disclosure",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "protected_data_disclosure_outside_consent_scope",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "C-09",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "patient_harm",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "physical_harm_to_person",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 3,
+      "impact_residual": 3,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "C-10",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "governance",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "unauthorized_authority_exercise",
+        "materiality": "minor",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "C-11",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "accountability_transfer",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "accountability_transfer",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": null,
+      "risk_id": "C-12",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "patient_harm",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "clinical_oversight_defect",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "requires_intervention"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "C-13",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "governance",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "unauthorized_authority_exercise",
+        "materiality": "minor",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 3,
+      "impact_residual": 3,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": null,
+      "risk_id": "C-14",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "governance",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "unauthorized_authority_exercise",
+        "materiality": "minor",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "reversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 3,
+      "impact_residual": 3,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": null,
+      "risk_id": "C-15",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "patient_harm",
+      "consequence_descriptor": {
+        "authority": "surgical_platform_governance",
+        "classification_authority": "surgical_platform_governance_forum",
+        "effective_date": "2026-02-10T14:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "clinical_oversight_defect",
+        "materiality": "material",
+        "rationale": "Classified under the approved C*_cp profile CSTAR-C-1.0.",
+        "reversibility": "requires_intervention"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 4,
+      "impact_residual": 4,
+      "likelihood_inherent": 4,
+      "likelihood_residual": 3,
+      "reopening_trigger": null,
+      "risk_id": "C-16",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    }
+  ],
+  "risk_register": [
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "the module can propose activating an instrument class the IFU contraindicates for this task in this procedure class",
+      "consequence": "physical harm requiring intervention",
+      "event": "instrument of a contraindicated class is activated for a contraindicated task in a contraindicated procedure class",
+      "existing_controls": [
+        "manual IFU checklist"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "activate_instrument",
+          "destination": "patient",
+          "resource": "surgical_instrument",
+          "subject": "assistance_module"
+        }
+      ],
+      "obligation_refs": [
+        "IFU-CONTRAINDICATION",
+        "ISO-14971-RISK"
+      ],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-01",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "the world state can change between authorization and the execution boundary",
+      "consequence": "irreversible physical harm",
+      "event": "ENERGY_ACTIVATE is proposed under a permit whose state digest no longer matches",
+      "existing_controls": [
+        "session timeout"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "energy_activate",
+          "destination": "patient",
+          "resource": "energy_delivery_channel",
+          "subject": "assistance_module"
+        }
+      ],
+      "obligation_refs": [
+        "ISO-14971-RISK"
+      ],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-02",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "an autonomous proposal can be issued without an authenticated, privileged, in-mode supervising surgeon",
+      "consequence": "loss of accountable supervision over a consequential act",
+      "event": "a consequential autonomous actuation is proposed without identifiable authorized supervisory authority",
+      "existing_controls": [
+        "console lockout"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "enter_autonomous_subtask",
+          "destination": "procedure_field",
+          "resource": "subtask_permit",
+          "subject": "assistance_module"
+        }
+      ],
+      "obligation_refs": [
+        "INST-PRIVILEGING"
+      ],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-03",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "a control handoff between consoles or into autonomy mode can be attempted with only one party attesting",
+      "consequence": "an accountability gap at the moment of transfer",
+      "event": "control transfer is proposed without both parties' attestation",
+      "existing_controls": [
+        "verbal handoff protocol"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "transfer_control",
+          "destination": "console",
+          "resource": "control_session",
+          "subject": "assistance_module"
+        }
+      ],
+      "obligation_refs": [
+        "INST-PRIVILEGING"
+      ],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-04",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "authority can be withdrawn mid-procedure while a proposal is already in flight",
+      "consequence": "actuation under withdrawn authority",
+      "event": "an actuation is proposed whose actor-scope carries an effective revocation",
+      "existing_controls": [
+        "badge-based session binding"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "activate_instrument",
+          "destination": "patient",
+          "resource": "surgical_instrument",
+          "subject": "assistance_module"
+        }
+      ],
+      "obligation_refs": [
+        "INST-PRIVILEGING"
+      ],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-05",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "a force-scaling correction is a feedback primitive of a declared control loop",
+      "consequence": "excess tissue force, requiring intervention",
+      "event": "control-loop-rate correction exceeds the approved force bound",
+      "existing_controls": [
+        "force envelope firmware limit"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "IEC-80601-2-77-RASE"
+      ],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-06",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "an instrument can leave its geometric or force envelope during continuous supervision",
+      "consequence": "patient harm requiring intervention",
+      "event": "collision or envelope excursion",
+      "existing_controls": [
+        "geometric envelope firmware limit"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "IEC-80601-2-77-RASE"
+      ],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-07",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "guidance can be generated from a stale context snapshot or for a contraindicated procedure class",
+      "consequence": "reversible patient harm if followed",
+      "event": "contraindicated or stale guidance is presented to the supervising surgeon",
+      "existing_controls": [
+        "guidance review by surgeon"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "IFU-CONTRAINDICATION"
+      ],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-08",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "intraoperative video/telemetry export is a transition with its own authority-matrix row",
+      "consequence": "protected data disclosure outside consent scope",
+      "event": "data is exported to a destination or for a purpose not in the consent record",
+      "existing_controls": [
+        "export approval workflow"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "export_data",
+          "destination": "external_review_system",
+          "resource": "telemetry_data",
+          "subject": "assistance_module"
+        }
+      ],
+      "obligation_refs": [
+        "INST-CONSENT-SCOPE"
+      ],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-09",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "a model can be consulted outside the procedure class it was validated for",
+      "consequence": "reversible patient harm from an out-of-scope model",
+      "event": "recommendation or phase detection is produced by a model not validated for this procedure class",
+      "existing_controls": [
+        "model validation registry"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [
+        "IEC-62304-SW"
+      ],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-10",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "pre-authorized routine steps under a standing permit can still accumulate unattended attestation",
+      "consequence": "erosion of substantive human oversight",
+      "event": "per-step attestation dwell falls outside the approved band for pre-authorized step classes",
+      "existing_controls": [
+        "periodic audit sampling"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-11",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "a delegated subtask permit can be issued wider than the authority it derives from",
+      "consequence": "an accountability transfer with no narrowing guarantee",
+      "event": "a child permit issued by DELEGATE is wider than its parent in scope, validity, or action set",
+      "existing_controls": [
+        "delegation logging"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "delegate",
+          "destination": "delegatee_actor",
+          "resource": "subtask_permit",
+          "subject": "assistance_module"
+        }
+      ],
+      "obligation_refs": [],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-12",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "context snapshots can be stale, mismatched to the scheduled patient, or missing lineage",
+      "consequence": "an autonomous proposal rests on unprovenanced or wrong-patient data",
+      "event": "a context snapshot fails identity, freshness, or lineage verification",
+      "existing_controls": [
+        "patient ID barcode scan"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-13",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "the authorization evaluator can fail to complete within its declared bound",
+      "consequence": "an unresolved authorization state with no declared failure mode",
+      "event": "evaluation exceeds evaluation_latency_bound",
+      "existing_controls": [
+        "evaluator health monitoring"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-14",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "a safety-layer intervention can occur without a correlated signed record",
+      "consequence": "incomplete recovery evidence, defeating post-event audit",
+      "event": "interlock or fallback fires and no signed SafetyEvent is recorded within the declared window",
+      "existing_controls": [
+        "incident review board"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-15",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    },
+    {
+      "affected_parties": [
+        "the patient",
+        "the supervising surgeon"
+      ],
+      "cause": "sustained attention during long procedures is not observable at authorization time",
+      "consequence": "patient harm mediated by degraded human oversight",
+      "event": "supervisor performance degrades (fatigue, distraction) without an approved observable",
+      "existing_controls": [
+        "scheduling and relief policy"
+      ],
+      "hazardous_action_paths": [],
+      "obligation_refs": [],
+      "owner": "business.surgical_program_office",
+      "risk_id": "C-16",
+      "source_register_row": "synthetic, standards-anchored design case (manuscript Section XI)"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "assessment",
+    "key_id": "key.assessor",
+    "payload_hash": "d53bcc702079cc976fe6aa91df5deb2adad4890288a8d0e5268a8603dd23b35f",
+    "signature_b64": "jjeADraWwd2fuBvrO5rTwfWELq9us04P2h5nKOk7PKRuoFfeiPwJbwa4F3x3DWoi/jYpcKHGgOWeHG6Rk4miCA==",
+    "signing_time": "2026-02-10T09:00:00Z"
+  },
+  "system_profile": {
+    "actors": [
+      "supervising_surgeon",
+      "second_surgeon",
+      "circulating_nurse",
+      "assistance_module"
+    ],
+    "affected_parties": [
+      "the patient",
+      "the supervising surgeon",
+      "the institution as a regulated entity"
+    ],
+    "architecture": "Proposed transition -> runtime authority (PERMIT/DENY/HOLD) -> evidence commit -> actuation, with an independent safety layer supervising the resulting motion at control-loop rate, outside the authorization gate.",
+    "authority_matrix": [
+      {
+        "action": "activate_instrument",
+        "destination": "patient",
+        "hazardous": true,
+        "notes": "Contraindication and state-binding are checked before every activation.",
+        "parameter_schema": {
+          "instrument_id": {
+            "required": true,
+            "type": "string"
+          },
+          "procedure_step": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-ACTIVATE-INSTRUMENT",
+        "resource": "surgical_instrument",
+        "subject": "assistance_module"
+      },
+      {
+        "action": "energy_activate",
+        "destination": "patient",
+        "hazardous": true,
+        "notes": "State-bound: a permit is valid only for the world state under which it was authorized.",
+        "parameter_schema": {
+          "port_configuration": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-ENERGY-ACTIVATE",
+        "resource": "energy_delivery_channel",
+        "subject": "assistance_module"
+      },
+      {
+        "action": "enter_autonomous_subtask",
+        "destination": "procedure_field",
+        "hazardous": true,
+        "notes": "Supervised autonomy: never removes the surgeon from the loop.",
+        "parameter_schema": {
+          "procedure_step": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-ENTER-SUBTASK",
+        "resource": "subtask_permit",
+        "subject": "assistance_module"
+      },
+      {
+        "action": "transfer_control",
+        "destination": "console",
+        "hazardous": true,
+        "notes": "An accountability transfer; requires 2-of-2 concurrence.",
+        "parameter_schema": {
+          "receiving_actor": {
+            "required": true,
+            "type": "string"
+          },
+          "releasing_actor": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-TRANSFER-CONTROL",
+        "resource": "control_session",
+        "subject": "assistance_module"
+      },
+      {
+        "action": "delegate",
+        "destination": "delegatee_actor",
+        "hazardous": true,
+        "notes": "Child permit strictly contained in its parent (INV-DELEGATION-NARROWING, checked by auxiliary A3).",
+        "parameter_schema": {
+          "parent_permit_id": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-DELEGATE",
+        "resource": "subtask_permit",
+        "subject": "assistance_module"
+      },
+      {
+        "action": "present_guidance",
+        "destination": "surgeon_display",
+        "hazardous": false,
+        "notes": "Advisory; response_policy governs HumanResponse capture, not a physical effect.",
+        "parameter_schema": {
+          "guidance_class": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-PRESENT-GUIDANCE",
+        "resource": "guidance_output",
+        "subject": "assistance_module"
+      },
+      {
+        "action": "export_data",
+        "destination": "external_review_system",
+        "hazardous": true,
+        "notes": "Protected data disclosure; consent-scope structural check.",
+        "parameter_schema": {
+          "data_class": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-EXPORT-DATA",
+        "resource": "telemetry_data",
+        "subject": "assistance_module"
+      }
+    ],
+    "autonomy_level": "supervised_autonomy",
+    "capabilities": [
+      "instrument activation and energy delivery proposal under supervision",
+      "bounded autonomous subtask execution",
+      "control transfer between consoles or into autonomy mode",
+      "delegated subtask authority issuance",
+      "intraoperative guidance presentation",
+      "telemetry and video export for review"
+    ],
+    "control_loops": [
+      {
+        "control_loop_period_ms": 2,
+        "control_loop_ref": "haptic_force_scaling_loop",
+        "excluded_action_family": "force_scaling_correction"
+      },
+      {
+        "control_loop_period_ms": 5,
+        "control_loop_ref": "envelope_keeping_loop",
+        "excluded_action_family": "envelope_keeping_correction"
+      }
+    ],
+    "data_classes": [
+      "procedure context",
+      "instrument and energy state",
+      "intraoperative video/telemetry",
+      "consent scope records"
+    ],
+    "safety_layers": [
+      {
+        "safety_event_window_seconds": 5,
+        "safety_layer_id": "force_envelope",
+        "standards_basis": "IEC 80601-2-77"
+      },
+      {
+        "safety_event_window_seconds": 5,
+        "safety_layer_id": "instrument_interlock",
+        "standards_basis": "IEC 80601-2-77"
+      }
+    ],
+    "scale": {
+      "procedures_per_year": 4000,
+      "unit": "count"
+    }
+  }
+}

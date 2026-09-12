@@ -9,10 +9,10 @@
 
 | Field | Value |
 |---|---|
-| **git commit the campaign ran at** | `33a610c850b2847b88d3667e0706a457a3e37307` |
-| git commit when this summary was rendered | `33a610c850b2847b88d3667e0706a457a3e37307` |
-| git describe | `preregister-tier0-v2-dirty` |
-| git tag (exact) | `preregister-tier0-v2` |
+| **git commit the campaign ran at** | `d9bca3c06a21153650b1e9e30e15e69447f29d15` |
+| git commit when this summary was rendered | `efe84dc2dfa4502f270dd940c63d7a6e25760d72` |
+| git describe | `v1.0.5-3-gefe84dc-dirty` |
+| git tag (exact) | `none at this commit` |
 | working tree clean | False |
 | Python | 3.11.15 (CPython) |
 | platform | macOS-26.6.2-arm64-arm-64bit |
@@ -171,11 +171,11 @@ Seeded validation rows (Section IX): VS-01 exercises RC-05 (PASS), VS-02 exercis
 
 | Suite | tests | passed | failed | errors |
 |---|---|---|---|---|
-| unit | 100 | 100 | 0 | 0 |
+| unit | 188 | 188 | 0 | 0 |
 | properties | 16 | 16 | 0 | 0 |
-| adversarial | 139 | 139 | 0 | 0 |
-| integration | 25 | 25 | 0 | 0 |
-| **total** | **280** | **280** | **0** | **0** |
+| adversarial | 140 | 140 | 0 | 0 |
+| integration | 54 | 54 | 0 | 0 |
+| **total** | **398** | **398** | **0** | **0** |
 
 Property-based testing: **16 properties**, `max_examples = 100`, **1427 generated examples in total**.
 

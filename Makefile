@@ -155,8 +155,26 @@ ieee-check:
 	$(PY) -m experiments.run_traceability
 	@echo "\n== 8/8  manifest currency =="
 	@$(MAKE) --no-print-directory verify-manifest
+	@$(PY) tools/record_ieee_check_result.py --stages 8 --status PASSED
 	@echo "\n=============================================================="
 	@echo "IEEE ARTIFACT CHECK PASSED -- all 8 stages"
+	@echo "=============================================================="
+
+.PHONY: ieee-check-v4
+ieee-check-v4:
+	@echo "== 1/3  environment =="
+	@$(PY) -c "import sys, jsonschema, referencing, cryptography, numpy, pytest, hypothesis; \
+	  print('python', sys.version.split()[0]); \
+	  print('jsonschema', jsonschema.__version__, '| cryptography', cryptography.__version__, \
+	        '| numpy', numpy.__version__)"
+	@echo "\n== 2/3  test suites =="
+	$(PY) -m pytest -q
+	@echo "\n== 3/3  prospective-v4 freeze check (includes its own working-tree"
+	@echo "        MANIFEST self-consistency check -- see stage 11 of its output)"
+	$(PY) tools/freeze_check.py --prospective-v4
+	@$(PY) tools/record_ieee_check_v4_result.py --stages 3 --status PASSED
+	@echo "\n=============================================================="
+	@echo "IEEE ARTIFACT CHECK (prospective v4) PASSED -- all 3 stages"
 	@echo "=============================================================="
 
 clean:

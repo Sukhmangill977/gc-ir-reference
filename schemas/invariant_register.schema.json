@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gcir.example/schemas/v1.0/invariant_register.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/invariant_register.schema.json",
   "title": "Approved invariant register INV",
   "description": "Manuscript Section VI-B. Compiler invariants are not orphan controls; they are separately authorized requirements included in M or S and recorded here. The traceability requirement is: for all p in P, origin(p) in R union INV.",
   "type": "object",
@@ -77,7 +77,10 @@
           "evidence_requirements": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
           "evidence_semantics": { "type": "string", "minLength": 1 },
           "decision_semantics": { "type": "string", "minLength": 1 },
-          "warrant_boundary": { "type": "string", "minLength": 1 }
+          "warrant_boundary": { "type": "string", "minLength": 1 },
+          "enforcement_phase": { "$ref": "common.schema.json#/$defs/enforcementPhase" },
+          "evaluation_latency_bound": { "$ref": "common.schema.json#/$defs/evaluationLatencyBound" },
+          "on_evaluation_timeout": { "$ref": "common.schema.json#/$defs/onEvaluationTimeout" }
         }
       }
     }

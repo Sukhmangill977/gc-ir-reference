@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gcir.example/schemas/v1.0/common.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/common.schema.json",
   "title": "GC-IR shared definitions (v1.0)",
   "$defs": {
     "rfc3339Utc": {
@@ -68,14 +68,17 @@
     "mandatoryRole": { "enum": ["decisive", "supporting"] },
     "originType": { "enum": ["risk_derived", "compiler_invariant"] },
     "reasonCode": {
-      "enum": ["RC-01", "RC-02", "RC-03", "RC-05"],
-      "description": "Closed at schema v1.0 (Section V). RC-01 no per-action observable; RC-02 no authority-matrix action; RC-03 requires probabilistic judgment; RC-05 consequence class undefined. RC-04 is not defined in the manuscript and is reserved-unused."
+      "enum": ["RC-01", "RC-02", "RC-03", "RC-05", "RC-06"],
+      "description": "Closed at schema v1.0 (Section V), extended at v1.1 (Section III). RC-01 no per-action observable; RC-02 no authority-matrix action; RC-03 requires probabilistic judgment; RC-05 consequence class undefined; RC-06 (v1.1) continuous control, fails AD-1, belongs to the runtime safety layer. RC-04 is not defined in the manuscript and is reserved-unused."
     },
     "warningCode": {
       "enum": ["WC-01"],
       "description": "WC-01 unresolved obligation reference. A warning, never a disposition."
     },
-    "requirementClass": { "enum": ["statutory", "supervisory", "contractual", "internal"] },
+    "requirementClass": {
+      "enum": ["statutory", "supervisory", "standards", "contractual", "internal"],
+      "description": "Schema v1.1 adds 'standards' (a consensus standard -- ISO, IEC, ASTM -- applied by the profile)."
+    },
     "escalation": {
       "type": "object",
       "additionalProperties": false,
@@ -95,6 +98,66 @@
         "effective_until": { "$ref": "#/$defs/rfc3339Utc" }
       }
     },
+    "enforcementPhase": {
+      "enum": ["PRE_AUTHORIZATION", "BOUNDARY_REVALIDATION",
+               "POST_AUTH_PRE_ACTUATION", "POST_EVENT_AUDIT"],
+      "description": "Schema v1.1. Only PRE_AUTHORIZATION and BOUNDARY_REVALIDATION contribute to the PERMIT aggregate. A predicate declaring no enforcement_phase is treated as PRE_AUTHORIZATION (v1.0 backward compatibility)."
+    },
+    "evaluationLatencyBound": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "unit"],
+      "description": "Schema v1.1, Section III AD-2. The bound within which the evaluator must signal completion; expiry is on_evaluation_timeout = HOLD, never a partial permit.",
+      "properties": {
+        "value": { "type": "number", "exclusiveMinimum": 0 },
+        "unit": { "type": "string", "minLength": 1 }
+      }
+    },
+    "onEvaluationTimeout": {
+      "const": "HOLD",
+      "description": "Schema v1.1. Fixed, not configurable: an evaluator that does not finish inside evaluation_latency_bound resolves to HOLD."
+    },
+    "stateBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["attributes"],
+      "description": "Schema v1.1, Section IV-C / VIII (INV-STATE-BINDING). The world-state attribute tuple a permit issued under this predicate is digested over; a mismatch between the digest at authorization and at the execution boundary is HOLD by default, forcing re-authorization -- never a silent permit.",
+      "properties": {
+        "attributes": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "digest_algorithm": { "type": "string", "default": "sha256" },
+        "mismatch_response": {
+          "enum": ["HOLD", "DENY"],
+          "default": "HOLD",
+          "description": "The signed policy's declared fail-closed response to a digest mismatch. HOLD (forcing re-authorization) unless the approved specification explicitly and signedly declares DENY instead; never a silent permit either way."
+        }
+      }
+    },
+    "concurrencePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["n_required", "m_eligible", "window_seconds", "expiry_response"],
+      "description": "Schema v1.1, Section IV-C / V commitment 7. All-or-nothing N-of-M; partial concurrence never accrues. expiry_response is fixed DENY.",
+      "properties": {
+        "n_required": { "type": "integer", "exclusiveMinimum": 0 },
+        "m_eligible": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/identifier" } },
+        "role_constraints": { "type": "array", "items": { "type": "string" } },
+        "window_seconds": { "type": "number", "exclusiveMinimum": 0 },
+        "expiry_response": { "const": "DENY" }
+      }
+    },
+    "delegationRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parent_permit_class_id"],
+      "description": "Schema v1.1, Section V commitment 7. Names the delegation relationship a predicate over the DELEGATE transition participates in; strict containment of the issued child permit against its parent is checked at issuance by auxiliary check A3, not by the compiler (the compiler never sees a parent permit instance).",
+      "properties": {
+        "parent_permit_class_id": { "$ref": "#/$defs/identifier" }
+      }
+    },
+    "responsePolicy": {
+      "enum": ["REQUIRED", "OPTIONAL", "NONE"],
+      "description": "Schema v1.1, Section VII-I. Governs whether a conformant runtime must emit a HumanResponse record for permits issued under this predicate."
+    },
     "consequenceDescriptor": {
       "type": "object",
       "additionalProperties": false,
@@ -103,7 +166,10 @@
       "properties": {
         "kind": { "$ref": "#/$defs/identifier" },
         "materiality": { "$ref": "#/$defs/identifier" },
-        "reversibility": { "enum": ["reversible", "partially_reversible", "irreversible"] },
+        "reversibility": {
+          "enum": ["reversible", "partially_reversible", "requires_intervention", "irreversible"],
+          "description": "Schema v1.1 adds 'requires_intervention' (Section VII: physical_harm_to_person is reversibility-qualified over {irreversible, requires_intervention})."
+        },
         "authority": { "$ref": "#/$defs/identifier" },
         "classification_authority": { "$ref": "#/$defs/identifier" },
         "rationale": { "type": "string" },

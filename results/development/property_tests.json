@@ -7,16 +7,16 @@
       "numpy": "2.2.1",
       "pytest": "8.3.4"
     },
-    "git_commit": "33a610c850b2847b88d3667e0706a457a3e37307",
-    "git_commit_short": "33a610c",
-    "git_describe": "preregister-tier0-v2-dirty",
+    "git_commit": "efe84dc2dfa4502f270dd940c63d7a6e25760d72",
+    "git_commit_short": "efe84dc",
+    "git_describe": "v1.0.5-3-gefe84dc-dirty",
     "git_status_clean": false,
-    "git_tag_exact": "preregister-tier0-v2",
+    "git_tag_exact": null,
     "machine": "arm64",
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "python_implementation": "CPython",
     "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-08T17:55:38Z",
+    "run_completed_utc": "2026-09-12T07:03:11Z",
     "system": "Darwin"
   },
   "phase": "development",
@@ -53,9 +53,9 @@
         "tests/properties/test_invariants.py::test_any_payload_edit_changes_the_hash": {
           "failing_examples": 0,
           "lines": [
-            "- during generate phase (0.36 seconds):",
-            "- Typical runtimes: ~ 0-8 ms, of which ~ 0-7 ms in data generation",
-            "- 100 passing examples, 0 failing examples, 9 invalid examples",
+            "- during generate phase (0.33 seconds):",
+            "- Typical runtimes: ~ 0-7 ms, of which ~ 0-6 ms in data generation",
+            "- 100 passing examples, 0 failing examples, 10 invalid examples",
             "- Events:"
           ],
           "passing_examples": 100
@@ -63,7 +63,7 @@
         "tests/properties/test_invariants.py::test_authority_closure_rejects_every_tuple_outside_the_matrix": {
           "failing_examples": 0,
           "lines": [
-            "- during generate phase (0.10 seconds):",
+            "- during generate phase (0.09 seconds):",
             "- Typical runtimes: < 1ms, of which < 1ms in data generation",
             "- 100 passing examples, 0 failing examples, 0 invalid examples",
             "- Stopped because settings.max_examples=100"
@@ -74,9 +74,9 @@
         "tests/properties/test_invariants.py::test_authority_closure_rejects_unapproved_parameters": {
           "failing_examples": 0,
           "lines": [
-            "- during generate phase (0.15 seconds):",
+            "- during generate phase (0.17 seconds):",
             "- Typical runtimes: ~ 0-1 ms, of which ~ 0-1 ms in data generation",
-            "- 100 passing examples, 0 failing examples, 29 invalid examples",
+            "- 100 passing examples, 0 failing examples, 35 invalid examples",
             "- Events:"
           ],
           "passing_examples": 100
@@ -84,9 +84,9 @@
         "tests/properties/test_invariants.py::test_c_star_coverage_holds_exactly_when_every_hazardous_path_is_gated": {
           "failing_examples": 0,
           "lines": [
-            "- during generate phase (0.15 seconds):",
-            "- Typical runtimes: ~ 0-2 ms, of which ~ 0-1 ms in data generation",
-            "- 100 passing examples, 0 failing examples, 1 invalid examples",
+            "- during generate phase (0.14 seconds):",
+            "- Typical runtimes: ~ 0-1 ms, of which ~ 0-1 ms in data generation",
+            "- 100 passing examples, 0 failing examples, 2 invalid examples",
             "- Stopped because settings.max_examples=100"
           ],
           "max_examples": 100,
@@ -95,9 +95,9 @@
         "tests/properties/test_invariants.py::test_canonicalization_is_invariant_under_object_key_order": {
           "failing_examples": 0,
           "lines": [
-            "- during generate phase (0.23 seconds):",
-            "- Typical runtimes: ~ 0-6 ms, of which ~ 0-5 ms in data generation",
-            "- 100 passing examples, 0 failing examples, 1 invalid examples",
+            "- during generate phase (0.22 seconds):",
+            "- Typical runtimes: ~ 0-6 ms, of which ~ 0-4 ms in data generation",
+            "- 100 passing examples, 0 failing examples, 5 invalid examples",
             "- Events:"
           ],
           "passing_examples": 100
@@ -116,9 +116,9 @@
         "tests/properties/test_invariants.py::test_forbidden_payload_keys_are_always_detected": {
           "failing_examples": 0,
           "lines": [
-            "- during generate phase (0.47 seconds):",
-            "- Typical runtimes: ~ 0-8 ms, of which ~ 0-7 ms in data generation",
-            "- 100 passing examples, 0 failing examples, 19 invalid examples",
+            "- during generate phase (0.37 seconds):",
+            "- Typical runtimes: ~ 0-7 ms, of which ~ 0-6 ms in data generation",
+            "- 100 passing examples, 0 failing examples, 10 invalid examples",
             "- Events:"
           ],
           "passing_examples": 100
@@ -146,9 +146,9 @@
         "tests/properties/test_invariants.py::test_origin_closure": {
           "failing_examples": 0,
           "lines": [
-            "- during generate phase (0.25 seconds):",
+            "- during generate phase (0.20 seconds):",
             "- Typical runtimes: ~ 0-1 ms, of which ~ 0-1 ms in data generation",
-            "- 100 passing examples, 0 failing examples, 56 invalid examples",
+            "- 100 passing examples, 0 failing examples, 52 invalid examples",
             "- Events:"
           ],
           "passing_examples": 100
@@ -156,9 +156,9 @@
         "tests/properties/test_invariants.py::test_predicate_cardinality_is_independent_of_risk_cardinality": {
           "failing_examples": 0,
           "lines": [
-            "- during generate phase (0.14 seconds):",
+            "- during generate phase (0.15 seconds):",
             "- Typical runtimes: ~ 0-1 ms, of which ~ 0-1 ms in data generation",
-            "- 100 passing examples, 0 failing examples, 5 invalid examples",
+            "- 100 passing examples, 0 failing examples, 1 invalid examples",
             "- Stopped because settings.max_examples=100"
           ],
           "max_examples": 100,
@@ -167,9 +167,9 @@
         "tests/properties/test_invariants.py::test_supporting_predicates_never_satisfy_coverage": {
           "failing_examples": 0,
           "lines": [
-            "- during generate phase (0.13 seconds):",
+            "- during generate phase (0.15 seconds):",
             "- Typical runtimes: ~ 0-1 ms, of which ~ 0-1 ms in data generation",
-            "- 100 passing examples, 0 failing examples, 6 invalid examples",
+            "- 100 passing examples, 0 failing examples, 3 invalid examples",
             "- Stopped because settings.max_examples=100"
           ],
           "max_examples": 100,
@@ -178,9 +178,9 @@
         "tests/properties/test_invariants.py::test_total_disposition_is_exactly_one_per_risk": {
           "failing_examples": 0,
           "lines": [
-            "- during generate phase (0.20 seconds):",
-            "- Typical runtimes: ~ 0-2 ms, of which ~ 0-1 ms in data generation",
-            "- 100 passing examples, 0 failing examples, 0 invalid examples",
+            "- during generate phase (0.17 seconds):",
+            "- Typical runtimes: ~ 0-1 ms, of which ~ 0-1 ms in data generation",
+            "- 100 passing examples, 0 failing examples, 4 invalid examples",
             "- Stopped because settings.max_examples=100"
           ],
           "max_examples": 100,
@@ -189,9 +189,9 @@
         "tests/properties/test_invariants.py::test_unknown_on_a_mandatory_gate_never_resolves_to_pass": {
           "failing_examples": 0,
           "lines": [
-            "- during generate phase (0.10 seconds):",
+            "- during generate phase (0.09 seconds):",
             "- Typical runtimes: < 1ms, of which < 1ms in data generation",
-            "- 100 passing examples, 0 failing examples, 17 invalid examples",
+            "- 100 passing examples, 0 failing examples, 6 invalid examples",
             "- Stopped because settings.max_examples=100"
           ],
           "max_examples": 100,
@@ -265,6 +265,13 @@
     "suites": {
       "adversarial": {
         "cases": [
+          {
+            "classname": "tests.adversarial.test_case_c_injections",
+            "message": "",
+            "name": "test_all_case_c_injection_scenarios_pass",
+            "status": "passed",
+            "time": 0.05
+          },
           {
             "classname": "tests.adversarial.test_corpus",
             "message": "",
@@ -1026,7 +1033,7 @@
             "message": "",
             "name": "test_no_probabilistic_or_similarity_selection[compiler.py]",
             "status": "passed",
-            "time": 0.005
+            "time": 0.006
           },
           {
             "classname": "tests.adversarial.test_no_inference",
@@ -1061,7 +1068,7 @@
             "message": "",
             "name": "test_no_probabilistic_or_similarity_selection[canonicalization.py]",
             "status": "passed",
-            "time": 0.001
+            "time": 0.002
           },
           {
             "classname": "tests.adversarial.test_no_inference",
@@ -1239,25 +1246,228 @@
             "time": 0.001
           }
         ],
-        "duration_seconds": 4.927,
+        "duration_seconds": 4.987,
         "errors": 0,
         "failures": 0,
-        "passed": 139,
+        "passed": 140,
         "path": "tests/adversarial",
         "returncode": 0,
         "skipped": 0,
-        "stdout_tail": "........................................................................ [ 51%]\n...................................................................      [100%]\n- generated xml file: /Users/sukhmangill/Documents/GitHub/gc-ir-reference/results/development/test_reports/junit_adversarial.xml -\n139 passed in 4.99s\n",
+        "stdout_tail": "........................................................................ [ 51%]\n....................................................................     [100%]\n- generated xml file: /Users/sukhmangill/Documents/GitHub/gc-ir-reference/results/development/test_reports/junit_adversarial.xml -\n140 passed in 5.06s\n",
         "suite": "adversarial",
-        "tests": 139
+        "tests": 140
       },
       "integration": {
         "cases": [
+          {
+            "classname": "tests.integration.test_case_b_v11",
+            "message": "",
+            "name": "test_structure_matches_case_b_exactly",
+            "status": "passed",
+            "time": 0.121
+          },
+          {
+            "classname": "tests.integration.test_case_b_v11",
+            "message": "",
+            "name": "test_schema_version_is_1_1",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_b_v11",
+            "message": "",
+            "name": "test_hash_genuinely_differs_from_case_b_v10",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_b_v11",
+            "message": "",
+            "name": "test_canonical_q1_q10_all_pass_when_signed",
+            "status": "passed",
+            "time": 0.008
+          },
+          {
+            "classname": "tests.integration.test_case_b_v11",
+            "message": "",
+            "name": "test_b01_state_binding_mismatch_holds_not_denies",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_b_v11",
+            "message": "",
+            "name": "test_b02_concurrence_expiry_denies",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_b_v11",
+            "message": "",
+            "name": "test_b02_concurrence_pending_holds",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_b_v11",
+            "message": "",
+            "name": "test_b06_post_auth_pre_actuation_blocks_release_without_denying_authorization",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_b_v11",
+            "message": "",
+            "name": "test_b03_evaluation_timeout_holds",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_b_v11",
+            "message": "",
+            "name": "test_clean_control_still_permits",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_case_is_marked_synthetic",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_structure_matches_the_manuscript_tables_v_vi",
+            "status": "passed",
+            "time": 0.049
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_thirteen_runtime_three_nonruntime_dispositions",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_c06_c07_are_cstar_by_severity_but_exempt_from_coverage_via_rc06",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_seven_runtime_rows_are_cstar_classified",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_bundle_validates_against_schema",
+            "status": "passed",
+            "time": 0.016
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_hash_matches_reference",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_canonical_q1_q10_all_pass_when_signed",
+            "status": "passed",
+            "time": 0.011
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_clean_control_permits",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_c02_state_binding_mismatch_holds",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_c04_concurrence_pending_holds",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_c04_concurrence_expiry_denies",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_c14_evaluation_timeout_holds",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_c15_post_event_audit_excluded_from_authorization",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_c01_known_contraindication_denies",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_a1_actor_scope_revocation_over_case_c_actuation",
+            "status": "passed",
+            "time": 0.001
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_a2_safety_event_correlates_to_case_c_bundle",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_a3_delegated_subtask_containment",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.integration.test_case_c",
+            "message": "",
+            "name": "test_a4_human_response_required_for_c08_guidance",
+            "status": "passed",
+            "time": 0.0
+          },
           {
             "classname": "tests.integration.test_cases",
             "message": "",
             "name": "test_case_a_has_sixteen_register_rows",
             "status": "passed",
-            "time": 0.152
+            "time": 0.0
           },
           {
             "classname": "tests.integration.test_cases",
@@ -1271,7 +1481,7 @@
             "message": "",
             "name": "test_case_a_is_declared_synthetic",
             "status": "passed",
-            "time": 0.001
+            "time": 0.0
           },
           {
             "classname": "tests.integration.test_cases",
@@ -1376,21 +1586,21 @@
             "message": "",
             "name": "test_bundle_payload_hash_is_reproducible[case_b]",
             "status": "passed",
-            "time": 0.003
+            "time": 0.002
           },
           {
             "classname": "tests.integration.test_cases",
             "message": "",
             "name": "test_recompiling_gives_the_same_hash[case_a]",
             "status": "passed",
-            "time": 0.06
+            "time": 0.057
           },
           {
             "classname": "tests.integration.test_cases",
             "message": "",
             "name": "test_recompiling_gives_the_same_hash[case_b]",
             "status": "passed",
-            "time": 0.03
+            "time": 0.028
           },
           {
             "classname": "tests.integration.test_cases",
@@ -1425,19 +1635,19 @@
             "message": "",
             "name": "test_committed_case_tree_matches_the_generator",
             "status": "passed",
-            "time": 0.109
+            "time": 0.102
           }
         ],
-        "duration_seconds": 0.387,
+        "duration_seconds": 0.483,
         "errors": 0,
         "failures": 0,
-        "passed": 25,
+        "passed": 54,
         "path": "tests/integration",
         "returncode": 0,
         "skipped": 0,
-        "stdout_tail": ".........................                                                [100%]\n- generated xml file: /Users/sukhmangill/Documents/GitHub/gc-ir-reference/results/development/test_reports/junit_integration.xml -\n25 passed in 0.45s\n",
+        "stdout_tail": "......................................................                   [100%]\n- generated xml file: /Users/sukhmangill/Documents/GitHub/gc-ir-reference/results/development/test_reports/junit_integration.xml -\n54 passed in 0.54s\n",
         "suite": "integration",
-        "tests": 25
+        "tests": 54
       },
       "properties": {
         "cases": [
@@ -1446,28 +1656,28 @@
             "message": "",
             "name": "test_total_disposition_is_exactly_one_per_risk",
             "status": "passed",
-            "time": 0.197
+            "time": 0.173
           },
           {
             "classname": "tests.properties.test_invariants",
             "message": "",
             "name": "test_predicate_cardinality_is_independent_of_risk_cardinality",
             "status": "passed",
-            "time": 0.14
+            "time": 0.147
           },
           {
             "classname": "tests.properties.test_invariants",
             "message": "",
             "name": "test_authority_closure_rejects_every_tuple_outside_the_matrix",
             "status": "passed",
-            "time": 0.108
+            "time": 0.1
           },
           {
             "classname": "tests.properties.test_invariants",
             "message": "",
             "name": "test_authority_closure_rejects_unapproved_parameters",
             "status": "passed",
-            "time": 0.164
+            "time": 0.181
           },
           {
             "classname": "tests.properties.test_invariants",
@@ -1481,56 +1691,56 @@
             "message": "",
             "name": "test_mandatory_gate_requires_safe_state",
             "status": "passed",
-            "time": 0.004
+            "time": 0.005
           },
           {
             "classname": "tests.properties.test_invariants",
             "message": "",
             "name": "test_unknown_on_a_mandatory_gate_never_resolves_to_pass",
             "status": "passed",
-            "time": 0.102
+            "time": 0.094
           },
           {
             "classname": "tests.properties.test_invariants",
             "message": "",
             "name": "test_c_star_coverage_holds_exactly_when_every_hazardous_path_is_gated",
             "status": "passed",
-            "time": 0.157
+            "time": 0.14
           },
           {
             "classname": "tests.properties.test_invariants",
             "message": "",
             "name": "test_supporting_predicates_never_satisfy_coverage",
             "status": "passed",
-            "time": 0.133
+            "time": 0.154
           },
           {
             "classname": "tests.properties.test_invariants",
             "message": "",
             "name": "test_origin_closure",
             "status": "passed",
-            "time": 0.249
+            "time": 0.203
           },
           {
             "classname": "tests.properties.test_invariants",
             "message": "",
             "name": "test_canonicalization_is_invariant_under_object_key_order",
             "status": "passed",
-            "time": 0.236
+            "time": 0.218
           },
           {
             "classname": "tests.properties.test_invariants",
             "message": "",
             "name": "test_any_payload_edit_changes_the_hash",
             "status": "passed",
-            "time": 0.358
+            "time": 0.327
           },
           {
             "classname": "tests.properties.test_invariants",
             "message": "",
             "name": "test_forbidden_payload_keys_are_always_detected",
             "status": "passed",
-            "time": 0.474
+            "time": 0.372
           },
           {
             "classname": "tests.properties.test_invariants",
@@ -1544,24 +1754,24 @@
             "message": "",
             "name": "test_valid_at_conjuncts",
             "status": "passed",
-            "time": 0.18
+            "time": 0.178
           },
           {
             "classname": "tests.properties.test_invariants",
             "message": "",
             "name": "test_valid_at_requires_the_payload_hash_to_bind",
             "status": "passed",
-            "time": 0.118
+            "time": 0.119
           }
         ],
-        "duration_seconds": 2.719,
+        "duration_seconds": 2.505,
         "errors": 0,
         "failures": 0,
         "passed": 16,
         "path": "tests/properties",
         "returncode": 0,
         "skipped": 0,
-        "stdout_tail": "_when_every_hazardous_path_is_gated:\n\n  - during generate phase (0.15 seconds):\n    - Typical runtimes: ~ 0-2 ms, of which ~ 0-1 ms in data generation\n    - 100 passing examples, 0 failing examples, 1 invalid examples\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_supporting_predicates_never_satisfy_coverage:\n\n  - during generate phase (0.13 seconds):\n    - Typical runtimes: ~ 0-1 ms, of which ~ 0-1 ms in data generation\n    - 100 passing examples, 0 failing examples, 6 invalid examples\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_origin_closure:\n\n  - during generate phase (0.25 seconds):\n    - Typical runtimes: ~ 0-1 ms, of which ~ 0-1 ms in data generation\n    - 100 passing examples, 0 failing examples, 56 invalid examples\n    - Events:\n      * 45.51%, Retried draw from text(characters(categories=(), include_characters='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-'), min_size=1, max_size=12).filter(not_yet_in_unique_list) to satisfy filter\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_canonicalization_is_invariant_under_object_key_order:\n\n  - during generate phase (0.23 seconds):\n    - Typical runtimes: ~ 0-6 ms, of which ~ 0-5 ms in data generation\n    - 100 passing examples, 0 failing examples, 1 invalid examples\n    - Events:\n      * 1.98%, Retried draw from text(characters(codec='utf-8', categories=('Zl', 'Zp', 'Co', 'Me', 'Pc', 'Zs', 'Lt', 'Pf', 'Pi', 'Nl', 'Pd', 'Cf', 'Sc', 'Sk', 'Nd', 'Sm', 'Lm', 'No', 'Pe', 'Ps', 'Mc', 'Po', 'So', 'Mn', 'Lo', 'Lu', 'Ll', 'Cn', 'Cc')), min_size=1, max_size=6).filter(not_yet_in_unique_list) to satisfy filter\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_any_payload_edit_changes_the_hash:\n\n  - during generate phase (0.36 seconds):\n    - Typical runtimes: ~ 0-8 ms, of which ~ 0-7 ms in data generation\n    - 100 passing examples, 0 failing examples, 9 invalid examples\n    - Events:\n      * 11.93%, Retried draw from text(characters(codec='utf-8', categories=('Zl', 'Zp', 'Co', 'Me', 'Pc', 'Zs', 'Lt', 'Pf', 'Pi', 'Nl', 'Pd', 'Cf', 'Sc', 'Sk', 'Nd', 'Sm', 'Lm', 'No', 'Pe', 'Ps', 'Mc', 'Po', 'So', 'Mn', 'Lo', 'Lu', 'Ll', 'Cn', 'Cc')), min_size=1, max_size=6).filter(not_yet_in_unique_list) to satisfy filter\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_forbidden_payload_keys_are_always_detected:\n\n  - during generate phase (0.47 seconds):\n    - Typical runtimes: ~ 0-8 ms, of which ~ 0-7 ms in data generation\n    - 100 passing examples, 0 failing examples, 19 invalid examples\n    - Events:\n      * 12.61%, Retried draw from text(characters(codec='utf-8', categories=('Zl', 'Zp', 'Co', 'Me', 'Pc', 'Zs', 'Lt', 'Pf', 'Pi', 'Nl', 'Pd', 'Cf', 'Sc', 'Sk', 'Nd', 'Sm', 'Lm', 'No', 'Pe', 'Ps', 'Mc', 'Po', 'So', 'Mn', 'Lo', 'Lu', 'Ll', 'Cn', 'Cc')), min_size=1, max_size=6).filter(not_yet_in_unique_list) to satisfy filter\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_commit_before_actuate_ordering:\n\n  - during generate phase (0.06 seconds):\n    - Typical runtimes: < 1ms, of which < 1ms in data generation\n    - 100 passing examples, 0 failing examples, 0 invalid examples\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_valid_at_conjuncts:\n\n  - during generate phase (0.18 seconds):\n    - Typical runtimes: ~ 1-2 ms, of which < 1ms in data generation\n    - 100 passing examples, 0 failing examples, 0 invalid examples\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_valid_at_requires_the_payload_hash_to_bind:\n\n  - during generate phase (0.12 seconds):\n    - Typical runtimes: ~ 1ms, of which < 1ms in data generation\n    - 100 passing examples, 0 failing examples, 0 invalid examples\n\n  - Stopped because settings.max_examples=100\n\n\n16 passed in 2.72s\n",
+        "stdout_tail": "_when_every_hazardous_path_is_gated:\n\n  - during generate phase (0.14 seconds):\n    - Typical runtimes: ~ 0-1 ms, of which ~ 0-1 ms in data generation\n    - 100 passing examples, 0 failing examples, 2 invalid examples\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_supporting_predicates_never_satisfy_coverage:\n\n  - during generate phase (0.15 seconds):\n    - Typical runtimes: ~ 0-1 ms, of which ~ 0-1 ms in data generation\n    - 100 passing examples, 0 failing examples, 3 invalid examples\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_origin_closure:\n\n  - during generate phase (0.20 seconds):\n    - Typical runtimes: ~ 0-1 ms, of which ~ 0-1 ms in data generation\n    - 100 passing examples, 0 failing examples, 52 invalid examples\n    - Events:\n      * 36.84%, Retried draw from text(characters(categories=(), include_characters='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-'), min_size=1, max_size=12).filter(not_yet_in_unique_list) to satisfy filter\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_canonicalization_is_invariant_under_object_key_order:\n\n  - during generate phase (0.22 seconds):\n    - Typical runtimes: ~ 0-6 ms, of which ~ 0-4 ms in data generation\n    - 100 passing examples, 0 failing examples, 5 invalid examples\n    - Events:\n      * 3.81%, Retried draw from text(characters(codec='utf-8', categories=('Zl', 'Zp', 'Co', 'Me', 'Pc', 'Zs', 'Lt', 'Pf', 'Pi', 'Nl', 'Pd', 'Cf', 'Sc', 'Sk', 'Nd', 'Sm', 'Lm', 'No', 'Pe', 'Ps', 'Mc', 'Po', 'So', 'Mn', 'Lo', 'Lu', 'Ll', 'Cn', 'Cc')), min_size=1, max_size=6).filter(not_yet_in_unique_list) to satisfy filter\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_any_payload_edit_changes_the_hash:\n\n  - during generate phase (0.33 seconds):\n    - Typical runtimes: ~ 0-7 ms, of which ~ 0-6 ms in data generation\n    - 100 passing examples, 0 failing examples, 10 invalid examples\n    - Events:\n      * 9.09%, Retried draw from text(characters(codec='utf-8', categories=('Zl', 'Zp', 'Co', 'Me', 'Pc', 'Zs', 'Lt', 'Pf', 'Pi', 'Nl', 'Pd', 'Cf', 'Sc', 'Sk', 'Nd', 'Sm', 'Lm', 'No', 'Pe', 'Ps', 'Mc', 'Po', 'So', 'Mn', 'Lo', 'Lu', 'Ll', 'Cn', 'Cc')), min_size=1, max_size=6).filter(not_yet_in_unique_list) to satisfy filter\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_forbidden_payload_keys_are_always_detected:\n\n  - during generate phase (0.37 seconds):\n    - Typical runtimes: ~ 0-7 ms, of which ~ 0-6 ms in data generation\n    - 100 passing examples, 0 failing examples, 10 invalid examples\n    - Events:\n      * 14.55%, Retried draw from text(characters(codec='utf-8', categories=('Zl', 'Zp', 'Co', 'Me', 'Pc', 'Zs', 'Lt', 'Pf', 'Pi', 'Nl', 'Pd', 'Cf', 'Sc', 'Sk', 'Nd', 'Sm', 'Lm', 'No', 'Pe', 'Ps', 'Mc', 'Po', 'So', 'Mn', 'Lo', 'Lu', 'Ll', 'Cn', 'Cc')), min_size=1, max_size=6).filter(not_yet_in_unique_list) to satisfy filter\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_commit_before_actuate_ordering:\n\n  - during generate phase (0.06 seconds):\n    - Typical runtimes: < 1ms, of which < 1ms in data generation\n    - 100 passing examples, 0 failing examples, 0 invalid examples\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_valid_at_conjuncts:\n\n  - during generate phase (0.18 seconds):\n    - Typical runtimes: ~ 1-2 ms, of which < 1ms in data generation\n    - 100 passing examples, 0 failing examples, 0 invalid examples\n\n  - Stopped because settings.max_examples=100\n\n\ntests/properties/test_invariants.py::test_valid_at_requires_the_payload_hash_to_bind:\n\n  - during generate phase (0.12 seconds):\n    - Typical runtimes: ~ 1ms, of which < 1ms in data generation\n    - 100 passing examples, 0 failing examples, 0 invalid examples\n\n  - Stopped because settings.max_examples=100\n\n\n16 passed in 2.50s\n",
         "suite": "properties",
         "tests": 16
       },
@@ -1607,7 +1817,7 @@
             "message": "",
             "name": "test_case_profiles_are_the_base_profile[case_a]",
             "status": "passed",
-            "time": 0.147
+            "time": 0.135
           },
           {
             "classname": "tests.unit.test_core",
@@ -1656,14 +1866,14 @@
             "message": "",
             "name": "test_signature_envelope_lives_outside_the_hashed_payload[case_a]",
             "status": "passed",
-            "time": 0.015
+            "time": 0.014
           },
           {
             "classname": "tests.unit.test_core",
             "message": "",
             "name": "test_signature_envelope_lives_outside_the_hashed_payload[case_b]",
             "status": "passed",
-            "time": 0.008
+            "time": 0.007
           },
           {
             "classname": "tests.unit.test_core",
@@ -1803,7 +2013,7 @@
             "message": "",
             "name": "test_mandatory_failure_outranks_everything",
             "status": "passed",
-            "time": 0.003
+            "time": 0.0
           },
           {
             "classname": "tests.unit.test_core",
@@ -1824,7 +2034,7 @@
             "message": "",
             "name": "test_conflicting_mandatory_policies_without_precedence_are_indeterminate",
             "status": "passed",
-            "time": 0.001
+            "time": 0.002
           },
           {
             "classname": "tests.unit.test_core",
@@ -1845,7 +2055,7 @@
             "message": "",
             "name": "test_valid_at_six_scenarios",
             "status": "passed",
-            "time": 0.031
+            "time": 0.04
           },
           {
             "classname": "tests.unit.test_core",
@@ -1866,7 +2076,7 @@
             "message": "",
             "name": "test_a_bundle_signature_cannot_be_replayed_as_a_lifecycle_signature",
             "status": "passed",
-            "time": 0.01
+            "time": 0.009
           },
           {
             "classname": "tests.unit.test_core",
@@ -1922,14 +2132,126 @@
             "message": "",
             "name": "test_input_array_order_does_not_change_the_payload_hash[case_a]",
             "status": "passed",
-            "time": 0.047
+            "time": 0.046
           },
           {
             "classname": "tests.unit.test_core",
             "message": "",
             "name": "test_input_array_order_does_not_change_the_payload_hash[case_b]",
             "status": "passed",
-            "time": 0.023
+            "time": 0.022
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_known_frozen_values",
+            "status": "passed",
+            "time": 0.029
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_json_cli",
+            "status": "passed",
+            "time": 0.068
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_text_sections",
+            "status": "passed",
+            "time": 0.027
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_corrupt_source_fails[metrics.json]",
+            "status": "passed",
+            "time": 0.043
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_corrupt_source_fails[monte_carlo_summary.json]",
+            "status": "passed",
+            "time": 0.04
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_corrupt_source_fails[property_tests.json]",
+            "status": "passed",
+            "time": 0.041
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_corrupt_source_fails[freeze_verification.json]",
+            "status": "passed",
+            "time": 0.041
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_missing_evidence_fails",
+            "status": "passed",
+            "time": 0.034
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_missing_ci_leg_fails",
+            "status": "passed",
+            "time": 0.038
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_stale_readme_is_nonmutating",
+            "status": "passed",
+            "time": 0.066
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_updater_preserves_every_byte_outside_markers",
+            "status": "passed",
+            "time": 0.112
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_invalid_markers_rejected[]",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_invalid_markers_rejected[<!-- END AUTO-GENERATED MEASURED RESULTS --><!-- BEGIN AUTO-GENERATED MEASURED RESULTS -->]",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_invalid_markers_rejected[<!-- BEGIN AUTO-GENERATED MEASURED RESULTS --><!-- BEGIN AUTO-GENERATED MEASURED RESULTS --><!-- END AUTO-GENERATED MEASURED RESULTS -->]",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_provenance_document_matches_loader",
+            "status": "passed",
+            "time": 0.026
+          },
+          {
+            "classname": "tests.unit.test_result_display",
+            "message": "",
+            "name": "test_redirected_text_preserves_unicode_under_ascii_locale",
+            "status": "passed",
+            "time": 0.065
           },
           {
             "classname": "tests.unit.test_rfc8785",
@@ -2160,7 +2482,7 @@
             "message": "",
             "name": "test_es6_number_to_string[5e-324-5e-324]",
             "status": "passed",
-            "time": 0.01
+            "time": 0.0
           },
           {
             "classname": "tests.unit.test_rfc8785",
@@ -2265,26 +2587,530 @@
             "message": "",
             "name": "test_hash_is_sha256_of_canonical_bytes",
             "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_safe_state_of_is_the_single_formula",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_safe_state_of_rejects_outside_the_closed_decision_set",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_decisions_vocabulary_is_exactly_three",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_canonical_q1_q10_all_pass_on_the_real_case_a_bundle",
+            "status": "passed",
+            "time": 0.015
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_canonical_q1_q10_all_pass_on_the_real_case_b_bundle",
+            "status": "passed",
+            "time": 0.007
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_q9_with_the_real_catalog_is_a_strong_check_not_the_fallback",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q10_multiple_violations]",
+            "status": "passed",
+            "time": 0.026
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q10_not_fail_closed]",
+            "status": "passed",
+            "time": 0.023
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q1_undisposed_obligation]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q2_duplicate_disposition]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q3_acs_id_not_disposed]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q3_unknown_origin_type]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q4_invalid_effective_from]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q4_invalid_hash]",
+            "status": "passed",
+            "time": 0.016
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q4_stale_hash]",
+            "status": "passed",
+            "time": 0.029
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q5_permit_eligibility_mismatch]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q5_timeout_response_not_hold]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q6_envelope_hash_mismatch]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q6_missing_envelope]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q7_compiler_invariant_only]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q7_missing_predicate]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q8_missing_predicate_reference]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q8_unused_decisive_predicate]",
+            "status": "passed",
+            "time": 0.022
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q9_empty_producer]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_every_negative_fixture_is_detected_by_its_targeted_query[negative_q9_invalid_producer]",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_negative_fixtures_do_not_silently_reuse_the_invented_shape",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_a_genuinely_clean_bundle_still_passes_after_negative_fixture_generation",
+            "status": "passed",
+            "time": 0.024
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_v10_predicate_with_no_v11_field_behaves_exactly_as_before",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_evaluation_timeout_forces_hold_never_a_partial_permit",
+            "status": "passed",
             "time": 0.001
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_state_binding_mismatch_is_hold_not_denial_of_the_predicates_own_outcome",
+            "status": "passed",
+            "time": 0.001
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_state_binding_match_permits_normally",
+            "status": "passed",
+            "time": 0.001
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_concurrence_pending_is_hold",
+            "status": "passed",
+            "time": 0.001
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_concurrence_window_expiry_is_deny_never_a_timeout",
+            "status": "passed",
+            "time": 0.001
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_concurrence_satisfied_permits",
+            "status": "passed",
+            "time": 0.001
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_post_auth_pre_actuation_blocks_release_without_denying_authorization",
+            "status": "passed",
+            "time": 0.001
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_post_auth_predicate_excluded_from_permit_aggregate_when_it_would_have_failed",
+            "status": "passed",
+            "time": 0.001
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_unknown_predicate_in_evaluations_raises",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_a1_detects_actuation_after_revocation",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_a1_permits_actuation_before_revocation",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_a2_detects_correlation_to_the_wrong_bundle",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_a2_accepts_correctly_correlated_event",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_a2_missing_correlation_detected",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_a3_rejects_identical_child_as_not_a_delegation",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_a3_rejects_child_wider_than_parent",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_a3_accepts_a_genuinely_narrower_child",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_a4_detects_missing_human_response",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_a4_optional_response_policy_needs_no_response",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_v1_1",
+            "message": "",
+            "name": "test_run_all_auxiliary_checks_reports_not_applicable_when_evidence_absent",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_map_exists_and_is_populated",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_every_entry_is_fully_specified",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_entry_ids_are_unique",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_every_result_file_exists",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_deferred_quantities_carry_no_value",
+            "status": "passed",
+            "time": 0.0
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_verifier_passes_on_the_committed_evidence",
+            "status": "passed",
+            "time": 0.024
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_verifier_json_mode_is_wellformed",
+            "status": "passed",
+            "time": 0.023
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_missing_map_exits_two",
+            "status": "passed",
+            "time": 0.003
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_verifier_fails_when_a_reported_value_is_wrong[TD-0.999]",
+            "status": "passed",
+            "time": 0.023
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_verifier_fails_when_a_reported_value_is_wrong[DC-A-0.9]",
+            "status": "passed",
+            "time": 0.024
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_verifier_fails_when_a_reported_value_is_wrong[GDMIN-A-4]",
+            "status": "passed",
+            "time": 0.025
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_verifier_fails_when_a_reported_value_is_wrong[MC-FPHEAT-0.321]",
+            "status": "passed",
+            "time": 0.026
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_verifier_fails_when_a_reported_value_is_wrong[MC-K-100000]",
+            "status": "passed",
+            "time": 0.026
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_verifier_fails_when_a_reported_value_is_wrong[H-A-0000000000000000000000000000000000000000000000000000000000000000]",
+            "status": "passed",
+            "time": 0.025
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_verifier_fails_when_a_reported_value_is_wrong[ADV-61]",
+            "status": "passed",
+            "time": 0.023
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_verifier_fails_when_a_reported_value_is_wrong[TRACE-CLEAN-False]",
+            "status": "passed",
+            "time": 0.023
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_verifier_fails_on_an_unknown_field",
+            "status": "passed",
+            "time": 0.024
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_verifier_fails_on_a_missing_result_file",
+            "status": "passed",
+            "time": 0.023
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_cross_checks_catch_a_tampered_payload_hash",
+            "status": "passed",
+            "time": 0.08
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_cross_checks_pass_on_the_untouched_repository",
+            "status": "passed",
+            "time": 0.021
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_command_line_entry_point_succeeds",
+            "status": "passed",
+            "time": 0.059
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_missing_git_tag_is_skipped_not_failed",
+            "status": "passed",
+            "time": 0.002
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_wrong_git_tag_commit_still_fails",
+            "status": "passed",
+            "time": 0.002
+          },
+          {
+            "classname": "tests.unit.test_verify_reported_results",
+            "message": "",
+            "name": "test_json_mode_reports_skips_separately",
+            "status": "passed",
+            "time": 0.024
           }
         ],
-        "duration_seconds": 0.396,
+        "duration_seconds": 1.989,
         "errors": 0,
         "failures": 0,
-        "passed": 100,
+        "passed": 188,
         "path": "tests/unit",
         "returncode": 0,
         "skipped": 0,
-        "stdout_tail": "........................................................................ [ 72%]\n............................                                             [100%]\n- generated xml file: /Users/sukhmangill/Documents/GitHub/gc-ir-reference/results/development/test_reports/junit_unit.xml -\n100 passed in 0.48s\n",
+        "stdout_tail": "........................................................................ [ 38%]\n........................................................................ [ 76%]\n............................................                             [100%]\n- generated xml file: /Users/sukhmangill/Documents/GitHub/gc-ir-reference/results/development/test_reports/junit_unit.xml -\n188 passed in 2.05s\n",
         "suite": "unit",
-        "tests": 100
+        "tests": 188
       }
     },
     "totals": {
       "errors": 0,
       "failures": 0,
-      "passed": 280,
-      "tests": 280
+      "passed": 398,
+      "tests": 398
     }
   },
   "result_name": "property_tests"

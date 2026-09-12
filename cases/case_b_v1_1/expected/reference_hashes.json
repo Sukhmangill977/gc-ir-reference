@@ -1,0 +1,6 @@
+{
+  "case_id": "case_b_v1_1",
+  "schema_version": "1.1",
+  "payload_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
+  "note": "Nine-ACS Case B v1.1 (B-01: 3 ACS, B-02: 2 ACS, B-03..B-06: 1 each), per manuscript Section X / Table II literal specification. See docs/CASE_B_V1_1_RATIONALE.md. 9 risk-derived + 3 compiler-invariant = 12 total predicates. Development artifact; not part of preregister-tier0-v3.1."
+}

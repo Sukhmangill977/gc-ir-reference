@@ -85,12 +85,23 @@ class CStarProfile:
         return tuple(sorted(self._members)) == tuple(sorted(CSTAR_BASE_PROFILE_V1))
 
     def evaluate(self, descriptor):
-        """``C*(c_i)`` -- 1 iff the descriptor's kind is a member *and* the
-        materiality qualification is satisfied.
+        """``C*(c_i)`` -- 1 iff the descriptor's kind is a member, the
+        materiality qualification is satisfied, AND (schema v1.1) any
+        declared reversibility qualification is satisfied.
 
         "A documentation defect or other immaterial technical non-conformance does
         not enter C* solely because its source is statutory -- materiality
         qualifies membership." (Section VII-A)
+
+        Schema v1.1 adds the manuscript's second, independent qualifier:
+        ``physical_harm_to_person`` is stated as "reversibility-qualified":
+        "harm that is self-limiting and requires no intervention does not
+        enter C* on its class alone" (Section VII-A). A classification rule
+        declares this via an optional ``required_reversibility`` list; a kind
+        with no such list is unqualified by reversibility, exactly as every
+        v1.0 profile's rules are (backward compatible: a v1.0 profile that
+        never sets ``required_reversibility`` evaluates identically to
+        before this generation).
         """
         if descriptor is None:
             return 0
@@ -109,6 +120,13 @@ class CStarProfile:
             )
         if order.index(actual) < order.index(required):
             return 0
+
+        required_reversibility = rule.get("required_reversibility")
+        if required_reversibility is not None:
+            actual_reversibility = descriptor.get("reversibility")
+            if actual_reversibility not in required_reversibility:
+                return 0
+
         return 1
 
 
@@ -127,22 +145,48 @@ def classify_risks(assessment, profile):
     return result
 
 
-def verify_cv(assessment, profile, predicates, gate_map, hazardous_paths_by_risk):
+def verify_cv(assessment, profile, predicates, gate_map, hazardous_paths_by_risk, rc06_risk_ids=None):
     """Bundle-level C* coverage check.  Returns the coverage matrix.
 
     Raises ``CoverageError`` when any C* risk has an authorized hazardous action
     path with no decisive mandatory gate.  Section VI-A: "rejects any bundle in
     which coverage fails".
+
+    ``rc06_risk_ids`` (schema v1.1, Section III / VII): risks disposed
+    non-runtime with reason code RC-06 -- a hazard whose only actionable
+    pathway is excluded by AD-1 as a feedback-control primitive.  "A hazard
+    whose only actionable pathway is excluded by AD-1 ... does not become an
+    authorization gate merely because its physical consequence is severe; it
+    receives RC-06 and is governed by the declared runtime-safety layer."
+    Such a risk may legitimately be C*-classified by kind and materiality
+    (its consequence is real and severe) while declaring no hazardous action
+    path at all -- this is the one case in which that combination is not a
+    coverage failure but the correctly-recorded exemption.  Without this
+    parameter (the default), an RC-06 risk with no hazardous action path is
+    reported as a coverage failure exactly as before this generation, so a
+    v1.0 caller's behavior is unchanged unless it opts in.
     """
     cstar = classify_risks(assessment, profile)
     matrix = []
     failures = []
+    rc06_risk_ids = rc06_risk_ids or set()
 
     for risk_id in sorted(cstar):
         if cstar[risk_id] != 1:
             continue
         paths = hazardous_paths_by_risk.get(risk_id, [])
         if not paths:
+            if risk_id in rc06_risk_ids:
+                matrix.append(
+                    {
+                        "risk_id": risk_id,
+                        "c_star": 1,
+                        "paths": [],
+                        "covered": True,
+                        "exemption": "RC-06: continuous control, fails AD-1, governed by the declared runtime-safety layer",
+                    }
+                )
+                continue
             failures.append(
                 {
                     "risk_id": risk_id,

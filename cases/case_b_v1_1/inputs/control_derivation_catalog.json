@@ -1,0 +1,396 @@
+{
+  "approval_time": "2026-01-22T15:00:00Z",
+  "approved_by": "payments_governance_forum",
+  "catalog_id": "K-CASE-B-V1.1",
+  "entries": [
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "authority_permit_service_v2"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "permit_binding",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "permit_id",
+          "permit_signature",
+          "bound_hash"
+        ],
+        "schema_id": "ES-PERMIT-BIND"
+      },
+      "notes": "",
+      "observable_class": "permit_binding_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-PERMIT-BIND",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "<="
+      ],
+      "allowed_producers": [
+        "payment_instruction_service_v1"
+      ],
+      "evaluation_basis": "threshold_on_measured_value",
+      "event_type": "amount_limit",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "amount_minor_units",
+          "currency"
+        ],
+        "schema_id": "ES-AMOUNT"
+      },
+      "notes": "",
+      "observable_class": "instruction_amount_measurement",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-AMOUNT-LIMIT",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "number"
+      }
+    },
+    {
+      "allowed_operators": [
+        "<="
+      ],
+      "allowed_producers": [
+        "velocity_counter_service_v1"
+      ],
+      "evaluation_basis": "threshold_on_measured_value",
+      "event_type": "velocity_bound",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "window_count",
+          "window_seconds",
+          "counterparty_id"
+        ],
+        "schema_id": "ES-VELOCITY"
+      },
+      "notes": "",
+      "observable_class": "window_transaction_count",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-VELOCITY",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "number"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "sanctions_screening_service_v5"
+      ],
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "restricted_party_screening",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "counterparty_id",
+          "list_version",
+          "match_count",
+          "artifact_signature"
+        ],
+        "schema_id": "ES-RESTRICTED-PARTY"
+      },
+      "notes": "The predicate deterministically verifies that a signed screening artifact reports no restricted-party match. It does not claim the screening service resolves every alias correctly.",
+      "observable_class": "restricted_party_match",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-RESTRICTED-PARTY",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "authority_permit_service_v2"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "permit_single_use",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "permit_id",
+          "permit_previously_redeemed",
+          "hash_previously_seen"
+        ],
+        "schema_id": "ES-SINGLE-USE"
+      },
+      "notes": "",
+      "observable_class": "permit_and_hash_novelty",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-SINGLE-USE",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "evidence_chain_service_v2"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "receipt_chain_completeness",
+      "evidence_schema": {
+        "fields": [
+          "receipt_id",
+          "authorization_time",
+          "evidence_commit_time",
+          "actuation_time",
+          "chain_prev_hash"
+        ],
+        "schema_id": "ES-RECEIPT-CHAIN"
+      },
+      "notes": "",
+      "observable_class": "receipt_chain_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-RECEIPT-CHAIN-B",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "!="
+      ],
+      "allowed_producers": [
+        "risk_classification_service_v1"
+      ],
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "prohibited_class_lookup",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "risk_class",
+          "policy_version",
+          "artifact_signature"
+        ],
+        "schema_id": "ES-PROHIBITED-CLASS"
+      },
+      "notes": "Section X ACS-B01-02: a signed active-policy lookup reporting the transaction's risk_class, independent of permit-binding evidence.",
+      "observable_class": "risk_classification_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-PROHIBITED-CLASS",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "string"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "compliance_approval_registry_v1"
+      ],
+      "evaluation_basis": "human_attestation",
+      "event_type": "enhanced_approval_check",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "risk_class",
+          "approver_id",
+          "approval_count"
+        ],
+        "schema_id": "ES-ENHANCED-APPROVAL"
+      },
+      "notes": "Section X ACS-B01-03: human-attested enhanced approval, required only where risk_class == ENHANCED_APPROVAL_REQUIRED.",
+      "observable_class": "enhanced_approval_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-ENHANCED-APPROVAL",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "escalation_approval_service_v1"
+      ],
+      "evaluation_basis": "human_attestation",
+      "event_type": "escalation_tier_check",
+      "evidence_schema": {
+        "fields": [
+          "transaction_hash",
+          "amount_minor_units",
+          "ordinary_limit",
+          "additional_approval_established"
+        ],
+        "schema_id": "ES-ESCALATION-TIER"
+      },
+      "notes": "Table II ACS-B02-02: amount <= ordinary_limit OR additional_approval_established, reported as one attested boolean by the escalation-approval service.",
+      "observable_class": "escalation_tier_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-ESCALATION-TIER",
+      "triple_template": {
+        "action": [
+          "release_payment"
+        ],
+        "destination": [
+          "payment_rail"
+        ],
+        "resource": [
+          "payment_instruction"
+        ],
+        "subject": [
+          "transaction_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "catalog",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "01a7fe16f1917676dc96ff82bd9cd4f30f4bbfca48fd0c6b091a5ad5bc61f14a",
+    "signature_b64": "j68qJNoJhXm6O8WWunLHfifc+XWwj1FjpRBw04ng6YcdOcmQFzyJcsIvDgWzZYDIu340AlUsed1pmpq6ufEeCg==",
+    "signing_time": "2026-01-22T15:05:00Z"
+  },
+  "version": "1.0",
+  "version_binding_ref": "VB-CASE-B-1.0"
+}

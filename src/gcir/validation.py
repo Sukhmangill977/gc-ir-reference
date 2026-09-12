@@ -433,6 +433,64 @@ def _walk_payload(node, path, offenders):
 
 
 # ---------------------------------------------------------------------------
+# Schema v1.1 constraints (this generation)
+# ---------------------------------------------------------------------------
+
+
+def constraint_15_evaluation_latency_requires_timeout_response(predicate):
+    """Appendix A constraint 15 (v1.1): a predicate declaring
+    ``evaluation_latency_bound`` must declare ``on_evaluation_timeout``, and its
+    value is fixed at ``HOLD`` -- an evaluator that does not finish inside its
+    bound never produces a partial permit."""
+    bound = predicate.get("evaluation_latency_bound")
+    if bound is None:
+        return
+    timeout_response = predicate.get("on_evaluation_timeout")
+    if timeout_response != "HOLD":
+        raise ValidationError(
+            "predicate %s declares evaluation_latency_bound but "
+            "on_evaluation_timeout=%r; Appendix A constraint 15 fixes this at "
+            "HOLD" % (predicate["gcir_id"], timeout_response),
+            code="A15_TIMEOUT_RESPONSE_NOT_HOLD",
+        )
+
+
+def constraint_16_permit_eligibility_matches_phase(predicate, permit_eligible):
+    """Appendix A constraint 16 (v1.1): ``permit_eligible`` (recorded in the
+    bundle's gate_map) must be exactly ``enforcement_phase in
+    {PRE_AUTHORIZATION, BOUNDARY_REVALIDATION, <undeclared>}``.  This is the
+    structural claim audit query Q5 re-verifies post-hoc against the emitted
+    bundle."""
+    from .models import PERMIT_ELIGIBLE_PHASES
+
+    phase = predicate.get("enforcement_phase")
+    expected = phase is None or phase in PERMIT_ELIGIBLE_PHASES
+    if permit_eligible != expected:
+        raise ValidationError(
+            "predicate %s has enforcement_phase=%r but permit_eligible=%r was "
+            "computed; Appendix A constraint 16"
+            % (predicate["gcir_id"], phase, permit_eligible),
+            code="A16_PERMIT_ELIGIBILITY_MISMATCH",
+        )
+
+
+def constraint_17_concurrence_expiry_fixed(predicate):
+    """Appendix A constraint 17 (v1.1): ``concurrence_policy.expiry_response``
+    is fixed DENY.  Schema-enforced already (``const: DENY``); restated here as
+    a named, individually testable function alongside constraints 1-16."""
+    policy = predicate.get("concurrence_policy")
+    if policy is None:
+        return
+    if policy.get("expiry_response") != "DENY":
+        raise ValidationError(
+            "predicate %s concurrence_policy.expiry_response=%r; Appendix A "
+            "constraint 17 fixes this at DENY"
+            % (predicate["gcir_id"], policy.get("expiry_response")),
+            code="A17_CONCURRENCE_EXPIRY_NOT_DENY",
+        )
+
+
+# ---------------------------------------------------------------------------
 # Constraint 14: runtime acceptance condition (deployment conformance)
 # ---------------------------------------------------------------------------
 

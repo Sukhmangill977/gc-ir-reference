@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gcir.example/schemas/v1.0/cstar_profile.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/cstar_profile.schema.json",
   "title": "Approved consequence-class profile C*",
   "description": "Manuscript Section VII-A. C* is a governance object versioned with M. Each classification records the approving authority, rationale, materiality boundary, effective date, and any authorized emergency-override procedure. Contraction within an active assessment is a trigger event requiring re-approval.",
   "type": "object",
@@ -43,7 +43,13 @@
             }
           },
           "effective_date": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
-          "emergency_override_procedure": { "type": ["string", "null"] }
+          "emergency_override_procedure": { "type": ["string", "null"] },
+          "required_reversibility": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "enum": ["reversible", "partially_reversible", "requires_intervention", "irreversible"] },
+            "description": "Schema v1.1, Section VII-A. When present, membership additionally requires the descriptor's reversibility to be one of these values -- e.g. physical_harm_to_person is reversibility-qualified over {irreversible, requires_intervention}, so a self-limiting reversible harm does not enter C* on its class alone. Absent (the v1.0 default for every existing profile) means no reversibility qualification, identical to pre-v1.1 behavior."
+          }
         }
       }
     }

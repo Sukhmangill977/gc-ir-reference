@@ -1,0 +1,185 @@
+{
+  "invariants": [
+    {
+      "action": "release_payment",
+      "action_parameters": {
+        "currency": "CAD",
+        "rail": "domestic_rtr",
+        "transaction_hash": "TXN-BOUND"
+      },
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approved_by": "payments_governance_forum",
+      "authorizing_requirement": {
+        "reference": "M.version_binding and M.triggers -- the assessment covers exactly one configuration; an action taken under any other configuration is unauthorized by construction.",
+        "source": "M"
+      },
+      "context_conditions": [
+        {
+          "attribute": "runtime_fingerprint",
+          "evidence_producer": "deployment_attestation_service_v1",
+          "evidence_schema_ref": "ES-VERSION-FINGERPRINT",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": "sha256:2c7e94b0af165d3e8a2140c9db73f6e50b8d1a4c9e2f70b6a538d1c04e97fa38",
+          "value_from": "M.version_binding"
+        }
+      ],
+      "decision_semantics": "PERMIT requires the runtime fingerprint to equal M.version_binding.fingerprint. Indeterminate or absent evidence fails.",
+      "destination": "payment_rail",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "enforcement_phase": "PRE_AUTHORIZATION",
+      "escalation": {
+        "route": "technology_change_management",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "evidence_producer": "deployment_attestation_service_v1",
+      "evidence_requirements": [
+        "model_version",
+        "prompt_version",
+        "dataset_version",
+        "policy_version",
+        "fingerprint",
+        "artifact_signature"
+      ],
+      "evidence_schema_ref": "ES-VERSION-FINGERPRINT",
+      "evidence_semantics": "A signed deployment attestation reporting the configuration actually loaded at authorization time.",
+      "gcir_id": "GCIR-INV-VERSION",
+      "invariant_id": "INV-VERSION",
+      "obligation_refs": [],
+      "parameter_schema_ref": "PS-RELEASE-PAYMENT",
+      "resource": "payment_instruction",
+      "subject": "transaction_agent",
+      "title": "Per-action version-binding check",
+      "version_binding_ref": "VB-CASE-B-1.0",
+      "warrant_boundary": "Establishes that the running configuration is the assessed configuration. It does not establish that the assessed configuration is safe. This is the per-action form of the version-drift argument: no action is authorized under a configuration the assessment never covered."
+    },
+    {
+      "action": "release_payment",
+      "action_parameters": {
+        "currency": "CAD",
+        "rail": "domestic_rtr",
+        "transaction_hash": "TXN-BOUND"
+      },
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approved_by": "payments_governance_forum",
+      "authorizing_requirement": {
+        "reference": "S.architecture -- the consuming enforcement pipeline issues a permit, commits the trace record, and only then releases the interlock. The ordering is a system requirement, not a per-risk treatment choice.",
+        "source": "S"
+      },
+      "context_conditions": [
+        {
+          "attribute": "receipt_committed_between_authorization_and_actuation",
+          "evidence_producer": "evidence_chain_service_v2",
+          "evidence_schema_ref": "ES-RECEIPT-CHAIN",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires authorization_time <= evidence_commit_time < actuation_time, with the receipt chained to its predecessor.",
+      "destination": "payment_rail",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "enforcement_phase": "POST_AUTH_PRE_ACTUATION",
+      "escalation": {
+        "route": "compliance_records_desk",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "evidence_producer": "evidence_chain_service_v2",
+      "evidence_requirements": [
+        "receipt_id",
+        "authorization_time",
+        "evidence_commit_time",
+        "chain_prev_hash"
+      ],
+      "evidence_schema_ref": "ES-RECEIPT-CHAIN",
+      "evidence_semantics": "A signed evidence-chain artifact carrying the authorization, commit and actuation instants for this decision.",
+      "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+      "invariant_id": "INV-EVIDENCE-COMMIT",
+      "obligation_refs": [],
+      "parameter_schema_ref": "PS-RELEASE-PAYMENT",
+      "resource": "payment_instruction",
+      "subject": "transaction_agent",
+      "title": "Receipt committed after authorization and before actuation",
+      "version_binding_ref": "VB-CASE-B-1.0",
+      "warrant_boundary": "Establishes the temporal ordering and chaining of the evidence record. It does not establish the truth of the receipt's content, nor that the trusted time source is honest."
+    },
+    {
+      "action": "release_payment",
+      "action_parameters": {
+        "currency": "CAD",
+        "rail": "domestic_rtr",
+        "transaction_hash": "TXN-BOUND"
+      },
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approved_by": "payments_governance_forum",
+      "authorizing_requirement": {
+        "reference": "S.authority_matrix -- the accountable executive's signature over what the system may cause. An action outside the matrix is unauthorized irrespective of any risk treatment.",
+        "source": "S"
+      },
+      "context_conditions": [
+        {
+          "attribute": "action_tuple_within_approved_matrix",
+          "evidence_producer": "authority_matrix_service_v1",
+          "evidence_schema_ref": "ES-AUTHORITY-CLOSURE",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "decision_semantics": "PERMIT requires the proposed tuple and parameters to resolve exactly to an approved matrix row. Indeterminate or absent evidence fails.",
+      "destination": "payment_rail",
+      "effective_from": "2026-02-01T00:00:00Z",
+      "enforcement_phase": "PRE_AUTHORIZATION",
+      "escalation": {
+        "route": "governance_forum_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "deterministic_lookup",
+      "evidence_producer": "authority_matrix_service_v1",
+      "evidence_requirements": [
+        "subject",
+        "action",
+        "resource",
+        "destination",
+        "matrix_version",
+        "artifact_signature"
+      ],
+      "evidence_schema_ref": "ES-AUTHORITY-CLOSURE",
+      "evidence_semantics": "A signed lookup artifact reporting whether the proposed action tuple and its bound parameters are present in the approved authority matrix at the stated matrix version.",
+      "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+      "invariant_id": "INV-AUTHORITY-CLOSURE",
+      "obligation_refs": [],
+      "parameter_schema_ref": "PS-RELEASE-PAYMENT",
+      "resource": "payment_instruction",
+      "subject": "transaction_agent",
+      "title": "Action tuple within the approved authority matrix",
+      "version_binding_ref": "VB-CASE-B-1.0",
+      "warrant_boundary": "Establishes closure of the proposed action against the approved matrix. It does not establish that the matrix itself is correctly scoped -- that is a governance judgment recorded in S."
+    }
+  ],
+  "register_id": "INV-CASE-B-V1.1",
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "invariants",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "aea3129d5b6f9aa79ffe94c1fabdb6f81849cbe305fe29db2afd082fddc2ffe8",
+    "signature_b64": "/dt4Gv79Vk7kl+zFjXs0pIZuHAqz+erwXuF/eeiaFvXgO6C+xy7eY7AB51Mvgj+k7BmWcJuX4cKOIk7xepLUBg==",
+    "signing_time": "2026-01-22T15:14:00Z"
+  },
+  "version": "1.0",
+  "version_binding_ref": "VB-CASE-B-1.0"
+}

@@ -1,0 +1,555 @@
+{
+  "approval_time": "2026-02-10T14:00:00Z",
+  "approved_by": "surgical_platform_governance_forum",
+  "catalog_id": "K-CASE-C",
+  "entries": [
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "ifu_contraindication_table_v3"
+      ],
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "contraindication_check",
+      "evidence_schema": {
+        "fields": [
+          "procedure_class",
+          "instrument_class",
+          "task",
+          "table_version"
+        ],
+        "schema_id": "ES-CONTRAINDICATION"
+      },
+      "notes": "",
+      "observable_class": "instrument_procedure_contraindication",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-CONTRAINDICATION",
+      "triple_template": {
+        "action": [
+          "activate_instrument"
+        ],
+        "destination": [
+          "patient"
+        ],
+        "resource": [
+          "surgical_instrument"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "state_binding_service_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "state_binding_check",
+      "evidence_schema": {
+        "fields": [
+          "procedure_step",
+          "instrument_id",
+          "port_configuration",
+          "digest_at_authorization",
+          "digest_at_boundary"
+        ],
+        "schema_id": "ES-STATE-BINDING"
+      },
+      "notes": "",
+      "observable_class": "world_state_digest_match",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-STATE-BINDING",
+      "triple_template": {
+        "action": [
+          "energy_activate"
+        ],
+        "destination": [
+          "patient"
+        ],
+        "resource": [
+          "energy_delivery_channel"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "control_token_service_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "supervisory_authority_check",
+      "evidence_schema": {
+        "fields": [
+          "supervisor_id",
+          "procedure_class",
+          "control_token_owner",
+          "autonomy_mode"
+        ],
+        "schema_id": "ES-SUPERVISORY-AUTHORITY"
+      },
+      "notes": "",
+      "observable_class": "supervisor_authority_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-SUPERVISORY-AUTHORITY",
+      "triple_template": {
+        "action": [
+          "enter_autonomous_subtask"
+        ],
+        "destination": [
+          "procedure_field"
+        ],
+        "resource": [
+          "subtask_permit"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "console_attestation_service_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "concurrence_check",
+      "evidence_schema": {
+        "fields": [
+          "releasing_actor",
+          "receiving_actor",
+          "attestation_count"
+        ],
+        "schema_id": "ES-TRANSFER-CONCURRENCE"
+      },
+      "notes": "",
+      "observable_class": "control_transfer_concurrence_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-TRANSFER-CONCURRENCE",
+      "triple_template": {
+        "action": [
+          "transfer_control"
+        ],
+        "destination": [
+          "console"
+        ],
+        "resource": [
+          "control_session"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "registry_service_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "actor_scope_check",
+      "evidence_schema": {
+        "fields": [
+          "actor_id",
+          "action_tuple",
+          "revocation_effective_time"
+        ],
+        "schema_id": "ES-ACTOR-SCOPE"
+      },
+      "notes": "",
+      "observable_class": "actor_scope_revocation_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-ACTOR-SCOPE",
+      "triple_template": {
+        "action": [
+          "activate_instrument"
+        ],
+        "destination": [
+          "patient"
+        ],
+        "resource": [
+          "surgical_instrument"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "ifu_contraindication_table_v3"
+      ],
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "guidance_contraindication_check",
+      "evidence_schema": {
+        "fields": [
+          "guidance_class",
+          "procedure_class",
+          "context_snapshot_age_seconds"
+        ],
+        "schema_id": "ES-GUIDANCE-CONTRAINDICATION"
+      },
+      "notes": "",
+      "observable_class": "guidance_contraindication_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-GUIDANCE-CONTRAINDICATION",
+      "triple_template": {
+        "action": [
+          "present_guidance"
+        ],
+        "destination": [
+          "surgeon_display"
+        ],
+        "resource": [
+          "guidance_output"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "consent_registry_service_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "consent_scope_check",
+      "evidence_schema": {
+        "fields": [
+          "data_class",
+          "destination",
+          "purpose",
+          "attester"
+        ],
+        "schema_id": "ES-CONSENT-SCOPE"
+      },
+      "notes": "",
+      "observable_class": "consent_artifact_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-CONSENT-SCOPE",
+      "triple_template": {
+        "action": [
+          "export_data"
+        ],
+        "destination": [
+          "external_review_system"
+        ],
+        "resource": [
+          "telemetry_data"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "model_registry_service_v1"
+      ],
+      "evaluation_basis": "deterministic_lookup",
+      "event_type": "model_validity_check",
+      "evidence_schema": {
+        "fields": [
+          "model_id",
+          "procedure_class",
+          "model_version"
+        ],
+        "schema_id": "ES-MODEL-VALIDITY"
+      },
+      "notes": "",
+      "observable_class": "model_validation_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-MODEL-VALIDITY",
+      "triple_template": {
+        "action": [
+          "present_guidance"
+        ],
+        "destination": [
+          "surgeon_display"
+        ],
+        "resource": [
+          "guidance_output"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "attestation_telemetry_service_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "attestation_dwell_check",
+      "evidence_schema": {
+        "fields": [
+          "step_class",
+          "dwell_seconds"
+        ],
+        "schema_id": "ES-ATTESTATION-DWELL"
+      },
+      "notes": "",
+      "observable_class": "attestation_dwell_state",
+      "permitted_responses": [
+        "WARN"
+      ],
+      "template_id": "T-ATTESTATION-DWELL",
+      "triple_template": {
+        "action": [
+          "present_guidance"
+        ],
+        "destination": [
+          "surgeon_display"
+        ],
+        "resource": [
+          "guidance_output"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "delegation_registry_service_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "delegation_containment_check",
+      "evidence_schema": {
+        "fields": [
+          "parent_permit_id",
+          "child_scope",
+          "child_validity",
+          "child_actions"
+        ],
+        "schema_id": "ES-DELEGATION-CONTAINMENT"
+      },
+      "notes": "",
+      "observable_class": "delegation_containment_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-DELEGATION-CONTAINMENT",
+      "triple_template": {
+        "action": [
+          "delegate"
+        ],
+        "destination": [
+          "delegatee_actor"
+        ],
+        "resource": [
+          "subtask_permit"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "context_snapshot_service_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "snapshot_provenance_check",
+      "evidence_schema": {
+        "fields": [
+          "patient_id",
+          "scheduled_patient_id",
+          "snapshot_age_seconds",
+          "lineage_hash_chain_valid"
+        ],
+        "schema_id": "ES-SNAPSHOT-PROVENANCE"
+      },
+      "notes": "",
+      "observable_class": "snapshot_provenance_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-SNAPSHOT-PROVENANCE",
+      "triple_template": {
+        "action": [
+          "enter_autonomous_subtask"
+        ],
+        "destination": [
+          "procedure_field"
+        ],
+        "resource": [
+          "subtask_permit"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "deadline_watchdog_service_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "latency_watchdog_check",
+      "evidence_schema": {
+        "fields": [
+          "evaluation_id",
+          "completed_within_bound"
+        ],
+        "schema_id": "ES-LATENCY-WATCHDOG"
+      },
+      "notes": "",
+      "observable_class": "evaluation_completion_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-LATENCY-WATCHDOG",
+      "triple_template": {
+        "action": [
+          "enter_autonomous_subtask"
+        ],
+        "destination": [
+          "procedure_field"
+        ],
+        "resource": [
+          "subtask_permit"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "safety_event_registry_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "safety_correlation_check",
+      "evidence_schema": {
+        "fields": [
+          "intervention_id",
+          "correlated_safety_event_id",
+          "recorded_within_window"
+        ],
+        "schema_id": "ES-SAFETY-CORRELATION"
+      },
+      "notes": "",
+      "observable_class": "safety_event_correlation_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-SAFETY-CORRELATION",
+      "triple_template": {
+        "action": [
+          "activate_instrument"
+        ],
+        "destination": [
+          "patient"
+        ],
+        "resource": [
+          "surgical_instrument"
+        ],
+        "subject": [
+          "assistance_module"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "catalog",
+    "key_id": "key.governance_forum_a",
+    "payload_hash": "ef62caba2ac22781b0f234d762a6d7c874fcfd686a5435ef2c1e13e8e100fa1b",
+    "signature_b64": "GGV2nsG07pgfhDi8NTFzlZzuzQoeZY/Go5ebHycaoCYu3iykHiaN23znNDRA+mnh5HsKigMpPerYENueMq4ECg==",
+    "signing_time": "2026-02-10T15:05:00Z"
+  },
+  "version": "1.0",
+  "version_binding_ref": "VB-CASE-C-1.0"
+}

@@ -1,0 +1,346 @@
+{
+  "approvals": [
+    {
+      "acs_id": "ACS-C01-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    },
+    {
+      "acs_id": "ACS-C02-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    },
+    {
+      "acs_id": "ACS-C03-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    },
+    {
+      "acs_id": "ACS-C04-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    },
+    {
+      "acs_id": "ACS-C05-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    },
+    {
+      "acs_id": "ACS-C08-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    },
+    {
+      "acs_id": "ACS-C09-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    },
+    {
+      "acs_id": "ACS-C10-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    },
+    {
+      "acs_id": "ACS-C11-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    },
+    {
+      "acs_id": "ACS-C12-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    },
+    {
+      "acs_id": "ACS-C13-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    },
+    {
+      "acs_id": "ACS-C14-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    },
+    {
+      "acs_id": "ACS-C15-01",
+      "approval_time": "2026-02-10T14:00:00Z",
+      "approver": "forum.chair_surgical_safety",
+      "forum": "surgical_platform_governance_forum"
+    }
+  ],
+  "assessment_ref": {
+    "assessment_id": "ASSESSMENT-CASE-C",
+    "binding_id": "VB-CASE-C-1.0"
+  },
+  "catalog_ref": {
+    "catalog_id": "K-CASE-C",
+    "version": "1.0"
+  },
+  "disposition_decisions": [
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-01",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-02",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-03",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-04",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-05",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "RC-06: runtime_safety",
+      "risk_id": "C-06",
+      "status": "nonruntime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "RC-06: runtime_safety",
+      "risk_id": "C-07",
+      "status": "nonruntime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-08",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "compliance.head_records",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-09",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-10",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-11",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-12",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-13",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-14",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized action path.",
+      "risk_id": "C-15",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "business.head_surgical_program",
+      "decision_time": "2026-02-08T10:00:00Z",
+      "rationale": "RC-03: human_process",
+      "risk_id": "C-16",
+      "status": "nonruntime"
+    }
+  ],
+  "judgment_id": "J-CASE-C",
+  "selections": [
+    {
+      "acs_id": "ACS-C01-01",
+      "event_type": "contraindication_check",
+      "rationale": "Contraindication is a deterministic lookup against a versioned IFU table; T-CONTRAINDICATION selected.",
+      "risk_id": "C-01",
+      "selected_by": "business.head_surgical_program",
+      "selection_id": "JC-SEL-001",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-CONTRAINDICATION"
+    },
+    {
+      "acs_id": "ACS-C02-01",
+      "event_type": "state_binding_check",
+      "rationale": "World-state binding requires a digest comparison at the boundary; T-STATE-BINDING selected (schema v1.1 state_binding).",
+      "risk_id": "C-02",
+      "selected_by": "business.head_surgical_program",
+      "selection_id": "JC-SEL-002",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-STATE-BINDING"
+    },
+    {
+      "acs_id": "ACS-C03-01",
+      "event_type": "supervisory_authority_check",
+      "rationale": "Supervisory authority is a structural check over a signed control-token artifact; T-SUPERVISORY-AUTHORITY selected.",
+      "risk_id": "C-03",
+      "selected_by": "business.head_surgical_program",
+      "selection_id": "JC-SEL-003",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-SUPERVISORY-AUTHORITY"
+    },
+    {
+      "acs_id": "ACS-C04-01",
+      "event_type": "concurrence_check",
+      "rationale": "Control transfer requires 2-of-2 concurrence; T-TRANSFER-CONCURRENCE selected (schema v1.1 concurrence_policy).",
+      "risk_id": "C-04",
+      "selected_by": "business.head_surgical_program",
+      "selection_id": "JC-SEL-004",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-TRANSFER-CONCURRENCE"
+    },
+    {
+      "acs_id": "ACS-C05-01",
+      "event_type": "actor_scope_check",
+      "rationale": "Actor-scope revocation is a structural registry check; T-ACTOR-SCOPE selected (exercised by auxiliary check A1).",
+      "risk_id": "C-05",
+      "selected_by": "business.head_surgical_program",
+      "selection_id": "JC-SEL-005",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-ACTOR-SCOPE"
+    },
+    {
+      "acs_id": "ACS-C08-01",
+      "event_type": "guidance_contraindication_check",
+      "rationale": "Guidance contraindication and staleness is a deterministic lookup plus freshness check; T-GUIDANCE-CONTRAINDICATION selected, response_policy=REQUIRED for the HumanResponse record.",
+      "risk_id": "C-08",
+      "selected_by": "business.head_surgical_program",
+      "selection_id": "JC-SEL-006",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-GUIDANCE-CONTRAINDICATION"
+    },
+    {
+      "acs_id": "ACS-C09-01",
+      "event_type": "consent_scope_check",
+      "rationale": "Consent scope is a structural check over a signed consent artifact; T-CONSENT-SCOPE selected.",
+      "risk_id": "C-09",
+      "selected_by": "compliance.head_records",
+      "selection_id": "JC-SEL-007",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-CONSENT-SCOPE"
+    },
+    {
+      "acs_id": "ACS-C10-01",
+      "event_type": "model_validity_check",
+      "rationale": "Model validity for procedure class is a deterministic registry lookup; T-MODEL-VALIDITY selected.",
+      "risk_id": "C-10",
+      "selected_by": "business.head_surgical_program",
+      "selection_id": "JC-SEL-008",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-MODEL-VALIDITY"
+    },
+    {
+      "acs_id": "ACS-C11-01",
+      "event_type": "attestation_dwell_check",
+      "rationale": "Attestation dwell is a deterministic telemetry proxy, advisory only; T-ATTESTATION-DWELL selected.",
+      "risk_id": "C-11",
+      "selected_by": "business.head_surgical_program",
+      "selection_id": "JC-SEL-009",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-ATTESTATION-DWELL"
+    },
+    {
+      "acs_id": "ACS-C12-01",
+      "event_type": "delegation_containment_check",
+      "rationale": "Delegation containment is a structural registry check; T-DELEGATION-CONTAINMENT selected (exercised by auxiliary check A3).",
+      "risk_id": "C-12",
+      "selected_by": "business.head_surgical_program",
+      "selection_id": "JC-SEL-010",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-DELEGATION-CONTAINMENT"
+    },
+    {
+      "acs_id": "ACS-C13-01",
+      "event_type": "snapshot_provenance_check",
+      "rationale": "Snapshot identity/freshness/lineage is a structural check; T-SNAPSHOT-PROVENANCE selected.",
+      "risk_id": "C-13",
+      "selected_by": "business.head_surgical_program",
+      "selection_id": "JC-SEL-011",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-SNAPSHOT-PROVENANCE"
+    },
+    {
+      "acs_id": "ACS-C14-01",
+      "event_type": "latency_watchdog_check",
+      "rationale": "Evaluation completion is watched by an independent deadline watchdog; T-LATENCY-WATCHDOG selected (schema v1.1 evaluation_latency_bound).",
+      "risk_id": "C-14",
+      "selected_by": "business.head_surgical_program",
+      "selection_id": "JC-SEL-012",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-LATENCY-WATCHDOG"
+    },
+    {
+      "acs_id": "ACS-C15-01",
+      "event_type": "safety_correlation_check",
+      "rationale": "Safety-event correlation is a post-event structural check; T-SAFETY-CORRELATION selected (schema v1.1 enforcement_phase=POST_EVENT_AUDIT, exercised by auxiliary check A2).",
+      "risk_id": "C-15",
+      "selected_by": "business.head_surgical_program",
+      "selection_id": "JC-SEL-013",
+      "selection_time": "2026-02-08T10:00:00Z",
+      "template_id": "T-SAFETY-CORRELATION"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "judgment_record",
+    "key_id": "key.governance_forum_a",
+    "payload_hash": "1f57035dfd3d3c2d49ea650f6e860b7f498bb96c56ecbda2fdbbb107c18be43f",
+    "signature_b64": "tfZHONwlPAXOR0TUxKKkpG8bx49Tlq2X9D2IGtf7ZoZCzoaBAyXm1h+EC6bkaph1wdZ+KnD8UTxQKr0RhwkWDA==",
+    "signing_time": "2026-02-10T15:08:00Z"
+  },
+  "version": "1.0"
+}

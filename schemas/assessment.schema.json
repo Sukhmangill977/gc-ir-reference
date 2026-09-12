@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gcir.example/schemas/v1.0/assessment.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/assessment.schema.json",
   "title": "Approved governance assessment G = (M, S, O, R, A)",
   "description": "Manuscript Section III -- the five-step governance input model.",
   "type": "object",
@@ -194,8 +194,38 @@
           "enum": [
             "generative_application",
             "assisted_agent",
-            "autonomous_agent"
-          ]
+            "autonomous_agent",
+            "supervised_autonomy"
+          ],
+          "description": "Schema v1.1 adds supervised_autonomy: the module may propose and, once authorized, execute a discrete subtask under an identifiable supervising human actor, and may never remove that actor from the loop (Section XI)."
+        },
+        "safety_layers": {
+          "type": "array",
+          "description": "Schema v1.1, Section III / VI-B (INV-SAFETY-RECOVERY). Independent runtime safety mechanisms (RTA, interlock, SIS) supervising this system's physical behaviour at control-loop rate, with standing authorization. Optional: absent for a system with no physical actuation.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["safety_layer_id", "standards_basis", "safety_event_window_seconds"],
+            "properties": {
+              "safety_layer_id": { "$ref": "common.schema.json#/$defs/identifier" },
+              "standards_basis": { "type": "string" },
+              "safety_event_window_seconds": { "type": "number", "exclusiveMinimum": 0 }
+            }
+          }
+        },
+        "control_loops": {
+          "type": "array",
+          "description": "Schema v1.1, Section III (transition admissibility AD-1). One entry per excluded feedback-control action family, so a continuous-control hazard is routed to the safety layer rather than gated at the authorization boundary.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["control_loop_ref", "control_loop_period_ms", "excluded_action_family"],
+            "properties": {
+              "control_loop_ref": { "$ref": "common.schema.json#/$defs/identifier" },
+              "control_loop_period_ms": { "type": "number", "exclusiveMinimum": 0 },
+              "excluded_action_family": { "type": "string" }
+            }
+          }
         },
         "authority_matrix": {
           "type": "array",

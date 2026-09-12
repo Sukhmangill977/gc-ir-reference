@@ -1,0 +1,144 @@
+{
+  "disposition_set_id": "DELTA-CASE-C",
+  "records": [
+    {
+      "acs_ids": [
+        "ACS-C01-01"
+      ],
+      "risk_id": "C-01",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-C02-01"
+      ],
+      "risk_id": "C-02",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-C03-01"
+      ],
+      "risk_id": "C-03",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-C04-01"
+      ],
+      "risk_id": "C-04",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-C05-01"
+      ],
+      "risk_id": "C-05",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-C08-01"
+      ],
+      "risk_id": "C-08",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-C09-01"
+      ],
+      "risk_id": "C-09",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-C10-01"
+      ],
+      "risk_id": "C-10",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-C11-01"
+      ],
+      "risk_id": "C-11",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-C12-01"
+      ],
+      "risk_id": "C-12",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-C13-01"
+      ],
+      "risk_id": "C-13",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-C14-01"
+      ],
+      "risk_id": "C-14",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-C15-01"
+      ],
+      "risk_id": "C-15",
+      "status": "runtime"
+    },
+    {
+      "approval": {
+        "approval_time": "2026-02-10T14:00:00Z",
+        "approver": "forum.chair_surgical_safety",
+        "forum": "surgical_platform_governance_forum"
+      },
+      "control_ref": "force_envelope safety layer (IEC 80601-2-77)",
+      "owner": "compliance.surgical_safety_desk",
+      "reason_code": "RC-06",
+      "risk_id": "C-06",
+      "routed_to_control_family": "runtime_safety",
+      "status": "nonruntime"
+    },
+    {
+      "approval": {
+        "approval_time": "2026-02-10T14:00:00Z",
+        "approver": "forum.chair_surgical_safety",
+        "forum": "surgical_platform_governance_forum"
+      },
+      "control_ref": "instrument_interlock safety layer (IEC 80601-2-77)",
+      "owner": "compliance.surgical_safety_desk",
+      "reason_code": "RC-06",
+      "risk_id": "C-07",
+      "routed_to_control_family": "runtime_safety",
+      "status": "nonruntime"
+    },
+    {
+      "approval": {
+        "approval_time": "2026-02-10T14:00:00Z",
+        "approver": "forum.chair_surgical_safety",
+        "forum": "surgical_platform_governance_forum"
+      },
+      "control_ref": "scheduling and relief policy",
+      "owner": "compliance.surgical_safety_desk",
+      "reason_code": "RC-03",
+      "risk_id": "C-16",
+      "routed_to_control_family": "human_process",
+      "status": "nonruntime"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "dispositions",
+    "key_id": "key.governance_forum_a",
+    "payload_hash": "c4f26280ca15e345a7a52c36559a5a24d77b8622396aff9ce150c4e350688657",
+    "signature_b64": "uaO/+Ij6ddZKHgU9pbXRrFYAlSRZ68CgxTnsFbyBFkfBKO2imYKCq2AI/e+Aq/0NL1SekWX8mfMwKjEIcL6NCQ==",
+    "signing_time": "2026-02-10T15:12:00Z"
+  },
+  "version_binding_ref": "VB-CASE-C-1.0"
+}

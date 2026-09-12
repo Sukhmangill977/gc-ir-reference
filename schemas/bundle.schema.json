@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gcir.example/schemas/v1.0/bundle.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/bundle.schema.json",
   "title": "Compiled predicate bundle payload B",
   "description": "Manuscript Sections VI-C and VI-F, Appendix B. The payload is immutable after signing and contains no timestamp, nonce, or mutable lifecycle field. The signature envelope (signing time, key id, certificate material) lives OUTSIDE this payload.",
   "type": "object",
@@ -12,7 +12,7 @@
                "threshold_contracts", "policy_metadata", "validity"],
   "properties": {
     "payload_type": { "const": "GcirPredicateBundle" },
-    "schema_version": { "const": "1.0" },
+    "schema_version": { "enum": ["1.0", "1.1"] },
     "bundle_id": { "$ref": "common.schema.json#/$defs/identifier" },
     "case_id": { "$ref": "common.schema.json#/$defs/identifier" },
     "version_binding": {
@@ -86,7 +86,11 @@
         "properties": {
           "gate_type": { "$ref": "common.schema.json#/$defs/gateType" },
           "gate_source": { "$ref": "common.schema.json#/$defs/gateSource" },
-          "mandatory_role": { "$ref": "common.schema.json#/$defs/mandatoryRole" }
+          "mandatory_role": { "$ref": "common.schema.json#/$defs/mandatoryRole" },
+          "permit_eligible": {
+            "type": "boolean",
+            "description": "Schema v1.1. True iff this predicate's enforcement_phase is PRE_AUTHORIZATION, BOUNDARY_REVALIDATION, or undeclared (v1.0). Audit query Q5 asserts this is always consistent with the predicate's declared enforcement_phase."
+          }
         }
       }
     },

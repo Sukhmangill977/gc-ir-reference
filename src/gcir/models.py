@@ -15,6 +15,12 @@ from typing import Any, Dict, List, Optional, Tuple
 
 SCHEMA_VERSION = "1.0"
 
+#: Schema v1.1 is a genuine, additive extension: every v1.0 bundle remains valid
+#: v1.1 input (no field is removed or narrowed), and a bundle is stamped "1.1"
+#: only once it actually carries a v1.1-only field on at least one predicate.
+#: See docs/GCIR_V1_1_EXTENSION.md for the extension rationale.
+SCHEMA_VERSIONS = ("1.0", "1.1")
+
 # ---------------------------------------------------------------------------
 # Closed vocabularies (manuscript Sections III, IV-D, V, VI-B, VII-A)
 # ---------------------------------------------------------------------------
@@ -41,8 +47,12 @@ MANDATORY_ROLES = ("decisive", "supporting")
 #: Section VI-B.
 ORIGIN_TYPES = ("risk_derived", "compiler_invariant")
 
-#: Section III, Step 3.
-REQUIREMENT_CLASSES = ("statutory", "supervisory", "contractual", "internal")
+#: Section III, Step 3.  Schema v1.1 adds "standards" (a consensus standard --
+#: ISO, IEC, ASTM -- applied by the profile, which a Step 3 applicability
+#: decision may promote to statutory where a regulator incorporates it by
+#: reference).  Additive: no v1.0 obligation used "standards", so no existing
+#: document's classification changes.
+REQUIREMENT_CLASSES = ("statutory", "supervisory", "standards", "contractual", "internal")
 
 #: Section V -- responses.
 ON_FAIL_RESPONSES = ("SAFE_STATE", "WARN", "ESCALATE")
@@ -60,6 +70,7 @@ REASON_CODES = {
     "RC-02": "no authority-matrix action",
     "RC-03": "requires probabilistic judgment",
     "RC-05": "consequence class undefined",
+    "RC-06": "continuous control -- belongs to the runtime safety layer (fails AD-1)",
 }
 RESERVED_UNUSED_REASON_CODES = ("RC-04",)
 
@@ -84,6 +95,70 @@ NUMERIC_TEMPORAL_OPERATORS = ("<", "<=", ">", ">=", "within", "not_older_than")
 
 #: All operators GC-IR conditions may use.
 OPERATORS = NUMERIC_TEMPORAL_OPERATORS + ("==", "!=", "in", "not_in", "subset_of")
+
+# ---------------------------------------------------------------------------
+# Schema v1.1 additions (this generation).  Every vocabulary below is new
+# relative to v1.0 and is additive: a v1.0 bundle that declares none of these
+# fields compiles and validates exactly as it did before.
+# ---------------------------------------------------------------------------
+
+#: Manuscript Section IV-C / VI-B.  When a predicate declares no
+#: ``enforcement_phase`` at all (a v1.0 predicate), it is treated as
+#: ``PRE_AUTHORIZATION`` for aggregation purposes -- this is the backward
+#: compatibility rule the phase-aware resolver (``precedence_v11``) applies.
+ENFORCEMENT_PHASES = (
+    "PRE_AUTHORIZATION",
+    "BOUNDARY_REVALIDATION",
+    "POST_AUTH_PRE_ACTUATION",
+    "POST_EVENT_AUDIT",
+)
+
+#: Only these two phases contribute to the PERMIT aggregate.
+PERMIT_ELIGIBLE_PHASES = ("PRE_AUTHORIZATION", "BOUNDARY_REVALIDATION")
+
+#: Section V design commitment 1 / Appendix A constraint 2 (extended): a
+#: mandatory gate whose evaluator does not finish inside its declared
+#: ``evaluation_latency_bound`` resolves to HOLD, never a partial permit.  The
+#: response is fixed, not configurable, exactly like ``on_fail = SAFE_STATE``
+#: for a v1.0 mandatory gate.
+ON_EVALUATION_TIMEOUT_FIXED_RESPONSE = "HOLD"
+
+#: Section IV-C: a concurrence window that completes unsatisfied is an expiry,
+#: never an evaluator timeout, and its response is fixed DENY.
+CONCURRENCE_EXPIRY_FIXED_RESPONSE = "DENY"
+
+#: The three governance-layer outcomes v1.1 predicates resolve to.  ``HOLD``
+#: and ``DENY`` are peers under precedence, not "SAFE_STATE plus a label" --
+#: ``safe_state`` is a derived property of ``decision``, never stored
+#: independently (Section V design commitment 1, extended).
+DECISIONS = ("PERMIT", "DENY", "HOLD")
+
+
+def safe_state_of(decision):
+    """The single formula every v1.1 resolver uses: ``safe_state = decision !=
+    PERMIT``.  Centralized here so no call site can compute it independently
+    and risk the two falling out of step."""
+    if decision not in DECISIONS:
+        raise ValidationError(
+            "decision %r is outside {PERMIT, DENY, HOLD}" % decision,
+            code="DECISION_UNKNOWN",
+        )
+    return decision != "PERMIT"
+
+
+#: Section VII-I: an advisory predicate's response-capture policy.
+RESPONSE_POLICIES = ("REQUIRED", "OPTIONAL", "NONE")
+
+#: Section VI-F / VIII: auxiliary (non-predicate) GC-IR record types this
+#: generation adds.  These are runtime/lifecycle-adjacent evidence records --
+#: like receipts, lifecycle-registry entries and actuations, they live outside
+#: the hashed compiled-bundle payload and are checked by ``auxiliary_checks``.
+AUXILIARY_RECORD_TYPES = (
+    "ActorScopeRevocation",
+    "SafetyEvent",
+    "HumanResponse",
+    "DelegatedPermit",
+)
 
 
 class GcirError(Exception):

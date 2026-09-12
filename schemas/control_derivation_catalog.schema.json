@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gcir.example/schemas/v1.0/control_derivation_catalog.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/control_derivation_catalog.schema.json",
   "title": "Control Derivation Catalog K",
   "description": "Manuscript Section IV-B. k_j = (event_type, observable_class, allowed_producers, triple_template, allowed_operators, value_schema, evaluation_basis, evidence_schema, permitted_responses). Approved by the governance forum, versioned with M, canonically serialized, and included in the compiled-bundle hash.",
   "type": "object",

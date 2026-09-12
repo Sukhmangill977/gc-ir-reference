@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gcir.example/schemas/v1.0/receipt.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sukhmangill977/gc-ir-reference/main/schemas/receipt.schema.json",
   "title": "Decision receipt (consumed interface)",
   "description": "Manuscript Sections II, VIII and Appendix A constraint 14. The permit-binding and single-use semantics are specified in [15] and consumed unchanged; what this paper adds is the requirement-reference and disposition content a conformant receipt must carry.",
   "type": "object",
@@ -11,7 +11,10 @@
   "properties": {
     "receipt_id": { "$ref": "common.schema.json#/$defs/identifier" },
     "bundle_hash": { "$ref": "common.schema.json#/$defs/sha256Hex" },
-    "decision": { "enum": ["PERMIT", "SAFE_STATE"] },
+    "decision": {
+      "enum": ["PERMIT", "DENY", "HOLD"],
+      "description": "Fixed in the reconciliation of 2026-09: gcir.precedence.resolve() has returned {PERMIT, DENY, HOLD} since the v1.0.5 correction; this schema previously still declared the pre-correction {PERMIT, SAFE_STATE} pair and would have rejected a conformant DENY/HOLD receipt. safe_state is a derived property (safe_state = decision != PERMIT, gcir.models.safe_state_of), never a receipt field of its own."
+    },
     "decision_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
     "authorization_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },
     "evidence_commit_time": { "$ref": "common.schema.json#/$defs/rfc3339Utc" },

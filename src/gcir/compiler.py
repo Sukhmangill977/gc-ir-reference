@@ -51,6 +51,30 @@ from .refinement import close_relation, release_admissible
 from .signatures import strip_envelope
 
 GCIR_SCHEMA_VERSION = "1.0"
+GCIR_SCHEMA_VERSION_V11 = "1.1"
+
+#: The optional ACS/invariant fields this generation adds.  Present-if-declared:
+#: a v1.0 ACS that supplies none of these compiles a byte-identical predicate
+#: (modulo schema_version) to before this generation.
+V11_PREDICATE_FIELDS = (
+    "enforcement_phase",
+    "evaluation_latency_bound",
+    "on_evaluation_timeout",
+    "state_binding",
+    "concurrence_policy",
+    "standing_permit_ref",
+    "delegation",
+    "response_policy",
+)
+
+
+def _permit_eligible(predicate):
+    """Appendix A constraint 16: True iff the predicate's enforcement_phase is
+    PRE_AUTHORIZATION, BOUNDARY_REVALIDATION, or undeclared (v1.0)."""
+    from .models import PERMIT_ELIGIBLE_PHASES
+
+    phase = predicate.get("enforcement_phase")
+    return phase is None or phase in PERMIT_ELIGIBLE_PHASES
 
 
 # ---------------------------------------------------------------------------
@@ -306,6 +330,10 @@ def _instantiate_predicates(template, acs, risk, cstar_flag, gate_type, gate_sou
         # Section VII-H: declared input-provenance enumeration on an
         # already-classified consequential decision.
         predicate["input_provenance"] = copy.deepcopy(acs["input_provenance"])
+    for field_name in V11_PREDICATE_FIELDS:
+        value = acs.get(field_name)
+        if value is not None:
+            predicate[field_name] = copy.deepcopy(value)
     return [predicate]
 
 
@@ -335,7 +363,7 @@ def _instantiate_invariant(invariant, assessment):
                 "condition_index": index,
             }
         )
-    return {
+    predicate = {
         "record_type": "CompiledPredicate",
         "gcir_id": invariant["gcir_id"],
         "acs_id": None,
@@ -374,6 +402,11 @@ def _instantiate_invariant(invariant, assessment):
         "catalog_ref": None,
         "c_star": 0,
     }
+    for field_name in V11_PREDICATE_FIELDS:
+        value = invariant.get(field_name)
+        if value is not None:
+            predicate[field_name] = copy.deepcopy(value)
+    return predicate
 
 
 # ---------------------------------------------------------------------------
@@ -604,6 +637,8 @@ def compile_bundle(inputs, verify_signatures=True):
                 validation_mod.constraint_06_risk_derived_resolves(
                     predicate, acs_index, risk_index
                 )
+                validation_mod.constraint_15_evaluation_latency_requires_timeout_response(predicate)
+                validation_mod.constraint_17_concurrence_expiry_fixed(predicate)
                 warnings.extend(
                     validation_mod.constraint_08_obligation_refs(predicate, obligation_index)
                 )
@@ -635,6 +670,8 @@ def compile_bundle(inputs, verify_signatures=True):
             predicate, "mandatory", inputs.threshold_contracts
         )
         validation_mod.constraint_07_invariant_resolves(predicate, invariant_index)
+        validation_mod.constraint_15_evaluation_latency_requires_timeout_response(predicate)
+        validation_mod.constraint_17_concurrence_expiry_fixed(predicate)
         warnings.extend(
             validation_mod.constraint_08_obligation_refs(predicate, obligation_index)
         )
@@ -654,6 +691,26 @@ def compile_bundle(inputs, verify_signatures=True):
             code="DUPLICATE_GCIR_ID",
         )
 
+    # --- schema_version: "1.1" iff at least one predicate actually carries a
+    # v1.1-only field; otherwise every emitted record stays "1.0" byte-for-byte
+    # as before this generation.  This is what makes v1.1 additive rather than
+    # a version bump imposed on unrelated bundles.
+    uses_v11 = any(
+        any(predicate.get(field_name) is not None for field_name in V11_PREDICATE_FIELDS)
+        for predicate in predicates
+    )
+    bundle_schema_version = GCIR_SCHEMA_VERSION_V11 if uses_v11 else GCIR_SCHEMA_VERSION
+    if uses_v11:
+        # permit_eligible (Appendix A constraint 16) is only added to gate_map
+        # once the bundle actually uses a v1.1 field -- a pure v1.0 bundle's
+        # gate_map, and therefore its payload_hash, is untouched by this
+        # generation.
+        for predicate in predicates:
+            predicate["schema_version"] = GCIR_SCHEMA_VERSION_V11
+            permit_eligible = _permit_eligible(predicate)
+            validation_mod.constraint_16_permit_eligibility_matches_phase(predicate, permit_eligible)
+            gate_map[predicate["gcir_id"]]["permit_eligible"] = permit_eligible
+
     # --- bundle-level assertions (Appendix B) -----------------------------
     _assert_exactly_one_disposition_per_risk(assessment, closure)
     _assert_all_predicates_have_authorized_origin(predicates, risk_index, invariant_index)
@@ -671,8 +728,13 @@ def compile_bundle(inputs, verify_signatures=True):
         risk["risk_id"]: authority_mod.hazardous_paths_for(risk["risk_id"], assessment)
         for risk in assessment.risk_register
     }
+    rc06_risk_ids = {
+        d.risk_id for d in closure.dispositions
+        if d.status == "nonruntime" and d.reason_code == "RC-06"
+    }
     cstar_coverage = verify_cv(
-        assessment, inputs.cstar_profile, predicates, gate_map, hazardous_paths
+        assessment, inputs.cstar_profile, predicates, gate_map, hazardous_paths,
+        rc06_risk_ids=rc06_risk_ids,
     )
 
     coverage_matrix = _coverage_matrix(
@@ -680,7 +742,10 @@ def compile_bundle(inputs, verify_signatures=True):
     )
 
     # --- payload -----------------------------------------------------------
-    payload = build_payload(inputs, closure, predicates, gate_map, escalation_map, coverage_matrix)
+    payload = build_payload(
+        inputs, closure, predicates, gate_map, escalation_map, coverage_matrix,
+        schema_version=bundle_schema_version,
+    )
     validation_mod.constraint_13_payload_is_hash_clean(payload)
     payload_hash = hash_payload(payload)
 
@@ -706,7 +771,8 @@ def compile_bundle(inputs, verify_signatures=True):
     return CompilationResult(bundle=bundle, warnings=warnings, statistics=statistics)
 
 
-def build_payload(inputs, closure, predicates, gate_map, escalation_map, coverage_matrix):
+def build_payload(inputs, closure, predicates, gate_map, escalation_map, coverage_matrix,
+                   schema_version=GCIR_SCHEMA_VERSION):
     """Appendix B ``payload <- RFC8785_canonicalize(M.version_binding, K.version,
     C_star.version, Delta, P, G, E, CM)``.
 
@@ -722,7 +788,7 @@ def build_payload(inputs, closure, predicates, gate_map, escalation_map, coverag
 
     payload = {
         "payload_type": "GcirPredicateBundle",
-        "schema_version": GCIR_SCHEMA_VERSION,
+        "schema_version": schema_version,
         "bundle_id": inputs.policy_metadata.get("bundle_id", "BUNDLE-UNSPECIFIED"),
         "case_id": assessment.metadata["system_id"],
         "version_binding": {

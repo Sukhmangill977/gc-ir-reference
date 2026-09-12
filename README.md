@@ -21,10 +21,10 @@ Abhinandan Gill-Lakhowal, Member, IEEE — Gillian Holdings Incorporated, Calgar
 <!-- BEGIN AUTO-GENERATED MEASURED RESULTS -->
 ## Measured results
 
-**Reportable campaign:** `results/final_v3/`<br>
-**Scientific freeze:** `preregister-tier0-v3`<br>
-**Freeze commit:** `8f85d9b90dec1aa775a92a723df9ab3aff184052`<br>
-**Artifact packaging:** `v1.0.4`
+**Reportable campaign:** `results/final_v2/`<br>
+**Scientific freeze:** `preregister-tier0-v2.2`<br>
+**Freeze commit:** `c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e`<br>
+**Artifact packaging:** `v1.0.3`
 
 | Metric | Case A | Case B |
 |---|---:|---:|
@@ -39,11 +39,11 @@ Abhinandan Gill-Lakhowal, Member, IEEE — Gillian Holdings Incorporated, Calgar
 | GD(15) | 3 | 4 |
 | GD_min | 3 | 0 |
 
-**Determinism:** TD = 1.000; 62/62 executions passed (identical runs).
+**Determinism:** TD = 1.000; 62/62 executions passed (31 per case).
 
-**Monte Carlo:** Author-specified seed; executed without variance.
+**Monte Carlo:** K = 250,000 per evaluated risk in Case A; K = 250,000 in Case B. Case A max FP_heat = 0.321268 (MCSE 0.000934); FP_C* = 0 in Case A and 0 in Case B. Observed Case A C* membership changes: 0.
 
-**Frozen campaign verification:** 320/320 tests; Q1-Q10 audit 20/20 PASS; negative fixtures 10/10 violations detected; 13-injection scenarios 13/13 PASS (4 HOLD + 9 DENY); freeze integrity verified public on GitHub.
+**Frozen campaign verification:** 280/280 tests; adversarial corpus 62/62; structural checks 26/26; 16 property tests / 1,427 generated Hypothesis examples; 6 clean traceability queries per case, all empty; 18/18 negative controls detected.
 
 **Measured cross-platform evidence:**
 
@@ -60,110 +60,13 @@ Abhinandan Gill-Lakhowal, Member, IEEE — Gillian Holdings Incorporated, Calgar
 
 These results establish properties of the reference governance-to-control compiler and its two pinned case artifacts. They do not establish production detection performance, legal compliance, or superiority over unaided practitioners. RQ5 remains deferred.
 
-## Workflow Diagram
-
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  GC-IR: Risk Register → Runtime Predicate Compiler                 │
-└─────────────────────────────────────────────────────────────────────┘
-
-1. INPUT: Governance Assessment
-   ├─ Risk Register (M)
-   ├─ Assessment Obligations (O)
-   ├─ Risk Analysis (R)
-   ├─ Approved Controls (A)
-   └─ Signing Authorities (S)
-              ↓
-2. VALIDATION & REFINEMENT (Ψ_K)
-   ├─ Schema validation
-   ├─ Temporal traceability
-   ├─ Authority resolution
-   └─ Control specifications
-              ↓
-3. COMPILATION (Φ)
-   ├─ Predicate extraction
-   ├─ Risk-derived predicates
-   ├─ Compiler-invariant rules
-   └─ RFC 8785 canonicalization
-              ↓
-4. RUNTIME OUTCOME CLASSIFICATION
-   ├─ PERMIT: All conditions satisfied
-   ├─ DENY: Known policy violation
-   └─ HOLD: Unknown evidence + escalation
-              ↓
-5. AUDIT QUERIES (Q1-Q10)
-   ├─ Q1-Q6: Temporal traceability
-   ├─ Q7-Q10: Structural integrity
-   └─ Negative fixture testing
-              ↓
-6. VERIFICATION & METRICS
-   ├─ Determinism (TD = 1.000)
-   ├─ Coverage metrics (DC, RCY, CV)
-   ├─ Gate depth (GD, GD_min)
-   └─ Cross-platform reproducibility
-              ↓
-OUTPUT: Frozen Predicate Bundle + Metrics
-```
-
-## Terminal Results Display
-
-To view all results in the terminal:
-
 ```bash
-make install                           # Setup environment
-make results                           # Display comprehensive metrics
+make results
 ```
 
-Sample output:
-
-```
-==============================================================================
-GC-IR — REPORTABLE TIER-0 RESULTS
-==============================================================================
-
-CASE ARTIFACTS
-
-  Case A — Investment research agent
-    predicates          19  (16 risk-derived, 3 compiler invariant)
-    bundle SHA-256      f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec...
-
-  Case B — Transaction authorization agent
-    predicates          9   (6 risk-derived, 3 compiler invariant)
-    bundle SHA-256      2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7ec...
-
-PRIMARY METRICS
-
-  Metric                 Case A             Case B
-  ------------------------------------------------
-  DC (Release admissible) 1.0000 (16/16)    1.0000 (6/6)
-  RCY (Requirement coverage) 0.8125 (13/16) 1.0000 (6/6)
-  CV (Consequence coverage) 1.0000 (6/6)    1.0000 (4/4)
-  GD (Gate depth)         3                 4
-
-DETERMINISM & REPRODUCIBILITY
-
-  TD (Determinism)      1.000 (62/62 identical runs)
-  Cross-platform        ✓ macOS, Linux, Windows verified
-  Docker               ✓ Reproducible in container
-  
-TEST RESULTS
-
-  Test suite            320/320 PASS
-  Audit queries (Q1-Q10) 20/20 PASS
-  Negative fixtures     10/10 violations detected
-  13-Injection scenarios 13/13 PASS (4 HOLD + 9 DENY)
-  Determinism runs      62/62 identical
-
-==============================================================================
-```
-
-For detailed results:
-
-```bash
-python tools/show_results.py          # Full formatted output
-python tools/show_results.py --json   # Machine-readable JSON
-cat results/final_v3/campaign_results.json  # Campaign metrics
-```
+Print the complete reportable result set directly from the machine-generated
+final_v2 evidence. After `make install`, use `make results`; alternatively run
+`python tools/show_results.py` or `python tools/show_results.py --json`.
 
 This section is generated by `make readme-results`. Check it without modifying
 README with `make verify-readme-results` or

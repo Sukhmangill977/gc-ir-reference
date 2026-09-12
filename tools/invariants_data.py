@@ -15,8 +15,18 @@ specific ``M.version_binding`` and to a specific authorized action path.
 
 def build_invariant_register(register_id, binding, approver, approval_time,
                              effective_from, action_tuple, parameter_schema_ref,
-                             action_parameters, fingerprint):
-    """Return the three manuscript-named invariants, bound to one case."""
+                             action_parameters, fingerprint,
+                             include_enforcement_phases=False):
+    """Return the three manuscript-named invariants, bound to one case.
+
+    ``include_enforcement_phases`` (schema v1.1, default False): when True,
+    stamps each invariant with the manuscript's declared enforcement_phase
+    (INV-EVIDENCE-COMMIT is POST_AUTH_PRE_ACTUATION; the other two are
+    PRE_AUTHORIZATION). Default False so this shared builder's output for
+    Case A and Case B -- neither of which has opted into schema v1.1 -- is
+    byte-for-byte identical to before this generation; only the new v1.1
+    cases (Case B v1.1, Case C) opt in.
+    """
     common = {
         "approved_by": approver,
         "approval_time": approval_time,
@@ -67,6 +77,7 @@ def build_invariant_register(register_id, binding, approver, approval_time,
             evidence_semantics="A signed deployment attestation reporting the configuration actually loaded at authorization time.",
             decision_semantics="PERMIT requires the runtime fingerprint to equal M.version_binding.fingerprint. Indeterminate or absent evidence fails.",
             warrant_boundary="Establishes that the running configuration is the assessed configuration. It does not establish that the assessed configuration is safe. This is the per-action form of the version-drift argument: no action is authorized under a configuration the assessment never covered.",
+            **({"enforcement_phase": "PRE_AUTHORIZATION"} if include_enforcement_phases else {}),
         ),
         dict(
             common,
@@ -103,6 +114,7 @@ def build_invariant_register(register_id, binding, approver, approval_time,
             evidence_semantics="A signed evidence-chain artifact carrying the authorization, commit and actuation instants for this decision.",
             decision_semantics="PERMIT requires authorization_time <= evidence_commit_time < actuation_time, with the receipt chained to its predecessor.",
             warrant_boundary="Establishes the temporal ordering and chaining of the evidence record. It does not establish the truth of the receipt's content, nor that the trusted time source is honest.",
+            **({"enforcement_phase": "POST_AUTH_PRE_ACTUATION"} if include_enforcement_phases else {}),
         ),
         dict(
             common,
@@ -139,6 +151,7 @@ def build_invariant_register(register_id, binding, approver, approval_time,
             evidence_semantics="A signed lookup artifact reporting whether the proposed action tuple and its bound parameters are present in the approved authority matrix at the stated matrix version.",
             decision_semantics="PERMIT requires the proposed tuple and parameters to resolve exactly to an approved matrix row. Indeterminate or absent evidence fails.",
             warrant_boundary="Establishes closure of the proposed action against the approved matrix. It does not establish that the matrix itself is correctly scoped -- that is a governance judgment recorded in S.",
+            **({"enforcement_phase": "PRE_AUTHORIZATION"} if include_enforcement_phases else {}),
         ),
     ]
 
