@@ -3,7 +3,7 @@
   "upload_type": "software",
   "license": "MIT",
   "access_right": "open",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "creators": [
     {
       "name": "Gill-Lakhowal, Abhinandan",
@@ -11,7 +11,7 @@
       "orcid": "0009-0004-2089-7262"
     }
   ],
-  "description": "<p>Reference implementation and empirical artifact for a deterministic method that compiles approved AI governance assessments into enforceable runtime predicates.</p><p>Implements the governed semantic refinement relation &Psi;_K, closed into a mapping only by a signed judgment record; the GC-IR record family with total risk disposition; the deterministic compiler &Phi; with RFC 8785 canonicalization and SHA-256 bundle hashing; authority closure against an approved action matrix; the consequence-class gate coverage rule; a separately signed lifecycle registry; and a temporally valid traceability model with six audit queries.</p><p>Ships two hash-pinned worked cases (Case A synthetic; Case B a forensic reconstruction), a 62-case adversarial corpus, property-based tests, and the preregistered Tier-0 evaluation campaign whose reportable results are in <code>results/final_v2/</code>, executed after the public preregistration freeze <code>preregister-tier0-v2.2</code>.</p><p><strong>Claim boundary.</strong> The comparative expert study (RQ5) is preregistered and deferred: no adjudication panel has been convened and no participant data exists. Determinism is measured across eight tested environments and is not a claim of platform independence. No detection performance, production deployment or independent validation is claimed.</p>",
+  "description": "<p>Reference implementation and empirical artifact for a deterministic method that compiles approved AI governance assessments into enforceable runtime predicates.</p><p>Implements the governed semantic refinement relation &Psi;_K, closed into a mapping only by a signed judgment record; the GC-IR record family with total risk disposition; the deterministic compiler &Phi; with RFC 8785 canonicalization and SHA-256 bundle hashing; authority closure against an approved action matrix; the consequence-class gate coverage rule; a separately signed lifecycle registry; and a temporally valid traceability model with ten canonical audit queries.</p><p>v1.1.0 adds a nine-Approved-Control-Specification Case B (six risks, six dispositions, nine risk-derived predicates, three compiler invariants, twelve predicates total; the historical six-specification Case B remains reported as unchanged baseline evidence) and a third case, Case C, exercising schema v1.1 mechanisms (state binding, concurrence policy, delegation containment, actor-scope revocation, safety-event correlation, human response). Ships three hash-pinned worked cases, a governance provenance verifier, a 13-scenario Case B v1.1 injection harness under a two-axis authorization/release decision model, a 19-fixture negative-control suite, property-based tests, and the reportable campaign in <code>results/final_v4_1/</code>, executed after the public prospective scientific freeze <code>preregister-tier0-v4.1</code> (which corrects a manifest-generation provenance defect in the superseded <code>preregister-tier0-v4</code> tag with zero scientific-input change). The original preregistered Tier-0 evaluation campaign for Case A and the historical Case B remains in <code>results/final_v2/</code> and <code>results/final_v3_1/</code>, governed by the unmodified public preregistration freeze <code>preregister-tier0-v3.1</code>.</p><p><strong>Claim boundary.</strong> The comparative expert study (RQ5) is preregistered and deferred: no adjudication panel has been convened and no participant data exists. Determinism is measured across the tested supported environments and is not a claim of platform independence. This release independently reproduced the 284,807-row L-DREA/ULB downstream conformance experiment named in the supported paper (unmodified, golden-trace conformance evidence) but did not execute the new v1.1 predicate bundle against that corpus; no detection performance, production deployment, or independent validation is claimed.</p>",
   "keywords": [
     "AI governance",
     "risk register",
@@ -33,7 +33,13 @@
       "relation": "isSupplementTo",
       "resource_type": "software",
       "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/Sukhmangill977/gc-ir-reference/releases/tag/v1.1.0",
+      "relation": "isIdenticalTo",
+      "resource_type": "software",
+      "scheme": "url"
     }
   ],
-  "notes": "The article this artifact supports is under submission; its DOI is not yet assigned and is deliberately not asserted here. The authoritative empirical campaign is results/final_v2/, governed by the public preregistration freeze preregister-tier0-v2.2 at commit c44f25d6fdb67e0bc4ac73a6217125dec8da1c0e."
+  "notes": "The article this artifact supports is under submission; its DOI is not yet assigned and is deliberately not asserted here. No prior Zenodo deposit exists for this repository as of this release (no conceptdoi/related record found in the repository metadata history) -- this would be the FIRST Zenodo deposit for this artifact, not a new version of an existing one; do not create a fake 'new version' relationship. The current reportable campaign is results/final_v4_1/, governed by the public prospective scientific freeze preregister-tier0-v4.1 at commit efe4e165619ecb5d781fb795113f33720794a2e5 (461 files, 32 roles, manifest root 0640ad1e7a703879d4b9083a088f5b562b638173590292a2c1aed1625102e0e6). The original Case A / historical Case B campaign remains in results/final_v2/ and results/final_v3_1/, governed by the unmodified public preregistration freeze preregister-tier0-v3.1 at commit 158c0bd3785ac87a878671f76286be082a26d50d. Release tag: v1.1.0 at commit 931f297d3fb347130331f20e128661b03d07bfbb."
 }
