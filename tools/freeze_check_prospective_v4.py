@@ -289,7 +289,7 @@ def check():
     # Self-consistency against the CURRENT working tree, not a diff against
     # the last commit -- this is a prospective, not-yet-committed freeze, so
     # "current" means "matches disk right now," not "matches HEAD."
-    print("\n11. MANIFEST currency (working tree, not HEAD)")
+    print("\n11. MANIFEST currency (verified against the committed Git tree, not a filesystem walk)")
     manifest_path = os.path.join(REPO_ROOT, "MANIFEST.sha256")
     manifest_json_path = os.path.join(REPO_ROOT, "MANIFEST.json")
     record("MANIFEST.sha256 present", os.path.exists(manifest_path), "")
@@ -301,33 +301,35 @@ def check():
         record("MANIFEST covers case_c (case_c_input role)",
                any(f["role"] == "case_c_input" for f in manifest["files"]), "")
 
-        # Excludes the same two self-mutating categories the existing
-        # `make verify-manifest` target already excludes from its own
-        # commit-vs-regenerated diff: development_result files carry a
-        # run_completed_utc timestamp (experiments/common.py write_result)
-        # that changes on every re-run regardless of scientific content, and
-        # MANIFEST.json is self-referential (it lists its own manifest_sha256,
-        # which necessarily moves each time the manifest itself is rewritten).
-        from experiments.make_manifest import build as build_manifest
-        fresh_rows = {
-            row["path"]: row for row in build_manifest(REPO_ROOT)
-            if row["role"] != "development_result" and row["path"] != "MANIFEST.json"
-        }
-        committed_rows = {
-            row["path"]: row for row in manifest["files"]
-            if row["role"] != "development_result" and row["path"] != "MANIFEST.json"
-        }
-        missing = sorted(set(fresh_rows) - set(committed_rows))
-        extra = sorted(set(committed_rows) - set(fresh_rows))
-        changed = sorted(
-            path for path in (set(fresh_rows) & set(committed_rows))
-            if fresh_rows[path]["sha256"] != committed_rows[path]["sha256"]
+        # Verified against Git's own committed tree (git ls-tree + git
+        # cat-file), NOT a second filesystem walk -- comparing two
+        # filesystem walks against each other is exactly what let the
+        # preregister-tier0-v4 MANIFEST defect through undetected (both
+        # walks were wrong the same way, on the same locally-dirty disk).
+        # See docs/V4_MANIFEST_DEFECT_REPORT.json.
+        #
+        # Excludes the same two self-mutating categories `make
+        # verify-manifest` already excludes: development_result files carry
+        # a run_completed_utc timestamp that changes on every re-run
+        # regardless of scientific content, and MANIFEST.json is
+        # self-referential (it lists its own manifest_sha256, which
+        # necessarily moves each time the manifest itself is rewritten).
+        from experiments.make_manifest import verify_against_ref
+        excluded_roles = {"development_result"}
+        excluded_paths = {"MANIFEST.json"}
+        diff = verify_against_ref(
+            [row for row in manifest["files"]
+             if row["role"] not in excluded_roles and row["path"] not in excluded_paths],
+            REPO_ROOT, ref="HEAD",
         )
-        record("MANIFEST.json reflects the current working tree exactly, "
-               "excluding development_result/MANIFEST.json (regenerated via "
-               "experiments.make_manifest.build)",
-               not missing and not extra and not changed,
-               "missing=%s extra=%s changed=%s" % (missing[:5], extra[:5], changed[:5]))
+        # A path that legitimately belongs to an excluded role/path is not a
+        # real "missing" finding just because it was filtered out above.
+        diff["missing"] = [p for p in diff["missing"]
+                            if p not in excluded_paths]
+        record("MANIFEST.json matches the committed HEAD tree exactly "
+               "(git ls-tree + git cat-file, excluding development_result/MANIFEST.json)",
+               not diff["missing"] and not diff["extra"] and not diff["changed"],
+               "missing=%s extra=%s changed=%s" % (diff["missing"][:5], diff["extra"][:5], diff["changed"][:5]))
         report["manifest_file_count"] = manifest["file_count"]
         report["manifest_root_hash"] = manifest["manifest_sha256"]
         report["manifest_roles"] = manifest["roles"]

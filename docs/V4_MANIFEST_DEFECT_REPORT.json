@@ -1,0 +1,88 @@
+{
+  "title": "preregister-tier0-v4 MANIFEST provenance defect: reconciliation",
+  "root_cause": "experiments/make_manifest.py (pre-fix) enumerated files via os.walk() over the raw local filesystem rather than Git's index/tree, so local working-directory state -- gitignored files, untracked files, a locally-deleted-but-uncommitted file -- silently leaked into or dropped out of the generated MANIFEST.json, independent of what the freeze commit's git tree actually contains. A second, independent bug in the same file's directory-skip logic (`not d.startswith(\".git\")`, intended to skip the internal `.git/` directory) also matched and skipped `.github/`, since the string \".github\" starts with \".git\" -- so every historical MANIFEST (v1 through v4) omitted the three committed CI workflow files even though nothing about them was locally dirty.",
+  "discovered_by": "Running tools/freeze_check_prospective_v4.py's MANIFEST self-consistency check for the first time against a genuine `git worktree` checkout of preregister-tier0-v4 (detached HEAD at the freeze commit) rather than the development working directory, during the results/final_v4/ campaign run.",
+  "affected_tag": "preregister-tier0-v4",
+  "affected_commit": "48791c720b9d08cc4005e0c49f6d64eab2a361f1",
+  "fix_commit_note": "experiments/make_manifest.py rewritten to read exclusively from `git ls-files -s` (index) / `git ls-tree -r <ref>` (a commit) plus `git cat-file -p <blob-sha>` for content. tools/freeze_check_prospective_v4.py's MANIFEST check now verifies MANIFEST.json against the committed HEAD tree (experiments.make_manifest.verify_against_ref) instead of a second filesystem walk. Regression tests: tests/unit/test_make_manifest.py (8 tests). preregister-tier0-v4 itself is NOT retagged or modified by this fix -- see preregister-tier0-v4.1.",
+  "rows": [
+    {
+      "path": ".claude/settings.local.json",
+      "reason": "IGNORED",
+      "detail": "Globally gitignored (~/.config/git/ignore: **/.claude/settings.local.json). Never git-tracked. Leaked into the buggy MANIFEST purely because it existed on the generating machine's local disk.",
+      "scientifically_relevant": false,
+      "present_in_preregister_tier0_v4_tree": false,
+      "effect_on_scientific_results": "none -- this file is a local Claude Code editor setting, not a repository artifact of any kind, and is not read by any GC-IR code path."
+    },
+    {
+      "path": "docs/paperieee2 (1).pdf",
+      "reason": "UNTRACKED",
+      "detail": "Present on the generating machine's local disk but never staged or committed (a manuscript file swap left over from an earlier, unrelated editing session). Deliberately excluded from every commit in this generation's work.",
+      "scientifically_relevant": false,
+      "present_in_preregister_tier0_v4_tree": false,
+      "effect_on_scientific_results": "none -- not read by any compiler, test, or experiment; the manuscript itself is out of scope for this freeze and was not edited."
+    },
+    {
+      "path": "results/final_v3_1/REPORTABLE_CAMPAIGN_RESULTS.md",
+      "reason": "UNTRACKED",
+      "detail": "Confirmed via `git ls-files results/final_v3_1/` returning zero rows: the entire results/final_v3_1/ directory has never been committed to this repository's Git history, in any commit, at any point -- it exists only as loose files on the local disk. This predates this session and this generation's work entirely.",
+      "scientifically_relevant": true,
+      "present_in_preregister_tier0_v4_tree": false,
+      "effect_on_scientific_results": "none on any preregister-tier0-v4/v4.1 (prospective) scientific claim -- this file describes the prior, separately-frozen preregister-tier0-v3.1 campaign, which this generation's work never reads from or writes to. Its absence from Git is a pre-existing repository-hygiene gap in an unrelated, already-frozen campaign, out of scope for this fix; not touched here per the explicit instruction to preserve results/final_v3_1 unchanged."
+    },
+    {
+      "path": "results/final_v3_1/campaign_results.json",
+      "reason": "UNTRACKED",
+      "detail": "Same as REPORTABLE_CAMPAIGN_RESULTS.md above -- never git-tracked, confirmed via `git ls-files`.",
+      "scientifically_relevant": true,
+      "present_in_preregister_tier0_v4_tree": false,
+      "effect_on_scientific_results": "none on preregister-tier0-v4/v4.1; see the row above."
+    },
+    {
+      "path": "docs/paper3.pdf",
+      "reason": "OMITTED_TRACKED_FILE",
+      "detail": "Genuinely committed and present in the preregister-tier0-v4 git tree. Deleted, uncommitted, on the local disk (its replacement, docs/paperieee2 (1).pdf, was never staged) at the moment the buggy filesystem-walk-based MANIFEST.json was generated pre-freeze, so the walker never saw it and it was omitted from the manifest despite being part of the actual committed tree.",
+      "scientifically_relevant": false,
+      "present_in_preregister_tier0_v4_tree": true,
+      "effect_on_scientific_results": "none -- a manuscript reference PDF, not scientific evidence or code."
+    },
+    {
+      "path": ".github/workflows/determinism.yml",
+      "reason": "OMITTED_TRACKED_FILE",
+      "detail": "Genuinely committed and present in the preregister-tier0-v4 git tree. Omitted from every historical MANIFEST (v1 through v4), not only v4's -- the old make_manifest.py's directory-skip check `not d.startswith(\".git\")` also matches \".github\", so the entire .github/ directory was silently skipped by os.walk() regardless of any local working-tree state.",
+      "scientifically_relevant": true,
+      "present_in_preregister_tier0_v4_tree": true,
+      "effect_on_scientific_results": "none on any computed scientific VALUE (hashes, TD, Monte Carlo figures, test results) -- this is CI configuration that runs the determinism experiment across platforms, not an input to it. Its omission from past manifests means those manifests' inventories were incomplete, but no scientific number was ever affected."
+    },
+    {
+      "path": ".github/workflows/reproducibility.yml",
+      "reason": "OMITTED_TRACKED_FILE",
+      "detail": "Same root cause as determinism.yml above.",
+      "scientifically_relevant": true,
+      "present_in_preregister_tier0_v4_tree": true,
+      "effect_on_scientific_results": "none on any computed scientific value; see the row above."
+    },
+    {
+      "path": ".github/workflows/tests.yml",
+      "reason": "OMITTED_TRACKED_FILE",
+      "detail": "Same root cause as determinism.yml above.",
+      "scientifically_relevant": true,
+      "present_in_preregister_tier0_v4_tree": true,
+      "effect_on_scientific_results": "none on any computed scientific value; see the row above."
+    }
+  ],
+  "scientific_invariance_verification": {
+    "method": "Direct comparison of every path under each scientific category between the preregister-tier0-v4 git tree and the current working tree (which contains only the manifest-generator fix, its tests, and this report, per the explicit instruction to make no scientific-input changes). `git diff <v4-tree>..HEAD -- <paths>` for every category below is empty.",
+    "case_a_scientific_inputs_unchanged": true,
+    "case_b_v1_1_scientific_inputs_unchanged": true,
+    "case_c_scientific_inputs_unchanged": true,
+    "compiler_runtime_code_unchanged": true,
+    "q1_q10_unchanged": true,
+    "negative_fixtures_unchanged": true,
+    "injection_expectations_unchanged": true,
+    "monte_carlo_seed_and_distributions_unchanged": true,
+    "determinism_design_unchanged": true,
+    "case_a_hash_reproduces": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+    "case_b_v1_1_hash_reproduces": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1"
+  }
+}
