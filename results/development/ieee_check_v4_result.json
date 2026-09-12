@@ -1,7 +1,7 @@
 {
   "check": "ieee-check-v4",
-  "git_head": "efe84dc2dfa4502f270dd940c63d7a6e25760d72",
-  "recorded_at": "2026-09-12T10:21:00Z",
+  "git_head": "533de9263c706cbd93fca0e491070ba39d159053",
+  "recorded_at": "2026-09-12T11:47:55Z",
   "scope": "prospective preregister-tier0-v4 state (NOT a historical freeze check)",
   "stage_count": 3,
   "stages": [
