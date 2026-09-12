@@ -1,5 +1,5 @@
 {
-  "file_count": 461,
+  "file_count": 486,
   "files": [
     {
       "bytes": 1022,
@@ -14,10 +14,10 @@
       "sha256": "da55c28f1eabfedd4d53bf219d45f12a3a332f1f5d3f227aa0d92805bf7485b5"
     },
     {
-      "bytes": 3133,
+      "bytes": 3519,
       "path": ".github/workflows/reproducibility.yml",
       "role": "ci_configuration",
-      "sha256": "150c1fbfd1601b821c8166e8121e84b7062d77f460ff232f52464b1012e291f4"
+      "sha256": "44b9a8afcc6dea3024cdbd8bc3b915326489b76a73c996412f69b4f5aee699bc"
     },
     {
       "bytes": 1882,
@@ -65,7 +65,7 @@
       "bytes": 96260,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "9d5c2d55516e7af69f6c1dc3ce96a89ee65d496eb699ce82f2e6e98070dcb688"
+      "sha256": "42995a90d8cf1178b227a0c5aac8b804cceabb1ea633d34a98a7c0bd3fb24b4b"
     },
     {
       "bytes": 8498,
@@ -2234,6 +2234,156 @@
       "sha256": "b8663fdde6b5667ebf54a28dd5388e79c3bbfbd173fbc9531dd6f1406d5a1d9e"
     },
     {
+      "bytes": 3936,
+      "path": "results/final_v4_1/REPORTABLE_CAMPAIGN_RESULTS.md",
+      "role": "repository_root",
+      "sha256": "edb643e10763680296e353d079fd5ea46f984d28aa45210a0a1ab002eeb7508a"
+    },
+    {
+      "bytes": 701,
+      "path": "results/final_v4_1/audit/auxiliary_checks_a1_a4.json",
+      "role": "repository_root",
+      "sha256": "bb28ad81969727e43031ef753ae87b4b78fabf020dc706d600ee8c6409858088"
+    },
+    {
+      "bytes": 4975,
+      "path": "results/final_v4_1/audit/negative_fixtures_19.json",
+      "role": "repository_root",
+      "sha256": "75071351f0f17c5eab30f22156969570ebd93fbd5b7fe2b939bf3e36e3758f00"
+    },
+    {
+      "bytes": 2767,
+      "path": "results/final_v4_1/audit/q1_q10_all_cases.json",
+      "role": "repository_root",
+      "sha256": "0c35e5abff1a65350f72f8a47b155ded4559a3b07c9472702dbc37a381a2fa3c"
+    },
+    {
+      "bytes": 9471,
+      "path": "results/final_v4_1/campaign_results.json",
+      "role": "repository_root",
+      "sha256": "a6af9b4db1c8133f24c8e08c295d6279d239020bb1ffd30641d98a9e043a02b3"
+    },
+    {
+      "bytes": 81761,
+      "path": "results/final_v4_1/case_a/bundle.json",
+      "role": "repository_root",
+      "sha256": "5faca3fd953786b1af2f0191f705dedaac9f954893d3a56be604ca1bb027e1f2"
+    },
+    {
+      "bytes": 40687,
+      "path": "results/final_v4_1/case_b_historical/bundle.json",
+      "role": "repository_root",
+      "sha256": "888dd0566255f850bc4ef3c389d4b1c40d42d841c7f6d83d8741724551547a99"
+    },
+    {
+      "bytes": 53619,
+      "path": "results/final_v4_1/case_b_v1_1/bundle.json",
+      "role": "repository_root",
+      "sha256": "f506af90d4a7d73242660091828ffb7e81e9e74fb4eefdec398d02b824a2807e"
+    },
+    {
+      "bytes": 65004,
+      "path": "results/final_v4_1/case_c/bundle.json",
+      "role": "repository_root",
+      "sha256": "9d0bdf9758791e6052d556af5c72c4c3925e0a116e992c57d8bfa03cb6668e45"
+    },
+    {
+      "bytes": 17543,
+      "path": "results/final_v4_1/determinism/determinism_runs_case_b_v11.csv",
+      "role": "repository_root",
+      "sha256": "a57f43db740ee65bb85025343df5d690e53588a8e8d012ee93e67a7b6dd4e77a"
+    },
+    {
+      "bytes": 2585,
+      "path": "results/final_v4_1/determinism/determinism_summary_case_b_v11.json",
+      "role": "repository_root",
+      "sha256": "6017f001d8c2dea050df3da40731327882e3f1c3d45989eaf25cf516de12733a"
+    },
+    {
+      "bytes": 7341,
+      "path": "results/final_v4_1/freeze_verification/prospective_v4_check.json",
+      "role": "repository_root",
+      "sha256": "eb217e9b6f0443e13dfff40b21b2e116bc0dc537291ecc8ac524093efa7abc35"
+    },
+    {
+      "bytes": 5500,
+      "path": "results/final_v4_1/freeze_verification/prospective_v4_check_console_output.txt",
+      "role": "repository_root",
+      "sha256": "2d853e3dcfd8bc31f13187dfca4222c27b183bcb0d1c15455bd75ba5ea2f488f"
+    },
+    {
+      "bytes": 549,
+      "path": "results/final_v4_1/ieee_check/ieee_check_v4_result.json",
+      "role": "repository_root",
+      "sha256": "183f89d8c59be4b502363e7ada9ce7de288765d3083b4b1320edcb1d73ca344a"
+    },
+    {
+      "bytes": 15348,
+      "path": "results/final_v4_1/injections/case_b_v11_13_injections.json",
+      "role": "repository_root",
+      "sha256": "02f5d7ff0a07e32d25d3382e49b546b40d4463067e1bbf07dc7d9a5e24b6e63b"
+    },
+    {
+      "bytes": 10900,
+      "path": "results/final_v4_1/ldrea_ulb/CASE_B_LDREA_ULB_REPLAY_ASSESSMENT.md",
+      "role": "repository_root",
+      "sha256": "5dc16617b50e6f36bc105d92122551f11f457cca64b84a1713f618a0bd76344a"
+    },
+    {
+      "bytes": 858,
+      "path": "results/final_v4_1/ldrea_ulb/NOTE_row_level_csv_not_committed.md",
+      "role": "repository_root",
+      "sha256": "50e2c608105065be48e5318526fd4e30e4811ddeb64bfbe6dca19c1e04850d43"
+    },
+    {
+      "bytes": 11237,
+      "path": "results/final_v4_1/ldrea_ulb/gamma_lab_v1_report.json",
+      "role": "repository_root",
+      "sha256": "d7bff5f073ce744a4e4e1a254ca7e5dfce97ce3809d4ea33f654060870a96d92"
+    },
+    {
+      "bytes": 3414,
+      "path": "results/final_v4_1/ldrea_ulb/gamma_summary.json",
+      "role": "repository_root",
+      "sha256": "de6b4167b1df1b24312102f1f628f16dcec9c998a7265f4f11ffc84b16f966a9"
+    },
+    {
+      "bytes": 19189,
+      "path": "results/final_v4_1/ldrea_ulb/ldrea_traceability.json",
+      "role": "repository_root",
+      "sha256": "c358f5a676c0b7b75b7705c0ea089afadeb01fbce91c0524159e0c263e929b70"
+    },
+    {
+      "bytes": 3945,
+      "path": "results/final_v4_1/ldrea_ulb/ldrea_traceability_v1_1_addendum.json",
+      "role": "repository_root",
+      "sha256": "517cf45ac6b51ea06f259a9a01c83f359b2275b4a1a63d64022330364b1a3717"
+    },
+    {
+      "bytes": 1438,
+      "path": "results/final_v4_1/monte_carlo/monte_carlo_per_risk_case_b_v11.csv",
+      "role": "repository_root",
+      "sha256": "5235b3ab7c7c981dbac63d556d180638b15eace7c9da59351f78fb9a1d28577d"
+    },
+    {
+      "bytes": 25906,
+      "path": "results/final_v4_1/monte_carlo/monte_carlo_summary_case_b_v11.json",
+      "role": "repository_root",
+      "sha256": "e341b32f72f4f4a0f1e084b4ab148117ea8551f70ed825a92ebff118eb75ab5c"
+    },
+    {
+      "bytes": 8441,
+      "path": "results/final_v4_1/provenance/case_b_v11_provenance_9_acs.json",
+      "role": "repository_root",
+      "sha256": "1e3fdfe1272554c6cc2bc04650248f9bdcad0e995065f65bc73cf0cb874b48dd"
+    },
+    {
+      "bytes": 66389,
+      "path": "results/final_v4_1/tests/junit_full.xml",
+      "role": "repository_root",
+      "sha256": "4a9488baa2ab4979bc392507637a9102ed9fcca81e7c270855e18ab36f85a695"
+    },
+    {
       "bytes": 1009,
       "path": "run_all.py",
       "role": "experiment_code",
@@ -2769,7 +2919,7 @@
     }
   ],
   "generated_from_ref": "HEAD",
-  "manifest_sha256": "0640ad1e7a703879d4b9083a088f5b562b638173590292a2c1aed1625102e0e6",
+  "manifest_sha256": "bbd052bf0bad40a2b1c13307147ef2c8b398007d6328716b8d5b34155223a40e",
   "roles": [
     "acs_a",
     "acs_b",
@@ -2804,5 +2954,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 10858360
+  "total_bytes": 11322250
 }
