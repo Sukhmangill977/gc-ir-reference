@@ -61,6 +61,13 @@ jobs:
           diff /tmp/manifest_before.txt /tmp/manifest_after.txt \
             && echo "manifest is current for every released path ($(wc -l < /tmp/manifest_after.txt) rows checked)"
 
+      - name: Prospective-v4 freeze verification
+        # Independent of the historical --final-v2/--final-v3 checks above;
+        # covers Case A/B-v1.1/C, provenance, Q1-Q10, negative fixtures,
+        # A1-A4, 13 injections, v1.1 determinism/Monte Carlo, and the
+        # git-tree-based MANIFEST self-consistency check.
+        run: python tools/freeze_check.py --prospective-v4
+
       - name: Show the generated summary
         run: cat results/development/SUMMARY.md
 
