@@ -25,9 +25,9 @@ e6e3829a1e93d282e4895fd26b75e394ed547db787c55f6deaac03979842eeb3  repository_roo
 263b0681e3668f12646352d1047c5d90288a533a55a23647bb23ec7018598fef  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-b6f0e9496df49d514ff688d28a98dbd848645759d8488806b04230f2ef9db1b5  repository_root            MANIFEST.json
-8f05af2cba5818348e4b036ca5fe20d54e0f109e86f602feeda5cbb0b9e5a302  repository_root            Makefile
-fd14124e1de24d17f62aed69903484c659ecbcfe078b6a7ec6efe2ddda8aa07e  repository_root            README.md
+7e87f1aa77769b59077c21f5f22a84f975b759f8e909dba594a345a390246d5d  repository_root            MANIFEST.json
+e0d97645478ee38270579eef4d20dc4a23a546e764b654a2842c649057d96ec4  repository_root            Makefile
+3d8754602c4fc5c6f4a0b3df304e5a13e05b30f621bd3d4ce085ba896cd3b3be  repository_root            README.md
 9580cbbd552bf339423846d761287250c67ab2125fc71fad66323a8a7ed49fb8  repository_root            RELEASE_NOTES_V1_0_4.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
 a70fa0ba3d4bee22783577e90270417d92641d89f7d5b42c89bbe0557f4b7999  repository_root            artifact_review/ARCHIVAL_CHECKLIST.md
@@ -186,7 +186,7 @@ dc6e4f50543da206c08582582666db5bb5adeae9b080a7531a4d7b3edb1cae56  manuscript_rec
 35188e8bf1b6a080d14a4d759f666cd9b015f915c512a90062c37235c07cbf8b  manuscript_reconciliation  paper_update/FINAL_MANUSCRIPT_CHANGELOG.md
 59566828b1c09ad6400d1679959b80f243263b15104cb750c39fdfc342bb1467  manuscript_reconciliation  paper_update/FINAL_REVIEWER_RISK_REPORT.md
 e65d1b2ff32be53982f9510c2498dced883aedaa9ac42df0bb8d69929b4a8c0a  manuscript_reconciliation  paper_update/From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION.docx
-fc1319719d9ad14dd972e7e5fbbbdb0dae5bf52e2ccd1882ea955efedf351bbe  manuscript_reconciliation  paper_update/From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION_5_5f.docx
+f716f75ff0b767bae0a457505c3caea14351f5ad2898b2f57e8c1b6ec2c20676  manuscript_reconciliation  paper_update/From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION_5_5f.docx
 83b409c6a898158d3e0b817ecee425c9e87e4ef0d17a75498ce80e9af30dd89e  manuscript_reconciliation  paper_update/LITERATURE_VERIFICATION.md
 1b06f8870301fa55dad5d3e59b7a2cc98041b92ff34baedc38aad937ed259302  manuscript_reconciliation  paper_update/MANUSCRIPT_5_5f_UPDATE_SPEC.md
 3b44c117b4edf2bd54736db536fe91a118c5dd6d8d292f49ecbd9898a4803618  manuscript_reconciliation  paper_update/MANUSCRIPT_AMENDMENT_5_5E.md
@@ -498,6 +498,9 @@ aa82bdd98cab8c9f3d9c2b82ea5f7438e1a427d2714e29ad050403ea6e520bbb  experiment_cod
 b0ce91e8d9df6d3804c58e2d9b0b2f8267a9df11029e57adefbdd5fdb323e7cc  fixture_generator          tools/record_ieee_check_result.py
 b676ddc21bc222aeb18577df4244e243abaf5a0b205aa3b7db4fa90f93d6feb8  fixture_generator          tools/record_ieee_check_v4_result.py
 51ad65d731e87057f957a0f29720e3b0986d7270196ea9e060799ceb3a20dca3  fixture_generator          tools/show_results.py
+e93030d8e098811311f523e2da01e5a72e3e9cf2276b7e146dd5b9f5fdda1f84  fixture_generator          tools/show_results_v1_1_0.py
 64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44  experiment_code            tools/td_crossenv.py
+22944aa1835ab3cd0681b0861d1910657f62adf30638de6959139d8dee72381d  fixture_generator          tools/update_readme_current_release.py
 6adc77680e1e16520667dca6876fa7488c3899dcba1f5a82a36dfa2cbaef514e  fixture_generator          tools/update_readme_results.py
+2c208292088118517378e2406c2e9f2a2263ddbd6d38aaf8315f8965d88897d9  fixture_generator          tools/verify_manuscript_v1_1_0.py
 869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc  fixture_generator          tools/verify_reported_results.py

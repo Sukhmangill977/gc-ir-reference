@@ -1,5 +1,5 @@
 {
-  "file_count": 486,
+  "file_count": 489,
   "files": [
     {
       "bytes": 1022,
@@ -62,22 +62,22 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 101834,
+      "bytes": 101836,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "b6f0e9496df49d514ff688d28a98dbd848645759d8488806b04230f2ef9db1b5"
+      "sha256": "7e87f1aa77769b59077c21f5f22a84f975b759f8e909dba594a345a390246d5d"
     },
     {
-      "bytes": 8498,
+      "bytes": 8545,
       "path": "Makefile",
       "role": "repository_root",
-      "sha256": "8f05af2cba5818348e4b036ca5fe20d54e0f109e86f602feeda5cbb0b9e5a302"
+      "sha256": "e0d97645478ee38270579eef4d20dc4a23a546e764b654a2842c649057d96ec4"
     },
     {
-      "bytes": 26250,
+      "bytes": 28734,
       "path": "README.md",
       "role": "repository_root",
-      "sha256": "fd14124e1de24d17f62aed69903484c659ecbcfe078b6a7ec6efe2ddda8aa07e"
+      "sha256": "3d8754602c4fc5c6f4a0b3df304e5a13e05b30f621bd3d4ce085ba896cd3b3be"
     },
     {
       "bytes": 5713,
@@ -1028,10 +1028,10 @@
       "sha256": "e65d1b2ff32be53982f9510c2498dced883aedaa9ac42df0bb8d69929b4a8c0a"
     },
     {
-      "bytes": 2264837,
+      "bytes": 2267376,
       "path": "paper_update/From_Risk_Register_to_Runtime_Predicate_IEEE_SUBMISSION_5_5f.docx",
       "role": "manuscript_reconciliation",
-      "sha256": "fc1319719d9ad14dd972e7e5fbbbdb0dae5bf52e2ccd1882ea955efedf351bbe"
+      "sha256": "f716f75ff0b767bae0a457505c3caea14351f5ad2898b2f57e8c1b6ec2c20676"
     },
     {
       "bytes": 13682,
@@ -2900,10 +2900,22 @@
       "sha256": "51ad65d731e87057f957a0f29720e3b0986d7270196ea9e060799ceb3a20dca3"
     },
     {
+      "bytes": 5156,
+      "path": "tools/show_results_v1_1_0.py",
+      "role": "fixture_generator",
+      "sha256": "e93030d8e098811311f523e2da01e5a72e3e9cf2276b7e146dd5b9f5fdda1f84"
+    },
+    {
       "bytes": 2089,
       "path": "tools/td_crossenv.py",
       "role": "experiment_code",
       "sha256": "64228352821b3ab3ae6076d46f57a88ebaf6fe8058ca3b134a252c8204768f44"
+    },
+    {
+      "bytes": 6190,
+      "path": "tools/update_readme_current_release.py",
+      "role": "fixture_generator",
+      "sha256": "22944aa1835ab3cd0681b0861d1910657f62adf30638de6959139d8dee72381d"
     },
     {
       "bytes": 6702,
@@ -2912,14 +2924,20 @@
       "sha256": "6adc77680e1e16520667dca6876fa7488c3899dcba1f5a82a36dfa2cbaef514e"
     },
     {
+      "bytes": 7730,
+      "path": "tools/verify_manuscript_v1_1_0.py",
+      "role": "fixture_generator",
+      "sha256": "2c208292088118517378e2406c2e9f2a2263ddbd6d38aaf8315f8965d88897d9"
+    },
+    {
       "bytes": 20303,
       "path": "tools/verify_reported_results.py",
       "role": "fixture_generator",
       "sha256": "869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc"
     }
   ],
-  "generated_from_ref": "INDEX",
-  "manifest_sha256": "0541f33d2d977da144b94cbe505d2c60c50e3a3559d643afb6b4f947e173d104",
+  "generated_from_ref": "HEAD",
+  "manifest_sha256": "dc37d3f05771c32ed250025870d26fdf53ecd7fae83377cf595b6af3a0d7f010",
   "roles": [
     "acs_a",
     "acs_b",
@@ -2954,5 +2972,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 11327824
+  "total_bytes": 11351972
 }
