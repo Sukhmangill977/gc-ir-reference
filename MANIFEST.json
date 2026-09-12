@@ -53,7 +53,7 @@
       "bytes": 90306,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "5293c09c940b5c6534e97e545270f981858970d584752c05e93b2fb97261c8b5"
+      "sha256": "0333654fa84f427952262ec1b68675ff2b0ed089bbf286871545ba12ceec8fe2"
     },
     {
       "bytes": 8498,
@@ -2606,7 +2606,7 @@
       "sha256": "869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc"
     }
   ],
-  "manifest_sha256": "ccd79bd89cf9210286c88562e8acf0f8255f616063123fd35d64e68cc147524f",
+  "manifest_sha256": "c0bdf21cbcf14f77ddec0d3680896233f6dcbf76e474364bcc59f80822391c95",
   "roles": [
     "acs_a",
     "acs_b",
