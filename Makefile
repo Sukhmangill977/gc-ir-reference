@@ -181,14 +181,20 @@ clean:
 	find . -name '__pycache__' -type d -prune -exec rm -rf {} +
 	rm -rf .pytest_cache .hypothesis
 
-.PHONY: results readme-results verify-readme-results
+.PHONY: results results-page readme-results verify-readme-results
 results:
 	@$(PY) tools/show_results_v1_1_0.py
 	@echo ""
 	@$(PY) tools/show_results.py
+	@$(PY) tools/generate_results_page.py
+
+results-page:
+	@$(PY) tools/generate_results_page.py
 
 readme-results:
 	@$(PY) tools/update_readme_results.py
+	@$(PY) tools/update_readme_current_release.py
 
 verify-readme-results:
 	@$(PY) tools/update_readme_results.py --check
+	@$(PY) tools/update_readme_current_release.py --check

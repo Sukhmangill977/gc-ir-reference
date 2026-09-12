@@ -20,14 +20,14 @@ da55c28f1eabfedd4d53bf219d45f12a3a332f1f5d3f227aa0d92805bf7485b5  ci_configurati
 44b9a8afcc6dea3024cdbd8bc3b915326489b76a73c996412f69b4f5aee699bc  ci_configuration           .github/workflows/reproducibility.yml
 41804b62afe01e755b57bd47957ca0900db36d99db87650a15e5a93c1c867f76  ci_configuration           .github/workflows/tests.yml
 b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_root            .gitignore
-e6e3829a1e93d282e4895fd26b75e394ed547db787c55f6deaac03979842eeb3  repository_root            .zenodo.json
+181c31fd437f9ef5697fa5cf4ce1e428396eec0e0be7dccd651ff2b60b4126df  repository_root            .zenodo.json
 84631517fe89da36cabb4cd1aa200d7c4c9470979892992b589899113479e4cc  repository_root            CHANGELOG.md
-263b0681e3668f12646352d1047c5d90288a533a55a23647bb23ec7018598fef  repository_root            CITATION.cff
+1109808d0b148867a1938d562060ba1336a75bb4ff2fa4225d943dbf91704014  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-bb4b4c1309842eaa171337b44c93365658c64e98c73cb08ffde2eef631c8c036  repository_root            MANIFEST.json
-e0d97645478ee38270579eef4d20dc4a23a546e764b654a2842c649057d96ec4  repository_root            Makefile
-3d8754602c4fc5c6f4a0b3df304e5a13e05b30f621bd3d4ce085ba896cd3b3be  repository_root            README.md
+dae3818c9a43f55f339c04e2b5bc45183391f6adebcd469cf9abf4621527c2fe  repository_root            MANIFEST.json
+0d53e1f887eea58ab67dfa1545290b9b0e3cc6a80a13eb0a2be3783756ae923f  repository_root            Makefile
+69a3c95c21c00fd31821d0506e42fdf2151f3feaef3df4ff7d5100f641bf5b67  repository_root            README.md
 9580cbbd552bf339423846d761287250c67ab2125fc71fad66323a8a7ed49fb8  repository_root            RELEASE_NOTES_V1_0_4.md
 70d09750fc48a2956087850d46a1d51a46c8fd694326e9d5adff2a59c3dd1382  repository_root            SECURITY.md
 a70fa0ba3d4bee22783577e90270417d92641d89f7d5b42c89bbe0557f4b7999  repository_root            artifact_review/ARCHIVAL_CHECKLIST.md
@@ -217,6 +217,7 @@ a45ff25f8d1f037a3dd560a4b9764881ed87a56abae96f4db3d8ae263d0e4898  repository_roo
 ca2441589cd7ed62e01cf6cf519d6b5f94fd145a698d1e9cb0cb0a0034a74a60  repository_root            pytest.ini
 ee03bc1270115d536d01c65f79a7761e37750477611d49305ba6f05b947f511f  queries                    queries/traceability.sql
 e134ac5741cd39d3caaa304f38918d364d451a540bbef1d2dc829997fc5ec3e4  repository_root            requirements.lock
+7ab186d998b72e335159aa1ee2c958788135ef86734161bcde6da79fe6646824  repository_root            results.html
 98ddcc7fb48d0a8363ce71307e07958e5d7027b3cbef1ca8ea314ddcbc992c02  repository_root            results/V1_V2_COMPARISON.md
 70887d914a829056698ccd71e0bf8c0b811941bed32c1bf6afeeb31a51ee9f98  development_result         results/development/SUMMARY.md
 0d5ecd3e851b436c00666d79dd57e942faa73423287e1d29dc7f7873546040e6  development_result         results/development/adversarial.json
@@ -468,6 +469,7 @@ edb33ea8790e7f7aea0e6fe6ab0ab07d8652e87677e793cb7a0e0c7174f1b52a  test_suite    
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  test_suite                 tests/properties/__init__.py
 1d5a1ac254e1c831cf14c85d27ac163fdb7f97468bb4d82c619760d7cda8beae  test_suite                 tests/properties/test_invariants.py
 c93e34287e3670c538108134ed126ceb0fbf97d7bd40dc27c8d6860b1eb23ad3  test_suite                 tests/unit/test_core.py
+7827ae414a46a3f94dca29882ad0f0cfcce4affd795e141146caab577d681895  test_suite                 tests/unit/test_generate_results_page.py
 f48d9eccbe12cf2d58c928069cacbc6a5db2d95337a73575fd877450db0fcda8  test_suite                 tests/unit/test_make_manifest.py
 2112d34651b68fa4d48de3c8f65cec8dc3f3f54b4cf4cbb0c86262ccac93697f  test_suite                 tests/unit/test_result_display.py
 05d30eb17bee151e52057d3d250076616d40241f3668c06759c5327fd1d0f2ed  test_suite                 tests/unit/test_rfc8785.py
@@ -491,6 +493,7 @@ b144a9a7ee1e8ee4f52e8a2543ac730436ebe23b16b158eb74e2726f523dc0e3  fixture_genera
 1a90a5118d6e54e5ce8608d47b2c538fd652bdb8438875c28c9551683d25cbb9  case_b_input               tools/derive_ldrea_predicate_family.py
 e993ccdcbbebb1d01d9fa05855e250254c3b0f7afcf0fcafb571b72f0574ba1a  phi_impl                   tools/freeze_check.py
 f1ac8eceadb5c3241153d03c35e8b0d84dc612e59753b068fa48d9f25c886505  fixture_generator          tools/freeze_check_prospective_v4.py
+ff50def72f3d998bdd6689c5cb3d096debb884ed82a63ba5d02c14c016581444  fixture_generator          tools/generate_results_page.py
 be6448ca42011fe44ab8ab9c67089c1af578b3a47f65ae18a613c513d4a47823  fixture_generator          tools/invariants_data.py
 4fa88a558f9b88315d88cf9acde3b1b239d66ebdb8c52c6c88a204f5777a1e35  fixture_generator          tools/make_measured_docx.py
 aa82bdd98cab8c9f3d9c2b82ea5f7438e1a427d2714e29ad050403ea6e520bbb  experiment_code            tools/montecarlo.py
