@@ -25,7 +25,7 @@ b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_roo
 1109808d0b148867a1938d562060ba1336a75bb4ff2fa4225d943dbf91704014  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-dae3818c9a43f55f339c04e2b5bc45183391f6adebcd469cf9abf4621527c2fe  repository_root            MANIFEST.json
+433481132f19d984387cb4b11ded87faedadac5e29424398041d8cc808bf7c65  repository_root            MANIFEST.json
 0d53e1f887eea58ab67dfa1545290b9b0e3cc6a80a13eb0a2be3783756ae923f  repository_root            Makefile
 69a3c95c21c00fd31821d0506e42fdf2151f3feaef3df4ff7d5100f641bf5b67  repository_root            README.md
 9580cbbd552bf339423846d761287250c67ab2125fc71fad66323a8a7ed49fb8  repository_root            RELEASE_NOTES_V1_0_4.md
@@ -217,7 +217,7 @@ a45ff25f8d1f037a3dd560a4b9764881ed87a56abae96f4db3d8ae263d0e4898  repository_roo
 ca2441589cd7ed62e01cf6cf519d6b5f94fd145a698d1e9cb0cb0a0034a74a60  repository_root            pytest.ini
 ee03bc1270115d536d01c65f79a7761e37750477611d49305ba6f05b947f511f  queries                    queries/traceability.sql
 e134ac5741cd39d3caaa304f38918d364d451a540bbef1d2dc829997fc5ec3e4  repository_root            requirements.lock
-7ab186d998b72e335159aa1ee2c958788135ef86734161bcde6da79fe6646824  repository_root            results.html
+4c8fde6f914b08d166b7ca01a17eb130f09a15ecdcb4296175b3e5700c1a6488  repository_root            results.html
 98ddcc7fb48d0a8363ce71307e07958e5d7027b3cbef1ca8ea314ddcbc992c02  repository_root            results/V1_V2_COMPARISON.md
 70887d914a829056698ccd71e0bf8c0b811941bed32c1bf6afeeb31a51ee9f98  development_result         results/development/SUMMARY.md
 0d5ecd3e851b436c00666d79dd57e942faa73423287e1d29dc7f7873546040e6  development_result         results/development/adversarial.json
