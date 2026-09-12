@@ -10,12 +10,15 @@ Abhinandan Gill-Lakhowal, Member, IEEE — Gillian Holdings Incorporated, Calgar
 [![cross-platform determinism](https://github.com/Sukhmangill977/gc-ir-reference/actions/workflows/determinism.yml/badge.svg)](../../actions/workflows/determinism.yml)
 [![reproducibility](https://github.com/Sukhmangill977/gc-ir-reference/actions/workflows/reproducibility.yml/badge.svg)](../../actions/workflows/reproducibility.yml)
 
-> ### 📊 [**View the results dashboard — `results.html`**](results.html)
-> A single-page, chart-illustrated summary of every measured result below
-> (case hashes, Q1-Q10, injections, determinism, Monte Carlo, L-DREA/ULB
-> reproduction). Open it directly in a browser, or regenerate it any time
-> with `make results` / `python tools/generate_results_page.py` — it is
-> built entirely from the same machine-readable evidence as this README,
+> ### 📊 [**View the results dashboard (live)**](https://sukhmangill977.github.io/gc-ir-reference/results.html)
+> Rendered via GitHub Pages, deployed from this repository's `main` branch
+> root — the live page is served directly from the committed
+> [`results.html`](results.html) with no separate copy. A single-page,
+> chart-illustrated summary of every measured result below (case hashes,
+> Q1-Q10, injections, determinism, Monte Carlo, L-DREA/ULB reproduction).
+> Regenerate it any time with `make results` / `python
+> tools/generate_results_page.py` — it is built entirely from the same
+> machine-readable evidence as this README,
 > with no hand-edited numbers.
 
 > **Current release: `v1.1.0`, reportable results in `results/final_v4_1/`.**
