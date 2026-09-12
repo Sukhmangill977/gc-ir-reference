@@ -53,7 +53,7 @@
       "bytes": 90306,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "0333654fa84f427952262ec1b68675ff2b0ed089bbf286871545ba12ceec8fe2"
+      "sha256": "80d983d4d4d667feb2b2bc969ecac958edc45438760ff8c38b1cf64c999d3180"
     },
     {
       "bytes": 8498,
@@ -1349,7 +1349,7 @@
       "bytes": 2560,
       "path": "results/development/determinism_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "f5ecd3eb4a2de763df7c5c1c9a3c539c3e55ad1a40cbc47f9113e27ec8c9541c"
+      "sha256": "04add4785ffd8a9b7a01794c790eb974771f119dce418312f04ab58a84250796"
     },
     {
       "bytes": 18253,
@@ -1367,7 +1367,7 @@
       "bytes": 549,
       "path": "results/development/ieee_check_v4_result.json",
       "role": "development_result",
-      "sha256": "586d7957f90686e5ddbd030d4384a909172ea451bd47178a8f49a8494bd5cc60"
+      "sha256": "70e1562ab95d373786634185a7ac838ff4bb07f63348fbb8904452893f1fb180"
     },
     {
       "bytes": 1567,
@@ -1403,7 +1403,7 @@
       "bytes": 25881,
       "path": "results/development/monte_carlo_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "145d3bea9783cd3b1eef4fea2e0e091b8dd5cceaad16c1b2af3b6668a31a7c12"
+      "sha256": "9609b9dd9d16543827a13dcc26559e8b9416e4942e30ce08e978b61c4a6e5331"
     },
     {
       "bytes": 113422,
@@ -2606,7 +2606,7 @@
       "sha256": "869c71271c1d8b28376661dcc98af0f5568bb55adadc66b4076350b331bf5abc"
     }
   ],
-  "manifest_sha256": "c0bdf21cbcf14f77ddec0d3680896233f6dcbf76e474364bcc59f80822391c95",
+  "manifest_sha256": "588a3e46704d11450d39f229d286bf1b7680f340ed7b6f9a405486664366f9ea",
   "roles": [
     "acs_a",
     "acs_b",
