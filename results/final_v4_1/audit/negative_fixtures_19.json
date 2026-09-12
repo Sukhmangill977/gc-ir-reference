@@ -1,0 +1,147 @@
+{
+  "count": 19,
+  "detected_count": 19,
+  "fixtures": {
+    "negative_q10_multiple_violations": {
+      "detail": [
+        "GCIR-0001: mandatory_role=decisive but condition 'unresolved_claim_objects_present_extra1' has on_unknown='warn'",
+        "GCIR-0001: mandatory_role=decisive but condition 'unresolved_claim_objects_present_extra2' has on_unknown='pass_with_approved_exception'"
+      ],
+      "detected": true,
+      "target_query": "Q10"
+    },
+    "negative_q10_not_fail_closed": {
+      "detail": [
+        "GCIR-0001: mandatory_role=decisive but condition 'unresolved_claim_objects_present' has on_unknown='warn'"
+      ],
+      "detected": true,
+      "target_query": "Q10"
+    },
+    "negative_q1_undisposed_obligation": {
+      "detail": [
+        "CIRO-3608-DISC: not disposed (linked risk statuses=[])"
+      ],
+      "detected": true,
+      "target_query": "Q1"
+    },
+    "negative_q2_duplicate_disposition": {
+      "detail": [
+        "R-01: 2 disposition record(s) (expected 1)"
+      ],
+      "detected": true,
+      "target_query": "Q2"
+    },
+    "negative_q3_acs_id_not_disposed": {
+      "detail": [
+        "GCIR-0001: acs_id 'ACS-NEVER-DISPOSED-GCIR-0001' is not among risk R-01's disposed acs_ids ['ACS-0001-01']"
+      ],
+      "detected": true,
+      "target_query": "Q3"
+    },
+    "negative_q3_unknown_origin_type": {
+      "detail": [
+        "GCIR-0001: origin_type 'heuristic_match' is outside {risk_derived, compiler_invariant}"
+      ],
+      "detected": true,
+      "target_query": "Q3"
+    },
+    "negative_q4_invalid_effective_from": {
+      "detail": [
+        "payload_hash f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536 does not match hash_payload(payload) = 8971440ead84fb650486504cd0f108631eab9be3906ca6507a4f4c4feb8d5d5e (payload was mutated after hashing)",
+        "validity.effective_from '2026-01-01T00:00:00-05:00' does not parse as RFC 3339 UTC: timestamp '2026-01-01T00:00:00-05:00' is not an RFC 3339 UTC instant of the form YYYY-MM-DDThh:mm:ssZ"
+      ],
+      "detected": true,
+      "target_query": "Q4"
+    },
+    "negative_q4_invalid_hash": {
+      "detail": [
+        "payload_hash 'not-a-real-hash' is not 64 lowercase hex characters"
+      ],
+      "detected": true,
+      "target_query": "Q4"
+    },
+    "negative_q4_stale_hash": {
+      "detail": [
+        "payload_hash f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536 does not match hash_payload(payload) = 331c5b55134566a052780e601bc9a94d1c7e13c1f0efe027fef6132f21510ba1 (payload was mutated after hashing)"
+      ],
+      "detected": true,
+      "target_query": "Q4"
+    },
+    "negative_q5_permit_eligibility_mismatch": {
+      "detail": [
+        "GCIR-0001 has enforcement_phase='POST_AUTH_PRE_ACTUATION' but gate_map.permit_eligible=True (expected False)"
+      ],
+      "detected": true,
+      "target_query": "Q5"
+    },
+    "negative_q5_timeout_response_not_hold": {
+      "detail": [
+        "GCIR-0001 declares evaluation_latency_bound but on_evaluation_timeout='fail' (must be HOLD)"
+      ],
+      "detected": true,
+      "target_query": "Q5"
+    },
+    "negative_q6_envelope_hash_mismatch": {
+      "detail": [
+        "envelope payload_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match bundle payload_hash f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536"
+      ],
+      "detected": true,
+      "target_query": "Q6"
+    },
+    "negative_q6_missing_envelope": {
+      "detail": [
+        "bundle carries no signature envelope"
+      ],
+      "detected": true,
+      "target_query": "Q6"
+    },
+    "negative_q7_compiler_invariant_only": {
+      "detail": [
+        "ACS-0001-01"
+      ],
+      "detected": true,
+      "target_query": "Q7"
+    },
+    "negative_q7_missing_predicate": {
+      "detail": [
+        "ACS-MISSING-Q7"
+      ],
+      "detected": true,
+      "target_query": "Q7"
+    },
+    "negative_q8_missing_predicate_reference": {
+      "detail": {
+        "missing_predicates": [
+          "GCIR-MISSING-Q8"
+        ],
+        "unused_decisive": []
+      },
+      "detected": true,
+      "target_query": "Q8"
+    },
+    "negative_q8_unused_decisive_predicate": {
+      "detail": {
+        "missing_predicates": [],
+        "unused_decisive": [
+          "GCIR-0001-Q8-UNUSED"
+        ]
+      },
+      "detected": true,
+      "target_query": "Q8"
+    },
+    "negative_q9_empty_producer": {
+      "detail": [
+        "GCIR-0001: evidence_producer '' is not an allowed_producer for event_type 'output_schema_claim_resolution' (allowed: ['brief_schema_validator_v2'])"
+      ],
+      "detected": true,
+      "target_query": "Q9"
+    },
+    "negative_q9_invalid_producer": {
+      "detail": [
+        "GCIR-0001: evidence_producer 'unauthorized_producer_xyz' is not an allowed_producer for event_type 'output_schema_claim_resolution' (allowed: ['brief_schema_validator_v2'])"
+      ],
+      "detected": true,
+      "target_query": "Q9"
+    }
+  }
+}

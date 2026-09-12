@@ -1,0 +1,369 @@
+{
+  "audit_queries": {
+    "case_a": {
+      "details": {
+        "Q1": {
+          "detail": [],
+          "passed": true
+        },
+        "Q10": {
+          "detail": [],
+          "passed": true
+        },
+        "Q2": {
+          "detail": [],
+          "passed": true
+        },
+        "Q3": {
+          "detail": [],
+          "passed": true
+        },
+        "Q4": {
+          "detail": [],
+          "passed": true
+        },
+        "Q5": {
+          "detail": [],
+          "passed": true
+        },
+        "Q6": {
+          "detail": [],
+          "passed": true
+        },
+        "Q7": {
+          "detail": [],
+          "passed": true
+        },
+        "Q8": {
+          "detail": {
+            "missing_predicates": [],
+            "unused_decisive": []
+          },
+          "passed": true
+        },
+        "Q9": {
+          "detail": [],
+          "passed": true
+        }
+      },
+      "passed": 10,
+      "total": 10
+    },
+    "case_b": {
+      "details": {
+        "Q1": {
+          "detail": [],
+          "passed": true
+        },
+        "Q10": {
+          "detail": [],
+          "passed": true
+        },
+        "Q2": {
+          "detail": [],
+          "passed": true
+        },
+        "Q3": {
+          "detail": [],
+          "passed": true
+        },
+        "Q4": {
+          "detail": [],
+          "passed": true
+        },
+        "Q5": {
+          "detail": [],
+          "passed": true
+        },
+        "Q6": {
+          "detail": [],
+          "passed": true
+        },
+        "Q7": {
+          "detail": [],
+          "passed": true
+        },
+        "Q8": {
+          "detail": {
+            "missing_predicates": [],
+            "unused_decisive": []
+          },
+          "passed": true
+        },
+        "Q9": {
+          "detail": [],
+          "passed": true
+        }
+      },
+      "passed": 10,
+      "total": 10
+    },
+    "case_b_v1_1": {
+      "details": {
+        "Q1": {
+          "detail": [],
+          "passed": true
+        },
+        "Q10": {
+          "detail": [],
+          "passed": true
+        },
+        "Q2": {
+          "detail": [],
+          "passed": true
+        },
+        "Q3": {
+          "detail": [],
+          "passed": true
+        },
+        "Q4": {
+          "detail": [],
+          "passed": true
+        },
+        "Q5": {
+          "detail": [],
+          "passed": true
+        },
+        "Q6": {
+          "detail": [],
+          "passed": true
+        },
+        "Q7": {
+          "detail": [],
+          "passed": true
+        },
+        "Q8": {
+          "detail": {
+            "missing_predicates": [],
+            "unused_decisive": []
+          },
+          "passed": true
+        },
+        "Q9": {
+          "detail": [],
+          "passed": true
+        }
+      },
+      "passed": 10,
+      "total": 10
+    },
+    "case_c": {
+      "details": {
+        "Q1": {
+          "detail": [],
+          "passed": true
+        },
+        "Q10": {
+          "detail": [],
+          "passed": true
+        },
+        "Q2": {
+          "detail": [],
+          "passed": true
+        },
+        "Q3": {
+          "detail": [],
+          "passed": true
+        },
+        "Q4": {
+          "detail": [],
+          "passed": true
+        },
+        "Q5": {
+          "detail": [],
+          "passed": true
+        },
+        "Q6": {
+          "detail": [],
+          "passed": true
+        },
+        "Q7": {
+          "detail": [],
+          "passed": true
+        },
+        "Q8": {
+          "detail": {
+            "missing_predicates": [],
+            "unused_decisive": []
+          },
+          "passed": true
+        },
+        "Q9": {
+          "detail": [],
+          "passed": true
+        }
+      },
+      "passed": 10,
+      "total": 10
+    }
+  },
+  "auxiliary_checks_a1_a4": {
+    "A1_applicable_revoked_actuation_detected": {
+      "detail": [
+        "actuation by x over ('transaction_agent', 'release_payment', 'payment_instruction', 'payment_rail') authorized at 2026-03-10T14:00:00Z, at or after revocation ActorScopeRevocation effective at 2026-03-10T13:00:00Z"
+      ],
+      "passed": false
+    },
+    "A2_not_applicable_when_no_evidence": [
+      true,
+      [
+        "NOT_APPLICABLE: no safety-event evidence supplied"
+      ]
+    ],
+    "A3_not_applicable_when_no_evidence": [
+      true,
+      [
+        "NOT_APPLICABLE: no delegation evidence supplied"
+      ]
+    ],
+    "A4_not_applicable_when_no_evidence": [
+      true,
+      [
+        "NOT_APPLICABLE: no human-response evidence supplied"
+      ]
+    ]
+  },
+  "campaign_source": "reportable campaign run from a clean `git worktree` checkout of preregister-tier0-v4.1 (detached HEAD at the freeze commit); results/final_v4_1/ itself is committed separately, after the freeze, and is not part of the tagged tree",
+  "campaign_timestamp": "2026-09-12T18:15:00Z",
+  "case_a_hash": {
+    "actual": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+    "expected": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+    "match": true
+  },
+  "case_b_historical_hash": {
+    "actual": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+    "expected": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+    "match": true
+  },
+  "case_b_v1_1_hash": {
+    "actual": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
+    "expected": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
+    "match": true
+  },
+  "case_b_v1_1_injections": {
+    "authorization_decision_counts": {
+      "DENY": 8,
+      "HOLD": 4,
+      "PERMIT": 1
+    },
+    "failed": 0,
+    "passed": 14,
+    "release_decision_counts": {
+      "ALLOW_RELEASE": 12,
+      "BLOCK_RELEASE": 1
+    },
+    "scenario_count": 14
+  },
+  "case_b_v1_1_provenance": {
+    "acs_count": 9,
+    "all_complete": true
+  },
+  "case_b_v1_1_structure": {
+    "acs_count": 9,
+    "compiler_invariant_predicate_count": 3,
+    "cstar_risk_count": 4,
+    "mandatory_gate_count": 12,
+    "obligation_count": 6,
+    "predicate_count": 12,
+    "risk_count": 6,
+    "risk_derived_predicate_count": 9,
+    "warning_count": 0
+  },
+  "case_c_hash": {
+    "actual": "d7c7971156e3591b64567148ed8fc21cc1cbee21973d3646f59e439c74bf1dbd",
+    "expected": "d7c7971156e3591b64567148ed8fc21cc1cbee21973d3646f59e439c74bf1dbd",
+    "match": true
+  },
+  "determinism": {
+    "TD": {
+      "denominator": 62,
+      "numerator": 62,
+      "value": 1.0
+    },
+    "matches": 62,
+    "per_case": {
+      "case_a": {
+        "TD": {
+          "definition": "sum_k 1[H_k = H_reference] / N over environments and permutations",
+          "denominator": 31,
+          "note": "TD applies to the canonical payload hash. The signature envelope is not required to be byte-identical across signing events.",
+          "numerator": 31,
+          "reference_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+          "value": 1.0
+        },
+        "reference_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536"
+      },
+      "case_b_v1_1": {
+        "TD": {
+          "definition": "sum_k 1[H_k = H_reference] / N over environments and permutations",
+          "denominator": 31,
+          "note": "TD applies to the canonical payload hash. The signature envelope is not required to be byte-identical across signing events.",
+          "numerator": 31,
+          "reference_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
+          "value": 1.0
+        },
+        "reference_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1"
+      }
+    },
+    "total_runs": 62
+  },
+  "freeze_commit": "efe4e165619ecb5d781fb795113f33720794a2e5",
+  "freeze_tag": "preregister-tier0-v4.1",
+  "freeze_verification_prospective_v4": {
+    "checks": 45,
+    "failures": 0,
+    "findings": [],
+    "note": "The MANIFEST self-consistency check now passes cleanly (0 findings) from this genuine clean checkout -- the exact check that failed for preregister-tier0-v4 due to the filesystem-walk defect now passes because experiments/make_manifest.py reads from Git's index/tree.",
+    "passed": true
+  },
+  "ieee_check_v4": {
+    "stage_count": 3,
+    "status": "PASSED"
+  },
+  "ldrea_ulb": {
+    "correspondence_summary": {
+      "exact": 4,
+      "family": 3,
+      "not_established": 5
+    },
+    "false_denial_count": 0,
+    "false_permit_count": 0,
+    "fraud_detection_claim": false,
+    "fraud_labelled_rows": 492,
+    "new_v1_1_replay_executed": false,
+    "original_experiment_reproduced": true,
+    "pinned_commit": "40fa8f046ad3c6632c66df46abe5500e5dd05696",
+    "pinned_repository": "https://github.com/AGLakhowal/Gamma-Permit-Package.git",
+    "rows": 284807
+  },
+  "monte_carlo": {
+    "K": 250000,
+    "case_a_max_FP_heat": {
+      "approved_score": 15,
+      "mcse": 0.000933926918288578,
+      "risk_id": "R-06",
+      "value": 0.321268
+    },
+    "case_b_v1_1_GD_approved": 4,
+    "case_b_v1_1_GD_min_mean": 0.0,
+    "case_b_v1_1_max_FP_cstar": 0.0,
+    "case_b_v1_1_max_FP_heat": {
+      "approved_score": 15,
+      "mcse": 0.000931383314430745,
+      "risk_id": "B-01",
+      "value": 0.31798
+    },
+    "seed": 20260201
+  },
+  "negative_fixtures": {
+    "detected": 19,
+    "total": 19
+  },
+  "purpose": "manifest/tooling correction only; scientific state byte-identical to preregister-tier0-v4",
+  "test_suite": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 446
+  }
+}

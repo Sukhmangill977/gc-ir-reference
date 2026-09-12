@@ -1,0 +1,182 @@
+{
+  "case_a": {
+    "Q1": {
+      "detail": [],
+      "passed": true
+    },
+    "Q10": {
+      "detail": [],
+      "passed": true
+    },
+    "Q2": {
+      "detail": [],
+      "passed": true
+    },
+    "Q3": {
+      "detail": [],
+      "passed": true
+    },
+    "Q4": {
+      "detail": [],
+      "passed": true
+    },
+    "Q5": {
+      "detail": [],
+      "passed": true
+    },
+    "Q6": {
+      "detail": [],
+      "passed": true
+    },
+    "Q7": {
+      "detail": [],
+      "passed": true
+    },
+    "Q8": {
+      "detail": {
+        "missing_predicates": [],
+        "unused_decisive": []
+      },
+      "passed": true
+    },
+    "Q9": {
+      "detail": [],
+      "passed": true
+    }
+  },
+  "case_b": {
+    "Q1": {
+      "detail": [],
+      "passed": true
+    },
+    "Q10": {
+      "detail": [],
+      "passed": true
+    },
+    "Q2": {
+      "detail": [],
+      "passed": true
+    },
+    "Q3": {
+      "detail": [],
+      "passed": true
+    },
+    "Q4": {
+      "detail": [],
+      "passed": true
+    },
+    "Q5": {
+      "detail": [],
+      "passed": true
+    },
+    "Q6": {
+      "detail": [],
+      "passed": true
+    },
+    "Q7": {
+      "detail": [],
+      "passed": true
+    },
+    "Q8": {
+      "detail": {
+        "missing_predicates": [],
+        "unused_decisive": []
+      },
+      "passed": true
+    },
+    "Q9": {
+      "detail": [],
+      "passed": true
+    }
+  },
+  "case_b_v1_1": {
+    "Q1": {
+      "detail": [],
+      "passed": true
+    },
+    "Q10": {
+      "detail": [],
+      "passed": true
+    },
+    "Q2": {
+      "detail": [],
+      "passed": true
+    },
+    "Q3": {
+      "detail": [],
+      "passed": true
+    },
+    "Q4": {
+      "detail": [],
+      "passed": true
+    },
+    "Q5": {
+      "detail": [],
+      "passed": true
+    },
+    "Q6": {
+      "detail": [],
+      "passed": true
+    },
+    "Q7": {
+      "detail": [],
+      "passed": true
+    },
+    "Q8": {
+      "detail": {
+        "missing_predicates": [],
+        "unused_decisive": []
+      },
+      "passed": true
+    },
+    "Q9": {
+      "detail": [],
+      "passed": true
+    }
+  },
+  "case_c": {
+    "Q1": {
+      "detail": [],
+      "passed": true
+    },
+    "Q10": {
+      "detail": [],
+      "passed": true
+    },
+    "Q2": {
+      "detail": [],
+      "passed": true
+    },
+    "Q3": {
+      "detail": [],
+      "passed": true
+    },
+    "Q4": {
+      "detail": [],
+      "passed": true
+    },
+    "Q5": {
+      "detail": [],
+      "passed": true
+    },
+    "Q6": {
+      "detail": [],
+      "passed": true
+    },
+    "Q7": {
+      "detail": [],
+      "passed": true
+    },
+    "Q8": {
+      "detail": {
+        "missing_predicates": [],
+        "unused_decisive": []
+      },
+      "passed": true
+    },
+    "Q9": {
+      "detail": [],
+      "passed": true
+    }
+  }
+}

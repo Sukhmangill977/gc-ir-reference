@@ -1,0 +1,269 @@
+{
+  "checks": [
+    {
+      "check": "case_a payload hash byte-identical to frozen v3.1",
+      "detail": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+      "passed": true
+    },
+    {
+      "check": "case_a schema_version is 1.0 (uses no v1.1 field)",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "tools.build_cases regenerates case_a without error",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "case_a generator-reproducibility (invariant_register.json)",
+      "detail": "regenerated tree matches committed fixture byte-for-byte",
+      "passed": true
+    },
+    {
+      "check": "case_b (historical, 6 ACS) payload hash unchanged",
+      "detail": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+      "passed": true
+    },
+    {
+      "check": "case_b_v1_1 acs_count == 9",
+      "detail": "9",
+      "passed": true
+    },
+    {
+      "check": "case_b_v1_1 risk_derived_predicate_count == 9",
+      "detail": "9",
+      "passed": true
+    },
+    {
+      "check": "case_b_v1_1 compiler_invariant_predicate_count == 3",
+      "detail": "3",
+      "passed": true
+    },
+    {
+      "check": "case_b_v1_1 total predicate_count == 12",
+      "detail": "12",
+      "passed": true
+    },
+    {
+      "check": "case_b_v1_1 disposition count == 6 (unchanged risk cardinality)",
+      "detail": "6",
+      "passed": true
+    },
+    {
+      "check": "case_b_v1_1 full ACS provenance chain (all 9 ACS)",
+      "detail": "9/9 complete",
+      "passed": true
+    },
+    {
+      "check": "case_c compiles (schema v1.1)",
+      "detail": "d7c7971156e3591b64567148ed8fc21cc1cbee21973d3646f59e439c74bf1dbd",
+      "passed": true
+    },
+    {
+      "check": "case_c C* reversibility qualifier genuinely active (not materiality-only)",
+      "detail": "['irreversible', 'requires_intervention']",
+      "passed": true
+    },
+    {
+      "check": "case_c C-08/C-10 (reversible) excluded from C* by the real qualifier",
+      "detail": "['C-01', 'C-02', 'C-03', 'C-04', 'C-05', 'C-06', 'C-07', 'C-09', 'C-12']",
+      "passed": true
+    },
+    {
+      "check": "case_a: Q1-Q10 10/10",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "case_b: Q1-Q10 10/10",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "case_b_v1_1: Q1-Q10 10/10",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "case_c: Q1-Q10 10/10",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "negative fixtures detected by their targeted query",
+      "detail": "19/19",
+      "passed": true
+    },
+    {
+      "check": "negative fixture count == 19",
+      "detail": "19",
+      "passed": true
+    },
+    {
+      "check": "negative fixtures cover all 10 queries",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "A1 (applicable to Case B v1.1) detects a revoked actuation",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "A2/A3/A4 report NOT_APPLICABLE (never silent PASS) when evidence is absent",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "13/13 injection scenarios assert exact category outcome",
+      "detail": "14/14 passed (13 injection rows + clean_control)",
+      "passed": true
+    },
+    {
+      "check": "authorization_decision axis: PERMIT=1 DENY=8 HOLD=4",
+      "detail": "{'PERMIT': 1, 'DENY': 8, 'HOLD': 4}",
+      "passed": true
+    },
+    {
+      "check": "release_decision axis: ALLOW_RELEASE=12 BLOCK_RELEASE=1",
+      "detail": "{'ALLOW_RELEASE': 12, 'BLOCK_RELEASE': 1}",
+      "passed": true
+    },
+    {
+      "check": "toctou: safe_state stays False despite BLOCK_RELEASE (item 3)",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "TD == 1.000 over 62 runs (Case A + Case B v1.1, NOT reused from historical Case B)",
+      "detail": "TD=1.0 total_runs=62",
+      "passed": true
+    },
+    {
+      "check": "case_a reference hash matches frozen v3.1",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "case_b_v1_1 reference hash matches this session's compiled hash",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "K == 250000, seed == 20260201",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "Case A max FP_heat unchanged (0.321268, R-06) -- Case A must not move",
+      "detail": "{'approved_score': 15, 'mcse': 0.000933926918288578, 'risk_id': 'R-06', 'value': 0.321268}",
+      "passed": true
+    },
+    {
+      "check": "Case A GD_approved == 3 (heat-map comparator, unchanged)",
+      "detail": "3",
+      "passed": true
+    },
+    {
+      "check": "max FP_heat reproduces historical Case B (0.317980, B-01)",
+      "detail": "{'approved_score': 15, 'mcse': 0.000931383314430745, 'risk_id': 'B-01', 'value': 0.31798}",
+      "passed": true
+    },
+    {
+      "check": "MCSE reproduces historical Case B (0.000931)",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "FP_C* == 0 (structural, re-verified not assumed)",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "GD_approved == 4, GD_min_mean == 0.0 (heat-map comparator, unchanged from historical Case B -- ACS restructuring proven not to affect rating-sampling machinery)",
+      "detail": "GD_approved=4 GD_min_mean=0.0",
+      "passed": true
+    },
+    {
+      "check": "requirements.lock present",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "Dockerfile present",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "MANIFEST.sha256 present",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "MANIFEST covers case_b_v1_1 (case_b_input role)",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "MANIFEST covers case_c (case_c_input role)",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "MANIFEST.json matches the committed HEAD tree exactly (git ls-tree + git cat-file, excluding development_result/MANIFEST.json)",
+      "detail": "missing=[] extra=[] changed=[]",
+      "passed": true
+    },
+    {
+      "check": "tag preregister-tier0-v3.1 -> 158c0bd3785a (unchanged)",
+      "detail": "158c0bd3785ac87a878671f76286be082a26d50d",
+      "passed": true
+    },
+    {
+      "check": "tag v1.0.5 exists",
+      "detail": "8f37bd1991c53cb5c8e4d89baee81f7f705602f0",
+      "passed": true
+    }
+  ],
+  "failure_count": 0,
+  "findings": [],
+  "manifest_file_count": 461,
+  "manifest_roles": [
+    "acs_a",
+    "acs_b",
+    "adjudication_instrument",
+    "case_a_input",
+    "case_b_input",
+    "case_c_input",
+    "catalog",
+    "ci_configuration",
+    "compiled_bundle_a",
+    "compiled_bundle_b",
+    "development_result",
+    "dispositions_a",
+    "dispositions_b",
+    "documentation",
+    "experiment_code",
+    "fixture_generator",
+    "invariant_register",
+    "judgment_record_a",
+    "judgment_record_b",
+    "lifecycle_registry",
+    "manuscript_reconciliation",
+    "measured_result",
+    "phi_impl",
+    "prereg_commitment",
+    "psi_tooling",
+    "queries",
+    "repository_root",
+    "research_key_TEST_ONLY",
+    "schema",
+    "source_document",
+    "superseded_result",
+    "test_suite"
+  ],
+  "manifest_root_hash": "0640ad1e7a703879d4b9083a088f5b562b638173590292a2c1aed1625102e0e6",
+  "notes": [],
+  "passed": true
+}

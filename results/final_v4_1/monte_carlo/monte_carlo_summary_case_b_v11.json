@@ -1,0 +1,849 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "efe4e165619ecb5d781fb795113f33720794a2e5",
+    "git_commit_short": "efe4e16",
+    "git_describe": "preregister-tier0-v4.1-dirty",
+    "git_status_clean": false,
+    "git_tag_exact": "preregister-tier0-v4.1",
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-12T14:03:16Z",
+    "system": "Darwin"
+  },
+  "phase": "development",
+  "phase_note": "DEVELOPMENT result. Not a reportable number.",
+  "result": {
+    "cases": [
+      "case_a",
+      "case_b_v1_1"
+    ],
+    "note": "Case A is re-run here explicitly, paired with Case B v1.1, exactly as experiments/run_determinism_case_b_v11.py pairs them for determinism -- this is fresh evidence, not a citation of the historical monte_carlo_summary.json (untouched). Case B v1.1 shares the historical Case B's six risks and rating distributions exactly; this run REPRODUCES the historical Case B figures through the real Case B v1.1 compiled bundle rather than assuming them unchanged (runbook item G).",
+    "per_case": {
+      "case_a": {
+        "GD_approved": 3,
+        "GD_distribution": {
+          "0": 57,
+          "1": 854,
+          "10": 1534,
+          "11": 267,
+          "12": 29,
+          "13": 2,
+          "2": 5744,
+          "3": 20524,
+          "4": 44115,
+          "5": 59724,
+          "6": 56250,
+          "7": 36918,
+          "8": 17759,
+          "9": 6223
+        },
+        "GD_mean": 5.4466,
+        "GD_min_distribution": {
+          "0": 1065,
+          "1": 10814,
+          "2": 43730,
+          "3": 90850,
+          "4": 81940,
+          "5": 21601
+        },
+        "GD_min_mean": 3.226356,
+        "MCSE_upper_bound_at_K": 0.001,
+        "case_id": "case_a",
+        "cstar_membership_changes_observed": 0,
+        "cstar_probe_draws": 1000,
+        "cstar_verification_note": "The C* classifier was re-run on 1000 randomly selected perturbed draws. A non-zero count here would mean a rating dependence had leaked into gate assignment. The count is the measurement, not an assumption.",
+        "declared_threshold": 15,
+        "distributions": {
+          "R-01": {
+            "approved_I": 5,
+            "approved_L": 4,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.2,
+              "5": 0.8
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            }
+          },
+          "R-02": {
+            "approved_I": 4,
+            "approved_L": 4,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            }
+          },
+          "R-03": {
+            "approved_I": 4,
+            "approved_L": 4,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            }
+          },
+          "R-04": {
+            "approved_I": 4,
+            "approved_L": 3,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.2,
+              "3": 0.6,
+              "4": 0.2,
+              "5": 0.0
+            }
+          },
+          "R-05": {
+            "approved_I": 5,
+            "approved_L": 3,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.2,
+              "5": 0.8
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.2,
+              "3": 0.6,
+              "4": 0.2,
+              "5": 0.0
+            }
+          },
+          "R-06": {
+            "approved_I": 5,
+            "approved_L": 3,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.2,
+              "5": 0.8
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.2,
+              "3": 0.6,
+              "4": 0.2,
+              "5": 0.0
+            }
+          },
+          "R-07": {
+            "approved_I": 5,
+            "approved_L": 3,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.2,
+              "5": 0.8
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.2,
+              "3": 0.6,
+              "4": 0.2,
+              "5": 0.0
+            }
+          },
+          "R-08": {
+            "approved_I": 5,
+            "approved_L": 3,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.2,
+              "5": 0.8
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.2,
+              "3": 0.6,
+              "4": 0.2,
+              "5": 0.0
+            }
+          },
+          "R-09": {
+            "approved_I": 4,
+            "approved_L": 3,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.2,
+              "3": 0.6,
+              "4": 0.2,
+              "5": 0.0
+            }
+          },
+          "R-10": {
+            "approved_I": 5,
+            "approved_L": 2,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.2,
+              "5": 0.8
+            },
+            "pi_L": {
+              "1": 0.2,
+              "2": 0.6,
+              "3": 0.2,
+              "4": 0.0,
+              "5": 0.0
+            }
+          },
+          "R-11": {
+            "approved_I": 4,
+            "approved_L": 4,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            }
+          },
+          "R-12": {
+            "approved_I": 4,
+            "approved_L": 3,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.2,
+              "3": 0.6,
+              "4": 0.2,
+              "5": 0.0
+            }
+          },
+          "R-13": {
+            "approved_I": 5,
+            "approved_L": 2,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.2,
+              "5": 0.8
+            },
+            "pi_L": {
+              "1": 0.2,
+              "2": 0.6,
+              "3": 0.2,
+              "4": 0.0,
+              "5": 0.0
+            }
+          },
+          "R-14": {
+            "approved_I": 4,
+            "approved_L": 3,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.2,
+              "3": 0.6,
+              "4": 0.2,
+              "5": 0.0
+            }
+          },
+          "R-15": {
+            "approved_I": 2,
+            "approved_L": 3,
+            "pi_I": {
+              "1": 0.2,
+              "2": 0.6,
+              "3": 0.2,
+              "4": 0.0,
+              "5": 0.0
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.2,
+              "3": 0.6,
+              "4": 0.2,
+              "5": 0.0
+            }
+          },
+          "R-16": {
+            "approved_I": 4,
+            "approved_L": 2,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            },
+            "pi_L": {
+              "1": 0.2,
+              "2": 0.6,
+              "3": 0.2,
+              "4": 0.0,
+              "5": 0.0
+            }
+          }
+        },
+        "draws_K": 250000,
+        "expected_gate_changes_per_register_cstar": 0.0,
+        "expected_gate_changes_per_register_heatmap": 3.642176,
+        "max_FP_cstar": 0.0,
+        "max_FP_heat": {
+          "approved_score": 15,
+          "mcse": 0.000933926918288578,
+          "risk_id": "R-06",
+          "value": 0.321268
+        },
+        "mean_FP_heat": 0.227636,
+        "per_risk": [
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.039436,
+            "FP_heat_mcse": 0.0003892598201921179,
+            "approved_I": 5,
+            "approved_L": 4,
+            "approved_gate": 1,
+            "approved_score": 20,
+            "case": "case_a",
+            "distance_to_threshold": 5,
+            "heatmap_gate_approved": 1,
+            "risk_id": "R-01"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.27992,
+            "FP_heat_mcse": 0.0008979193585172334,
+            "approved_I": 4,
+            "approved_L": 4,
+            "approved_gate": 1,
+            "approved_score": 16,
+            "case": "case_a",
+            "distance_to_threshold": 1,
+            "heatmap_gate_approved": 1,
+            "risk_id": "R-02"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.279792,
+            "FP_heat_mcse": 0.0008977938220682964,
+            "approved_I": 4,
+            "approved_L": 4,
+            "approved_gate": 1,
+            "approved_score": 16,
+            "case": "case_a",
+            "distance_to_threshold": 1,
+            "heatmap_gate_approved": 1,
+            "risk_id": "R-03"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.281192,
+            "FP_heat_mcse": 0.000899161963465982,
+            "approved_I": 4,
+            "approved_L": 3,
+            "approved_gate": 0,
+            "approved_score": 12,
+            "case": "case_a",
+            "distance_to_threshold": -3,
+            "heatmap_gate_approved": 0,
+            "risk_id": "R-04"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.320984,
+            "FP_heat_mcse": 0.0009337093161021797,
+            "approved_I": 5,
+            "approved_L": 3,
+            "approved_gate": 1,
+            "approved_score": 15,
+            "case": "case_a",
+            "distance_to_threshold": 0,
+            "heatmap_gate_approved": 1,
+            "risk_id": "R-05"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.321268,
+            "FP_heat_mcse": 0.000933926918288578,
+            "approved_I": 5,
+            "approved_L": 3,
+            "approved_gate": 1,
+            "approved_score": 15,
+            "case": "case_a",
+            "distance_to_threshold": 0,
+            "heatmap_gate_approved": 1,
+            "risk_id": "R-06"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.319444,
+            "FP_heat_mcse": 0.0009325224519849374,
+            "approved_I": 5,
+            "approved_L": 3,
+            "approved_gate": 1,
+            "approved_score": 15,
+            "case": "case_a",
+            "distance_to_threshold": 0,
+            "heatmap_gate_approved": 1,
+            "risk_id": "R-07"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.321148,
+            "FP_heat_mcse": 0.0009338350220376187,
+            "approved_I": 5,
+            "approved_L": 3,
+            "approved_gate": 1,
+            "approved_score": 15,
+            "case": "case_a",
+            "distance_to_threshold": 0,
+            "heatmap_gate_approved": 1,
+            "risk_id": "R-08"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.279068,
+            "FP_heat_mcse": 0.0008970820505973798,
+            "approved_I": 4,
+            "approved_L": 3,
+            "approved_gate": 1,
+            "approved_score": 12,
+            "case": "case_a",
+            "distance_to_threshold": -3,
+            "heatmap_gate_approved": 0,
+            "risk_id": "R-09"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.159128,
+            "FP_heat_mcse": 0.0007315908135453862,
+            "approved_I": 5,
+            "approved_L": 2,
+            "approved_gate": 1,
+            "approved_score": 10,
+            "case": "case_a",
+            "distance_to_threshold": -5,
+            "heatmap_gate_approved": 0,
+            "risk_id": "R-10"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.2802,
+            "FP_heat_mcse": 0.0008981936539521976,
+            "approved_I": 4,
+            "approved_L": 4,
+            "approved_gate": 1,
+            "approved_score": 16,
+            "case": "case_a",
+            "distance_to_threshold": 1,
+            "heatmap_gate_approved": 1,
+            "risk_id": "R-11"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.2814,
+            "FP_heat_mcse": 0.0008993643088315213,
+            "approved_I": 4,
+            "approved_L": 3,
+            "approved_gate": 0,
+            "approved_score": 12,
+            "case": "case_a",
+            "distance_to_threshold": -3,
+            "heatmap_gate_approved": 0,
+            "risk_id": "R-12"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.159592,
+            "FP_heat_mcse": 0.000732454486056301,
+            "approved_I": 5,
+            "approved_L": 2,
+            "approved_gate": 1,
+            "approved_score": 10,
+            "case": "case_a",
+            "distance_to_threshold": -5,
+            "heatmap_gate_approved": 0,
+            "risk_id": "R-13"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.279188,
+            "FP_heat_mcse": 0.000897200224378037,
+            "approved_I": 4,
+            "approved_L": 3,
+            "approved_gate": 0,
+            "approved_score": 12,
+            "case": "case_a",
+            "distance_to_threshold": -3,
+            "heatmap_gate_approved": 0,
+            "risk_id": "R-14"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.0,
+            "FP_heat_mcse": 0.0,
+            "approved_I": 2,
+            "approved_L": 3,
+            "approved_gate": 0,
+            "approved_score": 6,
+            "case": "case_a",
+            "distance_to_threshold": -9,
+            "heatmap_gate_approved": 0,
+            "risk_id": "R-15"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.040416,
+            "FP_heat_mcse": 0.000393865697638167,
+            "approved_I": 4,
+            "approved_L": 2,
+            "approved_gate": 0,
+            "approved_score": 8,
+            "case": "case_a",
+            "distance_to_threshold": -7,
+            "heatmap_gate_approved": 0,
+            "risk_id": "R-16"
+          }
+        ],
+        "register_row_count": 16,
+        "rng_seed": 20260201
+      },
+      "case_b_v1_1": {
+        "GD_approved": 4,
+        "GD_distribution": {
+          "1": 851,
+          "2": 12161,
+          "3": 57882,
+          "4": 105524,
+          "5": 62025,
+          "6": 11557
+        },
+        "GD_mean": 4.001528,
+        "GD_min_distribution": {
+          "0": 250000
+        },
+        "GD_min_mean": 0.0,
+        "MCSE_upper_bound_at_K": 0.001,
+        "case_id": "case_b_v1_1",
+        "cstar_membership_changes_observed": 0,
+        "cstar_probe_draws": 1000,
+        "cstar_verification_note": "The C* classifier was re-run on 1000 randomly selected perturbed draws. A non-zero count here would mean a rating dependence had leaked into gate assignment. The count is the measurement, not an assumption.",
+        "declared_threshold": 15,
+        "distributions": {
+          "B-01": {
+            "approved_I": 5,
+            "approved_L": 3,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.2,
+              "5": 0.8
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.2,
+              "3": 0.6,
+              "4": 0.2,
+              "5": 0.0
+            }
+          },
+          "B-02": {
+            "approved_I": 4,
+            "approved_L": 4,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            }
+          },
+          "B-03": {
+            "approved_I": 4,
+            "approved_L": 3,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.2,
+              "4": 0.6,
+              "5": 0.2
+            },
+            "pi_L": {
+              "1": 0.0,
+              "2": 0.2,
+              "3": 0.6,
+              "4": 0.2,
+              "5": 0.0
+            }
+          },
+          "B-04": {
+            "approved_I": 5,
+            "approved_L": 1,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.2,
+              "5": 0.8
+            },
+            "pi_L": {
+              "1": 0.8,
+              "2": 0.2,
+              "3": 0.0,
+              "4": 0.0,
+              "5": 0.0
+            }
+          },
+          "B-05": {
+            "approved_I": 5,
+            "approved_L": 2,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.2,
+              "5": 0.8
+            },
+            "pi_L": {
+              "1": 0.2,
+              "2": 0.6,
+              "3": 0.2,
+              "4": 0.0,
+              "5": 0.0
+            }
+          },
+          "B-06": {
+            "approved_I": 5,
+            "approved_L": 2,
+            "pi_I": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.2,
+              "5": 0.8
+            },
+            "pi_L": {
+              "1": 0.2,
+              "2": 0.6,
+              "3": 0.2,
+              "4": 0.0,
+              "5": 0.0
+            }
+          }
+        },
+        "draws_K": 250000,
+        "expected_gate_changes_per_register_cstar": 0.0,
+        "expected_gate_changes_per_register_heatmap": 1.194272,
+        "max_FP_cstar": 0.0,
+        "max_FP_heat": {
+          "approved_score": 15,
+          "mcse": 0.000931383314430745,
+          "risk_id": "B-01",
+          "value": 0.31798
+        },
+        "mean_FP_heat": 0.19904533333333332,
+        "per_risk": [
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.31798,
+            "FP_heat_mcse": 0.000931383314430745,
+            "approved_I": 5,
+            "approved_L": 3,
+            "approved_gate": 1,
+            "approved_score": 15,
+            "case": "case_b_v1_1",
+            "distance_to_threshold": 0,
+            "heatmap_gate_approved": 1,
+            "risk_id": "B-01"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.27992,
+            "FP_heat_mcse": 0.0008979193585172334,
+            "approved_I": 4,
+            "approved_L": 4,
+            "approved_gate": 1,
+            "approved_score": 16,
+            "case": "case_b_v1_1",
+            "distance_to_threshold": 1,
+            "heatmap_gate_approved": 1,
+            "risk_id": "B-02"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.278316,
+            "FP_heat_mcse": 0.000896339677006435,
+            "approved_I": 4,
+            "approved_L": 3,
+            "approved_gate": 1,
+            "approved_score": 12,
+            "case": "case_b_v1_1",
+            "distance_to_threshold": -3,
+            "heatmap_gate_approved": 0,
+            "risk_id": "B-03"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.0,
+            "FP_heat_mcse": 0.0,
+            "approved_I": 5,
+            "approved_L": 1,
+            "approved_gate": 1,
+            "approved_score": 5,
+            "case": "case_b_v1_1",
+            "distance_to_threshold": -10,
+            "heatmap_gate_approved": 0,
+            "risk_id": "B-04"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.159252,
+            "FP_heat_mcse": 0.0007318218375971027,
+            "approved_I": 5,
+            "approved_L": 2,
+            "approved_gate": 1,
+            "approved_score": 10,
+            "case": "case_b_v1_1",
+            "distance_to_threshold": -5,
+            "heatmap_gate_approved": 0,
+            "risk_id": "B-05"
+          },
+          {
+            "FP_cstar": 0.0,
+            "FP_heat": 0.158804,
+            "FP_heat_mcse": 0.0007309864282844107,
+            "approved_I": 5,
+            "approved_L": 2,
+            "approved_gate": 1,
+            "approved_score": 10,
+            "case": "case_b_v1_1",
+            "distance_to_threshold": -5,
+            "heatmap_gate_approved": 0,
+            "risk_id": "B-06"
+          }
+        ],
+        "register_row_count": 6,
+        "rng_seed": 20260201
+      }
+    },
+    "provenance_warning": "Manuscript Section XI-G attributes the rating distributions to the independent adjudication panel of Section XI-C. NO SUCH PANEL HAS BEEN CONVENED. The distributions used here are author-specified synthetic sensitivity distributions constructed from a single a-priori rule (below). They are NOT independently adjudicated and must not be described as such. See docs/FIXTURE_PROVENANCE.md FP-020 and paper_update/MEASURED_RESULTS.md for the exact manuscript wording this requires.",
+    "specification": {
+      "draws_K": 250000,
+      "exclusion_rules": {
+        "draws_excluded": "none",
+        "missing_data": "not applicable: the distributions are fully specified over a finite support",
+        "risks_excluded": "none -- every register row carries a residual rating and is included, consistent with the GD definition running over all rows"
+      },
+      "perturbation_rule": {
+        "description": "For each risk and each of L and I independently: probability 0.6 on the approved rating, 0.2 on the rating one step below, 0.2 on the rating one step above. The scale is the enterprise 1..5 ordinal scale. Mass that would fall outside [1, 5] is reassigned to the approved rating (clamping), so an approved rating of 5 carries 0.8 on 5 and 0.2 on 4, and an approved rating of 1 carries 0.8 on 1 and 0.2 on 2.",
+        "mass_on_approved": 0.6,
+        "mass_one_step_each_side": 0.2,
+        "name": "symmetric_pm1_ordinal_with_clamping",
+        "out_of_range_handling": "reassign_to_approved",
+        "rationale": "The simplest defensible model of ordinal rating disagreement: an assessor is most likely to reproduce the approved rating and, when they differ, differ by one step in either direction. Chosen a priori before any result was computed. It is deliberately not tuned to any target value.",
+        "scale_max": 5,
+        "scale_min": 1
+      },
+      "provenance": {
+        "NOT": "independently adjudicated panel distributions",
+        "class": "author_specified_synthetic_sensitivity_distributions",
+        "consequence_for_claims": "The Monte Carlo result is a sensitivity analysis under a declared perturbation model, not an estimate of real rating uncertainty. It supports the qualitative claim that heat-map gate membership moves under rating perturbation while C* membership does not; it does not support any quantitative claim about how uncertain enterprise ratings actually are.",
+        "statement": "Manuscript Section XI-G attributes the rating distributions to the independent adjudication panel of Section XI-C. NO SUCH PANEL HAS BEEN CONVENED. The distributions used here are author-specified synthetic sensitivity distributions constructed from a single a-priori rule (below). They are NOT independently adjudicated and must not be described as such. See docs/FIXTURE_PROVENANCE.md FP-020 and paper_update/MEASURED_RESULTS.md for the exact manuscript wording this requires."
+      },
+      "quantities_reported": [
+        "per-risk heat-map gate-flip probability FP_i^heat",
+        "per-risk C* gate-flip probability FP_i^Cstar (structurally zero: the coverage rule does not read L or I)",
+        "expected gate changes per register",
+        "distribution of GD(T_H)",
+        "distribution of GD_min",
+        "Monte Carlo standard error MCSE(p_hat) = sqrt(p_hat (1 - p_hat) / K)"
+      ],
+      "seed": 20260201,
+      "sensitivity_variant": {
+        "description": "Identical, except that mass falling outside [1, 5] is removed and the remaining masses renormalised, rather than reassigned to the approved rating. Reported as a secondary result so the reader can see how much the boundary rule matters.",
+        "name": "symmetric_pm1_ordinal_with_renormalisation",
+        "out_of_range_handling": "renormalise"
+      },
+      "spec_id": "MC-DIST-V1",
+      "stopping_rule": "K is fixed at 250000 draws per risk before execution. No adaptive stopping. MCSE is bounded above by 0.001 at this K.",
+      "version": "1.0"
+    }
+  },
+  "result_name": "monte_carlo_summary_case_b_v11"
+}

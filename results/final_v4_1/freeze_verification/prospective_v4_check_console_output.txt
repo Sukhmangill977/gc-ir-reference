@@ -1,0 +1,77 @@
+==============================================================================
+freeze_check.py --prospective-v4 -- prospective preregister-tier0-v4 state
+Independent of, and does not read, any historical FREEZE_MANIFEST_V*.sha256.
+==============================================================================
+
+1. Case A isolation
+  [PASS] case_a payload hash byte-identical to frozen v3.1                f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536
+  [PASS] case_a schema_version is 1.0 (uses no v1.1 field)                
+  [PASS] tools.build_cases regenerates case_a without error               
+  [PASS] case_a generator-reproducibility (invariant_register.json)       regenerated tree matches committed fixture byte-for-byte
+
+2. Case B v1.1
+  [PASS] case_b (historical, 6 ACS) payload hash unchanged                2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce
+  [PASS] case_b_v1_1 acs_count == 9                                       9
+  [PASS] case_b_v1_1 risk_derived_predicate_count == 9                    9
+  [PASS] case_b_v1_1 compiler_invariant_predicate_count == 3              3
+  [PASS] case_b_v1_1 total predicate_count == 12                          12
+  [PASS] case_b_v1_1 disposition count == 6 (unchanged risk cardinality)  6
+  [PASS] case_b_v1_1 full ACS provenance chain (all 9 ACS)                9/9 complete
+
+3. Case C
+  [PASS] case_c compiles (schema v1.1)                                    d7c7971156e3591b64567148ed8fc21cc1cbee21973d3646f59e439c74bf1dbd
+  [PASS] case_c C* reversibility qualifier genuinely active (not materiality-only) ['irreversible', 'requires_intervention']
+  [PASS] case_c C-08/C-10 (reversible) excluded from C* by the real qualifier ['C-01', 'C-02', 'C-03', 'C-04', 'C-05', 'C-06', 'C-07', 'C-09', 'C-12']
+
+4. Canonical Q1-Q10 (real, not adapter-only)
+  [PASS] case_a: Q1-Q10 10/10                                             
+  [PASS] case_b: Q1-Q10 10/10                                             
+  [PASS] case_b_v1_1: Q1-Q10 10/10                                        
+  [PASS] case_c: Q1-Q10 10/10                                             
+
+5. Negative fixtures (19 across all 10 queries)
+  [PASS] negative fixtures detected by their targeted query               19/19
+  [PASS] negative fixture count == 19                                     19
+  [PASS] negative fixtures cover all 10 queries                           
+
+6. Auxiliary checks A1-A4
+  [PASS] A1 (applicable to Case B v1.1) detects a revoked actuation       
+  [PASS] A2/A3/A4 report NOT_APPLICABLE (never silent PASS) when evidence is absent 
+
+7. Case B v1.1: 13 injection scenarios
+  [PASS] 13/13 injection scenarios assert exact category outcome          14/14 passed (13 injection rows + clean_control)
+  [PASS] authorization_decision axis: PERMIT=1 DENY=8 HOLD=4              {'PERMIT': 1, 'DENY': 8, 'HOLD': 4}
+  [PASS] release_decision axis: ALLOW_RELEASE=12 BLOCK_RELEASE=1          {'ALLOW_RELEASE': 12, 'BLOCK_RELEASE': 1}
+  [PASS] toctou: safe_state stays False despite BLOCK_RELEASE (item 3)    
+
+8. Determinism (Case A + Case B v1.1, this generation's own harness)
+  [PASS] TD == 1.000 over 62 runs (Case A + Case B v1.1, NOT reused from historical Case B) TD=1.0 total_runs=62
+  [PASS] case_a reference hash matches frozen v3.1                        
+  [PASS] case_b_v1_1 reference hash matches this session's compiled hash  
+
+9. Monte Carlo (Case A + Case B v1.1, reproduced not assumed)
+  [PASS] K == 250000, seed == 20260201                                    
+  [PASS] Case A max FP_heat unchanged (0.321268, R-06) -- Case A must not move {'approved_score': 15, 'mcse': 0.000933926918288578, 'risk_id': 'R-06', 'value': 0.321268}
+  [PASS] Case A GD_approved == 3 (heat-map comparator, unchanged)         3
+  [PASS] max FP_heat reproduces historical Case B (0.317980, B-01)        {'approved_score': 15, 'mcse': 0.000931383314430745, 'risk_id': 'B-01', 'value': 0.31798}
+  [PASS] MCSE reproduces historical Case B (0.000931)                     
+  [PASS] FP_C* == 0 (structural, re-verified not assumed)                 
+  [PASS] GD_approved == 4, GD_min_mean == 0.0 (heat-map comparator, unchanged from historical Case B -- ACS restructuring proven not to affect rating-sampling machinery) GD_approved=4 GD_min_mean=0.0
+
+10. Dependency lock and Dockerfile
+  [PASS] requirements.lock present                                        
+  [PASS] Dockerfile present                                               
+
+11. MANIFEST currency (verified against the committed Git tree, not a filesystem walk)
+  [PASS] MANIFEST.sha256 present                                          
+  [PASS] MANIFEST covers case_b_v1_1 (case_b_input role)                  
+  [PASS] MANIFEST covers case_c (case_c_input role)                       
+  [PASS] MANIFEST.json matches the committed HEAD tree exactly (git ls-tree + git cat-file, excluding development_result/MANIFEST.json) missing=[] extra=[] changed=[]
+
+12. Historical tags unchanged (never inspected for editing, only compared)
+  [PASS] tag preregister-tier0-v3.1 -> 158c0bd3785a (unchanged)           158c0bd3785ac87a878671f76286be082a26d50d
+  [PASS] tag v1.0.5 exists                                                8f37bd1991c53cb5c8e4d89baee81f7f705602f0
+
+==============================================================================
+PROSPECTIVE-V4 FREEZE CHECK PASSED -- 45 checks, 0 failures
+==============================================================================

@@ -1,0 +1,430 @@
+{
+  "authorization_decision_counts": {
+    "DENY": 8,
+    "HOLD": 4,
+    "PERMIT": 1
+  },
+  "block_release_count": 1,
+  "claim_boundary": "Decision-level injections against the compiled Case B v1.1 predicate set. Each of the 13 rows asserts the exact authorization_decision, release_decision, and next_authorization_effect its category requires -- not merely that no externalization occurs (runbook item 3/4). authorization_decision (PERMIT/DENY/HOLD) and release_decision (ALLOW_RELEASE/BLOCK_RELEASE) are two INDEPENDENT axes, never summed together or reported as one combined tally: a scenario counted under BLOCK_RELEASE is also counted under its own authorization_decision (PERMIT, for the one such row this suite exercises) -- it is not a fourth peer authorization outcome alongside PERMIT/DENY/HOLD. safe_state is asserted as a pure function of authorization_decision alone (models.safe_state_of); release_decision and next_authorization_effect never feed back into it (runbook item 3) -- see release_safe / externalization_blocked for the release-axis equivalents, reported separately per scenario. Scenario-to-predicate targeting here is a development-generation design choice retargeting the manuscript's 13 named families onto Case B v1.1's real nine-ACS structure; it does not extend or supersede cases/case_b/ldrea_traceability.json's correspondence classification against the external L-DREA artifact for the historical six-ACS bundle.",
+  "deny_count": 8,
+  "failed": 0,
+  "hold_count": 4,
+  "passed": 14,
+  "permit_count": 1,
+  "release_decision_counts": {
+    "ALLOW_RELEASE": 12,
+    "BLOCK_RELEASE": 1
+  },
+  "scenario_count": 14,
+  "scenarios": [
+    {
+      "actual": {
+        "authorization_decision": "HOLD",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "authorization_decision": "HOLD",
+      "expected": {
+        "authorization_decision": "HOLD",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "outcome": "unknown"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "Permit-binding evidence absent/indeterminate, with a declared escalation route -- HOLD, not a silent permit.",
+      "release_decision": "ALLOW_RELEASE",
+      "release_safe": false,
+      "safe_state": true,
+      "scenario": "missing_predicate",
+      "status": "PASS",
+      "target_acs_or_invariant": "ACS-B01-01",
+      "target_predicate": "GCIR-B0001"
+    },
+    {
+      "actual": {
+        "authorization_decision": "HOLD",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "authorization_decision": "HOLD",
+      "expected": {
+        "authorization_decision": "HOLD",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "outcome": "unknown"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "Risk-classification evidence corrupted/unavailable, escalation route declared -- HOLD.",
+      "release_decision": "ALLOW_RELEASE",
+      "release_safe": false,
+      "safe_state": true,
+      "scenario": "corrupted_input",
+      "status": "PASS",
+      "target_acs_or_invariant": "ACS-B01-02",
+      "target_predicate": "GCIR-B0002"
+    },
+    {
+      "actual": {
+        "authorization_decision": "HOLD",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "authorization_decision": "HOLD",
+      "expected": {
+        "authorization_decision": "HOLD",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "outcome": "unknown"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "Sanctions screening service unreachable -- indeterminacy with escalation, HOLD; service failure is never read as clearance.",
+      "release_decision": "ALLOW_RELEASE",
+      "release_safe": false,
+      "safe_state": true,
+      "scenario": "network_partition_or_delay",
+      "status": "PASS",
+      "target_acs_or_invariant": "ACS-B04-01",
+      "target_predicate": "GCIR-B0007"
+    },
+    {
+      "actual": {
+        "authorization_decision": "HOLD",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "authorization_decision": "HOLD",
+      "expected": {
+        "authorization_decision": "HOLD",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "outcome": "pass",
+        "state_digest_match": false
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "World state changed mid-session (state-binding mismatch) -- HOLD, forcing re-authorization (INV-STATE-BINDING default).",
+      "release_decision": "ALLOW_RELEASE",
+      "release_safe": false,
+      "safe_state": true,
+      "scenario": "session_intent_compromise",
+      "status": "PASS",
+      "target_acs_or_invariant": "ACS-B01-01",
+      "target_predicate": "GCIR-B0001"
+    },
+    {
+      "actual": {
+        "authorization_decision": "PERMIT",
+        "next_authorization_effect": "NONE",
+        "release_decision": "BLOCK_RELEASE",
+        "safe_state": false
+      },
+      "authorization_decision": "PERMIT",
+      "expected": {
+        "authorization_decision": "PERMIT",
+        "next_authorization_effect": "NONE",
+        "release_decision": "BLOCK_RELEASE",
+        "safe_state": false
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "outcome": "fail"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "Receipt-chain check is POST_AUTH_PRE_ACTUATION: authorization was correctly PERMIT on the pre-authorization conditions; release is blocked, not retroactively denied -- exactly the TOCTOU-guarding distinction.",
+      "release_decision": "BLOCK_RELEASE",
+      "release_safe": true,
+      "safe_state": false,
+      "scenario": "toctou",
+      "status": "PASS",
+      "target_acs_or_invariant": "ACS-B06-01",
+      "target_predicate": "GCIR-B0009"
+    },
+    {
+      "actual": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "authorization_decision": "DENY",
+      "expected": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "outcome": "fail"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "Permit already redeemed / transaction hash already seen -- known failure, DENY.",
+      "release_decision": "ALLOW_RELEASE",
+      "release_safe": false,
+      "safe_state": true,
+      "scenario": "replay_attack",
+      "status": "PASS",
+      "target_acs_or_invariant": "ACS-B05-01",
+      "target_predicate": "GCIR-B0008"
+    },
+    {
+      "actual": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "authorization_decision": "DENY",
+      "expected": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "outcome": "fail"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "Bound hash does not match the mutated transaction payload -- known failure, DENY.",
+      "release_decision": "ALLOW_RELEASE",
+      "release_safe": false,
+      "safe_state": true,
+      "scenario": "payload_mutation",
+      "status": "PASS",
+      "target_acs_or_invariant": "ACS-B01-01",
+      "target_predicate": "GCIR-B0001"
+    },
+    {
+      "actual": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "authorization_decision": "DENY",
+      "expected": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "concurrence_attestations": 0,
+        "concurrence_window_expired": true,
+        "outcome": "unknown"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "Enhanced-approval concurrence window expired unsatisfied -- concurrence_expiry_response is fixed DENY, never an evaluator timeout.",
+      "release_decision": "ALLOW_RELEASE",
+      "release_safe": false,
+      "safe_state": true,
+      "scenario": "concurrency_conflict",
+      "status": "PASS",
+      "target_acs_or_invariant": "ACS-B01-03",
+      "target_predicate": "GCIR-B0003"
+    },
+    {
+      "actual": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "authorization_decision": "DENY",
+      "expected": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "outcome": "fail"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "Risk classification resolves to a known-prohibited class -- known failure, DENY.",
+      "release_decision": "ALLOW_RELEASE",
+      "release_safe": false,
+      "safe_state": true,
+      "scenario": "adaptive_attacker",
+      "status": "PASS",
+      "target_acs_or_invariant": "ACS-B01-02",
+      "target_predicate": "GCIR-B0002"
+    },
+    {
+      "actual": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "authorization_decision": "DENY",
+      "expected": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "outcome": "fail"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "Counterparty resolves to a restricted-party match -- known failure, DENY.",
+      "release_decision": "ALLOW_RELEASE",
+      "release_safe": false,
+      "safe_state": true,
+      "scenario": "identity_provenance_deception",
+      "status": "PASS",
+      "target_acs_or_invariant": "ACS-B04-01",
+      "target_predicate": "GCIR-B0007"
+    },
+    {
+      "actual": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "authorization_decision": "DENY",
+      "expected": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "outcome": "fail"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "Runtime fingerprint diverges from M.version_binding -- known failure, DENY.",
+      "release_decision": "ALLOW_RELEASE",
+      "release_safe": false,
+      "safe_state": true,
+      "scenario": "runtime_infrastructure_drift",
+      "status": "PASS",
+      "target_acs_or_invariant": "INV-VERSION",
+      "target_predicate": "GCIR-INV-VERSION"
+    },
+    {
+      "actual": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "authorization_decision": "DENY",
+      "expected": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "concurrence_attestations": 0,
+        "concurrence_window_expired": true,
+        "outcome": "unknown"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "Delegated escalation-tier approval denied/expired for an above-ordinary-limit amount -- DENY.",
+      "release_decision": "ALLOW_RELEASE",
+      "release_safe": false,
+      "safe_state": true,
+      "scenario": "economic_logic_fragility",
+      "status": "PASS",
+      "target_acs_or_invariant": "ACS-B02-02",
+      "target_predicate": "GCIR-B0005"
+    },
+    {
+      "actual": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "authorization_decision": "DENY",
+      "expected": {
+        "authorization_decision": "DENY",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE",
+        "safe_state": true
+      },
+      "externalization": false,
+      "externalization_blocked": true,
+      "injected_outcome": {
+        "outcome": "fail"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "reason": "Amount exceeds the absolute authority ceiling -- known failure, unconditional DENY (no escalation route on this ACS).",
+      "release_decision": "ALLOW_RELEASE",
+      "release_safe": false,
+      "safe_state": true,
+      "scenario": "cross_entity_fraud_propagation",
+      "status": "PASS",
+      "target_acs_or_invariant": "ACS-B02-01",
+      "target_predicate": "GCIR-B0004"
+    },
+    {
+      "authorization_decision": "PERMIT",
+      "expected": {
+        "authorization_decision": "PERMIT",
+        "next_authorization_effect": "NONE",
+        "release_decision": "ALLOW_RELEASE"
+      },
+      "next_authorization_effect": "NONE",
+      "passed": true,
+      "release_decision": "ALLOW_RELEASE",
+      "safe_state": false,
+      "scenario": "clean_control"
+    }
+  ],
+  "zero_externalization": true
+}
