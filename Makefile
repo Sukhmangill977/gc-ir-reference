@@ -183,6 +183,8 @@ clean:
 
 .PHONY: results readme-results verify-readme-results
 results:
+	@$(PY) tools/show_results_v1_1_0.py
+	@echo ""
 	@$(PY) tools/show_results.py
 
 readme-results:
