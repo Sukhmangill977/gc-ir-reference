@@ -1,0 +1,224 @@
+{
+  "acs_count": 9,
+  "all_complete": true,
+  "records": [
+    {
+      "acs_id": "ACS-B01-01",
+      "approval_forum": "payments_governance_forum",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "complete": true,
+      "gcir_id": "GCIR-B0001",
+      "links": {
+        "compiled_exactly_once": true,
+        "disposition_names_acs": true,
+        "judgment_approval": true,
+        "judgment_selection": true,
+        "obligations_resolve": true,
+        "predicate_origin_matches_risk": true,
+        "risk_exists": true,
+        "selection_names_this_risk": true
+      },
+      "obligation_refs": [
+        "INT-PERMIT-BIND"
+      ],
+      "risk_id": "B-01",
+      "selected_by": "business.head_payment_operations",
+      "selection_rationale": "Permit validity and binding is a structural check over a signed artifact; T-PERMIT-BIND is the approved template. Enriched at schema v1.1 with state_binding over the five-attribute transaction tuple Table II names."
+    },
+    {
+      "acs_id": "ACS-B01-02",
+      "approval_forum": "payments_governance_forum",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "complete": true,
+      "gcir_id": "GCIR-B0002",
+      "links": {
+        "compiled_exactly_once": true,
+        "disposition_names_acs": true,
+        "judgment_approval": true,
+        "judgment_selection": true,
+        "obligations_resolve": true,
+        "predicate_origin_matches_risk": true,
+        "risk_exists": true,
+        "selection_names_this_risk": true
+      },
+      "obligation_refs": [
+        "INT-PERMIT-BIND"
+      ],
+      "risk_id": "B-01",
+      "selected_by": "compliance.head_sanctions",
+      "selection_rationale": "New at schema v1.1, per Section X's explicit ACS-B01-02 specification: a deterministic-lookup prohibited-class check, kept structurally distinct from permit-binding evidence so a known prohibition DENYs independently of permit state."
+    },
+    {
+      "acs_id": "ACS-B01-03",
+      "approval_forum": "payments_governance_forum",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "complete": true,
+      "gcir_id": "GCIR-B0003",
+      "links": {
+        "compiled_exactly_once": true,
+        "disposition_names_acs": true,
+        "judgment_approval": true,
+        "judgment_selection": true,
+        "obligations_resolve": true,
+        "predicate_origin_matches_risk": true,
+        "risk_exists": true,
+        "selection_names_this_risk": true
+      },
+      "obligation_refs": [
+        "INT-PERMIT-BIND"
+      ],
+      "risk_id": "B-01",
+      "selected_by": "compliance.enhanced_approval_officer",
+      "selection_rationale": "New at schema v1.1, per Section X's explicit ACS-B01-03 specification: human-attested enhanced approval with a concurrence_policy, unrepresentable before schema v1.1 added that mechanism."
+    },
+    {
+      "acs_id": "ACS-B02-01",
+      "approval_forum": "payments_governance_forum",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "complete": true,
+      "gcir_id": "GCIR-B0004",
+      "links": {
+        "compiled_exactly_once": true,
+        "disposition_names_acs": true,
+        "judgment_approval": true,
+        "judgment_selection": true,
+        "obligations_resolve": true,
+        "predicate_origin_matches_risk": true,
+        "risk_exists": true,
+        "selection_names_this_risk": true
+      },
+      "obligation_refs": [
+        "INT-PAY-LIMIT"
+      ],
+      "risk_id": "B-02",
+      "selected_by": "business.head_payment_operations",
+      "selection_rationale": "The instruction amount is a measured value requiring a threshold contract; T-AMOUNT-LIMIT selected with TC-PAYMENT-LIMIT as the absolute ceiling. Unconditional DENY on breach -- no escalation route."
+    },
+    {
+      "acs_id": "ACS-B02-02",
+      "approval_forum": "payments_governance_forum",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "complete": true,
+      "gcir_id": "GCIR-B0005",
+      "links": {
+        "compiled_exactly_once": true,
+        "disposition_names_acs": true,
+        "judgment_approval": true,
+        "judgment_selection": true,
+        "obligations_resolve": true,
+        "predicate_origin_matches_risk": true,
+        "risk_exists": true,
+        "selection_names_this_risk": true
+      },
+      "obligation_refs": [
+        "INT-PAY-LIMIT"
+      ],
+      "risk_id": "B-02",
+      "selected_by": "business.head_payment_operations",
+      "selection_rationale": "New at schema v1.1, per Table II's explicit ACS-B02-02 specification: the delegated escalation tier for amounts between the ordinary limit and the absolute ceiling, via human_attestation + concurrence_policy."
+    },
+    {
+      "acs_id": "ACS-B03-01",
+      "approval_forum": "payments_governance_forum",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "complete": true,
+      "gcir_id": "GCIR-B0006",
+      "links": {
+        "compiled_exactly_once": true,
+        "disposition_names_acs": true,
+        "judgment_approval": true,
+        "judgment_selection": true,
+        "obligations_resolve": true,
+        "predicate_origin_matches_risk": true,
+        "risk_exists": true,
+        "selection_names_this_risk": true
+      },
+      "obligation_refs": [
+        "INT-PAY-LIMIT"
+      ],
+      "risk_id": "B-03",
+      "selected_by": "business.head_payment_operations",
+      "selection_rationale": "Window transaction count is a measured value requiring a threshold contract; T-VELOCITY selected with TC-VELOCITY-BOUND."
+    },
+    {
+      "acs_id": "ACS-B04-01",
+      "approval_forum": "payments_governance_forum",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "complete": true,
+      "gcir_id": "GCIR-B0007",
+      "links": {
+        "compiled_exactly_once": true,
+        "disposition_names_acs": true,
+        "judgment_approval": true,
+        "judgment_selection": true,
+        "obligations_resolve": true,
+        "predicate_origin_matches_risk": true,
+        "risk_exists": true,
+        "selection_names_this_risk": true
+      },
+      "obligation_refs": [
+        "SEMA-SANCTIONS",
+        "PCMLTFA-REPORT"
+      ],
+      "risk_id": "B-04",
+      "selected_by": "compliance.head_sanctions",
+      "selection_rationale": "Restricted-party screening resolves to a signed artifact; T-RESTRICTED-PARTY is the approved deterministic-lookup template. Selected by class, not by score."
+    },
+    {
+      "acs_id": "ACS-B05-01",
+      "approval_forum": "payments_governance_forum",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "complete": true,
+      "gcir_id": "GCIR-B0008",
+      "links": {
+        "compiled_exactly_once": true,
+        "disposition_names_acs": true,
+        "judgment_approval": true,
+        "judgment_selection": true,
+        "obligations_resolve": true,
+        "predicate_origin_matches_risk": true,
+        "risk_exists": true,
+        "selection_names_this_risk": true
+      },
+      "obligation_refs": [
+        "INT-PERMIT-BIND"
+      ],
+      "risk_id": "B-05",
+      "selected_by": "business.head_payment_operations",
+      "selection_rationale": "Permit redemption state and hash novelty are structural; T-SINGLE-USE selected. state_binding over transaction_hash added at schema v1.1."
+    },
+    {
+      "acs_id": "ACS-B06-01",
+      "approval_forum": "payments_governance_forum",
+      "approval_time": "2026-01-22T15:00:00Z",
+      "approver": "forum.chair_m_dubois",
+      "complete": true,
+      "gcir_id": "GCIR-B0009",
+      "links": {
+        "compiled_exactly_once": true,
+        "disposition_names_acs": true,
+        "judgment_approval": true,
+        "judgment_selection": true,
+        "obligations_resolve": true,
+        "predicate_origin_matches_risk": true,
+        "risk_exists": true,
+        "selection_names_this_risk": true
+      },
+      "obligation_refs": [
+        "INT-EVID-CHAIN-B",
+        "PCMLTFA-REPORT"
+      ],
+      "risk_id": "B-06",
+      "selected_by": "compliance.head_records",
+      "selection_rationale": "Receipt ordering and chaining are structural; T-RECEIPT-CHAIN-B selected. enforcement_phase = POST_AUTH_PRE_ACTUATION at schema v1.1, matching its coincidence with INV-EVIDENCE-COMMIT."
+    }
+  ]
+}

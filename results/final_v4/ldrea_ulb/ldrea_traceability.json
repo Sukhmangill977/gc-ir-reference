@@ -1,0 +1,498 @@
+{
+  "claim_boundary": "This mapping establishes CONTINUITY OF PREDICATE FAMILY between the Case B compiled bundle and the published L-DREA enforcement artifact. It does NOT establish detection performance, does NOT claim the Case B bundle was executed against the 284,807-event corpus, and does NOT reproduce or re-assert that run's figures. Manuscript Section X is explicit that the run is a golden-trace conformance result, not detection evidence, and that Case B's contribution here is the upstream register-to-disposition-to-predicate reconstruction.",
+  "document_type": "CaseB_LDREA_Traceability",
+  "external_artifact": {
+    "artifact_subtree": "realdatatestcode/",
+    "commit": "40fa8f046ad3c6632c66df46abe5500e5dd05696",
+    "golden_trace_file": "GAMMA_G0_CREDITCARD_GOLDEN_TRACE_20260629_001_sample_master112_1000.csv",
+    "local_path": "/Users/sukhmangill/Documents/GitHub/Gamma-Permit-Package",
+    "note": "This is the repository of record named in the manuscript's Appendix C. No tag is present on it; the commit SHA is the pin.",
+    "repository": "https://github.com/AGLakhowal/Gamma-Permit-Package.git",
+    "role": "enforcement layer, manuscript reference [15]",
+    "tag": "40fa8f0"
+  },
+  "generated_by": "tools/build_ldrea_traceability.py",
+  "ldrea_predicate_family": {
+    "cross_checks_passed": true,
+    "derivation": "realdatatestcode/gamma_test_runner.py :: NODE_GATE_COLS plus the deficits[...] assignments in the deficit-matrix construction",
+    "members": [
+      "Gate_A1",
+      "Gate_A2",
+      "Gate_A3",
+      "Gate_A4",
+      "Gate_A5",
+      "Gate_A6",
+      "Gate_A7",
+      "Lambda_G",
+      "TOKEN_VALID",
+      "AuthoritySignatureValid",
+      "HARM_RISK_THETA",
+      "STALE_CONTEXT",
+      "TELEMETRY_STALE"
+    ],
+    "size": 13
+  },
+  "mapping": [
+    {
+      "acs_id": "ACS-B01-01",
+      "basis": "Both evaluate whether a valid, signed permit token is bound to the proposed action before release. TOKEN_VALID and AuthoritySignatureValid are members of the artifact's NODE_GATE_COLS predicate vector; PermitTokenID carries the binding.",
+      "correspondence": "exact",
+      "gcir_evaluation_basis": "structural_check",
+      "gcir_gate_source": "C_STAR",
+      "gcir_gate_type": "mandatory",
+      "gcir_id": "GCIR-B0001",
+      "gcir_predicate_family": "permit_binding",
+      "ldrea_observables": [
+        "TOKEN_VALID",
+        "AuthoritySignatureValid",
+        "PermitTokenID",
+        "ACT_PERMIT"
+      ],
+      "ldrea_predicates": [
+        "TOKEN_VALID",
+        "AuthoritySignatureValid"
+      ],
+      "risk_id": "B-01",
+      "verification_checks": [
+        {
+          "check": "gcir_id exists in the compiled Case B bundle",
+          "detail": "GCIR-B0001",
+          "passed": true
+        },
+        {
+          "check": "acs_id matches the compiled predicate",
+          "detail": "ACS-B01-01 vs ACS-B01-01",
+          "passed": true
+        },
+        {
+          "check": "risk_id matches the compiled predicate origin",
+          "detail": "B-01",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA predicate is a member of the derived family",
+          "detail": "all members",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA observable is a golden-trace column",
+          "detail": "all present",
+          "passed": true
+        }
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "acs_id": "ACS-B02-01",
+      "basis": "Same family: a measured scalar compared against an approved bound, failing closed above it. In the L-DREA golden trace the bound is the harm-risk threshold theta (Gate_A3 / HARM_RISK_THETA, the observed FirstFailingGate for every adversarial row); in Case B it is the per-transaction amount limit. The predicate family and decision semantics correspond; the observable is domain-specific and the amount bound is NOT evaluated in the published corpus.",
+      "correspondence": "family",
+      "gcir_evaluation_basis": "threshold_on_measured_value",
+      "gcir_gate_source": "OTHER_MANDATORY",
+      "gcir_gate_type": "mandatory",
+      "gcir_id": "GCIR-B0002",
+      "gcir_predicate_family": "bound_check_on_measured_value",
+      "ldrea_observables": [
+        "HARM_RISK",
+        "Gate_A3",
+        "DoseLimitBoundPass"
+      ],
+      "ldrea_predicates": [
+        "Gate_A3",
+        "HARM_RISK_THETA"
+      ],
+      "risk_id": "B-02",
+      "verification_checks": [
+        {
+          "check": "gcir_id exists in the compiled Case B bundle",
+          "detail": "GCIR-B0002",
+          "passed": true
+        },
+        {
+          "check": "acs_id matches the compiled predicate",
+          "detail": "ACS-B02-01 vs ACS-B02-01",
+          "passed": true
+        },
+        {
+          "check": "risk_id matches the compiled predicate origin",
+          "detail": "B-02",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA predicate is a member of the derived family",
+          "detail": "all members",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA observable is a golden-trace column",
+          "detail": "all present",
+          "passed": true
+        }
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "acs_id": "ACS-B03-01",
+      "basis": "No predicate in the published L-DREA family evaluates a rolling per-counterparty window count. The artifact's temporal predicates (STALE_CONTEXT, TELEMETRY_STALE) concern evidence freshness, not velocity. Recorded as a gap rather than mapped to an approximate neighbour.",
+      "correspondence": "not_established",
+      "gcir_evaluation_basis": "threshold_on_measured_value",
+      "gcir_gate_source": "OTHER_MANDATORY",
+      "gcir_gate_type": "mandatory",
+      "gcir_id": "GCIR-B0003",
+      "gcir_predicate_family": "windowed_count_bound",
+      "ldrea_observables": [],
+      "ldrea_predicates": [],
+      "risk_id": "B-03",
+      "verification_checks": [
+        {
+          "check": "gcir_id exists in the compiled Case B bundle",
+          "detail": "GCIR-B0003",
+          "passed": true
+        },
+        {
+          "check": "acs_id matches the compiled predicate",
+          "detail": "ACS-B03-01 vs ACS-B03-01",
+          "passed": true
+        },
+        {
+          "check": "risk_id matches the compiled predicate origin",
+          "detail": "B-03",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA predicate is a member of the derived family",
+          "detail": "all members",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA observable is a golden-trace column",
+          "detail": "all present",
+          "passed": true
+        },
+        {
+          "check": "gap is declared rather than mapped",
+          "detail": "no L-DREA predicate claimed",
+          "passed": true
+        }
+      ],
+      "verification_status": "gap_declared_and_verified"
+    },
+    {
+      "acs_id": "ACS-B04-01",
+      "basis": "Same family: a deterministic lookup of the counterparty against a signed list artifact, failing closed on a match. The L-DREA corpus expresses the corresponding condition through the class-1 fraud labelling that trips Gate_A3 with reason code GATE_A3_HARM_RISK_FAIL; the sanctions list itself is not an observable in that corpus. The ASB scenario family 'cross_entity_fraud_propagation' covers the same hazard class.",
+      "correspondence": "family",
+      "gcir_evaluation_basis": "deterministic_lookup",
+      "gcir_gate_source": "C_STAR",
+      "gcir_gate_type": "mandatory",
+      "gcir_id": "GCIR-B0004",
+      "gcir_predicate_family": "restricted_party_screening",
+      "ldrea_observables": [
+        "Gate_A3",
+        "HARM_RISK",
+        "ReasonCodes"
+      ],
+      "ldrea_predicates": [
+        "Gate_A3"
+      ],
+      "risk_id": "B-04",
+      "verification_checks": [
+        {
+          "check": "gcir_id exists in the compiled Case B bundle",
+          "detail": "GCIR-B0004",
+          "passed": true
+        },
+        {
+          "check": "acs_id matches the compiled predicate",
+          "detail": "ACS-B04-01 vs ACS-B04-01",
+          "passed": true
+        },
+        {
+          "check": "risk_id matches the compiled predicate origin",
+          "detail": "B-04",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA predicate is a member of the derived family",
+          "detail": "all members",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA observable is a golden-trace column",
+          "detail": "all present",
+          "passed": true
+        }
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "acs_id": "ACS-B05-01",
+      "basis": "Both evaluate permit single-use and replay novelty. The artifact carries ReplayDivergenceFlag as a decision-integrity flag and reports asb_replay_consistency = 1.0; 'replay_attack' is one of its eight named adversarial families, with 4,000 instances and zero false permits.",
+      "correspondence": "exact",
+      "gcir_evaluation_basis": "structural_check",
+      "gcir_gate_source": "C_STAR",
+      "gcir_gate_type": "mandatory",
+      "gcir_id": "GCIR-B0005",
+      "gcir_predicate_family": "permit_single_use_and_replay",
+      "ldrea_observables": [
+        "PermitTokenID",
+        "ReplayDivergenceFlag",
+        "TOKEN_VALID"
+      ],
+      "ldrea_predicates": [
+        "TOKEN_VALID"
+      ],
+      "risk_id": "B-05",
+      "verification_checks": [
+        {
+          "check": "gcir_id exists in the compiled Case B bundle",
+          "detail": "GCIR-B0005",
+          "passed": true
+        },
+        {
+          "check": "acs_id matches the compiled predicate",
+          "detail": "ACS-B05-01 vs ACS-B05-01",
+          "passed": true
+        },
+        {
+          "check": "risk_id matches the compiled predicate origin",
+          "detail": "B-05",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA predicate is a member of the derived family",
+          "detail": "all members",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA observable is a golden-trace column",
+          "detail": "all present",
+          "passed": true
+        }
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "acs_id": "ACS-B06-01",
+      "basis": "Both evaluate the same ordering property -- the decision receipt is committed to the hash-chained evidence record after authorization and before actuation. The artifact carries it as the CommitBeforeActuate column with HASH_prev/HASH_current chaining and an OrderingInversionFlag; Gate_A7 is the node gate observed failing together with Gate_A3 on every denied row.",
+      "correspondence": "exact",
+      "gcir_evaluation_basis": "structural_check",
+      "gcir_gate_source": "C_STAR",
+      "gcir_gate_type": "mandatory",
+      "gcir_id": "GCIR-B0006",
+      "gcir_predicate_family": "receipt_commit_before_actuate",
+      "ldrea_observables": [
+        "CommitBeforeActuate",
+        "CommitTimestamp",
+        "ActuateTimestamp",
+        "HASH_prev",
+        "HASH_current",
+        "OrderingInversionFlag"
+      ],
+      "ldrea_predicates": [
+        "Gate_A7"
+      ],
+      "risk_id": "B-06",
+      "verification_checks": [
+        {
+          "check": "gcir_id exists in the compiled Case B bundle",
+          "detail": "GCIR-B0006",
+          "passed": true
+        },
+        {
+          "check": "acs_id matches the compiled predicate",
+          "detail": "ACS-B06-01 vs ACS-B06-01",
+          "passed": true
+        },
+        {
+          "check": "risk_id matches the compiled predicate origin",
+          "detail": "B-06",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA predicate is a member of the derived family",
+          "detail": "all members",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA observable is a golden-trace column",
+          "detail": "all present",
+          "passed": true
+        }
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "basis": "The invariant states the ordering the artifact measures directly.",
+      "correspondence": "exact",
+      "gcir_evaluation_basis": "structural_check",
+      "gcir_gate_source": "OTHER_MANDATORY",
+      "gcir_gate_type": "mandatory",
+      "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+      "gcir_predicate_family": "receipt_commit_before_actuate",
+      "invariant_id": "INV-EVIDENCE-COMMIT",
+      "ldrea_observables": [
+        "CommitBeforeActuate",
+        "OrderingInversionFlag"
+      ],
+      "ldrea_predicates": [
+        "Gate_A7"
+      ],
+      "verification_checks": [
+        {
+          "check": "gcir_id exists in the compiled Case B bundle",
+          "detail": "GCIR-INV-EVIDENCE-COMMIT",
+          "passed": true
+        },
+        {
+          "check": "invariant origin matches",
+          "detail": "INV-EVIDENCE-COMMIT",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA predicate is a member of the derived family",
+          "detail": "all members",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA observable is a golden-trace column",
+          "detail": "all present",
+          "passed": true
+        }
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "basis": "Both require the proposed action to fall inside an approved authority before release. The artifact's check is signature-based at the node; the compiler invariant is a matrix-membership check upstream. Same family, different layer.",
+      "correspondence": "family",
+      "gcir_evaluation_basis": "deterministic_lookup",
+      "gcir_gate_source": "OTHER_MANDATORY",
+      "gcir_gate_type": "mandatory",
+      "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+      "gcir_predicate_family": "authority_closure",
+      "invariant_id": "INV-AUTHORITY-CLOSURE",
+      "ldrea_observables": [
+        "AuthoritySignatureValid",
+        "AuthorityRequired",
+        "ACT_PERMIT"
+      ],
+      "ldrea_predicates": [
+        "AuthoritySignatureValid",
+        "TOKEN_VALID"
+      ],
+      "verification_checks": [
+        {
+          "check": "gcir_id exists in the compiled Case B bundle",
+          "detail": "GCIR-INV-AUTHORITY-CLOSURE",
+          "passed": true
+        },
+        {
+          "check": "invariant origin matches",
+          "detail": "INV-AUTHORITY-CLOSURE",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA predicate is a member of the derived family",
+          "detail": "all members",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA observable is a golden-trace column",
+          "detail": "all present",
+          "passed": true
+        }
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "basis": "The artifact records version identifiers (ModelVersionHash, SpecVersion, DictionaryVersion, PolicyHash) as trace columns but does not evaluate a per-action version-binding predicate over them: no member of its predicate vector tests them. The observables exist; the predicate does not. Recorded as a gap.",
+      "correspondence": "not_established",
+      "gcir_evaluation_basis": "deterministic_lookup",
+      "gcir_gate_source": "OTHER_MANDATORY",
+      "gcir_gate_type": "mandatory",
+      "gcir_id": "GCIR-INV-VERSION",
+      "gcir_predicate_family": "version_binding",
+      "invariant_id": "INV-VERSION",
+      "ldrea_observables": [
+        "ModelVersionHash",
+        "SpecVersion",
+        "DictionaryVersion",
+        "PolicyHash"
+      ],
+      "ldrea_predicates": [],
+      "verification_checks": [
+        {
+          "check": "gcir_id exists in the compiled Case B bundle",
+          "detail": "GCIR-INV-VERSION",
+          "passed": true
+        },
+        {
+          "check": "invariant origin matches",
+          "detail": "INV-VERSION",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA predicate is a member of the derived family",
+          "detail": "all members",
+          "passed": true
+        },
+        {
+          "check": "every named L-DREA observable is a golden-trace column",
+          "detail": "all present",
+          "passed": true
+        },
+        {
+          "check": "gap is declared rather than mapped",
+          "detail": "no L-DREA predicate claimed",
+          "passed": true
+        }
+      ],
+      "verification_status": "gap_declared_and_verified"
+    }
+  ],
+  "p1_p13_finding": {
+    "action_taken": "Mapped Case B to the 13 REAL predicate identifiers. No P1-P13 identifiers were fabricated.",
+    "finding": "No P1-P13 predicate identifier family exists in the published artifact. The identifiers P1-P4 exist, but they name four stress-test SCENARIOS in realdatatestcode/stress_test.py, not predicates. The artifact's predicate family is the 13 named members listed above, derived from NODE_GATE_COLS plus the three derived deficit columns, and corroborated by three independently reported counts and by single_deficit_score = 1/13.",
+    "memo_claim": "the artifact-runs memo refers to a 'P1-P13' predicate identifier family",
+    "p_identifiers_found": [
+      {
+        "id": "P1",
+        "title": "Ghost Treasury Transfer"
+      },
+      {
+        "id": "P2",
+        "title": "Sanctions Drift Cascade"
+      },
+      {
+        "id": "P3",
+        "title": "Multi-Agent Liquidity Panic"
+      },
+      {
+        "id": "P4",
+        "title": "Sovereign Cascade Edge Case"
+      }
+    ]
+  },
+  "schema_version": "1.0",
+  "summary": {
+    "by_correspondence": {
+      "exact": 4,
+      "family": 3,
+      "not_established": 2
+    },
+    "case_b_bundle_hash": "2850155a2ee7d4c01db4748a891891bae27c48f4c9c2c7eccd30beb7d1aa33ce",
+    "case_b_predicates_total": 9,
+    "failed": 0,
+    "rows": 9,
+    "verified": 9
+  },
+  "what_is_NOT_established": [
+    "That the compiled Case B bundle was executed against the 284,807-event corpus. It was not.",
+    "Any detection performance, false-permit rate, or unauthorized-execution rate for Case B. Those figures belong to [15] and are conformance-class there.",
+    "A velocity/windowed-count predicate in the L-DREA family (B-03). None exists; the gap is declared.",
+    "A per-action version-binding predicate in the L-DREA family (INV-VERSION). The version observables exist as trace columns but no member of the predicate vector evaluates them; the gap is declared."
+  ],
+  "what_is_established": [
+    "Four Case B predicate families correspond EXACTLY to named members of the published L-DREA predicate vector, on the same observables: permit binding, permit single-use/replay, and receipt commit-before-actuate (twice, once as a risk-derived predicate and once as a compiler invariant).",
+    "Two correspond by FAMILY -- same decision semantics on a domain-specific observable: the bound check and the restricted-party screening.",
+    "The Case B bundle's predicate identifiers resolve to the artifact subtree realdatatestcode/ in the repository of record."
+  ]
+}

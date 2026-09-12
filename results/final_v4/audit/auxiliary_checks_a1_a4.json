@@ -1,0 +1,26 @@
+{
+  "A1_applicable_revoked_actuation_detected": {
+    "detail": [
+      "actuation by x over ('transaction_agent', 'release_payment', 'payment_instruction', 'payment_rail') authorized at 2026-03-10T14:00:00Z, at or after revocation ActorScopeRevocation effective at 2026-03-10T13:00:00Z"
+    ],
+    "passed": false
+  },
+  "A2_not_applicable_when_no_evidence": [
+    true,
+    [
+      "NOT_APPLICABLE: no safety-event evidence supplied"
+    ]
+  ],
+  "A3_not_applicable_when_no_evidence": [
+    true,
+    [
+      "NOT_APPLICABLE: no delegation evidence supplied"
+    ]
+  ],
+  "A4_not_applicable_when_no_evidence": [
+    true,
+    [
+      "NOT_APPLICABLE: no human-response evidence supplied"
+    ]
+  ]
+}

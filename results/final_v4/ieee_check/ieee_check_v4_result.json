@@ -1,0 +1,13 @@
+{
+  "check": "ieee-check-v4",
+  "git_head": "48791c720b9d08cc4005e0c49f6d64eab2a361f1",
+  "recorded_at": "2026-09-12T11:53:59Z",
+  "scope": "prospective preregister-tier0-v4 state (NOT a historical freeze check)",
+  "stage_count": 3,
+  "stages": [
+    "environment",
+    "full test suite (pytest, all suites)",
+    "prospective-v4 freeze check (Case A/B-v1.1/C, provenance, Q1-Q10, negative fixtures, A1-A4, 13 injections, v1.1 determinism/Monte Carlo, MANIFEST working-tree self-consistency, historical tags unchanged)"
+  ],
+  "status": "PASSED"
+}

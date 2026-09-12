@@ -1,0 +1,1954 @@
+{
+  "case_id": "case_c",
+  "payload": {
+    "bundle_id": "BUNDLE-CASE-C-1.0",
+    "case_id": "CASE-C-SUPERVISED-AUTONOMY-SURGICAL-ASSISTANT",
+    "catalog_ref": {
+      "catalog_id": "K-CASE-C",
+      "content_hash": "c30a25ac8816991e0f4215eb8ffe58969749afd3f33f9e57aa3c84563a56942c",
+      "version": "1.0"
+    },
+    "coverage_matrix": {
+      "c_star_coverage": [
+        {
+          "c_star": 1,
+          "covered": true,
+          "paths": [
+            {
+              "action_path": {
+                "action": "activate_instrument",
+                "destination": "patient",
+                "resource": "surgical_instrument",
+                "subject": "assistance_module"
+              },
+              "covered": true,
+              "covering_predicates": [
+                "GCIR-C0001"
+              ]
+            }
+          ],
+          "risk_id": "C-01"
+        },
+        {
+          "c_star": 1,
+          "covered": true,
+          "paths": [
+            {
+              "action_path": {
+                "action": "energy_activate",
+                "destination": "patient",
+                "resource": "energy_delivery_channel",
+                "subject": "assistance_module"
+              },
+              "covered": true,
+              "covering_predicates": [
+                "GCIR-C0002"
+              ]
+            }
+          ],
+          "risk_id": "C-02"
+        },
+        {
+          "c_star": 1,
+          "covered": true,
+          "paths": [
+            {
+              "action_path": {
+                "action": "enter_autonomous_subtask",
+                "destination": "procedure_field",
+                "resource": "subtask_permit",
+                "subject": "assistance_module"
+              },
+              "covered": true,
+              "covering_predicates": [
+                "GCIR-C0003"
+              ]
+            }
+          ],
+          "risk_id": "C-03"
+        },
+        {
+          "c_star": 1,
+          "covered": true,
+          "paths": [
+            {
+              "action_path": {
+                "action": "transfer_control",
+                "destination": "console",
+                "resource": "control_session",
+                "subject": "assistance_module"
+              },
+              "covered": true,
+              "covering_predicates": [
+                "GCIR-C0004"
+              ]
+            }
+          ],
+          "risk_id": "C-04"
+        },
+        {
+          "c_star": 1,
+          "covered": true,
+          "paths": [
+            {
+              "action_path": {
+                "action": "activate_instrument",
+                "destination": "patient",
+                "resource": "surgical_instrument",
+                "subject": "assistance_module"
+              },
+              "covered": true,
+              "covering_predicates": [
+                "GCIR-C0005"
+              ]
+            }
+          ],
+          "risk_id": "C-05"
+        },
+        {
+          "c_star": 1,
+          "covered": true,
+          "exemption": "RC-06: continuous control, fails AD-1, governed by the declared runtime-safety layer",
+          "paths": [],
+          "risk_id": "C-06"
+        },
+        {
+          "c_star": 1,
+          "covered": true,
+          "exemption": "RC-06: continuous control, fails AD-1, governed by the declared runtime-safety layer",
+          "paths": [],
+          "risk_id": "C-07"
+        },
+        {
+          "c_star": 1,
+          "covered": true,
+          "paths": [
+            {
+              "action_path": {
+                "action": "export_data",
+                "destination": "external_review_system",
+                "resource": "telemetry_data",
+                "subject": "assistance_module"
+              },
+              "covered": true,
+              "covering_predicates": [
+                "GCIR-C0009"
+              ]
+            }
+          ],
+          "risk_id": "C-09"
+        },
+        {
+          "c_star": 1,
+          "covered": true,
+          "paths": [
+            {
+              "action_path": {
+                "action": "delegate",
+                "destination": "delegatee_actor",
+                "resource": "subtask_permit",
+                "subject": "assistance_module"
+              },
+              "covered": true,
+              "covering_predicates": [
+                "GCIR-C0012"
+              ]
+            }
+          ],
+          "risk_id": "C-12"
+        }
+      ],
+      "obligations": [
+        {
+          "disposed": true,
+          "disposition_statuses": [
+            "runtime"
+          ],
+          "obligation_id": "IEC-62304-SW",
+          "predicate_ids": [
+            "GCIR-C0010"
+          ],
+          "requirement_class": "standards",
+          "risk_ids": [
+            "C-10"
+          ]
+        },
+        {
+          "disposed": true,
+          "disposition_statuses": [
+            "nonruntime"
+          ],
+          "obligation_id": "IEC-80601-2-77-RASE",
+          "predicate_ids": [],
+          "requirement_class": "standards",
+          "risk_ids": [
+            "C-06",
+            "C-07"
+          ]
+        },
+        {
+          "disposed": true,
+          "disposition_statuses": [
+            "runtime"
+          ],
+          "obligation_id": "IFU-CONTRAINDICATION",
+          "predicate_ids": [
+            "GCIR-C0001",
+            "GCIR-C0008"
+          ],
+          "requirement_class": "contractual",
+          "risk_ids": [
+            "C-01",
+            "C-08"
+          ]
+        },
+        {
+          "disposed": true,
+          "disposition_statuses": [
+            "runtime"
+          ],
+          "obligation_id": "INST-CONSENT-SCOPE",
+          "predicate_ids": [
+            "GCIR-C0009"
+          ],
+          "requirement_class": "internal",
+          "risk_ids": [
+            "C-09"
+          ]
+        },
+        {
+          "disposed": true,
+          "disposition_statuses": [
+            "runtime"
+          ],
+          "obligation_id": "INST-PRIVILEGING",
+          "predicate_ids": [
+            "GCIR-C0003",
+            "GCIR-C0004",
+            "GCIR-C0005"
+          ],
+          "requirement_class": "internal",
+          "risk_ids": [
+            "C-03",
+            "C-04",
+            "C-05"
+          ]
+        },
+        {
+          "disposed": true,
+          "disposition_statuses": [
+            "runtime"
+          ],
+          "obligation_id": "ISO-14971-RISK",
+          "predicate_ids": [
+            "GCIR-C0001",
+            "GCIR-C0002"
+          ],
+          "requirement_class": "standards",
+          "risk_ids": [
+            "C-01",
+            "C-02"
+          ]
+        }
+      ],
+      "risks": [
+        {
+          "acs_ids": [
+            "ACS-C01-01"
+          ],
+          "c_star": 1,
+          "disposition_status": "runtime",
+          "obligation_ids": [
+            "IFU-CONTRAINDICATION",
+            "ISO-14971-RISK"
+          ],
+          "predicate_ids": [
+            "GCIR-C0001"
+          ],
+          "reason_code": null,
+          "risk_id": "C-01"
+        },
+        {
+          "acs_ids": [
+            "ACS-C02-01"
+          ],
+          "c_star": 1,
+          "disposition_status": "runtime",
+          "obligation_ids": [
+            "ISO-14971-RISK"
+          ],
+          "predicate_ids": [
+            "GCIR-C0002"
+          ],
+          "reason_code": null,
+          "risk_id": "C-02"
+        },
+        {
+          "acs_ids": [
+            "ACS-C03-01"
+          ],
+          "c_star": 1,
+          "disposition_status": "runtime",
+          "obligation_ids": [
+            "INST-PRIVILEGING"
+          ],
+          "predicate_ids": [
+            "GCIR-C0003"
+          ],
+          "reason_code": null,
+          "risk_id": "C-03"
+        },
+        {
+          "acs_ids": [
+            "ACS-C04-01"
+          ],
+          "c_star": 1,
+          "disposition_status": "runtime",
+          "obligation_ids": [
+            "INST-PRIVILEGING"
+          ],
+          "predicate_ids": [
+            "GCIR-C0004"
+          ],
+          "reason_code": null,
+          "risk_id": "C-04"
+        },
+        {
+          "acs_ids": [
+            "ACS-C05-01"
+          ],
+          "c_star": 1,
+          "disposition_status": "runtime",
+          "obligation_ids": [
+            "INST-PRIVILEGING"
+          ],
+          "predicate_ids": [
+            "GCIR-C0005"
+          ],
+          "reason_code": null,
+          "risk_id": "C-05"
+        },
+        {
+          "acs_ids": [],
+          "c_star": 1,
+          "disposition_status": "nonruntime",
+          "obligation_ids": [
+            "IEC-80601-2-77-RASE"
+          ],
+          "predicate_ids": [],
+          "reason_code": "RC-06",
+          "risk_id": "C-06"
+        },
+        {
+          "acs_ids": [],
+          "c_star": 1,
+          "disposition_status": "nonruntime",
+          "obligation_ids": [
+            "IEC-80601-2-77-RASE"
+          ],
+          "predicate_ids": [],
+          "reason_code": "RC-06",
+          "risk_id": "C-07"
+        },
+        {
+          "acs_ids": [
+            "ACS-C08-01"
+          ],
+          "c_star": 0,
+          "disposition_status": "runtime",
+          "obligation_ids": [
+            "IFU-CONTRAINDICATION"
+          ],
+          "predicate_ids": [
+            "GCIR-C0008"
+          ],
+          "reason_code": null,
+          "risk_id": "C-08"
+        },
+        {
+          "acs_ids": [
+            "ACS-C09-01"
+          ],
+          "c_star": 1,
+          "disposition_status": "runtime",
+          "obligation_ids": [
+            "INST-CONSENT-SCOPE"
+          ],
+          "predicate_ids": [
+            "GCIR-C0009"
+          ],
+          "reason_code": null,
+          "risk_id": "C-09"
+        },
+        {
+          "acs_ids": [
+            "ACS-C10-01"
+          ],
+          "c_star": 0,
+          "disposition_status": "runtime",
+          "obligation_ids": [
+            "IEC-62304-SW"
+          ],
+          "predicate_ids": [
+            "GCIR-C0010"
+          ],
+          "reason_code": null,
+          "risk_id": "C-10"
+        },
+        {
+          "acs_ids": [
+            "ACS-C11-01"
+          ],
+          "c_star": 0,
+          "disposition_status": "runtime",
+          "obligation_ids": [],
+          "predicate_ids": [
+            "GCIR-C0011"
+          ],
+          "reason_code": null,
+          "risk_id": "C-11"
+        },
+        {
+          "acs_ids": [
+            "ACS-C12-01"
+          ],
+          "c_star": 1,
+          "disposition_status": "runtime",
+          "obligation_ids": [],
+          "predicate_ids": [
+            "GCIR-C0012"
+          ],
+          "reason_code": null,
+          "risk_id": "C-12"
+        },
+        {
+          "acs_ids": [
+            "ACS-C13-01"
+          ],
+          "c_star": 0,
+          "disposition_status": "runtime",
+          "obligation_ids": [],
+          "predicate_ids": [
+            "GCIR-C0013"
+          ],
+          "reason_code": null,
+          "risk_id": "C-13"
+        },
+        {
+          "acs_ids": [
+            "ACS-C14-01"
+          ],
+          "c_star": 0,
+          "disposition_status": "runtime",
+          "obligation_ids": [],
+          "predicate_ids": [
+            "GCIR-C0014"
+          ],
+          "reason_code": null,
+          "risk_id": "C-14"
+        },
+        {
+          "acs_ids": [
+            "ACS-C15-01"
+          ],
+          "c_star": 0,
+          "disposition_status": "runtime",
+          "obligation_ids": [],
+          "predicate_ids": [
+            "GCIR-C0015"
+          ],
+          "reason_code": null,
+          "risk_id": "C-15"
+        },
+        {
+          "acs_ids": [],
+          "c_star": 0,
+          "disposition_status": "nonruntime",
+          "obligation_ids": [],
+          "predicate_ids": [],
+          "reason_code": "RC-03",
+          "risk_id": "C-16"
+        }
+      ]
+    },
+    "cstar_profile_ref": {
+      "content_hash": "83e8e18ea6b6bca70978eddd069b33cc6ed4f0d98d1eb10aba3e0b99bdba127a",
+      "member_kinds": [
+        "accountability_transfer",
+        "irreversible_external_effect_above_approved_bound",
+        "material_information_barrier_breach",
+        "material_statutory_prohibition",
+        "physical_harm_to_person",
+        "protected_data_disclosure_outside_consent_scope",
+        "unauthorized_authority_exercise"
+      ],
+      "profile_id": "CSTAR-C",
+      "version": "1.0"
+    },
+    "dispositions": [
+      {
+        "acs_ids": [
+          "ACS-C01-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-01"
+      },
+      {
+        "acs_ids": [
+          "ACS-C02-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-02"
+      },
+      {
+        "acs_ids": [
+          "ACS-C03-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-03"
+      },
+      {
+        "acs_ids": [
+          "ACS-C04-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-04"
+      },
+      {
+        "acs_ids": [
+          "ACS-C05-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-05"
+      },
+      {
+        "approval": {
+          "approval_time": "2026-02-10T14:00:00Z",
+          "approver": "forum.chair_surgical_safety",
+          "forum": "surgical_platform_governance_forum"
+        },
+        "control_ref": "force_envelope safety layer (IEC 80601-2-77)",
+        "owner": "compliance.surgical_safety_desk",
+        "reason_code": "RC-06",
+        "record_type": "NonRuntimeDisposition",
+        "risk_id": "C-06",
+        "routed_to_control_family": "runtime_safety"
+      },
+      {
+        "approval": {
+          "approval_time": "2026-02-10T14:00:00Z",
+          "approver": "forum.chair_surgical_safety",
+          "forum": "surgical_platform_governance_forum"
+        },
+        "control_ref": "instrument_interlock safety layer (IEC 80601-2-77)",
+        "owner": "compliance.surgical_safety_desk",
+        "reason_code": "RC-06",
+        "record_type": "NonRuntimeDisposition",
+        "risk_id": "C-07",
+        "routed_to_control_family": "runtime_safety"
+      },
+      {
+        "acs_ids": [
+          "ACS-C08-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-08"
+      },
+      {
+        "acs_ids": [
+          "ACS-C09-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-09"
+      },
+      {
+        "acs_ids": [
+          "ACS-C10-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-10"
+      },
+      {
+        "acs_ids": [
+          "ACS-C11-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-11"
+      },
+      {
+        "acs_ids": [
+          "ACS-C12-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-12"
+      },
+      {
+        "acs_ids": [
+          "ACS-C13-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-13"
+      },
+      {
+        "acs_ids": [
+          "ACS-C14-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-14"
+      },
+      {
+        "acs_ids": [
+          "ACS-C15-01"
+        ],
+        "record_type": "RuntimeDisposition",
+        "risk_id": "C-15"
+      },
+      {
+        "approval": {
+          "approval_time": "2026-02-10T14:00:00Z",
+          "approver": "forum.chair_surgical_safety",
+          "forum": "surgical_platform_governance_forum"
+        },
+        "control_ref": "scheduling and relief policy",
+        "owner": "compliance.surgical_safety_desk",
+        "reason_code": "RC-03",
+        "record_type": "NonRuntimeDisposition",
+        "risk_id": "C-16",
+        "routed_to_control_family": "human_process"
+      }
+    ],
+    "escalation_map": {
+      "GCIR-C0001": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "GCIR-C0002": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "GCIR-C0003": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "GCIR-C0004": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "GCIR-C0005": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "GCIR-C0008": {
+        "route": "surgical_safety_desk",
+        "sla_hours": 4
+      },
+      "GCIR-C0009": {
+        "route": "compliance_records_desk",
+        "sla_hours": 1
+      },
+      "GCIR-C0010": {
+        "route": "surgical_safety_desk",
+        "sla_hours": 4
+      },
+      "GCIR-C0011": {
+        "route": "surgical_safety_desk",
+        "sla_hours": 24
+      },
+      "GCIR-C0012": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "GCIR-C0013": {
+        "route": "surgical_safety_urgent",
+        "sla_hours": 1
+      },
+      "GCIR-C0014": {
+        "route": "technology_change_management",
+        "sla_hours": 1
+      },
+      "GCIR-C0015": {
+        "route": "incident_review_board",
+        "sla_hours": 24
+      },
+      "GCIR-INV-AUTHORITY-CLOSURE": {
+        "route": "governance_forum_urgent",
+        "sla_hours": 1
+      },
+      "GCIR-INV-EVIDENCE-COMMIT": {
+        "route": "compliance_records_desk",
+        "sla_hours": 1
+      },
+      "GCIR-INV-VERSION": {
+        "route": "technology_change_management",
+        "sla_hours": 1
+      }
+    },
+    "gate_map": {
+      "GCIR-C0001": {
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      },
+      "GCIR-C0002": {
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      },
+      "GCIR-C0003": {
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      },
+      "GCIR-C0004": {
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      },
+      "GCIR-C0005": {
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      },
+      "GCIR-C0008": {
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      },
+      "GCIR-C0009": {
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      },
+      "GCIR-C0010": {
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      },
+      "GCIR-C0011": {
+        "gate_source": "SOFT",
+        "gate_type": "advisory",
+        "mandatory_role": "supporting",
+        "permit_eligible": true
+      },
+      "GCIR-C0012": {
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      },
+      "GCIR-C0013": {
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      },
+      "GCIR-C0014": {
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      },
+      "GCIR-C0015": {
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": false
+      },
+      "GCIR-INV-AUTHORITY-CLOSURE": {
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      },
+      "GCIR-INV-EVIDENCE-COMMIT": {
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": false
+      },
+      "GCIR-INV-VERSION": {
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "mandatory_role": "decisive",
+        "permit_eligible": true
+      }
+    },
+    "invariant_register_ref": {
+      "invariant_ids": [
+        "INV-AUTHORITY-CLOSURE",
+        "INV-EVIDENCE-COMMIT",
+        "INV-VERSION"
+      ]
+    },
+    "judgment_record_ref": {
+      "judgment_id": "J-CASE-C",
+      "version": "1.0"
+    },
+    "payload_type": "GcirPredicateBundle",
+    "policy_metadata": {
+      "aggregation_groups": {},
+      "precedence": {},
+      "precedence_relation": [
+        "mandatory_failure",
+        "mandatory_pass",
+        "weighted_or_advisory"
+      ],
+      "runtime_acceptance_condition": "A conformant consuming runtime loads only bundles verifying as signed Phi outputs (signature, payload hash, lifecycle-registry state), accepts no policy content through any other channel, and emits decision receipts carrying the requirement reference of every evaluated predicate."
+    },
+    "predicates": [
+      {
+        "acs_id": "ACS-C01-01",
+        "action": "activate_instrument",
+        "action_parameters": {
+          "instrument_id": "INSTR-001",
+          "procedure_step": "step_6"
+        },
+        "c_star": 1,
+        "catalog_ref": {
+          "event_type": "contraindication_check",
+          "template_id": "T-CONTRAINDICATION"
+        },
+        "context_conditions": [
+          {
+            "attribute": "contraindication_absent",
+            "condition_index": 0,
+            "evidence_producer": "ifu_contraindication_table_v3",
+            "evidence_schema_ref": "ES-CONTRAINDICATION",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "PERMIT requires the triple to be absent from the approved contraindication table; indeterminate or absent evidence fails.",
+        "destination": "patient",
+        "enforcement_phase": "PRE_AUTHORIZATION",
+        "escalation": {
+          "route": "surgical_safety_urgent",
+          "sla_hours": 1
+        },
+        "evaluation_basis": "deterministic_lookup",
+        "evidence_producer": "ifu_contraindication_table_v3",
+        "evidence_requirement": [
+          "instrument_class",
+          "procedure_class",
+          "table_version",
+          "task"
+        ],
+        "evidence_schema_ref": "ES-CONTRAINDICATION",
+        "evidence_semantics": "A versioned IFU contraindication table lookup over (procedure_class, instrument_class, task).",
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-C0001",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-01",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-ACTIVATE-INSTRUMENT",
+        "policy_id": "POL-C-CONTRAINDICATION",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [
+            "IFU-CONTRAINDICATION"
+          ],
+          "risk_id": "C-01"
+        },
+        "resource": "surgical_instrument",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes the triple is not on the approved contraindication list. It does not establish trajectory or force safety."
+      },
+      {
+        "acs_id": "ACS-C02-01",
+        "action": "energy_activate",
+        "action_parameters": {
+          "port_configuration": "config_A"
+        },
+        "c_star": 1,
+        "catalog_ref": {
+          "event_type": "state_binding_check",
+          "template_id": "T-STATE-BINDING"
+        },
+        "context_conditions": [
+          {
+            "attribute": "state_digest_match",
+            "condition_index": 0,
+            "evidence_producer": "state_binding_service_v1",
+            "evidence_schema_ref": "ES-STATE-BINDING",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "PERMIT requires the boundary digest to equal the authorization digest; a mismatch is HOLD (INV-STATE-BINDING), never a silent permit.",
+        "destination": "patient",
+        "enforcement_phase": "PRE_AUTHORIZATION",
+        "escalation": {
+          "route": "surgical_safety_urgent",
+          "sla_hours": 1
+        },
+        "evaluation_basis": "structural_check",
+        "evidence_producer": "state_binding_service_v1",
+        "evidence_requirement": [
+          "digest_at_authorization",
+          "digest_at_boundary",
+          "instrument_id",
+          "port_configuration",
+          "procedure_step"
+        ],
+        "evidence_schema_ref": "ES-STATE-BINDING",
+        "evidence_semantics": "A world-state digest computed over (procedure_step, instrument_id, port_configuration) at authorization and recomputed at the boundary.",
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-C0002",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-02",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-ENERGY-ACTIVATE",
+        "policy_id": "POL-C-ENERGY",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [],
+          "risk_id": "C-02"
+        },
+        "resource": "energy_delivery_channel",
+        "schema_version": "1.1",
+        "state_binding": {
+          "attributes": [
+            "procedure_step",
+            "instrument_id",
+            "port_configuration"
+          ]
+        },
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes the world state has not changed since authorization. It does not establish the delivered energy is clinically appropriate."
+      },
+      {
+        "acs_id": "ACS-C03-01",
+        "action": "enter_autonomous_subtask",
+        "action_parameters": {
+          "procedure_step": "step_6"
+        },
+        "c_star": 1,
+        "catalog_ref": {
+          "event_type": "supervisory_authority_check",
+          "template_id": "T-SUPERVISORY-AUTHORITY"
+        },
+        "context_conditions": [
+          {
+            "attribute": "supervisor_authorized",
+            "condition_index": 0,
+            "evidence_producer": "control_token_service_v1",
+            "evidence_schema_ref": "ES-SUPERVISORY-AUTHORITY",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "PERMIT requires an authenticated, privileged, token-holding supervisor in SUPERVISED mode; indeterminate or absent evidence fails.",
+        "destination": "procedure_field",
+        "escalation": {
+          "route": "surgical_safety_urgent",
+          "sla_hours": 1
+        },
+        "evaluation_basis": "structural_check",
+        "evidence_producer": "control_token_service_v1",
+        "evidence_requirement": [
+          "autonomy_mode",
+          "control_token_owner",
+          "procedure_class",
+          "supervisor_id"
+        ],
+        "evidence_schema_ref": "ES-SUPERVISORY-AUTHORITY",
+        "evidence_semantics": "A signed control-token artifact reporting the authenticated supervisor, procedure-class privileging, token ownership, and autonomy mode.",
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-C0003",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-03",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-ENTER-SUBTASK",
+        "policy_id": "POL-C-AUTONOMY",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [],
+          "risk_id": "C-03"
+        },
+        "resource": "subtask_permit",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes an identifiable supervising surgeon holds authority for this subtask. It does not establish the surgeon is attentive (see C-16)."
+      },
+      {
+        "acs_id": "ACS-C04-01",
+        "action": "transfer_control",
+        "action_parameters": {
+          "receiving_actor": "surgeon.second",
+          "releasing_actor": "surgeon.primary"
+        },
+        "c_star": 1,
+        "catalog_ref": {
+          "event_type": "concurrence_check",
+          "template_id": "T-TRANSFER-CONCURRENCE"
+        },
+        "concurrence_policy": {
+          "expiry_response": "DENY",
+          "m_eligible": [
+            "privileged_surgeon"
+          ],
+          "n_required": 2,
+          "window_seconds": 300
+        },
+        "context_conditions": [
+          {
+            "attribute": "concurrence_satisfied",
+            "condition_index": 0,
+            "evidence_producer": "console_attestation_service_v1",
+            "evidence_schema_ref": "ES-TRANSFER-CONCURRENCE",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "PERMIT requires 2-of-2 concurrence within the declared window; expiry with fewer than 2 attestations is DENY, never a timeout.",
+        "destination": "console",
+        "enforcement_phase": "PRE_AUTHORIZATION",
+        "escalation": {
+          "route": "surgical_safety_urgent",
+          "sla_hours": 1
+        },
+        "evaluation_basis": "structural_check",
+        "evidence_producer": "console_attestation_service_v1",
+        "evidence_requirement": [
+          "attestation_count",
+          "receiving_actor",
+          "releasing_actor"
+        ],
+        "evidence_schema_ref": "ES-TRANSFER-CONCURRENCE",
+        "evidence_semantics": "A signed console-attestation artifact reporting distinct releasing and receiving actor attestations.",
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-C0004",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-04",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-TRANSFER-CONTROL",
+        "policy_id": "POL-C-TRANSFER",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [],
+          "risk_id": "C-04"
+        },
+        "resource": "control_session",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes both parties attested to the transfer. It does not establish either party reviewed the handoff substantively."
+      },
+      {
+        "acs_id": "ACS-C05-01",
+        "action": "activate_instrument",
+        "action_parameters": {
+          "instrument_id": "INSTR-001",
+          "procedure_step": "step_6"
+        },
+        "c_star": 1,
+        "catalog_ref": {
+          "event_type": "actor_scope_check",
+          "template_id": "T-ACTOR-SCOPE"
+        },
+        "context_conditions": [
+          {
+            "attribute": "actor_scope_not_revoked",
+            "condition_index": 0,
+            "evidence_producer": "registry_service_v1",
+            "evidence_schema_ref": "ES-ACTOR-SCOPE",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "PERMIT requires no effective ActorScopeRevocation covers this actor and action tuple at authorization time.",
+        "destination": "patient",
+        "escalation": {
+          "route": "surgical_safety_urgent",
+          "sla_hours": 1
+        },
+        "evaluation_basis": "structural_check",
+        "evidence_producer": "registry_service_v1",
+        "evidence_requirement": [
+          "action_tuple",
+          "actor_id",
+          "revocation_effective_time"
+        ],
+        "evidence_schema_ref": "ES-ACTOR-SCOPE",
+        "evidence_semantics": "A signed registry lookup reporting whether the proposing actor's scope over this action tuple has been revoked (auxiliary check A1).",
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-C0005",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-05",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-ACTIVATE-INSTRUMENT",
+        "policy_id": "POL-C-REVOCATION",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [],
+          "risk_id": "C-05"
+        },
+        "resource": "surgical_instrument",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes the actor's scope was not revoked. It does not establish the actor was ever competent to hold it."
+      },
+      {
+        "acs_id": "ACS-C08-01",
+        "action": "present_guidance",
+        "action_parameters": {
+          "guidance_class": "phase_detection"
+        },
+        "c_star": 0,
+        "catalog_ref": {
+          "event_type": "guidance_contraindication_check",
+          "template_id": "T-GUIDANCE-CONTRAINDICATION"
+        },
+        "context_conditions": [
+          {
+            "attribute": "guidance_permitted",
+            "condition_index": 0,
+            "evidence_producer": "ifu_contraindication_table_v3",
+            "evidence_schema_ref": "ES-GUIDANCE-CONTRAINDICATION",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "PERMIT requires the guidance class to be absent from the contraindication table for this procedure class, on a non-stale snapshot.",
+        "destination": "surgeon_display",
+        "enforcement_phase": "PRE_AUTHORIZATION",
+        "escalation": {
+          "route": "surgical_safety_desk",
+          "sla_hours": 4
+        },
+        "evaluation_basis": "deterministic_lookup",
+        "evidence_producer": "ifu_contraindication_table_v3",
+        "evidence_requirement": [
+          "context_snapshot_age_seconds",
+          "guidance_class",
+          "procedure_class"
+        ],
+        "evidence_schema_ref": "ES-GUIDANCE-CONTRAINDICATION",
+        "evidence_semantics": "A structural check that the guidance class is not contraindicated for this procedure class and the context snapshot is not stale.",
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-C0008",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-08",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-PRESENT-GUIDANCE",
+        "policy_id": "POL-C-GUIDANCE",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [
+            "IFU-CONTRAINDICATION"
+          ],
+          "risk_id": "C-08"
+        },
+        "resource": "guidance_output",
+        "response_policy": "REQUIRED",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes the presented guidance is not contraindicated by class. It does not establish the guidance content is clinically correct."
+      },
+      {
+        "acs_id": "ACS-C09-01",
+        "action": "export_data",
+        "action_parameters": {
+          "data_class": "video"
+        },
+        "c_star": 1,
+        "catalog_ref": {
+          "event_type": "consent_scope_check",
+          "template_id": "T-CONSENT-SCOPE"
+        },
+        "context_conditions": [
+          {
+            "attribute": "consent_covers_export",
+            "condition_index": 0,
+            "evidence_producer": "consent_registry_service_v1",
+            "evidence_schema_ref": "ES-CONSENT-SCOPE",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "PERMIT requires the signed consent artifact to cover the proposed export tuple; indeterminate or absent evidence fails.",
+        "destination": "external_review_system",
+        "escalation": {
+          "route": "compliance_records_desk",
+          "sla_hours": 1
+        },
+        "evaluation_basis": "structural_check",
+        "evidence_producer": "consent_registry_service_v1",
+        "evidence_requirement": [
+          "attester",
+          "data_class",
+          "destination",
+          "purpose"
+        ],
+        "evidence_schema_ref": "ES-CONSENT-SCOPE",
+        "evidence_semantics": "A signed consent artifact covering (data_class, destination, purpose), attested by the circulating nurse.",
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-C0009",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-09",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-EXPORT-DATA",
+        "policy_id": "POL-C-CONSENT",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [
+            "INST-CONSENT-SCOPE"
+          ],
+          "risk_id": "C-09"
+        },
+        "resource": "telemetry_data",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes the export is within the recorded consent scope. It does not establish the consent itself was properly obtained."
+      },
+      {
+        "acs_id": "ACS-C10-01",
+        "action": "present_guidance",
+        "action_parameters": {
+          "guidance_class": "phase_detection"
+        },
+        "c_star": 0,
+        "catalog_ref": {
+          "event_type": "model_validity_check",
+          "template_id": "T-MODEL-VALIDITY"
+        },
+        "context_conditions": [
+          {
+            "attribute": "model_validated_for_procedure",
+            "condition_index": 0,
+            "evidence_producer": "model_registry_service_v1",
+            "evidence_schema_ref": "ES-MODEL-VALIDITY",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "PERMIT requires the model id to resolve in the validated-models registry for this procedure class at the bound model version.",
+        "destination": "surgeon_display",
+        "escalation": {
+          "route": "surgical_safety_desk",
+          "sla_hours": 4
+        },
+        "evaluation_basis": "deterministic_lookup",
+        "evidence_producer": "model_registry_service_v1",
+        "evidence_requirement": [
+          "model_id",
+          "model_version",
+          "procedure_class"
+        ],
+        "evidence_schema_ref": "ES-MODEL-VALIDITY",
+        "evidence_semantics": "A signed model-registry lookup reporting whether the consulted model is validated for this procedure class and matches M.version_binding.",
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-C0010",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-10",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-PRESENT-GUIDANCE",
+        "policy_id": "POL-C-MODEL",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [],
+          "risk_id": "C-10"
+        },
+        "resource": "guidance_output",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes the model was validated for this use. It does not establish the model's output is clinically correct."
+      },
+      {
+        "acs_id": "ACS-C11-01",
+        "action": "present_guidance",
+        "action_parameters": {
+          "guidance_class": "phase_detection"
+        },
+        "c_star": 0,
+        "catalog_ref": {
+          "event_type": "attestation_dwell_check",
+          "template_id": "T-ATTESTATION-DWELL"
+        },
+        "context_conditions": [
+          {
+            "attribute": "dwell_within_band",
+            "condition_index": 0,
+            "evidence_producer": "attestation_telemetry_service_v1",
+            "evidence_schema_ref": "ES-ATTESTATION-DWELL",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "A dwell outside the approved band raises an advisory monitoring signal; it does not itself deny authorization.",
+        "destination": "surgeon_display",
+        "escalation": {
+          "route": "surgical_safety_desk",
+          "sla_hours": 24
+        },
+        "evaluation_basis": "structural_check",
+        "evidence_producer": "attestation_telemetry_service_v1",
+        "evidence_requirement": [
+          "dwell_seconds",
+          "step_class"
+        ],
+        "evidence_schema_ref": "ES-ATTESTATION-DWELL",
+        "evidence_semantics": "Deterministic telemetry proxy for substantive review: per-step attestation dwell time for pre-authorized step classes.",
+        "gate_source": "SOFT",
+        "gate_type": "advisory",
+        "gcir_id": "GCIR-C0011",
+        "mandatory_role": "supporting",
+        "on_fail": "WARN",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-11",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-PRESENT-GUIDANCE",
+        "policy_id": "POL-C-MONITORING",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [],
+          "risk_id": "C-11"
+        },
+        "resource": "guidance_output",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes a proxy for review substance. It does not establish the surgeon's attention was actually engaged."
+      },
+      {
+        "acs_id": "ACS-C12-01",
+        "action": "delegate",
+        "action_parameters": {
+          "parent_permit_id": "PARENT-SUBTASK-PERMIT"
+        },
+        "c_star": 1,
+        "catalog_ref": {
+          "event_type": "delegation_containment_check",
+          "template_id": "T-DELEGATION-CONTAINMENT"
+        },
+        "context_conditions": [
+          {
+            "attribute": "child_strictly_contained",
+            "condition_index": 0,
+            "evidence_producer": "delegation_registry_service_v1",
+            "evidence_schema_ref": "ES-DELEGATION-CONTAINMENT",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "PERMIT requires strict containment on every component and inequality on at least one; an identical or wider child is DENY.",
+        "delegation": {
+          "parent_permit_class_id": "PARENT-SUBTASK-PERMIT"
+        },
+        "destination": "delegatee_actor",
+        "enforcement_phase": "PRE_AUTHORIZATION",
+        "escalation": {
+          "route": "surgical_safety_urgent",
+          "sla_hours": 1
+        },
+        "evaluation_basis": "structural_check",
+        "evidence_producer": "delegation_registry_service_v1",
+        "evidence_requirement": [
+          "child_actions",
+          "child_scope",
+          "child_validity",
+          "parent_permit_id"
+        ],
+        "evidence_schema_ref": "ES-DELEGATION-CONTAINMENT",
+        "evidence_semantics": "A signed delegation-registry check that the child permit's (scope, validity, actions) is strictly contained in its parent's (auxiliary check A3, INV-DELEGATION-NARROWING).",
+        "gate_source": "C_STAR",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-C0012",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-12",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-DELEGATE",
+        "policy_id": "POL-C-DELEGATION",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [],
+          "risk_id": "C-12"
+        },
+        "resource": "subtask_permit",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes the child permit narrows its parent. It does not establish the parent permit itself was properly authorized."
+      },
+      {
+        "acs_id": "ACS-C13-01",
+        "action": "enter_autonomous_subtask",
+        "action_parameters": {
+          "procedure_step": "step_6"
+        },
+        "c_star": 0,
+        "catalog_ref": {
+          "event_type": "snapshot_provenance_check",
+          "template_id": "T-SNAPSHOT-PROVENANCE"
+        },
+        "context_conditions": [
+          {
+            "attribute": "snapshot_valid",
+            "condition_index": 0,
+            "evidence_producer": "context_snapshot_service_v1",
+            "evidence_schema_ref": "ES-SNAPSHOT-PROVENANCE",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "PERMIT requires patient_id == scheduled patient, snapshot within its declared freshness bound, and a verified lineage chain.",
+        "destination": "procedure_field",
+        "escalation": {
+          "route": "surgical_safety_urgent",
+          "sla_hours": 1
+        },
+        "evaluation_basis": "structural_check",
+        "evidence_producer": "context_snapshot_service_v1",
+        "evidence_requirement": [
+          "lineage_hash_chain_valid",
+          "patient_id",
+          "scheduled_patient_id",
+          "snapshot_age_seconds"
+        ],
+        "evidence_schema_ref": "ES-SNAPSHOT-PROVENANCE",
+        "evidence_semantics": "A signed context-snapshot artifact reporting patient-identity match, freshness, and an unbroken lineage hash chain.",
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-C0013",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-13",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-ENTER-SUBTASK",
+        "policy_id": "POL-C-SNAPSHOT",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [],
+          "risk_id": "C-13"
+        },
+        "resource": "subtask_permit",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes the snapshot's identity, freshness and lineage. It propagates to C-03 via input_provenance; it does not itself establish the autonomous proposal is clinically correct."
+      },
+      {
+        "acs_id": "ACS-C14-01",
+        "action": "enter_autonomous_subtask",
+        "action_parameters": {
+          "procedure_step": "step_6"
+        },
+        "c_star": 0,
+        "catalog_ref": {
+          "event_type": "latency_watchdog_check",
+          "template_id": "T-LATENCY-WATCHDOG"
+        },
+        "context_conditions": [
+          {
+            "attribute": "evaluation_completed_within_bound",
+            "condition_index": 0,
+            "evidence_producer": "deadline_watchdog_service_v1",
+            "evidence_schema_ref": "ES-LATENCY-WATCHDOG",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "Expiry of the bound is HOLD (on_evaluation_timeout), never a partial permit; this is the governance row over INV-LATENCY, as R-11/B-06 sit over their coinciding invariants.",
+        "destination": "procedure_field",
+        "enforcement_phase": "PRE_AUTHORIZATION",
+        "escalation": {
+          "route": "technology_change_management",
+          "sla_hours": 1
+        },
+        "evaluation_basis": "structural_check",
+        "evaluation_latency_bound": {
+          "unit": "ms",
+          "value": 300
+        },
+        "evidence_producer": "deadline_watchdog_service_v1",
+        "evidence_requirement": [
+          "completed_within_bound",
+          "evaluation_id"
+        ],
+        "evidence_schema_ref": "ES-LATENCY-WATCHDOG",
+        "evidence_semantics": "An independent deadline watchdog, outside the evaluator it supervises, reporting whether evaluation completed within evaluation_latency_bound.",
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-C0014",
+        "mandatory_role": "decisive",
+        "on_evaluation_timeout": "HOLD",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-14",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-ENTER-SUBTASK",
+        "policy_id": "POL-C-LATENCY",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [],
+          "risk_id": "C-14"
+        },
+        "resource": "subtask_permit",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes the evaluator signaled completion in time. It does not establish the evaluation's substantive correctness."
+      },
+      {
+        "acs_id": "ACS-C15-01",
+        "action": "activate_instrument",
+        "action_parameters": {
+          "instrument_id": "INSTR-001",
+          "procedure_step": "step_6"
+        },
+        "c_star": 0,
+        "catalog_ref": {
+          "event_type": "safety_correlation_check",
+          "template_id": "T-SAFETY-CORRELATION"
+        },
+        "context_conditions": [
+          {
+            "attribute": "intervention_correlated",
+            "condition_index": 0,
+            "evidence_producer": "safety_event_registry_v1",
+            "evidence_schema_ref": "ES-SAFETY-CORRELATION",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "A missing correlation places HOLD on the next ordinary authorization in the affected scope (POST_EVENT_AUDIT); it never gates the intervention itself.",
+        "destination": "patient",
+        "enforcement_phase": "POST_EVENT_AUDIT",
+        "escalation": {
+          "route": "incident_review_board",
+          "sla_hours": 24
+        },
+        "evaluation_basis": "structural_check",
+        "evidence_producer": "safety_event_registry_v1",
+        "evidence_requirement": [
+          "correlated_safety_event_id",
+          "intervention_id",
+          "recorded_within_window"
+        ],
+        "evidence_schema_ref": "ES-SAFETY-CORRELATION",
+        "evidence_semantics": "A signed safety-event registry check (auxiliary check A2) that every declared safety-layer intervention is correlated to a SafetyEvent within its recording window.",
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-C0015",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "forum.chair_surgical_safety",
+          "origin_id": "C-15",
+          "origin_type": "risk_derived"
+        },
+        "parameter_schema_ref": "PS-ACTIVATE-INSTRUMENT",
+        "policy_id": "POL-C-SAFETY-EVIDENCE",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "obligation_ids": [],
+          "risk_id": "C-15"
+        },
+        "resource": "surgical_instrument",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes recovery evidence completeness. It does not establish the safety layer's own correctness or certification."
+      },
+      {
+        "acs_id": null,
+        "action": "energy_activate",
+        "action_parameters": {
+          "port_configuration": "config_A"
+        },
+        "c_star": 0,
+        "catalog_ref": null,
+        "context_conditions": [
+          {
+            "attribute": "action_tuple_within_approved_matrix",
+            "condition_index": 0,
+            "evidence_producer": "authority_matrix_service_v1",
+            "evidence_schema_ref": "ES-AUTHORITY-CLOSURE",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "PERMIT requires the proposed tuple and parameters to resolve exactly to an approved matrix row. Indeterminate or absent evidence fails.",
+        "destination": "patient",
+        "enforcement_phase": "PRE_AUTHORIZATION",
+        "escalation": {
+          "route": "governance_forum_urgent",
+          "sla_hours": 1
+        },
+        "evaluation_basis": "deterministic_lookup",
+        "evidence_producer": "authority_matrix_service_v1",
+        "evidence_requirement": [
+          "action",
+          "artifact_signature",
+          "destination",
+          "matrix_version",
+          "resource",
+          "subject"
+        ],
+        "evidence_schema_ref": "ES-AUTHORITY-CLOSURE",
+        "evidence_semantics": "A signed lookup artifact reporting whether the proposed action tuple and its bound parameters are present in the approved authority matrix at the stated matrix version.",
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-INV-AUTHORITY-CLOSURE",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "surgical_platform_governance_forum",
+          "origin_id": "INV-AUTHORITY-CLOSURE",
+          "origin_type": "compiler_invariant"
+        },
+        "parameter_schema_ref": "PS-ENERGY-ACTIVATE",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "internal_requirement_id": "INV-AUTHORITY-CLOSURE",
+          "obligation_ids": [],
+          "risk_id": null
+        },
+        "resource": "energy_delivery_channel",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes closure of the proposed action against the approved matrix. It does not establish that the matrix itself is correctly scoped -- that is a governance judgment recorded in S."
+      },
+      {
+        "acs_id": null,
+        "action": "energy_activate",
+        "action_parameters": {
+          "port_configuration": "config_A"
+        },
+        "c_star": 0,
+        "catalog_ref": null,
+        "context_conditions": [
+          {
+            "attribute": "receipt_committed_between_authorization_and_actuation",
+            "condition_index": 0,
+            "evidence_producer": "evidence_chain_service_v2",
+            "evidence_schema_ref": "ES-RECEIPT-CHAIN",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": true
+          }
+        ],
+        "decision_semantics": "PERMIT requires authorization_time <= evidence_commit_time < actuation_time, with the receipt chained to its predecessor.",
+        "destination": "patient",
+        "enforcement_phase": "POST_AUTH_PRE_ACTUATION",
+        "escalation": {
+          "route": "compliance_records_desk",
+          "sla_hours": 1
+        },
+        "evaluation_basis": "structural_check",
+        "evidence_producer": "evidence_chain_service_v2",
+        "evidence_requirement": [
+          "authorization_time",
+          "chain_prev_hash",
+          "evidence_commit_time",
+          "receipt_id"
+        ],
+        "evidence_schema_ref": "ES-RECEIPT-CHAIN",
+        "evidence_semantics": "A signed evidence-chain artifact carrying the authorization, commit and actuation instants for this decision.",
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-INV-EVIDENCE-COMMIT",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "surgical_platform_governance_forum",
+          "origin_id": "INV-EVIDENCE-COMMIT",
+          "origin_type": "compiler_invariant"
+        },
+        "parameter_schema_ref": "PS-ENERGY-ACTIVATE",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "internal_requirement_id": "INV-EVIDENCE-COMMIT",
+          "obligation_ids": [],
+          "risk_id": null
+        },
+        "resource": "energy_delivery_channel",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes the temporal ordering and chaining of the evidence record. It does not establish the truth of the receipt's content, nor that the trusted time source is honest."
+      },
+      {
+        "acs_id": null,
+        "action": "energy_activate",
+        "action_parameters": {
+          "port_configuration": "config_A"
+        },
+        "c_star": 0,
+        "catalog_ref": null,
+        "context_conditions": [
+          {
+            "attribute": "runtime_fingerprint",
+            "condition_index": 0,
+            "evidence_producer": "deployment_attestation_service_v1",
+            "evidence_schema_ref": "ES-VERSION-FINGERPRINT",
+            "on_unknown": "fail",
+            "operator": "==",
+            "required": true,
+            "temporal_window": null,
+            "threshold_contract_ref": null,
+            "unit": null,
+            "value": "sha256:7a1f0c6b4e832d915ac0e7f4d1b8c6a5e93f7028b1a4c6d9e5f0a3b7c2d8e416"
+          }
+        ],
+        "decision_semantics": "PERMIT requires the runtime fingerprint to equal M.version_binding.fingerprint. Indeterminate or absent evidence fails.",
+        "destination": "patient",
+        "enforcement_phase": "PRE_AUTHORIZATION",
+        "escalation": {
+          "route": "technology_change_management",
+          "sla_hours": 1
+        },
+        "evaluation_basis": "deterministic_lookup",
+        "evidence_producer": "deployment_attestation_service_v1",
+        "evidence_requirement": [
+          "artifact_signature",
+          "dataset_version",
+          "fingerprint",
+          "model_version",
+          "policy_version",
+          "prompt_version"
+        ],
+        "evidence_schema_ref": "ES-VERSION-FINGERPRINT",
+        "evidence_semantics": "A signed deployment attestation reporting the configuration actually loaded at authorization time.",
+        "gate_source": "OTHER_MANDATORY",
+        "gate_type": "mandatory",
+        "gcir_id": "GCIR-INV-VERSION",
+        "mandatory_role": "decisive",
+        "on_fail": "SAFE_STATE",
+        "origin": {
+          "authorized_by": "surgical_platform_governance_forum",
+          "origin_id": "INV-VERSION",
+          "origin_type": "compiler_invariant"
+        },
+        "parameter_schema_ref": "PS-ENERGY-ACTIVATE",
+        "record_type": "CompiledPredicate",
+        "requirement_ref": {
+          "internal_requirement_id": "INV-VERSION",
+          "obligation_ids": [],
+          "risk_id": null
+        },
+        "resource": "energy_delivery_channel",
+        "schema_version": "1.1",
+        "subject": "assistance_module",
+        "validity": {
+          "effective_from": "2026-03-01T00:00:00Z"
+        },
+        "version_binding_ref": "VB-CASE-C-1.0",
+        "warrant_boundary": "Establishes that the running configuration is the assessed configuration. It does not establish that the assessed configuration is safe. This is the per-action form of the version-drift argument: no action is authorized under a configuration the assessment never covered."
+      }
+    ],
+    "schema_version": "1.1",
+    "threshold_contracts": {},
+    "validity": {
+      "effective_from": "2026-03-01T00:00:00Z"
+    },
+    "version_binding": {
+      "binding_id": "VB-CASE-C-1.0",
+      "dataset_version": "procedure-context-corpus-2026-02",
+      "fingerprint": "sha256:7a1f0c6b4e832d915ac0e7f4d1b8c6a5e93f7028b1a4c6d9e5f0a3b7c2d8e416",
+      "model_version": "surgical-assistance-module-2026.02",
+      "policy_version": "surgical-safety-policy-2026.1",
+      "prompt_version": "not-applicable-non-generative"
+    }
+  },
+  "payload_hash": "d7c7971156e3591b64567148ed8fc21cc1cbee21973d3646f59e439c74bf1dbd",
+  "schema_version": "1.1",
+  "statistics": {
+    "acs_count": 13,
+    "compiler_invariant_predicate_count": 3,
+    "cstar_risk_count": 9,
+    "mandatory_gate_count": 15,
+    "obligation_count": 6,
+    "predicate_count": 16,
+    "risk_count": 16,
+    "risk_derived_predicate_count": 13,
+    "warning_count": 0
+  }
+}
