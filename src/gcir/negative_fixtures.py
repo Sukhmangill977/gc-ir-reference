@@ -336,6 +336,200 @@ def get_negative_fixtures(bundle: CompiledBundle) -> Dict[str, CompiledBundle]:
     }
 
 
+
+# ---------------------------------------------------------------------------
+# Paper 2 v1.2 negative fixtures (spec sections 1A-1L)
+# ---------------------------------------------------------------------------
+#
+# gcir.contract_v12's checks are reference-vs-candidate comparators (its own
+# module docstring explains why), not single-bundle audits like Q1-Q10 -- so
+# unlike every fixture above, each function below returns a PAIR
+# ``(nominal_bundle, candidate_bundle)``: the unmutated real bundle and a deep
+# copy mutated to violate exactly one v1.2 check. Two of the checks
+# (synchronization_contract_representation, observation_obligation) are
+# themselves single-bundle representation checks, so those two fixtures'
+# "nominal" half is simply the same real bundle with a well-formed field
+# added, and their "candidate" half has an incomplete one -- still returned as
+# a pair for a uniform calling convention across this whole section.
+
+
+def _v12_mutated_pair(bundle: CompiledBundle, mutate: Callable[[dict], None]):
+    return bundle, _mutated(bundle, mutate)
+
+
+def create_negative_fixture_v12_judgment_hash_tamper(bundle: CompiledBundle):
+    """spec 1A: judgment_record_ref.content_hash no longer matches the
+    approved judgment's canonical content (only meaningful once the bundle
+    is schema_version 1.2; caller must supply a bundle compiled with a v1.2
+    field present so content_hash is populated)."""
+    def mutate(payload):
+        ref = payload.get("judgment_record_ref", {})
+        if "content_hash" not in ref:
+            raise ValueError("bundle has no judgment_record_ref.content_hash to tamper (not schema_version 1.2)")
+        ref["content_hash"] = "0" * 64
+
+    return _v12_mutated_pair(bundle, mutate)
+
+
+def create_negative_fixture_v12_narrowing(bundle: CompiledBundle):
+    """spec 1C: one mandatory represented element (an evidence_requirement)
+    is dropped from a predicate."""
+    def mutate(payload):
+        for predicate in payload["predicates"]:
+            if predicate.get("evidence_requirement"):
+                predicate["evidence_requirement"] = predicate["evidence_requirement"][:-1]
+                return
+        raise ValueError("bundle has no predicate with evidence_requirement to narrow")
+
+    return _v12_mutated_pair(bundle, mutate)
+
+
+def create_negative_fixture_v12_broadening(bundle: CompiledBundle):
+    """spec 1D: an exception's parameter_bounds ceiling is widened beyond
+    what was approved (requires a bundle carrying an ``exception`` field)."""
+    def mutate(payload):
+        for predicate in payload["predicates"]:
+            bounds = (predicate.get("exception") or {}).get("parameter_bounds")
+            if bounds:
+                for key, value in list(bounds.items()):
+                    if isinstance(value, (int, float)) and not isinstance(value, bool):
+                        bounds[key] = value * 1000
+                        return
+        raise ValueError("bundle has no exception.parameter_bounds to widen")
+
+    return _v12_mutated_pair(bundle, mutate)
+
+
+def create_negative_fixture_v12_invention(bundle: CompiledBundle):
+    """spec 1E: an unauthorized field (standing_permit_ref) is added to a
+    predicate with no counterpart in the approved (nominal) bundle."""
+    def mutate(payload):
+        if not payload["predicates"]:
+            raise ValueError("bundle has no predicates to mutate")
+        payload["predicates"][0]["standing_permit_ref"] = "SP-NEVER-APPROVED-999"
+
+    return _v12_mutated_pair(bundle, mutate)
+
+
+def create_negative_fixture_v12_class_collapse(bundle: CompiledBundle):
+    """spec 1B: a prohibited primary_class collapse (human -> auth). Stamps
+    the first predicate ``human`` in the nominal half first (self-sufficient
+    regardless of what ``bundle`` already carries -- unlike the other v1.2
+    fixtures, which reuse a field ``bundle`` is expected to already declare),
+    then collapses it to ``auth`` in the candidate half."""
+    def stamp_human(payload):
+        if not payload["predicates"]:
+            raise ValueError("bundle has no predicates to mutate")
+        payload["predicates"][0]["primary_class"] = "human"
+
+    nominal = _mutated(bundle, stamp_human)
+
+    def collapse(payload):
+        payload["predicates"][0]["primary_class"] = "auth"
+
+    return nominal, _mutated(nominal, collapse)
+
+
+def create_negative_fixture_v12_exception_widening(bundle: CompiledBundle):
+    """spec 1G: an exception's scope is widened into a global bypass
+    (requires a bundle carrying an ``exception`` field)."""
+    def mutate(payload):
+        for predicate in payload["predicates"]:
+            if predicate.get("exception"):
+                predicate["exception"]["scope"] = "*"
+                return
+        raise ValueError("bundle has no exception to widen")
+
+    return _v12_mutated_pair(bundle, mutate)
+
+
+def create_negative_fixture_v12_lifecycle_staleness(bundle: CompiledBundle):
+    """spec 1H: judgment_record_ref.version references a superseded
+    judgment version (checked against a caller-supplied "current" version by
+    ``gcir.contract_v12.lifecycle``, so the mutation itself is a no-op
+    structurally and the fixture instead documents the version to check
+    against)."""
+    def mutate(payload):
+        payload["judgment_record_ref"]["version"] = payload["judgment_record_ref"]["version"] + "-SUPERSEDED"
+
+    return _v12_mutated_pair(bundle, mutate)
+
+
+def create_negative_fixture_v12_sync_contract_incomplete(bundle: CompiledBundle):
+    """spec 1J: a synchronization_contract missing a required representation
+    field (invalidation_trigger)."""
+    complete_contract = {
+        "source": "risk_classification_service_v1", "epoch_version": "E1", "freshness": "PT5S",
+        "observed_at": "2026-01-22T15:00:00Z", "valid_until": "2026-01-22T15:05:00Z",
+        "invalidation_trigger": "epoch_rollover", "revalidation_requirement": "revalidate_on_expiry",
+        "failure_response": "SAFE_STATE", "downstream_interface": "risk_classification_state_v1",
+    }
+
+    def add_complete(payload):
+        if not payload["predicates"]:
+            raise ValueError("bundle has no predicates to mutate")
+        payload["predicates"][0]["synchronization_contract"] = copy.deepcopy(complete_contract)
+
+    nominal = _mutated(bundle, add_complete)
+
+    def break_it(payload):
+        del payload["predicates"][0]["synchronization_contract"]["invalidation_trigger"]
+
+    return nominal, _mutated(nominal, break_it)
+
+
+def create_negative_fixture_v12_observation_scope_removed(bundle: CompiledBundle):
+    """spec 1K: an observation_obligation's beta_r drops a decision-relevant
+    distinction (realized_amount) relative to the approved reference."""
+    complete_omega = {"beta_r": ["realized_amount", "beneficiary", "grant_identifier"], "kappa_r": "binding_v1", "q_r": "cross-request"}
+
+    def add_complete(payload):
+        if not payload["predicates"]:
+            raise ValueError("bundle has no predicates to mutate")
+        payload["predicates"][0]["observation_obligation"] = copy.deepcopy(complete_omega)
+
+    nominal = _mutated(bundle, add_complete)
+
+    def narrow_it(payload):
+        payload["predicates"][0]["observation_obligation"]["beta_r"] = ["beneficiary", "grant_identifier"]
+
+    return nominal, _mutated(nominal, narrow_it)
+
+
+def get_negative_fixtures_v12(bundle: CompiledBundle) -> Dict[str, tuple]:
+    """Every v1.2 negative fixture, keyed by name, as ``(nominal, candidate)``
+    pairs built from one real compiled bundle. ``bundle`` should already
+    carry ``primary_class``/``exception`` fields (e.g. Case D CCS1's real
+    compiled bundle) for the fixtures that mutate them; the
+    judgment-hash-tamper fixture additionally requires ``bundle`` to be
+    schema_version 1.2 (i.e. to already use at least one v1.2 field)."""
+    return {
+        "negative_v12_judgment_hash_tamper": create_negative_fixture_v12_judgment_hash_tamper(bundle),
+        "negative_v12_narrowing": create_negative_fixture_v12_narrowing(bundle),
+        "negative_v12_broadening": create_negative_fixture_v12_broadening(bundle),
+        "negative_v12_invention": create_negative_fixture_v12_invention(bundle),
+        "negative_v12_class_collapse": create_negative_fixture_v12_class_collapse(bundle),
+        "negative_v12_exception_widening": create_negative_fixture_v12_exception_widening(bundle),
+        "negative_v12_lifecycle_staleness": create_negative_fixture_v12_lifecycle_staleness(bundle),
+        "negative_v12_sync_contract_incomplete": create_negative_fixture_v12_sync_contract_incomplete(bundle),
+        "negative_v12_observation_scope_removed": create_negative_fixture_v12_observation_scope_removed(bundle),
+    }
+
+
+#: Which gcir.contract_v12 check each v1.2 fixture must cause to fail.
+FIXTURE_TARGET_CHECK_V12 = {
+    "negative_v12_judgment_hash_tamper": "judgment_hash_binding",
+    "negative_v12_narrowing": "no_narrowing",
+    "negative_v12_broadening": "no_broadening",
+    "negative_v12_invention": "no_invention",
+    "negative_v12_class_collapse": "primary_class_preservation",
+    "negative_v12_exception_widening": "exception_scope",
+    "negative_v12_lifecycle_staleness": "lifecycle",
+    "negative_v12_sync_contract_incomplete": "synchronization_contract_representation",
+    "negative_v12_observation_scope_removed": "no_narrowing",
+}
+
+
 #: Which query each fixture must cause to fail (used by the test suite to
 #: assert targeted, not incidental, detection).
 FIXTURE_TARGET_QUERY = {

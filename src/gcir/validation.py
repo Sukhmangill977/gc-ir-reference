@@ -23,6 +23,7 @@ from .models import (
     EVALUATION_BASES,
     GATE_SOURCES,
     GATE_TYPES,
+    IndeterminacyError,
     MANDATORY_ROLES,
     NUMERIC_TEMPORAL_OPERATORS,
     ORIGIN_TYPES,
@@ -487,6 +488,32 @@ def constraint_17_concurrence_expiry_fixed(predicate):
             "constraint 17 fixes this at DENY"
             % (predicate["gcir_id"], policy.get("expiry_response")),
             code="A17_CONCURRENCE_EXPIRY_NOT_DENY",
+        )
+
+
+def constraint_18_no_unresolved_mandatory_interpretation(acs_or_invariant, context_label):
+    """Paper 2 v1.2 spec section 1F.
+
+    A specification about to compile into an active (runtime) control that
+    explicitly declares its mandatory semantic interpretation unresolved
+    (``interpretation_status = "unresolved"``) is COMPILE-FAIL /
+    release-inadmissible -- raised here, before any predicate or bundle is
+    produced. This must never be coerced into a DENY or HOLD disposition:
+    ``HOLD`` is reserved for runtime unknown/missing/stale evidence *after* a
+    meaningful control has already been compiled, which this specification
+    never reaches. ``acs_or_invariant`` accepts either an
+    ``ApprovedControlSpecification`` or a plain invariant-register dict --
+    both expose ``.get``.
+    """
+    status = acs_or_invariant.get("interpretation_status")
+    if status == "unresolved":
+        raise IndeterminacyError(
+            "%s declares interpretation_status='unresolved' on a mandatory "
+            "semantic interpretation while a runtime (active) compile was "
+            "requested; Paper 2 v1.2 spec section 1F requires COMPILE-FAIL / "
+            "release-inadmissible here, never DENY or HOLD" % context_label,
+            code="INDETERMINATE_INTERPRETATION_COMPILE_FAIL",
+            detail={"context": context_label, "interpretation_status": status},
         )
 
 

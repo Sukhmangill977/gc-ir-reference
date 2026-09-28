@@ -1,0 +1,197 @@
+{
+  "acs_set_id": "D-CASE-D-CCS1",
+  "records": [
+    {
+      "acs_id": "ACS-D01-01",
+      "action": "release_funds",
+      "action_parameters": {
+        "currency": "CAD",
+        "transfer_hash": "PARAM-BOUND-AT-RUNTIME"
+      },
+      "approval_time": "2026-03-02T15:00:00Z",
+      "approver": "forum.chair_treasury",
+      "context_conditions": [
+        {
+          "attribute": "dual_authorization_present",
+          "evidence_producer": "authorization_registry_service_v1",
+          "evidence_schema_ref": "ES-DUAL-AUTH",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "business.treasury_operations",
+      "decision_semantics": "PERMIT requires dual_authorization_present == true; indeterminate or absent evidence fails. This condition carries no emergency-authority prerequisite and no emergency-evidence prerequisite (spec D3): it is evaluated identically whether or not the emergency exception is enabled elsewhere.",
+      "destination": "treasury_rail",
+      "enforcement_phase": "PRE_AUTHORIZATION",
+      "escalation": {
+        "route": "treasury_operations_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "dual_authorization_check",
+      "evidence_requirements": [
+        "transfer_hash",
+        "authorizer_1_id",
+        "authorizer_2_id",
+        "dual_authorization_present"
+      ],
+      "evidence_schema_ref": "ES-DUAL-AUTH",
+      "evidence_semantics": "A signed registry artifact reporting whether two distinct treasury officers authorized this transfer.",
+      "evidence_source": "authorization_registry_service_v1 signed artifact bound to the transfer hash",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-D0001",
+      "mandatory_role": "decisive",
+      "obligation_refs": [
+        "INT-DUAL-AUTH"
+      ],
+      "observable_class": "dual_authorization_state",
+      "observable_id": "dual_authorization_present",
+      "observable_producer": "authorization_registry_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-RELEASE-FUNDS",
+      "policy_id": "POL-D-DUAL-AUTH",
+      "primary_class": "auth",
+      "resource": "funds_transfer_instruction",
+      "risk_id": "D-01",
+      "subject": "treasury_agent",
+      "template_id": "T-DUAL-AUTH",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-05T00:00:00Z",
+        "effective_until": "2027-03-05T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-D-1.0",
+      "warrant_boundary": "Establishes that two distinct treasury officers authorized this transfer. It does not establish that either officer's judgment was substantively correct."
+    },
+    {
+      "acs_id": "ACS-D02-01",
+      "action": "release_funds",
+      "action_parameters": {
+        "currency": "CAD",
+        "transfer_hash": "PARAM-BOUND-AT-RUNTIME"
+      },
+      "approval_time": "2026-03-02T15:00:00Z",
+      "approver": "forum.chair_treasury",
+      "context_conditions": [
+        {
+          "attribute": "emergency_event_active",
+          "evidence_producer": "emergency_authority_registry_service_v1",
+          "evidence_schema_ref": "ES-EMERGENCY-AUTHORITY",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        },
+        {
+          "attribute": "officer_authority_valid",
+          "evidence_producer": "emergency_authority_registry_service_v1",
+          "evidence_schema_ref": "ES-EMERGENCY-AUTHORITY",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        },
+        {
+          "attribute": "evidence_fresh",
+          "evidence_producer": "emergency_authority_registry_service_v1",
+          "evidence_schema_ref": "ES-EMERGENCY-AUTHORITY",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "business.treasury_operations",
+      "decision_semantics": "PERMIT requires all three of EmergencyEvent, EmergencyOfficerAuthorityValid and EmergencyEvidenceFresh; indeterminate or absent evidence fails. This is a confined exception predicate (spec D6): it is never evaluated as, and never becomes, a prerequisite of the ordinary transfer gate ACS-D01-01.",
+      "destination": "treasury_rail",
+      "enforcement_phase": "PRE_AUTHORIZATION",
+      "escalation": {
+        "route": "treasury_operations_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "emergency_officer_authority_check",
+      "evidence_requirements": [
+        "transfer_hash",
+        "emergency_event_id",
+        "officer_id",
+        "officer_credential",
+        "emergency_event_active",
+        "officer_authority_valid",
+        "evidence_freshness_seconds"
+      ],
+      "evidence_schema_ref": "ES-EMERGENCY-AUTHORITY",
+      "evidence_semantics": "A signed emergency-authority-registry artifact jointly reporting EmergencyEvent, EmergencyOfficerAuthorityValid, and EmergencyEvidenceFresh for the named officer.",
+      "evidence_source": "emergency_authority_registry_service_v1 signed artifact bound to the transfer hash",
+      "exception": {
+        "authorized_actor": [
+          "treasury.officer_on_duty"
+        ],
+        "lifecycle_version_binding": "VB-CASE-D-1.0",
+        "parameter_bounds": {
+          "max_amount": 1000000
+        },
+        "scope": [
+          "emergency_single_officer_transfer"
+        ],
+        "target_requirement": "INT-DUAL-AUTH",
+        "trigger": "EmergencyEvent"
+      },
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-D0002",
+      "mandatory_role": "decisive",
+      "obligation_refs": [
+        "INT-EMERGENCY-EXCEPTION"
+      ],
+      "observable_class": "emergency_authority_state",
+      "observable_id": "emergency_officer_authority_valid",
+      "observable_producer": "emergency_authority_registry_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-RELEASE-FUNDS",
+      "policy_id": "POL-D-EMERGENCY-EXCEPTION",
+      "primary_class": "auth",
+      "resource": "funds_transfer_instruction",
+      "risk_id": "D-02",
+      "subject": "treasury_agent",
+      "template_id": "T-EMERGENCY-AUTHORITY",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-05T00:00:00Z",
+        "effective_until": "2027-03-05T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-D-1.0",
+      "warrant_boundary": "Establishes that a validly authorized emergency officer exercised the confined emergency exception under fresh evidence of an active emergency. It does not establish that declaring the emergency itself was substantively correct."
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "acs",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "7f889a81f57fea05f56d415029357a3e2058065e001a86bf6eed0786cf76a8fa",
+    "signature_b64": "Jgl5rUKgz3rzt8NwAw2plX5PVwO3uiohRWMVSckJ2oygmN5CG6ZM7Pp/oPp1aW0qpF/5f/vN4UztwRBRS+msBA==",
+    "signing_time": "2026-03-02T15:10:00Z"
+  },
+  "version_binding_ref": "VB-CASE-D-1.0"
+}

@@ -1,0 +1,158 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "a1cd35a1896f8078a67c2ae07b177c87a6fbf459",
+    "git_commit_short": "a1cd35a",
+    "git_describe": "v1.1.0-5-ga1cd35a-dirty",
+    "git_status_clean": false,
+    "git_tag_exact": null,
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-28T14:32:21Z",
+    "system": "Darwin"
+  },
+  "phase": "development",
+  "phase_note": "DEVELOPMENT result; not reportable.",
+  "result": {
+    "claim_boundary": "Case D exercises the governance-to-control translation side only (Paper 2 v1.2 spec, final scientific boundary): whether a compiled artifact preserves origin, disposition, primary class, scope, exception semantics, lifecycle, and deterministic canonical lowering. It does not evaluate 'may this action externalize now' at runtime, which remains prior L-DREA work.",
+    "passed": 10,
+    "rows": [
+      {
+        "description": "unresolved interpretation while emergency-capable compile requested",
+        "expected": "COMPILE-FAIL/release-inadmissible",
+        "id": "D1",
+        "notes": [
+          "COMPILE-FAIL/release-inadmissible: ACS ACS-D02-01 (risk D-02) declares interpretation_status='unresolved' on a mandatory semantic interpretation while a runtime (active) compile was requested; Paper 2 v1.2 spec section 1F requires COMPILE-FAIL / release-inadmissible here, never DENY or HOLD"
+        ],
+        "observed": "COMPILE-FAIL/release-inadmissible",
+        "passed": true
+      },
+      {
+        "description": "emergency-exception path explicitly disabled",
+        "expected": "CCS0 compiles",
+        "id": "D2",
+        "observed": "compiled",
+        "passed": true,
+        "payload_hash": "09495d8ee59a9868db4749e40812ad40a4c2683d79c931d641811a2849635912"
+      },
+      {
+        "description": "ordinary CCS0 path inspection",
+        "expected": "no emergency-authority/evidence prerequisite; ordinary requirements preserved",
+        "id": "D3",
+        "observed": {
+          "no_emergency_prerequisite": true,
+          "ordinary_condition_attributes": [
+            "dual_authorization_present"
+          ],
+          "ordinary_requirements_preserved": true
+        },
+        "passed": true
+      },
+      {
+        "description": "emergency request evaluated under CCS0 (no compiled exception path)",
+        "expected": "HOLD / escalation to the declared non-runtime governance treatment, never DENY",
+        "id": "D4",
+        "observed": {
+          "authorization_decision": "HOLD",
+          "d02_declared_non_runtime_treatment": "emergency_exception_disabled; route=manual_governance_process (spec D2 example).",
+          "d02_disposition": "AcceptedRiskDisposition",
+          "reason": "mandatory gate(s) GCIR-D0001 failed"
+        },
+        "passed": true
+      },
+      {
+        "description": "signed resolution of authorized officer = Treasury Officer credential",
+        "expected": "CCS1 compiles with exception.authorized_actor == ['treasury.officer_on_duty']",
+        "id": "D5",
+        "observed": {
+          "authorized_actor": [
+            "treasury.officer_on_duty"
+          ],
+          "compiled": true
+        },
+        "passed": true,
+        "payload_hash": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784"
+      },
+      {
+        "description": "exception remains conditional and confined to the exception path",
+        "expected": "all three conditions active only on ACS-D02-01, never on ACS-D01-01",
+        "id": "D6",
+        "observed": {
+          "all_three_present": true,
+          "confined_to_exception_path": true,
+          "exception_condition_attributes": [
+            "emergency_event_active",
+            "evidence_fresh",
+            "officer_authority_valid"
+          ],
+          "ordinary_condition_attributes": [
+            "dual_authorization_present"
+          ]
+        },
+        "passed": true
+      },
+      {
+        "description": "exception broadening negative (unauthorized actor added, no backing judgment)",
+        "expected": "rejection for exception/no-broadening",
+        "id": "D7",
+        "observed": {
+          "issues": [
+            "ACS-D02-01: exception.authorized_actor widened from ['treasury.officer_on_duty'] to ['external.unverified_party', 'treasury.officer_on_duty']"
+          ],
+          "no_broadening_ok": false
+        },
+        "passed": true
+      },
+      {
+        "description": "narrowing negative (dropped condition + dropped exception.parameter_bounds)",
+        "expected": "rejection for disposition/no-narrowing",
+        "id": "D8",
+        "observed": {
+          "issues": [
+            "ACS-D02-01: context_conditions ['evidence_fresh'] dropped",
+            "ACS-D02-01: exception.parameter_bounds dropped (required residual treatment)"
+          ],
+          "no_narrowing_ok": false
+        },
+        "passed": true
+      },
+      {
+        "description": "policy 4.3 / J' widens the authorized actor set (new, separately authorized judgment)",
+        "expected": "CCS2 produced; changed canonical payload hash; old policy/J reference no longer current",
+        "id": "D9",
+        "observed": {
+          "ccs1_hash": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784",
+          "ccs1_judgment_version": "1.1",
+          "ccs1_ref_stale_for_ccs2_state": true,
+          "ccs2_hash": "f7b5827d6c7fc4702d9e276b3ae34179482bcecd466bddba440103f751c603d2",
+          "ccs2_judgment_version": "1.2",
+          "hash_changed": true,
+          "lifecycle_issues": [
+            "judgment_record_ref.version '1.1' does not match the current judgment version '1.2'"
+          ]
+        },
+        "passed": true
+      },
+      {
+        "description": "row-order-only permutation of CCS1's ACS records",
+        "expected": "identical Phi_core canonical payload hash",
+        "id": "D10",
+        "observed": {
+          "reference_hash": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784",
+          "reordered_hash": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784"
+        },
+        "passed": true
+      }
+    ],
+    "total": 10
+  },
+  "result_name": "case_d_matrix"
+}

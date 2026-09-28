@@ -1,0 +1,239 @@
+{
+  "assessment_id": "ASSESSMENT-CASE-D",
+  "case_class": "synthetic",
+  "metadata": {
+    "accountable_exec": "exec.head_of_treasury",
+    "assessor": "governance.assessor_treasury",
+    "deployment": "production treasury funds-release path, single rail",
+    "exclusions": [
+      "No transfer initiation: the agent authorizes releases, it does not originate instructions.",
+      "No counterparty onboarding.",
+      "No customer-facing communication."
+    ],
+    "method": "Paper 2 v1.2 governance-to-control validation campaign; prospectively designed, not a forensic reconstruction.",
+    "owner_business": "business.treasury_operations",
+    "owner_technical": "technology.treasury_platform",
+    "purpose": "Per-transfer authorization of outbound treasury funds releases, requiring dual authorization under ordinary conditions and supporting a narrowly confined, separately authorized emergency exception for a single validly authorized emergency officer.",
+    "review_cycle": "semi-annual, or on any trigger",
+    "scope": "Authorization of outbound treasury funds release under ordinary dual-authorization, and, only where the emergency exception is itself enabled and authorized, a narrowly confined single-officer emergency path.",
+    "system_id": "CASE-D-TREASURY-EMERGENCY-EXCEPTION-AGENT",
+    "triggers": [
+      "model_version_change",
+      "prompt_or_policy_change",
+      "dataset_refresh_outside_bounds",
+      "scope_expansion",
+      "new_obligation",
+      "catalog_change",
+      "consequence_class_reclassification",
+      "incident_above_declared_severity"
+    ],
+    "validity_interval": {
+      "effective_from": "2026-03-05T00:00:00Z",
+      "effective_until": "2027-03-05T00:00:00Z"
+    },
+    "version_binding": {
+      "binding_id": "VB-CASE-D-1.0",
+      "dataset_version": "treasury-authority-roster-2026-03-01",
+      "fingerprint": "sha256:9a1d4e6b0c7f2e83a5d19c4b3e8f60a2d7c5b9e1f4a8c2d6b0e3f7a1c5d9b2e6",
+      "model_version": "treasury-authorization-policy-engine-2026.03",
+      "policy_version": "treasury-policy-2026.1",
+      "prompt_version": "not-applicable-non-generative"
+    }
+  },
+  "obligations": [
+    {
+      "applicability_basis": [
+        "all automated treasury funds release"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "TDA-2026 s. 1",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-02-20T16:30:00Z",
+      "effective_from": "2026-03-05T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "TDA-2026.1",
+      "obligation_id": "INT-DUAL-AUTH",
+      "requirement_class": "internal",
+      "requirement_text_hash": "b984f6ea84e713d67553a3fe95e87fe41b82d77ccb53f0bc4eae24ac5e9f4492",
+      "source": "Internal requirement -- Treasury Dual Authorization Standard",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    },
+    {
+      "applicability_basis": [
+        "treasury funds release under declared emergency conditions only"
+      ],
+      "applicability_decision": "applicable",
+      "clause_ref": "TEE-2026 s. 1 (confined single-officer emergency path)",
+      "decision_authority": "legal.regulatory_counsel",
+      "decision_time": "2026-02-20T16:30:00Z",
+      "effective_from": "2026-03-05T00:00:00Z",
+      "jurisdiction": "Canada",
+      "legal_source_version": "TEE-2026.1",
+      "obligation_id": "INT-EMERGENCY-EXCEPTION",
+      "requirement_class": "internal",
+      "requirement_text_hash": "f503fb85f2235cded26bda60ad771eb6b6d2a55114eb1ccf08293a089034d649",
+      "source": "Internal requirement -- Treasury Emergency Exception Standard",
+      "territorial_basis": "legal entity domiciled and registered in Canada"
+    }
+  ],
+  "risk_analysis": [
+    {
+      "consequence_class": "authority",
+      "consequence_descriptor": {
+        "authority": "institution_treasury_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-03-02T15:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "unauthorized_authority_exercise",
+        "materiality": "material",
+        "rationale": "Classified under the approved C* profile CSTAR-D-1.0: an ordinary release without the required dual authorization is a material, irreversible unauthorized externalization.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": null,
+      "risk_id": "D-01",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    },
+    {
+      "consequence_class": "authority",
+      "consequence_descriptor": {
+        "authority": "institution_treasury_function",
+        "classification_authority": "forum.consequence_classification_panel",
+        "effective_date": "2026-03-02T15:00:00Z",
+        "emergency_override_procedure": null,
+        "kind": "confined_emergency_exception_exposure",
+        "materiality": "material",
+        "rationale": "Deliberately NOT a CSTAR-D-1.0 member kind (mirrors Case B v1.1's B-02/B-03 'other approved mandatory' pattern, docs/CASE_B_V1_1_RATIONALE.md): the confined emergency exception is mandatorily gated via gate_candidate=mandatory whenever it is compiled at all, independent of C* membership, which is exactly what lets D-02's disposition legitimately vary -- runtime (CCS1/CCS2) or an accepted residual with a declared non-runtime treatment when the path is governance-disabled (CCS0, spec D2) -- without invoking C* coverage's runtime-or-RC-06-only rule.",
+        "reversibility": "irreversible"
+      },
+      "control_effectiveness": "partially_effective",
+      "impact_inherent": 5,
+      "impact_residual": 5,
+      "likelihood_inherent": 3,
+      "likelihood_residual": 2,
+      "reopening_trigger": "any change to the emergency-exception authorization roster or parameter bounds",
+      "risk_id": "D-02",
+      "tier": "tier_1",
+      "treatment": "mitigate"
+    }
+  ],
+  "risk_register": [
+    {
+      "affected_parties": [
+        "beneficiaries of authorized transfers",
+        "the institution as a regulated entity"
+      ],
+      "cause": "the release path can be invoked with only one authorizing officer",
+      "consequence": "an unauthorized externalization -- the system exercises authority it does not hold",
+      "event": "a funds transfer releases without the required dual authorization",
+      "existing_controls": [
+        "service-to-service authentication"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "release_funds",
+          "destination": "treasury_rail",
+          "resource": "funds_transfer_instruction",
+          "subject": "treasury_agent"
+        }
+      ],
+      "obligation_refs": [
+        "INT-DUAL-AUTH"
+      ],
+      "owner": "business.treasury_operations",
+      "risk_id": "D-01",
+      "source_register_row": "prospectively designed for the Paper 2 v1.2 governance-to-control validation campaign"
+    },
+    {
+      "affected_parties": [
+        "beneficiaries of authorized transfers",
+        "the institution as a regulated entity"
+      ],
+      "cause": "an emergency-exception path, when enabled, permits a single officer to release without dual authorization",
+      "consequence": "an unauthorized externalization under a claimed emergency -- the exception is exercised without its required preconditions",
+      "event": "an emergency funds transfer proceeds without a validly authorized emergency officer under declared emergency conditions",
+      "existing_controls": [
+        "service-to-service authentication"
+      ],
+      "hazardous_action_paths": [
+        {
+          "action": "release_funds",
+          "destination": "treasury_rail",
+          "resource": "funds_transfer_instruction",
+          "subject": "treasury_agent"
+        }
+      ],
+      "obligation_refs": [
+        "INT-EMERGENCY-EXCEPTION"
+      ],
+      "owner": "business.treasury_operations",
+      "risk_id": "D-02",
+      "source_register_row": "prospectively designed for the Paper 2 v1.2 governance-to-control validation campaign"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "assessment",
+    "key_id": "key.assessor",
+    "payload_hash": "eeed6682264179547483c92dd0500c47eb0267da0971a83f8ce8763cffa0e045",
+    "signature_b64": "15hfd2q5S7MXgAAyCCQY7XuSJUIjIyD99L+KM4xFPc7dwI/D+wtyzmefZjIooa7mlDGHD0sib678kVQxPOrKDw==",
+    "signing_time": "2026-03-02T09:00:00Z"
+  },
+  "system_profile": {
+    "actors": [
+      "treasury_agent",
+      "treasury.officer_on_duty",
+      "payments.analyst_eta2_tier"
+    ],
+    "affected_parties": [
+      "beneficiaries of authorized transfers",
+      "the institution as a regulated entity"
+    ],
+    "architecture": "Transfer request -> decision service -> runtime authority (permit or SAFE_STATE) -> evidence commit -> treasury rail release.",
+    "authority_matrix": [
+      {
+        "action": "release_funds",
+        "destination": "treasury_rail",
+        "hazardous": true,
+        "notes": "The sole external action. Once released, a treasury transfer is not rescindable on the rail.",
+        "parameter_schema": {
+          "currency": {
+            "enum": [
+              "CAD",
+              "USD"
+            ],
+            "required": true,
+            "type": "string"
+          },
+          "transfer_hash": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "parameter_schema_id": "PS-RELEASE-FUNDS",
+        "resource": "funds_transfer_instruction",
+        "subject": "treasury_agent"
+      }
+    ],
+    "autonomy_level": "autonomous_agent",
+    "capabilities": [
+      "per-transfer authorization decisioning",
+      "dual-authorization verification against the authorization registry",
+      "narrowly confined emergency-exception evaluation, only where enabled and authorized"
+    ],
+    "data_classes": [
+      "funds transfer instruction detail",
+      "treasury officer authorization roster",
+      "emergency-event and emergency-officer-authority evidence"
+    ],
+    "scale": {
+      "transfers_per_day": 400,
+      "unit": "count"
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "a1cd35a1896f8078a67c2ae07b177c87a6fbf459",
+    "git_commit_short": "a1cd35a",
+    "git_describe": "v1.1.0-5-ga1cd35a-dirty",
+    "git_status_clean": false,
+    "git_tag_exact": null,
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-28T14:32:22Z",
+    "system": "Darwin"
+  },
+  "phase": "development",
+  "phase_note": "DEVELOPMENT result; not reportable.",
+  "result": {
+    "compiler_process_properties": [
+      {
+        "check": "compiler_performs_no_semantic_interpretation",
+        "detail": "tests/adversarial/test_no_inference.py (static AST scan over the compiler path, including gcir.contract_v12 and gcir.rc_routing as of this generation) forbids similarity/best-match/classifier identifiers",
+        "passed": true,
+        "pytest_summary": "52 passed in 0.11s"
+      },
+      {
+        "check": "no_llm_or_model_dependency_in_canonical_compilation",
+        "detail": "same static scan: FORBIDDEN_IMPORTS includes openai/anthropic/langchain/transformers/torch/tensorflow etc.",
+        "passed": true,
+        "pytest_summary": "52 passed in 0.11s"
+      },
+      {
+        "check": "no_random_source",
+        "detail": "same static scan: FORBIDDEN_IMPORTS includes random/secrets/numpy.random; FORBIDDEN_IDENTIFIERS includes seed/shuffle/sample/choice",
+        "passed": true,
+        "pytest_summary": "52 passed in 0.11s"
+      },
+      {
+        "check": "no_runtime_feedback_becomes_authority",
+        "detail": "CompilerInputs.__init__ accepts only declared governance-time parameters",
+        "offenders": [],
+        "parameters": [
+          "acs_records",
+          "assessment",
+          "bundle_effective_from",
+          "catalog",
+          "compile_time",
+          "cstar_profile",
+          "dispositions",
+          "invariants",
+          "judgment",
+          "keyring",
+          "policy_metadata",
+          "signatures",
+          "signing_authorities",
+          "threshold_contracts"
+        ],
+        "passed": true
+      },
+      {
+        "check": "outcome_indifference",
+        "detail": "two independent compiles of the same governance input are byte-identical",
+        "first_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
+        "passed": true,
+        "second_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1"
+      },
+      {
+        "check": "no_target_vendor_preference",
+        "detail": "exact_lookup performs a single dict lookup keyed on (event_type, template_id) plus one not-found branch; no vendor/producer receives special-cased treatment",
+        "if_statement_count": 1,
+        "passed": true
+      }
+    ],
+    "direct_machine_checkable_examples": [
+      {
+        "check": "threshold_provenance",
+        "detail": "every threshold_contract_ref a predicate cites resolves in payload.threshold_contracts",
+        "passed": true,
+        "referenced": [
+          "TC-PAYMENT-LIMIT",
+          "TC-VELOCITY-BOUND"
+        ],
+        "registered": [
+          "TC-ESCALATION-LIMIT",
+          "TC-PAYMENT-LIMIT",
+          "TC-VELOCITY-BOUND"
+        ],
+        "unregistered": []
+      },
+      {
+        "check": "score_does_not_choose_class_or_gate",
+        "collision_count": 0,
+        "detail": "gate assignment is the approved specification set, not a function of the residual L*I score alone; Proposition 1/2 premises over case_b_v1_1's real register",
+        "gd_min": 0,
+        "inversion_count": 0,
+        "passed": true
+      },
+      {
+        "check": "failure_semantics_not_widened",
+        "detail": "a weakened on_fail (SAFE_STATE -> WARN) is rejected by gcir.contract_v12.failure_semantics",
+        "issues": [
+          "ACS-B01-01: on_fail weakened from 'SAFE_STATE' to 'WARN'"
+        ],
+        "passed": true
+      },
+      {
+        "check": "exception_not_widened",
+        "detail": "an exception widened into a global bypass is rejected (Surface A5)",
+        "issues": [
+          "ACS-B01-01: exception.scope '*' is a global bypass, not a targeted exception"
+        ],
+        "passed": true
+      },
+      {
+        "check": "scope_not_widened",
+        "detail": "a widened exception.parameter_bounds.max_amount is rejected (Surface A4)",
+        "issues": [
+          "ACS-D02-01: exception.parameter_bounds.max_amount widened from 1000000 to 999999999"
+        ],
+        "passed": true
+      }
+    ],
+    "note": "Two distinct evidence kinds, reported separately and never merged into one count. No fabricated N1-N12 output checks (spec section 6)."
+  },
+  "result_name": "neutrality_v12"
+}

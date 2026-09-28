@@ -1,0 +1,62 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "a1cd35a1896f8078a67c2ae07b177c87a6fbf459",
+    "git_commit_short": "a1cd35a",
+    "git_describe": "v1.1.0-5-ga1cd35a-dirty",
+    "git_status_clean": false,
+    "git_tag_exact": null,
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-28T14:32:48Z",
+    "system": "Darwin"
+  },
+  "phase": "development",
+  "phase_note": "DEVELOPMENT result; not reportable.",
+  "result": {
+    "K": 250000,
+    "all_match_historical_baseline": true,
+    "cases": [
+      "case_a",
+      "case_b_v1_1"
+    ],
+    "explicitly_not": [
+      "seven-class stability",
+      "class-gated"
+    ],
+    "per_case_regression": {
+      "case_a": {
+        "GD_approved": 3,
+        "GD_min_mean": 3.226356,
+        "matches_historical_baseline": true,
+        "max_FP_heat": 0.321268,
+        "max_FP_heat_risk_id": "R-06",
+        "mcse": 0.000933926918288578
+      },
+      "case_b_v1_1": {
+        "GD_approved": 4,
+        "GD_min_mean": 0.0,
+        "matches_historical_baseline": true,
+        "max_FP_heat": 0.31798,
+        "max_FP_heat_risk_id": "B-01",
+        "mcse": 0.000931383314430745
+      }
+    },
+    "regression_status": "REPRODUCES historical baseline",
+    "seed": 20260201,
+    "source_summary_files": [
+      "results/development/monte_carlo_summary_case_b_v11.json",
+      "results/development/monte_carlo_per_risk_case_b_v11.csv"
+    ],
+    "wording": "C*-based consequence-gate assignment"
+  },
+  "result_name": "monte_carlo_regression_v12"
+}

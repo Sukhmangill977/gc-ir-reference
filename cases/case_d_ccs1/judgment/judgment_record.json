@@ -1,0 +1,72 @@
+{
+  "approvals": [
+    {
+      "acs_id": "ACS-D01-01",
+      "approval_time": "2026-03-02T15:00:00Z",
+      "approver": "forum.chair_treasury",
+      "forum": "treasury_governance_forum"
+    },
+    {
+      "acs_id": "ACS-D02-01",
+      "approval_time": "2026-03-02T15:00:00Z",
+      "approver": "forum.chair_treasury",
+      "forum": "treasury_governance_forum"
+    }
+  ],
+  "assessment_ref": {
+    "assessment_id": "ASSESSMENT-CASE-D",
+    "binding_id": "VB-CASE-D-1.0"
+  },
+  "catalog_ref": {
+    "catalog_id": "K-CASE-D",
+    "version": "1.0"
+  },
+  "disposition_decisions": [
+    {
+      "decided_by": "business.head_treasury_operations",
+      "decision_time": "2026-03-02T15:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "D-01",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "forum.chair_treasury",
+      "decision_time": "2026-03-02T15:05:00Z",
+      "rationale": "Emergency-exception path enabled and confined per spec D5/D6; J_D resolves 'authorized officer' to the Treasury Officer credential.",
+      "risk_id": "D-02",
+      "status": "runtime"
+    }
+  ],
+  "judgment_id": "J-CASE-D-CCS1",
+  "selections": [
+    {
+      "acs_id": "ACS-D01-01",
+      "event_type": "dual_authorization_check",
+      "rationale": "Dual authorization is a structural check over a signed registry artifact; T-DUAL-AUTH is the approved template. Ordinary path, present and decisive across every CCS variant.",
+      "risk_id": "D-01",
+      "selected_by": "business.head_treasury_operations",
+      "selection_id": "JD-CCS1-SEL-001",
+      "selection_time": "2026-03-02T15:00:00Z",
+      "template_id": "T-DUAL-AUTH"
+    },
+    {
+      "acs_id": "ACS-D02-01",
+      "event_type": "emergency_officer_authority_check",
+      "rationale": "Emergency-exception structural check per T-EMERGENCY-AUTHORITY. J_D resolves the policy's undefined term 'authorized officer' to mean specifically the Treasury Officer credential (spec D5): authorized_actor = ['treasury.officer_on_duty']. Confined to the exception path per spec D6.",
+      "risk_id": "D-02",
+      "selected_by": "forum.chair_treasury",
+      "selection_id": "JD-CCS1-SEL-002",
+      "selection_time": "2026-03-02T15:05:00Z",
+      "template_id": "T-EMERGENCY-AUTHORITY"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "judgment_record",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "5c2a45b9d00984341cdef77241fb23401413674b023f4221263b33b7e2142210",
+    "signature_b64": "tlwkR9EFppuLMrbdU9+guLrZ16NgYoYq5qwdeiUmgwUZz3ED+cYxvGwK8GcgE2LglE0gJQBW/8i0EBoXgVCGDw==",
+    "signing_time": "2026-03-02T15:08:00Z"
+  },
+  "version": "1.1"
+}

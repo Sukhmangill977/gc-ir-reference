@@ -77,6 +77,13 @@ ROLE_RULES = [
     ("cases/case_b_v1_1/ldrea_traceability_v1_1_addendum.json", "case_b_input"),
     ("cases/case_b_v1_1/", "case_b_input"),
     ("cases/case_c/", "case_c_input"),
+    # Paper 2 v1.2 (development-generation; not part of any frozen
+    # preregister-tier0 campaign as of this generation). Three sibling case
+    # trees (CCS0/CCS1/CCS2), not one multi-judgment tree -- see
+    # tools/build_case_d.py's module docstring for why.
+    ("cases/case_d_ccs0/", "case_d_input"),
+    ("cases/case_d_ccs1/", "case_d_input"),
+    ("cases/case_d_ccs2/", "case_d_input"),
     ("results/final/case_a/bundle.json", "compiled_bundle_a"),
     ("results/final/case_b/bundle.json", "compiled_bundle_b"),
     ("results/final/case_a/", "compiled_bundle_a"),
@@ -96,6 +103,10 @@ ROLE_RULES = [
     ("results/final_v2/", "measured_result"),
     ("results/final/", "superseded_result"),
     ("results/development/", "development_result"),
+    # Paper 2 v1.2 development-only results (spec section 16); same role as
+    # results/development/, kept in its own directory per this generation's
+    # plan so neither run's files are ever confused with the other's.
+    ("results/development_v12/", "development_result"),
     ("docs/source/", "source_document"),
     ("docs/", "documentation"),
     ("paper_update/", "manuscript_reconciliation"),

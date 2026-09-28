@@ -12,7 +12,7 @@
                "threshold_contracts", "policy_metadata", "validity"],
   "properties": {
     "payload_type": { "const": "GcirPredicateBundle" },
-    "schema_version": { "enum": ["1.0", "1.1"] },
+    "schema_version": { "enum": ["1.0", "1.1", "1.2"] },
     "bundle_id": { "$ref": "common.schema.json#/$defs/identifier" },
     "case_id": { "$ref": "common.schema.json#/$defs/identifier" },
     "version_binding": {
@@ -56,7 +56,11 @@
       "required": ["judgment_id", "version"],
       "properties": {
         "judgment_id": { "type": "string" },
-        "version": { "type": "string" }
+        "version": { "type": "string" },
+        "content_hash": {
+          "$ref": "common.schema.json#/$defs/sha256Hex",
+          "description": "Schema v1.2, Paper 2 v1.2 spec section 1A. Present only once the bundle is schema_version 1.2; binds the canonical judgment content itself, not just its id/version."
+        }
       }
     },
     "invariant_register_ref": {

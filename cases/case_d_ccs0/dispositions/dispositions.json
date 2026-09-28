@@ -1,0 +1,30 @@
+{
+  "disposition_set_id": "DELTA-CASE-D-CCS0",
+  "records": [
+    {
+      "acs_ids": [
+        "ACS-D01-01"
+      ],
+      "risk_id": "D-01",
+      "status": "runtime"
+    },
+    {
+      "acceptor": "exec.head_of_treasury",
+      "approval_time": "2026-03-02T15:00:00Z",
+      "expiry": "2027-03-05T00:00:00Z",
+      "rationale": "emergency_exception_disabled; route=manual_governance_process (spec D2 example).",
+      "risk_id": "D-02",
+      "scope": "Emergency-exception path is explicitly disabled under CCS0 (spec D2): any actual emergency request is routed to the declared manual governance process, never compiled as a runtime control.",
+      "status": "accepted"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "dispositions",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "540280cf2ca6151134d151b05136c92c1c0b50af568203c146103f1dd44783aa",
+    "signature_b64": "kOVq6T/dV/DrWF7jPjMicBhj5Ihivgty9hvy9/SozgiQ0bFzWYihwtBpWBG6DDO2P7w6p9A909BxGHSZxpnaCA==",
+    "signing_time": "2026-03-02T15:12:00Z"
+  },
+  "version_binding_ref": "VB-CASE-D-1.0"
+}

@@ -1,0 +1,104 @@
+{
+  "approval_time": "2026-03-02T15:00:00Z",
+  "approved_by": "treasury_governance_forum",
+  "catalog_id": "K-CASE-D",
+  "entries": [
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "authorization_registry_service_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "dual_authorization_check",
+      "evidence_schema": {
+        "fields": [
+          "transfer_hash",
+          "authorizer_1_id",
+          "authorizer_2_id",
+          "dual_authorization_present"
+        ],
+        "schema_id": "ES-DUAL-AUTH"
+      },
+      "notes": "Ordinary path: a signed registry artifact reporting whether two distinct treasury officers authorized this transfer.",
+      "observable_class": "dual_authorization_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-DUAL-AUTH",
+      "triple_template": {
+        "action": [
+          "release_funds"
+        ],
+        "destination": [
+          "treasury_rail"
+        ],
+        "resource": [
+          "funds_transfer_instruction"
+        ],
+        "subject": [
+          "treasury_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "allowed_operators": [
+        "=="
+      ],
+      "allowed_producers": [
+        "emergency_authority_registry_service_v1"
+      ],
+      "evaluation_basis": "structural_check",
+      "event_type": "emergency_officer_authority_check",
+      "evidence_schema": {
+        "fields": [
+          "transfer_hash",
+          "emergency_event_id",
+          "officer_id",
+          "officer_credential",
+          "emergency_event_active",
+          "officer_authority_valid",
+          "evidence_freshness_seconds"
+        ],
+        "schema_id": "ES-EMERGENCY-AUTHORITY"
+      },
+      "notes": "Exception path only (spec D6): a signed registry artifact jointly reporting EmergencyEvent, EmergencyOfficerAuthorityValid and EmergencyEvidenceFresh. Never consulted by the ordinary dual-authorization gate.",
+      "observable_class": "emergency_authority_state",
+      "permitted_responses": [
+        "SAFE_STATE"
+      ],
+      "template_id": "T-EMERGENCY-AUTHORITY",
+      "triple_template": {
+        "action": [
+          "release_funds"
+        ],
+        "destination": [
+          "treasury_rail"
+        ],
+        "resource": [
+          "funds_transfer_instruction"
+        ],
+        "subject": [
+          "treasury_agent"
+        ]
+      },
+      "value_schema": {
+        "type": "boolean"
+      }
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "catalog",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "92e291c1a4b31e478058858a47096ced59d436791d92728047967ec6e30bd049",
+    "signature_b64": "NQ7BqPj5XnqJdmNf7szc2zyAjmhLJcWPo2qG25PKc/CnjhTyYZdcopNkrRjLtwQ9LbuYZi052hGFOelOvPvjCQ==",
+    "signing_time": "2026-03-02T15:05:00Z"
+  },
+  "version": "1.0",
+  "version_binding_ref": "VB-CASE-D-1.0"
+}

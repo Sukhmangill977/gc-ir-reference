@@ -28,20 +28,24 @@ from gcir.models import (
 
 def test_reason_codes_are_closed_at_v1_and_match_the_manuscript():
     """Section V names RC-01, RC-02, RC-03 and RC-05 as closed at schema v1.0.
-    RC-04 is not defined by the manuscript and must not be invented. Schema
-    v1.1 (this generation) adds RC-06 (Section III: continuous control, fails
-    AD-1, belongs to the runtime safety layer) -- an extension, not a change
-    to the v1.0 four."""
+    Schema v1.1 added RC-06 (Section III: continuous control, fails AD-1,
+    belongs to the runtime safety layer) -- an extension, not a change to the
+    v1.0 four. Paper 2 v1.2 defines RC-04 (spec section 1L: a discrete action
+    on the correct control layer whose profile-required timing assurance has
+    not been established, compile-ineligible) -- through schema v1.1, RC-04
+    was reserved-unused because the manuscript did not define it; v1.2 is the
+    schema-version event that defines it, per the same "extension, not
+    invention" discipline RC-06 followed at v1.1."""
     v1_0_codes = {"RC-01", "RC-02", "RC-03", "RC-05"}
     assert v1_0_codes.issubset(REASON_CODES)
-    assert sorted(REASON_CODES) == ["RC-01", "RC-02", "RC-03", "RC-05", "RC-06"]
+    assert sorted(REASON_CODES) == ["RC-01", "RC-02", "RC-03", "RC-04", "RC-05", "RC-06"]
     assert REASON_CODES["RC-01"] == "no per-action observable"
     assert REASON_CODES["RC-02"] == "no authority-matrix action"
     assert REASON_CODES["RC-03"] == "requires probabilistic judgment"
     assert REASON_CODES["RC-05"] == "consequence class undefined"
     assert "runtime safety layer" in REASON_CODES["RC-06"]
-    assert RESERVED_UNUSED_REASON_CODES == ("RC-04",)
-    assert "RC-04" not in REASON_CODES
+    assert "compile-ineligible" in REASON_CODES["RC-04"]
+    assert RESERVED_UNUSED_REASON_CODES == ()
 
 
 def test_wc01_is_a_warning_code_not_a_reason_code():

@@ -80,7 +80,13 @@
           "warrant_boundary": { "type": "string", "minLength": 1 },
           "enforcement_phase": { "$ref": "common.schema.json#/$defs/enforcementPhase" },
           "evaluation_latency_bound": { "$ref": "common.schema.json#/$defs/evaluationLatencyBound" },
-          "on_evaluation_timeout": { "$ref": "common.schema.json#/$defs/onEvaluationTimeout" }
+          "on_evaluation_timeout": { "$ref": "common.schema.json#/$defs/onEvaluationTimeout" },
+          "primary_class": { "$ref": "common.schema.json#/$defs/primaryClass" },
+          "interpretation_status": { "$ref": "common.schema.json#/$defs/interpretationStatus" },
+          "exception": { "$ref": "common.schema.json#/$defs/exceptionRef" },
+          "synchronization_contract": { "$ref": "common.schema.json#/$defs/synchronizationContract" },
+          "observation_obligation": { "$ref": "common.schema.json#/$defs/observationObligation" },
+          "declared_path": { "$ref": "common.schema.json#/$defs/declaredPathRef" }
         }
       }
     }

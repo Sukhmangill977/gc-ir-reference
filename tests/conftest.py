@@ -66,3 +66,40 @@ def case_c():
 @pytest.fixture(params=["case_a", "case_b"])
 def any_case(request, compiled_cases):
     return compiled_cases[request.param]
+
+
+@pytest.fixture(scope="session")
+def case_d_ccs0():
+    """Paper 2 v1.2 (development-generation; spec section 4, D2/D3):
+    emergency-exception path explicitly disabled."""
+    from gcir.caseio import load_case
+    from gcir.compiler import compile_bundle
+
+    case = load_case("case_d_ccs0")
+    inputs = case.compiler_inputs()
+    return case, inputs, compile_bundle(inputs)
+
+
+@pytest.fixture(scope="session")
+def case_d_ccs1():
+    """Paper 2 v1.2 (development-generation; spec section 4, D5/D6):
+    emergency exception enabled, confined, resolved to the Treasury
+    Officer credential."""
+    from gcir.caseio import load_case
+    from gcir.compiler import compile_bundle
+
+    case = load_case("case_d_ccs1")
+    inputs = case.compiler_inputs()
+    return case, inputs, compile_bundle(inputs)
+
+
+@pytest.fixture(scope="session")
+def case_d_ccs2():
+    """Paper 2 v1.2 (development-generation; spec section 4, D9): policy
+    4.3 / J' widens the authorized emergency actor set."""
+    from gcir.caseio import load_case
+    from gcir.compiler import compile_bundle
+
+    case = load_case("case_d_ccs2")
+    inputs = case.compiler_inputs()
+    return case, inputs, compile_bundle(inputs)

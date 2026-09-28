@@ -1,0 +1,28 @@
+{
+  "disposition_set_id": "DELTA-CASE-D-CCS2",
+  "records": [
+    {
+      "acs_ids": [
+        "ACS-D01-01"
+      ],
+      "risk_id": "D-01",
+      "status": "runtime"
+    },
+    {
+      "acs_ids": [
+        "ACS-D02-01"
+      ],
+      "risk_id": "D-02",
+      "status": "runtime"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "dispositions",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "ed1fbf55f0d14bb139bfe4a38bf9c1e804ff8d07ee95037da7edb2698e7e0320",
+    "signature_b64": "52DIbtxdwRGtxAaDU6rCOKFAdyWihQ2sUqAHBz+kw6qWw6uvQ6Fp8YFcf2M932P5QTK9V23Q5ciLZOMePv/bCA==",
+    "signing_time": "2026-03-02T15:12:00Z"
+  },
+  "version_binding_ref": "VB-CASE-D-1.0"
+}

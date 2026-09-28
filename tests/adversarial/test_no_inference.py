@@ -23,6 +23,12 @@ COMPILER_PATH_MODULES = [
     "canonicalization.py", "validation.py", "models.py", "precedence.py",
     "lifecycle.py", "temporal.py", "signatures.py", "metrics.py", "caseio.py",
     "traceability.py",
+    # Paper 2 v1.2: the governance-to-control validator suite and the
+    # RC-04/RC-06 routing decision are, by the same spec-1E "no-invention"
+    # discipline they themselves enforce, held to the identical static
+    # no-inference guarantee as Phi itself -- neither performs semantic
+    # interpretation, consults an LLM, or draws on randomness or a clock.
+    "contract_v12.py", "rc_routing.py",
 ]
 
 #: Identifiers whose presence would indicate inference, similarity or randomness.

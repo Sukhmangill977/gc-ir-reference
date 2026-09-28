@@ -1,0 +1,70 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "a1cd35a1896f8078a67c2ae07b177c87a6fbf459",
+    "git_commit_short": "a1cd35a",
+    "git_describe": "v1.1.0-5-ga1cd35a-dirty",
+    "git_status_clean": false,
+    "git_tag_exact": null,
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-28T14:32:40Z",
+    "system": "Darwin"
+  },
+  "phase": "development",
+  "phase_note": "DEVELOPMENT result; not reportable.",
+  "result": {
+    "hosts_pooled": false,
+    "machine": {
+      "architecture": "arm64",
+      "machine": "192.168.1.15",
+      "os": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.11.15",
+      "python_implementation": "CPython",
+      "single_host_disclaimer": "One reportable reference machine only (spec section 12); not pooled across hosts; not platform-general latency."
+    },
+    "measures": "canonical input -> canonical Phi_core payload (gcir.compiler.compile_bundle) only, not the file-loading/JSON-parsing wrapper",
+    "not_platform_general_latency": true,
+    "per_case": {
+      "case_a": {
+        "case": "case_a",
+        "case_size_control_count": 19,
+        "max_ms": 12.930124998092651,
+        "median_ms": 12.452729046344757,
+        "min_ms": 12.281082919798791,
+        "n": 100,
+        "p95_ms": 12.536339863436297,
+        "warmup": 10
+      },
+      "case_b_v1_1": {
+        "case": "case_b_v1_1",
+        "case_size_control_count": 12,
+        "max_ms": 7.936334004625678,
+        "median_ms": 7.840104051865637,
+        "min_ms": 7.735832943581045,
+        "n": 100,
+        "p95_ms": 7.8868628886993974,
+        "warmup": 10
+      },
+      "case_d_ccs1": {
+        "case": "case_d_ccs1",
+        "case_size_control_count": 5,
+        "max_ms": 3.892958047799766,
+        "median_ms": 3.84266598848626,
+        "min_ms": 3.8130839820951223,
+        "n": 100,
+        "p95_ms": 3.867075580637902,
+        "warmup": 10
+      }
+    }
+  },
+  "result_name": "compile_timing_v12"
+}

@@ -1,0 +1,72 @@
+{
+  "approvals": [
+    {
+      "acs_id": "ACS-D01-01",
+      "approval_time": "2026-03-02T15:00:00Z",
+      "approver": "forum.chair_treasury",
+      "forum": "treasury_governance_forum"
+    },
+    {
+      "acs_id": "ACS-D02-01",
+      "approval_time": "2026-03-02T15:00:00Z",
+      "approver": "forum.chair_treasury",
+      "forum": "treasury_governance_forum"
+    }
+  ],
+  "assessment_ref": {
+    "assessment_id": "ASSESSMENT-CASE-D",
+    "binding_id": "VB-CASE-D-1.0"
+  },
+  "catalog_ref": {
+    "catalog_id": "K-CASE-D",
+    "version": "1.0"
+  },
+  "disposition_decisions": [
+    {
+      "decided_by": "business.head_treasury_operations",
+      "decision_time": "2026-03-02T15:00:00Z",
+      "rationale": "The risk has an approved catalog observable evaluable at authorization time on the sole authorized external action path.",
+      "risk_id": "D-01",
+      "status": "runtime"
+    },
+    {
+      "decided_by": "forum.chair_treasury",
+      "decision_time": "2026-03-09T15:05:00Z",
+      "rationale": "Emergency-exception path widened under policy 4.3 / new judgment J' (spec D9): the analyst + ETA-2 tier may now also exercise the confined emergency authority.",
+      "risk_id": "D-02",
+      "status": "runtime"
+    }
+  ],
+  "judgment_id": "J-CASE-D-CCS2",
+  "selections": [
+    {
+      "acs_id": "ACS-D01-01",
+      "event_type": "dual_authorization_check",
+      "rationale": "Dual authorization is a structural check over a signed registry artifact; T-DUAL-AUTH is the approved template. Ordinary path, present and decisive across every CCS variant.",
+      "risk_id": "D-01",
+      "selected_by": "business.head_treasury_operations",
+      "selection_id": "JD-CCS2-SEL-001",
+      "selection_time": "2026-03-02T15:00:00Z",
+      "template_id": "T-DUAL-AUTH"
+    },
+    {
+      "acs_id": "ACS-D02-01",
+      "event_type": "emergency_officer_authority_check",
+      "rationale": "Emergency-exception structural check per T-EMERGENCY-AUTHORITY, re-selected under policy 4.3 / new judgment J' (spec D9): the analyst + ETA-2 tier may now also exercise the confined emergency authority, up to the same $1,000,000 bound. This is a new, separately authorized widening -- not the unauthorized ad-hoc widening spec D7 rejects.",
+      "risk_id": "D-02",
+      "selected_by": "forum.chair_treasury",
+      "selection_id": "JD-CCS2-SEL-002",
+      "selection_time": "2026-03-09T15:05:00Z",
+      "template_id": "T-EMERGENCY-AUTHORITY"
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "judgment_record",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "0cf1bf6bac4b976fbfe82420a68f1baa42f80ff0ffb380191da4e81a203fb82d",
+    "signature_b64": "j0ITxyZw5jvyxZyvTNUChasPkodO2EnvjZYO6Ry/Oo5Yut+6xdk12DO/b8f93GXf4GRnd6hgYRo21ZkYEaQQAg==",
+    "signing_time": "2026-03-02T15:08:00Z"
+  },
+  "version": "1.2"
+}

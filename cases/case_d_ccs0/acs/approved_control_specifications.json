@@ -1,0 +1,85 @@
+{
+  "acs_set_id": "D-CASE-D-CCS0",
+  "records": [
+    {
+      "acs_id": "ACS-D01-01",
+      "action": "release_funds",
+      "action_parameters": {
+        "currency": "CAD",
+        "transfer_hash": "PARAM-BOUND-AT-RUNTIME"
+      },
+      "approval_time": "2026-03-02T15:00:00Z",
+      "approver": "forum.chair_treasury",
+      "context_conditions": [
+        {
+          "attribute": "dual_authorization_present",
+          "evidence_producer": "authorization_registry_service_v1",
+          "evidence_schema_ref": "ES-DUAL-AUTH",
+          "on_unknown": "fail",
+          "operator": "==",
+          "required": true,
+          "temporal_window": null,
+          "threshold_contract_ref": null,
+          "unit": null,
+          "value": true
+        }
+      ],
+      "control_owner": "business.treasury_operations",
+      "decision_semantics": "PERMIT requires dual_authorization_present == true; indeterminate or absent evidence fails. This condition carries no emergency-authority prerequisite and no emergency-evidence prerequisite (spec D3): it is evaluated identically whether or not the emergency exception is enabled elsewhere.",
+      "destination": "treasury_rail",
+      "enforcement_phase": "PRE_AUTHORIZATION",
+      "escalation": {
+        "route": "treasury_operations_urgent",
+        "sla_hours": 1
+      },
+      "evaluation_basis": "structural_check",
+      "event_type": "dual_authorization_check",
+      "evidence_requirements": [
+        "transfer_hash",
+        "authorizer_1_id",
+        "authorizer_2_id",
+        "dual_authorization_present"
+      ],
+      "evidence_schema_ref": "ES-DUAL-AUTH",
+      "evidence_semantics": "A signed registry artifact reporting whether two distinct treasury officers authorized this transfer.",
+      "evidence_source": "authorization_registry_service_v1 signed artifact bound to the transfer hash",
+      "expected_value": true,
+      "gate_candidate": "mandatory",
+      "gcir_id": "GCIR-D0001",
+      "mandatory_role": "decisive",
+      "obligation_refs": [
+        "INT-DUAL-AUTH"
+      ],
+      "observable_class": "dual_authorization_state",
+      "observable_id": "dual_authorization_present",
+      "observable_producer": "authorization_registry_service_v1",
+      "on_fail": "SAFE_STATE",
+      "on_unknown": "fail",
+      "operator": "==",
+      "parameter_schema_ref": "PS-RELEASE-FUNDS",
+      "policy_id": "POL-D-DUAL-AUTH",
+      "primary_class": "auth",
+      "resource": "funds_transfer_instruction",
+      "risk_id": "D-01",
+      "subject": "treasury_agent",
+      "template_id": "T-DUAL-AUTH",
+      "temporal_window": null,
+      "threshold_contract_ref": null,
+      "validity_interval": {
+        "effective_from": "2026-03-05T00:00:00Z",
+        "effective_until": "2027-03-05T00:00:00Z"
+      },
+      "version_binding_ref": "VB-CASE-D-1.0",
+      "warrant_boundary": "Establishes that two distinct treasury officers authorized this transfer. It does not establish that either officer's judgment was substantively correct."
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "acs",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "8f67ae99fb71179c00817975da9c28c8410e8520e49650af205d20c0bace7d5d",
+    "signature_b64": "qOydQ+ZeohV3MMlGb1nHYntyNDyoZ1lcyLoz8+q4OizgciEu3aizk+OF4XNY0NpflCVsz7jkjorQO1JjU6gDDw==",
+    "signing_time": "2026-03-02T15:10:00Z"
+  },
+  "version_binding_ref": "VB-CASE-D-1.0"
+}

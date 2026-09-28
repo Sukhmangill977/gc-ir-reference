@@ -68,8 +68,8 @@
     "mandatoryRole": { "enum": ["decisive", "supporting"] },
     "originType": { "enum": ["risk_derived", "compiler_invariant"] },
     "reasonCode": {
-      "enum": ["RC-01", "RC-02", "RC-03", "RC-05", "RC-06"],
-      "description": "Closed at schema v1.0 (Section V), extended at v1.1 (Section III). RC-01 no per-action observable; RC-02 no authority-matrix action; RC-03 requires probabilistic judgment; RC-05 consequence class undefined; RC-06 (v1.1) continuous control, fails AD-1, belongs to the runtime safety layer. RC-04 is not defined in the manuscript and is reserved-unused."
+      "enum": ["RC-01", "RC-02", "RC-03", "RC-04", "RC-05", "RC-06"],
+      "description": "Closed at schema v1.0 (Section V), extended at v1.1 (Section III), extended at v1.2 (Paper 2 v1.2 spec section 1L). RC-01 no per-action observable; RC-02 no authority-matrix action; RC-03 requires probabilistic judgment; RC-04 (v1.2) discrete action is gateable but the profile-required timing assurance has not been established, compile-ineligible; RC-05 consequence class undefined; RC-06 (v1.1) continuous control, fails AD-1, belongs to the runtime safety layer. RC-04 and RC-06 are deliberately distinct control-layer defects (see gcir.rc_routing): RC-06 is the wrong layer entirely (route to standing safety/RTA), RC-04 is the right layer with missing timing assurance (compile-ineligible, never auto-routed to RTA)."
     },
     "warningCode": {
       "enum": ["WC-01"],
@@ -157,6 +157,69 @@
     "responsePolicy": {
       "enum": ["REQUIRED", "OPTIONAL", "NONE"],
       "description": "Schema v1.1, Section VII-I. Governs whether a conformant runtime must emit a HumanResponse record for permits issued under this predicate."
+    },
+    "primaryClass": {
+      "enum": ["auth", "meta", "standing", "state", "evidence", "human", "audit"],
+      "description": "Schema v1.2, Paper 2 v1.2 spec section 1B. Every derived artifact (compiled predicate) has exactly one primary class; a requirement may produce several artifacts, each with its own single class. Prohibited class collapse (e.g. human -> auth, meta -> auth) is rejected by gcir.contract_v12.primary_class_preservation, not by this schema alone."
+    },
+    "interpretationStatus": {
+      "enum": ["resolved", "unresolved"],
+      "description": "Schema v1.2, Paper 2 v1.2 spec section 1F. An ACS or invariant declaring 'unresolved' on a mandatory semantic interpretation that would compile into an active (runtime) control is COMPILE-FAIL / release-inadmissible (gcir.validation.constraint_18_no_unresolved_mandatory_interpretation), never a runtime DENY or HOLD."
+    },
+    "exceptionRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target_requirement", "trigger", "authorized_actor", "parameter_bounds", "scope", "lifecycle_version_binding"],
+      "description": "Schema v1.2, Paper 2 v1.2 spec section 1G. Every declared exception preserves its target requirement, trigger, authorized actor(s), parameter bounds, scope, and lifecycle/version binding. A scope of '*'/'ALL'/'GLOBAL' or an empty scope is a global bypass and is rejected by gcir.contract_v12.exception_scope, not permitted merely by this schema.",
+      "properties": {
+        "target_requirement": { "$ref": "#/$defs/identifier" },
+        "trigger": { "type": "string", "minLength": 1 },
+        "authorized_actor": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/identifier" } },
+        "parameter_bounds": { "type": "object" },
+        "scope": { "type": "array", "items": { "type": "string" } },
+        "lifecycle_version_binding": { "$ref": "#/$defs/identifier" }
+      }
+    },
+    "synchronizationContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "epoch_version", "freshness", "observed_at", "valid_until",
+                   "invalidation_trigger", "revalidation_requirement", "failure_response",
+                   "downstream_interface"],
+      "description": "Schema v1.2, Paper 2 v1.2 spec section 1J. Validates representation of the synchronization contract only (gcir.contract_v12.synchronization_contract_representation); it does not prove runtime synchronization.",
+      "properties": {
+        "source": { "$ref": "#/$defs/identifier" },
+        "epoch_version": { "type": "string", "minLength": 1 },
+        "freshness": { "type": "string", "minLength": 1 },
+        "observed_at": { "$ref": "#/$defs/rfc3339Utc" },
+        "valid_until": { "$ref": "#/$defs/rfc3339Utc" },
+        "invalidation_trigger": { "type": "string", "minLength": 1 },
+        "revalidation_requirement": { "type": "string", "minLength": 1 },
+        "failure_response": { "$ref": "#/$defs/onFail" },
+        "downstream_interface": { "$ref": "#/$defs/identifier" }
+      }
+    },
+    "observationObligation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["beta_r", "kappa_r", "q_r"],
+      "description": "Schema v1.2, Paper 2 v1.2 spec section 1K. Omega_r = (beta_r, kappa_r, q_r): beta_r is the required binding information, kappa_r the observation obligation's own declared content, q_r the required observation scope.",
+      "properties": {
+        "beta_r": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "kappa_r": {},
+        "q_r": {
+          "enum": ["event", "cross-request", "sequence", "bounded-history"]
+        }
+      }
+    },
+    "declaredPathRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path_id"],
+      "description": "Schema v1.2, Paper 2 v1.2 spec section 1I. The declared in-scope path id this predicate is the gate/placement mapping for; validated by gcir.contract_v12.declared_path, which checks only the DECLARED path set, never complete mediation.",
+      "properties": {
+        "path_id": { "$ref": "#/$defs/identifier" }
+      }
     },
     "consequenceDescriptor": {
       "type": "object",

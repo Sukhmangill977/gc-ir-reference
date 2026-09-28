@@ -13,6 +13,14 @@ the compiled bundle and the assessment it was compiled from.
     TD   sum_k 1[H_k = H_reference] / N
     GD   GD(T_H) and GD_min
 
+    C_path (Paper 2 v1.2 spec sections 1I, 10): the declared action-path
+    contract -- |{path in declared_paths : path has a compiled gate/placement
+    mapping}| / |declared_paths|. This validates representation of the
+    DECLARED in-scope paths only (``gcir.contract_v12.declared_path``'s own
+    docstring repeats the same caveat): it never claims complete mediation or
+    the absence of an undeclared deployment path, and it is a metric distinct
+    from CV -- one is never substituted for the other.
+
 SNR and DF are RQ5 outcomes and are DEFERRED; this module deliberately does not
 compute them and ``rq5_deferred_metrics`` says so explicitly.
 """
@@ -155,6 +163,39 @@ def coverage_metrics(bundle):
             "definition": "|{r_i : C*(c_i)=1 and each hazardous action path mandatorily gated}| / |{r_i : C*(c_i)=1}|",
             "required": "1.000",
             "note": "1.0 vacuously when the register contains no C* risk" if total == 0 else "",
+        }
+    }
+
+
+def c_path_metric(bundle, declared_paths):
+    """C_path over a caller-supplied registry of declared in-scope paths
+    (``[{"path_id", "subject", "action", "resource", "destination"}, ...]``).
+    ``None`` denominator (vacuous 1.0) when no path is declared, matching
+    CV's own vacuous-coverage convention."""
+    tuples = {
+        (p.get("subject"), p.get("action"), p.get("resource"), p.get("destination")): p["gcir_id"]
+        for p in bundle.predicates
+    }
+    gate_map = bundle.gate_map
+    covered = 0
+    missing = []
+    for path in declared_paths:
+        key = (path["subject"], path["action"], path["resource"], path["destination"])
+        gcir_id = tuples.get(key)
+        if gcir_id is not None and gcir_id in gate_map:
+            covered += 1
+        else:
+            missing.append(path.get("path_id"))
+    total = len(declared_paths)
+    return {
+        "C_path": {
+            "value": 1.0 if total == 0 else _ratio(covered, total),
+            "numerator": covered,
+            "denominator": total,
+            "definition": "|{path in declared_paths : path has a compiled gate/placement mapping}| / |declared_paths|",
+            "required": "1.000 over the DECLARED path set (not a claim of complete mediation)",
+            "missing_paths": missing,
+            "note": "1.0 vacuously when no path is declared" if total == 0 else "",
         }
     }
 

@@ -785,11 +785,17 @@ def adv_052(documents):
       "reject", ["SCHEMA_VALIDATION_FAILED", "REFINEMENT_NOT_CLOSED"],
       "Section V",
       "'Reason and warning codes are closed at schema v1.0; extension is a "
-      "schema-version event.' RC-04 is not defined by the manuscript.")
+      "schema-version event.' RC-99 is not, and has never been, defined by the "
+      "manuscript or any schema-version event -- unlike RC-04, which through "
+      "schema v1.1 was reserved-unused for exactly this purpose (this fixture's "
+      "historical injected value) but was itself defined as a real, closed "
+      "reason code by the Paper 2 v1.2 schema-version event (spec section 1L; "
+      "see gcir.models.REASON_CODES and gcir.rc_routing) and so can no longer "
+      "serve as an 'outside the closed set' example.")
 def adv_053(documents):
     for record in documents["dispositions"]["records"]:
         if record["status"] == "nonruntime":
-            record["reason_code"] = "RC-04"
+            record["reason_code"] = "RC-99"
             return documents
     return documents
 

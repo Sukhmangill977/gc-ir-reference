@@ -1,0 +1,6 @@
+{
+  "case_id": "case_d_ccs1",
+  "schema_version": "1.2",
+  "payload_hash": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784",
+  "note": "Case D CCS1: emergency-exception path enabled and confined, J_D resolves 'authorized officer' to the Treasury Officer credential (Paper 2 v1.2 spec section 4, D5/D6). ACS-D01-01 (ordinary dual authorization) + ACS-D02-01 (confined emergency exception) = 2 risk-derived + 3 compiler-invariant = 5 total predicates. Development artifact; not part of any frozen preregister-tier0 campaign."
+}

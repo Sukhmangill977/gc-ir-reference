@@ -52,6 +52,7 @@ from .signatures import strip_envelope
 
 GCIR_SCHEMA_VERSION = "1.0"
 GCIR_SCHEMA_VERSION_V11 = "1.1"
+GCIR_SCHEMA_VERSION_V12 = "1.2"
 
 #: The optional ACS/invariant fields this generation adds.  Present-if-declared:
 #: a v1.0 ACS that supplies none of these compiles a byte-identical predicate
@@ -65,6 +66,30 @@ V11_PREDICATE_FIELDS = (
     "standing_permit_ref",
     "delegation",
     "response_policy",
+)
+
+#: Paper 2 v1.2 optional ACS/invariant fields (spec sections 1B, 1G, 1J, 1K).
+#: Present-if-declared, exactly like V11_PREDICATE_FIELDS: an ACS that supplies
+#: none of these compiles a byte-identical predicate (modulo schema_version) to
+#: before this generation.
+#:   primary_class              -- spec 1B, one of models.PRIMARY_CLASSES
+#:   exception                  -- spec 1G: target_requirement, trigger,
+#:                                  authorized_actor, parameter_bounds, scope,
+#:                                  lifecycle_version_binding
+#:   synchronization_contract   -- spec 1J: source, epoch_version, freshness,
+#:                                  observed_at, valid_until, invalidation_trigger,
+#:                                  revalidation_requirement, failure_response,
+#:                                  downstream_interface (state_binding itself is
+#:                                  the existing v1.1 field, not duplicated here)
+#:   observation_obligation     -- spec 1K: Omega_r = (beta_r, kappa_r, q_r)
+#:   declared_path               -- spec 1I: the declared in-scope path id this
+#:                                  predicate is the gate/placement mapping for
+V12_PREDICATE_FIELDS = (
+    "primary_class",
+    "exception",
+    "synchronization_contract",
+    "observation_obligation",
+    "declared_path",
 )
 
 
@@ -330,7 +355,7 @@ def _instantiate_predicates(template, acs, risk, cstar_flag, gate_type, gate_sou
         # Section VII-H: declared input-provenance enumeration on an
         # already-classified consequential decision.
         predicate["input_provenance"] = copy.deepcopy(acs["input_provenance"])
-    for field_name in V11_PREDICATE_FIELDS:
+    for field_name in V11_PREDICATE_FIELDS + V12_PREDICATE_FIELDS:
         value = acs.get(field_name)
         if value is not None:
             predicate[field_name] = copy.deepcopy(value)
@@ -402,7 +427,7 @@ def _instantiate_invariant(invariant, assessment):
         "catalog_ref": None,
         "c_star": 0,
     }
-    for field_name in V11_PREDICATE_FIELDS:
+    for field_name in V11_PREDICATE_FIELDS + V12_PREDICATE_FIELDS:
         value = invariant.get(field_name)
         if value is not None:
             predicate[field_name] = copy.deepcopy(value)
@@ -596,6 +621,14 @@ def compile_bundle(inputs, verify_signatures=True):
         for acs_id in canonical_order(disposition.acs_ids, lambda x: x):
             acs = acs_index[acs_id]
 
+            # Paper 2 v1.2 spec section 1F, checked first: a runtime
+            # disposition's ACS declaring an unresolved mandatory semantic
+            # interpretation is COMPILE-FAIL before any of its predicate is
+            # instantiated or any other constraint runs.
+            validation_mod.constraint_18_no_unresolved_mandatory_interpretation(
+                acs, "ACS %s (risk %s)" % (acs_id, risk["risk_id"])
+            )
+
             # Section VI-A steps 2-5, in the order the manuscript states them.
 
             # step 2: resolve event_type to exactly one approved template
@@ -652,6 +685,9 @@ def compile_bundle(inputs, verify_signatures=True):
 
     # --- for inv in canonical_order(INV) ----------------------------------
     for invariant in canonical_order(inputs.invariants, lambda i: i["invariant_id"]):
+        validation_mod.constraint_18_no_unresolved_mandatory_interpretation(
+            invariant, "invariant %s" % invariant["invariant_id"]
+        )
         predicate = _instantiate_invariant(invariant, assessment)
         action_tuple = ActionTuple.from_mapping(predicate)
         entry = authority_mod.resolve_action_tuple(action_tuple, matrix)
@@ -692,21 +728,34 @@ def compile_bundle(inputs, verify_signatures=True):
         )
 
     # --- schema_version: "1.1" iff at least one predicate actually carries a
-    # v1.1-only field; otherwise every emitted record stays "1.0" byte-for-byte
-    # as before this generation.  This is what makes v1.1 additive rather than
-    # a version bump imposed on unrelated bundles.
+    # v1.1-only field, "1.2" iff at least one carries a v1.2-only field (Paper 2
+    # v1.2, spec sections 1A-1L); otherwise every emitted record stays "1.0"
+    # byte-for-byte as before either generation.  This is what makes v1.1 and
+    # v1.2 additive rather than a version bump imposed on unrelated bundles.  A
+    # bundle using only v1.2 fields (no v1.1 field at all) is stamped "1.2"
+    # directly, not "1.1" then "1.2" -- schema_version names the highest
+    # generation actually used, not every generation touched.
     uses_v11 = any(
         any(predicate.get(field_name) is not None for field_name in V11_PREDICATE_FIELDS)
         for predicate in predicates
     )
-    bundle_schema_version = GCIR_SCHEMA_VERSION_V11 if uses_v11 else GCIR_SCHEMA_VERSION
-    if uses_v11:
+    uses_v12 = any(
+        any(predicate.get(field_name) is not None for field_name in V12_PREDICATE_FIELDS)
+        for predicate in predicates
+    )
+    if uses_v12:
+        bundle_schema_version = GCIR_SCHEMA_VERSION_V12
+    elif uses_v11:
+        bundle_schema_version = GCIR_SCHEMA_VERSION_V11
+    else:
+        bundle_schema_version = GCIR_SCHEMA_VERSION
+    if uses_v11 or uses_v12:
         # permit_eligible (Appendix A constraint 16) is only added to gate_map
-        # once the bundle actually uses a v1.1 field -- a pure v1.0 bundle's
-        # gate_map, and therefore its payload_hash, is untouched by this
-        # generation.
+        # once the bundle actually uses a v1.1-or-later field -- a pure v1.0
+        # bundle's gate_map, and therefore its payload_hash, is untouched by
+        # either generation.
         for predicate in predicates:
-            predicate["schema_version"] = GCIR_SCHEMA_VERSION_V11
+            predicate["schema_version"] = bundle_schema_version
             permit_eligible = _permit_eligible(predicate)
             validation_mod.constraint_16_permit_eligibility_matches_phase(predicate, permit_eligible)
             gate_map[predicate["gcir_id"]]["permit_eligible"] = permit_eligible
@@ -810,10 +859,7 @@ def build_payload(inputs, closure, predicates, gate_map, escalation_map, coverag
             "member_kinds": sorted(inputs.cstar_profile.members),
             "content_hash": hash_payload(inputs.cstar_profile.canonical_document()),
         },
-        "judgment_record_ref": {
-            "judgment_id": inputs.judgment.judgment_id,
-            "version": inputs.judgment.version,
-        },
+        "judgment_record_ref": _judgment_record_ref(inputs.judgment, schema_version),
         "invariant_register_ref": {
             "invariant_ids": sorted(i["invariant_id"] for i in inputs.invariants),
         },
@@ -841,6 +887,33 @@ def build_payload(inputs, closure, predicates, gate_map, escalation_map, coverag
         },
     }
     return payload
+
+
+def _judgment_record_ref(judgment, schema_version):
+    """``judgment_record_ref`` (Paper 2 v1.2 spec section 1A).
+
+    ``content_hash`` binds the canonical judgment content itself, not just its
+    id/version, so a judgment record replayed under its original id/version
+    but with tampered content no longer matches. It is added only when the
+    bundle is actually schema_version 1.2 -- present-if-used, exactly like
+    ``V12_PREDICATE_FIELDS`` -- so every existing v1.0/v1.1 case (A, B, B v1.1,
+    C) compiles a byte-identical ``judgment_record_ref``, and therefore an
+    unchanged ``payload_hash``, to before this generation (rule: preserve
+    existing design unless v1.2 explicitly requires an additive change; v1.2's
+    own "additive, not a version bump imposed on unrelated bundles" discipline
+    is what section 1A's "extend" means here, matching how v1.1's optional
+    fields were added). Per-artifact origin references (``predicate["origin"]``)
+    are unchanged; this hash is not duplicated onto every predicate (spec 1A:
+    "do not put the full judgment hash into every individual predicate unless
+    technically necessary" -- it is not).
+    """
+    ref = {
+        "judgment_id": judgment.judgment_id,
+        "version": judgment.version,
+    }
+    if schema_version == GCIR_SCHEMA_VERSION_V12:
+        ref["content_hash"] = hash_payload(judgment.canonical_document())
+    return ref
 
 
 def sign_bundle(bundle, keyring, key_id, signing_time):

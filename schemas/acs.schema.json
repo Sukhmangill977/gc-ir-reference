@@ -131,7 +131,13 @@
           "concurrence_policy": { "$ref": "common.schema.json#/$defs/concurrencePolicy" },
           "standing_permit_ref": { "type": ["string", "null"] },
           "delegation": { "$ref": "common.schema.json#/$defs/delegationRef" },
-          "response_policy": { "$ref": "common.schema.json#/$defs/responsePolicy" }
+          "response_policy": { "$ref": "common.schema.json#/$defs/responsePolicy" },
+          "primary_class": { "$ref": "common.schema.json#/$defs/primaryClass" },
+          "interpretation_status": { "$ref": "common.schema.json#/$defs/interpretationStatus" },
+          "exception": { "$ref": "common.schema.json#/$defs/exceptionRef" },
+          "synchronization_contract": { "$ref": "common.schema.json#/$defs/synchronizationContract" },
+          "observation_obligation": { "$ref": "common.schema.json#/$defs/observationObligation" },
+          "declared_path": { "$ref": "common.schema.json#/$defs/declaredPathRef" }
         },
         "allOf": [
           {

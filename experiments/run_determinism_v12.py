@@ -1,0 +1,146 @@
+"""Determinism, local MVP: Case A / Case B v1.1 final / Case D CCS1 (Paper 2
+v1.2 spec section 7).
+
+    python -m experiments.run_determinism_v12 --cases case_a case_b_v1_1 case_d_ccs1 \
+        --runs-per-case 31 --phase development
+
+Reuses the existing frozen stratified design and execution primitives from
+``experiments.run_determinism`` (10 exact repeat, 10 row shuffle, 5 key
+shuffle, 3 locale, 3 timezone = 31 per case) -- no new determinism engine.
+Writes to ``results/development_v12/determinism.json`` /
+``determinism_runs.csv`` by default, never touching the historical
+``results/development/determinism_*`` files or
+``experiments.run_determinism_case_b_v11``'s separately-named output.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sys
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(REPO_ROOT, "src"))
+
+from experiments import run_determinism as v10  # noqa: E402
+from experiments.common import environment  # noqa: E402
+
+DEFAULT_CASES = ("case_a", "case_b_v1_1", "case_d_ccs1")
+
+
+def run(cases=DEFAULT_CASES, runs_per_case=v10.TOTAL_RUNS_PER_CASE):
+    from gcir.caseio import load_case
+    from gcir.compiler import compile_bundle
+    from gcir.metrics import translation_determinism
+
+    matrix = v10.build_matrix(runs_per_case)
+    rows = []
+    per_case = {}
+
+    for case_id in cases:
+        case = load_case(case_id)
+        reference = compile_bundle(case.compiler_inputs()).bundle.payload_hash
+        per_case[case_id] = {"reference_hash": reference, "runs": 0, "matches": 0}
+
+        for index, entry in enumerate(matrix, start=1):
+            run_id = "%s-%03d" % (case_id, index)
+            if entry["clean_process"]:
+                digest = v10.run_in_subprocess(case_id, entry)
+                locale_applied = entry["locale"]
+                execution = "clean_process"
+            else:
+                digest, locale_applied = v10.run_in_process(case_id, entry)
+                execution = "in_process"
+
+            matched = digest == reference
+            per_case[case_id]["runs"] += 1
+            per_case[case_id]["matches"] += 1 if matched else 0
+            rows.append({
+                "run_id": run_id, "case": case_id, "stratum": entry["stratum"],
+                "permutation": entry["label"], "numeric_form": entry["numeric_form"],
+                "permutation_spec": json.dumps(entry["spec"], sort_keys=True),
+                "permutation_seed": entry["permutation_seed"], "environment": execution,
+                "python_hash_seed": entry["python_hash_seed"], "locale": locale_applied,
+                "timezone": entry["timezone"], "hash": digest, "reference_hash": reference,
+                "pass": "PASS" if matched else "FAIL",
+            })
+
+    overall_matches = sum(1 for row in rows if row["pass"] == "PASS")
+    td_by_case = {
+        case_id: translation_determinism(
+            [row["hash"] for row in rows if row["case"] == case_id],
+            per_case[case_id]["reference_hash"],
+        )["TD"]
+        for case_id in cases
+    }
+
+    summary = {
+        "cases": list(cases),
+        "runs_per_case": runs_per_case,
+        "total_runs": len(rows),
+        "matches": overall_matches,
+        "TD": {"value": overall_matches / len(rows) if rows else None,
+               "numerator": overall_matches, "denominator": len(rows)},
+        "per_case": {
+            case_id: {
+                "reference_hash": per_case[case_id]["reference_hash"],
+                "runs": per_case[case_id]["runs"], "matches": per_case[case_id]["matches"],
+                "pass_fraction": "%d/%d" % (per_case[case_id]["matches"], per_case[case_id]["runs"]),
+                "TD": td_by_case[case_id],
+            }
+            for case_id in cases
+        },
+        "failures": [row for row in rows if row["pass"] == "FAIL"],
+        "note": "Local perturbation determinism only (spec section 7); the 6-leg CI matrix (spec section 8) is separate, recommended-but-secondary evidence, never called '8 CI environments'.",
+    }
+    return summary, rows
+
+
+def _write(out_dir, summary, rows, phase):
+    os.makedirs(out_dir, exist_ok=True)
+    document = {
+        "result_name": "run_determinism_v12", "phase": phase,
+        "phase_note": "DEVELOPMENT result; not reportable." if phase == "development" else phase,
+        "environment": environment(), "result": summary,
+    }
+    json_path = os.path.join(out_dir, "determinism.json")
+    with open(json_path, "w", encoding="utf-8", newline="\n") as handle:
+        json.dump(document, handle, indent=2, sort_keys=True, ensure_ascii=False)
+        handle.write("\n")
+
+    import csv
+    csv_path = os.path.join(out_dir, "determinism_runs.csv")
+    fieldnames = ["run_id", "case", "stratum", "permutation", "numeric_form",
+                  "permutation_spec", "permutation_seed", "environment",
+                  "python_hash_seed", "locale", "timezone", "hash", "reference_hash", "pass"]
+    with open(csv_path, "w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
+    return json_path, csv_path
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--cases", nargs="+", default=list(DEFAULT_CASES))
+    parser.add_argument("--runs-per-case", type=int, default=v10.TOTAL_RUNS_PER_CASE)
+    parser.add_argument("--phase", default="development")
+    parser.add_argument("--output", default=None)
+    args = parser.parse_args(argv)
+
+    summary, rows = run(tuple(args.cases), args.runs_per_case)
+    out_dir = args.output or os.path.join(REPO_ROOT, "results", "development_v12")
+    json_path, csv_path = _write(out_dir, summary, rows, args.phase)
+
+    for case_id in args.cases:
+        info = summary["per_case"][case_id]
+        print("%-14s %d/%d" % (case_id, info["matches"], info["runs"]))
+    print("total          %d/%d" % (summary["matches"], summary["total_runs"]))
+    print("-> %s\n-> %s" % (json_path, csv_path))
+    return 0 if summary["TD"]["value"] == 1.0 else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -19,7 +19,12 @@ SCHEMA_VERSION = "1.0"
 #: v1.1 input (no field is removed or narrowed), and a bundle is stamped "1.1"
 #: only once it actually carries a v1.1-only field on at least one predicate.
 #: See docs/GCIR_V1_1_EXTENSION.md for the extension rationale.
-SCHEMA_VERSIONS = ("1.0", "1.1")
+#:
+#: Schema v1.2 is additive in the same sense (Paper 2 v1.2 governance-to-control
+#: validation layer): a v1.1 bundle that declares no v1.2-only field compiles
+#: and validates exactly as it did before, and is stamped "1.2" only once it
+#: actually carries a v1.2-only field on at least one predicate.
+SCHEMA_VERSIONS = ("1.0", "1.1", "1.2")
 
 # ---------------------------------------------------------------------------
 # Closed vocabularies (manuscript Sections III, IV-D, V, VI-B, VII-A)
@@ -62,17 +67,28 @@ ON_UNKNOWN_RESPONSES = ("fail", "warn", "pass_with_approved_exception")
 LIFECYCLE_ACTIONS = ("retire", "supersede", "revoke")
 
 #: Section V -- typed non-runtime reason codes, closed at schema v1.0.
-#: The manuscript names RC-01, RC-02, RC-03 and RC-05.  RC-04 is *not defined in
-#: the manuscript*; it is reserved-unused here rather than invented.
-#: See docs/FIXTURE_PROVENANCE.md FP-013.
+#: The manuscript names RC-01, RC-02, RC-03 and RC-05.  RC-04 was reserved-unused
+#: through schema v1.1 (see docs/FIXTURE_PROVENANCE.md FP-013) because the
+#: manuscript did not yet define it.  Paper 2 v1.2 defines it (spec section 1L):
+#: a discrete action that *is* on the correct control layer (unlike RC-06) but
+#: whose profile-required timing assurance has not been established.  RC-04 and
+#: RC-06 are deliberately kept distinct rather than merged or auto-routed into
+#: one another -- see ``gcir.rc_routing`` for the routing decision this
+#: generation adds.
 REASON_CODES = {
     "RC-01": "no per-action observable",
     "RC-02": "no authority-matrix action",
     "RC-03": "requires probabilistic judgment",
+    "RC-04": "discrete action is gateable, but timing assurance required by the "
+    "profile has not been established -- compile-ineligible (schema v1.2)",
     "RC-05": "consequence class undefined",
     "RC-06": "continuous control -- belongs to the runtime safety layer (fails AD-1)",
 }
-RESERVED_UNUSED_REASON_CODES = ("RC-04",)
+#: Empty at schema v1.2: every reason code the manuscript-and-spec define now has
+#: an entry in REASON_CODES above.  Kept as a tuple (not removed) so any caller
+#: that still asserts against this name sees an explicit empty closed set rather
+#: than an AttributeError.
+RESERVED_UNUSED_REASON_CODES = ()
 
 #: Section V -- warning codes.  WC-01 is a *warning*, never a disposition:
 #: "an unresolved reference is not simultaneously a successful compilation and a
@@ -149,6 +165,13 @@ def safe_state_of(decision):
 #: Section VII-I: an advisory predicate's response-capture policy.
 RESPONSE_POLICIES = ("REQUIRED", "OPTIONAL", "NONE")
 
+#: Paper 2 v1.2 spec section 1B: every DERIVED ARTIFACT (compiled predicate) has
+#: exactly one primary class -- never a list, never collapsed (e.g. human ->
+#: auth or meta -> auth are prohibited class collapses, rejected by
+#: ``gcir.contract_v12.primary_class_preservation``). A requirement may produce
+#: several artifacts, each with its own single primary class.
+PRIMARY_CLASSES = ("auth", "meta", "standing", "state", "evidence", "human", "audit")
+
 #: Section VI-F / VIII: auxiliary (non-predicate) GC-IR record types this
 #: generation adds.  These are runtime/lifecycle-adjacent evidence records --
 #: like receipts, lifecycle-registry entries and actuations, they live outside
@@ -207,6 +230,20 @@ class ReleaseInadmissibleError(GcirError):
 
 class PrecedenceError(GcirError):
     code = "PRECEDENCE_INDETERMINATE"
+
+
+class IndeterminacyError(GcirError):
+    """Paper 2 v1.2 spec section 1F: a mandatory semantic interpretation is
+    explicitly unresolved while a compile was requested that depends on it.
+
+    This is COMPILE-FAIL / release-inadmissible -- raised before a bundle is
+    ever produced, never coerced into a runtime DENY or HOLD disposition.
+    ``HOLD`` remains reserved for runtime unknown/missing/stale evidence after
+    a meaningful control has already been compiled (spec section 1F); an
+    unresolved *compile-time* interpretation never reaches that stage.
+    """
+
+    code = "INDETERMINATE_INTERPRETATION_COMPILE_FAIL"
 
 
 # ---------------------------------------------------------------------------
@@ -335,6 +372,29 @@ class JudgmentRecord:
         for sel in self.selections:
             index.setdefault(sel["risk_id"], []).append(sel)
         return index
+
+    def canonical_document(self):
+        """The judgment record as it enters ``judgment_record_ref.content_hash``
+        (Paper 2 v1.2 spec section 1A).
+
+        Mirrors ``ControlDerivationCatalog.canonical_document()`` /
+        ``CStarProfile.canonical_document()``: the signature envelope is
+        stripped (it carries signing time and key identity, and lives outside
+        the hashed content for the same reason the bundle envelope does), and
+        every list whose element order carries no meaning is sorted by its
+        natural unique key before hashing, so the hash does not leak the
+        author's authoring order and stays stable under an equivalent
+        permutation of either list.
+        """
+        document = {
+            "judgment_id": self.judgment_id,
+            "version": self.version,
+            "assessment_ref": self.assessment_ref,
+            "catalog_ref": self.catalog_ref,
+            "selections": sorted(self.selections, key=lambda s: s["selection_id"]),
+            "approvals": sorted(self.approvals, key=lambda a: a["acs_id"]),
+        }
+        return document
 
 
 @dataclass

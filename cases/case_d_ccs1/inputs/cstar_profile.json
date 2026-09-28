@@ -1,0 +1,36 @@
+{
+  "approval_time": "2026-03-02T15:00:00Z",
+  "approved_by": "treasury_governance_forum",
+  "classification_rules": {
+    "unauthorized_authority_exercise": {
+      "approving_authority": "exec.head_of_treasury",
+      "effective_date": "2026-03-02T15:00:00Z",
+      "emergency_override_procedure": null,
+      "materiality_boundary": {
+        "description": "An immaterial technical non-conformance does not enter C* solely because its source is an authority requirement.",
+        "minimum_materiality": "material"
+      },
+      "rationale": "Release of treasury funds without the authority actually held (dual authorization, or a validly authorized and confined emergency exception) is an unauthorized externalization irrespective of amount."
+    }
+  },
+  "materiality_order": [
+    "immaterial",
+    "minor",
+    "material",
+    "severe"
+  ],
+  "member_kinds": [
+    "unauthorized_authority_exercise"
+  ],
+  "profile_id": "CSTAR-D",
+  "signature": {
+    "algorithm": "Ed25519",
+    "domain": "cstar_profile",
+    "key_id": "key.governance_forum_b",
+    "payload_hash": "ed84f56e5f7c2bd6cdf82cfa398a793a773cadcb6076b7ad54794d6b592b9a62",
+    "signature_b64": "8QgW/vauqwBz0mRggjYV1W7FDliOaikKCIz5HfM4eEzHFkkNKG3zjZlxX2b6AGYgCBGEIrtv+wWFDHfGLYjDDw==",
+    "signing_time": "2026-03-02T15:06:00Z"
+  },
+  "version": "1.0",
+  "version_binding_ref": "VB-CASE-D-1.0"
+}
