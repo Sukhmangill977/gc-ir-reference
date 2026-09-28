@@ -34,6 +34,7 @@ SECTION_FILES = {
     "compile_timing": "compile_timing.json",
     "observation_diagnostics": "observation_diagnostics.json",
     "case_b_integration": "case_b_integration.json",
+    "cross_environment_determinism": "cross_environment_determinism.json",
 }
 
 
@@ -67,7 +68,7 @@ def build():
         "tests": {"note": "see the final pytest run reported separately; not duplicated here to avoid a second, potentially stale, source of truth"},
         "audit": sections["audit"]["result"] if sections["audit"] else None,
         "determinism_local": sections["determinism_local"]["result"] if sections["determinism_local"] else None,
-        "determinism_cross_environment": {"status": "NOT RUN", "note": "spec section 8: recommended but secondary; not run this pass"},
+        "determinism_cross_environment": sections["cross_environment_determinism"]["result"] if sections["cross_environment_determinism"] else {"status": "NOT RUN", "note": "spec section 8: recommended but secondary; not run this pass"},
         "gate_deficit": {"note": "see audit.result.metrics (CV) and monte_carlo.result for GD/GDmin; not duplicated here"},
         "monte_carlo": sections["monte_carlo"]["result"] if sections["monte_carlo"] else None,
         "compile_timing": sections["compile_timing"]["result"] if sections["compile_timing"] else None,
