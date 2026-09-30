@@ -25,7 +25,7 @@ b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_roo
 1109808d0b148867a1938d562060ba1336a75bb4ff2fa4225d943dbf91704014  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-d504a2aa6fb2ee9d396727fcf168dc82207b76a0e9166d64ecac2e3d55532d52  repository_root            MANIFEST.json
+5c8dd878cfe4eda68b883c433bd5dd0ac47cf180314bb7180588650e60d1a276  repository_root            MANIFEST.json
 a70b7d589c571cae2a8f21e7a8fcd3408865f240513a1a181402db6aac6320d9  repository_root            Makefile
 d9ace9cee0952bac486e33116a59c384d91ea332ced6cbded350dd0c14ce6a72  repository_root            README.md
 9580cbbd552bf339423846d761287250c67ab2125fc71fad66323a8a7ed49fb8  repository_root            RELEASE_NOTES_V1_0_4.md
@@ -194,7 +194,7 @@ bdbb635375048b25722a87f788e499a8a8730ee1273063b5afbf312b733244a6  experiment_cod
 95c3551b792113b8f7317469033aed3fda30dcd2c823633cd36ad16972faaca2  experiment_code            experiments/make_provenance.py
 4588e3f2b498a2b59429c1a0bdf6d4d9299c3b0491f05d9f89c9ae9fe6ee9125  experiment_code            experiments/make_summary.py
 4642d91a8f96566986920b3ef5110da65359ccf74a4ae48c72cd71c92e9e0718  experiment_code            experiments/monte_carlo_regression_v12.py
-3ecca24307772a52d63c9284c605183af0231131356951436ee10995ce7ed08d  experiment_code            experiments/neutrality_v12.py
+f58be5506b764e3b0525846a79d95c4464cd39cdc2abd7a36a7b935437a01913  experiment_code            experiments/neutrality_v12.py
 2a8ec46ddb2751e6e2039ba19780ea1574459ec8a578fa4c25feb22073d75fd9  experiment_code            experiments/observation_diagnostics_v12.py
 59c9562b34287af67eebff784a1d6f7452c0cb9105cefd67a83c0e15512a84d7  experiment_code            experiments/reproduce_all.py
 1c6a66ed17ba2f034cca3e6ae970c354b184f05fcc60bf49c2bae33ad078b8e7  experiment_code            experiments/run_adversarial.py
@@ -263,7 +263,7 @@ a45ff25f8d1f037a3dd560a4b9764881ed87a56abae96f4db3d8ae263d0e4898  repository_roo
 ca2441589cd7ed62e01cf6cf519d6b5f94fd145a698d1e9cb0cb0a0034a74a60  repository_root            pytest.ini
 ee03bc1270115d536d01c65f79a7761e37750477611d49305ba6f05b947f511f  queries                    queries/traceability.sql
 e134ac5741cd39d3caaa304f38918d364d451a540bbef1d2dc829997fc5ec3e4  repository_root            requirements.lock
-56d527f9c35106f0ca0452b4fc011d469dce48ff0b0b26d7c8b44c598bb807d3  repository_root            results.html
+a562247355d5d9537f4cb611b51a01beffe68bc389f352906a5fdf2329de4c83  repository_root            results.html
 98ddcc7fb48d0a8363ce71307e07958e5d7027b3cbef1ca8ea314ddcbc992c02  repository_root            results/V1_V2_COMPARISON.md
 70887d914a829056698ccd71e0bf8c0b811941bed32c1bf6afeeb31a51ee9f98  development_result         results/development/SUMMARY.md
 0d5ecd3e851b436c00666d79dd57e942faa73423287e1d29dc7f7873546040e6  development_result         results/development/adversarial.json
@@ -289,7 +289,7 @@ ec8ac3517c29ab3ca60b332ac3a710cfcfc91194f9ab250c6438121b7d053b44  development_re
 a13cf5e0fb9006d6f40615112cb9aa9eda4812b1884617d3f767812708ee0d33  development_result         results/development/determinism_runs.csv
 e8fbcd25408d4325807d8dfd809b8c0368fc6227cfa026dafb66dbc8118f935a  development_result         results/development/determinism_runs_case_b_v11.csv
 a037fdcc2985a3280ac0903e87c1e288f774ea496da568d3b1b6bad879f8892f  development_result         results/development/determinism_summary.json
-8e297547a764e0cc9c1e73582d82e59c4b3a1a8ad854fa454ba3f37f04ed14cf  development_result         results/development/determinism_summary_case_b_v11.json
+466ce1cf9db9dd7ea9d0e6e0853a268da9bc3660f3a055bca8c43d50134cc65e  development_result         results/development/determinism_summary_case_b_v11.json
 a88d267f3f6b7b1dfd5b133eece5e69478df6a12a78e17b4fae555815a3b1f8f  development_result         results/development/gate_divergence.json
 f30e2494b4e45f1ad8ed75ca8044a9026414fd0a24c14ec5e99d158232d5b4db  development_result         results/development/gate_divergence_heatmap.csv
 70e1562ab95d373786634185a7ac838ff4bb07f63348fbb8904452893f1fb180  development_result         results/development/ieee_check_v4_result.json
@@ -298,7 +298,7 @@ f30e2494b4e45f1ad8ed75ca8044a9026414fd0a24c14ec5e99d158232d5b4db  development_re
 c26c8180cbfd440d8e256a53677427fed1ce3126b8f6ec63a31ea57397514ae5  development_result         results/development/monte_carlo_per_risk.csv
 5235b3ab7c7c981dbac63d556d180638b15eace7c9da59351f78fb9a1d28577d  development_result         results/development/monte_carlo_per_risk_case_b_v11.csv
 9cb5fd09fed54b54fb9292ca318e3941767fb0343ba51207925d8b042e37f888  development_result         results/development/monte_carlo_summary.json
-0590e04be8c64623c1c0cb0591885488497f9f2914ddda6043fa03c3c4d44aca  development_result         results/development/monte_carlo_summary_case_b_v11.json
+f73f32ac5ebcfd51f6f31b6f6abf7acf266990464566a574001fc49b82f837d4  development_result         results/development/monte_carlo_summary_case_b_v11.json
 613373849657fadc6f22247d7e9c6e9394e5221cf35e5a578aced8a02b3d5438  development_result         results/development/property_tests.json
 85faa54cad80c0c54d0892a0e5bcd0726e46ac09428e09b8e9eae2a667cef74f  development_result         results/development/reproduce_all.json
 ef22fa761afe2f1d6b6c25536b1a3b74d550dd3e5cd9f7a47d56438fa3665452  development_result         results/development/test_reports/junit_adversarial.xml
@@ -308,7 +308,7 @@ aa63cf80dde6986f865f69a0d6dabc1ef4328d61198038332840cb23df6dec9e  development_re
 90db48a78deceefdd58a3e7d1f81cc91b4212529c333990c7b138347061b2240  development_result         results/development/traceability_queries.csv
 b43d6a0ff7209e20d72df0467e7ec3655e09e3298291d535426336a1520b54be  development_result         results/development/traceability_queries.json
 e8760b4b20fdcbb2dfe3511874c5d79b2fa2d7415c5f3bf321e7cd2de176ec17  development_result         results/development_v12/audit.json
-857d0ccc6a4492ab7c155d2877d053cfd9f04070b6064c4bb64bd17839b8f999  development_result         results/development_v12/campaign_results_development.json
+171f7d07b5f64a7f0cc6bc27e5fe4ac8e9b95e5be41f01bfdfc0cb54d3e74fff  development_result         results/development_v12/campaign_results_development.json
 c59ed0678ddd826632db2d2c3606549f9ced9b7221ea17e1e63656b14e107e00  development_result         results/development_v12/case_b_integration.json
 49c9f5d207a6f38985a9e0ecd3fc0a7fa7ee1dd3e26cea87fa288aac46697850  development_result         results/development_v12/case_c_exclusion.json
 653b4e43ead0bc62089c4dc3f8538214dcbad81f12f978649b37f73e5336173b  development_result         results/development_v12/case_d.json
@@ -322,10 +322,10 @@ c27037cac3aa70736fa8c683f90af0d90db0865a9b73b43678045c23881dfa0d  development_re
 20ce6d5ba27a5c3ebdbcbb85911d8d957ff93572b0a40b39a21f50209b4f5bc0  development_result         results/development_v12/environment_container_aarch64.json
 08affa6387c56562c9e439e08fa923b2d38c435d62d371e577a0a76a4885038f  development_result         results/development_v12/environment_container_aarch64_runs.csv
 7becd0471c4647b24045e7eadd1a64a7e68977f54065f8ecf1ff52c9361bf8fd  development_result         results/development_v12/monte_carlo.json
-96bfcd68709057cfcda528fe4620d6d50abc23a8413a3621f182e53cdcbf710b  development_result         results/development_v12/neutrality.json
+e8adbbe74c14bb793ae4e498a22ce7b575bdcbbc6474778868f4cac7b0d3e064  development_result         results/development_v12/neutrality.json
 fef6eae4ee5ae7bf989181f8c926d0ca26af23e0e1d46fd1c01731fefc0f5a21  development_result         results/development_v12/observation_diagnostics.json
 4d91704c2778942fa76f80bdba69e72f166a6c88f9733b00ca492d357bb8b020  development_result         results/development_v12/surface_a.json
-09bdaf02d88c5f0da5331b84604ab40955c7bc9fd65abbd07d925e2cc7d80020  development_result         results/development_v12/validators.json
+2fbe974874ac6a9d899ed17d17fc7cbb6f5d9979d51fd96066aca8f1662e65f6  development_result         results/development_v12/validators.json
 c2a4f57601a6f1179578c899d996e3af958cb94d5e16ba8f74c36e530af22cf1  repository_root            results/development_v3/PHASE1_FINAL_REPORT.md
 a8d30b9a489cb671b08d29ff804c5bfc2d0fd4d845e97c4fe75c1ec080033dba  repository_root            results/development_v3/phase1_results.json
 8288ff3c76f343edc15f53748d7699656ca2a16e70d9d6fa6f040fa447c8b9d1  superseded_result          results/final/CI_STATUS.md
@@ -504,7 +504,7 @@ b6b4867ed2652158ff103846ec8759762807a833d12e6e4d698c29e91c00e995  phi_impl      
 e87b9d136ca88fa64d867dd7319bbe8097a1e74c471ff4159e77177cf2e15b65  phi_impl                   src/gcir/caseio.py
 4f5e513b4cc7b9f5a40c4b9341d64023d134b727c8914863701ced24864a29a4  psi_tooling                src/gcir/catalog.py
 d86354db9ec0a89e9f9b6738cc8c7a6d65c14de39ab9c55471d658d08398356f  phi_impl                   src/gcir/compiler.py
-fd2d8039982046e9bc011e0f04404f7f48fbc7cfe02f94af5b0600904d2a41e5  phi_impl                   src/gcir/contract_v12.py
+a6f1bfa27cfcd5b4f31254f4be662aab8b3cbc7a2328ace5a6e0181bd3ddf586  phi_impl                   src/gcir/contract_v12.py
 5a4116f94a0807d40bd180de92e1d86c9d13f07bada1beafce730bcc9f4dd0b2  phi_impl                   src/gcir/coverage.py
 20eb6b693163c65075fe563ada5f2e99985f711f7ee2ffb2f52c9926665659b6  phi_impl                   src/gcir/lifecycle.py
 70cfd65852436533a884fc9b0d14a34bfa2694c28fca6c6191201da307bd89e1  phi_impl                   src/gcir/metrics.py

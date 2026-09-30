@@ -62,10 +62,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 119421,
+      "bytes": 119637,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "d504a2aa6fb2ee9d396727fcf168dc82207b76a0e9166d64ecac2e3d55532d52"
+      "sha256": "5c8dd878cfe4eda68b883c433bd5dd0ac47cf180314bb7180588650e60d1a276"
     },
     {
       "bytes": 9671,
@@ -1076,10 +1076,10 @@
       "sha256": "4642d91a8f96566986920b3ef5110da65359ccf74a4ae48c72cd71c92e9e0718"
     },
     {
-      "bytes": 10673,
+      "bytes": 19989,
       "path": "experiments/neutrality_v12.py",
       "role": "experiment_code",
-      "sha256": "3ecca24307772a52d63c9284c605183af0231131356951436ee10995ce7ed08d"
+      "sha256": "f58be5506b764e3b0525846a79d95c4464cd39cdc2abd7a36a7b935437a01913"
     },
     {
       "bytes": 8017,
@@ -1490,10 +1490,10 @@
       "sha256": "e134ac5741cd39d3caaa304f38918d364d451a540bbef1d2dc829997fc5ec3e4"
     },
     {
-      "bytes": 27185,
+      "bytes": 27195,
       "path": "results.html",
       "role": "repository_root",
-      "sha256": "56d527f9c35106f0ca0452b4fc011d469dce48ff0b0b26d7c8b44c598bb807d3"
+      "sha256": "a562247355d5d9537f4cb611b51a01beffe68bc389f352906a5fdf2329de4c83"
     },
     {
       "bytes": 5372,
@@ -1649,7 +1649,7 @@
       "bytes": 2561,
       "path": "results/development/determinism_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "8e297547a764e0cc9c1e73582d82e59c4b3a1a8ad854fa454ba3f37f04ed14cf"
+      "sha256": "466ce1cf9db9dd7ea9d0e6e0853a268da9bc3660f3a055bca8c43d50134cc65e"
     },
     {
       "bytes": 18253,
@@ -1703,7 +1703,7 @@
       "bytes": 25882,
       "path": "results/development/monte_carlo_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "0590e04be8c64623c1c0cb0591885488497f9f2914ddda6043fa03c3c4d44aca"
+      "sha256": "f73f32ac5ebcfd51f6f31b6f6abf7acf266990464566a574001fc49b82f837d4"
     },
     {
       "bytes": 113422,
@@ -1760,10 +1760,10 @@
       "sha256": "e8760b4b20fdcbb2dfe3511874c5d79b2fa2d7415c5f3bf321e7cd2de176ec17"
     },
     {
-      "bytes": 69814,
+      "bytes": 73178,
       "path": "results/development_v12/campaign_results_development.json",
       "role": "development_result",
-      "sha256": "857d0ccc6a4492ab7c155d2877d053cfd9f04070b6064c4bb64bd17839b8f999"
+      "sha256": "171f7d07b5f64a7f0cc6bc27e5fe4ac8e9b95e5be41f01bfdfc0cb54d3e74fff"
     },
     {
       "bytes": 17155,
@@ -1844,10 +1844,10 @@
       "sha256": "7becd0471c4647b24045e7eadd1a64a7e68977f54065f8ecf1ff52c9361bf8fd"
     },
     {
-      "bytes": 4898,
+      "bytes": 8156,
       "path": "results/development_v12/neutrality.json",
       "role": "development_result",
-      "sha256": "96bfcd68709057cfcda528fe4620d6d50abc23a8413a3621f182e53cdcbf710b"
+      "sha256": "e8adbbe74c14bb793ae4e498a22ce7b575bdcbbc6474778868f4cac7b0d3e064"
     },
     {
       "bytes": 3368,
@@ -1862,10 +1862,10 @@
       "sha256": "4d91704c2778942fa76f80bdba69e72f166a6c88f9733b00ca492d357bb8b020"
     },
     {
-      "bytes": 10660,
+      "bytes": 10661,
       "path": "results/development_v12/validators.json",
       "role": "development_result",
-      "sha256": "09bdaf02d88c5f0da5331b84604ab40955c7bc9fd65abbd07d925e2cc7d80020"
+      "sha256": "2fbe974874ac6a9d899ed17d17fc7cbb6f5d9979d51fd96066aca8f1662e65f6"
     },
     {
       "bytes": 9697,
@@ -2936,10 +2936,10 @@
       "sha256": "d86354db9ec0a89e9f9b6738cc8c7a6d65c14de39ab9c55471d658d08398356f"
     },
     {
-      "bytes": 35630,
+      "bytes": 37326,
       "path": "src/gcir/contract_v12.py",
       "role": "phi_impl",
-      "sha256": "fd2d8039982046e9bc011e0f04404f7f48fbc7cfe02f94af5b0600904d2a41e5"
+      "sha256": "a6f1bfa27cfcd5b4f31254f4be662aab8b3cbc7a2328ace5a6e0181bd3ddf586"
     },
     {
       "bytes": 13862,
@@ -3429,7 +3429,7 @@
     }
   ],
   "generated_from_ref": "INDEX",
-  "manifest_sha256": "2e8e2c8f8c46a01c41e1801cb47be11d1f97678908eb511c66253c1d4a4add27",
+  "manifest_sha256": "fa705cecc1a884551aaaa6ad8a082372299bad630193a505a90766672bdea6d9",
   "roles": [
     "acs_a",
     "acs_b",
@@ -3465,5 +3465,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 12067984
+  "total_bytes": 12085845
 }

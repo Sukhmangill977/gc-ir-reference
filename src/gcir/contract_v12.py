@@ -35,6 +35,16 @@ from .models import IndeterminacyError, PRIMARY_CLASSES
 #: spec 1L's closed set for observation scope q_r.
 OBSERVATION_SCOPES = ("event", "cross-request", "sequence", "bounded-history")
 
+#: Rigor ordering over OBSERVATION_SCOPES, weakest first (spec 1L / Paper 2
+#: v1.2 neutrality N7: "no topology is downgraded for convenience"). An
+#: "event" scope sees only the single current request; "bounded-history"
+#: sees the full prior-consumption history -- the diagnostics in
+#: experiments/observation_diagnostics_v12.py exercise exactly this: an
+#: event-scoped evaluator cannot detect a violation only visible across
+#: history, a bounded-history-scoped one can. A candidate whose q_r moves to
+#: a strictly lower rank than the nominal's is a scope downgrade.
+OBSERVATION_SCOPE_STRENGTH = {name: rank for rank, name in enumerate(OBSERVATION_SCOPES)}
+
 #: spec 1J's required synchronization-contract sub-fields.
 SYNCHRONIZATION_CONTRACT_FIELDS = (
     "source",
@@ -256,6 +266,22 @@ def no_narrowing(nominal_bundle, candidate_bundle) -> Tuple[bool, List[str]]:
                 missing_beta = set(nominal_omega.get("beta_r", [])) - set(candidate_omega.get("beta_r", []))
                 if missing_beta:
                     issues.append("%s: observation_obligation.beta_r %s dropped" % (acs_id, sorted(missing_beta)))
+
+                # q_r (observation scope/topology) may not be silently
+                # downgraded to a less rigorous scope for convenience
+                # (neutrality N7). Presence/closed-set membership is
+                # observation_obligation()'s job; this is narrowing over time
+                # (a candidate weaker than its own nominal), not validity.
+                nominal_q_r = nominal_omega.get("q_r")
+                candidate_q_r = candidate_omega.get("q_r")
+                nominal_rank = OBSERVATION_SCOPE_STRENGTH.get(nominal_q_r)
+                candidate_rank = OBSERVATION_SCOPE_STRENGTH.get(candidate_q_r)
+                if nominal_rank is not None and candidate_rank is not None and candidate_rank < nominal_rank:
+                    issues.append(
+                        "%s: observation_obligation.q_r downgraded from %r to %r "
+                        "(topology/placement narrowed for convenience, neutrality N7)"
+                        % (acs_id, nominal_q_r, candidate_q_r)
+                    )
 
     return len(issues) == 0, issues
 

@@ -7,16 +7,16 @@
       "numpy": "2.2.1",
       "pytest": "8.3.4"
     },
-    "git_commit": "66c01c44794db7ddae3f5ac924c30b9e776fa697",
-    "git_commit_short": "66c01c4",
-    "git_describe": "v1.1.0-7-g66c01c4-dirty",
+    "git_commit": "256a6243cdb687eca7da530207d5bd16f75ec5b5",
+    "git_commit_short": "256a624",
+    "git_describe": "v1.1.0-11-g256a624-dirty",
     "git_status_clean": false,
     "git_tag_exact": null,
     "machine": "arm64",
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "python_implementation": "CPython",
     "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-30T08:02:47Z",
+    "run_completed_utc": "2026-09-30T14:08:01Z",
     "system": "Darwin"
   },
   "phase": "development",
@@ -26,24 +26,28 @@
       {
         "check": "compiler_performs_no_semantic_interpretation",
         "detail": "tests/adversarial/test_no_inference.py (static AST scan over the compiler path, including gcir.contract_v12 and gcir.rc_routing as of this generation) forbids similarity/best-match/classifier identifiers",
+        "n_number": "N2",
         "passed": true,
-        "pytest_summary": "52 passed in 0.21s"
+        "pytest_summary": "52 passed in 0.12s"
       },
       {
         "check": "no_llm_or_model_dependency_in_canonical_compilation",
         "detail": "same static scan: FORBIDDEN_IMPORTS includes openai/anthropic/langchain/transformers/torch/tensorflow etc.",
+        "n_number": null,
         "passed": true,
-        "pytest_summary": "52 passed in 0.21s"
+        "pytest_summary": "52 passed in 0.12s"
       },
       {
         "check": "no_random_source",
         "detail": "same static scan: FORBIDDEN_IMPORTS includes random/secrets/numpy.random; FORBIDDEN_IDENTIFIERS includes seed/shuffle/sample/choice",
+        "n_number": null,
         "passed": true,
-        "pytest_summary": "52 passed in 0.21s"
+        "pytest_summary": "52 passed in 0.12s"
       },
       {
         "check": "no_runtime_feedback_becomes_authority",
         "detail": "CompilerInputs.__init__ accepts only declared governance-time parameters",
+        "n_number": "N12",
         "offenders": [],
         "parameters": [
           "acs_records",
@@ -67,6 +71,7 @@
         "check": "outcome_indifference",
         "detail": "two independent compiles of the same governance input are byte-identical",
         "first_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
+        "n_number": "N6",
         "passed": true,
         "second_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1"
       },
@@ -74,6 +79,7 @@
         "check": "no_target_vendor_preference",
         "detail": "exact_lookup performs a single dict lookup keyed on (event_type, template_id) plus one not-found branch; no vendor/producer receives special-cased treatment",
         "if_statement_count": 1,
+        "n_number": "N8",
         "passed": true
       }
     ],
@@ -81,6 +87,7 @@
       {
         "check": "threshold_provenance",
         "detail": "every threshold_contract_ref a predicate cites resolves in payload.threshold_contracts",
+        "n_number": "N3",
         "passed": true,
         "referenced": [
           "TC-PAYMENT-LIMIT",
@@ -99,6 +106,7 @@
         "detail": "gate assignment is the approved specification set, not a function of the residual L*I score alone; Proposition 1/2 premises over case_b_v1_1's real register",
         "gd_min": 0,
         "inversion_count": 0,
+        "n_number": "N4",
         "passed": true
       },
       {
@@ -107,6 +115,7 @@
         "issues": [
           "ACS-B01-01: on_fail weakened from 'SAFE_STATE' to 'WARN'"
         ],
+        "n_number": "N9",
         "passed": true
       },
       {
@@ -115,6 +124,7 @@
         "issues": [
           "ACS-B01-01: exception.scope '*' is a global bypass, not a targeted exception"
         ],
+        "n_number": "N10",
         "passed": true
       },
       {
@@ -123,10 +133,53 @@
         "issues": [
           "ACS-D02-01: exception.parameter_bounds.max_amount widened from 1000000 to 999999999"
         ],
+        "n_number": "N11",
         "passed": true
+      },
+      {
+        "caveat": "N1's exact operational scope is underspecified in the source manuscript (a single table line, elaboration deferred to v1.2.0); this is the most literal reading -- 'source class' as risk_derived vs compiler_invariant predicate origin, the one place the compiler's own vocabulary names two distinct predicate 'sources' -- not a claim that no other reading of N1 is possible.",
+        "check": "N1_source_class_not_privileged_or_discounted",
+        "compiler_invariant_issues": [
+          "GCIR-INV-AUTHORITY-CLOSURE: compiler_invariant origin has no origin_id"
+        ],
+        "compiler_invariant_negative_rejected": true,
+        "detail": "a corrupted risk_derived-origin predicate and a corrupted compiler_invariant-origin predicate are BOTH detected by q3_predicate_origin_closure -- neither source class is exempted (privileged) or held to a different standard (discounted)",
+        "n_number": "N1",
+        "passed": true,
+        "positive_ok": true,
+        "risk_derived_issues": [
+          "GCIR-B0001: acs_id 'ACS-NEVER-DISPOSED-FOR-B-01' is not among risk B-01's disposed acs_ids ['ACS-B01-01', 'ACS-B01-02', 'ACS-B01-03']"
+        ],
+        "risk_derived_negative_rejected": true
+      },
+      {
+        "check": "N5_evidence_does_not_self_authorize",
+        "detail": "a predicate with fully-represented evidence but a broken origin is still rejected by q3_predicate_origin_closure -- intact evidence representation does not, by itself, authorize a predicate whose origin does not resolve",
+        "evidence_intact_on_negative": true,
+        "evidence_still_represented_on_negative": true,
+        "n_number": "N5",
+        "negative_issues": [
+          "GCIR-B0001: acs_id 'ACS-NEVER-DISPOSED-FOR-B-01' is not among risk B-01's disposed acs_ids ['ACS-B01-01', 'ACS-B01-02', 'ACS-B01-03']"
+        ],
+        "negative_rejected": true,
+        "passed": true,
+        "positive_ok": true
+      },
+      {
+        "candidate_payload_hash": "c356a25abd11e252a4cf2f5bd5ba4f42a31ceefab830d18951c4c13fd12df47f",
+        "check": "N7_topology_not_downgraded",
+        "detail": "observation_obligation.q_r cannot be silently downgraded (bounded-history -> event) for convenience; detected by gcir.contract_v12.no_narrowing",
+        "n_number": "N7",
+        "negative_issues": [
+          "ACS-B01-01: observation_obligation.q_r downgraded from 'bounded-history' to 'event' (topology/placement narrowed for convenience, neutrality N7)"
+        ],
+        "negative_rejected": true,
+        "nominal_payload_hash": "bb3a6297c6496948f788db227be76153e90f96115c5a2b33d4ec5ca87a948eac",
+        "passed": true,
+        "positive_ok": true
       }
     ],
-    "note": "Two distinct evidence kinds, reported separately and never merged into one count. No fabricated N1-N12 output checks (spec section 6)."
+    "note": "Two distinct evidence kinds, reported separately and never merged into one count. No fabricated N1-N12 output checks (spec section 6): each check below carries an explicit n_number (None where it is supporting, not distinct, evidence). 11 of 12 N-numbers (all but N2) carry a genuinely falsifiable positive+negative pair; N2 has process/static evidence only. See each check's own detail/caveat for exact scope."
   },
   "result_name": "neutrality_v12"
 }
