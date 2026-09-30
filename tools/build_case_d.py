@@ -99,17 +99,29 @@ def _compile_parameters(acs_records):
 
 
 def _write_variant(keyring, out_dir, assessment, catalog, cstar, invariants,
-                    acs_records, dispositions_records, judgment, acs_set_id):
+                    acs_records, dispositions_records, judgment, acs_set_id,
+                    acs_signing_time="2026-03-02T15:10:00Z",
+                    dispositions_signing_time="2026-03-02T15:12:00Z",
+                    judgment_signing_time="2026-03-02T15:08:00Z"):
+    # A signature must postdate every decision/selection the signed document
+    # itself records -- a judgment record cannot be validly signed before
+    # the events it attests to. CCS0/CCS1 keep the original constants
+    # (their latest internal event is 2026-03-02T15:05:00Z, before the
+    # default 2026-03-02T15:08:00Z judgment signing time). CCS2 overrides
+    # all three with a later date: its D-02 disposition_decision/selection
+    # (judgment.py's build_judgment_ccs2) is legitimately dated
+    # 2026-03-09T15:05:00Z -- "governance LATER issues policy 4.3" -- so its
+    # signatures must be no earlier than that.
     acs_set = {"acs_set_id": acs_set_id, "version_binding_ref": d.BINDING, "records": acs_records}
-    sign_document(keyring, acs_set, "key.governance_forum_b", "acs", "2026-03-02T15:10:00Z")
+    sign_document(keyring, acs_set, "key.governance_forum_b", "acs", acs_signing_time)
 
     dispositions = {
         "disposition_set_id": "DELTA-" + acs_set_id.replace("D-CASE-D-", "CASE-D-"),
         "version_binding_ref": d.BINDING, "records": dispositions_records,
     }
-    sign_document(keyring, dispositions, "key.governance_forum_b", "dispositions", "2026-03-02T15:12:00Z")
+    sign_document(keyring, dispositions, "key.governance_forum_b", "dispositions", dispositions_signing_time)
 
-    sign_document(keyring, judgment, "key.governance_forum_b", "judgment_record", "2026-03-02T15:08:00Z")
+    sign_document(keyring, judgment, "key.governance_forum_b", "judgment_record", judgment_signing_time)
 
     write_json(os.path.join(out_dir, "inputs", "assessment.json"), assessment)
     write_json(os.path.join(out_dir, "inputs", "control_derivation_catalog.json"), catalog)
@@ -158,6 +170,13 @@ def build_case_d(keyring, cases_root):
         assessment, catalog, cstar, invariants,
         ccs2_acs, c.build_dispositions_active(), c.build_judgment_ccs2(ccs2_acs),
         "D-CASE-D-CCS2",
+        # Mirrors CCS0/CCS1's exact same minute-offsets after the latest
+        # decision they sign (decide at :05, sign judgment at :08, acs at
+        # :10, dispositions at :12) -- shifted to CCS2's real later decision
+        # date instead of predating it (see temporal-provenance note above).
+        acs_signing_time="2026-03-09T15:10:00Z",
+        dispositions_signing_time="2026-03-09T15:12:00Z",
+        judgment_signing_time="2026-03-09T15:08:00Z",
     )
 
 

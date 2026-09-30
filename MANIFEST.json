@@ -1,5 +1,5 @@
 {
-  "file_count": 573,
+  "file_count": 576,
   "files": [
     {
       "bytes": 1022,
@@ -65,7 +65,7 @@
       "bytes": 120077,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "6ca5146a7c5c4359e809f27cda6329903734cbfe7a46efb870219bc474758d5e"
+      "sha256": "edb0852e2473cbbf09e1c84bddf457b176c4b69f9c992cae799e833ad78125b3"
     },
     {
       "bytes": 9671,
@@ -635,13 +635,13 @@
       "bytes": 7971,
       "path": "cases/case_d_ccs2/acs/approved_control_specifications.json",
       "role": "case_d_input",
-      "sha256": "c72636fef357f223397b132140d22ac83717c112442612e9e07eb8d661021222"
+      "sha256": "9538e8116c69facdc9e0fc8d0c1c34472eb2be6f1dc268406dc10dca38131b45"
     },
     {
       "bytes": 699,
       "path": "cases/case_d_ccs2/dispositions/dispositions.json",
       "role": "case_d_input",
-      "sha256": "f712c841a86c563acfe5414444f47bb8642ac7f18659a4e57c8c492ebc0d8ea8"
+      "sha256": "79fe34d642a8453477e492f7a877f95bc65d69a0c97a465aa500e9502a3bc0b4"
     },
     {
       "bytes": 757,
@@ -695,7 +695,7 @@
       "bytes": 2835,
       "path": "cases/case_d_ccs2/judgment/judgment_record.json",
       "role": "case_d_input",
-      "sha256": "20239a32394b9a57a03ea80bfd549afd68665529a8afde7018ee18994f6cc0d5"
+      "sha256": "98fc1d43d0a3b49d4d15d610c28ac6bd163a265614bcbc5b516ffa8d89482cad"
     },
     {
       "bytes": 6551,
@@ -1493,7 +1493,7 @@
       "bytes": 27195,
       "path": "results.html",
       "role": "repository_root",
-      "sha256": "ddcf72b61107ee146431515af010f613e1264de13de167c78a3fdd0b8544f85e"
+      "sha256": "453999bde11fb0cd6031bc7884c93e880037405037f89bae3f56e6e58e3ba2e9"
     },
     {
       "bytes": 5372,
@@ -1649,7 +1649,7 @@
       "bytes": 2561,
       "path": "results/development/determinism_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "e201d6332207718e72ccf4ac19d77542b9f3cd7ef64e13b06b3c22371af9a1fc"
+      "sha256": "e8a73aca889fbc83b95a9c9fe57691076d1dd485ccf16df5252bdbc944fcd06a"
     },
     {
       "bytes": 18253,
@@ -1703,7 +1703,7 @@
       "bytes": 25882,
       "path": "results/development/monte_carlo_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "e9d2ccfa698e64d1d92883805e96f1278d542a69ef722a771425002f77feba3e"
+      "sha256": "97c32ca7260eb5743e86fbbc5ff325dca4ff18064db56e2bdec4523e5ee53995"
     },
     {
       "bytes": 113422,
@@ -1784,10 +1784,16 @@
       "sha256": "49c9f5d207a6f38985a9e0ecd3fc0a7fa7ee1dd3e26cea87fa288aac46697850"
     },
     {
-      "bytes": 6430,
+      "bytes": 6431,
       "path": "results/development_v12/case_d.json",
       "role": "development_result",
-      "sha256": "653b4e43ead0bc62089c4dc3f8538214dcbad81f12f978649b37f73e5336173b"
+      "sha256": "edd658c890f198b86ad42aa15cd5ae3a0a254715f90150153409312b82b89408"
+    },
+    {
+      "bytes": 4079,
+      "path": "results/development_v12/ccs2_temporal_provenance.json",
+      "role": "development_result",
+      "sha256": "603010cf1958b515940a6c728729a3ed857753d507f9acb355493d89ab09445b"
     },
     {
       "bytes": 2172,
@@ -1872,6 +1878,18 @@
       "path": "results/development_v12/surface_a.json",
       "role": "development_result",
       "sha256": "4d91704c2778942fa76f80bdba69e72f166a6c88f9733b00ca492d357bb8b020"
+    },
+    {
+      "bytes": 2389,
+      "path": "results/development_v12/tacip_provenance_limitation.json",
+      "role": "development_result",
+      "sha256": "62d14a87fb1f8ea97d2b3df8e94aa9ecb6306c5f3caa490678786900dc3ffd5e"
+    },
+    {
+      "bytes": 4632,
+      "path": "results/development_v12/v110_eight_environment_reconciliation.json",
+      "role": "development_result",
+      "sha256": "f0f26c5e72f6732bb749107d9be6320be843ce491cef3c7dcb50274ea0a10d45"
     },
     {
       "bytes": 10661,
@@ -3230,10 +3248,10 @@
       "sha256": "9611bbcf1b22c0436ae8b9841a978dfa3ff4a1c705f9ae8b444d7f96b1b94cbf"
     },
     {
-      "bytes": 7508,
+      "bytes": 8792,
       "path": "tools/build_case_d.py",
       "role": "fixture_generator",
-      "sha256": "8a768d3bcb9d33203d2931407f480b8c851becc6f02ba9d65aaeeb4b0e19cda8"
+      "sha256": "14477104a1e0c9991260f18da87aa48b3f184419d5a4154df93ee5851cafca0a"
     },
     {
       "bytes": 11662,
@@ -3338,10 +3356,10 @@
       "sha256": "f1ac8eceadb5c3241153d03c35e8b0d84dc612e59753b068fa48d9f25c886505"
     },
     {
-      "bytes": 18979,
+      "bytes": 19777,
       "path": "tools/freeze_check_prospective_v5.py",
       "role": "fixture_generator",
-      "sha256": "23a158991d6ed738f82c0e06ca1fc52f20a8c6a5e6f5976d5dabb1f581c171a4"
+      "sha256": "77a897a541a686ef4b42f6ce68fbe512f9172c0fc02e2e4e5e6164e934ea85cf"
     },
     {
       "bytes": 31446,
@@ -3441,7 +3459,7 @@
     }
   ],
   "generated_from_ref": "INDEX",
-  "manifest_sha256": "0cfe7a0bc3532f3b614ba174bd0eaa5a42c43ba0d462471c754afc4702801665",
+  "manifest_sha256": "915ae133bb50d7cf4d7ee39e9682df6a449ee13a1535b3e0717872d333ec501b",
   "roles": [
     "acs_a",
     "acs_b",
@@ -3477,5 +3495,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 12170455
+  "total_bytes": 12183638
 }

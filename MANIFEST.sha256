@@ -25,7 +25,7 @@ b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_roo
 1109808d0b148867a1938d562060ba1336a75bb4ff2fa4225d943dbf91704014  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-6ca5146a7c5c4359e809f27cda6329903734cbfe7a46efb870219bc474758d5e  repository_root            MANIFEST.json
+edb0852e2473cbbf09e1c84bddf457b176c4b69f9c992cae799e833ad78125b3  repository_root            MANIFEST.json
 a70b7d589c571cae2a8f21e7a8fcd3408865f240513a1a181402db6aac6320d9  repository_root            Makefile
 d9ace9cee0952bac486e33116a59c384d91ea332ced6cbded350dd0c14ce6a72  repository_root            README.md
 9580cbbd552bf339423846d761287250c67ab2125fc71fad66323a8a7ed49fb8  repository_root            RELEASE_NOTES_V1_0_4.md
@@ -120,8 +120,8 @@ a299be0b23ad371f8ee6945d1b7e5444e6fd7bef318bed0a22f154d9dd568702  case_d_input  
 e14110fd5c2da1ead914bf4aaf794c476882d325ad6d25305a03c4093335cb69  case_d_input               cases/case_d_ccs1/inputs/policy_metadata.json
 4b521946e6c94bad898f4cc93916233a22f9dd5c4bb9827f5a77c441c44704af  case_d_input               cases/case_d_ccs1/inputs/threshold_contracts.json
 8861e6bb08a86370b229f6c9c98aba188695cfceefcb5256a317ceb66b83d721  case_d_input               cases/case_d_ccs1/judgment/judgment_record.json
-c72636fef357f223397b132140d22ac83717c112442612e9e07eb8d661021222  case_d_input               cases/case_d_ccs2/acs/approved_control_specifications.json
-f712c841a86c563acfe5414444f47bb8642ac7f18659a4e57c8c492ebc0d8ea8  case_d_input               cases/case_d_ccs2/dispositions/dispositions.json
+9538e8116c69facdc9e0fc8d0c1c34472eb2be6f1dc268406dc10dca38131b45  case_d_input               cases/case_d_ccs2/acs/approved_control_specifications.json
+79fe34d642a8453477e492f7a877f95bc65d69a0c97a465aa500e9502a3bc0b4  case_d_input               cases/case_d_ccs2/dispositions/dispositions.json
 56a6283c7f91a17137f6f5efdf4ce9b4cb3fa61f641384f4958f88bd17e732b5  case_d_input               cases/case_d_ccs2/expected/reference_hashes.json
 9e195920d6b28b0824ba7c246aa305adfb8c4131198959f6d1227cbbdb48fcc9  case_d_input               cases/case_d_ccs2/inputs/assessment.json
 a299be0b23ad371f8ee6945d1b7e5444e6fd7bef318bed0a22f154d9dd568702  case_d_input               cases/case_d_ccs2/inputs/compile_parameters.json
@@ -130,7 +130,7 @@ a299be0b23ad371f8ee6945d1b7e5444e6fd7bef318bed0a22f154d9dd568702  case_d_input  
 0c4309f83a8275c995f9a5ef6c4d2a63af6c29b7092e94f0da2fb0c0ab419b2a  case_d_input               cases/case_d_ccs2/inputs/invariant_register.json
 e14110fd5c2da1ead914bf4aaf794c476882d325ad6d25305a03c4093335cb69  case_d_input               cases/case_d_ccs2/inputs/policy_metadata.json
 4b521946e6c94bad898f4cc93916233a22f9dd5c4bb9827f5a77c441c44704af  case_d_input               cases/case_d_ccs2/inputs/threshold_contracts.json
-20239a32394b9a57a03ea80bfd549afd68665529a8afde7018ee18994f6cc0d5  case_d_input               cases/case_d_ccs2/judgment/judgment_record.json
+98fc1d43d0a3b49d4d15d610c28ac6bd163a265614bcbc5b516ffa8d89482cad  case_d_input               cases/case_d_ccs2/judgment/judgment_record.json
 5420093d0d77d00e5be65e191fa756c1f5232b8bccff944751767257a58d4e29  catalog                    catalog/control_derivation_catalog_b_v1.json
 90d6882ee1fd40533419e779e4553bd93dada4a9055ad202447d12d6d1a8bc34  catalog                    catalog/control_derivation_catalog_v1.json
 656c36fe2f729f1f0bfa6f25dddcacb5513df7d96e6e94bc26f0979f113231a1  documentation              docs/ACS_GRANULARITY_RULE_5_5D.md
@@ -263,7 +263,7 @@ a45ff25f8d1f037a3dd560a4b9764881ed87a56abae96f4db3d8ae263d0e4898  repository_roo
 ca2441589cd7ed62e01cf6cf519d6b5f94fd145a698d1e9cb0cb0a0034a74a60  repository_root            pytest.ini
 ee03bc1270115d536d01c65f79a7761e37750477611d49305ba6f05b947f511f  queries                    queries/traceability.sql
 e134ac5741cd39d3caaa304f38918d364d451a540bbef1d2dc829997fc5ec3e4  repository_root            requirements.lock
-ddcf72b61107ee146431515af010f613e1264de13de167c78a3fdd0b8544f85e  repository_root            results.html
+453999bde11fb0cd6031bc7884c93e880037405037f89bae3f56e6e58e3ba2e9  repository_root            results.html
 98ddcc7fb48d0a8363ce71307e07958e5d7027b3cbef1ca8ea314ddcbc992c02  repository_root            results/V1_V2_COMPARISON.md
 70887d914a829056698ccd71e0bf8c0b811941bed32c1bf6afeeb31a51ee9f98  development_result         results/development/SUMMARY.md
 0d5ecd3e851b436c00666d79dd57e942faa73423287e1d29dc7f7873546040e6  development_result         results/development/adversarial.json
@@ -289,7 +289,7 @@ ec8ac3517c29ab3ca60b332ac3a710cfcfc91194f9ab250c6438121b7d053b44  development_re
 a13cf5e0fb9006d6f40615112cb9aa9eda4812b1884617d3f767812708ee0d33  development_result         results/development/determinism_runs.csv
 e8fbcd25408d4325807d8dfd809b8c0368fc6227cfa026dafb66dbc8118f935a  development_result         results/development/determinism_runs_case_b_v11.csv
 a037fdcc2985a3280ac0903e87c1e288f774ea496da568d3b1b6bad879f8892f  development_result         results/development/determinism_summary.json
-e201d6332207718e72ccf4ac19d77542b9f3cd7ef64e13b06b3c22371af9a1fc  development_result         results/development/determinism_summary_case_b_v11.json
+e8a73aca889fbc83b95a9c9fe57691076d1dd485ccf16df5252bdbc944fcd06a  development_result         results/development/determinism_summary_case_b_v11.json
 a88d267f3f6b7b1dfd5b133eece5e69478df6a12a78e17b4fae555815a3b1f8f  development_result         results/development/gate_divergence.json
 f30e2494b4e45f1ad8ed75ca8044a9026414fd0a24c14ec5e99d158232d5b4db  development_result         results/development/gate_divergence_heatmap.csv
 70e1562ab95d373786634185a7ac838ff4bb07f63348fbb8904452893f1fb180  development_result         results/development/ieee_check_v4_result.json
@@ -298,7 +298,7 @@ f30e2494b4e45f1ad8ed75ca8044a9026414fd0a24c14ec5e99d158232d5b4db  development_re
 c26c8180cbfd440d8e256a53677427fed1ce3126b8f6ec63a31ea57397514ae5  development_result         results/development/monte_carlo_per_risk.csv
 5235b3ab7c7c981dbac63d556d180638b15eace7c9da59351f78fb9a1d28577d  development_result         results/development/monte_carlo_per_risk_case_b_v11.csv
 9cb5fd09fed54b54fb9292ca318e3941767fb0343ba51207925d8b042e37f888  development_result         results/development/monte_carlo_summary.json
-e9d2ccfa698e64d1d92883805e96f1278d542a69ef722a771425002f77feba3e  development_result         results/development/monte_carlo_summary_case_b_v11.json
+97c32ca7260eb5743e86fbbc5ff325dca4ff18064db56e2bdec4523e5ee53995  development_result         results/development/monte_carlo_summary_case_b_v11.json
 613373849657fadc6f22247d7e9c6e9394e5221cf35e5a578aced8a02b3d5438  development_result         results/development/property_tests.json
 85faa54cad80c0c54d0892a0e5bcd0726e46ac09428e09b8e9eae2a667cef74f  development_result         results/development/reproduce_all.json
 ef22fa761afe2f1d6b6c25536b1a3b74d550dd3e5cd9f7a47d56438fa3665452  development_result         results/development/test_reports/junit_adversarial.xml
@@ -312,7 +312,8 @@ e8760b4b20fdcbb2dfe3511874c5d79b2fa2d7415c5f3bf321e7cd2de176ec17  development_re
 171f7d07b5f64a7f0cc6bc27e5fe4ac8e9b95e5be41f01bfdfc0cb54d3e74fff  development_result         results/development_v12/campaign_results_development.json
 c59ed0678ddd826632db2d2c3606549f9ced9b7221ea17e1e63656b14e107e00  development_result         results/development_v12/case_b_integration.json
 49c9f5d207a6f38985a9e0ecd3fc0a7fa7ee1dd3e26cea87fa288aac46697850  development_result         results/development_v12/case_c_exclusion.json
-653b4e43ead0bc62089c4dc3f8538214dcbad81f12f978649b37f73e5336173b  development_result         results/development_v12/case_d.json
+edd658c890f198b86ad42aa15cd5ae3a0a254715f90150153409312b82b89408  development_result         results/development_v12/case_d.json
+603010cf1958b515940a6c728729a3ed857753d507f9acb355493d89ab09445b  development_result         results/development_v12/ccs2_temporal_provenance.json
 c7ddc05a891e36c0a47b33781bbb5b471301a63aee9f441d644087d0a2c90623  development_result         results/development_v12/ci/CI_STATUS.md
 c3b6b7ae34543e152f71687dae0d04cfbf2966b0fbb9c9876c3e68c848e8d4be  development_result         results/development_v12/ci/CI_STATUS_CASE_B_V11.md
 d16705b03ed1f7b49115e2f6f798c79ce264ae83e05b849ce158bb9bc6a2f222  development_result         results/development_v12/ci/CI_STATUS_CASE_D.md
@@ -327,6 +328,8 @@ c07c869f71d263a10bcf20510314cd4ac7f99ebd560a589a9ea33153d9e8eb8d  development_re
 e8adbbe74c14bb793ae4e498a22ce7b575bdcbbc6474778868f4cac7b0d3e064  development_result         results/development_v12/neutrality.json
 fef6eae4ee5ae7bf989181f8c926d0ca26af23e0e1d46fd1c01731fefc0f5a21  development_result         results/development_v12/observation_diagnostics.json
 4d91704c2778942fa76f80bdba69e72f166a6c88f9733b00ca492d357bb8b020  development_result         results/development_v12/surface_a.json
+62d14a87fb1f8ea97d2b3df8e94aa9ecb6306c5f3caa490678786900dc3ffd5e  development_result         results/development_v12/tacip_provenance_limitation.json
+f0f26c5e72f6732bb749107d9be6320be843ce491cef3c7dcb50274ea0a10d45  development_result         results/development_v12/v110_eight_environment_reconciliation.json
 2fbe974874ac6a9d899ed17d17fc7cbb6f5d9979d51fd96066aca8f1662e65f6  development_result         results/development_v12/validators.json
 c2a4f57601a6f1179578c899d996e3af958cb94d5e16ba8f74c36e530af22cf1  repository_root            results/development_v3/PHASE1_FINAL_REPORT.md
 a8d30b9a489cb671b08d29ff804c5bfc2d0fd4d845e97c4fe75c1ec080033dba  repository_root            results/development_v3/phase1_results.json
@@ -553,7 +556,7 @@ f48d9eccbe12cf2d58c928069cacbc6a5db2d95337a73575fd877450db0fcda8  test_suite    
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  fixture_generator          tools/__init__.py
 d82ab64c09a4215e3585b6b0401b249f0463b12c3320f752c6ae48e2cb75660e  fixture_generator          tools/build_case_b_v11.py
 9611bbcf1b22c0436ae8b9841a978dfa3ff4a1c705f9ae8b444d7f96b1b94cbf  fixture_generator          tools/build_case_c.py
-8a768d3bcb9d33203d2931407f480b8c851becc6f02ba9d65aaeeb4b0e19cda8  fixture_generator          tools/build_case_d.py
+14477104a1e0c9991260f18da87aa48b3f184419d5a4154df93ee5851cafca0a  fixture_generator          tools/build_case_d.py
 ff96abd318cf16ed230cb725eea7b9989435320a95d56b6683297081f2587610  fixture_generator          tools/build_cases.py
 1c42648c415483e77e74785f6dc72bb176425076c5a60900d154f47a45611fb3  case_b_input               tools/build_ldrea_traceability.py
 fbb76840a65204592d5e8689d684d0ce65ed0938d5c7e54f877c2f40fc357391  fixture_generator          tools/build_lifecycle.py
@@ -571,7 +574,7 @@ be4c45dc3bc54ef4552ffb87ed6fc7a6f45761d3589c88221a9f70b7c633d753  fixture_genera
 1a90a5118d6e54e5ce8608d47b2c538fd652bdb8438875c28c9551683d25cbb9  case_b_input               tools/derive_ldrea_predicate_family.py
 ce68e4dc0ee1c2d58e92e19c33bd4bf1e170249303450e510da459583dfbfff2  phi_impl                   tools/freeze_check.py
 f1ac8eceadb5c3241153d03c35e8b0d84dc612e59753b068fa48d9f25c886505  fixture_generator          tools/freeze_check_prospective_v4.py
-23a158991d6ed738f82c0e06ca1fc52f20a8c6a5e6f5976d5dabb1f581c171a4  fixture_generator          tools/freeze_check_prospective_v5.py
+77a897a541a686ef4b42f6ce68fbe512f9172c0fc02e2e4e5e6164e934ea85cf  fixture_generator          tools/freeze_check_prospective_v5.py
 e38e3b4f0123efc6957ceb9732c6dabf6d72864584a642ada75c6b3b350c9a60  fixture_generator          tools/generate_results_page.py
 be6448ca42011fe44ab8ab9c67089c1af578b3a47f65ae18a613c513d4a47823  fixture_generator          tools/invariants_data.py
 4fa88a558f9b88315d88cf9acde3b1b239d66ebdb8c52c6c88a204f5777a1e35  fixture_generator          tools/make_measured_docx.py

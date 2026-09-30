@@ -151,6 +151,20 @@ def check():
     record("Case D matrix 10/10 passed", case_d["passed"] == 10 and case_d["total"] == 10,
            "%s/%s" % (case_d["passed"], case_d["total"]))
 
+    # CCS2 temporal provenance (gap-audit item 14): the judgment record's
+    # signature must not predate the decisions/selections it records.
+    ccs2_judgment_path = os.path.join(REPO_ROOT, "cases", "case_d_ccs2", "judgment", "judgment_record.json")
+    with open(ccs2_judgment_path, encoding="utf-8") as fh:
+        ccs2_judgment = json.load(fh)
+    signing_time = ccs2_judgment["signature"]["signing_time"]
+    latest_event = max(
+        [d["decision_time"] for d in ccs2_judgment["disposition_decisions"]]
+        + [s["selection_time"] for s in ccs2_judgment["selections"]]
+    )
+    record("case_d_ccs2 judgment signature postdates every decision/selection it records",
+           signing_time >= latest_event,
+           "signing_time=%s latest_event=%s" % (signing_time, latest_event))
+
     # ---- 4. Surface A ---------------------------------------------------
     print("\n3. Surface A (8 paired semantic families)")
     surface_a = _load("surface_a.json")["result"]
