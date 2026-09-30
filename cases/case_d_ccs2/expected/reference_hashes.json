@@ -1,0 +1,6 @@
+{
+  "case_id": "case_d_ccs2",
+  "note": "Case D CCS2: policy 4.3 / J' widens the emergency-exception authorized actor set to include the ETA-2-tier payments analyst alongside the Treasury Officer credential (Paper 2 v1.2 spec section 4, D9). ACS-D01-01 (ordinary dual authorization) + ACS-D02-01 (widened emergency exception, policy POL-D-EMERGENCY-EXCEPTION-4.3) = 2 risk-derived + 3 compiler-invariant = 5 total predicates. Canonical payload hash differs from CCS1 by design (widened authorized-actor set); CCS1's judgment reference is not current for CCS2's state. Development artifact; not part of any frozen preregister-tier0 campaign.",
+  "payload_hash": "f7b5827d6c7fc4702d9e276b3ae34179482bcecd466bddba440103f751c603d2",
+  "schema_version": "1.2"
+}

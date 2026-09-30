@@ -7,16 +7,16 @@
       "numpy": "2.2.1",
       "pytest": "8.3.4"
     },
-    "git_commit": "66c01c44794db7ddae3f5ac924c30b9e776fa697",
-    "git_commit_short": "66c01c4",
-    "git_describe": "v1.1.0-7-g66c01c4-dirty",
+    "git_commit": "c1a9b958a476821764decc0f8f5ef5bb5bb62a00",
+    "git_commit_short": "c1a9b95",
+    "git_describe": "v1.1.0-9-gc1a9b95-dirty",
     "git_status_clean": false,
     "git_tag_exact": null,
     "machine": "arm64",
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "python_implementation": "CPython",
     "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-30T08:03:04Z",
+    "run_completed_utc": "2026-09-30T13:31:13Z",
     "system": "Darwin"
   },
   "phase": "development",
@@ -951,17 +951,19 @@
     },
     "determinism_local": {
       "TD": {
-        "denominator": 93,
-        "numerator": 93,
+        "denominator": 155,
+        "numerator": 155,
         "value": 1.0
       },
       "cases": [
         "case_a",
         "case_b_v1_1",
-        "case_d_ccs1"
+        "case_d_ccs0",
+        "case_d_ccs1",
+        "case_d_ccs2"
       ],
       "failures": [],
-      "matches": 93,
+      "matches": 155,
       "note": "Local perturbation determinism only (spec section 7); the 6-leg CI matrix (spec section 8) is separate, recommended-but-secondary evidence, never called '8 CI environments'.",
       "per_case": {
         "case_a": {
@@ -992,6 +994,20 @@
           "reference_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
           "runs": 31
         },
+        "case_d_ccs0": {
+          "TD": {
+            "definition": "sum_k 1[H_k = H_reference] / N over environments and permutations",
+            "denominator": 31,
+            "note": "TD applies to the canonical payload hash. The signature envelope is not required to be byte-identical across signing events.",
+            "numerator": 31,
+            "reference_hash": "09495d8ee59a9868db4749e40812ad40a4c2683d79c931d641811a2849635912",
+            "value": 1.0
+          },
+          "matches": 31,
+          "pass_fraction": "31/31",
+          "reference_hash": "09495d8ee59a9868db4749e40812ad40a4c2683d79c931d641811a2849635912",
+          "runs": 31
+        },
         "case_d_ccs1": {
           "TD": {
             "definition": "sum_k 1[H_k = H_reference] / N over environments and permutations",
@@ -1005,10 +1021,24 @@
           "pass_fraction": "31/31",
           "reference_hash": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784",
           "runs": 31
+        },
+        "case_d_ccs2": {
+          "TD": {
+            "definition": "sum_k 1[H_k = H_reference] / N over environments and permutations",
+            "denominator": 31,
+            "note": "TD applies to the canonical payload hash. The signature envelope is not required to be byte-identical across signing events.",
+            "numerator": 31,
+            "reference_hash": "f7b5827d6c7fc4702d9e276b3ae34179482bcecd466bddba440103f751c603d2",
+            "value": 1.0
+          },
+          "matches": 31,
+          "pass_fraction": "31/31",
+          "reference_hash": "f7b5827d6c7fc4702d9e276b3ae34179482bcecd466bddba440103f751c603d2",
+          "runs": 31
         }
       },
       "runs_per_case": 31,
-      "total_runs": 93
+      "total_runs": 155
     },
     "diagnostic_a": {
       "bounded_history_scoped_evaluator": {
@@ -1224,7 +1254,9 @@
       "case_d_D5": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784",
       "determinism_reference_case_a": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
       "determinism_reference_case_b_v1_1": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
-      "determinism_reference_case_d_ccs1": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784"
+      "determinism_reference_case_d_ccs0": "09495d8ee59a9868db4749e40812ad40a4c2683d79c931d641811a2849635912",
+      "determinism_reference_case_d_ccs1": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784",
+      "determinism_reference_case_d_ccs2": "f7b5827d6c7fc4702d9e276b3ae34179482bcecd466bddba440103f751c603d2"
     },
     "phase_note": "DEVELOPMENT campaign summary. Not a reportable number, not a freeze, not a release. See the accompanying development report for the exact commands run and the actual pytest total.",
     "release": {

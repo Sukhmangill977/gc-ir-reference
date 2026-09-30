@@ -12,11 +12,11 @@ results/development_v12/cross_environment_determinism.json).
 Verifies a determinism.json produced by experiments.run_determinism_v12
 INSIDE the Dockerfile-pinned container (python:3.11.11-slim-bookworm, pinned
 by digest) against the three committed cases/<case>/expected/reference_hashes.json
-files -- the same committed references the 93-run local (host) determinism
+files -- the same committed references the 155-run local (host) determinism
 result and the 6-leg CI matrix are each independently checked against.
 
 This is additional, recommended-but-secondary cross-environment evidence
-(spec section 8), never conflated with the 93-run local determinism claim or
+(spec section 8), never conflated with the 155-run local determinism claim or
 the 6-leg OS x Python CI matrix. It does not require network access or the
 GitHub Actions runner; it runs on any host with Docker able to build the
 repo's pinned Dockerfile, which is how the equivalent container leg was
@@ -35,7 +35,7 @@ for path in (os.path.join(REPO_ROOT, "src"), REPO_ROOT):
     if path not in sys.path:
         sys.path.insert(0, path)
 
-CASES = ("case_a", "case_b_v1_1", "case_d_ccs1")
+CASES = ("case_a", "case_b_v1_1", "case_d_ccs0", "case_d_ccs1", "case_d_ccs2")
 
 
 def committed_hash(case_id):
@@ -64,9 +64,9 @@ def check(determinism_path):
            environment.get("system"))
     record("container machine is aarch64", environment.get("machine") == "aarch64",
            environment.get("platform"))
-    record("total_runs == 93 (31 per case x 3 cases)", result.get("total_runs") == 93,
+    record("total_runs == 155 (31 per case x 5 cases)", result.get("total_runs") == 155,
            str(result.get("total_runs")))
-    record("overall TD == 1.0 (93/93)", result["TD"]["value"] == 1.0,
+    record("overall TD == 1.0 (155/155)", result["TD"]["value"] == 1.0,
            "%s/%s" % (result["TD"]["numerator"], result["TD"]["denominator"]))
 
     for case_id in CASES:
@@ -123,7 +123,7 @@ def main(argv=None):
             "purpose": (
                 "Environment 7 (pinned Linux/aarch64 container), distinct from the "
                 "6-leg OS/Python CI matrix in cross_environment_determinism.json. "
-                "Recommended-but-secondary evidence (spec section 8); the 93-run "
+                "Recommended-but-secondary evidence (spec section 8); the 155-run "
                 "local determinism result is the primary local claim."
             ),
             "container_image": "gcir (built from the repo's pinned Dockerfile: "

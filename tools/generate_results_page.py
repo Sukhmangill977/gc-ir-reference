@@ -290,7 +290,7 @@ def render_v12_development(v12):
         {stat_card("Validator matrix", f'{val["positive_passed"]}/{val["positive_total"]}', "16 positive/negative pairs")}
         {stat_card("Audit: historical", "19/19" if au["historical_19_all_detected"] else "FAIL", "Q1–Q10 negatives still detected")}
         {stat_card("Audit: new v1.2", "9/9" if au["new_v12_all_detected"] else "FAIL", "new audit-regression negatives")}
-        {stat_card("Local determinism", f'{det["TD"]["numerator"]}/{det["TD"]["denominator"]}', "31 runs x 3 cases (A, B v1.1, D CCS1)")}
+        {stat_card("Local determinism", f'{det["TD"]["numerator"]}/{det["TD"]["denominator"]}', "31 runs x 5 cases (A, B v1.1, D CCS0/CCS1/CCS2)")}
         {stat_card("6-leg CI matrix", f'{ce["jobs_succeeded"]}/{ce["total_jobs"]}', "Ubuntu/Windows/macOS x Py 3.11/3.12")}
         {env7_card}
         {stat_card("Case B integration", f'{cbi["passed"]}/{cbi["scenario_count"]}', "13 adverse + 1 clean")}

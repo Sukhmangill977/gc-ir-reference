@@ -1,0 +1,6 @@
+{
+  "case_id": "case_d_ccs0",
+  "note": "Case D CCS0: emergency-exception path disabled -- ordinary ACS-D01-01 (dual authorization) only, no ACS-D02-01 (Paper 2 v1.2 spec section 4, D2/D3). 1 risk-derived + 3 compiler-invariant = 4 total predicates. Development artifact; not part of any frozen preregister-tier0 campaign.",
+  "payload_hash": "09495d8ee59a9868db4749e40812ad40a4c2683d79c931d641811a2849635912",
+  "schema_version": "1.2"
+}

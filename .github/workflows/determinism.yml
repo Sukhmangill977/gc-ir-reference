@@ -189,7 +189,8 @@ jobs:
           path: CI_STATUS_CASE_B_V11.md
           if-no-files-found: ignore
 
-  # Paper 2 v1.2 (development-generation; spec section 8): Case D CCS1.
+  # Paper 2 v1.2 (development-generation; spec section 8): Case D CCS0,
+  # CCS1, CCS2 (gap-audit item 3: all three closure states, not CCS1 alone).
   # Kept as its own job pair, entirely separate from reference-hashes and
   # reference-hashes-case-b-v11 above, so neither the historical nor the
   # prospective-v4 evidence or workflow path is ever touched.
@@ -227,8 +228,8 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.lock
 
-      - name: Determinism experiment, Case D CCS1 (frozen 31-run stratified matrix)
-        run: python -m experiments.run_determinism_v12 --cases case_d_ccs1 --runs-per-case 31 --phase development
+      - name: Determinism experiment, Case D CCS0/CCS1/CCS2 (frozen 31-run stratified matrix each)
+        run: python -m experiments.run_determinism_v12 --cases case_d_ccs0 case_d_ccs1 case_d_ccs2 --runs-per-case 31 --phase development
 
       - name: Upload determinism run log
         if: always()
@@ -241,7 +242,7 @@ jobs:
           if-no-files-found: error
 
   cross-platform-agreement-case-d:
-    name: all platforms agree on the Case D CCS1 reference hash
+    name: all platforms agree on the Case D CCS0/CCS1/CCS2 reference hashes
     needs: reference-hashes-case-d
     runs-on: ubuntu-latest
     steps:
@@ -258,7 +259,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.lock
 
-      - name: Compare every platform's Case D CCS1 reference hash
+      - name: Compare every platform's Case D CCS0/CCS1/CCS2 reference hashes
         run: python -m experiments.check_ci_agreement_case_d downloaded --out CI_STATUS_CASE_D.md
 
       - name: Publish the Case D cross-platform status table

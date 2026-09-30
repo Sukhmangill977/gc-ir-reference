@@ -30,12 +30,13 @@ What it verifies:
       results/development_v12/audit.json. (16 validator-matrix rows, 9
       audit-regression rows and 8 Surface-A families are three distinct
       counts, per the source files' own counting_note -- never summed here.)
-  7.  Local determinism: 93/93 (31 runs x 3 cases: case_a, case_b_v1_1,
-      case_d_ccs1), from results/development_v12/determinism.json, each
-      per-case reference hash matching the committed case reference.
+  7.  Local determinism: 155/155 (31 runs x 5 cases: case_a, case_b_v1_1,
+      case_d_ccs0, case_d_ccs1, case_d_ccs2 -- all three Case D closure
+      states, gap-audit item 3), from results/development_v12/determinism.json,
+      each per-case reference hash matching the committed case reference.
   8.  Cross-environment determinism: the 6-leg OS x Python CI matrix (21 jobs,
       0 failures) from cross_environment_determinism.json, AND environment 7
-      (pinned Linux/aarch64 container, 93/93, hashes matching committed
+      (pinned Linux/aarch64 container, 155/155, hashes matching committed
       references) from environment_container_aarch64.json -- kept as two
       explicitly distinct pieces of evidence, never merged into one count.
   9.  GD/GDmin: Monte Carlo K=250000, seed=20260201, regression against the
@@ -81,7 +82,9 @@ for path in (os.path.join(REPO_ROOT, "src"), REPO_ROOT):
 
 CASE_A_FROZEN_HASH = "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536"
 CASE_B_V1_1_FROZEN_HASH = "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1"
+CASE_D_CCS0_FROZEN_HASH = "09495d8ee59a9868db4749e40812ad40a4c2683d79c931d641811a2849635912"
 CASE_D_CCS1_FROZEN_HASH = "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784"
+CASE_D_CCS2_FROZEN_HASH = "f7b5827d6c7fc4702d9e276b3ae34179482bcecd466bddba440103f751c603d2"
 
 #: Recorded at the time of this proposal. Never written to; only compared
 #: against, so a real historical tag move would be caught, not silently
@@ -123,8 +126,8 @@ def check():
     from gcir.caseio import load_case
     from gcir.compiler import compile_bundle
 
-    # ---- 1-2. Case A / Case B v1.1 unchanged, Case D CCS1 compiles --------
-    print("\n1. Case A / Case B v1.1 unchanged; Case D CCS1 compiles")
+    # ---- 1-2. Case A / Case B v1.1 unchanged, Case D CCS0/CCS1/CCS2 compile --
+    print("\n1. Case A / Case B v1.1 unchanged; Case D CCS0/CCS1/CCS2 compile")
     result_a = compile_bundle(load_case("case_a").compiler_inputs())
     record("case_a payload hash unchanged from frozen v3.1/prospective-v4",
            result_a.bundle.payload_hash == CASE_A_FROZEN_HASH, result_a.bundle.payload_hash)
@@ -133,9 +136,14 @@ def check():
     record("case_b_v1_1 payload hash unchanged from prospective-v4",
            result_b11.bundle.payload_hash == CASE_B_V1_1_FROZEN_HASH, result_b11.bundle.payload_hash)
 
-    result_d = compile_bundle(load_case("case_d_ccs1").compiler_inputs())
-    record("case_d_ccs1 payload hash matches committed reference",
-           result_d.bundle.payload_hash == CASE_D_CCS1_FROZEN_HASH, result_d.bundle.payload_hash)
+    for case_id, frozen_hash in (
+        ("case_d_ccs0", CASE_D_CCS0_FROZEN_HASH),
+        ("case_d_ccs1", CASE_D_CCS1_FROZEN_HASH),
+        ("case_d_ccs2", CASE_D_CCS2_FROZEN_HASH),
+    ):
+        result_d = compile_bundle(load_case(case_id).compiler_inputs())
+        record("%s payload hash matches committed reference" % case_id,
+               result_d.bundle.payload_hash == frozen_hash, result_d.bundle.payload_hash)
 
     # ---- 3. Case D matrix ---------------------------------------------------
     print("\n2. Case D matrix (D1-D10)")
@@ -176,15 +184,17 @@ def check():
     record("9 new v1.2 audit negatives all detected", audit["new_v12_all_detected"] is True, "")
 
     # ---- 7. Local determinism ----------------------------------------------
-    print("\n6. Local determinism (93 runs: case_a/case_b_v1_1/case_d_ccs1 x 31)")
+    print("\n6. Local determinism (155 runs: case_a/case_b_v1_1/case_d_ccs0/ccs1/ccs2 x 31)")
     determinism = _load("determinism.json")["result"]
-    record("total_runs == 93, TD == 1.0 (93/93)",
-           determinism["total_runs"] == 93 and determinism["TD"]["value"] == 1.0,
+    record("total_runs == 155, TD == 1.0 (155/155)",
+           determinism["total_runs"] == 155 and determinism["TD"]["value"] == 1.0,
            "%s/%s" % (determinism["TD"]["numerator"], determinism["TD"]["denominator"]))
     expected_hashes = {
         "case_a": CASE_A_FROZEN_HASH,
         "case_b_v1_1": CASE_B_V1_1_FROZEN_HASH,
+        "case_d_ccs0": CASE_D_CCS0_FROZEN_HASH,
         "case_d_ccs1": CASE_D_CCS1_FROZEN_HASH,
+        "case_d_ccs2": CASE_D_CCS2_FROZEN_HASH,
     }
     for case_id, expected in expected_hashes.items():
         per = determinism["per_case"][case_id]
@@ -215,7 +225,7 @@ def check():
                env7["environment"].get("system") == "Linux"
                and env7["environment"].get("machine") == "aarch64",
                env7["environment"].get("platform"))
-        record("environment-7 container: 93/93, all checks passed",
+        record("environment-7 container: 155/155, all checks passed",
                env7_verification["passed"] is True and env7_result["TD"]["value"] == 1.0,
                "%d checks, %d failures" % (len(env7_verification["checks"]), env7_verification["failure_count"]))
         for case_id, expected in expected_hashes.items():
