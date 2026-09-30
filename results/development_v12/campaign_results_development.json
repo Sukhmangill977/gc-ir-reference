@@ -7,16 +7,16 @@
       "numpy": "2.2.1",
       "pytest": "8.3.4"
     },
-    "git_commit": "1ec003bd0e320c838d33f8e102bf835b529e9223",
-    "git_commit_short": "1ec003b",
-    "git_describe": "v1.1.0-6-g1ec003b-dirty",
+    "git_commit": "66c01c44794db7ddae3f5ac924c30b9e776fa697",
+    "git_commit_short": "66c01c4",
+    "git_describe": "v1.1.0-7-g66c01c4-dirty",
     "git_status_clean": false,
     "git_tag_exact": null,
     "machine": "arm64",
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "python_implementation": "CPython",
     "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-28T15:44:12Z",
+    "run_completed_utc": "2026-09-30T08:03:04Z",
     "system": "Darwin"
   },
   "phase": "development",
@@ -854,7 +854,7 @@
       "hosts_pooled": false,
       "machine": {
         "architecture": "arm64",
-        "machine": "192.168.1.15",
+        "machine": "sukhmangills-MacBook-Air.local",
         "os": "macOS-26.6.2-arm64-arm-64bit",
         "python": "3.11.15",
         "python_implementation": "CPython",
@@ -866,31 +866,31 @@
         "case_a": {
           "case": "case_a",
           "case_size_control_count": 19,
-          "max_ms": 12.930124998092651,
-          "median_ms": 12.452729046344757,
-          "min_ms": 12.281082919798791,
+          "max_ms": 25.679207989014685,
+          "median_ms": 24.529561982490122,
+          "min_ms": 24.14820797275752,
           "n": 100,
-          "p95_ms": 12.536339863436297,
+          "p95_ms": 24.783948255935684,
           "warmup": 10
         },
         "case_b_v1_1": {
           "case": "case_b_v1_1",
           "case_size_control_count": 12,
-          "max_ms": 7.936334004625678,
-          "median_ms": 7.840104051865637,
-          "min_ms": 7.735832943581045,
+          "max_ms": 15.54104092065245,
+          "median_ms": 15.272166463546455,
+          "min_ms": 15.14554105233401,
           "n": 100,
-          "p95_ms": 7.8868628886993974,
+          "p95_ms": 15.438683272805065,
           "warmup": 10
         },
         "case_d_ccs1": {
           "case": "case_d_ccs1",
           "case_size_control_count": 5,
-          "max_ms": 3.892958047799766,
-          "median_ms": 3.84266598848626,
-          "min_ms": 3.8130839820951223,
+          "max_ms": 7.7557500917464495,
+          "median_ms": 7.496125006582588,
+          "min_ms": 7.441124995239079,
           "n": 100,
-          "p95_ms": 3.867075580637902,
+          "p95_ms": 7.567682670196518,
           "warmup": 10
         }
       }
@@ -1118,19 +1118,19 @@
           "check": "compiler_performs_no_semantic_interpretation",
           "detail": "tests/adversarial/test_no_inference.py (static AST scan over the compiler path, including gcir.contract_v12 and gcir.rc_routing as of this generation) forbids similarity/best-match/classifier identifiers",
           "passed": true,
-          "pytest_summary": "52 passed in 0.11s"
+          "pytest_summary": "52 passed in 0.21s"
         },
         {
           "check": "no_llm_or_model_dependency_in_canonical_compilation",
           "detail": "same static scan: FORBIDDEN_IMPORTS includes openai/anthropic/langchain/transformers/torch/tensorflow etc.",
           "passed": true,
-          "pytest_summary": "52 passed in 0.11s"
+          "pytest_summary": "52 passed in 0.21s"
         },
         {
           "check": "no_random_source",
           "detail": "same static scan: FORBIDDEN_IMPORTS includes random/secrets/numpy.random; FORBIDDEN_IDENTIFIERS includes seed/shuffle/sample/choice",
           "passed": true,
-          "pytest_summary": "52 passed in 0.11s"
+          "pytest_summary": "52 passed in 0.21s"
         },
         {
           "check": "no_runtime_feedback_becomes_authority",

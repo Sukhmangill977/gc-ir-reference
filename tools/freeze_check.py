@@ -220,12 +220,26 @@ def main(argv=None):
                              "the independent tools/freeze_check_prospective_v4.py "
                              "checker. Does not read historical FREEZE_MANIFEST_V*.sha256 "
                              "or touch anything --final-v2/--final-v3 depend on.")
+    parser.add_argument("--prospective-v5", action="store_true",
+                        help="verify the CURRENT prospective v1.2 development state "
+                             "(Surface A, Case D, 16-row validator matrix, audit/Q1-Q10, "
+                             "93-run local determinism, 6-leg + environment-7 container "
+                             "cross-environment evidence, GD/GDmin Monte Carlo regression, "
+                             "compile timing, observation diagnostics, Case B integration, "
+                             "full pytest) via the independent "
+                             "tools/freeze_check_prospective_v5.py checker. Does not read "
+                             "historical FREEZE_MANIFEST_V*.sha256 or touch anything "
+                             "--final-v2/--final-v3/--prospective-v4 depend on.")
     parser.add_argument("--json", action="store_true", help="emit JSON on stdout")
     args = parser.parse_args(argv)
 
     if args.prospective_v4:
         from tools import freeze_check_prospective_v4
         return freeze_check_prospective_v4.main(["--json"] if args.json else [])
+
+    if args.prospective_v5:
+        from tools import freeze_check_prospective_v5
+        return freeze_check_prospective_v5.main(["--json"] if args.json else [])
 
     if args.results:
         results_dir = args.results

@@ -1,4 +1,5 @@
 {
+  "container_image": "gcir (built from the repo's pinned Dockerfile: python:3.11.11-slim-bookworm, pinned by digest)",
   "environment": {
     "dependencies": {
       "cryptography": "44.0.0",
@@ -12,15 +13,16 @@
     "git_describe": "v1.1.0-7-g66c01c4-dirty",
     "git_status_clean": false,
     "git_tag_exact": null,
-    "machine": "arm64",
-    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "aarch64",
+    "platform": "Linux-6.12.76-linuxkit-aarch64-with-glibc2.36",
     "python_implementation": "CPython",
-    "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-30T08:02:46Z",
-    "system": "Darwin"
+    "python_version": "3.11.11",
+    "run_completed_utc": "2026-09-30T07:54:12Z",
+    "system": "Linux"
   },
   "phase": "development",
   "phase_note": "DEVELOPMENT result; not reportable.",
+  "purpose": "Environment 7 (pinned Linux/aarch64 container), distinct from the 6-leg OS/Python CI matrix in cross_environment_determinism.json. Recommended-but-secondary evidence (spec section 8); the 93-run local determinism result is the primary local claim.",
   "result": {
     "TD": {
       "denominator": 93,
@@ -82,5 +84,47 @@
     "runs_per_case": 31,
     "total_runs": 93
   },
-  "result_name": "run_determinism_v12"
+  "result_name": "environment_container_aarch64_v12",
+  "verification": {
+    "checks": [
+      {
+        "check": "container system is Linux",
+        "detail": "Linux",
+        "passed": true
+      },
+      {
+        "check": "container machine is aarch64",
+        "detail": "Linux-6.12.76-linuxkit-aarch64-with-glibc2.36",
+        "passed": true
+      },
+      {
+        "check": "total_runs == 93 (31 per case x 3 cases)",
+        "detail": "93",
+        "passed": true
+      },
+      {
+        "check": "overall TD == 1.0 (93/93)",
+        "detail": "93/93",
+        "passed": true
+      },
+      {
+        "check": "case_a: 31/31 and hash matches committed reference",
+        "detail": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536 (expected f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536)",
+        "passed": true
+      },
+      {
+        "check": "case_b_v1_1: 31/31 and hash matches committed reference",
+        "detail": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1 (expected 0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1)",
+        "passed": true
+      },
+      {
+        "check": "case_d_ccs1: 31/31 and hash matches committed reference",
+        "detail": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784 (expected 32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784)",
+        "passed": true
+      }
+    ],
+    "failure_count": 0,
+    "findings": [],
+    "passed": true
+  }
 }

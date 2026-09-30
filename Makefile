@@ -6,7 +6,7 @@ PYTHON ?= python3
 VENV   := .venv
 PY     := $(VENV)/bin/python
 
-.PHONY: help venv install check-python test reproduce reproduce-final reproduce-final-v2 \
+.PHONY: help venv install check-python test reproduce reproduce-v12 reproduce-final reproduce-final-v2 \
         verify-hashes verify-results verify-manifest result-map ieee-check cases \
         manifest clean docker-build docker-reproduce freeze-manifest lint-secrets
 
@@ -23,6 +23,7 @@ help:
 	@echo "  make verify-results    check every paper-facing number against results/final_v2/"
 	@echo "  make verify-manifest   check MANIFEST.sha256 is current (the check CI runs)"
 	@echo "  make reproduce         run every non-CI experiment (development phase)"
+	@echo "  make reproduce-v12     run the Paper 2 v1.2 generators -> results/development_v12/"
 	@echo "  make reproduce-final-v2  re-run the REPORTABLE campaign -> results/final_v2/"
 	@echo "  make reproduce-final   re-run the SUPERSEDED v1 campaign -> results/final/"
 	@echo "  make verify-hashes     recompile both cases and check the reference hashes"
@@ -66,6 +67,23 @@ test:
 
 reproduce:
 	$(PY) -m experiments.reproduce_all
+
+# Paper 2 v1.2 development-phase generators -> results/development_v12/.
+# Not part of `make reproduce` (which stays scoped to the pre-v1.2 pipeline);
+# a separate target so neither can silently change the other's evidence.
+# NOT reportable -- see results/development_v12/*.json's own phase_note.
+reproduce-v12:
+	$(PY) -m experiments.surface_a_paired_validation
+	$(PY) -m experiments.case_d_matrix
+	$(PY) -m experiments.validate_contract_v12
+	$(PY) -m experiments.audit_regression_v12
+	$(PY) -m experiments.run_determinism_v12
+	$(PY) -m experiments.neutrality_v12
+	$(PY) -m experiments.compile_timing_v12
+	$(PY) -m experiments.observation_diagnostics_v12
+	$(PY) -m experiments.case_b_integration_regression_v12
+	$(PY) -m experiments.monte_carlo_regression_v12
+	$(PY) -m experiments.build_campaign_results_v12
 
 # The SUPERSEDED v1 campaign. Kept so the historical campaign remains executable;
 # results/final/ is NOT reportable -- see README, "Reproducibility and the

@@ -7,16 +7,16 @@
       "numpy": "2.2.1",
       "pytest": "8.3.4"
     },
-    "git_commit": "a1cd35a1896f8078a67c2ae07b177c87a6fbf459",
-    "git_commit_short": "a1cd35a",
-    "git_describe": "v1.1.0-5-ga1cd35a-dirty",
+    "git_commit": "66c01c44794db7ddae3f5ac924c30b9e776fa697",
+    "git_commit_short": "66c01c4",
+    "git_describe": "v1.1.0-7-g66c01c4-dirty",
     "git_status_clean": false,
     "git_tag_exact": null,
     "machine": "arm64",
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "python_implementation": "CPython",
     "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-28T14:32:22Z",
+    "run_completed_utc": "2026-09-30T08:02:47Z",
     "system": "Darwin"
   },
   "phase": "development",
@@ -27,19 +27,19 @@
         "check": "compiler_performs_no_semantic_interpretation",
         "detail": "tests/adversarial/test_no_inference.py (static AST scan over the compiler path, including gcir.contract_v12 and gcir.rc_routing as of this generation) forbids similarity/best-match/classifier identifiers",
         "passed": true,
-        "pytest_summary": "52 passed in 0.11s"
+        "pytest_summary": "52 passed in 0.21s"
       },
       {
         "check": "no_llm_or_model_dependency_in_canonical_compilation",
         "detail": "same static scan: FORBIDDEN_IMPORTS includes openai/anthropic/langchain/transformers/torch/tensorflow etc.",
         "passed": true,
-        "pytest_summary": "52 passed in 0.11s"
+        "pytest_summary": "52 passed in 0.21s"
       },
       {
         "check": "no_random_source",
         "detail": "same static scan: FORBIDDEN_IMPORTS includes random/secrets/numpy.random; FORBIDDEN_IDENTIFIERS includes seed/shuffle/sample/choice",
         "passed": true,
-        "pytest_summary": "52 passed in 0.11s"
+        "pytest_summary": "52 passed in 0.21s"
       },
       {
         "check": "no_runtime_feedback_becomes_authority",
