@@ -1,5 +1,5 @@
 {
-  "file_count": 571,
+  "file_count": 573,
   "files": [
     {
       "bytes": 1022,
@@ -62,10 +62,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 119637,
+      "bytes": 120077,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "5c8dd878cfe4eda68b883c433bd5dd0ac47cf180314bb7180588650e60d1a276"
+      "sha256": "6ca5146a7c5c4359e809f27cda6329903734cbfe7a46efb870219bc474758d5e"
     },
     {
       "bytes": 9671,
@@ -1493,7 +1493,7 @@
       "bytes": 27195,
       "path": "results.html",
       "role": "repository_root",
-      "sha256": "a562247355d5d9537f4cb611b51a01beffe68bc389f352906a5fdf2329de4c83"
+      "sha256": "ddcf72b61107ee146431515af010f613e1264de13de167c78a3fdd0b8544f85e"
     },
     {
       "bytes": 5372,
@@ -1649,7 +1649,7 @@
       "bytes": 2561,
       "path": "results/development/determinism_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "466ce1cf9db9dd7ea9d0e6e0853a268da9bc3660f3a055bca8c43d50134cc65e"
+      "sha256": "e201d6332207718e72ccf4ac19d77542b9f3cd7ef64e13b06b3c22371af9a1fc"
     },
     {
       "bytes": 18253,
@@ -1703,7 +1703,7 @@
       "bytes": 25882,
       "path": "results/development/monte_carlo_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "f73f32ac5ebcfd51f6f31b6f6abf7acf266990464566a574001fc49b82f837d4"
+      "sha256": "e9d2ccfa698e64d1d92883805e96f1278d542a69ef722a771425002f77feba3e"
     },
     {
       "bytes": 113422,
@@ -1752,6 +1752,12 @@
       "path": "results/development/traceability_queries.json",
       "role": "development_result",
       "sha256": "b43d6a0ff7209e20d72df0467e7ec3655e09e3298291d535426336a1520b54be"
+    },
+    {
+      "bytes": 11046,
+      "path": "results/development_v12/RECONCILIATION_BEFORE_EXECUTION.md",
+      "role": "development_result",
+      "sha256": "4f47f0394e12a9511f37b73c373e8337c3823a19acaa63430891d2b4e7e0c9fb"
     },
     {
       "bytes": 10213,
@@ -1814,10 +1820,10 @@
       "sha256": "c27037cac3aa70736fa8c683f90af0d90db0865a9b73b43678045c23881dfa0d"
     },
     {
-      "bytes": 4475,
+      "bytes": 4476,
       "path": "results/development_v12/determinism.json",
       "role": "development_result",
-      "sha256": "0e93358481faf14a6102ae07f9f825efba6e1779444fec4a2cdad597cde2b0bf"
+      "sha256": "a46d8dc83a914eeea6ab73e255e8396aabfd54cd86e5c40751ed87455958a675"
     },
     {
       "bytes": 46758,
@@ -1836,6 +1842,12 @@
       "path": "results/development_v12/environment_container_aarch64_runs.csv",
       "role": "development_result",
       "sha256": "08affa6387c56562c9e439e08fa923b2d38c435d62d371e577a0a76a4885038f"
+    },
+    {
+      "bytes": 73123,
+      "path": "results/development_v12/junit_full.xml",
+      "role": "development_result",
+      "sha256": "c07c869f71d263a10bcf20510314cd4ac7f99ebd560a589a9ea33153d9e8eb8d"
     },
     {
       "bytes": 1778,
@@ -3429,7 +3441,7 @@
     }
   ],
   "generated_from_ref": "INDEX",
-  "manifest_sha256": "fa705cecc1a884551aaaa6ad8a082372299bad630193a505a90766672bdea6d9",
+  "manifest_sha256": "0cfe7a0bc3532f3b614ba174bd0eaa5a42c43ba0d462471c754afc4702801665",
   "roles": [
     "acs_a",
     "acs_b",
@@ -3465,5 +3477,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 12085845
+  "total_bytes": 12170455
 }
