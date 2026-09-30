@@ -1,5 +1,5 @@
 {
-  "file_count": 603,
+  "file_count": 604,
   "files": [
     {
       "bytes": 1022,
@@ -65,7 +65,7 @@
       "bytes": 126409,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "fb8032d8bd2cf7e3fbbf475b60dff89a7bce6487e6f45303130972c7354e1f0f"
+      "sha256": "ec2719610f717342e6e47550b851984e1da550b870714991aff99c9b1414ca82"
     },
     {
       "bytes": 9671,
@@ -1268,6 +1268,12 @@
       "sha256": "542d175075ae09b98e0192aa26952eda3c872e6d051168e466ee95959598ee52"
     },
     {
+      "bytes": 103442,
+      "path": "paper.docx",
+      "role": "repository_root",
+      "sha256": "4ecbbcce00d79cd33f934e95289bc84d238a4b034efaea4d62309af4fc211186"
+    },
+    {
       "bytes": 10643,
       "path": "paper_update/AUDIT_QUERY_5_5D_MANUSCRIPT_AMENDMENT.md",
       "role": "manuscript_reconciliation",
@@ -1505,7 +1511,7 @@
       "bytes": 27193,
       "path": "results.html",
       "role": "repository_root",
-      "sha256": "a9f24d9196dce56d7c606bd9cffd365e665ee31d7c4b2be498d09d8823b7d260"
+      "sha256": "9f5d27305b28cf8722abc2a9dcbe51f0aecf3d945c42c162646a8634ab438782"
     },
     {
       "bytes": 5372,
@@ -1658,10 +1664,10 @@
       "sha256": "a037fdcc2985a3280ac0903e87c1e288f774ea496da568d3b1b6bad879f8892f"
     },
     {
-      "bytes": 2581,
+      "bytes": 2574,
       "path": "results/development/determinism_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "bdedafcdc831efdac46cfea49d4d3f7bbe6ce776579242f0bf6eb6efa8d13b20"
+      "sha256": "076cc5ac4ac80e64ebe8a9c0fe4fd9515bb0565d5864b55bcea76022c68865f0"
     },
     {
       "bytes": 18253,
@@ -1712,10 +1718,10 @@
       "sha256": "9cb5fd09fed54b54fb9292ca318e3941767fb0343ba51207925d8b042e37f888"
     },
     {
-      "bytes": 25902,
+      "bytes": 25895,
       "path": "results/development/monte_carlo_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "c55d21afe29b622f4fa063e7bb766e80a5c1fd24dd23157bc19d4fa7ce31d5b9"
+      "sha256": "ae0a093602246703750a79aae6221fd6627230638e4722476b9708626ae29d9b"
     },
     {
       "bytes": 113422,
@@ -3602,10 +3608,10 @@
       "sha256": "2c208292088118517378e2406c2e9f2a2263ddbd6d38aaf8315f8965d88897d9"
     },
     {
-      "bytes": 8912,
+      "bytes": 12212,
       "path": "tools/verify_manuscript_v1_2_0.py",
       "role": "fixture_generator",
-      "sha256": "a5457c7345effe8b4abb53d8d14b4b5834af45b7202c0a107c5d92eac583dcda"
+      "sha256": "7aa9e5cf150b917568a89205efb57902fb689fae105793ea9c39dde42e3afd65"
     },
     {
       "bytes": 20303,
@@ -3621,7 +3627,7 @@
     }
   ],
   "generated_from_ref": "INDEX",
-  "manifest_sha256": "2533792f9a89b176996ca7f2a667c66c6e2cefbdf0e4e89378dfbcae6b427744",
+  "manifest_sha256": "0a9970f58de9b546f3b2f1c4f313a615bad66cd059b46b0aa18f745437e38e0d",
   "roles": [
     "acs_a",
     "acs_b",
@@ -3657,5 +3663,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 12583133
+  "total_bytes": 12689861
 }
