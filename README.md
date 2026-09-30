@@ -15,7 +15,13 @@ Abhinandan Gill-Lakhowal, Member, IEEE — Gillian Holdings Incorporated, Calgar
 > root — the live page is served directly from the committed
 > [`results.html`](results.html) with no separate copy. A single-page,
 > chart-illustrated summary of every measured result below (case hashes,
-> Q1-Q10, injections, determinism, Monte Carlo, L-DREA/ULB reproduction).
+> Q1-Q10, injections, determinism, Monte Carlo, L-DREA/ULB reproduction),
+> plus a **full campaign history table** (every frozen release from
+> `preregister-tier0-v1` through the current `v1.1.0`) and a **Paper 2 v1.2
+> development-phase section** (Surface A, Case D, the 16-row validator
+> matrix, 93-run local + cross-environment determinism, GD/GDmin Monte Carlo
+> regression, compile timing) — explicitly marked as unfrozen,
+> not-yet-reportable evidence, since no `preregister-tier0-v5` tag exists yet.
 > Regenerate it any time with `make results` / `python
 > tools/generate_results_page.py` — it is built entirely from the same
 > machine-readable evidence as this README,

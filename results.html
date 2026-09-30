@@ -59,6 +59,8 @@
   th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; }
   th { color: var(--muted); font-weight: 600; font-size: 11.5px; text-transform: uppercase; }
   .table-wrap { overflow-x: auto; }
+  tr.current-row { background: rgba(79,124,255,.08); }
+  tr.current-row td:first-child { font-weight: 700; }
   .pill { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 600; }
   .pill.ok { background: rgba(47,179,128,.15); color: #1f8f63; }
   .pill.bad { background: rgba(229,83,61,.15); color: #c8422c; }
@@ -80,7 +82,7 @@
     <span class="badge">release v1.1.0</span>
     <span class="badge">freeze preregister-tier0-v4.1</span>
     <span class="badge">commit efe4e165619e</span>
-    <span class="badge">generated 2026-09-12 17:52 UTC</span>
+    <span class="badge">generated 2026-09-30 08:20 UTC</span>
   </div>
 </header>
 
@@ -485,6 +487,171 @@
     </div>
           </div>
         </section>
+
+  
+    <section class="card">
+      <h2>Paper 2 v1.2 &mdash; development phase (not yet frozen)</h2>
+      <div class="claim">
+        <strong>Not a reportable campaign.</strong> reportable = False; freeze status =
+        NOT CREATED. Every figure below is development-phase evidence from
+        <code>results/development_v12/</code>, gathered ahead of a prospective
+        <code>preregister-tier0-v5</code> freeze that has not been created. No v1.2.0 tag exists.
+      </div>
+      <div class="stat-grid" style="margin-top:16px;">
+        
+    <div class="stat-card">
+      <div class="stat-value">8/8</div>
+      <div class="stat-label">Surface A</div>
+      <div class="stat-sub">8 paired semantic families: nominal accepted</div>
+    </div>
+        
+    <div class="stat-card">
+      <div class="stat-value">8/8</div>
+      <div class="stat-label">Surface A negatives</div>
+      <div class="stat-sub">correct reason: 8/8</div>
+    </div>
+        
+    <div class="stat-card">
+      <div class="stat-value">10/10</div>
+      <div class="stat-label">Case D matrix</div>
+      <div class="stat-sub">D1–D10</div>
+    </div>
+        
+    <div class="stat-card">
+      <div class="stat-value">16/16</div>
+      <div class="stat-label">Validator matrix</div>
+      <div class="stat-sub">16 positive/negative pairs</div>
+    </div>
+        
+    <div class="stat-card">
+      <div class="stat-value">19/19</div>
+      <div class="stat-label">Audit: historical</div>
+      <div class="stat-sub">Q1–Q10 negatives still detected</div>
+    </div>
+        
+    <div class="stat-card">
+      <div class="stat-value">9/9</div>
+      <div class="stat-label">Audit: new v1.2</div>
+      <div class="stat-sub">new audit-regression negatives</div>
+    </div>
+        
+    <div class="stat-card">
+      <div class="stat-value">93/93</div>
+      <div class="stat-label">Local determinism</div>
+      <div class="stat-sub">31 runs x 3 cases (A, B v1.1, D CCS1)</div>
+    </div>
+        
+    <div class="stat-card">
+      <div class="stat-value">21/21</div>
+      <div class="stat-label">6-leg CI matrix</div>
+      <div class="stat-sub">Ubuntu/Windows/macOS x Py 3.11/3.12</div>
+    </div>
+        
+    <div class="stat-card">
+      <div class="stat-value">93/93</div>
+      <div class="stat-label">Env-7 container (aarch64)</div>
+      <div class="stat-sub">pinned Linux/aarch64, hashes match</div>
+    </div>
+        
+    <div class="stat-card">
+      <div class="stat-value">14/14</div>
+      <div class="stat-label">Case B integration</div>
+      <div class="stat-sub">13 adverse + 1 clean</div>
+    </div>
+        
+    <div class="stat-card">
+      <div class="stat-value">2/2</div>
+      <div class="stat-label">Observation diagnostics</div>
+      <div class="stat-sub">history-scoped + contract-completeness</div>
+    </div>
+      </div>
+      <h3>Monte Carlo (GD/GDmin regression)</h3>
+      <p class="muted">K = 250,000, seed = 20260201. Status: REPRODUCES historical baseline.</p>
+      <div class="stat-grid">
+        
+    <div class="stat-card">
+      <div class="stat-value">3 / 3.226356</div>
+      <div class="stat-label">Case A GD_approved / GD_min</div>
+      
+    </div>
+        
+    <div class="stat-card">
+      <div class="stat-value">4 / 0.0</div>
+      <div class="stat-label">Case B v1.1 GD_approved / GD_min</div>
+      
+    </div>
+      </div>
+      <h3>Compile timing (10 warmup + 100 measured, single host)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Case</th><th>n</th><th>median</th><th>p95</th></tr></thead>
+          <tbody>
+            <tr><td>case_a</td><td>100</td><td>24.53 ms</td><td>24.78 ms</td></tr><tr><td>case_b_v1_1</td><td>100</td><td>15.27 ms</td><td>15.44 ms</td></tr><tr><td>case_d_ccs1</td><td>100</td><td>7.50 ms</td><td>7.57 ms</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="margin-top:10px;">Single reportable reference machine only
+      (macOS-26.6.2-arm64-arm-64bit, arm64,
+      Python 3.11.15); hosts never pooled;
+      not platform-general latency (spec section 12).</p>
+    </section>
+
+  
+    <section class="card">
+      <h2>Full campaign history</h2>
+      <p class="muted">Every frozen, reportable campaign this repository has produced, oldest first.
+      Case A's payload hash (<code>f5cbc3a8…</code>) and Case B's historical payload hash
+      (<code>2850155a…</code>) have never changed across any of these. Only <strong>v1.1.0</strong>
+      (<code>results/final_v4_1/</code>, detailed above) is the current reportable release.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Release</th><th>Freeze tag</th><th>Commit</th><th>Determinism</th><th>Tests</th><th>Status</th></tr></thead>
+          <tbody><tr>
+          <td>v1.0.0-era</td>
+          <td><code>preregister-tier0-v1</code></td>
+          <td><code>196820b23a</code></td>
+          <td>60/60</td>
+          <td>275/275</td>
+          <td class="muted">Superseded -- never pushed publicly</td>
+        </tr><tr>
+          <td>v1.0.5</td>
+          <td><code>preregister-tier0-v2.2</code></td>
+          <td><code>c44f25d6fd</code></td>
+          <td>62/62</td>
+          <td>280/280</td>
+          <td class="muted">Superseded -- first public freeze</td>
+        </tr><tr>
+          <td>v1.0.4 target</td>
+          <td><code>preregister-tier0-v3</code></td>
+          <td><code>8f85d9b90d</code></td>
+          <td>62/62</td>
+          <td>320/320</td>
+          <td class="muted">Superseded by v3.1 (PERMIT/DENY/HOLD semantics correction)</td>
+        </tr><tr>
+          <td>v1.0.5 (corrected)</td>
+          <td><code>preregister-tier0-v3.1</code></td>
+          <td><code>158c0bd378</code></td>
+          <td>62/62</td>
+          <td>320/320</td>
+          <td class="muted">Superseded by v4 (adds Case B v1.1 + Case C)</td>
+        </tr><tr>
+          <td>v1.1.0 pre-release</td>
+          <td><code>preregister-tier0-v4</code></td>
+          <td><code>48791c720b</code></td>
+          <td>62/62</td>
+          <td>438/438</td>
+          <td class="muted">Superseded by v4.1 -- MANIFEST tooling fix only, science byte-identical</td>
+        </tr><tr class="current-row">
+          <td>v1.1.0 (current release)</td>
+          <td><code>preregister-tier0-v4.1</code></td>
+          <td><code>efe4e16561</code></td>
+          <td>62/62</td>
+          <td>446/446</td>
+          <td class="muted">Current reportable release -- shown in full above</td>
+        </tr></tbody>
+        </table>
+      </div>
+    </section>
 
 </main>
 
