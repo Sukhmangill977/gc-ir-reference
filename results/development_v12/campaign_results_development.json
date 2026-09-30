@@ -7,16 +7,16 @@
       "numpy": "2.2.1",
       "pytest": "8.3.4"
     },
-    "git_commit": "256a6243cdb687eca7da530207d5bd16f75ec5b5",
-    "git_commit_short": "256a624",
-    "git_describe": "v1.1.0-11-g256a624-dirty",
+    "git_commit": "5b5064ad276e783ffbd1b4a8668efd6e3434c196",
+    "git_commit_short": "5b5064a",
+    "git_describe": "v1.1.0-14-g5b5064a-dirty",
     "git_status_clean": false,
     "git_tag_exact": null,
     "machine": "arm64",
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "python_implementation": "CPython",
     "python_version": "3.11.15",
-    "run_completed_utc": "2026-09-30T14:08:24Z",
+    "run_completed_utc": "2026-09-30T16:44:46Z",
     "system": "Darwin"
   },
   "phase": "development",
@@ -854,7 +854,7 @@
       "hosts_pooled": false,
       "machine": {
         "architecture": "arm64",
-        "machine": "sukhmangills-MacBook-Air.local",
+        "machine": "192.168.1.15",
         "os": "macOS-26.6.2-arm64-arm-64bit",
         "python": "3.11.15",
         "python_implementation": "CPython",
@@ -866,31 +866,31 @@
         "case_a": {
           "case": "case_a",
           "case_size_control_count": 19,
-          "max_ms": 25.679207989014685,
-          "median_ms": 24.529561982490122,
-          "min_ms": 24.14820797275752,
+          "max_ms": 24.795625009573996,
+          "median_ms": 12.450854002963752,
+          "min_ms": 12.238582945428789,
           "n": 100,
-          "p95_ms": 24.783948255935684,
+          "p95_ms": 12.802792334696278,
           "warmup": 10
         },
         "case_b_v1_1": {
           "case": "case_b_v1_1",
           "case_size_control_count": 12,
-          "max_ms": 15.54104092065245,
-          "median_ms": 15.272166463546455,
-          "min_ms": 15.14554105233401,
+          "max_ms": 8.018124965019524,
+          "median_ms": 7.802562497090548,
+          "min_ms": 7.714790990576148,
           "n": 100,
-          "p95_ms": 15.438683272805065,
+          "p95_ms": 7.883510441752151,
           "warmup": 10
         },
         "case_d_ccs1": {
           "case": "case_d_ccs1",
           "case_size_control_count": 5,
-          "max_ms": 7.7557500917464495,
-          "median_ms": 7.496125006582588,
-          "min_ms": 7.441124995239079,
+          "max_ms": 3.9105829782783985,
+          "median_ms": 3.833791008219123,
+          "min_ms": 3.791749943047762,
           "n": 100,
-          "p95_ms": 7.567682670196518,
+          "p95_ms": 3.871197596890852,
           "warmup": 10
         }
       }

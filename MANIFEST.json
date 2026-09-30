@@ -1,5 +1,5 @@
 {
-  "file_count": 576,
+  "file_count": 578,
   "files": [
     {
       "bytes": 1022,
@@ -62,10 +62,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 120077,
+      "bytes": 120765,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "edb0852e2473cbbf09e1c84bddf457b176c4b69f9c992cae799e833ad78125b3"
+      "sha256": "84b4fca6752da4d2f2a21ebe6011bd2c6408e569f14dd9475a8ef3e3b5943a19"
     },
     {
       "bytes": 9671,
@@ -968,6 +968,12 @@
       "sha256": "639c53a4f52686d7411da1279fe60e96505e95858aa3dbbf7dbb4c2f9ed165d8"
     },
     {
+      "bytes": 9405,
+      "path": "experiments/build_campaign_results_final_v5.py",
+      "role": "experiment_code",
+      "sha256": "9da49b75ab710cafe5f20d20977d65a20886ff2d9769434627eb83ae4b52a001"
+    },
+    {
       "bytes": 6030,
       "path": "experiments/build_campaign_results_v12.py",
       "role": "experiment_code",
@@ -1044,6 +1050,12 @@
       "path": "experiments/compile_timing_v12.py",
       "role": "experiment_code",
       "sha256": "3bb28f50f156c24f6fc09a413179359800fc3136dac3dde44c26c26eed1404b8"
+    },
+    {
+      "bytes": 13213,
+      "path": "experiments/final_campaign_v12.py",
+      "role": "experiment_code",
+      "sha256": "71a32ef29762eb755798e6bb7478ad0b9563a19fa71a5f1aa569397bd0f94ad6"
     },
     {
       "bytes": 12792,
@@ -1490,10 +1502,10 @@
       "sha256": "e134ac5741cd39d3caaa304f38918d364d451a540bbef1d2dc829997fc5ec3e4"
     },
     {
-      "bytes": 27195,
+      "bytes": 27193,
       "path": "results.html",
       "role": "repository_root",
-      "sha256": "453999bde11fb0cd6031bc7884c93e880037405037f89bae3f56e6e58e3ba2e9"
+      "sha256": "e682bbc0cdcb428c4387324e9dad72750a7c902785faa69993e5e56c714c8f2e"
     },
     {
       "bytes": 5372,
@@ -1649,7 +1661,7 @@
       "bytes": 2561,
       "path": "results/development/determinism_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "e8a73aca889fbc83b95a9c9fe57691076d1dd485ccf16df5252bdbc944fcd06a"
+      "sha256": "eeaf5fd97527d49a7549adf191931701b8901bf0a04011f465c72bb014670079"
     },
     {
       "bytes": 18253,
@@ -1703,7 +1715,7 @@
       "bytes": 25882,
       "path": "results/development/monte_carlo_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "97c32ca7260eb5743e86fbbc5ff325dca4ff18064db56e2bdec4523e5ee53995"
+      "sha256": "57554fd5ecc907c660e6913e02866a88fc14eec6eb78e8e5d208fedd03c70ff8"
     },
     {
       "bytes": 113422,
@@ -1760,22 +1772,22 @@
       "sha256": "4f47f0394e12a9511f37b73c373e8337c3823a19acaa63430891d2b4e7e0c9fb"
     },
     {
-      "bytes": 10213,
+      "bytes": 10214,
       "path": "results/development_v12/audit.json",
       "role": "development_result",
-      "sha256": "e8760b4b20fdcbb2dfe3511874c5d79b2fa2d7415c5f3bf321e7cd2de176ec17"
+      "sha256": "6b025ac8ccbdf10dfe51c8de7ec37790c05dd1493ecc5b79486dfaa343bc45a3"
     },
     {
-      "bytes": 73178,
+      "bytes": 73159,
       "path": "results/development_v12/campaign_results_development.json",
       "role": "development_result",
-      "sha256": "171f7d07b5f64a7f0cc6bc27e5fe4ac8e9b95e5be41f01bfdfc0cb54d3e74fff"
+      "sha256": "9cca959e1ce5ace4de0c91766678033399eb1d32d8f77a8f4071138481d288c9"
     },
     {
-      "bytes": 17155,
+      "bytes": 17156,
       "path": "results/development_v12/case_b_integration.json",
       "role": "development_result",
-      "sha256": "c59ed0678ddd826632db2d2c3606549f9ced9b7221ea17e1e63656b14e107e00"
+      "sha256": "b54e5170801a1f69181284ff7f6b36d371d2c7071c0c9db3466ffebf250cc51f"
     },
     {
       "bytes": 3376,
@@ -1787,7 +1799,7 @@
       "bytes": 6431,
       "path": "results/development_v12/case_d.json",
       "role": "development_result",
-      "sha256": "edd658c890f198b86ad42aa15cd5ae3a0a254715f90150153409312b82b89408"
+      "sha256": "308f10612cb2a1cee894ec68c5a8ac42eb7b50082e130ae0437100c32d4d81dc"
     },
     {
       "bytes": 4079,
@@ -1814,10 +1826,10 @@
       "sha256": "d16705b03ed1f7b49115e2f6f798c79ce264ae83e05b849ce158bb9bc6a2f222"
     },
     {
-      "bytes": 2227,
+      "bytes": 2209,
       "path": "results/development_v12/compile_timing.json",
       "role": "development_result",
-      "sha256": "de1db3957d633ec66c8a18972b2dc69db9f2054669f0600cb7c98dc58e994b71"
+      "sha256": "c9c9b780eb05f8a2dbb898a774c57342b5bb27f010032046a5a77a226aff28ea"
     },
     {
       "bytes": 2035,
@@ -1829,7 +1841,7 @@
       "bytes": 4476,
       "path": "results/development_v12/determinism.json",
       "role": "development_result",
-      "sha256": "a46d8dc83a914eeea6ab73e255e8396aabfd54cd86e5c40751ed87455958a675"
+      "sha256": "0d9270606d184d2dd32d498b1e1e23212da3f93eca0ffb56eb0cfcea55596c07"
     },
     {
       "bytes": 46758,
@@ -1856,28 +1868,28 @@
       "sha256": "c07c869f71d263a10bcf20510314cd4ac7f99ebd560a589a9ea33153d9e8eb8d"
     },
     {
-      "bytes": 1778,
+      "bytes": 1779,
       "path": "results/development_v12/monte_carlo.json",
       "role": "development_result",
-      "sha256": "7becd0471c4647b24045e7eadd1a64a7e68977f54065f8ecf1ff52c9361bf8fd"
+      "sha256": "ea2b533951979024bf9c09684e0eb2452e304473e722a77dd37279243dde6ef9"
     },
     {
       "bytes": 8156,
       "path": "results/development_v12/neutrality.json",
       "role": "development_result",
-      "sha256": "e8adbbe74c14bb793ae4e498a22ce7b575bdcbbc6474778868f4cac7b0d3e064"
+      "sha256": "21251b21b7476b819e0d1cf422026f48614c4558a1790dcc3d7f1a61c5da8b71"
     },
     {
-      "bytes": 3368,
+      "bytes": 3369,
       "path": "results/development_v12/observation_diagnostics.json",
       "role": "development_result",
-      "sha256": "fef6eae4ee5ae7bf989181f8c926d0ca26af23e0e1d46fd1c01731fefc0f5a21"
+      "sha256": "cc63257fc42e3b37b5d66dd86f7890daea296bd4c0d484e1adc3f20a293a30b9"
     },
     {
-      "bytes": 8053,
+      "bytes": 8054,
       "path": "results/development_v12/surface_a.json",
       "role": "development_result",
-      "sha256": "4d91704c2778942fa76f80bdba69e72f166a6c88f9733b00ca492d357bb8b020"
+      "sha256": "60b72c54856d1ad8e4d927a9d9f3dd8b60805996a53bba6807a49db5c94f1442"
     },
     {
       "bytes": 2389,
@@ -1895,7 +1907,7 @@
       "bytes": 10661,
       "path": "results/development_v12/validators.json",
       "role": "development_result",
-      "sha256": "2fbe974874ac6a9d899ed17d17fc7cbb6f5d9979d51fd96066aca8f1662e65f6"
+      "sha256": "648c0d7e1ad0869f36d935334a1d4129c66d387e45795b5c0f1b64a328430216"
     },
     {
       "bytes": 9697,
@@ -3459,7 +3471,7 @@
     }
   ],
   "generated_from_ref": "INDEX",
-  "manifest_sha256": "915ae133bb50d7cf4d7ee39e9682df6a449ee13a1535b3e0717872d333ec501b",
+  "manifest_sha256": "86f46e270bc97715892170292e236d6f97273a3e1d8e67ad010b01947ccb7e2e",
   "roles": [
     "acs_a",
     "acs_b",
@@ -3495,5 +3507,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 12183638
+  "total_bytes": 12206910
 }
