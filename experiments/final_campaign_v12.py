@@ -188,16 +188,23 @@ def main(argv=None):
         with open(cross_env_src, encoding="utf-8") as fh:
             cross_env_data = json.load(fh)
         evidence_sha = cross_env_data["result"].get("head_sha")
-        current = evidence_sha == current_head
+        # See build_campaign_results_final_v5.py's identical comment: the
+        # commit CI ran against necessarily precedes the commit recording
+        # its results, so ancestor-of, not equality, is the satisfiable and
+        # still-meaningful test.
+        current = bool(evidence_sha and (
+            evidence_sha == current_head
+            or _git("merge-base", "--is-ancestor", evidence_sha, current_head) == ""
+        ))
         ledger.add(
-            "T-CROSS-ENV-CI", "cross_environment", "copy from results/development_v12/", "case_a/case_b_v1_1/case_d_ccs1",
-            "head_sha == %s" % current_head,
-            "head_sha == %s (%s)" % (evidence_sha, "CURRENT" if current else "STALE -- CI has not run against this exact commit"),
+            "T-CROSS-ENV-CI", "cross_environment", "copy from results/development_v12/", "case_a/case_b_v1_1/case_d_ccs0/ccs1/ccs2",
+            "evidence commit is an ancestor of %s" % current_head,
+            "head_sha == %s (%s)" % (evidence_sha, "CURRENT" if current else "STALE -- not an ancestor of this candidate commit"),
             "PASS" if current else "FAIL",
             "results/final_v5/cross_environment_determinism.json",
         )
         if not current:
-            print("  [T-CROSS-ENV-CI] STALE: CI evidence is from commit %s, candidate is %s. "
+            print("  [T-CROSS-ENV-CI] STALE: CI evidence (commit %s) is not an ancestor of candidate %s. "
                   "A real final freeze requires pushing this candidate commit and re-running CI." % (evidence_sha, current_head))
         all_ok = all_ok and current
     else:

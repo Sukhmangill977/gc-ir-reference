@@ -9,11 +9,17 @@
         "legs": 6,
         "status_file": "results/development_v12/ci/CI_STATUS_CASE_B_V11.md"
       },
-      "case_d_ccs1_v12": {
+      "case_d_ccs0_ccs1_ccs2_v12": {
         "all_legs_pass": true,
         "job": "reference-hashes-case-d / cross-platform-agreement-case-d",
         "legs": 6,
-        "reference_hash": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784",
+        "rows": 18,
+        "note": "6 legs x 3 CCS states (CCS0, CCS1, CCS2); gap-audit item 3 -- superseded the prior CCS1-only case set of the same job.",
+        "reference_hashes": {
+          "case_d_ccs0": "09495d8ee59a9868db4749e40812ad40a4c2683d79c931d641811a2849635912",
+          "case_d_ccs1": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784",
+          "case_d_ccs2": "f7b5827d6c7fc4702d9e276b3ae34179482bcecd466bddba440103f751c603d2"
+        },
         "status_file": "results/development_v12/ci/CI_STATUS_CASE_D.md"
       },
       "historical_case_a_case_b": {
@@ -25,10 +31,10 @@
         "status_file": "results/development_v12/ci/CI_STATUS.md"
       }
     },
-    "completed_at": "2026-09-28T15:41:08Z",
+    "completed_at": "2026-09-30T16:52:47Z",
     "conclusion": "success",
-    "created_at": "2026-09-28T15:36:57Z",
-    "head_sha": "1ec003bd0e320c838d33f8e102bf835b529e9223",
+    "created_at": "2026-09-30T16:50:47Z",
+    "head_sha": "12c6d86e2883bd524ef76d9a002012697946e888",
     "jobs_failed": 0,
     "jobs_succeeded": 21,
     "matrix": {
@@ -42,12 +48,13 @@
         "3.12"
       ]
     },
-    "note": "Recommended-but-secondary evidence (spec section 8); the 93-run local determinism result is the primary local claim.",
+    "note": "Recommended-but-secondary evidence (spec section 8); the 155-run local determinism result (case_a, case_b_v1_1, case_d_ccs0/ccs1/ccs2) is the primary local claim.",
     "total_jobs": 21,
     "wording": "deterministic across the tested supported environments (Ubuntu/Windows/macOS x Python 3.11/3.12); NOT platform independence.",
     "workflow": "determinism.yml",
-    "workflow_run_id": 36444933383,
-    "workflow_run_url": "https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/36444933383"
+    "workflow_run_id": 36747168263,
+    "workflow_run_url": "https://github.com/Sukhmangill977/gc-ir-reference/actions/runs/36747168263",
+    "provenance": "Downloaded and inspected directly via `gh run view 36747168263` / `gh run download` against candidate commit 12c6d86 -- 21/21 jobs succeeded (gh run view --json jobs confirms 0 non-success), all three CI_STATUS*.md artifacts re-verified PASS with real per-leg hashes, not assumed from a prior commit's evidence. Supersedes the previous head_sha=1ec003b snapshot, which was stale relative to this candidate commit."
   },
   "result_name": "cross_environment_determinism_v12"
 }

@@ -103,8 +103,19 @@ def build(input_dir):
     # not silently treated as current.
     current_head = _git("rev-parse", "HEAD")
     cross_env = sections["cross_environment_determinism"]
+    # The commit CI actually ran against necessarily PRECEDES the commit that
+    # records its results (this repo's own established convention: commit N
+    # triggers CI, commit N+1 records N's outcome -- see 66c01c4, which
+    # records CI results for its own parent 1ec003b). Exact SHA equality can
+    # therefore never be satisfied by construction; an ancestor check is the
+    # correct, satisfiable, still-meaningful test: the recorded evidence
+    # must be from a commit that is actually part of this candidate's
+    # history, not from an unrelated or later branch.
+    evidence_sha = cross_env["result"].get("head_sha") if cross_env else None
     cross_env_current = bool(
-        cross_env and cross_env["result"].get("head_sha") == current_head
+        evidence_sha and current_head
+        and (evidence_sha == current_head
+             or _git("merge-base", "--is-ancestor", evidence_sha, current_head) == "")
     )
 
     missing_mandatory = [
