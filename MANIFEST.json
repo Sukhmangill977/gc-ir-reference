@@ -62,10 +62,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 121183,
+      "bytes": 126409,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "f636b8b2ce64e62dbae2513ad7deed5af129aa693bb95e5e817cd9dffe51301e"
+      "sha256": "fb8032d8bd2cf7e3fbbf475b60dff89a7bce6487e6f45303130972c7354e1f0f"
     },
     {
       "bytes": 9671,
@@ -1505,7 +1505,7 @@
       "bytes": 27193,
       "path": "results.html",
       "role": "repository_root",
-      "sha256": "d276097ad3f01d28c895ce9205d7bf27eccd246fa5aa9921561f85919a8d5c54"
+      "sha256": "a9f24d9196dce56d7c606bd9cffd365e665ee31d7c4b2be498d09d8823b7d260"
     },
     {
       "bytes": 5372,
@@ -1658,10 +1658,10 @@
       "sha256": "a037fdcc2985a3280ac0903e87c1e288f774ea496da568d3b1b6bad879f8892f"
     },
     {
-      "bytes": 2561,
+      "bytes": 2581,
       "path": "results/development/determinism_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "43f8b54f27fd6b1dd1b6e05abe1267410c525672d53040a628ec47b16ab7942e"
+      "sha256": "bdedafcdc831efdac46cfea49d4d3f7bbe6ce776579242f0bf6eb6efa8d13b20"
     },
     {
       "bytes": 18253,
@@ -1712,10 +1712,10 @@
       "sha256": "9cb5fd09fed54b54fb9292ca318e3941767fb0343ba51207925d8b042e37f888"
     },
     {
-      "bytes": 25882,
+      "bytes": 25902,
       "path": "results/development/monte_carlo_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "acf6dd54797e122b517ffbf2623876c19e9117dc2982c05d827be1a1fc88565e"
+      "sha256": "c55d21afe29b622f4fa063e7bb766e80a5c1fd24dd23157bc19d4fa7ce31d5b9"
     },
     {
       "bytes": 113422,
@@ -3621,7 +3621,7 @@
     }
   ],
   "generated_from_ref": "INDEX",
-  "manifest_sha256": "6eec6547412b6a8c429feae6cceb0f81a7ed97cdd96b662d346d7da5a0b43a50",
+  "manifest_sha256": "2533792f9a89b176996ca7f2a667c66c6e2cefbdf0e4e89378dfbcae6b427744",
   "roles": [
     "acs_a",
     "acs_b",
@@ -3657,5 +3657,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 12577867
+  "total_bytes": 12583133
 }
