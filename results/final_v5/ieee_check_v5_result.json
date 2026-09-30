@@ -1,0 +1,14 @@
+{
+  "check": "ieee-check-v5",
+  "git_head": "fae32e570429fe577e80837d4502254d991578a5",
+  "recorded_at": "2026-09-30T18:03:44Z",
+  "scope": "prospective preregister-tier0-v5 state plus manuscript verification (NOT a historical freeze check; NOT the v1.2.0 release itself)",
+  "stage_count": 4,
+  "stages": [
+    "environment",
+    "full test suite (pytest, all suites)",
+    "prospective-v5 freeze check (Surface A, Case D CCS0/CCS1/CCS2, validator matrix, Q1-Q10, historical + new negative fixtures, 155-run local determinism, cross-environment CI + container, GD/GDmin Monte Carlo, compile timing, observation diagnostics, Case B integration, MANIFEST working-tree self-consistency, historical tags unchanged)",
+    "manuscript-number verifier (paper.docx against results/final_v5/campaign_results.json)"
+  ],
+  "status": "PASSED"
+}

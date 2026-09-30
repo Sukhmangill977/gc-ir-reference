@@ -195,6 +195,25 @@ ieee-check-v4:
 	@echo "IEEE ARTIFACT CHECK (prospective v4) PASSED -- all 3 stages"
 	@echo "=============================================================="
 
+.PHONY: ieee-check-v5
+ieee-check-v5:
+	@echo "== 1/4  environment =="
+	@$(PY) -c "import sys, jsonschema, referencing, cryptography, numpy, pytest, hypothesis; \
+	  print('python', sys.version.split()[0]); \
+	  print('jsonschema', jsonschema.__version__, '| cryptography', cryptography.__version__, \
+	        '| numpy', numpy.__version__)"
+	@echo "\n== 2/4  test suites =="
+	$(PY) -m pytest -q
+	@echo "\n== 3/4  prospective-v5 freeze check (includes its own working-tree"
+	@echo "        MANIFEST self-consistency check)"
+	$(PY) tools/freeze_check.py --prospective-v5
+	@echo "\n== 4/4  manuscript-number verifier (paper.docx vs results/final_v5/)"
+	$(PY) tools/verify_manuscript_v1_2_0.py
+	@$(PY) tools/record_ieee_check_v5_result.py --stages 4 --status PASSED
+	@echo "\n=============================================================="
+	@echo "IEEE ARTIFACT CHECK (prospective v5) PASSED -- all 4 stages"
+	@echo "=============================================================="
+
 clean:
 	find . -name '__pycache__' -type d -prune -exec rm -rf {} +
 	rm -rf .pytest_cache .hypothesis

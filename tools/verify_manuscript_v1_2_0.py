@@ -222,6 +222,10 @@ def check(campaign_path=DEFAULT_CAMPAIGN_PATH):
         for label, substring in build_required_substrings(campaign):
             record("manuscript contains %s: %r" % (label, substring), substring in text, "")
 
+    tech_report_path = os.path.join(REPO_ROOT, "docs", "technical-report.pdf")
+    record("docs/technical-report.pdf exists (cited in Section 8.5 and the reference list)",
+           os.path.exists(tech_report_path), tech_report_path)
+
     for pattern, label in STALE_PATTERNS:
         match = re.search(pattern, text, flags=re.IGNORECASE)
         record("no stale/overclaim term: %s" % label, match is None,
