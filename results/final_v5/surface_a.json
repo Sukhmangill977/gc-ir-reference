@@ -1,0 +1,160 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "4e3d473432169f7ee868cb6e082d3aef32ad7ed1",
+    "git_commit_short": "4e3d473",
+    "git_describe": "preregister-tier0-v5-dirty",
+    "git_status_clean": false,
+    "git_tag_exact": "preregister-tier0-v5",
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-30T17:14:26Z",
+    "system": "Darwin"
+  },
+  "phase": "final_v5",
+  "phase_note": "final_v5",
+  "result": {
+    "counts": {
+      "correct_expected_reason": "8/8",
+      "nominal_accepted": "8/8",
+      "packaging_only_rejects": 0,
+      "semantic_negatives_rejected": "8/8",
+      "stale_hash_only_rejects": 0,
+      "unexpected_accepts": 0,
+      "wrong_reason_rejects": 0
+    },
+    "families": [
+      {
+        "description": "Origin: valid approved origin/J relationship vs. tampered judgment content under the same judgment_id/version",
+        "expected_reason": "origin/judgment-binding rejection (judgment_record_ref.content_hash mismatch)",
+        "family": "A1",
+        "hashes_recomputed_not_stale": true,
+        "negative_payload_hash": "983ce3b7f42f481b4bc23be195c4a813bdaf371154007f80fd39e80956a8b0a8",
+        "negative_rejected": true,
+        "nominal_accepted": true,
+        "nominal_payload_hash": "65d24441f53c46803bb194c4751bc4afc5e082f0c3f3e175d2046bdf91f632c6",
+        "observed_reason": "judgment_record_ref.content_hash f9c19cc1bb8d0026a836c970e6dcbfd9090fe32173ed23cb78f83303f496090c does not match the approved judgment record's canonical content hash 3069eff54e763889c4a2fc4239e5f87630c1d7ae81892d2d5734f9ff7b1ce618 (judgment_id='J-CASE-B-V1.1', version='1.1')",
+        "packaging_only_reject": false,
+        "unexpected_accept": false,
+        "wrong_reason": false
+      },
+      {
+        "description": "Disposition/no-narrowing: all mandatory elements represented vs. one dropped evidence_requirement",
+        "expected_reason": "disposition/no-narrowing rejection (dropped evidence_requirement)",
+        "family": "A2",
+        "hashes_recomputed_not_stale": true,
+        "negative_payload_hash": "181366f05c2a0f9cd9bc87792cec8915e50caeb023870fd34e42ab6e5c12821a",
+        "negative_rejected": true,
+        "nominal_accepted": true,
+        "nominal_payload_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
+        "observed_reason": "ACS-B01-01: evidence_requirement ['bound_hash'] dropped",
+        "packaging_only_reject": false,
+        "unexpected_accept": false,
+        "wrong_reason": false
+      },
+      {
+        "description": "Class/role: authorized primary class vs. prohibited collapse human -> auth",
+        "expected_reason": "class-preservation / non-collapse rejection (human -> auth)",
+        "family": "A3",
+        "hashes_recomputed_not_stale": true,
+        "negative_payload_hash": "65d24441f53c46803bb194c4751bc4afc5e082f0c3f3e175d2046bdf91f632c6",
+        "negative_rejected": true,
+        "nominal_accepted": true,
+        "nominal_payload_hash": "1773f35cb6448faf17ae913de3e0071b299b81a5f2e0567aaee94d3747626bec",
+        "observed_reason": "ACS-B01-01: prohibited primary_class collapse human -> auth",
+        "packaging_only_reject": false,
+        "unexpected_accept": false,
+        "wrong_reason": false
+      },
+      {
+        "description": "Action/parameter scope: approved $1,000,000 emergency ceiling vs. widened to $999,999,999",
+        "expected_reason": "no-broadening rejection (exception.parameter_bounds.max_amount widened beyond the approved ceiling)",
+        "family": "A4",
+        "hashes_recomputed_not_stale": true,
+        "negative_payload_hash": "2c095a65e874840060d6d83da5551c2d0695e351f9f1814d0e26096439801917",
+        "negative_rejected": true,
+        "nominal_accepted": true,
+        "nominal_payload_hash": "32edcb72bd6cdcd760252bb85431a898b9aded86db2c8468ba77f4aac6b53784",
+        "observed_reason": "ACS-D02-01: exception.parameter_bounds.max_amount widened from 1000000 to 999999999",
+        "packaging_only_reject": false,
+        "unexpected_accept": false,
+        "wrong_reason": false
+      },
+      {
+        "description": "Exception scope: valid targeted exception vs. widened into a global bypass",
+        "expected_reason": "exception/no-broadening rejection (scope widened into a global bypass)",
+        "family": "A5",
+        "hashes_recomputed_not_stale": true,
+        "negative_payload_hash": "eb5a530398234e625d721f953bb579b8802c83d135de1a2cbde35006d6a3ac82",
+        "negative_rejected": true,
+        "nominal_accepted": true,
+        "nominal_payload_hash": "079a79a6b559e1cb3c51dcea7c70fe9324d2b2686763dd3482585e492637f125",
+        "observed_reason": "ACS-B01-01: exception.scope '*' is a global bypass, not a targeted exception",
+        "packaging_only_reject": false,
+        "unexpected_accept": false,
+        "wrong_reason": false
+      },
+      {
+        "description": "Lifecycle: current compatible policy/J/profile references vs. a superseded judgment reference",
+        "expected_reason": "lifecycle/validity rejection (stale judgment_record_ref.version)",
+        "family": "A6",
+        "hashes_recomputed_not_stale": true,
+        "negative_payload_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
+        "negative_rejected": true,
+        "nominal_accepted": true,
+        "nominal_payload_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
+        "observed_reason": "judgment_record_ref.version '1.1' does not match the current judgment version '1.2-SUPERSEDING'",
+        "packaging_only_reject": false,
+        "unexpected_accept": false,
+        "wrong_reason": false
+      },
+      {
+        "description": "Evidence/observation contract: required beta_r/scope present vs. a dropped decision-relevant distinction (realized_amount)",
+        "expected_reason": "evidence/Omega_r rejection (realized_amount missing from beta_r)",
+        "family": "A7",
+        "hashes_recomputed_not_stale": true,
+        "negative_payload_hash": "156052de3604bd0f29b1a984e517beca73acc63bb4d008b565165102d886d0c3",
+        "negative_rejected": true,
+        "nominal_accepted": true,
+        "nominal_payload_hash": "4947a90c7e29806607ff69408fc873d0518cc24ea825ef8ae5203d12dc8d9f78",
+        "observation_obligation_representation_ok": true,
+        "observed_reason": "ACS-B01-01: observation_obligation.beta_r ['realized_amount'] dropped",
+        "packaging_only_reject": false,
+        "unexpected_accept": false,
+        "wrong_reason": false
+      },
+      {
+        "description": "Unauthorized invention: every field traces to approved input vs. an invented standing_permit_ref",
+        "expected_reason": "no-invention / applicable neutrality rejection (invented standing_permit_ref)",
+        "family": "A8",
+        "hashes_recomputed_not_stale": true,
+        "negative_payload_hash": "cdbd769a179d0f390c5813dd99a40547961703b257e467c5abf34dd1e29ecd59",
+        "negative_rejected": true,
+        "nominal_accepted": true,
+        "nominal_payload_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
+        "observed_reason": "ACS-B01-01: field(s) ['standing_permit_ref'] present on the candidate with no counterpart on the nominal (invented field)",
+        "packaging_only_reject": false,
+        "unexpected_accept": false,
+        "wrong_reason": false
+      }
+    ],
+    "note": "Targets are aspirational per spec section 3; this reports the ACTUAL measured result, not the assumed target.",
+    "target": {
+      "correct_expected_reason": "8/8",
+      "nominal_accepted": "8/8",
+      "packaging_only_rejects": 0,
+      "semantic_negatives_rejected": "8/8",
+      "unexpected_accepts": 0,
+      "wrong_reason_rejects": 0
+    }
+  },
+  "result_name": "surface_a_paired_validation"
+}

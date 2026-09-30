@@ -1,0 +1,254 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "4e3d473432169f7ee868cb6e082d3aef32ad7ed1",
+    "git_commit_short": "4e3d473",
+    "git_describe": "preregister-tier0-v5-dirty",
+    "git_status_clean": false,
+    "git_tag_exact": "preregister-tier0-v5",
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-30T17:14:27Z",
+    "system": "Darwin"
+  },
+  "phase": "final_v5",
+  "phase_note": "final_v5",
+  "result": {
+    "check_count": 16,
+    "checks": [
+      {
+        "check_id": "judgment_hash_binding",
+        "description": "judgment_record_ref.content_hash binds canonical judgment content",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "judgment_record_ref.content_hash f9c19cc1bb8d0026a836c970e6dcbfd9090fe32173ed23cb78f83303f496090c does not match the approved judgment record's canonical content hash 3069eff54e763889c4a2fc4239e5f87630c1d7ae81892d2d5734f9ff7b1ce618 (judgment_id='J-CASE-B-V1.1', version='1.1')"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "source_surface_a_family": "A1",
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "no_narrowing",
+        "description": "represented mandatory elements are preserved",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "ACS-B01-01: evidence_requirement ['bound_hash'] dropped"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "source_surface_a_family": "A2",
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "no_broadening",
+        "description": "actor/action/resource/destination/amount/exception scope is not widened",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "ACS-D02-01: exception.parameter_bounds.max_amount widened from 1000000 to 999999999"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "source_surface_a_family": "A4",
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "no_invention",
+        "description": "every normative element traces to approved input or an authorized compiler invariant",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "ACS-B01-01: field(s) ['standing_permit_ref'] present on the candidate with no counterpart on the nominal (invented field)"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "source_surface_a_family": "A8",
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "primary_class_preservation",
+        "description": "primary class is preserved, never collapsed",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "ACS-B01-01: prohibited primary_class collapse human -> auth"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "source_surface_a_family": "A3",
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "indeterminacy",
+        "description": "unresolved mandatory interpretation on a runtime-requested ACS is COMPILE-FAIL",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "COMPILE-FAIL/release-inadmissible: ACS ACS-D02-01 (risk D-02) declares interpretation_status='unresolved' on a mandatory semantic interpretation while a runtime (active) compile was requested; Paper 2 v1.2 spec section 1F requires COMPILE-FAIL / release-inadmissible here, never DENY or HOLD"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "exception_scope",
+        "description": "exceptions preserve target/trigger/actor/bounds/scope/lifecycle binding",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "ACS-B01-01: exception.scope '*' is a global bypass, not a targeted exception"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "source_surface_a_family": "A5",
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "lifecycle",
+        "description": "policy/judgment/profile version consistency",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "judgment_record_ref.version '1.1' does not match the current judgment version '1.2-SUPERSEDING'"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "source_surface_a_family": "A6",
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "declared_path",
+        "description": "every DECLARED in-scope path has a compiled gate/placement mapping",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "declared path PATH-NEVER-COMPILED (('transaction_agent', 'release_payment_via_undeclared_channel', 'payment_instruction', 'payment_rail')) has no compiled predicate (no gate/placement mapping)"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "synchronization_contract_representation",
+        "description": "every declared synchronization contract carries all required representation fields",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "GCIR-B0001: synchronization_contract.invalidation_trigger missing or empty"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "observation_obligation",
+        "description": "Omega_r representation and no-narrowing of beta_r",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "ACS-B01-01: observation_obligation.beta_r ['realized_amount'] dropped"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "source_surface_a_family": "A7",
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "evidence_representation",
+        "description": "every predicate declares a non-empty evidence path",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "GCIR-B0001: evidence_producer missing"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "failure_semantics",
+        "description": "a candidate must not weaken a nominal's declared on_fail response",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "ACS-B01-01: on_fail weakened from 'SAFE_STATE' to 'WARN'"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "origin",
+        "description": "predicate origin resolves within the approved judgment/ACS relationship",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "judgment_record_ref.content_hash f9c19cc1bb8d0026a836c970e6dcbfd9090fe32173ed23cb78f83303f496090c does not match the approved judgment record's canonical content hash 3069eff54e763889c4a2fc4239e5f87630c1d7ae81892d2d5734f9ff7b1ce618 (judgment_id='J-CASE-B-V1.1', version='1.1')"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "source_surface_a_family": "A1",
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "total_disposition",
+        "description": "every risk carries exactly one disposition record",
+        "expected_reason_matches": 1,
+        "negative_issues": [
+          "B-01: 2 disposition record(s) (expected 1)"
+        ],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "wrong_reason_count": 0
+      },
+      {
+        "check_id": "rc04_rc06_routing",
+        "description": "RC-06 (wrong layer) routes to standing safety/RTA; RC-04 (missing timing assurance) never does",
+        "expected_reason_matches": 1,
+        "negative_issues": [],
+        "negative_rejected": 1,
+        "negative_total": 1,
+        "positive_passed": 1,
+        "positive_total": 1,
+        "wrong_reason_count": 0
+      }
+    ],
+    "counting_note": "These 16 rows are the FULL v1.2 VALIDATOR TEST MATRIX (spec section 5): one (positive, negative) pair per headline machine-checkable validator (judgment_hash_binding, total_disposition, no_narrowing, no_broadening, no_invention, primary_class_preservation, indeterminacy, exception_scope, lifecycle, declared_path, synchronization_contract_representation, observation_obligation, evidence_representation, failure_semantics, origin x2, rc04_rc06_routing). This is a DIFFERENT count from gcir.negative_fixtures.get_negative_fixtures_v12()'s 9 rows (see results/development_v12/audit.json), which is a smaller set of NEW negative fixtures added to the AUDIT/REGRESSION corpus (spec sections 9-10), parallel to and extending the historical 19 Q1-Q10 fixtures -- not every validator gets its own dedicated audit-regression fixture (several share one contract_v12 check as their target), and several of these 16 validator checks reuse a Surface-A fixture (spec section 2) as their positive/negative pair rather than a standalone one. All three countings (16 validator checks, 9 new audit negatives, 8 Surface-A families) measure genuinely different things and are never summed or substituted for one another.",
+    "totals": {
+      "expected_reason_matches": 16,
+      "negative_rejected": 16,
+      "negative_total": 16,
+      "positive_passed": 16,
+      "positive_total": 16,
+      "wrong_reason_count": 0
+    }
+  },
+  "result_name": "validate_contract_v12"
+}

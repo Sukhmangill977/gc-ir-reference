@@ -1,0 +1,13 @@
+{
+  "result_name": "tacip_provenance_limitation",
+  "phase": "development",
+  "phase_note": "DEVELOPMENT result; not reportable. Documents a source-material gap, not a measurement.",
+  "claim_in_manuscript": "Manuscript reference [94]: \"NIST, 'Trustworthy AI in Critical Infrastructure Profile (TACIP),' Community of Interest discussion draft, version of Aug. 3, 2026. Unpublished, COI-distributed; cited as a versioned discussion draft (date and SHA-256 recorded in the artifact repository).\"",
+  "search_performed": "Filesystem-wide search (find / -iname '*tacip*', excluding /proc and /sys) on this execution environment, plus a full `git grep -in tacip` across every tracked file in the repository.",
+  "result": "Zero hits anywhere on this machine or in the repository, tracked or untracked, except the citation text itself (the manuscript reference list and paper_update/LITERATURE_VERIFICATION.md's own note that this citation was already flagged: \"Already correctly qualified in-text as unpublished and COI-distributed, cited by date and hash. Postdates verification; flagged.\").",
+  "classification": "BLOCKED -- source document unavailable in this environment",
+  "reason": "TACIP is described as an unpublished, restricted-distribution (\"Community of Interest\") NIST discussion draft. This environment has no access to NIST COI distribution channels and was not supplied the actual document.",
+  "action_taken": "None. No hash was computed or invented for a document not in hand.",
+  "what_the_manuscript_must_say_instead": "The manuscript's claim that TACIP's \"date and SHA-256 [are] recorded in the artifact repository\" is not currently true -- no such record exists anywhere in this repository. Until the actual document is supplied (by the author, from their COI access) and its hash computed from the genuine file, the manuscript's citation should either: (a) drop the \"date and SHA-256 recorded in the artifact repository\" clause and cite the draft by date/title only, as an external, non-artifact-bound reference, or (b) remain as-is only if the author has the actual document and can supply it so a real hash can be computed and committed before release.",
+  "resolution_requires": "The actual TACIP discussion-draft file, supplied by someone with COI access (the author). This cannot be resolved by inspection of this repository or this environment alone."
+}

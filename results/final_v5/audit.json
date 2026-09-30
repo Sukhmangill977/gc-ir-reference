@@ -1,0 +1,287 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "4e3d473432169f7ee868cb6e082d3aef32ad7ed1",
+    "git_commit_short": "4e3d473",
+    "git_describe": "preregister-tier0-v5-dirty",
+    "git_status_clean": false,
+    "git_tag_exact": "preregister-tier0-v5",
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-30T17:14:27Z",
+    "system": "Darwin"
+  },
+  "phase": "final_v5",
+  "phase_note": "final_v5",
+  "result": {
+    "counting_note": "These 9 rows are gcir.negative_fixtures.get_negative_fixtures_v12()'s AUDIT/REGRESSION corpus (spec sections 9-10): new negative fixtures added alongside the historical 19 Q1-Q10 fixtures above, each targeting exactly one gcir.contract_v12 check. This is a DIFFERENT count from experiments.validate_contract_v12's 16 validator test-matrix rows (see results/development_v12/validators.json), which is the full spec-section-5 positive/negative pair per headline validator (several validators share no dedicated audit-regression fixture here, e.g. indeterminacy and declared_path are exercised only in the validator matrix, not as a committed audit fixture). Never sum or substitute one count for the other.",
+    "historical_19_all_detected": true,
+    "historical_19_negatives": [
+      {
+        "detail": [
+          "INT-EVID-CHAIN-B: not disposed (linked risk statuses=[])"
+        ],
+        "detected": true,
+        "fixture": "negative_q1_undisposed_obligation",
+        "target_query": "Q1"
+      },
+      {
+        "detail": [
+          "B-01: 2 disposition record(s) (expected 1)"
+        ],
+        "detected": true,
+        "fixture": "negative_q2_duplicate_disposition",
+        "target_query": "Q2"
+      },
+      {
+        "detail": [
+          "GCIR-B0001: acs_id 'ACS-NEVER-DISPOSED-GCIR-B0001' is not among risk B-01's disposed acs_ids ['ACS-B01-01', 'ACS-B01-02', 'ACS-B01-03']"
+        ],
+        "detected": true,
+        "fixture": "negative_q3_acs_id_not_disposed",
+        "target_query": "Q3"
+      },
+      {
+        "detail": [
+          "GCIR-B0001: origin_type 'heuristic_match' is outside {risk_derived, compiler_invariant}"
+        ],
+        "detected": true,
+        "fixture": "negative_q3_unknown_origin_type",
+        "target_query": "Q3"
+      },
+      {
+        "detail": [
+          "payload_hash 'not-a-real-hash' is not 64 lowercase hex characters"
+        ],
+        "detected": true,
+        "fixture": "negative_q4_invalid_hash",
+        "target_query": "Q4"
+      },
+      {
+        "detail": [
+          "payload_hash 0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1 does not match hash_payload(payload) = 117276d5bb8e37a031e6d8fe2bd22ab6dd72adba59438b7d4339e28837c40bbf (payload was mutated after hashing)"
+        ],
+        "detected": true,
+        "fixture": "negative_q4_stale_hash",
+        "target_query": "Q4"
+      },
+      {
+        "detail": [
+          "payload_hash 0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1 does not match hash_payload(payload) = 4e72898cc1682b4c277f971a73c3f0ef3d6f9e21b175600e135620d38c875d3e (payload was mutated after hashing)",
+          "validity.effective_from '2026-01-01T00:00:00-05:00' does not parse as RFC 3339 UTC: timestamp '2026-01-01T00:00:00-05:00' is not an RFC 3339 UTC instant of the form YYYY-MM-DDThh:mm:ssZ"
+        ],
+        "detected": true,
+        "fixture": "negative_q4_invalid_effective_from",
+        "target_query": "Q4"
+      },
+      {
+        "detail": [
+          "GCIR-B0001 declares evaluation_latency_bound but on_evaluation_timeout='fail' (must be HOLD)"
+        ],
+        "detected": true,
+        "fixture": "negative_q5_timeout_response_not_hold",
+        "target_query": "Q5"
+      },
+      {
+        "detail": [
+          "GCIR-B0001 has enforcement_phase='POST_AUTH_PRE_ACTUATION' but gate_map.permit_eligible=True (expected False)"
+        ],
+        "detected": true,
+        "fixture": "negative_q5_permit_eligibility_mismatch",
+        "target_query": "Q5"
+      },
+      {
+        "detail": [
+          "bundle carries no signature envelope"
+        ],
+        "detected": true,
+        "fixture": "negative_q6_missing_envelope",
+        "target_query": "Q6"
+      },
+      {
+        "detail": [
+          "envelope payload_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match bundle payload_hash 0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1"
+        ],
+        "detected": true,
+        "fixture": "negative_q6_envelope_hash_mismatch",
+        "target_query": "Q6"
+      },
+      {
+        "detail": [
+          "ACS-MISSING-Q7"
+        ],
+        "detected": true,
+        "fixture": "negative_q7_missing_predicate",
+        "target_query": "Q7"
+      },
+      {
+        "detail": [
+          "ACS-B01-01"
+        ],
+        "detected": true,
+        "fixture": "negative_q7_compiler_invariant_only",
+        "target_query": "Q7"
+      },
+      {
+        "detail": {
+          "missing_predicates": [
+            "GCIR-MISSING-Q8"
+          ],
+          "unused_decisive": []
+        },
+        "detected": true,
+        "fixture": "negative_q8_missing_predicate_reference",
+        "target_query": "Q8"
+      },
+      {
+        "detail": {
+          "missing_predicates": [],
+          "unused_decisive": [
+            "GCIR-B0001-Q8-UNUSED"
+          ]
+        },
+        "detected": true,
+        "fixture": "negative_q8_unused_decisive_predicate",
+        "target_query": "Q8"
+      },
+      {
+        "detail": [
+          "GCIR-B0001: evidence_producer 'unauthorized_producer_xyz' is not an allowed_producer for event_type 'permit_binding' (allowed: ['authority_permit_service_v2'])"
+        ],
+        "detected": true,
+        "fixture": "negative_q9_invalid_producer",
+        "target_query": "Q9"
+      },
+      {
+        "detail": [
+          "GCIR-B0001: evidence_producer '' is not an allowed_producer for event_type 'permit_binding' (allowed: ['authority_permit_service_v2'])"
+        ],
+        "detected": true,
+        "fixture": "negative_q9_empty_producer",
+        "target_query": "Q9"
+      },
+      {
+        "detail": [
+          "GCIR-B0001: mandatory_role=decisive but condition 'permit_valid_and_bound' has on_unknown='warn'"
+        ],
+        "detected": true,
+        "fixture": "negative_q10_not_fail_closed",
+        "target_query": "Q10"
+      },
+      {
+        "detail": [
+          "GCIR-B0001: mandatory_role=decisive but condition 'permit_valid_and_bound_extra1' has on_unknown='warn'",
+          "GCIR-B0001: mandatory_role=decisive but condition 'permit_valid_and_bound_extra2' has on_unknown='pass_with_approved_exception'"
+        ],
+        "detected": true,
+        "fixture": "negative_q10_multiple_violations",
+        "target_query": "Q10"
+      }
+    ],
+    "metrics": {
+      "CV": 1.0,
+      "C_path": 1.0,
+      "ODC": 1.0,
+      "OPR": 0.0,
+      "PTC": 1.0,
+      "note": "Five distinct metrics, kept separate; never substituted for one another (spec section 10)."
+    },
+    "new_v12_all_detected": true,
+    "new_v12_negatives": [
+      {
+        "detected": true,
+        "fixture": "negative_v12_judgment_hash_tamper",
+        "issues": [
+          "judgment_record_ref.content_hash 0000000000000000000000000000000000000000000000000000000000000000 does not match the approved judgment record's canonical content hash ce25c91c4a605361556acfaec0a7411b0c9ed79735ecefea72da70c79a01bd40 (judgment_id='J-CASE-D-CCS1', version='1.1')"
+        ],
+        "target_check": "judgment_hash_binding"
+      },
+      {
+        "detected": true,
+        "fixture": "negative_v12_narrowing",
+        "issues": [
+          "ACS-D01-01: evidence_requirement ['transfer_hash'] dropped"
+        ],
+        "target_check": "no_narrowing"
+      },
+      {
+        "detected": true,
+        "fixture": "negative_v12_broadening",
+        "issues": [
+          "ACS-D02-01: exception.parameter_bounds.max_amount widened from 1000000 to 1000000000"
+        ],
+        "target_check": "no_broadening"
+      },
+      {
+        "detected": true,
+        "fixture": "negative_v12_invention",
+        "issues": [
+          "ACS-D01-01: field(s) ['standing_permit_ref'] present on the candidate with no counterpart on the nominal (invented field)"
+        ],
+        "target_check": "no_invention"
+      },
+      {
+        "detected": true,
+        "fixture": "negative_v12_class_collapse",
+        "issues": [
+          "ACS-D01-01: prohibited primary_class collapse human -> auth"
+        ],
+        "target_check": "primary_class_preservation"
+      },
+      {
+        "detected": true,
+        "fixture": "negative_v12_exception_widening",
+        "issues": [
+          "ACS-D02-01: exception.scope '*' is a global bypass, not a targeted exception"
+        ],
+        "target_check": "exception_scope"
+      },
+      {
+        "detected": true,
+        "fixture": "negative_v12_lifecycle_staleness",
+        "issues": [
+          "judgment_record_ref.version '1.1-SUPERSEDED' does not match the current judgment version '9.9-nonexistent'"
+        ],
+        "target_check": "lifecycle"
+      },
+      {
+        "detected": true,
+        "fixture": "negative_v12_sync_contract_incomplete",
+        "issues": [
+          "GCIR-D0001: synchronization_contract.invalidation_trigger missing or empty"
+        ],
+        "target_check": "synchronization_contract_representation"
+      },
+      {
+        "detected": true,
+        "fixture": "negative_v12_observation_scope_removed",
+        "issues": [
+          "ACS-D01-01: observation_obligation.beta_r ['realized_amount'] dropped"
+        ],
+        "target_check": "no_narrowing"
+      }
+    ],
+    "q1_q10_all_pass": true,
+    "q1_q10_positive": {
+      "Q1": true,
+      "Q10": true,
+      "Q2": true,
+      "Q3": true,
+      "Q4": true,
+      "Q5": true,
+      "Q6": true,
+      "Q7": true,
+      "Q8": true,
+      "Q9": true
+    }
+  },
+  "result_name": "audit_regression_v12"
+}

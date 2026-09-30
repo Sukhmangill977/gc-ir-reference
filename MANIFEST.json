@@ -1,5 +1,5 @@
 {
-  "file_count": 578,
+  "file_count": 603,
   "files": [
     {
       "bytes": 1022,
@@ -62,10 +62,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 121181,
+      "bytes": 121183,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "5539d17f8830f726ac1886289b0227273024f4d6f689fc2c305fe4fb742a4631"
+      "sha256": "f636b8b2ce64e62dbae2513ad7deed5af129aa693bb95e5e817cd9dffe51301e"
     },
     {
       "bytes": 9671,
@@ -2822,6 +2822,156 @@
       "sha256": "4a9488baa2ab4979bc392507637a9102ed9fcca81e7c270855e18ab36f85a695"
     },
     {
+      "bytes": 6611,
+      "path": "results/final_v5/TEST_LEDGER.csv",
+      "role": "repository_root",
+      "sha256": "db27b0d582bd258ff65ad1778807539fb7f34a6ce1430fd370600015cc55e14b"
+    },
+    {
+      "bytes": 1206,
+      "path": "results/final_v5/TEST_LEDGER_SUMMARY.md",
+      "role": "repository_root",
+      "sha256": "9983c56ff8ced0b25c0c637959ba305059e1d750920997cfbe1285bcbd67cd19"
+    },
+    {
+      "bytes": 10204,
+      "path": "results/final_v5/audit.json",
+      "role": "repository_root",
+      "sha256": "fb58b9bf20b0f1796d291eca75b1b9d6facd15c1477d182436ef9c848cd52e35"
+    },
+    {
+      "bytes": 94546,
+      "path": "results/final_v5/campaign_results.json",
+      "role": "repository_root",
+      "sha256": "5d88da36c2732145ee556493b0c808e94b7b001e62f815834be123d5cb67c784"
+    },
+    {
+      "bytes": 17146,
+      "path": "results/final_v5/case_b_integration.json",
+      "role": "repository_root",
+      "sha256": "1c2f65243e5e39e9f20cec92681390e216b5085c71f9ec33583794628d46d902"
+    },
+    {
+      "bytes": 3376,
+      "path": "results/final_v5/case_c_exclusion.json",
+      "role": "repository_root",
+      "sha256": "49c9f5d207a6f38985a9e0ecd3fc0a7fa7ee1dd3e26cea87fa288aac46697850"
+    },
+    {
+      "bytes": 6421,
+      "path": "results/final_v5/case_d.json",
+      "role": "repository_root",
+      "sha256": "e7c903cb7e35bfb51f4cfe4f037223b0b8ede4f4454190ded68c87fbc999b0e6"
+    },
+    {
+      "bytes": 4079,
+      "path": "results/final_v5/ccs2_temporal_provenance.json",
+      "role": "repository_root",
+      "sha256": "603010cf1958b515940a6c728729a3ed857753d507f9acb355493d89ab09445b"
+    },
+    {
+      "bytes": 2199,
+      "path": "results/final_v5/compile_timing.json",
+      "role": "repository_root",
+      "sha256": "b53955c40f35dfe522fd5e23e778ec314f105264399507079cccf1190f93afc1"
+    },
+    {
+      "bytes": 2909,
+      "path": "results/final_v5/cross_environment_determinism.json",
+      "role": "repository_root",
+      "sha256": "5df4d1419a98e3b410dee4c6537a5eb98be007f1aa3b2d3d17513777c3500369"
+    },
+    {
+      "bytes": 4466,
+      "path": "results/final_v5/determinism.json",
+      "role": "repository_root",
+      "sha256": "dba04b4cb53741b8845fc2b44c855a3bf621217a148fbd189f7a8c9187b40ac7"
+    },
+    {
+      "bytes": 46758,
+      "path": "results/final_v5/determinism_runs.csv",
+      "role": "repository_root",
+      "sha256": "61d005e48f083aacaa6335ebfa929cf4075d1eb53c3f497cd232b87ce3727f17"
+    },
+    {
+      "bytes": 18621,
+      "path": "results/final_v5/determinism_runs_case_b_v11.csv",
+      "role": "repository_root",
+      "sha256": "e8fbcd25408d4325807d8dfd809b8c0368fc6227cfa026dafb66dbc8118f935a"
+    },
+    {
+      "bytes": 2611,
+      "path": "results/final_v5/determinism_summary_case_b_v11.json",
+      "role": "repository_root",
+      "sha256": "1d27eae5fdaa30d229fa478aa9d38e5b803c4ad5cf4f74b75fd6e3c4ff55ea76"
+    },
+    {
+      "bytes": 6899,
+      "path": "results/final_v5/environment_container_aarch64.json",
+      "role": "repository_root",
+      "sha256": "20ce6d5ba27a5c3ebdbcbb85911d8d957ff93572b0a40b39a21f50209b4f5bc0"
+    },
+    {
+      "bytes": 1769,
+      "path": "results/final_v5/monte_carlo.json",
+      "role": "repository_root",
+      "sha256": "e568957e3042b888791ad14ba34b709d7eb1b8ba0a2be4d7a3f5334c7edb3f0b"
+    },
+    {
+      "bytes": 1438,
+      "path": "results/final_v5/monte_carlo_per_risk_case_b_v11.csv",
+      "role": "repository_root",
+      "sha256": "5235b3ab7c7c981dbac63d556d180638b15eace7c9da59351f78fb9a1d28577d"
+    },
+    {
+      "bytes": 25932,
+      "path": "results/final_v5/monte_carlo_summary_case_b_v11.json",
+      "role": "repository_root",
+      "sha256": "4867951a1bf5fdf354028e8e551726603f4d9404b5826557fc5d458926a88585"
+    },
+    {
+      "bytes": 8146,
+      "path": "results/final_v5/neutrality.json",
+      "role": "repository_root",
+      "sha256": "afb133f0301b5b32e0ce517dad7c304c2fc9521f7ad0f4873387d011d08809d5"
+    },
+    {
+      "bytes": 3359,
+      "path": "results/final_v5/observation_diagnostics.json",
+      "role": "repository_root",
+      "sha256": "fb01796f71b79b61910f66af6fd23756092260cf27e87fcf2bfa5c016205d554"
+    },
+    {
+      "bytes": 8044,
+      "path": "results/final_v5/surface_a.json",
+      "role": "repository_root",
+      "sha256": "baacc7037d56d6e3511f352506ebdf5a38e8333d768999bd0481960b090509be"
+    },
+    {
+      "bytes": 2389,
+      "path": "results/final_v5/tacip_provenance_limitation.json",
+      "role": "repository_root",
+      "sha256": "62d14a87fb1f8ea97d2b3df8e94aa9ecb6306c5f3caa490678786900dc3ffd5e"
+    },
+    {
+      "bytes": 73123,
+      "path": "results/final_v5/tests/junit_full.xml",
+      "role": "repository_root",
+      "sha256": "721af0df171ee66292ea8a6b3983280456426c6ba06393b7873060f2bbf638b5"
+    },
+    {
+      "bytes": 4632,
+      "path": "results/final_v5/v110_eight_environment_reconciliation.json",
+      "role": "repository_root",
+      "sha256": "f0f26c5e72f6732bb749107d9be6320be843ce491cef3c7dcb50274ea0a10d45"
+    },
+    {
+      "bytes": 10651,
+      "path": "results/final_v5/validators.json",
+      "role": "repository_root",
+      "sha256": "9be2823616d189396ef44641cf7e462e8c900c4f5b023edfeea3df277e97e6b7"
+    },
+    {
       "bytes": 1009,
       "path": "run_all.py",
       "role": "experiment_code",
@@ -3471,7 +3621,7 @@
     }
   ],
   "generated_from_ref": "INDEX",
-  "manifest_sha256": "212eeec5106f79999c66f2b270e105bd476dabf646e862a1d6ff10c3f11382da",
+  "manifest_sha256": "6eec6547412b6a8c429feae6cceb0f81a7ed97cdd96b662d346d7da5a0b43a50",
   "roles": [
     "acs_a",
     "acs_b",
@@ -3507,5 +3657,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 12210330
+  "total_bytes": 12577867
 }

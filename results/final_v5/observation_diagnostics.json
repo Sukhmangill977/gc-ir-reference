@@ -1,0 +1,86 @@
+{
+  "environment": {
+    "dependencies": {
+      "cryptography": "44.0.0",
+      "hypothesis": "6.122.3",
+      "jsonschema": "4.23.0",
+      "numpy": "2.2.1",
+      "pytest": "8.3.4"
+    },
+    "git_commit": "4e3d473432169f7ee868cb6e082d3aef32ad7ed1",
+    "git_commit_short": "4e3d473",
+    "git_describe": "preregister-tier0-v5-dirty",
+    "git_status_clean": false,
+    "git_tag_exact": "preregister-tier0-v5",
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_implementation": "CPython",
+    "python_version": "3.11.15",
+    "run_completed_utc": "2026-09-30T17:14:46Z",
+    "system": "Darwin"
+  },
+  "phase": "final_v5",
+  "phase_note": "final_v5",
+  "result": {
+    "both_passed": true,
+    "diagnostic_a": {
+      "bounded_history_scoped_evaluator": {
+        "correctly_distinguishes_the_two_histories": true,
+        "decision_under_compliant_history": "PERMIT",
+        "decision_under_noncompliant_history": "DENY",
+        "q_r": "bounded-history"
+      },
+      "claim_boundary": "Bounded software-simulation diagnostic. Not deployment validation.",
+      "current_request": 3000,
+      "description": "same current grant request, different prior consumption history, evaluator lacks shared consumption state",
+      "diagnostic": "A",
+      "event_scoped_evaluator": {
+        "cannot_distinguish_the_two_histories": true,
+        "decision_under_compliant_history": "PERMIT",
+        "decision_under_noncompliant_history": "PERMIT",
+        "q_r": "event"
+      },
+      "finding": "An evaluator declaring q_r='event' (no shared consumption state) issues the identical PERMIT for the same current request regardless of prior consumption -- it structurally cannot observe the breach. An evaluator declaring the required q_r='bounded-history' scope (Omega_r, spec 1K) correctly distinguishes PERMIT from DENY across the two histories.",
+      "passed": true,
+      "prior_consumption_histories": {
+        "compliant_scenario": 2000,
+        "noncompliant_scenario": 9500
+      }
+    },
+    "diagnostic_b": {
+      "authorized": 1200,
+      "claim_boundary": "Bounded software-simulation diagnostic. Not deployment validation.",
+      "description": "authorized/requested 1,200; realized 120,000; observer omits realized amount",
+      "diagnostic": "B",
+      "finding": "An observer whose beta_r omits realized_amount reports COMPLIANT purely from requested<=authorized, never observing that the realized amount was 100x the authorized bound. An observer whose beta_r includes realized_amount (Omega_r's required binding information, spec 1K) correctly reports BREACH_DETECTED.",
+      "observer_including_realized_amount": {
+        "beta_r": [
+          "requested",
+          "authorized",
+          "realized_amount"
+        ],
+        "decision": "BREACH_DETECTED",
+        "evidence_observed": {
+          "authorized": 1200,
+          "realized_amount": 120000,
+          "requested": 1200
+        }
+      },
+      "observer_omitting_realized_amount": {
+        "beta_r": [
+          "requested",
+          "authorized"
+        ],
+        "decision": "COMPLIANT",
+        "evidence_observed": {
+          "authorized": 1200,
+          "requested": 1200
+        }
+      },
+      "passed": true,
+      "realized": 120000,
+      "requested": 1200
+    }
+  },
+  "result_name": "observation_diagnostics_v12"
+}

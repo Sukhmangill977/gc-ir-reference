@@ -1,0 +1,44 @@
+{
+  "result_name": "v110_eight_environment_reconciliation",
+  "phase": "development",
+  "phase_note": "DEVELOPMENT result; not reportable as a v1.1.0 frozen number. Supplementary v1.2-generation cross-environment evidence FOR THE UNCHANGED v1.1.0 bundles (Case A, Case B v1.1) -- assembled, not retroactively inserted into the immutable results/final_v4_1/ freeze.",
+  "issue": {
+    "manuscript_claim": "RQ1: \"the cross-environment CI matrix exercised the determinism protocol in eight environments spanning three operating systems, two architectures, and six CPython patch versions within the 3.11/3.12 families.\"",
+    "finding": "The exact '8 environments / 3 OS / 2 arch / 6 patch versions' phrasing is real, but it is results/final_v2/'s own language (CI_STATUS.md), describing THAT release's evidence (6 CI legs + 1 local host + 1 pinned container = 8), not results/final_v4_1/'s. The v1.1.0-specific cross-environment evidence (reference-hashes-case-b-v11 / cross-platform-agreement-case-b-v11) has only 6 CI legs recorded; no local-host or container leg was ever assembled specifically for the Case A + Case B v1.1 bundle."
+  },
+  "resolution": "IMPLEMENT AND EXECUTE (per instruction: 'implement and execute it or correct the manuscript wording' -- chosen over a wording-only correction), assembling genuine local-host and container legs for Case A + Case B v1.1 specifically, from evidence already executed this session, to legitimately reach 8 -- mirroring exactly the pattern results/final_v2/ used, but generated as v1.2-generation supplementary evidence, not inserted into the immutable v4.1 tree.",
+  "environments": [
+    {"n": 1, "environment": "GitHub Actions ubuntu-latest, Python 3.11", "kind": "CI"},
+    {"n": 2, "environment": "GitHub Actions ubuntu-latest, Python 3.12", "kind": "CI"},
+    {"n": 3, "environment": "GitHub Actions windows-latest, Python 3.11", "kind": "CI"},
+    {"n": 4, "environment": "GitHub Actions windows-latest, Python 3.12", "kind": "CI"},
+    {"n": 5, "environment": "GitHub Actions macos-latest, Python 3.11", "kind": "CI"},
+    {"n": 6, "environment": "GitHub Actions macos-latest, Python 3.12", "kind": "CI"},
+    {
+      "n": 7, "environment": "local host", "kind": "local",
+      "platform": "macOS-26.6.2-arm64-arm-64bit", "machine": "arm64", "python_version": "3.11.15",
+      "source": "results/development/determinism_summary_case_b_v11.json",
+      "TD": "62/62 (1.0)",
+      "case_a_reference_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+      "case_b_v1_1_reference_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1"
+    },
+    {
+      "n": 8, "environment": "pinned Linux/aarch64 container", "kind": "container",
+      "platform": "Linux-6.12.76-linuxkit-aarch64-with-glibc2.36", "machine": "aarch64", "python_version": "3.11.11",
+      "source": "results/development_v12/environment_container_aarch64.json (case_a, case_b_v1_1 subset of the 5-case container run)",
+      "case_a_TD": "31/31 (1.0)", "case_b_v1_1_TD": "31/31 (1.0)",
+      "case_a_reference_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+      "case_b_v1_1_reference_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1"
+    }
+  ],
+  "summary": {
+    "total_environments": 8,
+    "all_agree_on_case_a_hash": true,
+    "all_agree_on_case_b_v1_1_hash": true,
+    "case_a_hash": "f5cbc3a8016159d2074005fa021bf76ca04fb7aed1408f5ec845418460a43536",
+    "case_b_v1_1_hash": "0d8b602a4c8af888beb27058b7217893eff92d2f9df7f2944d35347c1031cfc1",
+    "architectures_represented": ["x86_64/AMD64 (ubuntu-latest, windows-latest CI runners)", "arm64 (macos-latest CI runner, local host)", "aarch64 (pinned container)"],
+    "operating_systems_represented": ["Linux (CI ubuntu, container)", "Windows (CI)", "macOS (CI, local host)"]
+  },
+  "wording_for_manuscript": "\"Eight environments\" for the v1.1.0 baseline (RQ1) is accurate ONLY when read as: the 6-leg GitHub Actions CI matrix PLUS a local host run PLUS a pinned Linux/aarch64 container run, all assembled as v1.2-generation supplementary evidence for the unchanged v1.1.0 bundles -- not as six CI legs alone, and not as evidence that was part of the original preregister-tier0-v4.1 freeze itself (which recorded only the 6-leg CI matrix plus one local-host run, per results/final_v4_1/determinism/). The manuscript text should make this composition explicit (6 CI + 1 local + 1 container) rather than leaving \"eight environments\" unexplained, and should NOT describe this as \"universal platform independence\" (finite matrix, not all environments)."
+}
