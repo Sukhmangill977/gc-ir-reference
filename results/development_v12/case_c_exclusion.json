@@ -1,0 +1,37 @@
+{
+  "result_name": "case_c_exclusion_reconciliation",
+  "phase": "development",
+  "phase_note": "DEVELOPMENT result; not reportable. Documents a design decision, not a measurement.",
+  "gap_audit_item": 9,
+  "gap_audit_item_text": "Case C determinism/CI absent",
+  "classification": "NOT_REQUIRED",
+  "rationale": {
+    "source": "papermain.pdf (\"Governed Compilation of AI Controls\"), Section IX.C \"Cases\", Case C description",
+    "source_status": "Manuscript prose is NOT scientific evidence (per this project's own evidentiary discipline); it is cited here only as the authorial statement of ORIGINAL SCOPE this reconciliation is checking the repository against -- the numeric claims within it are independently re-verified below, not taken on faith.",
+    "quote": "Case C is released as a compiled package (16 risks, 13 authorized specifications, 16 compiled records—13 risk-derived and 3 compiler invariants—payload SHA-256 d7c79711...bf1dbd) passing the ten audit queries and twelve executable injections plus a clean control; it enters no determinism, cross-platform or Monte Carlo campaign, its gate-deficit figures are recomputed over the printed register rather than measured on the bundle, and no simulator or hardware execution is described or inferred.",
+    "summary": "Case C (synthetic, standards-anchored supervised-autonomy surgical design case) is, by explicit original design, a compiled-and-audited artifact only. It was never intended to enter the determinism, cross-platform/CI, or Monte Carlo campaigns that Case A, Case B v1.1, and Case D CCS0/CCS1/CCS2 do. Its gate-deficit figures are a register-level recomputation over the printed risk register, not a measurement taken on the compiled bundle. Adding Case C to the v1.2 determinism/CI/Monte Carlo protocol would extend the original scope, not close a gap in it -- so gap-audit item 9 is classified NOT_REQUIRED rather than forced."
+  },
+  "independent_verification": {
+    "note": "Every figure below was freshly recompiled/re-executed this session (not copied from the manuscript or from memory).",
+    "payload_hash": "d7c7971156e3591b64567148ed8fc21cc1cbee21973d3646f59e439c74bf1dbd",
+    "payload_hash_matches_manuscript_citation": true,
+    "statistics": {
+      "risk_count": 16,
+      "acs_count": 13,
+      "predicate_count": 16,
+      "risk_derived_predicate_count": 13,
+      "compiler_invariant_predicate_count": 3
+    },
+    "audit_queries_q1_q10": "10/10",
+    "injection_scenarios": {
+      "scenario_count": 13,
+      "passed": 13,
+      "note": "12 executable injections + 1 clean control, via experiments/case_c_injection_scenarios.py"
+    },
+    "determinism_campaign_membership": false,
+    "cross_environment_ci_membership": false,
+    "monte_carlo_campaign_membership": false,
+    "gate_deficit_source": "recomputed over the printed register (results/final_v4/campaign_results.json-era register recomputation), not measured on the compiled bundle -- unchanged from the original v1.1.0-era design"
+  },
+  "what_would_change_this": "If a future revision of the original v1.2 protocol explicitly adds Case C to the determinism/cross-platform/Monte Carlo population, this file's classification must be updated to REQUIRED_BY_SPEC and the corresponding evidence generated -- this file does not preclude that, it only records that no such requirement currently exists."
+}

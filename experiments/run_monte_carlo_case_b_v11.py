@@ -19,10 +19,19 @@ monte_carlo_per_risk_case_b_v11.csv -- separate from the historical
 monte_carlo_summary.json, which is left untouched.
 
     python -m experiments.run_monte_carlo_case_b_v11
+    python -m experiments.run_monte_carlo_case_b_v11 --phase final_v5 --output results/final_v5
+
+Phase is always EXPLICIT, never inferred from git state (gap-audit item 5):
+with no ``--phase``, behavior is byte-for-byte the historical default. Passing
+``--phase``/``--output`` bypasses experiments.common.write_result's legacy
+final/final_v2/final_v3-only directory resolution (no notion of "final_v5")
+and writes directly to the given directory with the given phase label.
 """
 
 from __future__ import annotations
 
+import argparse
+import json
 import os
 import sys
 
@@ -30,7 +39,7 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO_ROOT, "src"))
 
 from experiments import run_monte_carlo as v10  # noqa: E402
-from experiments.common import read_json, write_csv, write_result  # noqa: E402
+from experiments.common import environment, read_json, write_csv, write_result  # noqa: E402
 
 CASES = ("case_a", "case_b_v1_1")
 
@@ -43,7 +52,7 @@ HISTORICAL = {
 }
 
 
-def run(draws=250000, final="development"):
+def run(draws=250000, final="development", phase_override=None, output_override=None):
     spec = read_json(v10.SPEC_PATH)
     payload = {
         "cases": list(CASES),
@@ -77,19 +86,59 @@ def run(draws=250000, final="development"):
                analysis["GD_min_mean"])
         )
 
-    write_result(final, "monte_carlo_summary_case_b_v11", payload)
-    write_csv(
-        final, "monte_carlo_per_risk_case_b_v11.csv",
-        ["case", "risk_id", "approved_L", "approved_I", "approved_score",
-         "approved_gate", "heatmap_gate_approved", "FP_heat", "FP_heat_mcse",
-         "FP_cstar", "distance_to_threshold"],
-        per_risk_rows,
-    )
+    csv_fieldnames = ["case", "risk_id", "approved_L", "approved_I", "approved_score",
+                      "approved_gate", "heatmap_gate_approved", "FP_heat", "FP_heat_mcse",
+                      "FP_cstar", "distance_to_threshold"]
+
+    if phase_override is not None:
+        # Explicit phase/output (gap-audit item 5): bypasses
+        # experiments.common.write_result's legacy final/final_v2/final_v3-only
+        # directory resolution, which has no notion of e.g. "final_v5".
+        import csv as csv_module
+
+        os.makedirs(output_override, exist_ok=True)
+        document = {
+            "result_name": "monte_carlo_summary_case_b_v11",
+            "phase": phase_override,
+            "phase_note": ("DEVELOPMENT result. Not a reportable number."
+                            if phase_override == "development" else
+                            "%s result, produced under the named phase; not inferred "
+                            "from git state." % phase_override),
+            "environment": environment(),
+            "result": payload,
+        }
+        json_path = os.path.join(output_override, "monte_carlo_summary_case_b_v11.json")
+        with open(json_path, "w", encoding="utf-8", newline="\n") as handle:
+            json.dump(document, handle, indent=2, sort_keys=True, ensure_ascii=False)
+            handle.write("\n")
+
+        csv_path = os.path.join(output_override, "monte_carlo_per_risk_case_b_v11.csv")
+        with open(csv_path, "w", encoding="utf-8", newline="") as handle:
+            writer = csv_module.DictWriter(handle, fieldnames=csv_fieldnames)
+            writer.writeheader()
+            for row in per_risk_rows:
+                writer.writerow(row)
+    else:
+        write_result(final, "monte_carlo_summary_case_b_v11", payload)
+        write_csv(final, "monte_carlo_per_risk_case_b_v11.csv", csv_fieldnames, per_risk_rows)
+
     return payload
 
 
 def main(argv=None):
-    payload = run()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--phase", default=None,
+                         help="explicit phase label (e.g. final_v5); default preserves the "
+                              "historical development-only behavior unchanged")
+    parser.add_argument("--output", default=None,
+                         help="directory to write into when --phase is given "
+                              "(required together with --phase)")
+    args = parser.parse_args(argv)
+
+    if args.phase and not args.output:
+        parser.error("--phase requires --output")
+
+    payload = run(phase_override=args.phase, output_override=args.output)
     all_match = True
     for case_id, expected in HISTORICAL.items():
         analysis = payload["per_case"][case_id]
