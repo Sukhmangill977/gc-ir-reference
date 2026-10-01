@@ -62,10 +62,10 @@
       "sha256": "47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986"
     },
     {
-      "bytes": 126590,
+      "bytes": 127198,
       "path": "MANIFEST.json",
       "role": "repository_root",
-      "sha256": "7b568996ca251e399729f8872e836404779b8f6eeadbe2bb8353cf3794633419"
+      "sha256": "4bf0c74a8d5cd4503debc3c87a5ec98bcd900151c30c2796b9faa261ed9b4c7a"
     },
     {
       "bytes": 10648,
@@ -1517,7 +1517,7 @@
       "bytes": 27193,
       "path": "results.html",
       "role": "repository_root",
-      "sha256": "0a62263ff3a777aaf153d59ed32e36ecd400e5307881f81a4d6716b8cddb7cd7"
+      "sha256": "a180b7407a88e4bde26f42c2ce7820167b8cacc17ab715c4adc46b3227343438"
     },
     {
       "bytes": 5372,
@@ -1673,7 +1673,7 @@
       "bytes": 2574,
       "path": "results/development/determinism_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "3080dbe2ff0ea31e97f2c5669ec98f6d5c728f5bf5498ecfbc8146b9413593d4"
+      "sha256": "a9632cc1f0953e0e1e2333f8a6919ab13688cb84a02018477107bc41f4ab8f6f"
     },
     {
       "bytes": 18253,
@@ -1727,7 +1727,7 @@
       "bytes": 25895,
       "path": "results/development/monte_carlo_summary_case_b_v11.json",
       "role": "development_result",
-      "sha256": "d18b3bde3b76f968828f4818254efc09b7365d9eabf80ceceeea6ef3c7b4f74f"
+      "sha256": "264ab21a405be78632a00b74a5ca31a88feb79ce78291b6fc564e33c677e18f3"
     },
     {
       "bytes": 113422,
@@ -2927,7 +2927,7 @@
       "bytes": 835,
       "path": "results/final_v5/ieee_check_v5_result.json",
       "role": "repository_root",
-      "sha256": "0982e3777398d0f7f39c6ab31633b247e24d3af7a00382a308add375f8eac993"
+      "sha256": "e7cb605a766fc019d33740f26272d6622a4f104cc12354bd2be4885df39e19f4"
     },
     {
       "bytes": 1769,
@@ -3645,7 +3645,7 @@
     }
   ],
   "generated_from_ref": "INDEX",
-  "manifest_sha256": "1689af5f3e69cbeb33fca48e96ee3a1062f43c36807665043336693e666454c8",
+  "manifest_sha256": "727253be2aab0c758804d097b6b68f2d7cd9556da77aa31c22caa3dd0e218d38",
   "roles": [
     "acs_a",
     "acs_b",
@@ -3681,5 +3681,5 @@
     "superseded_result",
     "test_suite"
   ],
-  "total_bytes": 12706612
+  "total_bytes": 12707220
 }

@@ -25,7 +25,7 @@ b187aab8e4b75e673e0af6cc13f86d3b6e4778e17099aee8ad96505a47b0640d  repository_roo
 1109808d0b148867a1938d562060ba1336a75bb4ff2fa4225d943dbf91704014  repository_root            CITATION.cff
 f6f8125d733b384dbaaaad7cc0bccf694d4a45c375156ba9c8b8d01f7d145886  repository_root            Dockerfile
 47804127c70fd97b7aa5f3d313b0c05f531a47743b6d4a14f9c2f45c59dcb986  repository_root            LICENSE
-7b568996ca251e399729f8872e836404779b8f6eeadbe2bb8353cf3794633419  repository_root            MANIFEST.json
+4bf0c74a8d5cd4503debc3c87a5ec98bcd900151c30c2796b9faa261ed9b4c7a  repository_root            MANIFEST.json
 a612a7ffdc35a57b6cc4782e40b7158dcd256ab3f4a25d5c8b4ac37512a758f9  repository_root            Makefile
 d9ace9cee0952bac486e33116a59c384d91ea332ced6cbded350dd0c14ce6a72  repository_root            README.md
 9580cbbd552bf339423846d761287250c67ab2125fc71fad66323a8a7ed49fb8  repository_root            RELEASE_NOTES_V1_0_4.md
@@ -267,7 +267,7 @@ a45ff25f8d1f037a3dd560a4b9764881ed87a56abae96f4db3d8ae263d0e4898  repository_roo
 ca2441589cd7ed62e01cf6cf519d6b5f94fd145a698d1e9cb0cb0a0034a74a60  repository_root            pytest.ini
 ee03bc1270115d536d01c65f79a7761e37750477611d49305ba6f05b947f511f  queries                    queries/traceability.sql
 e134ac5741cd39d3caaa304f38918d364d451a540bbef1d2dc829997fc5ec3e4  repository_root            requirements.lock
-0a62263ff3a777aaf153d59ed32e36ecd400e5307881f81a4d6716b8cddb7cd7  repository_root            results.html
+a180b7407a88e4bde26f42c2ce7820167b8cacc17ab715c4adc46b3227343438  repository_root            results.html
 98ddcc7fb48d0a8363ce71307e07958e5d7027b3cbef1ca8ea314ddcbc992c02  repository_root            results/V1_V2_COMPARISON.md
 70887d914a829056698ccd71e0bf8c0b811941bed32c1bf6afeeb31a51ee9f98  development_result         results/development/SUMMARY.md
 0d5ecd3e851b436c00666d79dd57e942faa73423287e1d29dc7f7873546040e6  development_result         results/development/adversarial.json
@@ -293,7 +293,7 @@ ec8ac3517c29ab3ca60b332ac3a710cfcfc91194f9ab250c6438121b7d053b44  development_re
 a13cf5e0fb9006d6f40615112cb9aa9eda4812b1884617d3f767812708ee0d33  development_result         results/development/determinism_runs.csv
 e8fbcd25408d4325807d8dfd809b8c0368fc6227cfa026dafb66dbc8118f935a  development_result         results/development/determinism_runs_case_b_v11.csv
 a037fdcc2985a3280ac0903e87c1e288f774ea496da568d3b1b6bad879f8892f  development_result         results/development/determinism_summary.json
-3080dbe2ff0ea31e97f2c5669ec98f6d5c728f5bf5498ecfbc8146b9413593d4  development_result         results/development/determinism_summary_case_b_v11.json
+a9632cc1f0953e0e1e2333f8a6919ab13688cb84a02018477107bc41f4ab8f6f  development_result         results/development/determinism_summary_case_b_v11.json
 a88d267f3f6b7b1dfd5b133eece5e69478df6a12a78e17b4fae555815a3b1f8f  development_result         results/development/gate_divergence.json
 f30e2494b4e45f1ad8ed75ca8044a9026414fd0a24c14ec5e99d158232d5b4db  development_result         results/development/gate_divergence_heatmap.csv
 70e1562ab95d373786634185a7ac838ff4bb07f63348fbb8904452893f1fb180  development_result         results/development/ieee_check_v4_result.json
@@ -302,7 +302,7 @@ f30e2494b4e45f1ad8ed75ca8044a9026414fd0a24c14ec5e99d158232d5b4db  development_re
 c26c8180cbfd440d8e256a53677427fed1ce3126b8f6ec63a31ea57397514ae5  development_result         results/development/monte_carlo_per_risk.csv
 5235b3ab7c7c981dbac63d556d180638b15eace7c9da59351f78fb9a1d28577d  development_result         results/development/monte_carlo_per_risk_case_b_v11.csv
 9cb5fd09fed54b54fb9292ca318e3941767fb0343ba51207925d8b042e37f888  development_result         results/development/monte_carlo_summary.json
-d18b3bde3b76f968828f4818254efc09b7365d9eabf80ceceeea6ef3c7b4f74f  development_result         results/development/monte_carlo_summary_case_b_v11.json
+264ab21a405be78632a00b74a5ca31a88feb79ce78291b6fc564e33c677e18f3  development_result         results/development/monte_carlo_summary_case_b_v11.json
 613373849657fadc6f22247d7e9c6e9394e5221cf35e5a578aced8a02b3d5438  development_result         results/development/property_tests.json
 85faa54cad80c0c54d0892a0e5bcd0726e46ac09428e09b8e9eae2a667cef74f  development_result         results/development/reproduce_all.json
 ef22fa761afe2f1d6b6c25536b1a3b74d550dd3e5cd9f7a47d56438fa3665452  development_result         results/development/test_reports/junit_adversarial.xml
@@ -502,7 +502,7 @@ dba04b4cb53741b8845fc2b44c855a3bf621217a148fbd189f7a8c9187b40ac7  repository_roo
 e8fbcd25408d4325807d8dfd809b8c0368fc6227cfa026dafb66dbc8118f935a  repository_root            results/final_v5/determinism_runs_case_b_v11.csv
 1d27eae5fdaa30d229fa478aa9d38e5b803c4ad5cf4f74b75fd6e3c4ff55ea76  repository_root            results/final_v5/determinism_summary_case_b_v11.json
 20ce6d5ba27a5c3ebdbcbb85911d8d957ff93572b0a40b39a21f50209b4f5bc0  repository_root            results/final_v5/environment_container_aarch64.json
-0982e3777398d0f7f39c6ab31633b247e24d3af7a00382a308add375f8eac993  repository_root            results/final_v5/ieee_check_v5_result.json
+e7cb605a766fc019d33740f26272d6622a4f104cc12354bd2be4885df39e19f4  repository_root            results/final_v5/ieee_check_v5_result.json
 e568957e3042b888791ad14ba34b709d7eb1b8ba0a2be4d7a3f5334c7edb3f0b  repository_root            results/final_v5/monte_carlo.json
 5235b3ab7c7c981dbac63d556d180638b15eace7c9da59351f78fb9a1d28577d  repository_root            results/final_v5/monte_carlo_per_risk_case_b_v11.csv
 4867951a1bf5fdf354028e8e551726603f4d9404b5826557fc5d458926a88585  repository_root            results/final_v5/monte_carlo_summary_case_b_v11.json
