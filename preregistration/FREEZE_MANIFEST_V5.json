@@ -1,0 +1,489 @@
+{
+  "categories": [
+    "audit_regression",
+    "campaign_orchestration",
+    "case_b_v1_1",
+    "case_d",
+    "compile_timing",
+    "contract_validators",
+    "determinism_driver",
+    "monte_carlo",
+    "neutrality",
+    "observation_diagnostics",
+    "surface_a",
+    "case_fixtures"
+  ],
+  "file_count": 93,
+  "files": [
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/acs/approved_control_specifications.json",
+      "sha256": "5b95bbef0ffae8f0f727cff131f22c57c3331a7dd33c64121b98d2ff799b6bc4"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/dispositions/dispositions.json",
+      "sha256": "174147daa039c69c2fc30cbdcae1c6d487503965cd78bcbe9ce2863f1de089fb"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/expected/reference_hashes.json",
+      "sha256": "8b26824fc6585ee830d8c0ef7756fdd92e9b0564dfca558797b50bf2884fc16d"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/inputs/assessment.json",
+      "sha256": "dcd80177c9e2c0b92ad6429d4fb21805575195f126c308591a26cc549d1390a2"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/inputs/compile_parameters.json",
+      "sha256": "dc63fb0580b939e03699316cddddef7399c9a63321a1e3c0cab74ff4556f975d"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/inputs/control_derivation_catalog.json",
+      "sha256": "90d6882ee1fd40533419e779e4553bd93dada4a9055ad202447d12d6d1a8bc34"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/inputs/cstar_profile.json",
+      "sha256": "0b13c6f31b87bc3c6b33a0c2ba2f537b88eaa15bf8fffc9dc534042eb5db071b"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/inputs/invariant_register.json",
+      "sha256": "6d74b85d58b1daefb688bf40406a619b074fef1f97d6a5046d50d5b34051941e"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/inputs/policy_metadata.json",
+      "sha256": "76607c7b68a8b3199c4c7893ba55c56fb3b279f100010fc0c65ae1986673e867"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/inputs/threshold_contracts.json",
+      "sha256": "a179a3beaf572ba5045850b3432048fa9992583bc7bf993c2c27646e5e15d365"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/judgment/judgment_record.json",
+      "sha256": "c7defef681ea0df6af4505345fc1309f2846d0aa0bfc43d031febdb6c207645d"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/lifecycle/actuations.json",
+      "sha256": "015178ca19bf7090ec01b88a47171bc31d2272e1f7a244936a2f6d49d66c84bd"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/lifecycle/lifecycle_registry.json",
+      "sha256": "e655d70707b4e79fca2fd1a830ee82e00986082d8cb59d6064e76e56a6585ef6"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/lifecycle/lifecycle_registry_empty.json",
+      "sha256": "8096bae4423cba3f4474e90c19a34bde3544543d16eb27a728928446eabea8d1"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/lifecycle/negative/fixtures.json",
+      "sha256": "365847bc28489a68813d94622014121929fea24ee97cb9bf2cd6094034aae6f9"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_a/lifecycle/receipts.json",
+      "sha256": "d6fb34cf28ae1c8f1fe12a2df0ea720898cb760cfb24998b8276fb52067a39f0"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_b_v1_1/acs/approved_control_specifications.json",
+      "sha256": "a9c15775cf477166dbbf95231923f0ff2a9274889d7b3827aa70ffab5544a583"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_b_v1_1/dispositions/dispositions.json",
+      "sha256": "b410b2cc82fcd67af81a7368bac7df0f84beb0288a472336c8557a4e651d2740"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_b_v1_1/expected/reference_hashes.json",
+      "sha256": "2f3cc06572cd463c2fc4edff7037eb04c6b28583b3bf846f3c2da0e0c006a76a"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_b_v1_1/inputs/assessment.json",
+      "sha256": "880a7bd73dcae73c4e9f225466ea02c6ddc28e22c7d9b9f88f62d75340720d8b"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_b_v1_1/inputs/compile_parameters.json",
+      "sha256": "9200a687440e96ceff32edc2772ed7f30dd2b01aa45a8025f79577f3e4cf964b"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_b_v1_1/inputs/control_derivation_catalog.json",
+      "sha256": "f8201c0b19936f49244b4bb5f55f3d0f6e3d803c01624f2a4b5874fc55d3e278"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_b_v1_1/inputs/cstar_profile.json",
+      "sha256": "95e44fd0629702a9937b72b9af51026f264c9a7e38b6ea6e52126b33b677eedd"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_b_v1_1/inputs/invariant_register.json",
+      "sha256": "0f9b54de446be157aeb94ad71db94ba7b7e0082ddcfba433a7e8f52b263b96b0"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_b_v1_1/inputs/policy_metadata.json",
+      "sha256": "5964cb2022e834adc10b613e12e9bdb02db0d44e585c5a4028353ed717974551"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_b_v1_1/inputs/threshold_contracts.json",
+      "sha256": "b10ecf0a718fbf715f1a4f08e02ed1d766b25ed7670828203d32d6fe60747e78"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_b_v1_1/judgment/judgment_record.json",
+      "sha256": "8bbc775bbffbdd28b8b005e1112e9fac19adccbe6a78de0e98189060108ac8f9"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_b_v1_1/ldrea_traceability_v1_1_addendum.json",
+      "sha256": "517cf45ac6b51ea06f259a9a01c83f359b2275b4a1a63d64022330364b1a3717"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs0/acs/approved_control_specifications.json",
+      "sha256": "65ad2d553801842e2079e1fcf7557cb70df4787da65f3983d5e97a5d0e278f84"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs0/dispositions/dispositions.json",
+      "sha256": "dcc44f58c3c6934164d83e93f7567ca7ed7be8a0b4e72b4ab005daa0ddfbc091"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs0/expected/reference_hashes.json",
+      "sha256": "fb344c9f2a84c8ca3dbabd6a6d6421c850a1b9ceb86ca5b72c9944df15e5eeae"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs0/inputs/assessment.json",
+      "sha256": "9e195920d6b28b0824ba7c246aa305adfb8c4131198959f6d1227cbbdb48fcc9"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs0/inputs/compile_parameters.json",
+      "sha256": "a299be0b23ad371f8ee6945d1b7e5444e6fd7bef318bed0a22f154d9dd568702"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs0/inputs/control_derivation_catalog.json",
+      "sha256": "4f711840deed196507eeeabdfa6f201436561e2355afac48a621c43a1f25ffd5"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs0/inputs/cstar_profile.json",
+      "sha256": "07187a68a387d72ad3bd47469a992c9e685bf202a9e27d219245d72f94341f7f"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs0/inputs/invariant_register.json",
+      "sha256": "0c4309f83a8275c995f9a5ef6c4d2a63af6c29b7092e94f0da2fb0c0ab419b2a"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs0/inputs/policy_metadata.json",
+      "sha256": "e14110fd5c2da1ead914bf4aaf794c476882d325ad6d25305a03c4093335cb69"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs0/inputs/threshold_contracts.json",
+      "sha256": "4b521946e6c94bad898f4cc93916233a22f9dd5c4bb9827f5a77c441c44704af"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs0/judgment/judgment_record.json",
+      "sha256": "19f768121c038466bc7c20d11a78bc390db7c593804c00bcb058427dca614bae"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs1/acs/approved_control_specifications.json",
+      "sha256": "7e91ad8926dce318b88987d823d1e981049237bdf934845596adcde7de3a16f9"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs1/dispositions/dispositions.json",
+      "sha256": "b3ea8de407d8b04640a2030c54392f81ad09d00843a034be9cf1c3c56c52c26e"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs1/expected/reference_hashes.json",
+      "sha256": "754fdc6a5ebf982acfdca2ecb7d5fce4429550a66e098c086c9e0c07bdc0f52f"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs1/inputs/assessment.json",
+      "sha256": "9e195920d6b28b0824ba7c246aa305adfb8c4131198959f6d1227cbbdb48fcc9"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs1/inputs/compile_parameters.json",
+      "sha256": "a299be0b23ad371f8ee6945d1b7e5444e6fd7bef318bed0a22f154d9dd568702"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs1/inputs/control_derivation_catalog.json",
+      "sha256": "4f711840deed196507eeeabdfa6f201436561e2355afac48a621c43a1f25ffd5"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs1/inputs/cstar_profile.json",
+      "sha256": "07187a68a387d72ad3bd47469a992c9e685bf202a9e27d219245d72f94341f7f"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs1/inputs/invariant_register.json",
+      "sha256": "0c4309f83a8275c995f9a5ef6c4d2a63af6c29b7092e94f0da2fb0c0ab419b2a"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs1/inputs/policy_metadata.json",
+      "sha256": "e14110fd5c2da1ead914bf4aaf794c476882d325ad6d25305a03c4093335cb69"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs1/inputs/threshold_contracts.json",
+      "sha256": "4b521946e6c94bad898f4cc93916233a22f9dd5c4bb9827f5a77c441c44704af"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs1/judgment/judgment_record.json",
+      "sha256": "8861e6bb08a86370b229f6c9c98aba188695cfceefcb5256a317ceb66b83d721"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs2/acs/approved_control_specifications.json",
+      "sha256": "9538e8116c69facdc9e0fc8d0c1c34472eb2be6f1dc268406dc10dca38131b45"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs2/dispositions/dispositions.json",
+      "sha256": "79fe34d642a8453477e492f7a877f95bc65d69a0c97a465aa500e9502a3bc0b4"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs2/expected/reference_hashes.json",
+      "sha256": "56a6283c7f91a17137f6f5efdf4ce9b4cb3fa61f641384f4958f88bd17e732b5"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs2/inputs/assessment.json",
+      "sha256": "9e195920d6b28b0824ba7c246aa305adfb8c4131198959f6d1227cbbdb48fcc9"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs2/inputs/compile_parameters.json",
+      "sha256": "a299be0b23ad371f8ee6945d1b7e5444e6fd7bef318bed0a22f154d9dd568702"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs2/inputs/control_derivation_catalog.json",
+      "sha256": "4f711840deed196507eeeabdfa6f201436561e2355afac48a621c43a1f25ffd5"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs2/inputs/cstar_profile.json",
+      "sha256": "07187a68a387d72ad3bd47469a992c9e685bf202a9e27d219245d72f94341f7f"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs2/inputs/invariant_register.json",
+      "sha256": "0c4309f83a8275c995f9a5ef6c4d2a63af6c29b7092e94f0da2fb0c0ab419b2a"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs2/inputs/policy_metadata.json",
+      "sha256": "e14110fd5c2da1ead914bf4aaf794c476882d325ad6d25305a03c4093335cb69"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs2/inputs/threshold_contracts.json",
+      "sha256": "4b521946e6c94bad898f4cc93916233a22f9dd5c4bb9827f5a77c441c44704af"
+    },
+    {
+      "category": "case_fixtures",
+      "path": "cases/case_d_ccs2/judgment/judgment_record.json",
+      "sha256": "98fc1d43d0a3b49d4d15d610c28ac6bd163a265614bcbc5b516ffa8d89482cad"
+    },
+    {
+      "category": "audit_regression",
+      "path": "experiments/audit_regression_v12.py",
+      "sha256": "639c53a4f52686d7411da1279fe60e96505e95858aa3dbbf7dbb4c2f9ed165d8"
+    },
+    {
+      "category": "campaign_orchestration",
+      "path": "experiments/build_campaign_results_final_v5.py",
+      "sha256": "8b9c04da44cea8d90532e8ec7ba5ee93fb2575ba99d4fd1fef7e54778957f7b6"
+    },
+    {
+      "category": "case_b_v1_1",
+      "path": "experiments/case_b_integration_regression_v12.py",
+      "sha256": "d09bc3e5ab0a737c913f9604647d41db4ab8d53269e77f3ca32c0f4cd26d1031"
+    },
+    {
+      "category": "case_b_v1_1",
+      "path": "experiments/case_b_v11_injection_scenarios.py",
+      "sha256": "9b404212a06d4c9dda3d8c8990738b53613d840e5180540bb466c255f5b63458"
+    },
+    {
+      "category": "case_d",
+      "path": "experiments/case_d_matrix.py",
+      "sha256": "9c3640290da00e6899da1dabc067af5f04eeb6af946fd830cc9c88165ed1c5f8"
+    },
+    {
+      "category": "compile_timing",
+      "path": "experiments/compile_timing_v12.py",
+      "sha256": "3bb28f50f156c24f6fc09a413179359800fc3136dac3dde44c26c26eed1404b8"
+    },
+    {
+      "category": "campaign_orchestration",
+      "path": "experiments/final_campaign_v12.py",
+      "sha256": "c9bc7a6f717a543da95d8dd4f3ee1d729a4d34149bfafdf24d1a8b83c5da4f0e"
+    },
+    {
+      "category": "monte_carlo",
+      "path": "experiments/monte_carlo_regression_v12.py",
+      "sha256": "4642d91a8f96566986920b3ef5110da65359ccf74a4ae48c72cd71c92e9e0718"
+    },
+    {
+      "category": "neutrality",
+      "path": "experiments/neutrality_v12.py",
+      "sha256": "f58be5506b764e3b0525846a79d95c4464cd39cdc2abd7a36a7b935437a01913"
+    },
+    {
+      "category": "observation_diagnostics",
+      "path": "experiments/observation_diagnostics_v12.py",
+      "sha256": "2a8ec46ddb2751e6e2039ba19780ea1574459ec8a578fa4c25feb22073d75fd9"
+    },
+    {
+      "category": "case_b_v1_1",
+      "path": "experiments/run_determinism_case_b_v11.py",
+      "sha256": "b89ba19098a45bcdf03dd7ac55c55bae85d00df77642f3bf015b24dd0f416007"
+    },
+    {
+      "category": "determinism_driver",
+      "path": "experiments/run_determinism_v12.py",
+      "sha256": "5cc03ac0d30e8046e4b67bf0bab95e6c376c982a93d3ee4bca986d92f6447fa8"
+    },
+    {
+      "category": "case_b_v1_1",
+      "path": "experiments/run_monte_carlo_case_b_v11.py",
+      "sha256": "6c3a339fc6fb630cf314908a75249c5e2fdfaa3dce0929da6d2729689bf61525"
+    },
+    {
+      "category": "surface_a",
+      "path": "experiments/surface_a_paired_validation.py",
+      "sha256": "feceffb7fc2a0775760234b30d02549337d73ce2d2f70339f45ea65b51f9a29b"
+    },
+    {
+      "category": "campaign_orchestration",
+      "path": "experiments/validate_contract_v12.py",
+      "sha256": "512f09155538d13a731e3899082f94f9a434a789480c463452c7df35af2428e0"
+    },
+    {
+      "category": "monte_carlo",
+      "path": "preregistration/monte_carlo_distributions_v1.json",
+      "sha256": "8593587323af92666c9ebe7ec0712455569dcf2394956c9895679fe29dc1238d"
+    },
+    {
+      "category": "contract_validators",
+      "path": "src/gcir/audit_queries.py",
+      "sha256": "48e953d3a694ba821ed663017b47aeb1f5aeee34e4ac4edf216d13b22290a14b"
+    },
+    {
+      "category": "contract_validators",
+      "path": "src/gcir/contract_v12.py",
+      "sha256": "a6f1bfa27cfcd5b4f31254f4be662aab8b3cbc7a2328ace5a6e0181bd3ddf586"
+    },
+    {
+      "category": "contract_validators",
+      "path": "src/gcir/rc_routing.py",
+      "sha256": "91cfbf06e0c4474d0f8264f0dd11b841af1710841a0fba30f87cb0d7bf678c71"
+    },
+    {
+      "category": "surface_a",
+      "path": "tests/adversarial/test_surface_a.py",
+      "sha256": "214329b533dbe01b3706d6030f061170298bc397805c0ed2964e916b7a12c394"
+    },
+    {
+      "category": "case_d",
+      "path": "tests/integration/test_case_d.py",
+      "sha256": "745aa94d2badcf842cdbe689ebebcdffa87f4d59f994c39d1f1d01efd1da321c"
+    },
+    {
+      "category": "contract_validators",
+      "path": "tests/unit/test_contract_v12.py",
+      "sha256": "3112a2e47612eb80270ccddcb8ed3eaf7145d963d77cddacee24ed76d39ef9c8"
+    },
+    {
+      "category": "contract_validators",
+      "path": "tests/unit/test_rc_routing.py",
+      "sha256": "90ce1dd73e6fea572b4c99ceb275d8dff9b12c53ed13b0e62d34da805ed0dd00"
+    },
+    {
+      "category": "case_b_v1_1",
+      "path": "tools/build_case_b_v11.py",
+      "sha256": "d82ab64c09a4215e3585b6b0401b249f0463b12c3320f752c6ae48e2cb75660e"
+    },
+    {
+      "category": "case_d",
+      "path": "tools/build_case_d.py",
+      "sha256": "14477104a1e0c9991260f18da87aa48b3f184419d5a4154df93ee5851cafca0a"
+    },
+    {
+      "category": "case_b_v1_1",
+      "path": "tools/case_b_data.py",
+      "sha256": "56297a2967e6cbb7fa97bab4d833784148c6f6c8e28c39ebc4b7f323f8f45024"
+    },
+    {
+      "category": "case_b_v1_1",
+      "path": "tools/case_b_v11_control.py",
+      "sha256": "53d5990661226ff0908fd761de5d30a4eebec8e4406715e4bf132f1971fa17a9"
+    },
+    {
+      "category": "case_d",
+      "path": "tools/case_d_control.py",
+      "sha256": "378137d6c42aec88d4887b4cd5090670bb8ff3ba4e2555a090598f94f27e2dac"
+    },
+    {
+      "category": "case_d",
+      "path": "tools/case_d_data.py",
+      "sha256": "be4c45dc3bc54ef4552ffb87ed6fc7a6f45761d3589c88221a9f70b7c633d753"
+    },
+    {
+      "category": "campaign_orchestration",
+      "path": "tools/freeze_check_prospective_v5.py",
+      "sha256": "77a897a541a686ef4b42f6ce68fbe512f9172c0fc02e2e4e5e6164e934ea85cf"
+    },
+    {
+      "category": "campaign_orchestration",
+      "path": "tools/verify_manuscript_v1_2_0.py",
+      "sha256": "a5457c7345effe8b4abb53d8d14b4b5834af45b7202c0a107c5d92eac583dcda"
+    },
+    {
+      "category": "case_d",
+      "path": "tools/write_case_d_reference_hashes.py",
+      "sha256": "7c742b04ab9055167e6949124af78d084fc4872760a9d3fef6fd6d3aa5a172d5"
+    }
+  ],
+  "freeze_manifest_sha256": "fd85b7a3f7a71f55701af00118fbeb82dfa1f407607b45b3690d1dbcddf22922",
+  "freeze_version": "tier0-v5",
+  "note": "The public git tag preregister-tier0-v5 (pushed before the clean-worktree results/final_v5/ run) is the actual preregistration commitment. This manifest is supplementary documentation of what that tag froze, generated retrospectively from the tag's own git blobs -- see preregistration/TIER0_FREEZE_V5.md.",
+  "tag": "preregister-tier0-v5",
+  "tag_commit": "4e3d473432169f7ee868cb6e082d3aef32ad7ed1"
+}

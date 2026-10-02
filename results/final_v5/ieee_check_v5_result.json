@@ -1,7 +1,7 @@
 {
   "check": "ieee-check-v5",
-  "git_head": "4877dc5a551f4ee9bd35ca5434e138ebce0109f8",
-  "recorded_at": "2026-09-30T18:07:00Z",
+  "git_head": "f7206b472fe17d44fcd83ed00254bf606e8d8016",
+  "recorded_at": "2026-10-02T07:38:21Z",
   "scope": "prospective preregister-tier0-v5 state plus manuscript verification (NOT a historical freeze check; NOT the v1.2.0 release itself)",
   "stage_count": 4,
   "stages": [

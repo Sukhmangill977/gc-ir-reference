@@ -26,12 +26,25 @@ from experiments.common import (
     CASES,
     REPO_ROOT,
     add_common_args,
+    environment,
     phase_of,
     load_case_bundle,
     read_json,
     write_csv,
     write_result,
 )
+
+# Written only when --final-v5 is passed. Kept out of experiments/common.py's
+# shared results_dir()/write_result() phase dispatch deliberately: CASES here
+# is still ("case_a", "case_b") -- this module's six queries run against the
+# lifecycle-registry/receipt/actuation projection (manuscript Section VIII),
+# which Case D's governance/exception-widening fixtures do not use and Case
+# B v1.1 does not redefine, so there is no case_d or case_b_v1_1 variant to
+# add. This is Section-VIII evidence re-verified under the final_v5 label,
+# distinct from (not a replacement for) the Q1-Q10 bundle-level checks
+# already in results/final_v5/audit.json (gcir.audit_queries, not this
+# module's SQL-projection gcir.traceability implementation).
+RESULTS_FINAL_V5 = os.path.join(REPO_ROOT, "results", "final_v5")
 
 
 def _fixtures(case_id):
@@ -243,18 +256,62 @@ def run(final):
             "fact detect the violation it exists to detect."
         ),
     }
-    write_result(final, "traceability_queries", payload)
-    write_csv(final, "traceability_queries.csv",
-              ["case", "pass", "query_id", "control_label", "row_count",
-               "expected", "outcome"], csv_rows)
+
+    if final == "final_v5":
+        document = {
+            "result_name": "traceability_queries",
+            "phase": "final_v5",
+            "phase_note": (
+                "Section-VIII six temporal-traceability queries (Q1-Q6 of Q1-Q10), "
+                "re-verified under the final_v5 label against the unchanged case_a/"
+                "case_b lifecycle fixtures. Scope: case_a and case_b only -- Case D's "
+                "governance/exception-widening fixtures and Case B v1.1 do not use "
+                "the lifecycle-registry/receipt/actuation projection this module "
+                "queries, so there is no case_d or case_b_v1_1 variant of this run. "
+                "This is distinct from, not a replacement for, the Q1-Q10 "
+                "bundle-level checks in results/final_v5/audit.json (gcir."
+                "audit_queries, a different implementation than this module's SQL-"
+                "projection gcir.traceability)."
+            ),
+            "environment": environment(),
+            "result": payload,
+        }
+        os.makedirs(RESULTS_FINAL_V5, exist_ok=True)
+        json_path = os.path.join(RESULTS_FINAL_V5, "traceability_queries.json")
+        with open(json_path, "w", encoding="utf-8", newline="\n") as handle:
+            json.dump(document, handle, indent=2, sort_keys=True, ensure_ascii=False)
+            handle.write("\n")
+        csv_path = os.path.join(RESULTS_FINAL_V5, "traceability_queries.csv")
+        import csv as _csv
+        with open(csv_path, "w", encoding="utf-8", newline="") as handle:
+            writer = _csv.DictWriter(handle, fieldnames=[
+                "case", "pass", "query_id", "control_label", "row_count",
+                "expected", "outcome"])
+            writer.writeheader()
+            writer.writerows(csv_rows)
+        print("wrote %s" % json_path)
+        print("wrote %s" % csv_path)
+    else:
+        write_result(final, "traceability_queries", payload)
+        write_csv(final, "traceability_queries.csv",
+                  ["case", "pass", "query_id", "control_label", "row_count",
+                   "expected", "outcome"], csv_rows)
     return payload
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     add_common_args(parser)
+    parser.add_argument(
+        "--final-v5",
+        dest="final_v5",
+        action="store_true",
+        help="write to results/final_v5/ (case_a/case_b Section-VIII evidence only; "
+             "see module docstring for scope)",
+    )
     args = parser.parse_args(argv)
-    payload = run(phase_of(args))
+    phase = "final_v5" if args.final_v5 else phase_of(args)
+    payload = run(phase)
     ok = (payload["summary"]["all_clean_queries_empty"]
           and payload["summary"]["all_negative_controls_detected"])
     return 0 if ok else 1

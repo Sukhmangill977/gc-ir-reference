@@ -178,6 +178,24 @@ def build_required_substrings(campaign):
     if cbi:
         req.append(("Case B integration total", str(cbi.get("scenario_count"))))
 
+    # Spec section 22's "at minimum verify" list also names ODC/OPR/PTC/CV
+    # and the Monte Carlo GD/GDmin/MCSE family. The manuscript reports these
+    # as named, defined terms (ODC, OPR, PTC, CV) plus the measured
+    # max_FP_heat values rounded to 3 decimals (the manuscript's own
+    # precision convention for this quantity), not the full-precision
+    # campaign numbers -- checking full precision here would be
+    # unsatisfiable by construction, not a real gap.
+    audit_metrics = r.get("audit", {}).get("metrics") or r.get("metrics") or {}
+    for metric in ("ODC", "OPR", "PTC", "CV"):
+        if metric in audit_metrics:
+            req.append(("audit metric %s named in text" % metric, metric))
+
+    mc_regression = _get(r, "monte_carlo", "per_case_regression", default={})
+    for case_id, row in sorted(mc_regression.items()):
+        fp_heat = row.get("max_FP_heat")
+        if fp_heat is not None:
+            req.append(("Monte Carlo max_FP_heat for %s (3dp)" % case_id, "%.3f" % fp_heat))
+
     return req
 
 
